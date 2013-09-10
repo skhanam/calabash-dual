@@ -1,15 +1,16 @@
-#Feature: Welcome (Login)
-#
-#  As a logged out user
-#  I want to be able to login to the app
-#  So that i can view my holiday details
-#
-#  Scenario: Login with Non Matching Records - invalid user name or email
-#
-#    Given I have entered an invalid user name or email and a valid password
-#    When I select the Login button
-#    Then the following message should appear "Sorry, your email/user-name or password don't match match our records, Please check and try again"
-#
+Feature: Welcome (Login)
+
+  As a logged out user
+  I want to be able to login to the app
+  So that i can view my holiday details
+
+  @smoke
+  Scenario: Login with Non Matching Records - invalid user name or email
+
+    Given I am in the Welcome Page
+    When I login with invalid credentials
+    Then the following message should appear "Oops something went wrong"
+
 #  Scenario: Login with Non Matching Records - invalid password
 #
 #    Given I have entered a valid user name or email and an invalid password

@@ -1,11 +1,15 @@
 # config/cucumber.yml
 ---
-#android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android -r features/support -r features/android/support -r features/android/helpers -r features/step_definitions -r features/android/pages/
 
-#ios: RESET_BETWEEN_SCENARIOS=1 APP_BUNDLE_PATH=ios-source/3.3.1/build/Applications/WordPress.app PLATFORM=ios -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
 
-#ios_terry: RESET_BETWEEN_SCENARIOS=1 APP_BUNDLE_PATH=/Users/terry.nweze/Library/Developer/Xcode/DerivedData/MyThomson-hjwvszpuhvvzpzdhzjrxtdsugkyt/Build/Products/Debug-iphonesimulator/MyThomson-cal.app PLATFORM=ios -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
+<% common_path = "-r features/support -r features/step_definitions" %>
 
-ios: RESET_BETWEEN_SCENARIOS=1 NO_LAUNCH=1 APP_BUNDLE_PATH=/Users/arihan.sinha/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app PLATFORM=ios -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions
+<% ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages" %>
+
+<% android_specific_path = "-r features/android/support -r features/android/helpers" %>
+
+ios: RESET_BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app" PLATFORM=ios <%= common_path %> <%= ios_specific_path %> --tag @smoke
+
+#android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android <%= common_path %> <%= android_specific_path %>
 
 
