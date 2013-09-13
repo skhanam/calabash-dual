@@ -35,7 +35,7 @@ module Calabash
   end
 end
 
-app_path = 'android-source/2.2.7/bin/Dashboard-debug.apk'
+app_path = '~/Documents/meine.tui/build/android/bin/app.apk'
 test_server_path = test_server_path(app_path)
 
 unless ENV["TEST_SERVER_PORT"]

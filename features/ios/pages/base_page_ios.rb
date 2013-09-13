@@ -30,4 +30,11 @@ class BasePage < Calabash::IBase
 
   end
 
+  def embed(*args)
+
+    puts "Embed is a Cucumber method and is not available in this console2."
+
+  end
+
+
 end

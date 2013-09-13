@@ -9,7 +9,7 @@ Feature: Welcome (Login)
 
     Given I am in the Welcome Page
     When I login with invalid credentials
-    Then the following message should appear "Oops something went wrong"
+#    Then the following message should appear "Oops something went wrong"
 
 #  Scenario: Login with Non Matching Records - invalid password
 #

@@ -1,2 +1,2 @@
-app_path = 'android-source/2.2.7/bin/Dashboard-debug.apk'
+app_path = '~/Documents/meine.tui/build/android/bin/app.apk'
 system("calabash-android run #{app_path} -p android #{ARGV.join(' ')}")
