@@ -13,7 +13,7 @@ class HaveYouUsedMeineTuiOnlinePage < BasePage
 
   def await(opts={})
 
-    sleep 2
+    sleep 3
 
     wait_for_elements_exist([trait])
 
