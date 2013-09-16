@@ -21,18 +21,4 @@ class TellUsAboutYourselfPage < BasePage
 
   end
 
-  def already_with_tui_link(text)
-
-   "label marked:'#{text}'"
-
-  end
-
-  def transition_as_already_tui_user(page_name, text)
-
-    transition(:tap => already_with_tui_link(text), @page => HaveYouUsedMeineTuiOnlinePage)
-
-    sleep 5
-
-  end
-
 end
