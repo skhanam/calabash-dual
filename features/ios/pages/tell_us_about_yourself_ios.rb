@@ -7,19 +7,29 @@ class TellUsAboutYourself < BasePage
 
   def trait
 
-    "label marked:'Tell us about yourself'"
+    "view marked:'Tell us about yourself'"
 
   end
 
-  def already_with_tui_link
+  def await(opts={})
 
-    "label marked:'I’m already with TUI'"
+    sleep 2
+
+    wait_for_elements_exist([trait])
+
+    self
 
   end
 
-  def transition_as_already_tui_user
+  def already_with_tui_link(text)
 
-    transition(:tap => already_with_tui_link, @page => HaveYouUsedMeineTuiOnlinePage)
+   "label marked:'#{text}'"
+
+  end
+
+  def transition_as_already_tui_user(page_name, text)
+
+    transition(:tap => already_with_tui_link(text), @page => HaveYouUsedMeineTuiOnlinePage)
 
     sleep 5
 

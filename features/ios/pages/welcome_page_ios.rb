@@ -5,7 +5,7 @@ require 'calabash-cucumber/calabash_steps'
 
     def trait
 
-      "label marked:'Welcome'"
+      "view marked:'Welcome'"
 
     end
 
@@ -31,6 +31,22 @@ require 'calabash-cucumber/calabash_steps'
 
       wait_for_elements_do_not_exist(["label marked:'Log in'"],
                                      :timeout => 30)
+
+      sleep 5
+
+    end
+
+    def assert_invalid_login_message(message)
+
+      check_element_exists(trait)
+
+      query(invalid_login_message(message)).count.should == 1
+
+    end
+
+    def invalid_login_message(message)
+
+      "view marked:'#{message}'"
 
     end
 

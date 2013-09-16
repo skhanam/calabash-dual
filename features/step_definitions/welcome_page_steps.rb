@@ -22,8 +22,6 @@ end
 
 Then(/^the following message should appear "(.+)"$/) do |invalid_message|
 
-  @page = page(LoginUnsuccessfulPage).await
-
   @page.assert_invalid_login_message(invalid_message)
 
   screenshot_embed

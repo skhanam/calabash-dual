@@ -4,12 +4,12 @@ Feature: Welcome (Login)
   I want to be able to login to the app
   So that i can view my holiday details
 
-  @smoke
+# @smoke
   Scenario: Login with Non Matching Records - invalid user name or email
 
     Given I am in the Welcome Page
     When I login with invalid credentials
-#    Then the following message should appear "Oops something went wrong"
+    Then the following message should appear "Ihre Anmeldung war leider nicht erfolgreich."
 
 #  Scenario: Login with Non Matching Records - invalid password
 #

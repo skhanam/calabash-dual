@@ -29,11 +29,11 @@ class TellUsAboutYourself < BasePage
 
       puts "Element exist"
 
-      touch(query("ti.modules.titanium.ui.widget.TiUILabel$1 marked:'iamnewtotui. iamnewtotui.'"))
+      #touch(query("ti.modules.titanium.ui.widget.TiUILabel$1 marked:'iamnewtotui. iamnewtotui.'"))
 
       #Nothing works like touch or PerformAction only click on screen works which is not advisable
 
-      #performAction('click_on_screen', query(trait, :x)[0], 75)
+      performAction('click_on_screen', query(trait, :x)[0], 75)
 
     end
 

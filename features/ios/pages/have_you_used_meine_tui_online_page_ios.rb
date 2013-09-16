@@ -7,7 +7,7 @@ class HaveYouUsedMeineTuiOnlinePage < BasePage
 
   def trait
 
-    "label marked:'Have you used meine TUI online?'"
+    "view marked:'Have you used meine TUI online?'"
 
   end
 
@@ -22,6 +22,16 @@ class HaveYouUsedMeineTuiOnlinePage < BasePage
     transition(:tap => logged_in_before_link, @page => WelcomePage)
 
     sleep 5
+
+  end
+
+  def await(opts={})
+
+    sleep 2
+
+    wait_for_elements_exist([trait])
+
+    self
 
   end
 

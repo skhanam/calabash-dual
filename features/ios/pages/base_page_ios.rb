@@ -37,4 +37,14 @@ class BasePage < Calabash::IBase
   end
 
 
+  def click_back_button_on_page()
+
+    touch(query("button")[0])
+
+    sleep 3
+
+  end
+
+
+
 end
