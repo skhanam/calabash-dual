@@ -1,7 +1,7 @@
 require 'calabash-cucumber/operations'
 require 'calabash-cucumber/calabash_steps'
 
-class ExploreTui < BasePage
+class ExploreTuiPage < BasePage
 
   def trait
 

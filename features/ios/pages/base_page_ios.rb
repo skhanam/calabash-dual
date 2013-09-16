@@ -46,5 +46,27 @@ class BasePage < Calabash::IBase
   end
 
 
+  def transition_link(text)
+
+    "label marked:'#{text}'"
+
+  end
+
+  def transition_to_page(page_name, text)
+
+    transition(:tap => transition_link(text), :page => new_page_type(page_name))
+
+    sleep 5
+
+  end
+
+  def page_exists?(page_name)
+
+    @page = new_page_type(page_name)
+
+    check_element_exists(@page.trait)
+
+  end
+
 
 end

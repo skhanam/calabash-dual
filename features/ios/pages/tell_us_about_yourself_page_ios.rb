@@ -1,7 +1,7 @@
 require 'calabash-cucumber/operations'
 require 'calabash-cucumber/calabash_steps'
 
-class TellUsAboutYourself < BasePage
+class TellUsAboutYourselfPage < BasePage
 
   attr_accessor :page
 
