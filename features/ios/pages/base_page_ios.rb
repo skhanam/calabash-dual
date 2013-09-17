@@ -30,13 +30,6 @@ class BasePage < Calabash::IBase
 
   end
 
-  def embed(*args)
-
-    puts "Embed is a Cucumber method and is not available in this console2."
-
-  end
-
-
   def click_back_button_on_page()
 
     touch(query("button")[0])
@@ -45,6 +38,13 @@ class BasePage < Calabash::IBase
 
   end
 
+  def click_menu_button_on_page()
+
+    touch(query("button")[0])
+
+    sleep 3
+
+  end
 
   def transition_link(text)
 

@@ -26,7 +26,7 @@ When(/^I transit to '(.+)' page by clicking '(.+)'$/) do |page_to_be_navigated, 
 
 end
 
-When(/^I click back arrow button on '(.+)' page$/) do  |page_name|
+When(/^I click back on '(.+)' page$/) do  |page_name|
 
   @page.page_exists?(page_name)
 

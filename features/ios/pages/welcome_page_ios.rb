@@ -30,9 +30,9 @@ require 'calabash-cucumber/calabash_steps'
       touch("label marked:'Log in'")
 
       wait_for_elements_do_not_exist(["label marked:'Log in'"],
-                                     :timeout => 30)
+                                     :timeout => 60)
 
-      sleep 5
+      sleep 10
 
     end
 

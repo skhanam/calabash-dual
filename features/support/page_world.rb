@@ -17,6 +17,8 @@ module PageWorld
 
       when /Sign up/i then @page = page(SignUpPage)
 
+      when /Your Bookings/i then @page = page(YourBookingsPage)
+
       else raise "Case not implemented: #{type}"
 
     end

@@ -9,7 +9,7 @@ Feature: Transition Page
 
     Given I am on 'Tell us about yourself' page
      And I transit to 'Have you used meine TUI online' page by clicking 'I’m already with TUI'
-     When I click back arrow button on 'Have you used meine TUI online' page
+     When I click back on 'Have you used meine TUI online' page
     Then  I am back on 'Tell us about yourself' page
 
   @smoke
@@ -17,7 +17,7 @@ Feature: Transition Page
 
     Given I am on 'Tell us about yourself' page
     And I transit to 'Explore TUI' page by clicking 'I’m new to TUI'
-    When I click back arrow button on 'Explore TUI' page
+    When I click back on 'Explore TUI' page
     Then  I am back on 'Tell us about yourself' page
 
 
@@ -26,7 +26,7 @@ Feature: Transition Page
 
     Given I am on 'Have you used meine TUI online' page
     And I transit to 'Welcome' page by clicking 'That’s great – just use the same log in details to use this app.'
-    When I click back arrow button on 'Welcome' page
+    When I click back on 'Welcome' page
     Then  I am back on 'Have you used meine TUI online' page
 
 
@@ -35,5 +35,5 @@ Feature: Transition Page
 
     Given I am on 'Have you used meine TUI online' page
     And I transit to 'Sign up' page by clicking 'Sign up now using your booking code and start date.'
-    When I click back arrow button on 'Sign up' page
+    When I click back on 'Sign up' page
     Then  I am back on 'Have you used meine TUI online' page
