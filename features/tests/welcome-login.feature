@@ -12,7 +12,7 @@ Feature: Welcome (Login)
     Then the following message should appear "Ihre Anmeldung war leider nicht erfolgreich."
 
 
-  @smoke
+   @smoke
   Scenario: Login with Matching Records - valid user name or email
 
     Given I am on 'Welcome' page
