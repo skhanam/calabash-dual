@@ -1,6 +1,6 @@
-When(/^I login with invalid credentials$/) do
+When(/^I login with (.+) credentials$/) do |user_credential_identifier|
 
-  @page.login(USERS[:invalid])
+  @page.login(USERS[user_credential_identifier.to_sym])
 
   screenshot_embed
 
@@ -14,13 +14,6 @@ Then(/^the following message should appear "(.+)"$/) do |invalid_message|
 
 end
 
-When(/^I login with valid credentials$/) do
-
-  @page.login(USERS[:valid])
-
-  screenshot_embed
-
-end
 
 Then(/^I should see '(.+)' page$/) do |page_name|
 
