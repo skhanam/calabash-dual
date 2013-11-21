@@ -1,5 +1,6 @@
 require 'calabash-cucumber/launcher'
 
+
 Before do |scenario|
   @calabash_launcher = Calabash::Cucumber::Launcher.new
   unless @calabash_launcher.calabash_no_launch?

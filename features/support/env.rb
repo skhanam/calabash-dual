@@ -7,3 +7,4 @@ elsif ENV['PLATFORM'] == 'android'
 end
 
 World(PageWorld)
+

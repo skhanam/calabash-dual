@@ -35,7 +35,7 @@ module Calabash
   end
 end
 
-app_path = '~/Documents/meine.tui/build/android/bin/app.apk'
+app_path = '~/projects/meine.tui/build/android/bin/app.apk'
 test_server_path = test_server_path(app_path)
 
 unless ENV["TEST_SERVER_PORT"]

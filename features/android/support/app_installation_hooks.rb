@@ -19,22 +19,17 @@ Before do |scenario|
       log "New scenario - reinstalling apps"
     else
       log "First scenario in feature - reinstalling apps"
-  end
+    end
 
-  uninstall_apps
-  install_app(ENV["TEST_APP_PATH"])
-  install_app(ENV["APP_PATH"])
-
-  FeatureNameMemory.feature_name = feature_name
-  FeatureNameMemory.invocation = 1
+    FeatureNameMemory.feature_name = feature_name
+    FeatureNameMemory.invocation = 1
   else
     FeatureNameMemory.invocation += 1
   end
 
-  sleep 30
-  wait_for_animation
-  @page = page(TellUsAboutYourself)
-
+  puts "Launching app"
+  start_test_server_in_background
+  sleep 3
 end
 
 

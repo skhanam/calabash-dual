@@ -1,16 +1,16 @@
 # config/cucumber.yml
----
 
 
 <% common_path = "-r features/support -r features/step_definitions" %>
 
-<% ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages" %>
+<% ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages/uk" %>
 
-<% android_specific_path = "-r features/android/support -r features/android/helpers -r features/android/pages" %>
+<% android_specific_path = "-r features/android/support -r features/android/helpers -r features/android/pages/uk" %>
 
-ios: RESET_BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app" PLATFORM=ios6.1 <%= common_path %> <%= ios_specific_path %> --tag @smoke
+#ios: RESET_BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app" PLATFORM=ios6.1 <%= common_path %> <%= ios_specific_path %> --tag @smoke
+ios: RESET_BETWEEN_SCENARIOS=0  <%= common_path %> <%= ios_specific_path %>  -f 'Slowhandcuke::Formatter' --tag @smoke1
+
+android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android <%= common_path %> <%= android_specific_path %>  -f 'Slowhandcuke::Formatter' --tag @smoke1
 
 ios_jenkin: BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app" PLATFORM=ios <%= common_path %> <%= ios_specific_path %> --tag @smoke -f junit -o test-reports/ios/
-
-android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android <%= common_path %> <%= android_specific_path %> --tag @smoke
 

@@ -1,7 +1,15 @@
 require 'calabash-cucumber/ibase'
 require 'calabash-cucumber/tests_helpers'
+require_relative 'read_strings'
+re
 
 class BasePage < Calabash::IBase
+  include ReadStrings
+  include UKFirstChoice
+
+  def initialize
+    set_strings
+  end
 
   def assert_element_exists(element)
 

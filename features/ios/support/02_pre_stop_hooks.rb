@@ -8,8 +8,8 @@ if defined?(Calabash) && defined?(Calabash::Cucumber)
     def on_launch
       begin
         puts "Launching application"
-        sleep 10
-        wait_for_elements_exist(["view marked:'Tell us about yourself'"], :timeout => 45)
+        sleep 5
+        #wait_for_elements_exist(["view marked:'Tell us about yourself'"], :timeout => 45)
         wait_for_animation
         @page = page(TellUsAboutYourselfPage)
 
