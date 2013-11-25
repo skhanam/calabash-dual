@@ -6,5 +6,5 @@ elsif ENV['PLATFORM'] == 'android'
   require 'calabash-android/cucumber'
 end
 
-World(PageWorld)
+#World(PageWorld)
 

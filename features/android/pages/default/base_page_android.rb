@@ -1,6 +1,7 @@
 require 'calabash-android/abase'
 require_relative '../../../support/common_methods'
 require_relative '../../support/reusable_methods'
+require 'differ'
 
 class BasePage < Calabash::ABase
   include CommonMethods
@@ -41,13 +42,8 @@ class BasePage < Calabash::ABase
   def create_result_hash(criteria)
     @@result_hash={}
     @@welcome_msg_hash[criteria].each do |message|
-      @@result_hash[message]=false
+      @@result_hash[message]=0
     end
   end
 
-  #Check all results are verified
-  def check_result_hash_is_true
-    @@welcome_msg_hash[criteria].each do |message|
-    end
-  end
 end

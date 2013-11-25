@@ -30,10 +30,6 @@ class LoginBasePage < BasePage
     touch("all TiEditText index:1")
     sleep(1)
     performAction("go_back")
-
-    touch("* text:'Log in' index:1")
-    sleep(5)
-
   end
 
   def enter_details(text, index)
@@ -42,9 +38,14 @@ class LoginBasePage < BasePage
   end
 
   def enter_date(date_int)
+
     day, month, year=convert_excel_date_to_str(date_int).split(/-/)
     puts day, month, year
     sleep(1)
+
+    #Commented code is useful to set date in nexus4 (OS 4.3)
+    #puts "#{day}#{getDayNumberSuffix(day)} #{month} #{year}"
+    #query("all TiEditText index:3", setText: "#{day}#{getDayNumberSuffix(day)} #{month} #{year}")
 
     #Set date
     while (query("* id:'numberpicker_input' index:0", :text)[0].to_i != day.to_i)
@@ -67,10 +68,10 @@ class LoginBasePage < BasePage
 #Set year
     while (query("* id:'numberpicker_input' index:2", :text)[0].to_i != year.to_i)
       sleep(0.25)
-      if query("* id:'numberpicker_input' index:2", :text)[0].to_i > day.to_i
+      if query("* id:'numberpicker_input' index:2", :text)[0].to_i > year.to_i
         print "decrease year"
         touch("* contentDescription:'Decrease year'")
-      elsif query("* id:'numberpicker_input' index:2", :text)[0].to_i < day.to_i
+      elsif query("* id:'numberpicker_input' index:2", :text)[0].to_i < year.to_i
         print "increase year"
         touch("* contentDescription:'Increase year'")
       end
@@ -78,6 +79,25 @@ class LoginBasePage < BasePage
     sleep(1)
     touch("button text:'Set'")
     sleep(1)
+  end
+
+
+  def getDayNumberSuffix(day)
+    day=day.to_i
+    if (day >= 11 && day <= 13)
+      return "th";
+    end
+
+    case day%10
+      when 1
+        return "st"
+      when 2
+        return "nd"
+      when 3
+        return "rd"
+      else
+        return "th"
+    end
   end
 
 end

@@ -1,15 +1,18 @@
+# encoding: UTF-8
+
 module UKFirstChoice
 
   def set_strings
     welcome_page_strings
     login_page_strings
     welcome_messages
+    home_page_strings
     test_data
   end
 
   #All test data for different appication is in here
   def test_data
-    $g_booking_data="/Users/tejasvi.manmatha/projects/TUI_Data/Bookings.xlsx"
+    $g_booking_data= 'features/dump/test_data/Bookings.xlsx'
   end
 
   def welcome_page_strings
@@ -33,19 +36,25 @@ module UKFirstChoice
   end
 
 
+  def home_page_strings
+    @@home_page_loading="We’ve found your booking…"
+    @@home_page_home="Home"
+  end
+
+
   def welcome_messages
-    @@welcome_hi_text="Hi <Name>,"
-    @@welcome_tips="Welcome to your personalised travel companion – MyFirstChoice. Check back regularly for handy tips and updates!"
-    @@welcome_at_destination="Welcome to <destination>! We hope you have a great holiday. If you need anything, just get in touch."
-    @@welcome_countdown_days="It 's the final countdown, your holiday to <destination> is just days away."
-    @@welcome_countdown_tomorrow="This time tomorrow you’ll be in <destination> - don' t forget to pack your passport!"
-    @@welcome_countdown_month="Your holiday to <destination> is less than a month away! Is your passport is in date?"
-    @@welcome_excursion="We’ve found <number of excursions> excursion(s) for you in <destination>. Take a look now!"
-    @@welcome_extras_available="We've found <number of extras> extra available to you. Take a look now!"
+    @@welcome_hi_text="Hi \\w+,"
+    @@welcome_tips="Welcome to your personalised travel companion. Check back for handy tips and updates!"
+    @@welcome_at_destination="Welcome to \\w+! We hope you have a great holiday. If you need anything, just get in touch."
+    @@welcome_countdown_days="It 's the final countdown, your holiday to \\w+ is just days away."
+    @@welcome_countdown_tomorrow="This time tomorrow you’ll be in \\w+ - don' t forget to pack your passport!"
+    @@welcome_countdown_month="Your holiday to \\w+ is less than a month away! Is your passport is in date\\?"
+    @@welcome_excursion="We’ve found \\d+ excursion(s) for you in \\w+. Take a look now!"
+    @@welcome_extras_available="We've found \\d+ extra(|s) available to you. Take a look now!"
     @@welcome_dont_forget_flight="Don 't forget your flight departs"
     @@welcome_weather="Good news"
-    @@welcome_need_help="Got a question about your booking? We're here to help if you need us."
-    @@welcome_your_views="What do you think of our app? It would be great to hear your views."
+    @@welcome_need_help="Got a question about your booking\\? We\'re here to help if you need us."
+    @@welcome_your_views="What do you think of our app\\? It would be great to hear your views."
     @@welcome_rate_app="Button: Rate the MyFirstChoice app"
     @@welcome_home="We hope you had a great holiday with us."
 
@@ -84,5 +93,3 @@ module UKFirstChoice
 
   end
 end
-
-

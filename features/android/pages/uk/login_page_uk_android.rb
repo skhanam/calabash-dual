@@ -4,16 +4,24 @@ require_relative '../default/login_page_android'
 class LoginPage < LoginBasePage
 
   def check_different_welcome_messages(test_data, criteria)
-
     enter_credentials_from_excel(test_data)
-    @@welcome_msg_hash[criteria].each do |messages|
-      if check_text_in_view(messages)==true
-        puts "Found text #{messages} one home screen"
-        @@result_hash[messages]=true
-      end
+    touch("* text:'Log in' index:1")
+    @page=HomePage.new.await
 
-      puts @@result_hash
+    @@welcome_msg_hash[criteria].each do |message|
+      welcome_message_from_screen=query("* contentDescription:'welcome_title.'", :text).first.strip
+      if (welcome_message_from_screen.match(/#{message}/)==nil)
+        #  puts "#{welcome_message_from_screen} doesnt match #{message}"
+        #   puts Differ.diff_by_char(welcome_message_from_screen, message)
+      else
+        puts "\n\n\ ** Found text #{message} one home screen ** "
+        write_welcome_messages_to_file("#{criteria}:#{welcome_message_from_screen.strip}")
+        @@result_hash[message]=@@result_hash[message].to_i+1
+        break
+      end
     end
+
+    puts @@result_hash
     return HomePage.new
   end
 

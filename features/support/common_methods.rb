@@ -27,7 +27,6 @@ module CommonMethods
     return @hasharr["#{txt}"]
   end
 
-
   def read_test_data()
     file_path=$g_booking_data
     puts file_path
@@ -36,11 +35,22 @@ module CommonMethods
     return hash_arr[:table]
   end
 
-
   def convert_excel_date_to_str(date_int)
     d=DateTime.new(1899, 12, 30) + date_int.to_i
    return d.strftime("%d-%b-%Y")
   end
 
+  def write_welcome_messages_to_file(txt)
+    if ($g_write_to_file==true)
+      begin
+        filename = File.open("features/dump/welcome_messages.txt", "a")
+        filename.write(txt+"\n")
+      rescue IOError => e
+        fail("Write to file failed")
+      ensure
+        filename.close unless filename == nil
+      end
+    end
+  end
 
 end

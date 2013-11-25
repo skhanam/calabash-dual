@@ -16,7 +16,8 @@ Before do |scenario|
   if FeatureNameMemory.feature_name != feature_name \
       or ENV["RESET_BETWEEN_SCENARIOS"] == "1"
     if ENV["RESET_BETWEEN_SCENARIOS"] == "1"
-      log "New scenario - reinstalling apps"
+      log "Clearing app data"
+      clear_app_data
     else
       log "First scenario in feature - reinstalling apps"
     end

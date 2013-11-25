@@ -9,10 +9,8 @@ if defined?(Calabash) && defined?(Calabash::Cucumber)
       begin
         puts "Launching application"
         sleep 5
-        #wait_for_elements_exist(["view marked:'Tell us about yourself'"], :timeout => 45)
         wait_for_animation
-        @page = page(TellUsAboutYourselfPage)
-
+        @page = page(WelcomePage).await
       rescue Calabash::Cucumber::WaitHelpers::WaitError
         #May not appear so ignore timeout error
       end
