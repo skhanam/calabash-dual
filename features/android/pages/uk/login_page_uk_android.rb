@@ -25,4 +25,8 @@ class LoginPage < LoginBasePage
     return HomePage.new
   end
 
+  def write_hash_to_file
+    write_welcome_messages_to_file(@@result_hash)
+  end
+
 end

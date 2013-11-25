@@ -44,7 +44,7 @@ module CommonMethods
     if ($g_write_to_file==true)
       begin
         filename = File.open("features/dump/welcome_messages.txt", "a")
-        filename.write(txt+"\n")
+        filename.write("#{txt}\n")
       rescue IOError => e
         fail("Write to file failed")
       ensure
