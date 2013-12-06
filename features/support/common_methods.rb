@@ -1,56 +1,42 @@
 require 'rubyXL'
 
+#Methods common across android and ios are added here
 module CommonMethods
+  # Read all data from excel and filter them by matching criteria
+  def check_data_from_excel_matching_criteria(criteria)
+    hash_arr=read_test_data
+    matching_data=[]
 
-  def embed(a, b, c)
-  end
-
-  def read_XML_into_hash_array(filename)
-    xmlfile = File.new(filename)
-    xmldoc = Document.new(xmlfile)
-
-    xmldoc.elements.each('resources/string') do |ele|
-      name=ele.attribute("name")
-      value=ele.text
-      @hasharr["#{name}"]=value
+    case criteria
+      when "43 or more days"
+        min_days, max_days=43, 99999
+      when "29 to 42 days"
+        min_days, max_days= 29, 42
+      when "15 to 28 days"
+        min_days, max_days=15, 28
+      when "7 to 14 days"
+        min_days, max_days=7, 14
+      when "1 to 6 days"
+        min_days, max_days=1, 6
+      when "less than 1 day"
+        min_days, max_days=0, 1
+      when "in resort"
+        #TODO
+        fail("TODO")
+      when "more than 1 day past"
+        min_days, max_days=-99999, -1
     end
-    return @hasharr
-  end
 
-  def read_strings_from_file
-    en_data="/Users/tejasvi.manmatha/projects/meine.tui/i18n/en/strings.xml"
-    @hasharr=read_XML_into_hash_array(en_data)
-  end
-
-  def read_str(txt)
-    puts "****read_str ******* #{txt}"
-    return @hasharr["#{txt}"]
-  end
-
-  def read_test_data()
-    file_path=$g_booking_data
-    puts file_path
-    workbook = RubyXL::Parser.parse(file_path)
-    hash_arr=workbook[1].get_table(["Surname", "Today", "Pre-In-Post", "departuredate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel"])
-    return hash_arr[:table]
-  end
-
-  def convert_excel_date_to_str(date_int)
-    d=DateTime.new(1899, 12, 30) + date_int.to_i
-   return d.strftime("%d-%b-%Y")
-  end
-
-  def write_welcome_messages_to_file(txt)
-    if ($g_write_to_file==true)
-      begin
-        filename = File.open("features/dump/welcome_messages.txt", "a")
-        filename.write("#{txt}\n")
-      rescue IOError => e
-        fail("Write to file failed")
-      ensure
-        filename.close unless filename == nil
+    hash_arr.each do |var|
+      if var["VisionBookingRef"] == nil
+        break
+      end
+      if (var["Pre-In-Post"] >=min_days && var["Pre-In-Post"] <= max_days)
+        matching_data<<var
+        #puts var["Pre-In-Post"]
       end
     end
+    matching_data
   end
 
 end

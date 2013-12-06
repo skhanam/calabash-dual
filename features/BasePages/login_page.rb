@@ -1,10 +1,14 @@
-require 'calabash-android/abase'
-require_relative 'base_page_android'
+#require 'calabash-android/abase'
+require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
+require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class LoginBasePage < BasePage
 
+  def initialize
+    await
+  end
   def trait
-    "* marked:'#{@@login_page_text}'"
+    $g_query_txt+"marked:'#{@@login_page_text}'"
   end
 
   def await(opts={})
@@ -38,9 +42,7 @@ class LoginBasePage < BasePage
       sleep(1)
       performAction("scroll_up") #Scroll up for small screen devices
     end
-
-
-  end
+ end
 
   def enter_details(text, index)
     query("all TiEditText index:#{index}", setText: "#{text}")

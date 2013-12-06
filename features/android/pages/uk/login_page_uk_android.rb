@@ -1,5 +1,5 @@
 require 'calabash-android/abase'
-require_relative '../default/login_page_android'
+require_relative '../../../../features/BasePages/login_page'
 
 class LoginPage < LoginBasePage
 

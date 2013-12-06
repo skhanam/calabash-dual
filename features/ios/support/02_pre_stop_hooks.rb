@@ -8,16 +8,14 @@ if defined?(Calabash) && defined?(Calabash::Cucumber)
     def on_launch
       begin
         puts "Launching application"
-        sleep 5
         wait_for_animation
-        @page = page(WelcomePage).await
       rescue Calabash::Cucumber::WaitHelpers::WaitError
         #May not appear so ignore timeout error
       end
     end
   end
 
-  World do
-    ::CallbackWorld.new
-  end
+  #World do
+  #  ::CallbackWorld.new
+  #end
 end

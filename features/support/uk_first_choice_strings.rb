@@ -3,19 +3,28 @@
 module UKFirstChoice
 
   def set_strings
+    puts caller.first
+    puts "******* setting strings ********"
     welcome_page_strings
     login_page_strings
     welcome_messages
     home_page_strings
     test_data
+
+    if ENV['PLATFORM'] == 'ios'
+      $g_query_txt = "view "
+    elsif ENV['PLATFORM'] == 'android'
+      $g_query_txt= "* "
+    end
   end
 
   #All test data for different appication is in here
   def test_data
-    $g_booking_data= 'features/dump/test_data/Bookings.xlsx'
+    $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
   end
 
   def welcome_page_strings
+    @@welcome_page_text="Welcome"
     @@welcome_page_ready_to_login="I’m ready to log in"
     @@welcome_page_info_text1="Did you book a First Choice holiday directly online, over the phone or in your local Thomson shop? Then the My First Choice app is for you. You can log into your personalised MyFirstChoice app 3-4 days after you have made your booking:"
     @@welcome_page_info_text2="Sorry, you can’t use the app if:"
@@ -37,7 +46,7 @@ module UKFirstChoice
 
 
   def home_page_strings
-    @@home_page_loading="We’ve found your booking…"
+    @@home_page_loading="We're looking up your holiday…"
     @@home_page_home="Home"
   end
 

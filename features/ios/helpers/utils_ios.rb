@@ -3,5 +3,5 @@ def logged_in?
 end
 
 def wait_for_animation
-  sleep(0.6)
+  sleep(5)
 end
