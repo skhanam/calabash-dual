@@ -1,14 +1,14 @@
 DATE=`date +%d-%m-%Y-%H-%M`
 
-SCHEME_XC="Firstchoice-cal"
+SCHEME_XC="MyFirstChoice-cal"
 APPNAME="FirstChoice"
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
-PROJ="Firstchoice.xcodeproj"
+PROJ="MyFirstChoice.xcodeproj"
 ARCHITECTURE_SELECTED=i386
 BUNDLE=uk.tui.firstchoice
 
-cd /Users/tejasvi.manmatha/projects/meine.tui/build/iphone 
+cd ../build/iphone 
 
 #sleep 2
 #ti clean ; ti build --platform ios  --target-deploy development
@@ -23,8 +23,8 @@ echo $BUILT_PRODUCTS_DIR
 sleep 3
 if [ "$1" == "clean" ] ; then
 echo "clean build"
-xcodebuild  -scheme Firstchoice-cal -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator clean build
+xcodebuild  -scheme $SCHEME_XC -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator clean build
 else
 echo "build without cleaning"
-xcodebuild  -scheme Firstchoice-cal -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
+xcodebuild  -scheme $SCHEME_XC -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
