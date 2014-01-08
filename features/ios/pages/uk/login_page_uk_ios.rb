@@ -8,20 +8,56 @@ class LoginPage < LoginBasePage
 
   def check_different_welcome_messages(test_data, criteria)
     enter_credentials_from_excel(test_data)
-
-    scroll("view",:down)
-    sleep(2)
+    sleep 2
     flash($g_query_txt+"text:'#{@@login_page_text}'")
-    touch($g_query_txt+"text:'#{@@login_page_text}'")
+    playback "touch_button",{:query => "view marked:'Log in'"}
+    #click_on_text("Log in")
+    sleep 2
+
+    #if element_exists("label marked:'#{@@login_page_text}'")
+    #  scroll("scrollView", :down)
+    #  sleep 2
+    #  touch("view text:'Help logging in'")
+    #  sleep 2
+    #  touch("button index:0")
+    #  sleep 2
+    #  touch("view text:'Log in'")
+    #  sleep 2
+    #end
+
+    sleep 4
+
+    #Some times login button is not touched first time .. tap on it again
+    if (element_exists($g_query_txt+"text:'#{@@login_page_text}'"))
+      touch($g_query_txt+"text:'#{@@login_page_text}' index:0")
+    end
 
     @page=HomePage.new.await
+    puts "criteria #{criteria} @@welcome_msg_hash[criteria] #{@@welcome_msg_hash[criteria]}"
 
     @@welcome_msg_hash[criteria].each do |message|
-      welcome_message_from_screen=query("* contentDescription:'welcome_title.'", :text).first.strip
+      #welcome_message_from_screen=query("view contentDescription:'welcome_title'", :text).first.strip
+      welcome_message_from_screen=nil
+
+      if element_exists("alertView") # if alert view is present then check for message on it and press OK
+        if ()
+          @@welcome_home_alert
+        end
+        tap("OK")
+      end
+
+      label("view:'TiUIView'").each do |var|
+        if (var!=nil)
+          welcome_message_from_screen=var.strip
+        end
+      end
+
+      puts "welcome_message_from_screen:#{welcome_message_from_screen} message:#{message} "
+
       if (welcome_message_from_screen.match(/#{message}/)==nil)
       else
-        puts "\n\n\ ** Found text #{message} one home screen ** "
-        write_welcome_messages_to_file("#{criteria}:#{welcome_message_from_screen.strip}")
+        puts "\n\n\ ** Found text #{message} on home screen ** "
+        #write_welcome_messages_to_file("#{criteria}:#{welcome_message_from_screen.strip}")
         @@result_hash[message]=@@result_hash[message].to_i+1
         break
       end
@@ -31,12 +67,12 @@ class LoginPage < LoginBasePage
     return HomePage.new
   end
 
-  def write_hash_to_file
-    write_welcome_messages_to_file(@@result_hash)
-  end
+  #def write_hash_to_file
+  #  write_welcome_messages_to_file(@@result_hash)
+  #end
 
 
-#Read and Enter data from excel sheet
+  #Read and Enter data from excel sheet
   def enter_credentials_from_excel(test_data)
     puts "enter_credentials_from_excel:"
     puts test_data
@@ -69,13 +105,12 @@ class LoginPage < LoginBasePage
 
   def enter_date_ios(date)
     day, month, year=convert_date_to_str(date).split(/-/)
-    puts day, month, year
     sleep(2)
 
-    puts "Departure date:#{date}"
+    puts "Departure date:#{date} :"+day+month+year
     day_today, month_today, year_today=DateTime.now.strftime("%d-%B-%Y").split(/-/)
     index=2
-   # touch("view {description LIKE '*UITextFieldLabel*'} index:#{index.to_i-1}")
+    # touch("view {description LIKE '*UITextFieldLabel*'} index:#{index.to_i-1}")
     #Set date
     query("view text:'#{day_today}' parent pickerTableView", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
     query("pickerTableView index:1", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])

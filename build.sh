@@ -8,7 +8,7 @@ PROJ="MyFirstChoice.xcodeproj"
 ARCHITECTURE_SELECTED=i386
 BUNDLE=uk.tui.firstchoice
 
-cd ../build/iphone 
+cd ../meine.tui/build/iphone/
 
 #sleep 2
 #ti clean ; ti build --platform ios  --target-deploy development

@@ -31,12 +31,16 @@ module CommonMethods
       if var["VisionBookingRef"] == nil
         break
       end
+
+      puts "min_days, max_days #{min_days}, #{max_days}"
       if (var["Pre-In-Post"] >=min_days && var["Pre-In-Post"] <= max_days)
         matching_data<<var
         #puts var["Pre-In-Post"]
       end
     end
     matching_data
+
   end
+
 
 end

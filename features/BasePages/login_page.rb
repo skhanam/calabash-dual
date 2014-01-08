@@ -28,7 +28,8 @@ class LoginBasePage < BasePage
     if (`adb shell getprop ro.build.version.release`.match(/2.3/))
       $g_ginger_bread=true
     end
-    enter_date(test_data["departuredate"])
+
+    enter_date(test_data["DepartureDate"])
     touch("all TiEditText index:5")
     enter_details(test_data["VisionShopNumber"], 5)
     touch("all TiEditText index:7")
@@ -51,13 +52,12 @@ class LoginBasePage < BasePage
 
 
   def enter_date(date_int)
-
     day, month, year=convert_excel_date_to_str(date_int).split(/-/)
     puts day, month, year
     sleep(1)
 
     #Commented code is useful to set date in nexus4 (OS 4.3)
-    puts "#{day}#{getDayNumberSuffix(day)} #{month} #{year}"
+    puts "DATE: #{day}#{getDayNumberSuffix(day)} #{month} #{year}"
     touch("all TiEditText index:3")
     #Set date
     if ($g_ginger_bread==true)

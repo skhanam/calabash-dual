@@ -12,7 +12,7 @@ class BasePage < Calabash::ABase
   include CommonMethods
 
   def initialize
-    puts caller.first
+    #puts caller.first
     set_strings
     await
     self
@@ -20,6 +20,14 @@ class BasePage < Calabash::ABase
 
   def await
   end
+
+
+  def write_hash_to_file(count)
+    @@result_hash.each do |key, var|
+      write_welcome_messages_to_file("#{key}:   is shown #{var}/#{count} times")
+    end
+  end
+
 end
 
 

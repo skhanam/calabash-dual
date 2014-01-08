@@ -9,20 +9,14 @@ class HomeBasePage < BasePage
   end
 
   def await(opts={})
-    wait_for_elements_exist([trait])
+    text=$g_query_txt+"text:'#{@@home_page_loading}'"
+    if (query(text))
+      sleep 5
+    end
     wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@home_page_loading}'"])
-    wait_for_elements_exist([ $g_query_txt+"text:'#{@@home_page_home}'"])
-    sleep(2)
+    #  wait_for_elements_exist([ $g_query_txt+"text:'#{@@home_page_home}'"])
+    sleep(5)
     self
-  end
-
-  def logout_from_home_screen
-    performAction("go_back")
-    performAction('wait_for_text', 'Log out', 2)
-    touch( $g_query_txt+"text:'Log out'")
-    performAction('wait_for_text', 'Confirm', 2)
-    touch( $g_query_txt+"text:'Confirm'")
-    sleep(2)
   end
 
 end

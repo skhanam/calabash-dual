@@ -7,19 +7,26 @@ require_relative '../ios/support/reusable_methods_ios'
 require_relative '../support/common_methods'
 require 'differ'
 
+$g_strings_set=false
 class BasePage < Calabash::IBase
   include UKFirstChoice
   include IosReusableMethods
   include CommonMethods
 
   def initialize
-    puts caller.first
+    #puts caller.first
     set_strings
     await
     self
   end
 
   def await
+  end
+
+  def write_hash_to_file(count)
+    @@result_hash.each do |key,var|
+      write_welcome_messages_to_file("#{key}:   is shown #{var}/#{count} times")
+    end
   end
 end
 

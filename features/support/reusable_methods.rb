@@ -48,7 +48,7 @@ module ReusableMethods
   def write_welcome_messages_to_file(txt)
     if ($g_write_to_file==true)
       begin
-        filename = File.open("features/z_dump/welcome_messages.txt", "a")
+        filename = File.open($g_messages_file, "a")
         filename.write("#{txt}\n")
       rescue IOError => e
         fail("Write to file failed")

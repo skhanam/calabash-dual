@@ -3,8 +3,13 @@
 module UKFirstChoice
 
   def set_strings
-    puts caller.first
+    if($g_strings_set==true)
+      return
+    else
+      $g_strings_set=true
+    end
     puts "******* setting strings ********"
+    puts caller.first
     welcome_page_strings
     login_page_strings
     welcome_messages
@@ -50,7 +55,6 @@ module UKFirstChoice
     @@home_page_home="Home"
   end
 
-
   def welcome_messages
     @@welcome_hi_text="Hi \\w+,"
     @@welcome_tips="Welcome to your personalised travel companion. Check back for handy tips and updates!"
@@ -65,7 +69,8 @@ module UKFirstChoice
     @@welcome_need_help="Got a question about your booking\\? We\'re here to help if you need us."
     @@welcome_your_views="What do you think of our app\\? It would be great to hear your views."
     @@welcome_rate_app="Button: Rate the MyFirstChoice app"
-    @@welcome_home="We hope you had a great holiday with us."
+    @@welcome_home_alert="We hope you had a great time away. Now you’re logged in you can browse our great range of holidays or contact us about your recent trip"
+    @@welcome_home="We hope you had a great time away. Now you’re logged in you can browse our great range of holidays or contact us about your recent trip"
 
     @@welcome_button_contact_us="Contact us"
     @@welcome_button_excursions="View excursions"
