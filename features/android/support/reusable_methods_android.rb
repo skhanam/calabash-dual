@@ -1,10 +1,10 @@
 require 'rubyXL'
-require_relative '../../support/uk_first_choice_strings'
+require_relative '../../support/application_strings'
 require_relative '../../support/reusable_methods'
 
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module AndroidReusableMethods
-  include UKFirstChoice
+  include AppStrings
   include ReusableMethods
 
   def click_on_text(text)

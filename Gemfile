@@ -6,4 +6,4 @@ gem 'rspec', '1.3.0'
 gem 'rubyXL'
 gem 'nokogiri'
 gem 'differ'
-
+gem 'virtus'

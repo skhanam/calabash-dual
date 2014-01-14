@@ -1,9 +1,8 @@
 require 'rubyXL'
-require_relative '../support/uk_first_choice_strings'
+require_relative '../support/application_strings'
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module ReusableMethods
-  include UKFirstChoice
-
+  include AppStrings
 
 
   def embed(a, b, c)
@@ -31,12 +30,34 @@ module ReusableMethods
     return @hasharr["#{txt}"]
   end
 
+  #read from  brand-ntc-ios/features/strings/languagefolder/file
+  def read_copy_from_user_details(arg1)
+    filename =$g_user_details
+#    my_log(arg1 +" " +filename, 5)
+    properties = {}
+    File.open(filename, 'r') do |properties_file|
+      properties_file.read.each_line do |line|
+        line.strip!
+        if (line[0] != ?# and line[0] != ?=)
+          i = line.index('=')
+          if (i)
+            properties[line[0..i - 1].strip] = line[i + 1..-1].strip
+          else
+            properties[line] = ''
+          end
+        end
+      end
+      return properties[arg1]
+    end
+  end
+
+
   def read_test_data()
     file_path=$g_booking_data
     puts file_path
     workbook = RubyXL::Parser.parse(file_path)
-    hash_arr=workbook[1].get_table(["Surname","Today","Pre-In-Post","DepartureDate","DepartureTime","ReturnDate","VisionShopNumber","VisionBookingRef","EmailAddress","HotelName","ResortName","DestinationName","BookingDate","UnitBar","IsFamily","ReturnedFromHoliday","IsThomsonFlight","Channel","ProductName","DurationNightsInHotel","Return-Dep Date"])
-   # "Surname", "Today", "Pre-In-Post", "departuredate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel"])
+    hash_arr=workbook[1].get_table(["Surname", "Today", "Pre-In-Post", "DepartureDate", "DepartureTime", "ReturnDate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel", "ProductName", "DurationNightsInHotel", "Return-Dep Date"])
+    # "Surname", "Today", "Pre-In-Post", "departuredate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel"])
     return hash_arr[:table]
   end
 
@@ -62,6 +83,8 @@ module ReusableMethods
     begin
       wait_poll({:until_exists => "* text:'#{text}'", :timeout => time_out}) do
       end
+    rescue
+      return false
     end
   end
 

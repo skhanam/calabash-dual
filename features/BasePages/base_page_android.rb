@@ -1,15 +1,19 @@
 require 'calabash-cucumber/ibase' if ENV['PLATFORM'] == 'ios'
 require 'calabash-android/abase' if ENV['PLATFORM'] == 'android'
 require_relative '../support/reusable_methods'
-require_relative '../../features/support/uk_first_choice_strings'
+require_relative '../../features/support/application_strings'
 require_relative '../../features/android/support/reusable_methods_android'
 require_relative '../support/common_methods'
+require_relative '../support/Z_view_functions'
+require_relative '../support/data_models'
 require 'differ'
 
 class BasePage < Calabash::ABase
-  include UKFirstChoice
+  include AppStrings
   include AndroidReusableMethods
   include CommonMethods
+  include ViewModule
+  include UserData
 
   def initialize
     #puts caller.first
@@ -38,7 +42,7 @@ end
 #  fail("here")
 #  class BasePage < Calabash::IBase
 #    include CommonMethods
-#    include UKFirstChoice
+#    include AppStrings
 #    include ReusableMethods
 #
 #    def initialize
@@ -53,7 +57,7 @@ end
 #
 #  class BasePage < Calabash::ABase
 #    include CommonMethods
-#    include UKFirstChoice
+#    include AppStrings
 #    include ReusableMethods
 #
 #    def initialize

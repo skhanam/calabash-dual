@@ -9,12 +9,6 @@ class WelcomeBasePage < BasePage
     $g_query_txt+"marked:'#{@@welcome_page_text}'"
   end
 
-  def navigate_to_login
-    await(:timeout => 5)
-    sleep(2)
-    click_on_text(@@welcome_page_ready_to_login)
-    return LoginPage.new
-  end
 
   def click_login_text
     puts "waiting"
