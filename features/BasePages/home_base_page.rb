@@ -14,9 +14,10 @@ class HomeBasePage < BasePage
       sleep 5
     end
     wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@home_page_loading}'"])
-    #  wait_for_elements_exist([ $g_query_txt+"text:'#{@@home_page_home}'"])
     sleep(5)
     self
   end
+
+
 
 end

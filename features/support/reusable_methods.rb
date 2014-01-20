@@ -79,21 +79,14 @@ module ReusableMethods
     end
   end
 
-  def wait_for_page_to_load(text, time_out)
-    begin
-      wait_poll({:until_exists => "* text:'#{text}'", :timeout => time_out}) do
-      end
-    rescue
-      return false
-    end
-  end
 
 
   def assert_element_exists(element)
-    res = element_exists("* text:'#{element}'")
+    res = element_exists($g_query_txt+"text:'#{element}'")
     if not res
       screenshot_and_raise "No element found with mark or text: #{element}"
     end
+    return res
   end
 
   def wait_for_seconds(timetowait)

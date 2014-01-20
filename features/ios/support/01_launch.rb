@@ -8,6 +8,12 @@ Before do |scenario|
     ENV['RESET_BETWEEN_SCENARIOS']="1"
   else
     ENV['RESET_BETWEEN_SCENARIOS']="0"
+Before do |scenario|
+
+  @calabash_launcher = Calabash::Cucumber::Launcher.new
+  scenario_tags = scenario.source_tag_names
+  if scenario_tags.include?('@reset')
+    @calabash_launcher.reset_app_jail
   end
 
   unless @calabash_launcher.calabash_no_launch?
@@ -15,11 +21,14 @@ Before do |scenario|
     @calabash_launcher.calabash_notify(self)
   end
 
-  BasePage.new.set_strings
+  start_test_server_in_background(:timeout=>30)
 end
 
 
 After do |scenario|
+  if scenario.failed?
+    screenshot_embed
+  end
   unless @calabash_launcher.calabash_no_stop?
     calabash_exit
     if @calabash_launcher.active?

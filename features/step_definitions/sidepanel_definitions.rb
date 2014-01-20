@@ -27,3 +27,16 @@ When(/^I see holiday weather page and navigate back to home screen$/) do
   step "I navigate back to home page from weather page"
 end
 
+# ----------------------------------------------------------------------------------------------------------------------
+# booking summary page step definitions
+
+When(/^I navigate back to home page from booking summary page$/) do
+  @page.click_back_button
+  @page=HomePage.new
+end
+
+When(/^I see holiday booking summary page and navigate back to home screen$/) do
+  @page.check_booking_summary_page
+  step "I navigate back to home page from booking summary page"
+end
+

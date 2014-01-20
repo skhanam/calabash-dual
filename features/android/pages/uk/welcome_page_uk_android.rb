@@ -1,5 +1,5 @@
 require 'calabash-android/abase'
-require_relative '../../../BasePages/welcome_page'
+require_relative '../../../BasePages/welcome_base_page'
 
 class WelcomePage < WelcomeBasePage
   def navigate_to_login

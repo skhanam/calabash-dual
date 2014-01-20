@@ -26,8 +26,8 @@ class BasePage < Calabash::IBase
     self
   end
 
-  def await
-  end
+  #def await
+  #end
 
   def write_hash_to_file(count)
     @@result_hash.each do |key, var|

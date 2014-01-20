@@ -1,4 +1,4 @@
-require_relative '../../../BasePages/login_page'
+require_relative '../../../BasePages/login_base_page'
 
 class LoginPage < LoginBasePage
 
@@ -31,9 +31,5 @@ class LoginPage < LoginBasePage
     sleep 1
   end
 
-  def submit_login_button
-    sleep 1
-    playback "touch_button", {:query => $g_query_txt+"marked:'#{@@login_button}'"}
-    return HomePage.new
-  end
+
 end

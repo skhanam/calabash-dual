@@ -14,16 +14,18 @@ class BasePage < Calabash::ABase
   include CommonMethods
   include ViewModule
   include UserData
+  include ReusableMethods
+
 
   def initialize
     #puts caller.first
     set_strings
-    await
+    #await
     self
   end
 
-  def await
-  end
+  #def await
+  #end
 
 
   def write_hash_to_file(count)

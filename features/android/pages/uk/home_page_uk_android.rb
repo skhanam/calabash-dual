@@ -1,5 +1,5 @@
 require 'calabash-android/abase'
-require_relative '../../../BasePages/home_page'
+require_relative '../../../BasePages/home_base_page'
 
 class HomePage < HomeBasePage
 

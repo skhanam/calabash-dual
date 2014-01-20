@@ -41,6 +41,4 @@ module CommonMethods
     matching_data
 
   end
-
-
 end

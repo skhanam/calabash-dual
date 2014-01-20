@@ -20,6 +20,7 @@ module AppStrings
       $g_strings_set=true
     end
 
+
     puts "******* setting strings ********"
     puts caller.first
 
@@ -33,9 +34,19 @@ module AppStrings
 
   # setting global vars to make queries reusable
   def set_query_text
+    $g_flash = false # variable use to check flash feature on IOS (for highlighting)  / This is always false for android
+    $g_ios=false
+    $g_android=false
+
     if ENV['PLATFORM'] == 'ios'
+      $g_ios=true
       $g_query_txt = "view "
+      if ENV['FLASH'] == "1"
+        $g_flash = true
+      end
+
     elsif ENV['PLATFORM'] == 'android'
+      $g_android=true
       $g_query_txt= "* "
     end
   end

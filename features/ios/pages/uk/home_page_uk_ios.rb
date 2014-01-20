@@ -1,4 +1,4 @@
-require_relative '../../../../features/BasePages/home_page'
+require_relative '../../../../features/BasePages/home_base_page'
 
 class HomePage < HomeBasePage
   def logout_from_home_screen
@@ -10,13 +10,10 @@ class HomePage < HomeBasePage
     sleep(5)
     return WelcomePage.new
   end
+
+
+
 end
 
-def scroll_table_to_text(text)
-  wait_poll({:until_exists => "view marked:'#{text}'",
-             :timeout => 2}) do
-    scroll("tableView", :down)
-  end
-end
 
 

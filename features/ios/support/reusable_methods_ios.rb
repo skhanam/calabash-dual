@@ -10,6 +10,26 @@ module IosReusableMethods
     touch("view text:'#{text}'")
   end
 
+  def click_on_text(text)
+    if ENV["OS"]=="ios6"
+      playback "touch_button", {:query => $g_query_txt+"marked:'#{text}'"}
+    else
+      touch $g_query_txt+"marked:'#{text}'"
+    end
+
+  end
+
+  #Use this method for acc label
+  def wait_for_page_to_load(text, time_out)
+    begin
+      wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out}) do
+      end
+    rescue
+      return false
+    end
+    return true
+  end
+
   def check_text_in_view(text_to_check)
     text_check=escape_quotes_smart(text_to_check)
     res=element_exists("view text:'#{text_check}'")
@@ -21,21 +41,11 @@ module IosReusableMethods
     return res
   end
 
-  # escape if there are + symbols in text
-  def escape_plus(str)
-    if str.include? '+'
-      str.gsub('+', '\\\\+')
-    end
-    return str
-  end
-
-  #This method avoids calabash from crashing while using single quotes
-  def escape_quotes_smart(str)
-    #If escape quotes are used dont use again
-    if str.include? '\\\''
-      return str
-    else
-      return escape_quotes(escape_plus(str))
+  def swipe_dir(dir)
+    if dir=="right"
+      swipe(:right)
+    elsif dir=="left"
+      swipe(:left)
     end
   end
 
@@ -63,8 +73,36 @@ module IosReusableMethods
     touch_transition("view marked:'#{label_touch}'", "view marked:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
   end
 
-  def click_back_button
-    touch("button index:0")
-    sleep 1
+  #Switch language keyboard to english. useful for localisation
+  def change_keyboard_to_english
+    sleep(2)
+    res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
+
+    if ($g_testlang=="ru_RU") #Handle switching russian to english
+      keyboard_enter_char "International"
+      sleep(4)
+      if (element_exists("view:'UIAlertView' descendant button"))
+        touch("view:'UIAlertView' descendant button")
+      end
+    elsif (res!=true) #Handle all other locale (except russian)
+      keyboard_enter_char "International"
+      sleep(4)
+      if element_exists("view text:'好'")
+        touch("view text:'好'")
+      elsif (element_exists("view text:'OK'"))
+        touch("view text:'OK'")
+      end
+
+      res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
+      count=0
+      while (res!=true && count <5)
+        keyboard_enter_char "International"
+        res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
+        sleep(1)
+        count+=1
+      end
+    end
+    sleep(3)
   end
+
 end

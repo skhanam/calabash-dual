@@ -6,12 +6,13 @@ module Booking
   attribute :booking_id, Integer
   attribute :destination, String
   attribute :departure_date, String
+  attribute :departure_time, Time
+  attribute :days_to_go, Integer
 end
 
 module UserData
   include Virtus.module
   include Booking
-
 
   attribute :name, String
   attribute :age, Integer
@@ -23,9 +24,19 @@ module UserData
 end
 
 
-#class User
-#  include UserData
-#end
+class User
+  include UserData
+
+  def initialize(options={})
+    self.first_name= options[:first_name] || "Susi"
+    self.last_name= options[:last_name] || "Sonne"
+    self.username= options[:username] || "reisender"
+    self.email= options[:email]
+    self.age= options[:age]
+  end
+
+end
+
 #
 #user = User.new(:name => 'John', :age => 30)
 #user.Bookings[0]={:id => 20, :destination => "India", :departure_date => "20 13"}
