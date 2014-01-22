@@ -1,13 +1,12 @@
 require 'calabash-cucumber/launcher'
 
-Before do |scenario|
-  @calabash_launcher = Calabash::Cucumber::Launcher.new
+#if([scenario.source_tag_names][0].include? "@reset")
+#  ENV['RESET_BETWEEN_SCENARIOS']="1"
+#else
+#  ENV['RESET_BETWEEN_SCENARIOS']="0"
+#end
 
 
-  if([scenario.source_tag_names][0].include? "@reset")
-    ENV['RESET_BETWEEN_SCENARIOS']="1"
-  else
-    ENV['RESET_BETWEEN_SCENARIOS']="0"
 Before do |scenario|
 
   @calabash_launcher = Calabash::Cucumber::Launcher.new
@@ -21,7 +20,7 @@ Before do |scenario|
     @calabash_launcher.calabash_notify(self)
   end
 
-  start_test_server_in_background(:timeout=>30)
+  #start_test_server_in_background(:timeout=>30)
 end
 
 

@@ -13,4 +13,9 @@ class HomePage < HomeBasePage
     return WelcomePage.new
   end
 
+
+
+  def check_welcome_messages
+    puts "TODO : to be completed"
+  end
 end

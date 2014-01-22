@@ -47,3 +47,8 @@ When (/^I navigate to booking summary page using booking summary biscuit$/) do
   @page=BookingSummaryPage.new
 end
 
+When(/^I navigate to my bookings page$/) do
+  @page.click_on_account_button
+  sleep 5
+  @page=MyBookingsPage.new
+end

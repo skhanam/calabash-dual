@@ -4,6 +4,8 @@ require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class CountDownBasePage < BasePage
 
+  def initialize
+  end
 
   def check_countdown_screen
     wait_for_text_to_appear_view(@@countdown_page_title, 5)

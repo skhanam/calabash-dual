@@ -8,6 +8,7 @@ module Booking
   attribute :departure_date, String
   attribute :departure_time, Time
   attribute :days_to_go, Integer
+  attribute :products, String
 end
 
 module UserData
@@ -16,7 +17,8 @@ module UserData
 
   attribute :name, String
   attribute :age, Integer
-  attribute :Bookings, Array(Booking)
+  attribute :PastBookings, Array(Booking)
+  attribute :CurrentBookings, Array(Booking)
   attribute :username, String
   attribute :first_name, String
   attribute :last_name, String
@@ -33,11 +35,13 @@ class User
     self.username= options[:username] || "reisender"
     self.email= options[:email]
     self.age= options[:age]
+    self.CurrentBookings=options[:CurrentBookings]
+    self.PastBookings=options[:PastBookings]
   end
 
 end
 
-#
+
 #user = User.new(:name => 'John', :age => 30)
 #user.Bookings[0]={:id => 20, :destination => "India", :departure_date => "20 13"}
 #user.Bookings[1]={:id => 20, :destination => "India", :departure_date => "20 13"}

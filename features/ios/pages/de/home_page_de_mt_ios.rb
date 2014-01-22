@@ -2,23 +2,11 @@ require_relative '../../../../features/BasePages/home_base_page'
 
 class HomePage < HomeBasePage
 
-  def initialize
-    @@user_details= @@user_details || User.new()
-  end
 
   def logout_from_home_screen
     return WelcomePage.new
   end
 
-  #Check one element on home screen to confirm page is loaded
-  def check_i_am_on_home_screen
-    return wait_for_page_to_load(@@home_page_acc_label, 10)
-  end
-
-  def check_i_am_on_home_page
-    check_i_am_on_home_screen
-    check_welcome_messages
-  end
 
   def check_welcome_messages
     msg=nil
@@ -53,41 +41,49 @@ class HomePage < HomeBasePage
     sleep 1
   end
 
-
-  def click_weather_biscuit
-    touch_text_and_verify("destination_temperature", @@weather_page_title)
-  end
-
-
-  def navigate_to_weather_page
-    scroll_side_panel(@@side_panel_weather)
-    touch_text_and_verify(@@side_panel_weather, @@weather_page_title)
-    return WeatherPage.new
-  end
-
-  def navigate_to_booking_summary_page
-    scroll_side_panel(@@side_panel_booking_summary)
-    touch_text_and_verify(@@side_panel_booking_summary, @@booking_summary_title)
-    return BookingSummaryPage.new
-  end
-
-
-  def navigate_to_countdown_page
-    scroll_side_panel(@@side_panel_countdown)
-    touch_text_and_verify(@@side_panel_countdown, @@countdown_page_title)
-    return HolidayCountDownPage.new
-  end
-
-
   def click_booking_summary_biscuit
-    scroll_view_to_text(@@home_page_booking_summary)
-    touch("view marked:'#{@@home_page_booking_summary}' index:1")
-    wait_for_page_to_load(@@booking_summary_booking_code,3)
+    scroll_page_till_text_found("booking_summary", "down")
+    touch_transition("view marked:'booking_summary'", "view text:'#{@@booking_summary_booking_code}'", {:timeout => 5, :retry_frequency => 1})
   end
 
-  def click_countdown_biscuit
-    touch_text_and_verify("countdown_biscuit", @@countdown_page_title)
+  def check_booking_in_past_message(txt)
+    wait_for_text_like_to_appear_view(txt, 15) #Waiting upto 15 seconds for response from api
   end
+
+  #def click_weather_biscuit
+  #  touch_and_verify("destination_temperature", @@weather_page_title)
+  #end
+  #
+  #
+  #def navigate_to_weather_page
+  #  scroll_side_panel(@@side_panel_weather)
+  #  touch_and_verify(@@side_panel_weather, @@weather_page_title)
+  #  return WeatherPage.new
+  #end
+  #
+  #def navigate_to_booking_summary_page
+  #  scroll_side_panel(@@side_panel_booking_summary)
+  #  touch_and_verify(@@side_panel_booking_summary, @@booking_summary_title)
+  #  return BookingSummaryPage.new
+  #end
+  #
+  #
+  #def navigate_to_countdown_page
+  #  scroll_side_panel(@@side_panel_countdown)
+  #  touch_and_verify(@@side_panel_countdown, @@countdown_page_title)
+  #  return HolidayCountDownPage.new
+  #end
+  #
+  #
+  #def click_booking_summary_biscuit
+  #  scroll_view_to_text(@@home_page_booking_summary)
+  #  touch("view marked:'#{@@home_page_booking_summary}' index:1")
+  #  wait_for_page_to_load(@@booking_summary_booking_code,3)
+  #end
+  #
+  #def click_countdown_biscuit
+  #  touch_and_verify("countdown_biscuit", @@countdown_page_title)
+  #end
 
 
 end

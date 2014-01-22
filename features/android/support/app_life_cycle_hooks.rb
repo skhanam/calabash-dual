@@ -10,5 +10,5 @@ After do |scenario|
     screenshot_embed
     clear_app_data
   end
-  #shutdown_test_server
+  shutdown_test_server
 end

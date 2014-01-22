@@ -17,6 +17,7 @@ end
 # count down page step definitions
 
 When(/^I navigate back to home page from weather page$/) do
+  sleep 1
   @page.click_back_button
   @page=HomePage.new
 end

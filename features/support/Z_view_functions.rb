@@ -73,7 +73,7 @@ module ViewModule
   #Wait to check if acc label appears on screen
   def wait_for_acc_label_to_appear(text, timeout)
     query_txt=$g_query_txt+"contentDescription:'#{escape_quotes_smart(text)}.'" if $g_android
-    query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}.'" if $g_ios
+    query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}'" if $g_ios
 
     begin
       wait_poll({:until_exists => query_txt, :timeout => timeout.to_i}) do
@@ -84,6 +84,7 @@ module ViewModule
       puts label("view")
       fail("wait_for_acc_label_to_appear text failed to find acc label:#{text}:")
     end
+    return true
   end
 
   def check_text_in_view(text_to_check)
@@ -128,7 +129,7 @@ module ViewModule
   def click_back_button
     performAction('go_back') if $g_android
     touch("button index:0") if $g_ios
-    sleep 1
+    sleep 2
   end
 
 
@@ -138,7 +139,6 @@ module ViewModule
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
         puts text
       end
-
       flash("label text:'#{text}'") if ($g_flash)
     rescue
       fail("Failed to find text"+text)
@@ -205,23 +205,5 @@ module ViewModule
   end
 
 
-  #Scroll functions
-
-  def scroll_view_till_text_found(text, dir)
-    text=escape_quotes_smart(text)
-    wait_poll({:until_exists => "label {text LIKE '*"+text+"*'}",
-               :timeout => 5}) do
-      scroll("view", :up) if dir=="up"
-      scroll("view", :down) if dir=="down"
-    end
-  end
-
-
-  def scroll_table_to_text(text)
-    wait_poll({:until_exists => "view marked:'#{text}'",
-               :timeout => 2}) do
-      scroll("tableView", :down)
-    end
-  end
 
 end

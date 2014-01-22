@@ -1,7 +1,7 @@
 require 'rubyXL'
 require_relative '../../support/application_strings'
 require_relative '../../support/reusable_methods'
-#Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
+
 module IosReusableMethods
   include AppStrings
   include ReusableMethods
@@ -11,7 +11,7 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-    if ENV["OS"]=="ios6"
+    if ENV['OS']=="ios6"
       playback "touch_button", {:query => $g_query_txt+"marked:'#{text}'"}
     else
       touch $g_query_txt+"marked:'#{text}'"
@@ -26,6 +26,7 @@ module IosReusableMethods
       end
     rescue
       return false
+
     end
     return true
   end
@@ -67,8 +68,8 @@ module IosReusableMethods
 
   #touch text and verify result
 
-  def touch_text_and_verify(label_touch, label_expected)
-    touch_transition_timeout=5
+  def touch_and_verify(label_touch, label_expected)
+    touch_transition_timeout=10
     touch_transition_retry=1
     touch_transition("view marked:'#{label_touch}'", "view marked:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
   end
@@ -103,6 +104,32 @@ module IosReusableMethods
       end
     end
     sleep(3)
+  end
+
+
+  def scroll_page_till_text_found(id, dir)
+    count=0
+    while (count < 10)
+      if (element_exists("* text:'#{id}'") || element_exists("* marked:'#{id}'"))
+        break
+      end
+      count+=1
+      scroll_view(dir)
+      sleep 1
+    end
+  end
+
+  def scroll_view(dir)
+    scroll("scrollView", "down") if dir=="down"
+    scroll("scrollView", "up") if dir=="up"
+  end
+
+
+  def scroll_table_to_text(text)
+    wait_poll({:until_exists => "view marked:'#{text}'",
+               :timeout => 2}) do
+      scroll("tableView", :down)
+    end
   end
 
 end

@@ -18,6 +18,9 @@ module DEMeineTUI
     countdown_page_strings
     weather_page_strings
     booking_summary_strings
+    my_bookings_strings
+    my_account_strings
+    change_password_strings
   end
 
   #All test data for different appication is in here
@@ -60,6 +63,8 @@ module DEMeineTUI
     @@home_page_acc_label="background_normal"
     @@home_page_booking_summary="Auf einen Blick"
 
+    @@home_page_account_acc_label="navbarRightButton"
+
   end
 
   def side_panel_strings
@@ -68,6 +73,37 @@ module DEMeineTUI
     @@side_panel_booking_summary="Auf einen Blick"
 
   end
+
+  def my_bookings_strings
+    @@my_bookings_title="Meine Buchungen"
+    @@my_bookings_edit_account="Konto bearbeiten"
+    @@my_bookings_past_bookings="Vergangene Buchungen"
+    @@my_bookings_current_bookings="Aktuelle Buchungen"
+  end
+
+  def my_account_strings
+    @@my_account_title="Mein Konto"
+    @@personal_details="Persönliche Angaben"
+    @@my_account_username="Benutzername:"
+    @@my_account_first_name="Vorname:"
+    @@my_account_surname="Nachname:"
+    @@my_account_email="E-Mail:"
+    @@my_account_update_email="E-Mail ändern"
+    @@my_account_change_password="Passwort ändern"
+    @@my_account_signup_newsletter="TUI Newsletter bestellen"
+    @@my_account_newsletter_text="Ja, ich möchte regelmäßig tolle Angebote und News rund um das Thema Urlaub per E-Mail erhalten. (Meine Daten werden nicht an Dritte weitergegeben und ich kann meine Einwilligung jederzeit widerrufen.)"
+    @@log_out="Abmelden"
+  end
+
+  def change_password_strings
+    @@change_password_title="Passwort vergessen"
+    @@change_password_create_new_password="Neues Passwort anlegen"
+    @@change_password_info="Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen. Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden."
+    @@change_password_text2="Benutzername oder E-Mail:"
+    #TODO confirm this string is correct or wrong:
+    @@change_password_send_button="Absenden"
+  end
+
 
   def countdown_page_strings
     @@countdown_page_title="Mein Urlaubscountdown"
@@ -87,6 +123,7 @@ module DEMeineTUI
 
   def weather_page_strings
     @@weather_page_title="Reisewetter"
+    @@share_weather="Reisewetter teilen"
   end
 
 

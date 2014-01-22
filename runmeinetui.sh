@@ -18,5 +18,7 @@ cd /Users/tejasvi.manmatha/projects/meine.tui.ui-automation
 sleep 1
 
 #APP_BUNDLE_PATH_VAR="/Users/tejasvi.manmatha/Library/Developer/Xcode/DerivedData/meine_TUI-duqvirclbmdgamcsaqhrnzynqpmz/Build/Products/Debug-iphonesimulator/meine TUI.app"
-echo TESTENV="DE_MT" SDK_VERSION=6.0 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p -f html -o report.html de_mt_ios features/ -v
+#echo TESTENV="DE_MT" SDK_VERSION=6.0 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p -f html -o report.html de_mt_ios features/ -v
+
+ echo DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/ -v
  DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/ -v

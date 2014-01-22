@@ -41,7 +41,7 @@ module AndroidReusableMethods
 
     enter_details(surname, 1)
 
-    if (`adb shell getprop ro.build.version.release`.match(/2.3/))
+    if (`adb shell getprop ro.build.version.release`.strip.match(/2.3/))
       $g_ginger_bread=true
     end
 
@@ -69,7 +69,8 @@ module AndroidReusableMethods
     end
   end
 
-  def scroll_page(id, dir)
+  # scroll in specified direction till id is found
+    def scroll_page_till_text_found(id, dir)
     count=0
     while (count < 10)
       if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
@@ -77,19 +78,21 @@ module AndroidReusableMethods
       end
       count+=1
       scroll_view(dir)
+      sleep 1
     end
   end
 
-  def touch_text_and_verify(id, text)
+  # touch id specified and wait for text to appear
+  def touch_and_verify(id, text)
+    sleep 1
     if element_exists("* marked:'#{id}'")
       touch("* marked:'#{id}'")
     elsif  element_exists("* contentDescription:'#{id}.'")
       touch("* contentDescription:'#{id}.'")
-      sleep 2
     else
       fail("id:#{id} not found")
     end
-    wait_for_text_to_appear_view(text, 5)
+    wait_for_text_to_appear_view(text, 10)
   end
 
 
@@ -101,8 +104,6 @@ module AndroidReusableMethods
   end
 
   def scroll_side_panel(text)
-
-
   end
 
 end

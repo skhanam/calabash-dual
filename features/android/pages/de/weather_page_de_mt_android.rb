@@ -1,12 +1,14 @@
 =begin
   * Description : page to verify weather
   * Author: Tejasvi K M
-  * Date: 15 jan 2013
+  * Date: 20 jan 2013
 =end
 
 require_relative '../../../../features/BasePages/weather_base_page'
 
 class WeatherPage < WeatherBasePage
+
+
 
 end
 

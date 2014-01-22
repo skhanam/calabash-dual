@@ -1,4 +1,5 @@
 require 'rubyXL'
+require 'date'
 require_relative '../support/application_strings'
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module ReusableMethods
@@ -100,6 +101,16 @@ module ReusableMethods
       @@result_hash[message]=0
     end
     return @@result_hash
+  end
+
+#Return current date
+  def get_current_time
+    Time.now()
+  end
+
+  #Add days to current date
+  def add_days(count)
+    24*60*60*count.to_i
   end
 
 end

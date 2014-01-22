@@ -25,6 +25,10 @@ Before do |scenario|
     uninstall_apps
     install_app(ENV["TEST_APP_PATH"])
     install_app(ENV["APP_PATH"])
+    scenario_tags = scenario.source_tag_names
+    if scenario_tags.include?('@reset')
+      clear_app_data
+    end
 
     FeatureNameMemory.feature_name = feature_name
     FeatureNameMemory.invocation = 1
