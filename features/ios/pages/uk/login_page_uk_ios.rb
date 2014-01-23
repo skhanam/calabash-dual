@@ -46,11 +46,8 @@ class LoginPage < LoginBasePage
         tap("OK")
       end
 
-      label("view:'TiUIView'").each do |var|
-        if (var!=nil)
-          welcome_message_from_screen=var.strip
-        end
-      end
+
+      welcome_message_from_screen=get_welcome_message_from_screen
 
       puts "welcome_message_from_screen:#{welcome_message_from_screen} message:#{message} "
 

@@ -1,108 +1,105 @@
 x-platform-example
 ==================
 
-Example of cross-platform BDD with Cucumber and Calabash.
-
-There is a companion talk given at CukeUp'13:
-
-[Cross-platform for Mobile](http://skillsmatter.com/podcast/java-jee/cross-platform-and-end-to-end-bdd-for-mobile)
-
-
-And a companion Article which explains the idea:
-
-[Test Architecture for Cross-platform](https://github.com/calabash/calabash-ios/blob/0.9.x/calabash-cucumber/doc/x-platform-testing.md)
-
-
 Getting Started
 ===============
 
-The example uses the open source WordPress apps for iOS and Android. Since the Android app is licensed as GPL, we do not distribute the app with this project.
+#To install gems needed for this project
+Gems needed for this project are present in Gemfile (located under meine.tui.ui-automation folder)
+if bunlde is not installed install it 'gem install bundler'
+run `bundle install` command to install all gems needed
 
-You can download the apps by doing the following. 
 
-First ensure subversion is installed by typing `svn --version` in a command prompt.
+#Install calabash
+
+gem install calabash-cucumber
+gem install calabash-android
 
 # Download and Build: Android
 
-Ensure you ant and have Android API 13 installed.  To install API 13:
 
-    $ANDROID_HOME/tools/android #now install android-13
+Android
 
-Ensure you have Calabash Android installed in version 0.4.4.
+Download and Install Android SDK
+Set environment variables
 
-Download and build
+export PATH=/Users/<username>/Documents/adt-bundle-mac/sdk/tools:$PATH
+export PATH=/Users/<username>/Documents/adt-bundle-mac/sdk/platform-tools:$PATH
+export ANDROID_HOME=/Users/<username>/Documents/adt-bundle-mac/sdk
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
-    mkdir -p android-source
-    cd android-source
-    svn co http://android.svn.wordpress.org/tags/2.2.7/
+ensure Android API 18 installed.:
+    $ANDROID_HOME/tools/android #now install android-18
 
-You should now have a directory: `2.2.7` containing the source code for Android.
+ Titanium commands for android:
 
-Finally build the `.apk` file
-
-    cd 2.7.7
-    ant debug
-
-This should produce a file `bin/Dashboard-debug.apk`.
+create a folder for below that create two folders meine.tui & meine.tui.ui-automation
+download meinetui code into meine.tui folder and automation code into meine.tui.ui-automation
 
 
-# Download and Build: iOS
+open tiapp.xml (meine.tui/tiapp.xml) and add below line (if there is similar line replace it)
+ <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="14"/>
 
-Ensure you have XCode (4.5+) and XCode Command Line tools installed.
+(run below commands from meine.tui folder)
+ti clean 						#clean titanium code meine.tui/build/iphone & meine.tui/build/android fodlers are cleaned
+node build.js firstchoice  		#Specify which app to build thomson or firstchoice
+ti build --platform android -b  #Build for android, -b option is to build without installing onto device
 
-Ensure you have Calabash iOS version 0.9.144 installed.
+(switch to automation folder)
+cd /Users/<username>/projects/meine.tui.ui-automation
+cp /Users/<username>/projects/meine.tui/build/android/bin/app.apk . #copy apk into automation folder
+calabash-android resign app.apk  									#Resign android apk file
+calabash-android  run app.apk -p de_mt_android -v					#Run apk file using de_mt_android profile
 
-From the root directory (the one containing `android-source`),
-
-    mkdir -p ios-source
-    cd ios-source
-    svn co http://iphone.svn.wordpress.org/tags/3.3.1/
-
-Setup Calabash iOS
-
-    cd 3.3.1
-    calabash-ios setup
-
-Just select the default target (WordPress).
-
-Now open the WordPress XCode workspace: `open WordPress.xcworkspace`
-
-Run this xcode incantation to build:
-
-    xcodebuild build -workspace WordPress.xcworkspace -scheme WordPress-cal -configuration Debug -sdk iphonesimulator6.1 DEPLOYMENT_LOCATION=YES DSTROOT=build TARGETED_DEVICE_FAMILY=1 
-
-(If it complains about a missing WordPress-cal scheme then just create it from XCode and make sure you select the target: `WordPress-cal`.)
-
-# Being Safe with Bundler
-
-While this step is not strictly required, we recommend that you use the bundler tool to manage Ruby gem dependencies. 
-Bundler will ensure that you're always running an explicitly defined set of Ruby gem versions.
-
-Check that you have bundler installed by running `bundle version`. 
-
-If bundler is not installed run `gem install bundler` to install it.
-
-Now run 
-
-    `bundle install`    
-
-# Running the tests
-Plug in an Android phone (or for the patient, start an Android emulator).
-Run the login feature on Android phone:
-
-    bundle exec calabash-android run android-source/2.2.7/bin/Dashboard-debug.apk -p android features/login.feature
-
-You should see 
-
+    when tests are running (output looks like this)
     No test server found for this combination of app and calabash version. Recreating test server.
     Done signing the test server. Moved it to test_servers/80b8b6c0a44b6e16d2bd7f4aeba0d2ac_0.4.4.apk
     Using the android profile...
     Feature: Login
     ...
 
-Now run the login feature on iPhone:
+IOS
 
-    bundle exec cucumber -p ios features/login.feature
-    
-Hopefully that works out well :)
+Download and Build: iOS
+    calabash-ios setup (set up calabash framework to existing project)
 
+
+
+
+
+-------------------------------------------------------------------------------
+how to share calabash commands between IOS and Android
+===============
+This example suits well for calabash x platform example (where code is shared between IOS and android)
+
+set OS=ios in command line from where your cucumber tests are run (ex: OS=android calabash-android run <apkfile> )
+value of @g_query_txt  is set based on env variable
+@g_query_txt="view " if ENV['OS']=="ios"
+@g_query_txt="* " if ENV['OS']=="android"
+
+
+  Add the below method wait_for_similar_text_to_appear in a class that is accessible to both IOS and android code
+or
+  Create a common module (between ios & android) and then include that into ios or android classes
+
+arguments:
+  text: this can part of the text which we want to match
+  time_out: is optional argument, default timeout value is 5 seconds
+
+## Specify text to check and time to wait for
+# This will return true even if text matches part of the sentence
+@g_query_txt="view " if ENV['OS']=="ios"
+@g_query_txt="* " if ENV['OS']=="android"
+
+def wait_for_similar_text_to_appear(text, time_out=5)
+  query_text=@g_query_txt+"{text LIKE '*#{text}'}"
+  begin
+    wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
+      puts text
+    end
+  rescue
+    fail("Failed to find text"+text)
+  end
+end
+
+-------------------------------------------------------------------------------

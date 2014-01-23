@@ -132,4 +132,9 @@ module IosReusableMethods
     end
   end
 
+  def get_welcome_message_from_screen
+    label("view:'TiUIView'").each do |var|
+      return var.strip if (var!=nil)
+    end
+  end
 end

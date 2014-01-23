@@ -3,9 +3,9 @@
   * Author: Tejasvi K M
   * Date: 21 jan 2013
 =end
-require_relative '../../../../features/BasePages/my_bookings_base_page'
+require_relative '../../../../features/BasePages/booking_summary_base_page'
 
-class MyBookingsPage < MyBookingsBasePage
+class BookingSummaryPage < BookingSummaryBasePage
 
 end
 

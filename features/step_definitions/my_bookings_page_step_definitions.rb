@@ -18,5 +18,6 @@ When(/^I click on booking in past$/) do
 end
 
 Then(/^I see welcome message for booking in past on home screen$/) do
+  step "I am on Home screen"
   @page.check_booking_in_past_message(@booking_in_past_message)
 end

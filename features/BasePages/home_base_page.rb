@@ -65,4 +65,15 @@ class HomeBasePage < BasePage
     touch_and_verify(@@home_page_account_acc_label, @@my_bookings_title)
   end
 
+
+  def check_booking_in_past_message(txt)
+    sleep 5
+    welcome_message_from_screen=get_welcome_message_from_screen
+    if (welcome_message_from_screen.match(/#{txt}/)==nil)
+      fail("check_booking_in_past_message: Booking message is wrong")
+    else
+      puts "\n\n\ ** Found text #{txt} on home screen ** "
+    end
+  end
+
 end

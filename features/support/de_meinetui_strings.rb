@@ -21,6 +21,7 @@ module DEMeineTUI
     my_bookings_strings
     my_account_strings
     change_password_strings
+    loading_strings
   end
 
   #All test data for different appication is in here
@@ -126,5 +127,8 @@ module DEMeineTUI
     @@share_weather="Reisewetter teilen"
   end
 
+  def loading_strings
+    @@loading_finding_your_holiday="Einen Moment bitte, wir suchen gerade Ihren Urlaub …"
+  end
 
 end

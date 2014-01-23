@@ -46,9 +46,6 @@ class HomePage < HomeBasePage
     touch_transition("view marked:'booking_summary'", "view text:'#{@@booking_summary_booking_code}'", {:timeout => 5, :retry_frequency => 1})
   end
 
-  def check_booking_in_past_message(txt)
-    wait_for_text_like_to_appear_view(txt, 15) #Waiting upto 15 seconds for response from api
-  end
 
   #def click_weather_biscuit
   #  touch_and_verify("destination_temperature", @@weather_page_title)

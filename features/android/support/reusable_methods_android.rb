@@ -106,4 +106,8 @@ module AndroidReusableMethods
   def scroll_side_panel(text)
   end
 
+
+  def get_welcome_message_from_screen
+    query("* contentDescription:'welcome_title.'",:text).first.strip
+  end
 end
