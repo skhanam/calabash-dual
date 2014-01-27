@@ -8,7 +8,7 @@ require 'calabash-cucumber/launcher'
 
 
 Before do |scenario|
-
+  initialize_all
   @calabash_launcher = Calabash::Cucumber::Launcher.new
   scenario_tags = scenario.source_tag_names
   if scenario_tags.include?('@reset')
@@ -28,6 +28,7 @@ After do |scenario|
   if scenario.failed?
     screenshot_embed
   end
+
   unless @calabash_launcher.calabash_no_stop?
     calabash_exit
     if @calabash_launcher.active?

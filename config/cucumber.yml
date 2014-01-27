@@ -1,7 +1,7 @@
 # config/cucumber.yml
 
 
-<% common_path = "-r features/support -r features/step_definitions" %>
+<% common_path = "-r features/support -r features/step_definitions -r features/BasePages" %>
 
 <% ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages/uk" %>
 <% de_mt_ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages/de" %>
@@ -14,7 +14,7 @@
 ios: RESET_BETWEEN_SCENARIOS=0  PLATFORM=ios <%= common_path %> <%= ios_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o report.html  --tag @ios_test
 
 de_mt_ios: DEVICE_TARGET=simulator TESTENV=DE_MT SCREENSHOT_PATH=features/z_dump/screenshots/ PLATFORM=ios <%= common_path %> <%= de_mt_ios_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o ios-report.html --tag @test11
-de_mt_android:  TESTENV=DE_MT SCREENSHOT_PATH=features/z_dump/screenshots/ PLATFORM=android <%= common_path %> <%= de_mt_android_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o android-report.html --tag @android_test
+de_mt_android:  TESTENV=DE_MT SCREENSHOT_PATH=features/z_dump/screenshots/ PLATFORM=android <%= common_path %> <%= de_mt_android_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o android-report.html --tag @test11
 
 android: RESET_BETWEEN_SCENARIOS=1 PLATFORM=android <%= common_path %> <%= android_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o android-report.html  --tag @smoke1
 
