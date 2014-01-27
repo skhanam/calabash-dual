@@ -1,9 +1,13 @@
+require_relative 'page_world'
+
 require File.join(File.dirname(__FILE__), 'page_world')
 
 if ENV['PLATFORM'] == 'ios'
   require 'calabash-cucumber/cucumber'
+  require_relative '../../features/ios/base_page_ios'
 elsif ENV['PLATFORM'] == 'android'
   require 'calabash-android/cucumber'
+  require_relative '../../features/android/base_page_android'
 end
 
 require_relative '../support/data_models'
@@ -13,6 +17,8 @@ puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_fil
 
 $g_user_details = User.new #Create default user
 puts "#{$g_user_details}"
+
+World(TestModule)
 
 #World(PageWorld)
 

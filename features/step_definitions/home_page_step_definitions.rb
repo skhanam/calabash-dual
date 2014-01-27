@@ -14,7 +14,7 @@ end
 When (/^I navigate to weather page using weather biscuit$/) do
   @page.check_i_am_on_home_screen
   @page.click_weather_biscuit
-  @page=WeatherPage.new
+  @page=@weatherPage
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ end
 When (/^I navigate to countdown page using countdown biscuit$/) do
   @page.check_i_am_on_home_screen
   @page.click_countdown_biscuit
-  @page=HolidayCountDownPage.new
+  @page=@holidayCountDownPage
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -44,11 +44,12 @@ end
 When (/^I navigate to booking summary page using booking summary biscuit$/) do
   @page.check_i_am_on_home_screen
   @page.click_booking_summary_biscuit
-  @page=BookingSummaryPage.new
+  @page=@bookingSummaryPage
 end
 
 When(/^I navigate to my bookings page$/) do
   @page.click_on_account_button
   sleep 5
-  @page=MyBookingsPage.new
+  @page=@myBookingsPage
 end
+

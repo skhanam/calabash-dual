@@ -19,10 +19,10 @@ module UserData
   attribute :age, Integer
   attribute :PastBookings, Array(Booking)
   attribute :CurrentBookings, Array(Booking)
-  attribute :username, String
+  attribute :user_name, String
   attribute :first_name, String
   attribute :last_name, String
-  attribute :email, String
+  attribute :email_id, String
 end
 
 
@@ -32,8 +32,8 @@ class User
   def initialize(options={})
     self.first_name= options[:first_name] || "Susi"
     self.last_name= options[:last_name] || "Sonne"
-    self.username= options[:username] || "reisender"
-    self.email= options[:email]
+    self.user_name= options[:user_name] || "reisender"
+    self.email_id= options[:email_id_id] || "Susi.Sonne@tui.de"
     self.age= options[:age]
     self.CurrentBookings=options[:CurrentBookings]
     self.PastBookings=options[:PastBookings]

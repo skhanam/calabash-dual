@@ -1,6 +1,5 @@
-#require 'calabash-android/abase'
-require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
+#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
+#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class MyBookingsBasePage < BasePage
 
@@ -8,7 +7,7 @@ class MyBookingsBasePage < BasePage
   end
 
   def check_my_bookings_screen
-      wait_for_text_to_appear_view(@@my_bookings_title,5)
+    assert_wait_for_text(@@my_bookings_title)
   end
 
   def check_my_bookings_page
@@ -63,5 +62,28 @@ class MyBookingsBasePage < BasePage
     hash_arr[count.to_i][0] #Destination of first past booking
   end
 
+  def click_add_a_booking_button
+    touch_and_verify("navbarRightButton", @@add_a_booking_page_title)
+  end
 
+  def check_add_booking_screen
+    assert_wait_for_text(@@add_a_booking_page_title)
+  end
+
+  def check_add_booking_page
+    check_add_booking_screen
+    assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
+    scroll_page_till_text_found(@@add_a_booking_page_salutation, "down")
+    assert_text_elements([@@add_a_booking_page_salutation, @@add_a_booking_page_firstname, @@add_a_booking_page_last_name])
+
+    assert_text_present(@@add_a_booking_page_salutation_hint) if $g_ios
+    assert_text_present(@@add_a_booking_page_firstname_hint) if $g_ios
+    assert_text_present(@@add_a_booking_page_last_name_hint) if $g_ios
+
+    scroll_page_till_text_found(@@add_a_booking_page_need_help, "down")
+
+    assert_text_elements([@@add_a_booking_page_booking_code, @@add_a_booking_page_arrival_date, @@add_a_booking_page_find_booking_button, @@add_a_booking_page_need_help])
+    assert_text_present(@@add_a_booking_page_booking_code_hint) if $g_ios
+    assert_text_present(@@add_a_booking_page_arrival_date_hint) if $g_ios
+  end
 end

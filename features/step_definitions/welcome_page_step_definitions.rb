@@ -19,13 +19,13 @@ end
 
 
 When(/^I am on Home screen$/) do
-  if HomePage.new.check_i_am_on_home_screen
-    @page=HomePage.new
+  if @homePage.check_i_am_on_home_screen
+    @page=@homePage
   else
-    @page=WelcomePage.new
+    @page=@welcomePage
     username=@page.read_copy_from_user_details("username")
     password=@page.read_copy_from_user_details("password")
-    puts "need to log into app"
+
     step "I am on 'Login' screen"
     step "I enter \"#{username}\" and \"#{password}\" in login page"
     step "click on login button"
@@ -34,4 +34,20 @@ When(/^I am on Home screen$/) do
 end
 
 
+Then(/^I see welcome screen/) do
+  @page.verify_welcome_screen
+end
 
+Then(/^I see welcome page/) do
+  @page.verify_welcome_page
+end
+
+When(/^I choose am already a customer$/) do
+  @page=@page.click_already_customer
+end
+
+And(/^I have already registered tui$/) do
+  @page.check_already_customer_page
+  @page.click_already_registered
+  @page=@loginPage
+end

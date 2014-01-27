@@ -11,7 +11,7 @@ module DEMeineTUI
     #puts caller.first
     test_data
     welcome_page_strings
-    login_options_strings
+    already_customter_strings
     login_page_strings
     home_page_strings
     side_panel_strings
@@ -22,6 +22,9 @@ module DEMeineTUI
     my_account_strings
     change_password_strings
     loading_strings
+    add_booking_page_strings
+    update_email_strings
+
   end
 
   #All test data for different appication is in here
@@ -38,8 +41,8 @@ module DEMeineTUI
     @@have_never_booked_through_TUI_before="Ich habe noch nie über TUI gebucht."
   end
 
-  def login_options_strings
-    @@login_options_text="Haben Sie meine TUI online bereits genutzt?"
+  def already_customter_strings
+    @@already_customer_title="Haben Sie meine TUI online bereits genutzt?"
     @@already_registered="Ich bin bereits registriert"
     @@login_with_existing_credentials="Perfekt! Melden Sie sich einfach mit Ihren bestehenden Anmeldedaten an, um diese App zu nutzen."
     @@not_yet_registered="Ich bin noch nicht registriert"
@@ -93,7 +96,11 @@ module DEMeineTUI
     @@my_account_change_password="Passwort ändern"
     @@my_account_signup_newsletter="TUI Newsletter bestellen"
     @@my_account_newsletter_text="Ja, ich möchte regelmäßig tolle Angebote und News rund um das Thema Urlaub per E-Mail erhalten. (Meine Daten werden nicht an Dritte weitergegeben und ich kann meine Einwilligung jederzeit widerrufen.)"
-    @@log_out="Abmelden"
+    @@log_out_text="Abmelden"
+
+    @@my_account_logout_title="Sind Sie sicher?"
+    @@my_account_logout_yes="Bestätigen"
+    @@my_account_logout_no="Abbrechen"
   end
 
   def change_password_strings
@@ -131,4 +138,39 @@ module DEMeineTUI
     @@loading_finding_your_holiday="Einen Moment bitte, wir suchen gerade Ihren Urlaub …"
   end
 
+  def add_booking_page_strings
+    @@add_a_booking_page_title ="Buchung hinzufügen"
+    @@add_a_booking_page_text1 ="Ihre Buchungsdetails"
+    @@add_a_booking_page_text2 ="Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen."
+
+    @@add_a_booking_page_salutation ="Anrede:"
+    @@add_a_booking_page_salutation_hint ="Bitte auswählen"
+
+    @@add_a_booking_page_firstname ="Vorname:"
+    @@add_a_booking_page_firstname_hint ="Vorname eingeben"
+
+    @@add_a_booking_page_last_name ="Nachname:"
+    @@add_a_booking_page_last_name_hint ="Nachname eingeben"
+
+    @@add_a_booking_page_booking_code ="Vorgang/Buchungscode:"
+    @@add_a_booking_page_booking_code_hint ="123456789"
+
+    @@add_a_booking_page_arrival_date ="Anreisedatum:"
+    @@add_a_booking_page_arrival_date_hint ="Datum eingeben"
+
+    @@add_a_booking_page_find_booking_button ="Buchung hinzufügen"
+    @@add_a_booking_page_need_help ="Ich benötige Hilfe"
+  end
+
+
+  def update_email_strings
+    @@update_email_text="E-Mail ändern"
+    @@update_email_new_email="Neue E-Mail:"
+    @@update_email_new_email_hint="Neue E-Mail Adresse eingeben"
+    @@update_email_new_password="Ihr Passwort:"
+    @@update_email_new_password_hint="Passwort eingeben"
+    @@update_email__text2="Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen."
+    @@update_email_submit="Speichern"
+    @@update_email_forgot_password="Passwort vergessen?"
+  end
 end

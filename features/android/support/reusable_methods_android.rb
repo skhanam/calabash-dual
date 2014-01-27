@@ -32,6 +32,54 @@ module AndroidReusableMethods
     return true
   end
 
+  def scroll_view(dir)
+    if (dir=="up")
+      performAction('drag', 50, 50, 70, 90, 10)
+    elsif (dir=="down")
+      performAction('drag', 50, 50, 90, 70, 10)
+    end
+  end
+
+  # scroll in specified direction till id is found
+  def scroll_page_till_text_found(id, dir="down")
+    count=0
+    while (count < 10)
+      break if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
+      count+=1
+      scroll_view(dir)
+      sleep 0.5
+    end
+    sleep 2
+  end
+
+  # touch id specified and wait for text to appear
+  def touch_and_verify(id, text)
+    sleep 1
+    if element_exists("* marked:'#{id}'")
+      touch("* marked:'#{id}'")
+    elsif  element_exists("* contentDescription:'#{id}.'")
+      touch("* contentDescription:'#{id}.'")
+    else
+      fail("id:#{id} not found")
+    end
+    assert_wait_for_text(text, 10)
+  end
+
+
+  def swipe_dir(dir)
+    if dir=="right"
+    elsif dir=="left"
+    end
+
+  end
+
+  def scroll_side_panel(text)
+  end
+
+
+  def get_welcome_message_from_screen
+    query("* contentDescription:'welcome_title.'", :text).first.strip
+  end
 
   #Read and Enter data from excel sheet
   def enter_credentials_from_excel(test_data)
@@ -59,55 +107,5 @@ module AndroidReusableMethods
       sleep(1)
       performAction("scroll_up") #Scroll up for small screen devices
     end
-  end
-
-  def scroll_view(dir)
-    if (dir=="up")
-      performAction('drag', 50, 50, 70, 90, 10)
-    elsif (dir=="down")
-      performAction('drag', 50, 50, 90, 70, 10)
-    end
-  end
-
-  # scroll in specified direction till id is found
-    def scroll_page_till_text_found(id, dir)
-    count=0
-    while (count < 10)
-      if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
-        break
-      end
-      count+=1
-      scroll_view(dir)
-      sleep 1
-    end
-  end
-
-  # touch id specified and wait for text to appear
-  def touch_and_verify(id, text)
-    sleep 1
-    if element_exists("* marked:'#{id}'")
-      touch("* marked:'#{id}'")
-    elsif  element_exists("* contentDescription:'#{id}.'")
-      touch("* contentDescription:'#{id}.'")
-    else
-      fail("id:#{id} not found")
-    end
-    wait_for_text_to_appear_view(text, 10)
-  end
-
-
-  def swipe_dir(dir)
-    if dir=="right"
-    elsif dir=="left"
-    end
-
-  end
-
-  def scroll_side_panel(text)
-  end
-
-
-  def get_welcome_message_from_screen
-    query("* contentDescription:'welcome_title.'",:text).first.strip
   end
 end

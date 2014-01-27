@@ -3,7 +3,7 @@
 
 When(/^I navigate back to home page from countdown page$/) do
   @page.click_back_button
-  @page=HomePage.new
+  @page=@homePage
 end
 
 
@@ -19,7 +19,7 @@ end
 When(/^I navigate back to home page from weather page$/) do
   sleep 1
   @page.click_back_button
-  @page=HomePage.new
+  @page=@homePage
 end
 
 
@@ -33,7 +33,7 @@ end
 
 When(/^I navigate back to home page from booking summary page$/) do
   @page.click_back_button
-  @page=HomePage.new
+  @page=@homePage
 end
 
 When(/^I see holiday booking summary page and navigate back to home screen$/) do

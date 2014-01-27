@@ -5,12 +5,12 @@ class LoginPage < LoginBasePage
   def verify_page
     wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"],
                             :timeout => 5)
-    check_text_in_view(@@login_page_text)
-    check_text_in_view(@@email_text)
-    check_text_in_view(@@password_text)
-    check_text_in_view(@@login_page_text)
-    check_text_in_view(@@login_button)
-    check_text_in_view(@@password_reset)
+    assert_text_present(@@login_page_text)
+    assert_text_present(@@email_text)
+    assert_text_present(@@password_text)
+    assert_text_present(@@login_page_text)
+    assert_text_present(@@login_button)
+    assert_text_present(@@password_reset)
   end
 
   def enter_credentials(username, password)

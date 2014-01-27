@@ -59,10 +59,6 @@ class MyBookingsPage < MyBookingsBasePage
     return reservations
   end
 
-
-
-
-
 end
 
 

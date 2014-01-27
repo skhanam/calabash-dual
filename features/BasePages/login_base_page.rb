@@ -1,12 +1,9 @@
-#require 'calabash-android/abase'
-require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
-
 class LoginBasePage < BasePage
 
   def initialize
-    await
+    #await
   end
+
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
   end
@@ -22,6 +19,24 @@ class LoginBasePage < BasePage
     return HomePage.new
   end
 
+
+  def check_login_screen
+    assert_wait_for_text(@@login_page_text)
+  end
+
+  def check_login_page
+    check_login_screen
+    assert_text_elements([@@login_page_text,
+                          @@email_text,
+                          @@email_hint_text,
+                          @@password_text,
+                          @@password_hint_text,
+                          @@login_button,
+                          @@password_reset,
+                          @@i_need_help,
+                          @@privacy_terms_of_use])
+
+  end
 
   def enter_date(date_int)
     day, month, year=convert_excel_date_to_str(date_int).split(/-/)

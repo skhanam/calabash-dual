@@ -3,7 +3,7 @@ require_relative '../../../BasePages/login_base_page'
 class LoginPage < LoginBasePage
 
   def initialize
-    await
+    #await
   end
 
   def verify_page
@@ -42,6 +42,6 @@ class LoginPage < LoginBasePage
       sleep 1
       touch("toolbarTextButton index:1")
     #end
-    wait_for_text_to_appear_view(username,10)
+    assert_wait_for_text(username,10)
   end
 end

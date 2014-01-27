@@ -14,6 +14,11 @@ Feature: Login and Home page features
     | reisender | meinetui |
 
 
+  Scenario: Logout from my account page
+    Given I am on my account page
+    When I log out from application
+    Then I see welcome screen
+
   Scenario: Open countdown page from side panel and check its displayed correctly
     Given I am on Home screen
     When I navigate to countdown page using side menu

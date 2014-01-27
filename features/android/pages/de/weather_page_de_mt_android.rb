@@ -8,8 +8,6 @@ require_relative '../../../../features/BasePages/weather_base_page'
 
 class WeatherPage < WeatherBasePage
 
-
-
 end
 
 

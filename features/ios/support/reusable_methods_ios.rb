@@ -10,14 +10,14 @@ module IosReusableMethods
     touch("view text:'#{text}'")
   end
 
-  def click_on_text(text)
-    if ENV['OS']=="ios6"
-      playback "touch_button", {:query => $g_query_txt+"marked:'#{text}'"}
-    else
-      touch $g_query_txt+"marked:'#{text}'"
-    end
-
-  end
+  #
+  #def click_on_text(text)
+  #  if ENV['OS']=="ios6"
+  #    playback "touch_button", {:query => $g_query_txt+"marked:'#{text}'"}
+  #  else
+  #    touch $g_query_txt+"marked:'#{text}'"
+  #  end
+  #end
 
   #Use this method for acc label
   def wait_for_page_to_load(text, time_out)
@@ -96,7 +96,7 @@ module IosReusableMethods
 
       res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
       count=0
-      while (res!=true && count <5)
+      while res!=true && count <5
         keyboard_enter_char "International"
         res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
         sleep(1)
@@ -107,21 +107,22 @@ module IosReusableMethods
   end
 
 
-  def scroll_page_till_text_found(id, dir)
+  def scroll_page_till_text_found(id, dir="down")
     count=0
-    while (count < 10)
-      if (element_exists("* text:'#{id}'") || element_exists("* marked:'#{id}'"))
+    while count < 10
+      if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
         break
       end
       count+=1
       scroll_view(dir)
-      sleep 1
     end
+    sleep 2
   end
 
   def scroll_view(dir)
     scroll("scrollView", "down") if dir=="down"
     scroll("scrollView", "up") if dir=="up"
+    sleep 0.5
   end
 
 

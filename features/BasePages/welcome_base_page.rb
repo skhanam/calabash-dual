@@ -1,6 +1,6 @@
-#require 'calabash-android/abase'
-require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
+#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
+#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
+
 
 class WelcomeBasePage < BasePage
 
@@ -9,6 +9,26 @@ class WelcomeBasePage < BasePage
     $g_query_txt+"marked:'#{@@welcome_page_text}'"
   end
 
+
+  def verify_welcome_screen
+    assert_wait_for_text(@@welcome_page_text)
+  end
+
+  def verify_welcome_page
+    wait_for_elements_exist([$g_query_txt+"marked:'#{@@welcome_page_text}'"],
+                            :timeout => 5)
+
+    assert_text_present(@@welcome_page_text)
+    assert_text_present(@@already_a_customer)
+    assert_text_present(@@have_already_booked_through_TUI)
+    assert_text_present(@@am_new_here)
+    assert_text_present(@@have_never_booked_through_TUI_before)
+  end
+
+  def click_already_customer
+    touch_and_verify(@@have_already_booked_through_TUI,@@already_customer_title)
+    return AlreadyCustomerBasePage.new
+  end
 
   def click_login_text
     puts "waiting"
@@ -27,27 +47,20 @@ class WelcomeBasePage < BasePage
 
   def navigate_to_login
     verify_welcome_page
-
-    click_on_text(@@have_already_booked_through_TUI)
-    wait_for_text_to_appear_view(@@login_options_text, 3)
-    wait_for_text_to_appear_view(@@already_registered, 3)
+    click_already_customer
+    @alreadyCustomerBasePage.check_already_customer_screen
     sleep 1
     click_on_text(@@login_with_existing_credentials)
-    wait_for_text_to_appear_view(@@login_page_text, 5)
+    assert_wait_for_text(@@login_page_text, 5)
 
     @@user_details= @@user_details || User.new
     return LoginPage.new
   end
 
 
-  def verify_welcome_page
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@welcome_page_text}'"],
-                            :timeout => 5)
-
-    check_text_must_be_in_view(@@welcome_page_text)
-    check_text_must_be_in_view(@@already_a_customer)
-    check_text_must_be_in_view(@@have_already_booked_through_TUI)
-    check_text_must_be_in_view(@@am_new_here)
-    check_text_must_be_in_view(@@have_never_booked_through_TUI_before)
+  def click_new_here
+    click_on_text(@@have_never_booked_through_TUI_before)
+    return NewToTUI.new
   end
+
 end

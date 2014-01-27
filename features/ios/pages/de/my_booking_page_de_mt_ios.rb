@@ -17,7 +17,7 @@ class MyBookingsPage < MyBookingsBasePage
       scroll_back_to=@@my_bookings_past_bookings
     elsif text=="current"
       id="currentReservations"
-      scroll_to_id="pastReservations"   #TODO use this @@my_bookings_past_bookings instead
+      scroll_to_id="pastReservations" #TODO use this @@my_bookings_past_bookings instead
       scroll_back_to=@@my_bookings_current_bookings
     end
 

@@ -8,7 +8,6 @@ require_relative '../../../../features/BasePages/myaccount_base_page'
 class MyAccountPage < MyAccountBasePage
 
 
-
 end
 
 

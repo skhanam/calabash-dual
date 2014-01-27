@@ -3,7 +3,7 @@ require_relative '../../../BasePages/login_base_page'
 class LoginPage < LoginBasePage
 
   def initialize
-    await
+    #await
   end
 
   def check_different_welcome_messages(test_data, criteria)

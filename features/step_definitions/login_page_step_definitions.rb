@@ -7,9 +7,12 @@ end
 Given(/^I am on '(.+)' screen/) do |page_name|
   case page_name
     when 'Login' then
-      @page= WelcomePage.new.navigate_to_login
+      @page= @welcomePage.navigate_to_login
     when 'Welcome' then
-      @page= WelcomePage.new
+      @page=@welcomePage
+      @page.verify_welcome_screen
+    else
+      fail("page not found")
   end
 end
 
@@ -23,3 +26,6 @@ When (/^click on login button$/) do
 end
 
 
+Then(/^I see login screen$/) do
+  @page.check_login_page
+end
