@@ -1,0 +1,51 @@
+class ForgotPasswordBasePage < BasePage
+
+  def check_forgot_password_page
+    assert_wait_for_text @@forgot_password_title
+    assert_text_elements [@@forgot_password_username_or_email, @@forgot_password_send_button,
+                          @@forgot_password_let_us_know_email, @@forgot_password_need_help]
+
+  end
+
+  def enter_wrong_username_or_email
+    text="no@nomail.com"
+    enter_username_or_email(text)
+  end
+
+  def submit_change_password
+    click_on_text @@forgot_password_send_button
+  end
+
+  def check_wrong_username_email
+    assert_wait_for_text @@forgot_password_email_help
+  end
+
+  def check_email_populated
+    assert_wait_for_text(@@user_details[:user_name])
+  end
+
+  def check_email_field_empty
+    if $g_android
+      txt=query("all TiEditText index:1", :text).first
+    elsif $g_ios
+      txt=query("textField index:0", :text).first
+    end
+    fail "username field is not empty" if txt !=""
+  end
+
+  def enter_username_or_email(text)
+    if $g_ios
+      set_text "textField index:0", text
+      sleep 1
+      touch("view marked:'#{text}'")
+      sleep 1
+      touch done
+      sleep 1
+    elsif $g_android
+      ti_enter_details(text, 1)
+    end
+  end
+end
+
+
+
