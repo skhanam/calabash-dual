@@ -1,3 +1,4 @@
+#!/bin/sh
 DATE=`date +%d-%m-%Y-%H-%M`
 
 SCHEME_XC="meine TUI-cal"

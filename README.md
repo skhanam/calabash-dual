@@ -1,8 +1,32 @@
+Folder structure
+===============
+
+<br /> Gemfile   - gems required for running calabash test suite
+<br /> README.md - Help file
+<br /> android_run.rb - ruby script to run tests for android
+<br /> runmeinetui.sh - Shell script required to run IOS tests
+<br /> ios-report.html - IOS test report
+<br /> android-report.html - android test report
+<br /> app.apk - application file for android
+<br /> features - tests
+
+<br /> features/android - android specific test code
+<br /> features/common	 - common testcode for IOS and android
+<br /> features/ios	 - IOS specific test code
+<br /> features/tests	 - feature files
+<br /> features/z_dump	 - extra folder for dumping useful stuff and test data
+
 Getting Started
 ===============
 
 #Install RUBY
 use ruby version >= 1.9.3
+
+Install source tree & clone 2 projects
+1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
+2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git
+
+
 
 #To install gems needed for this project
 Gems needed for this project are present in Gemfile (located under meine.tui.ui-automation folder)
@@ -20,7 +44,6 @@ Run below command to install all gems needed
 	gem install calabash-android
 
 # Download and Build: Android
-
 
 #Android
 

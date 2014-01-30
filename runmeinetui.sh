@@ -1,3 +1,4 @@
+#!/bin/sh
 DATE=`date +%d-%m-%Y-%H-%M`
 
 SCHEME_XC="meine TUI-cal"
@@ -9,7 +10,7 @@ PROJ_DIR="../meine.tui/build/iphone/meine TUI.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
-./expect.sh
+./z_dump/expect.sh
 open -a Xcode
 sleep 20
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_DIR}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
@@ -20,5 +21,5 @@ BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_DIR}" ARCHS="${ARCHITECTURE_SEL
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
 
- echo DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/ -v
- DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/ -v
+ echo DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/
+ DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/

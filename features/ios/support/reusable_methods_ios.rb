@@ -1,14 +1,15 @@
 require 'rubyXL'
-require_relative '../../support/application_strings'
-require_relative '../../support/reusable_methods'
+require_relative '../../common/support/application_strings'
+require_relative '../../common/support/reusable_methods'
 
 module IosReusableMethods
   include AppStrings
   include ReusableMethods
-
-  def click_on_text(text)
-    touch("view text:'#{text}'")
-  end
+  #
+  #def click_on_text(text)
+  #
+  #  touch("view text:'#{escape_quotes(text)}'")
+  #end
 
   #
   #def click_on_text(text)
@@ -27,6 +28,48 @@ module IosReusableMethods
     rescue
       return false
 
+    end
+    return true
+  end
+
+  #This method avoids calabash from crashing while using single quotes
+  def escape_quotes_smart(str)
+    #If escape quotes are used dont use again
+    if str.include? '\\\''
+      return str
+    else
+      return escape_quotes(str)
+    end
+  end
+
+  # escape single quotes present within double quotes string ex: "a'b"
+  def escape_quotes(str)
+    return str.gsub("'", "\\\\'")
+  end
+
+  def click_on_text(text)
+      touch("view text:'#{escape_quotes_smart(text)}'")
+  end
+
+  def click_back_button
+    touch("button index:0")
+    sleep 2
+  end
+
+  def read_acc_label_text(label)
+    query_text=$g_query_txt+"accessibilityLabel:'#{label}'"
+    query(query_text, :text)[0]
+  end
+  def wait_for_acc_label(text, timeout=10)
+    query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}'"
+
+    begin
+      wait_poll({:until_exists => query_txt, :timeout => timeout.to_i}) do
+        puts text
+        sleep(0.5)
+      end
+    rescue
+      return false
     end
     return true
   end

@@ -1,4 +1,4 @@
-require_relative '../../../../features/BasePages/home_base_page'
+require_relative '../../../common/BasePages/home_base_page'
 
 class HomePage < HomeBasePage
 

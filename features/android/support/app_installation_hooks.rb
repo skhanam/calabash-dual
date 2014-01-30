@@ -7,6 +7,7 @@ end
 
 Before do |scenario|
   initialize_all
+  #set_strings
   @scenario_is_outline = (scenario.class == Cucumber::Ast::OutlineTable::ExampleRow)
   if @scenario_is_outline
     scenario = scenario.scenario_outline
@@ -21,6 +22,7 @@ Before do |scenario|
       clear_app_data
     else
       log "First scenario in feature - reinstalling apps"
+
     end
 
     scenario_tags = scenario.source_tag_names

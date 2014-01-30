@@ -1,4 +1,4 @@
-require_relative '../../../BasePages/login_base_page'
+require_relative '../../../common/BasePages/login_base_page'
 
 class LoginPage < LoginBasePage
 
@@ -18,6 +18,16 @@ class LoginPage < LoginBasePage
     #TODO verify I need help & privacy policy text
   end
 
+  def enter_user_name
+    username=@@user_details[:user_name]
+    set_text "textField index:0", username
+    sleep 1
+    touch("* marked:'#{username}'")
+    sleep 1
+    touch("toolbarTextButton index:2")
+    sleep 1
+  end
+
 
   def enter_credentials(username, password)
     verify_page
@@ -31,17 +41,17 @@ class LoginPage < LoginBasePage
     #  touch("toolbarTextButton index:1")
     #  sleep 1
     #elsif ENV['OS']=="ios7"
-      puts "IOS 7 key board"
-      set_text "textField index:0", username
-      sleep 1
-      set_text "textField index:1", password
-      sleep 1
-      touch("* marked:'#{username}'")
-      sleep 1
-      touch("toolbarTextButton index:1")
-      sleep 1
-      touch("toolbarTextButton index:1")
+    puts "IOS 7 key board"
+    set_text "textField index:0", username
+    sleep 1
+    set_text "textField index:1", password
+    sleep 1
+    touch("* marked:'#{username}'")
+    sleep 1
+    touch("toolbarTextButton index:1")
+    sleep 1
+    touch("toolbarTextButton index:1")
     #end
-    assert_wait_for_text(username,10)
+    assert_wait_for_text(username, 10)
   end
 end

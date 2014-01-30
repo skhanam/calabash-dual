@@ -1,6 +1,6 @@
 require 'rubyXL'
-require_relative '../../support/application_strings'
-require_relative '../../support/reusable_methods'
+require_relative '../../common/support/application_strings'
+require_relative '../../common/support/reusable_methods'
 
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module AndroidReusableMethods
@@ -8,8 +8,52 @@ module AndroidReusableMethods
   include ReusableMethods
 
   def ti_enter_details(text, index)
+    sleep 1
     query("all TiEditText index:#{index}", setText: "#{text}")
-    sleep(0.5)
+    sleep(1)
+  end
+
+  #This method avoids calabash from crashing while using single quotes
+  def escape_quotes_smart(str)
+    #If escape quotes are used dont use again
+    if str.include? '\\\''
+      return str
+    else
+      return escape_quotes(str)
+    end
+  end
+
+
+  # escape single quotes present within double quotes string ex: "a'b"
+  def escape_quotes(str)
+    return str.gsub("'", "\\\\\'")
+  end
+
+  def click_on_text(text)
+    performAction('click_on_text', escape_quotes_smart(text))
+  end
+
+  def click_back_button
+    performAction('go_back')
+    sleep 2
+  end
+
+  def read_acc_label_text(label)
+    query_text=$g_query_txt+"contentDescription:'#{text}.'"
+    query(query_text, :text)[0]
+  end
+
+  def wait_for_acc_label(text, timeout=10)
+    query_txt=$g_query_txt+"contentDescription:'#{escape_quotes_smart(text)}.'"
+    begin
+      wait_poll({:until_exists => query_txt, :timeout => timeout.to_i}) do
+        puts text
+        sleep(0.5)
+      end
+    rescue
+      return false
+    end
+    return true
   end
 
   def check_text_in_view(txt)
@@ -70,7 +114,6 @@ module AndroidReusableMethods
     if dir=="right"
     elsif dir=="left"
     end
-
   end
 
   def scroll_side_panel(text)
