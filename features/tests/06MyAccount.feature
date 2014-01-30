@@ -15,7 +15,7 @@ Feature: Verify My account page and sub pages
       | update email button    |
       | password change button |
       | newsletter             |
-      | logout             |
+      | logout                 |
 
   Scenario: Verify change password page
     Given I choose to change password from my account page

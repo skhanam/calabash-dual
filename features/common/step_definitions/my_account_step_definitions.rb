@@ -54,7 +54,8 @@ end
 
 
 Then(/^I verify below details on account page:$/) do |table|
-  # table is a table.hashes.keys # => []
-
-  puts table
+  values=table.raw
+  values.each do |var|
+    @myAccountPage.validate_menu_items(var[0])
+  end
 end

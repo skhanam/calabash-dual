@@ -20,10 +20,7 @@ class MyAccountBasePage < BasePage
   def verify_my_details
     sleep 2
     scroll_page_till_text_found(@@personal_details, "up")
-    assert_text_present(@@user_details.first_name)
-    assert_text_present(@@user_details.last_name)
-    assert_text_present(@@user_details.user_name)
-    assert_text_present(@@user_details.email_id)
+
   end
 
   def check_my_account_page
@@ -94,4 +91,30 @@ class MyAccountBasePage < BasePage
     touch("button marked:'#{@@my_account_logout_yes}'")
     sleep 4
   end
+
+
+  def validate_menu_items(var)
+    case var
+      when "username"
+        assert_text_present(@@user_details.user_name)
+      when "first name"
+        assert_text_present(@@user_details.first_name)
+      when "surname"
+        assert_text_present(@@user_details.last_name)
+      when "email"
+        assert_text_present(@@user_details.email_id)
+      when "update email button"
+        assert_text_present(@@my_account_update_email)
+      when "password change button"
+        assert_text_present(@@my_account_change_password)
+      when "newsletter"
+        scroll_page_till_text_found(@@my_account_newsletter_text)
+        assert_text_present(@@my_account_newsletter_text)
+      when "logout"
+        scroll_page_till_text_found(@@log_out_text)
+        assert_text_present(@@log_out_text)
+    end
+  end
+
 end
+
