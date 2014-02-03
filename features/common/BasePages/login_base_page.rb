@@ -36,6 +36,9 @@ class LoginBasePage < BasePage
     return HomePage.new
   end
 
+  def wait_for_home_page_to_load
+    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
+  end
 
   def check_login_screen
     assert_wait_for_text(@@login_page_text)

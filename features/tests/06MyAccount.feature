@@ -4,7 +4,7 @@ Feature: Verify My account page and sub pages
   Verify change password page
   Verify update email page
 
-  @test1
+
   Scenario: Verify my account page
     Given I am on my account page
     Then I verify below details on account page:
@@ -17,6 +17,7 @@ Feature: Verify My account page and sub pages
       | newsletter             |
       | logout                 |
 
+
   Scenario: Verify change password page
     Given I choose to change password from my account page
     Then I see change password page
@@ -24,6 +25,3 @@ Feature: Verify My account page and sub pages
   Scenario: Verify update email page
     Given I select update email from my account page
     Then I see update email page
-
-
-

@@ -7,16 +7,32 @@ require_relative '../../../common/BasePages/my_bookings_base_page'
 
 class MyBookingsPage < MyBookingsBasePage
 
+
+  def click_booking_in_past
+    scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
+
+    id="booking_detail_past."
+    name_of_last_dest= arr=query("* contentDescription:'#{id}' index:0 * contentDescription:'location.'", :text)
+    sleep 2
+
+    touch("* contentDescription:'#{id}' index:0")#click on first past booking
+    sleep 2
+    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
+
+    return name_of_last_dest
+  end
+
+
   def get_reservations(text)
     reservations= {}
     item_count=0
 
     if text=="past"
-      id="pastReservations"
-      scroll_to_id="Konto bearbeiten"
+      id="booking_detail_past"
+      scroll_to_id=@@my_bookings_edit_account
       scroll_back_to=@@my_bookings_past_bookings
     elsif text=="current"
-      id="currentReservations"
+      id="booking_detail_current"
       scroll_to_id=@@my_bookings_past_bookings
       scroll_back_to=@@my_bookings_current_bookings
     end
@@ -24,12 +40,12 @@ class MyBookingsPage < MyBookingsBasePage
     while true
       count=0
       #Read reservation shown on this page
-      reservations_count=query("* contentDescription:'#{id}.' * contentDescription:'booking_detail.'").count
+      reservations_count=query("* contentDescription:'#{id}.'").count
       while (count<=reservations_count)
         arr= Array.new
-        arr[0]=query("* contentDescription:'#{id}.' * contentDescription:'booking_detail.' index:#{count} * contentDescription:'location.'", :text).first
-        arr[1]=query("* contentDescription:'#{id}.' * contentDescription:'booking_detail.' index:#{count} * contentDescription:'date.'", :text).first
-        arr[2]=query("* contentDescription:'#{id}.' * contentDescription:'booking_detail.' index:#{count} * contentDescription:'details.'", :text).first
+        arr[0]=query("* contentDescription:'#{id}.' index:#{count} * contentDescription:'location.'", :text).first
+        arr[1]=query("* contentDescription:'#{id}.' index:#{count} * contentDescription:'date.'", :text).first
+        arr[2]=query("* contentDescription:'#{id}.' index:#{count} * contentDescription:'details.'", :text).first
 
         break if ((arr[0] && arr[1] && arr[2]) ==nil) # if three elements are not shown then break and scroll down
 
@@ -55,7 +71,7 @@ class MyBookingsPage < MyBookingsBasePage
     end
 
     puts reservations
-    scroll_page_till_text_found(scroll_back_to, "up")
+    scroll_page_and_assert_text(scroll_back_to, "up")
     return reservations
   end
 

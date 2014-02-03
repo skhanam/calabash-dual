@@ -33,12 +33,12 @@ class HomeBasePage < BasePage
   end
 
   def click_weather_biscuit
-    scroll_page_till_text_found("destination_temperature", "down")
+    scroll_page_and_assert_text("destination_temperature", "down")
     touch_and_verify("destination_temperature", @@weather_page_title)
   end
 
   def navigate_to_weather_page
-    scroll_page_till_text_found(@@side_panel_weather, "down")
+    scroll_page_and_assert_text(@@side_panel_weather, "down")
     touch_and_verify(@@side_panel_weather, @@weather_page_title)
     return WeatherPage.new
   end
@@ -49,13 +49,19 @@ class HomeBasePage < BasePage
     return BookingSummaryPage.new
   end
 
+  def navigate_to_contact_us_page
+    scroll_side_panel(@@side_panel_contact_us)
+    touch_and_verify(@@side_panel_contact_us, @@contact_us_contact_tui_service)
+    return ContactUsBasePage.new
+  end
+
 
   def click_countdown_biscuit
     touch_and_verify("countdown_biscuit", @@countdown_page_title)
   end
 
   def navigate_to_countdown_page
-    scroll_page_till_text_found(@@side_panel_countdown, "down")
+    scroll_page_and_assert_text(@@side_panel_countdown, "down")
     touch_and_verify(@@side_panel_countdown, @@countdown_page_title)
   end
 

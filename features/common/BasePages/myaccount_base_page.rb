@@ -19,7 +19,7 @@ class MyAccountBasePage < BasePage
 
   def verify_my_details
     sleep 2
-    scroll_page_till_text_found(@@personal_details, "up")
+    scroll_page_and_assert_text(@@personal_details, "up")
 
   end
 
@@ -33,7 +33,7 @@ class MyAccountBasePage < BasePage
     assert_text_present(@@my_account_update_email)
     assert_text_present(@@my_account_change_password)
 
-    scroll_page_till_text_found(@@log_out_text)
+    scroll_page_and_assert_text(@@log_out_text)
     assert_text_present(@@my_account_newsletter_text)
     assert_text_present(@@my_account_signup_newsletter)
     assert_text_present(@@log_out_text)
@@ -79,7 +79,7 @@ class MyAccountBasePage < BasePage
 
 
   def logout_from_app
-    scroll_page_till_text_found(@@log_out_text)
+    scroll_page_and_assert_text(@@log_out_text)
 
     touch($g_query_txt+"marked:'#{@@log_out_text}'")
     assert_wait_for_text(@@my_account_logout_title)
@@ -108,10 +108,10 @@ class MyAccountBasePage < BasePage
       when "password change button"
         assert_text_present(@@my_account_change_password)
       when "newsletter"
-        scroll_page_till_text_found(@@my_account_newsletter_text)
+        scroll_page_and_assert_text(@@my_account_newsletter_text)
         assert_text_present(@@my_account_newsletter_text)
       when "logout"
-        scroll_page_till_text_found(@@log_out_text)
+        scroll_page_and_assert_text(@@log_out_text)
         assert_text_present(@@log_out_text)
     end
   end

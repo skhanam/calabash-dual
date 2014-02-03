@@ -16,6 +16,12 @@ Folder structure
 <br /> features/tests	 - feature files
 <br /> features/z_dump	 - extra folder for dumping useful stuff and test data
 
+Execute tests
+===============
+
+sh runmeinetui.sh clean - IOS
+sh
+
 Getting Started
 ===============
 

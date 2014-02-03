@@ -23,7 +23,7 @@ class WeatherBasePage < BasePage
       next_day_date_text=next_day.strftime("%e. %B %Y")
       puts "#{next_day_text} #{next_day_date_text}"
 
-      scroll_page_till_text_found(@@share_weather, "down") if count >3
+      scroll_page_and_assert_text(@@share_weather, "down") if count >3
       wait_for_partial_text_shown(next_day_text.strip)
       wait_for_partial_text_shown(next_day_date_text.strip)
       count+=1

@@ -17,7 +17,7 @@ class NewUserRegistrationBasePage < BasePage
 
 
     #screen 2
-    scroll_page_till_text_found(@@new_user_registration_arrival_date)
+    scroll_page_and_assert_text(@@new_user_registration_arrival_date)
 
     assert_text_elements([@@new_user_registration_last_name, @@new_user_registration_booking_code,
                           @@new_user_registration_arrival_date])
@@ -27,7 +27,7 @@ class NewUserRegistrationBasePage < BasePage
                           @@new_user_registration_booking_code_hint] if $g_ios
 
     #screen 3
-    scroll_page_till_text_found @@new_user_registration_password
+    scroll_page_and_assert_text @@new_user_registration_password
     assert_text_present @@new_user_registration_create_account_text2
 
     assert_text_present @@new_user_registration_email
@@ -36,7 +36,7 @@ class NewUserRegistrationBasePage < BasePage
     assert_text_present @@new_user_registration_password_hint if $g_ios
 
     #screen 4
-    scroll_page_till_text_found @@new_user_registration_need_help
+    scroll_page_and_assert_text @@new_user_registration_need_help
     assert_text_present @@new_user_registration_newsletter
     assert_text_present @@new_user_registration_newsletter_text
     assert_text_present @@new_user_registration_register

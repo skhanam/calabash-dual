@@ -11,5 +11,6 @@ module TestModule
     @loginPage ||= LoginPage.new
     @newUserRegistrationBasePage ||= NewUserRegistrationBasePage.new
     @forgotPasswordBasePage ||= ForgotPasswordBasePage.new
+    @contactPage ||= ContactUsBasePage.new
   end
 end

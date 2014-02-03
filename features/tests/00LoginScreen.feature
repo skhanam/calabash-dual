@@ -1,3 +1,4 @@
+  @ios_test @android_test
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
@@ -5,6 +6,7 @@ Feature: Verify screens shown before logging into App
   Background:
     Given I am on 'Login' screen
 
+    @reset
   Scenario: Forgot password - Populated email field
     When I fill username in login screen
     And I navigate to forgot password screen

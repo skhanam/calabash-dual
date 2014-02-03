@@ -15,7 +15,6 @@ module ViewModule
   end
 
 
-
   # escape if there are + symbols in text
   def escape_plus(str)
     if str.include? '+'
@@ -25,11 +24,9 @@ module ViewModule
   end
 
 
-
   def get_acc_label_text(text)
     return query($g_query_txt+"marked:'#{text}'", :text).first || query($g_query_txt+"contentDescription:'#{text}.'", :text).first
   end
-
 
 
   #Wait to check if acc label appears on screen
@@ -71,7 +68,7 @@ module ViewModule
 ## Specify text to check and time to wait for
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)
-    query_text=$g_query_txt+"{text LIKE '*#{text}'}"
+    query_text=$g_query_txt+"{text LIKE '*#{text}*'}"
     begin
       wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
         puts ":#{text}:"
@@ -119,7 +116,8 @@ module ViewModule
   end
 
   def wait_for_progress_to_disappear(str, timeout=10)
-    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 0.5) { element_does_not_exist($g_query_txt+"marked:'#{str}'") }
+    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 0.5) { puts "checking"
+    element_does_not_exist($g_query_txt+"marked:'#{str}'") }
   end
 
   def readAllLabels
@@ -135,8 +133,6 @@ module ViewModule
     touch("view marked:'#{text}'")
     sleep(1)
   end
-
-
 
 
   def check_acc_label(id)

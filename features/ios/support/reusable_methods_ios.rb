@@ -48,7 +48,7 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-      touch("view text:'#{escape_quotes_smart(text)}'")
+    touch("view text:'#{escape_quotes_smart(text)}'")
   end
 
   def click_back_button
@@ -60,6 +60,7 @@ module IosReusableMethods
     query_text=$g_query_txt+"accessibilityLabel:'#{label}'"
     query(query_text, :text)[0]
   end
+
   def wait_for_acc_label(text, timeout=10)
     query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}'"
 
@@ -149,16 +150,27 @@ module IosReusableMethods
     sleep(3)
   end
 
-
-  def scroll_page_till_text_found(id, dir="down")
+#Scroll to particular page on text and assert if its not present
+#default scrolling direction is down unless specified
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil)
     count=0
+    return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+
     while count < 10
-      if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-        break
-      end
+
       count+=1
       scroll_view(dir)
+
+      break if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+
+      #If text is not found even after scrolling till end of page then fail
+      if till_id!=nil && element_exists("view marked:'#{till_id}'")
+        fail "id/text #{id} not present on screen"
+      end
+      sleep 0.5
+
     end
+    fail "id/text :#{id}: not present on screen" if count==10
     sleep 2
   end
 
@@ -167,7 +179,6 @@ module IosReusableMethods
     scroll("scrollView", "up") if dir=="up"
     sleep 0.5
   end
-
 
   def scroll_table_to_text(text)
     wait_poll({:until_exists => "view marked:'#{text}'",

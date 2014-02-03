@@ -31,6 +31,17 @@ class User
   include UserData
 
   def initialize(options={})
+    self.first_name= options[:first_name] || "Peter"
+    self.last_name= options[:last_name] || "Pan"
+    self.user_name= options[:user_name] || "peterpan"
+    self.email_id= options[:email_id] || "mttest6@tui.de"
+    self.password= options[:password] || "testtest"
+    self.age= options[:age]
+    self.CurrentBookings=options[:CurrentBookings]
+    self.PastBookings=options[:PastBookings]
+  end
+
+  def initialize_reisender(options={})
     self.first_name= options[:first_name] || "Susi"
     self.last_name= options[:last_name] || "Sonne"
     self.user_name= options[:user_name] || "Reisender"

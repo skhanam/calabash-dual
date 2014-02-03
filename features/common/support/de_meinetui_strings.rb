@@ -27,6 +27,7 @@ module DEMeineTUI
     new_to_tui_strings
     new_user_registration
     forgot_password_strings
+    contact_us_strings
 
   end
 
@@ -87,6 +88,7 @@ module DEMeineTUI
     @@side_panel_countdown="Urlaubscountdown"
     @@side_panel_weather="Reisewetter"
     @@side_panel_booking_summary="Auf einen Blick"
+    @@side_panel_contact_us="Kontakt"
 
   end
 
@@ -230,6 +232,40 @@ module DEMeineTUI
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help="Ich benötige Hilfe"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
+  end
 
+  def contact_us_strings
+    @@contact_us_contact= "Kontakt"
+    @@contact_us_learn_more= "Sie möchten mehr über Ihr Reiseziel erfahren oder einen Ausflug buchen? Wir helfen Ihnen gerne weiter!"
+    @@contact_us_contact_tui_service = "TUI Service vor Ort"
+    @@contact_us_first_name= "Vorname:"
+    @@contact_us_last_name = "Nachname:"
+    @@contact_us_email_id = "E-Mail:"
+    @@contact_us_telefon = "Telefon (optional)"
+    @@contact_us_subject = "Betreff"
+    @@contact_us_message = "Nachricht"
+    @@contact_us_send_email = "Absenden"
+    @@contact_us_privacy_policy= "Datenschutz und Nutzungsbedingungen"
+    @@contact_us_disclaimer= "Impressum"
+    @@contact_us_contact_copy= ["TUI Deutschland GmbH",
+                                "Karl-Wiechert-Allee 23",
+                                "30625 Hannover",
+                                "Telefon 05 11 / 5 67-0",
+                                "Telefax 05 11 / 5 67-13 01",
+                                "E-Mail: info@tui.de",
+                                "Handelsregister",
+                                "Amtsgericht Hannover",
+                                "HRB 56512",
+                                "Ust-Ident.-Nr. DE 812777076",
+                                "Vorsitzender des Aufsichtsrates:",
+                                "Dr. Michael Frenzel",
+                                "Geschäftsführung: Christian Clemens (Vorsitzender)",
+                                "Dr. Oliver Dörschuck",
+                                "Henrik Homann"]
+
+    #TODO check this text must be verified or not
+    #@@contact_us_questions_about_reservations="Bei Fragen rund um Ihre Buchung, TUI allgemein oder bei technischen Problemen stehen wir Ihnen gerne zur Verfügung."
+    #privacy policy button
+    #@@contact_us_we_are_here="So erreichen Sie uns"
   end
 end
