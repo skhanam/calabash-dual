@@ -54,3 +54,9 @@ When(/^I navigate to my bookings page$/) do
   @page=@myBookingsPage
 end
 
+
+Given(/^I am on contact us screen$/) do
+  step "I am on Home screen"
+  @page.open_side_panel
+  @page=@page.navigate_to_contact_us_page
+end

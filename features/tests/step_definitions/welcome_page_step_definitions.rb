@@ -20,11 +20,13 @@ end
 
 When(/^I am on Home screen$/) do
   if @homePage.check_home_screen
+    @loginPage.wait_for_home_page_to_load
     @page=@homePage
   else
     @page=@welcomePage
     step "I log into Application"
     sleep 5
+    @page.wait_for_home_page_to_load
     @page.check_home_screen
   end
 end

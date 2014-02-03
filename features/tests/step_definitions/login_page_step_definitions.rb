@@ -9,6 +9,7 @@ Given(/^I log into Application/) do
   step "I am on 'Login' screen"
   step 'I enter default username and password in login page'
   step "click on login button"
+  @page=@homePage
 end
 
 Given(/^I am on '(.+)' screen/) do |page_name|
