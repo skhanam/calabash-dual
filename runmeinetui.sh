@@ -19,6 +19,9 @@ if [ "$1" == "clean" ] ; then
 killall Xcode
 ./expect.sh $PROJ_NAME
 open -a Xcode
+sleep  5
+echo $PROJ_LOC
+open $PROJ_LOC
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
