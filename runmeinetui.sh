@@ -13,7 +13,7 @@ BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
 APPNAME="meine TUI"
-PROJ_LOC="../${PROJ_NAME}/build/iphone/meine TUI.xcodeproj"
+PROJ_LOC="${PROJ_NAME}/build/iphone/meine TUI.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
