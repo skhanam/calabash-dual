@@ -2,7 +2,7 @@
 set arg1 [lindex $argv 0]
  
 set timeout 10
-spawn ti clean --project-dir ../$arg1
+spawn ti clean --project-dir $arg1
 expect "Project cleaned successfully"
 
 spawn ti build --platform ios --project-dir ../$arg1 --target-deploy development
