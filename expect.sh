@@ -5,7 +5,7 @@ set timeout 10
 spawn ti clean --project-dir $arg1
 expect "Project cleaned successfully"
 
-spawn ti build --platform ios --project-dir $arg1 --target-deploy development
+spawn ti build --platform  ios --project-dir $arg1 --target-deploy development
 set timeout 60
 expect "Alloy compiler completed successfully"
 expect "Focusing the iOS Simulator"
