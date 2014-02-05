@@ -20,8 +20,7 @@ Before do |scenario|
     @calabash_launcher.relaunch
     @calabash_launcher.calabash_notify(self)
   end
-
-  #start_test_server_in_background(:timeout=>30)
+  start_test_server_in_background(:timeout=>30)
 end
 
 
