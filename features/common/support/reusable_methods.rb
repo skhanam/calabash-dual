@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rubyXL'
 require 'date'
 require_relative '../support/application_strings'
