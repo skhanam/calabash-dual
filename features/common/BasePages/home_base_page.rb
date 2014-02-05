@@ -1,3 +1,4 @@
+# encoding: utf-8
 #require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
 #require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
