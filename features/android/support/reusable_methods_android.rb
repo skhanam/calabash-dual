@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rubyXL'
 require_relative '../../common/support/application_strings'
 require_relative '../../common/support/reusable_methods'
