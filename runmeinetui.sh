@@ -14,6 +14,7 @@ PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
 APPNAME="meine TUI"
 PROJ_LOC="${PROJ_NAME}"/build/iphone/meine\ TUI.xcodeproj
+echo PROJ_LOC="${PROJ_NAME}"/build/iphone/meine\ TUI.xcodeproj
 
 
 if [ "$1" == "clean" ] ; then
@@ -27,7 +28,8 @@ sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
 
-BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
+echo xcodebuild -project ${PROJ_LOC}
+BUILT_PRODUCTS_DIR=$(xcodebuild -project ${PROJ_LOC} ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
