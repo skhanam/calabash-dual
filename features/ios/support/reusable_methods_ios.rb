@@ -114,7 +114,6 @@ module IosReusableMethods
   #touch text and verify result
 
   def touch_and_verify(label_touch, label_expected)
-    click_on_text label_touch
     touch_transition_timeout=10
     touch_transition_retry=1
     touch_transition("view marked:'#{label_touch}'", "view marked:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
