@@ -15,7 +15,6 @@ ARCHITECTURE_SELECTED=i386
 APPNAME="meine TUI"
 PROJ_LOC="${PROJ_NAME}"/build/iphone/meine\ TUI.xcodeproj
 
-open ${PROJ_NAME}/build/iphone/*.xcodeproj
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
@@ -23,7 +22,7 @@ killall Xcode
 open -a Xcode
 sleep  5
 echo $PROJ_LOC
-open "${PROJ_NAME}/build/iphone/*.xcodeproj"
+open ${PROJ_NAME}/build/iphone/*.xcodeproj
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 
