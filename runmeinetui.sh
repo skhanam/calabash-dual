@@ -15,6 +15,8 @@ ARCHITECTURE_SELECTED=i386
 APPNAME="meine TUI"
 PROJ_LOC="${PROJ_NAME}"/build/iphone/meine\ TUI.xcodeproj
 
+open ${PROJ_NAME}/build/iphone/*.xcodeproj
+
 if [ "$1" == "clean" ] ; then
 killall Xcode
 ./expect.sh $PROJ_NAME
@@ -24,7 +26,6 @@ echo $PROJ_LOC
 open "${PROJ_NAME}/build/iphone/*.xcodeproj"
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
-fi
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 
@@ -34,3 +35,4 @@ echo $APP_BUNDLE_PATH_VAR
 echo DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/
 DEVICE_TARGET=simulator TESTENV=DE_MT TESTENV="DE_MT" BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios -f html -o report.html features/
 
+fi
