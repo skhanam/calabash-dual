@@ -38,7 +38,8 @@ class HomePage < HomeBasePage
 
   def open_side_panel
     sleep 1
-    swipe_dir("right")
+    touch "view marked:'navbarLeftButton'"
+    #swipe_dir("right")
     sleep 1
   end
 
