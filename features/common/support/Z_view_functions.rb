@@ -116,7 +116,7 @@ module ViewModule
   end
 
   def wait_for_progress_to_disappear(str, timeout=10)
-    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 0.5) { puts "checking"
+    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 0.5) { puts "checking #{str}"
     element_does_not_exist($g_query_txt+"marked:'#{str}'") }
   end
 

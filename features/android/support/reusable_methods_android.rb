@@ -86,13 +86,13 @@ module AndroidReusableMethods
   end
 
   # scroll in specified direction till id is found
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil)
-    count=0
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil,count=10)
+    repeat_count=0
     return if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
 
-    while (count < 10)
+    while (repeat_count < count)
       break
-      count+=1
+      repeat_count+=1
       scroll_view(dir)
       #if text we are searching is found break on success
       break if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
@@ -104,7 +104,7 @@ module AndroidReusableMethods
 
       sleep 0.5
     end
-    fail "id/text #{id} not present on screen" if count==10
+    fail "id/text #{id} not present on screen" if repeat_count==10
     sleep 2
   end
 

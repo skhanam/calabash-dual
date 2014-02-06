@@ -15,7 +15,7 @@ class MyBookingsBasePage < BasePage
   end
 
   def navigate_to_account_details
-    scroll_page_and_assert_text(@@my_bookings_edit_account, "down")
+    scroll_page_and_assert_text(@@my_bookings_edit_account, "down",nil,20)
     click_on_text(@@my_bookings_edit_account)
     assert_wait_for_text(@@my_account_title)
   end

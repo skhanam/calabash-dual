@@ -134,7 +134,8 @@ module DEMeineTUI
     @@countdown_hours_text="Stunden"
     @@countdown_minutes_text="Minuten"
     @@countdown_seconds_text="Sekunden"
-    @@countdown_countdown_message="Auf nach .*? in"
+    @@countdown_countdown_message1="Auf nach .*? in"
+    @@countdown_countdown_message2="Ich fliege nach .*? in"
   end
 
   def booking_summary_strings

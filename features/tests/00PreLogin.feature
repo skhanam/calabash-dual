@@ -1,3 +1,4 @@
+@reset
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
@@ -5,7 +6,7 @@ Feature: Verify screens shown before logging into App
   Background:
     Given I am on welcome page
 
-  @android_test @reset
+  @android_test
   Scenario: Verify new to TUI page
     When I choose haven't booked through TUI
     Then I see new to TUI page

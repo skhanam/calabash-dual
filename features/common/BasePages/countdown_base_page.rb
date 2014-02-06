@@ -22,8 +22,9 @@ class CountDownBasePage < BasePage
     #assert_text_present(@@countdown_seconds_text)
 
     @@countdown_message_from_screen=get_acc_label_text("slogan_text")
-    if @@countdown_message_from_screen.match(/#{@@countdown_countdown_message}/)==nil
-      fail ("text #{@@countdown_message_from_screen} not found")
+    if @@countdown_message_from_screen.match(/#{@@countdown_countdown_message1}/)==nil &&
+        @@countdown_message_from_screen.match(/#{@@countdown_countdown_message2}/)==nil
+      fail ("expected:#{@@countdown_countdown_message}: actual text:#{@@countdown_message_from_screen}")
     end
   end
 end

@@ -30,7 +30,7 @@ class HomeBasePage < BasePage
 
   def check_i_am_on_home_page
     check_home_screen
-    check_welcome_messages
+    #check_welcome_messages
   end
 
   def click_weather_biscuit

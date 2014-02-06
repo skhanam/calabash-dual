@@ -153,13 +153,13 @@ module IosReusableMethods
 
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil)
-    count=0
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil,count=10)
+    repeat_count=0
     return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
 
-    while count < 10
+    while repeat_count < count
 
-      count+=1
+      repeat_count+=1
       scroll_view(dir)
 
       break if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
@@ -171,7 +171,7 @@ module IosReusableMethods
       sleep 0.5
 
     end
-    fail "id/text :#{id}: not present on screen" if count==10
+    fail "id/text :#{id}: not present on screen" if repeat_count==10
     sleep 2
   end
 

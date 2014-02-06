@@ -4,6 +4,7 @@ class LoginBasePage < BasePage
   #  #await
   #end
 
+
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
   end
@@ -14,7 +15,7 @@ class LoginBasePage < BasePage
   end
 
   def click_forgot_password
-  touch_and_verify(@@password_reset,@@forgot_password_title)
+    touch_and_verify(@@password_reset, @@forgot_password_title)
   end
 
   def enter_default_username_password
@@ -37,7 +38,7 @@ class LoginBasePage < BasePage
   end
 
   def wait_for_home_page_to_load
-    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
+    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 
   def check_login_screen
@@ -53,9 +54,9 @@ class LoginBasePage < BasePage
                           @@password_hint_text,
                           @@login_button,
                           @@password_reset,
-                          @@i_need_help,
-                          @@privacy_terms_of_use])
-
+                          @@i_need_help
+                         ])
+    scroll_page_and_assert_text @@privacy_terms_of_use
   end
 
   def enter_date(date_int)

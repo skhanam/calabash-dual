@@ -7,6 +7,7 @@ Feature: Verify product pages by navigating through biscuits
   Background:
     Given I am on Home screen
 
+  @failed
   Scenario: navigate to countdown page
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
