@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'calabash-cucumber/ibase'
 
 require_relative '../common/support/reusable_methods'

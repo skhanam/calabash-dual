@@ -18,5 +18,5 @@ ios_jenkin: BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/
 #ios: RESET_BETWEEN_SCENARIOS=0 APP_BUNDLE_PATH="~/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/9535AA05-44DB-455A-9FE1-366673C67E41/meine.tui.app" PLATFORM=ios6.1 <%= common_path %> <%= ios_specific_path %> --tag @smoke
 ios: RESET_BETWEEN_SCENARIOS=0  PLATFORM=ios <%= common_path %> <%= ios_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o report.html  --tag @ios_test
 
-de_mt_ios: TESTENV=DE_MT DEVICE_TARGET=simulator SCREENSHOT_PATH=features/z_dump/ios_screens/ PLATFORM=ios <%= common_path %> <%= de_mt_ios_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o ios-report.html --tag  @test1
-de_mt_android:  TESTENV=DE_MT SCREENSHOT_PATH=features/z_dump/android_screens/ PLATFORM=android <%= common_path %> <%= de_mt_android_specific_path %>   -f 'Slowhandcuke::Formatter'  -f html -o android-report.html --tag @android_test
+de_mt_ios: TESTENV=DE_MT DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios <%= common_path %> <%= de_mt_ios_specific_path %>  -f 'Slowhandcuke::Formatter' -f html -o ios-report.html  -f junit -o features/report/junit -f json -o features/report/report.json --tag  @ios_test1
+de_mt_android:  TESTENV=DE_MT  PLATFORM=android <%= common_path %> <%= de_mt_android_specific_path %>   -f 'Slowhandcuke::Formatter'  -f html -o android-report.html -f junit -o features/report/junit -f json -o features/report/report.json --tag @android_test

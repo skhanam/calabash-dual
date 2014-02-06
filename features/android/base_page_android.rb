@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'calabash-android/abase'
 require_relative '../common/support/reusable_methods'
 require_relative '../common/support/application_strings'
