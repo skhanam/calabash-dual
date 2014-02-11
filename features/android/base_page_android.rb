@@ -17,12 +17,23 @@ class BasePage < Calabash::ABase
   include UserData
   include ReusableMethods
 
-  def initialize
-    #puts caller.first
-    #set_strings
-    #await
-    self
+  def method_missing sym, *args, &block
+    send sym, *args, &block
   end
+
+  def self.element element_name
+    define_method element_name.to_s
+  end
+
+
+
+  class << self
+    alias :value    :element
+    alias :action   :element
+    alias :trait    :element
+  end
+
+
 
   def write_hash_to_file(count)
     @@result_hash.each do |key, var|

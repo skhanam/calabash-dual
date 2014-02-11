@@ -37,6 +37,7 @@ module IosReusableMethods
 
   def click_on_text(text)
     touch("view text:'#{escape_quotes_smart(text)}'")
+    sleep 1
   end
 
   def click_back_button

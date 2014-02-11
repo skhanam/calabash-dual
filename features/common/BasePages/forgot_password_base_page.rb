@@ -11,6 +11,11 @@ class ForgotPasswordBasePage < BasePage
     enter_username_or_email(USERS[:invalid][:email])
   end
 
+  def click_forgot_password
+    click_on_text @@forgot_password_title
+  end
+
+
   action(:submit_change_password)  {click_on_text @@forgot_password_send_button}
   #def submit_change_password
   #  click_on_text @@forgot_password_send_button

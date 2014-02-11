@@ -9,7 +9,7 @@ spawn ti build --platform  ios --project-dir $arg1 --target-deploy development
 set timeout 60
 expect "Alloy compiler completed successfully"
 expect "Focusing the iOS Simulator"
-expect "Application booted in"
+expect "BEGIN ANIMATION"
 spawn sleep 5
 send \004
 spawn killall Xcode

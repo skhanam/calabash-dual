@@ -2,8 +2,6 @@ require_relative '../../../common/BasePages/login_base_page'
 
 class LoginPage < LoginBasePage
 
-
-
   def verify_login_page
     assert_wait_for_text @@login_page_text
     assert_wait_for_text @@email_text

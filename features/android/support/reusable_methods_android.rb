@@ -35,6 +35,7 @@ module AndroidReusableMethods
 
   def click_on_text(text)
     performAction('click_on_text', escape_quotes_smart(text))
+    sleep 1
   end
 
   def click_back_button

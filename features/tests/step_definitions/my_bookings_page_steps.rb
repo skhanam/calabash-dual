@@ -12,7 +12,7 @@ end
 
 
 When(/^I switch to a booking in past$/) do
-  @booking_in_past_message.click_booking_in_past
+  @myBookingsPage.click_booking_in_past
 end
 
 Then(/^I verify welcome message for booking in past$/) do

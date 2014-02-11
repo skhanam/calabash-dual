@@ -16,11 +16,11 @@ Feature: Verify screens shown before logging into App
     When I navigate to new user registration page
     Then I see new user registration page
 
-  @android_test @ios_test @demo
+  @android_test @ios_test @failed
   Scenario: Already customer and I have logged in before
     When I choose am already a customer
     And I have already registered with TUI
-    Then I see login screen
+    Then I see login Page
 
   @ios_test
   Scenario: Verify new to TUI page & check video

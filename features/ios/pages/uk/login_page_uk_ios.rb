@@ -14,7 +14,7 @@ class LoginPage < LoginBasePage
       touch($g_query_txt+"text:'#{@@login_page_text}' index:0")
     end
 
-    @page=HomePage.new.await
+    HomePage.new.await
     puts "criteria #{criteria} @@welcome_msg_hash[criteria] #{@@welcome_msg_hash[criteria]}"
 
     @@welcome_msg_hash[criteria].each do |message|

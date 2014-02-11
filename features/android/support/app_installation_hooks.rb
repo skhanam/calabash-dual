@@ -15,6 +15,10 @@ Before do |scenario|
 
   feature_name = scenario.feature.title
 
+  scenario_tags = scenario.source_tag_names
+  if scenario_tags.include?('@reset')
+    clear_app_data
+  end
 
   if FeatureNameMemory.feature_name != feature_name \
       or ENV["RESET_BETWEEN_SCENARIOS"] == "1"

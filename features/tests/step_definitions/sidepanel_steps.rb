@@ -11,7 +11,6 @@ When(/^I see holiday countdown page$/) do
   step "I navigate back to home page from countdown page"
 end
 
-
 # ----------------------------------------------------------------------------------------------------------------------
 # count down page step definitions
 
@@ -19,7 +18,6 @@ When(/^I navigate back to home page from weather page$/) do
   sleep 1
   @page.click_back_button
 end
-
 
 When(/^I see holiday weather page$/) do
   @weatherPage.check_weather_page

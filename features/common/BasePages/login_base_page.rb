@@ -46,19 +46,6 @@ class LoginBasePage < BasePage
     assert_wait_for_text(@@login_page_text)
   end
 
-  def check_login_page
-    check_login_screen
-    assert_text_elements([@@login_page_text,
-                          @@email_text,
-                          @@email_hint_text,
-                          @@password_text,
-                          @@password_hint_text,
-                          @@login_button,
-                          @@password_reset,
-                          @@i_need_help
-                         ])
-    scroll_page_and_assert_text @@privacy_terms_of_use
-  end
 
   def enter_date(date_int)
     day, month, year=convert_excel_date_to_str(date_int).split(/-/)

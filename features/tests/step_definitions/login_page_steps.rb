@@ -41,8 +41,11 @@ When (/^click on login button$/) do
 end
 
 
+Then(/^I see login Page/) do
+  @loginPage.verify_login_page
+end
 Then(/^I see login screen$/) do
-  @loginPage.check_login_page
+  @loginPage.check_login_screen
 end
 
 When(/^I fill (valid|invalid) username in login screen$/) do |condition|
