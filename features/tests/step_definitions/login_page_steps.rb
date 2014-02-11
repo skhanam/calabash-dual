@@ -9,15 +9,13 @@ Given(/^I log into Application/) do
   step "I am on 'Login' screen"
   step 'I enter default username and password in login page'
   step "click on login button"
-  @page=@homePage
 end
 
 Given(/^I am on '(.+)' screen/) do |page_name|
   case page_name
     when 'Login' then
-      @page= @welcomePage.navigate_to_login
+      @welcomePage.navigate_to_login
     when 'Welcome' then
-      @page=@welcomePage
       @welcomePage.verify_welcome_screen
     else
       fail("page not found")
@@ -39,7 +37,7 @@ When (/^I enter default username and password in login page$/) do
 end
 
 When (/^click on login button$/) do
-  @loginPage=@page.submit_login_button
+  @loginPage.submit_login_button
 end
 
 
@@ -53,26 +51,25 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
 end
 
 Then(/^I see my username is already populated$/) do
-  @loginPage.check_email_populated(@valid_username)
+  @forgotPasswordBasePage.check_email_populated(@valid_username)
 end
 
 When(/^I navigate to forgot password screen$/) do
   sleep 2
-  @loginPage.click_forgot_password
-  @page=@forgotPasswordBasePage
+  @forgotPasswordBasePage.click_forgot_password
 end
 
 
 Then(/^I see my username is empty$/) do
-  @page.check_email_field_empty
+  @forgotPasswordBasePage.check_email_field_empty
 end
 
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
-  @page.enter_wrong_username_or_email  if condition.eql? 'invalid'
+  @forgotPasswordBasePage.enter_wrong_username_or_email  if condition.eql? 'invalid'
   fail 'TODO'  if condition.eql? 'valid'
   @page.submit_change_password
 end
 
 Then(/^I see appropriate error message$/) do
-  @page.check_wrong_username_email
+  @forgotPasswordBasePage.check_wrong_username_email
 end

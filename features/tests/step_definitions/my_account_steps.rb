@@ -1,18 +1,18 @@
 Then(/^I see my account page$/) do
-  @page.check_my_account_page
+  @myAccountPage.check_my_account_page
 end
 
 Then(/^I see my account screen/) do
-  @page.check_my_account_screen
+  @myAccountPage.check_my_account_screen
 end
 
 When(/^I select update email from my account page$/) do
   step "I am on my account page"
-  @page.click_update_email_button
+  @myAccountPage.click_update_email_button
 end
 
 Then(/^I see update email page$/) do
-  @page.check_update_email_page
+  @myAccountPage.check_update_email_page
 end
 
 Given(/^I am on my account page$/) do
@@ -23,22 +23,21 @@ Given(/^I am on my account page$/) do
 end
 
 When(/^I select change password from my account page$/) do
-  @page.click_change_password_button
+  @myAccountPage.click_change_password_button
 end
 
 Then(/^I see change password page$/) do
-  @page.check_change_password_page
+  @myAccountPage.check_change_password_page
 end
 
 
 And(/^verify my details on account page$/) do
   step "I see my account page"
-  @page.verify_my_details
+  @myAccountPage.verify_my_details
 end
 
 When(/^I log out from application$/) do
-  @page.logout_from_app
-  @page=@welcomePage
+  @myAccountPage.logout_from_app
 end
 
 #Given(/^I choose to edit my account$/) do
