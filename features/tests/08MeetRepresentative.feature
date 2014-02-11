@@ -1,22 +1,10 @@
 @ios_test @android_test
 Feature: Verify meet representative page
 
-
+  @testing
   Scenario: Verify meet representative page
-    Given I navigate to terms page from side panel
-    Then I see terms page is displayed correctly
-
-  Scenario: Verify links on Terms and conditions page
-    Given I navigate to terms page from side panel
-    Then I verify below links on terms page
-      | call us          |
-      | Send us email    |
-      | TUI service form |
-
-
-
-
-
+    Given I navigate to meet representative page from side panel
+    Then I see meet representative page is displayed correctly
 
 
 

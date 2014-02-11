@@ -6,4 +6,4 @@ ti build --platform android -b --project-dir ../meine.tui
 cp ../meine.tui/build/android/bin/app-unsigned.apk app.apk
 calabash-android resign app.apk
 fi
-calabash-android  run app.apk -p de_mt_android_jenkins -v
+calabash-android  run app.apk -p de_mt_android_jenkins

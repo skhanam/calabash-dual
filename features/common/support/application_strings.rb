@@ -12,17 +12,11 @@ module AppStrings
 
   def set_strings
     set_query_text
-    $g_user_details="features/z_dump/test_data/user_details.txt"
-
     if ($g_strings_set==true)
       return
     else
       $g_strings_set=true
     end
-
-
-    #puts "******* setting strings ********"
-    #puts caller.first
 
     if (ENV['TESTENV']=='DE_MT')
       # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app

@@ -29,6 +29,7 @@ module DEMeineTUI
     forgot_password_strings
     contact_us_strings
     terms_strings
+    meet_rep_strings
   end
 
   #All test data for different appication is in here
@@ -94,6 +95,7 @@ module DEMeineTUI
     @@side_panel_booking_summary="Auf einen Blick"
     @@side_panel_contact_us="Kontakt"
     @@side_panel_TandC="TUI Service vor Ort"
+    @@side_panel_meet_rep=get_localized_string "travelAgent_title"
   end
 
   def my_bookings_strings
@@ -240,11 +242,11 @@ module DEMeineTUI
   end
 
   def contact_us_strings
-    @@contact_us_contact=get_localized_string "Kontakt"
+    @@contact_us_contact=get_localized_string "contact"
     @@contact_us_learn_more=get_localized_string "contact_questions"
     @@contact_us_contact_tui_service = get_localized_string "service_on_site"
     @@contact_us_first_name=get_localized_string "forename"
-    @@contact_us_last_name =get_localized_string "Nachname:"
+    @@contact_us_last_name =get_localized_string "surname"
     @@contact_us_email_id = get_localized_string "email"
     @@contact_us_telephone = get_localized_string "contact_phone"
     @@contact_us_query_sent= get_localized_string "contact_query_sent"
@@ -290,8 +292,14 @@ module DEMeineTUI
     @@terms_are_you_sure = get_localized_string "product_call_dialog_message"
     @@terms_dialog_no = get_localized_string "product_call_dialog_no"
     @@terms_dialog_yes = get_localized_string "product_call_dialog_yes"
-    @@terms_dialog_number= get_localized_string("product_call_dialog_title").gsub /\[number\]/, ''
+    @@terms_dialog_number= "Nummer"
 
+  end
+
+  def meet_rep_strings
+    @@meet_rep_title= get_localized_string "travelAgent_title"
+    @@meet_rep_email_link= get_localized_string "travelAgent_email"
+    @@meet_rep_call_us= get_localized_string "travelAgent_phone"
   end
 end
 

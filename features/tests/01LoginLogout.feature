@@ -1,8 +1,8 @@
-@android_test @ios_test
+@android_test @ios_test  @reset
 Feature: Login and Home page features
   Login into application
 
-  @reset
+
   Scenario: Login and verify home screen
     Given I log into Application
     Then I must be on Home page

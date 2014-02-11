@@ -30,10 +30,8 @@ module AndroidReusableMethods
     return str.gsub("'", "\\\\\'")
   end
 
-
-
-
   def click_on_text(text)
+    puts "click_on_text:#{text}:"
     performAction('click_on_text', escape_quotes_smart(text))
     sleep 1
   end

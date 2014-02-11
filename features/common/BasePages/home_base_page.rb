@@ -45,7 +45,11 @@ class HomeBasePage < BasePage
   def navigate_to_weather_page
     scroll_page_and_assert_text(@@side_panel_weather, "down")
     touch_and_verify(@@side_panel_weather, @@weather_page_title)
-    return WeatherPage.new
+  end
+
+  def navigate_to_meet_rep_page
+    scroll_page_and_assert_text(@@side_panel_meet_rep, "down")
+    click_on_text @@side_panel_meet_rep
   end
 
   def navigate_to_TandC_page
@@ -56,13 +60,11 @@ class HomeBasePage < BasePage
   def navigate_to_booking_summary_page
     scroll_side_panel(@@side_panel_booking_summary)
     touch_and_verify(@@side_panel_booking_summary, @@booking_summary_title)
-    return BookingSummaryPage.new
   end
 
   def navigate_to_contact_us_page
     scroll_side_panel(@@side_panel_contact_us)
     touch_and_verify(@@side_panel_contact_us, @@contact_us_contact_tui_service)
-    return ContactUsBasePage.new
   end
 
 

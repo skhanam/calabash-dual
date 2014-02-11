@@ -52,6 +52,13 @@ When(/^I navigate to my bookings page$/) do
 end
 
 
+Given(/^I navigate to meet representative page from side panel$/) do
+  step "I am on Home screen"
+  @homePage.open_side_panel
+  @homePage.navigate_to_meet_rep_page
+end
+
+
 Given(/^I am on contact us screen$/) do
   step "I am on Home screen"
   @homePage.open_side_panel

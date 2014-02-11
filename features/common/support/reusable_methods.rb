@@ -32,6 +32,7 @@ module ReusableMethods
     return @hasharr["#{txt}"]
   end
 
+  # TODO not used
   #read from  brand-ntc-ios/features/strings/languagefolder/file
   def read_copy_from_user_details(arg1)
     filename =$g_user_details
@@ -64,6 +65,7 @@ module ReusableMethods
     end
     $g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
   end
+
 
   def read_test_data()
     file_path=$g_booking_data

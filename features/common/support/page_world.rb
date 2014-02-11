@@ -17,5 +17,6 @@ module TestModule
     @tuiServicePage ||= TUIServicePage.new
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
+    @meetRepBasePage ||=MeetRepBasePage.new
   end
 end
