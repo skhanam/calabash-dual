@@ -28,12 +28,9 @@ module ViewModule
     return query($g_query_txt+"marked:'#{text}'", :text).first || query($g_query_txt+"contentDescription:'#{text}.'", :text).first
   end
 
-
   #Wait to check if acc label appears on screen
   def assert_wait_for_acc_label(text, timeout=10)
-    if wait_for_acc_label(text, timeout)==false
-      fail("assert_wait_for_acc_label text failed to find acc label:#{text}:")
-    end
+    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if  wait_for_acc_label text, timeout
     return true
   end
 
@@ -85,13 +82,6 @@ module ViewModule
     return true
   end
 
-
-  #assert if acc label is no present on screen withing specified time
-  def assert_wait_for_acc_label(text, timeout=10)
-    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if wait_for_acc_label(text, timeout)==false
-    return true
-  end
-
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
     begin
@@ -116,12 +106,11 @@ module ViewModule
   end
 
   def wait_for_progress_to_disappear(str, timeout=10)
-    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 0.5) { puts "checking #{str}"
-    element_does_not_exist($g_query_txt+"marked:'#{str}'") }
-  end
-
-  def readAllLabels
-    return query("label", :text)
+    puts "waiting for progress bar"
+    wait_for(:timeout => timeout, :post_timeout => 2, :retry_frequency => 1) {
+      puts "checking #{str}"
+      break if element_does_not_exist($g_query_txt+"marked:'#{str}'")
+    }
   end
 
   def click_button_text_repeatedly(text)

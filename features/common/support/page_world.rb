@@ -12,5 +12,7 @@ module TestModule
     @newUserRegistrationBasePage ||= NewUserRegistrationBasePage.new
     @forgotPasswordBasePage ||= ForgotPasswordBasePage.new
     @contactPage ||= ContactUsBasePage.new
+    @termsPage ||= TermsAndConditionsPage.new
+    @tuiServicePage ||= TUIServicePage.new
   end
 end

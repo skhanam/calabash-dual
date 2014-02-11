@@ -25,8 +25,9 @@ class HomeBasePage < BasePage
 
   #Check one element on home screen to confirm page is loaded
   def check_home_screen
-    return wait_for_acc_label(@@home_page_acc_label, 10)
+    return wait_for_acc_label(@@home_page_acc_label, 20)
   end
+
 
   def check_i_am_on_home_page
     check_home_screen
@@ -42,6 +43,12 @@ class HomeBasePage < BasePage
     scroll_page_and_assert_text(@@side_panel_weather, "down")
     touch_and_verify(@@side_panel_weather, @@weather_page_title)
     return WeatherPage.new
+  end
+
+  def navigate_to_TandC_page
+    scroll_side_panel(@@side_panel_TandC)
+    touch_and_verify(@@side_panel_TandC, @@terms_text)
+    return TermsAndConditionsPage.new
   end
 
   def navigate_to_booking_summary_page
@@ -73,7 +80,7 @@ class HomeBasePage < BasePage
 
   def check_booking_in_past_message(txt)
     sleep 5
-    welcome_message_from_screen=get_welcome_message_from_screen
+    welcome_message_from_screen=get_welcome_msg_from_screen
     if (welcome_message_from_screen.match(/#{txt}/)==nil)
       fail("check_booking_in_past_message: Booking message is wrong")
     else

@@ -16,7 +16,7 @@ Feature: Verify screens shown before logging into App
     When I navigate to new user registration page
     Then I see new user registration page
 
-  @android_test @ios_test
+  @android_test @ios_test @demo
   Scenario: Already customer and I have logged in before
     When I choose am already a customer
     And I have already registered with TUI
@@ -27,3 +27,4 @@ Feature: Verify screens shown before logging into App
     When I choose haven't booked through TUI
     Then I see new to TUI page
     And I check new to TUI video
+    Then I swipe left on "accLabel"

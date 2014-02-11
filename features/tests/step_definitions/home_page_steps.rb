@@ -33,6 +33,8 @@ When (/^I navigate to countdown page using countdown biscuit$/) do
   @page=@holidayCountDownPage
 end
 
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 #booking summary page down step definitions
@@ -59,4 +61,11 @@ Given(/^I am on contact us screen$/) do
   step "I am on Home screen"
   @page.open_side_panel
   @page=@page.navigate_to_contact_us_page
+end
+
+# ----------------------------------------------------------------------------------------------------------------------
+Given(/^I navigate to terms page from side panel$/) do
+  step "I am on Home screen"
+  #@homePage.open_side_panel
+  #@page=@page.navigate_to_TandC_page
 end

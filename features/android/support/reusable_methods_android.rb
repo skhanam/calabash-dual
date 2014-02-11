@@ -122,17 +122,11 @@ module AndroidReusableMethods
   end
 
 
-  def swipe_dir(dir)
-    if dir=="right"
-    elsif dir=="left"
-    end
-  end
-
   def scroll_side_panel(text)
   end
 
 
-  def get_welcome_message_from_screen
+  def get_welcome_msg_from_screen
     query("* contentDescription:'welcome_title.'", :text).first.strip
   end
 
@@ -144,7 +138,7 @@ module AndroidReusableMethods
 
     enter_details(surname, 1)
 
-    if (`adb shell getprop ro.build.version.release`.strip.match(/2.3/))
+    if `adb shell getprop ro.build.version.release`.strip.match(/2.3/)
       $g_ginger_bread=true
     end
 

@@ -1,7 +1,6 @@
 class BookingSummaryBasePage < BasePage
 
-  #def initialize
-  #end
+
 
   #this method checks booking_summary_page is shown, by verifying one element
   def check_booking_summary_screen

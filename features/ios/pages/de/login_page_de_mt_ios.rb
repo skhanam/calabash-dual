@@ -2,35 +2,33 @@ require_relative '../../../common/BasePages/login_base_page'
 
 class LoginPage < LoginBasePage
 
-  def initialize
-    #await
-  end
 
-  def verify_page
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'",
-                             $g_query_txt+"marked:'#{@@email_text}'",
-                             $g_query_txt+"marked:'#{@@email_hint_text}'",
-                             $g_query_txt+"marked:'#{@@password_text}'",
-                             $g_query_txt+"marked:'#{@@password_hint_text}'",
-                             $g_query_txt+"marked:'#{@@login_button}'",
-                             $g_query_txt+"marked:'#{@@password_reset}'"],
-                            :timeout => 5)
+
+  def verify_login_page
+    assert_wait_for_text @@login_page_text
+    assert_wait_for_text @@email_text
+    assert_wait_for_text @@email_hint_text
+    assert_wait_for_text @@password_text
+    assert_wait_for_text @@password_hint_text
+    assert_wait_for_text @@login_button
+    assert_wait_for_text @@password_reset
     #TODO verify I need help & privacy policy text
   end
 
-  def enter_user_name
-    username=@@user_details[:user_name]
+  def enter_valid_user_name
+    puts "**************"
+    username=USERS[:valid][:username]
     set_text "textField index:0", username
     sleep 1
     touch("* marked:'#{username}'")
     sleep 1
     touch("toolbarTextButton index:2")
     sleep 1
+    return USERS[:valid][:username]
   end
 
 
   def enter_credentials(username, password)
-    verify_page
     #if ENV['OS']=="ios6"
     #  touch($g_query_txt+"text:'#{@@email_hint_text}'")
     #  sleep 1

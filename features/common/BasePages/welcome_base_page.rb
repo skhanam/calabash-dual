@@ -9,6 +9,9 @@ class WelcomeBasePage < BasePage
     $g_query_txt+"marked:'#{@@welcome_page_text}'"
   end
 
+  def check_welcome_screen
+   wait_for_text(@@welcome_page_text,2)
+  end
 
   def verify_welcome_screen
     assert_wait_for_text(@@welcome_page_text)

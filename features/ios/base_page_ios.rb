@@ -18,6 +18,9 @@ class BasePage < Calabash::IBase
   include UserData
   include ReusableMethods
 
+  def initialize
+  end
+
   def method_missing sym, *args, &block
     send sym, *args, &block
   end
@@ -35,12 +38,6 @@ class BasePage < Calabash::IBase
   end
 
 
-  def initialize
-    #puts caller.first
-    #set_strings
-    #await
-    self
-  end
 
   def write_hash_to_file(count)
     @@result_hash.each do |key, var|

@@ -16,6 +16,12 @@ Folder structure
 <br /> features/tests	 - feature files
 <br /> features/z_dump	 - extra folder for dumping useful stuff and test data
 
+####Test data
+Test data is stored in 2 files users.rb and data_models.rb
+<br /> to use simple input data use users.rb
+<br /> for storing the values and reading back use data_models.rb
+
+
 Execute tests
 ===============
 

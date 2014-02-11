@@ -28,29 +28,31 @@ module DEMeineTUI
     new_user_registration
     forgot_password_strings
     contact_us_strings
-
+    terms_strings
   end
 
   #All test data for different appication is in here
   def test_data
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
+    $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
+    $g_localized_strings=nil
     @@user_details=nil
   end
 
   def welcome_page_strings
-    @@welcome_page_text="Kennen wir uns?"
-    @@already_a_customer="Ich bin bereits Kunde"
-    @@have_already_booked_through_TUI="Ich habe schon einmal über TUI gebucht."
-    @@am_new_here="Ich bin neu hier"
-    @@have_never_booked_through_TUI_before="Ich habe noch nie über TUI gebucht."
+    @@welcome_page_text=get_localized_string "tell_us_header"
+    @@already_a_customer=get_localized_string "tell_us_cta_with_tui_title"
+    @@have_already_booked_through_TUI=get_localized_string "tell_us_cta_with_tui_body"
+    @@am_new_here= get_localized_string "tell_us_cta_new_tui_title"
+    @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end
 
   def already_customter_strings
-    @@already_customer_title="Haben Sie meine TUI online bereits genutzt?"
-    @@already_registered="Ich bin bereits registriert"
-    @@login_with_existing_credentials="Perfekt! Melden Sie sich einfach mit Ihren bestehenden Anmeldedaten an, um diese App zu nutzen."
-    @@not_yet_registered="Ich bin noch nicht registriert"
-    @@register_with_booking_code="Registrieren Sie sich jetzt ganz einfach mit Ihrem Buchungscode und Anreisedatum."
+    @@already_customer_title=get_localized_string "have_you_used_tui_header"
+    @@already_registered=get_localized_string "have_you_used_tui_cta_logged_title"
+    @@login_with_existing_credentials= get_localized_string "have_you_used_tui_cta_logged_body"
+    @@not_yet_registered=get_localized_string "have_you_used_tui_cta_not_logged_title"
+    @@register_with_booking_code=get_localized_string "have_you_used_tui_cta_not_logged_body"
   end
 
   def new_to_tui_strings
@@ -63,15 +65,17 @@ module DEMeineTUI
   end
 
   def login_page_strings
-    @@login_page_text="Willkommen"
-    @@email_text="Benutzername oder E-Mail:"
-    @@email_hint_text="Benutzername / E-Mail eingeben"
-    @@password_text="Passwort:"
-    @@password_hint_text="Passwort eingeben"
-    @@login_button="Anmelden"
-    @@password_reset="Passwort vergessen?"
-    @@i_need_help="Ich benötige Hilfe"
-    @@privacy_terms_of_use="Datenschutz und Nutzungsbedingungen"
+    @@login_page_text=get_localized_string "login_welcome"
+    @@email_text=get_localized_string "forgot_password_email_label"
+    @@email_hint_text=get_localized_string "login_email_hint"
+    @@password_text=get_localized_string "login_password"
+    @@password_hint_text=get_localized_string "login_forgot_password"
+    @@login_button=get_localized_string "login_login"
+    @@password_reset=get_localized_string "forgot_password_header"
+    @@i_need_help=get_localized_string "email_help_subject"
+    @@privacy_terms_of_use=get_localized_string "terms_title"
+    @@login_password_tooltip= get_localized_string "login_password_hint"
+    @@login_password_hint = get_localized_string "login_password_tooltip"
   end
 
   def home_page_strings
@@ -89,7 +93,7 @@ module DEMeineTUI
     @@side_panel_weather="Reisewetter"
     @@side_panel_booking_summary="Auf einen Blick"
     @@side_panel_contact_us="Kontakt"
-
+    @@side_panel_TandC="TUI Service vor Ort"
   end
 
   def my_bookings_strings
@@ -232,22 +236,23 @@ module DEMeineTUI
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help="Ich benötige Hilfe"
-    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
+    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden." #TODO CHECK THIS
   end
 
   def contact_us_strings
-    @@contact_us_contact= "Kontakt"
-    @@contact_us_learn_more= "Sie möchten mehr über Ihr Reiseziel erfahren oder einen Ausflug buchen? Wir helfen Ihnen gerne weiter!"
-    @@contact_us_contact_tui_service = "TUI Service vor Ort"
-    @@contact_us_first_name= "Vorname:"
-    @@contact_us_last_name = "Nachname:"
-    @@contact_us_email_id = "E-Mail:"
-    @@contact_us_telefon = "Telefon (optional)"
-    @@contact_us_subject = "Betreff"
-    @@contact_us_message = "Nachricht"
-    @@contact_us_send_email = "Absenden"
-    @@contact_us_privacy_policy= "Datenschutz und Nutzungsbedingungen"
-    @@contact_us_disclaimer= "Impressum"
+    @@contact_us_contact=get_localized_string "Kontakt"
+    @@contact_us_learn_more=get_localized_string "contact_questions"
+    @@contact_us_contact_tui_service = get_localized_string "service_on_site"
+    @@contact_us_first_name=get_localized_string "forename"
+    @@contact_us_last_name =get_localized_string "Nachname:"
+    @@contact_us_email_id = get_localized_string "email"
+    @@contact_us_telephone = get_localized_string "contact_phone"
+    @@contact_us_query_sent= get_localized_string "contact_query_sent"
+    @@contact_us_subject = get_localized_string "contact_subject"
+    @@contact_us_message = get_localized_string "contact_message"
+    @@contact_us_send_email = get_localized_string "contact_sendEmail"
+    @@contact_us_privacy_policy= get_localized_string "terms_title"
+    @@contact_us_disclaimer= get_localized_string "disclaimer"
     @@contact_us_contact_copy= ["TUI Deutschland GmbH",
                                 "Karl-Wiechert-Allee 23",
                                 "30625 Hannover",
@@ -264,9 +269,29 @@ module DEMeineTUI
                                 "Dr. Oliver Dörschuck",
                                 "Henrik Homann"]
 
+    @@terms_conditions_page_title="Datenschutzerklärung der TUI Deutschland GmbH"
+    @@tui_service_contact_title="Im Urlaub für Sie da"
     #TODO check this text must be verified or not
     #@@contact_us_questions_about_reservations="Bei Fragen rund um Ihre Buchung, TUI allgemein oder bei technischen Problemen stehen wir Ihnen gerne zur Verfügung."
     #privacy policy button
     #@@contact_us_we_are_here="So erreichen Sie uns"
   end
+
+  def terms_strings
+
+    @@terms_title=get_localized_string "service_on_site"
+    @@terms_text= "Im Urlaub für Sie da"
+    @@terms_sms=get_localized_string "services_text"
+    @@terms_send_email=get_localized_string "services_email"
+    @@terms_learn_more=get_localized_string "contact_questions"
+    @@terms_service_contact= get_localized_string "contact_tui_services"
+
+    @@terms_call_us=get_localized_string "services_phone"
+    @@terms_are_you_sure = get_localized_string "product_call_dialog_message"
+    @@terms_dialog_no = get_localized_string "product_call_dialog_no"
+    @@terms_dialog_yes = get_localized_string "product_call_dialog_yes"
+    @@terms_dialog_number= get_localized_string("product_call_dialog_title").gsub /\[number\]/, ''
+
+  end
 end
+

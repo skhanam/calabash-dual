@@ -6,32 +6,19 @@ require_relative '../../common/support/reusable_methods'
 module IosReusableMethods
   include AppStrings
   include ReusableMethods
-  #
-  #def click_on_text(text)
-  #
-  #  touch("view text:'#{escape_quotes(text)}'")
-  #end
 
-  #
-  #def click_on_text(text)
-  #  if ENV['OS']=="ios6"
-  #    playback "touch_button", {:query => $g_query_txt+"marked:'#{text}'"}
-  #  else
-  #    touch $g_query_txt+"marked:'#{text}'"
-  #  end
-  #end
-
-  #Use this method for acc label
+  #Use this method for text
   def wait_for_page_to_load(text, time_out)
     begin
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out}) do
+        puts "waiting for text #{text}"
       end
     rescue
       return false
-
     end
     return true
   end
+
 
   #This method avoids calabash from crashing while using single quotes
   def escape_quotes_smart(str)

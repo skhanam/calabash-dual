@@ -53,6 +53,17 @@ module ReusableMethods
     end
   end
 
+  #Send resource id for string and get localized value
+  def get_localized_string(id)
+    string_locale="DE"
+    if $g_localized_strings == nil
+      puts "readings strings for first time"
+      file_path=$g_strings
+      workbook ||= RubyXL::Parser.parse(file_path)
+      $g_localized_strings||=workbook[0].get_table[:table]
+    end
+    $g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
+  end
 
   def read_test_data()
     file_path=$g_booking_data
@@ -61,6 +72,8 @@ module ReusableMethods
     hash_arr=workbook[1].get_table(["Surname", "Today", "Pre-In-Post", "DepartureDate", "DepartureTime", "ReturnDate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel", "ProductName", "DurationNightsInHotel", "Return-Dep Date"])
     # "Surname", "Today", "Pre-In-Post", "departuredate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel"])
     return hash_arr[:table]
+
+    #res[:table][0]["resource_id"]
   end
 
   def convert_excel_date_to_str(date_int)
@@ -80,7 +93,6 @@ module ReusableMethods
       end
     end
   end
-
 
 
   def assert_element_exists(element)

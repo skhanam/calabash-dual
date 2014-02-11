@@ -4,6 +4,9 @@ class LoginBasePage < BasePage
   #  #await
   #end
 
+  def verify_login_screen
+    wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"])
+  end
 
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
@@ -14,13 +17,11 @@ class LoginBasePage < BasePage
     self
   end
 
-  def click_forgot_password
-    touch_and_verify(@@password_reset, @@forgot_password_title)
-  end
+  action(:click_forgot_password) { touch_and_verify(@@password_reset, @@forgot_password_title) }
 
   def enter_default_username_password
-    username= @@user_details[:user_name]
-    password= @@user_details[:password]
+    username= USERS[:valid][:username]
+    password= USERS[:valid][:password]
     enter_credentials(username, password)
   end
 
@@ -42,6 +43,7 @@ class LoginBasePage < BasePage
   end
 
   def check_login_screen
+    wait_for_home_page_to_load
     assert_wait_for_text(@@login_page_text)
   end
 

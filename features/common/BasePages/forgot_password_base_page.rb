@@ -8,20 +8,20 @@ class ForgotPasswordBasePage < BasePage
   end
 
   def enter_wrong_username_or_email
-    text="no@nomail.com"
-    enter_username_or_email(text)
+    enter_username_or_email(USERS[:invalid][:email])
   end
 
-  def submit_change_password
-    click_on_text @@forgot_password_send_button
-  end
+  action(:submit_change_password)  {click_on_text @@forgot_password_send_button}
+  #def submit_change_password
+  #  click_on_text @@forgot_password_send_button
+  #end
 
   def check_wrong_username_email
     assert_wait_for_text @@forgot_password_email_help
   end
 
-  def check_email_populated
-    assert_wait_for_text(@@user_details[:user_name])
+  def check_email_populated(username)
+    assert_wait_for_text(username)
   end
 
   def check_email_field_empty

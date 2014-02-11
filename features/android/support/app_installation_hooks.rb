@@ -15,18 +15,20 @@ Before do |scenario|
 
   feature_name = scenario.feature.title
 
+
   if FeatureNameMemory.feature_name != feature_name \
       or ENV["RESET_BETWEEN_SCENARIOS"] == "1"
     if ENV["RESET_BETWEEN_SCENARIOS"] == "1"
-      log "Clearing app data"
-      clear_app_data
+      log "New scenario - reinstalling apps"
+      #uninstall_apps
+      #install_app(ENV["TEST_APP_PATH"])
+      #install_app(ENV["APP_PATH"])
+
     else
       log "First scenario in feature - reinstalling apps"
-
-    end
-
-    scenario_tags = scenario.source_tag_names
-    if scenario_tags.include?('@reset')
+      #uninstall_apps
+      #install_app(ENV["TEST_APP_PATH"])
+      #install_app(ENV["APP_PATH"])
       clear_app_data
     end
 

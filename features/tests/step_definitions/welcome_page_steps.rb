@@ -19,15 +19,17 @@ end
 
 
 When(/^I am on Home screen$/) do
-  if @homePage.check_home_screen
-    @loginPage.wait_for_home_page_to_load
-    @page=@homePage
-  else
+
+  if @welcomePage.check_welcome_screen #If check if user is not logged in
     @page=@welcomePage
     step "I log into Application"
     sleep 5
     @page.wait_for_home_page_to_load
-    @page.check_home_screen
+    #@page.check_home_screen
+  else
+    @homePage.check_home_screen
+    @loginPage.wait_for_home_page_to_load
+    @page=@homePage
   end
 end
 

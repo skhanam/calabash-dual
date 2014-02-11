@@ -5,6 +5,7 @@ USERS = {
     },
     :invalid => {
         :username => "invalidusername",
-        :password => "testtest"
+        :password => "testtest" ,
+        :email => "no@nomail.com"
     }
 }

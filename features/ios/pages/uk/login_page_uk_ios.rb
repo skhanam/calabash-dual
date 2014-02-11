@@ -2,29 +2,11 @@ require_relative '../../../BasePages/login_base_page'
 
 class LoginPage < LoginBasePage
 
-  def initialize
-    #await
-  end
-
   def check_different_welcome_messages(test_data, criteria)
     enter_credentials_from_excel(test_data)
     sleep 2
     flash($g_query_txt+"text:'#{@@login_page_text}'")
     playback "touch_button",{:query => "view marked:'Log in'"}
-    #click_on_text("Log in")
-    sleep 2
-
-    #if element_exists("label marked:'#{@@login_page_text}'")
-    #  scroll("scrollView", :down)
-    #  sleep 2
-    #  touch("view text:'Help logging in'")
-    #  sleep 2
-    #  touch("button index:0")
-    #  sleep 2
-    #  touch("view text:'Log in'")
-    #  sleep 2
-    #end
-
     sleep 4
 
     #Some times login button is not touched first time .. tap on it again
@@ -47,7 +29,7 @@ class LoginPage < LoginBasePage
       end
 
 
-      welcome_message_from_screen=get_welcome_message_from_screen
+      welcome_message_from_screen=get_welcome_msg_from_screen
 
       puts "welcome_message_from_screen:#{welcome_message_from_screen} message:#{message} "
 

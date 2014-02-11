@@ -18,7 +18,7 @@ Given(/^I am on '(.+)' screen/) do |page_name|
       @page= @welcomePage.navigate_to_login
     when 'Welcome' then
       @page=@welcomePage
-      @page.verify_welcome_screen
+      @welcomePage.verify_welcome_screen
     else
       fail("page not found")
   end
@@ -31,33 +31,34 @@ end
 
 
 When (/^I enter "(.*?)" and "(.*?)" in login page$/) do |username, password|
-  @page.enter_credentials(username, password)
+  @loginPage.enter_credentials(username, password)
 end
 
 When (/^I enter default username and password in login page$/) do
-  @page.enter_default_username_password
+  @loginPage.enter_default_username_password
 end
 
 When (/^click on login button$/) do
-  @page=@page.submit_login_button
+  @loginPage=@page.submit_login_button
 end
 
 
 Then(/^I see login screen$/) do
-  @page.check_login_page
+  @loginPage.check_login_page
 end
 
-When(/^I fill username in login screen$/) do
-  @page.enter_user_name
+When(/^I fill (valid|invalid) username in login screen$/) do |condition|
+  @valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
+
 end
 
 Then(/^I see my username is already populated$/) do
-  @page.check_email_populated
+  @loginPage.check_email_populated(@valid_username)
 end
 
 When(/^I navigate to forgot password screen$/) do
   sleep 2
-  @page.click_forgot_password
+  @loginPage.click_forgot_password
   @page=@forgotPasswordBasePage
 end
 
@@ -66,8 +67,9 @@ Then(/^I see my username is empty$/) do
   @page.check_email_field_empty
 end
 
-And(/^submit an invalid email id in forgot password screen$/) do
-  @page.enter_wrong_username_or_email
+And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
+  @page.enter_wrong_username_or_email  if condition.eql? 'invalid'
+  fail 'TODO'  if condition.eql? 'valid'
   @page.submit_change_password
 end
 
