@@ -1,5 +1,6 @@
 module TestModule
   def initialize_all
+    @page=BasePage.new
     @bookingSummaryPage ||=BookingSummaryPage.new
     @myAccountPage ||= MyAccountPage.new
     @welcomePage ||= WelcomePage.new
@@ -14,5 +15,7 @@ module TestModule
     @contactPage ||= ContactUsBasePage.new
     @termsPage ||= TermsAndConditionsPage.new
     @tuiServicePage ||= TUIServicePage.new
+    @new_to_tui_page ||=NewTOTUIBasePage.new
+    @countDownPage ||=CountDownBasePage.new
   end
 end

@@ -30,6 +30,9 @@ module AndroidReusableMethods
     return str.gsub("'", "\\\\\'")
   end
 
+
+
+
   def click_on_text(text)
     performAction('click_on_text', escape_quotes_smart(text))
   end
@@ -86,12 +89,11 @@ module AndroidReusableMethods
   end
 
   # scroll in specified direction till id is found
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil,count=10)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
     repeat_count=0
     return if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
 
     while (repeat_count < count)
-      break
       repeat_count+=1
       scroll_view(dir)
       #if text we are searching is found break on success
@@ -123,6 +125,7 @@ module AndroidReusableMethods
 
 
   def scroll_side_panel(text)
+    scroll_page_and_assert_text(text)
   end
 
 

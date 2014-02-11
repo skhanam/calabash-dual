@@ -17,7 +17,10 @@ class LoginBasePage < BasePage
     self
   end
 
-  action(:click_forgot_password) { touch_and_verify(@@password_reset, @@forgot_password_title) }
+  action(:click_forgot_password) {
+    click_on_text @@password_reset
+    assert_wait_for_text @@forgot_password_title
+  }
 
   def enter_default_username_password
     username= USERS[:valid][:username]
@@ -36,10 +39,6 @@ class LoginBasePage < BasePage
     sleep 1
     click_on_text(@@login_button)
     return HomePage.new
-  end
-
-  def wait_for_home_page_to_load
-    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 
   def check_login_screen

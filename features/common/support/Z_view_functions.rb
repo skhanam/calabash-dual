@@ -62,6 +62,10 @@ module ViewModule
     end
   end
 
+  def click_on_partial_text(text)
+    touch($g_query_txt+"{text LIKE '*#{text}*'}")
+  end
+
 ## Specify text to check and time to wait for
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)

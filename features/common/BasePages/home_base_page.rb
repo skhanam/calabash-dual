@@ -28,6 +28,9 @@ class HomeBasePage < BasePage
     return wait_for_acc_label(@@home_page_acc_label, 20)
   end
 
+  def wait_for_home_page_to_load
+    wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
+  end
 
   def check_i_am_on_home_page
     check_home_screen
@@ -48,7 +51,6 @@ class HomeBasePage < BasePage
   def navigate_to_TandC_page
     scroll_side_panel(@@side_panel_TandC)
     touch_and_verify(@@side_panel_TandC, @@terms_text)
-    return TermsAndConditionsPage.new
   end
 
   def navigate_to_booking_summary_page

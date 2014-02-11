@@ -49,7 +49,7 @@ class WelcomeBasePage < BasePage
   end
 
   def navigate_to_login
-    verify_welcome_page
+    verify_welcome_screen
     click_already_customer
     AlreadyCustomerBasePage.new.check_already_customer_screen
     sleep 1
@@ -57,13 +57,11 @@ class WelcomeBasePage < BasePage
     assert_wait_for_text(@@login_page_text, 5)
 
     @@user_details= @@user_details || User.new
-    return LoginPage.new
   end
 
 
   def click_new_here
     touch_and_verify(@@am_new_here, @@new_to_tui_discover_tui)
-    return NewTOTUIBasePage.new
   end
 
 

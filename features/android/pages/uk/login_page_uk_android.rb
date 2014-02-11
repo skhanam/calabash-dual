@@ -6,7 +6,7 @@ class LoginPage < LoginBasePage
   def check_different_welcome_messages(test_data, criteria)
     enter_credentials_from_excel(test_data)
     touch("* text:'Log in' index:1")
-    @page=HomePage.new.await
+    HomePage.new.await
 
     @@welcome_msg_hash[criteria].each do |message|
       welcome_message_from_screen=query("* contentDescription:'welcome_title.'", :text).first.strip
