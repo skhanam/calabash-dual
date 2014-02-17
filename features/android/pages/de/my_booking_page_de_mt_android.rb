@@ -15,7 +15,7 @@ class MyBookingsPage < MyBookingsBasePage
     name_of_last_dest= arr=query("* contentDescription:'#{id}' index:0 * contentDescription:'location.'", :text)
     sleep 2
 
-    touch("* contentDescription:'#{id}' index:0")#click on first past booking
+    touch("* contentDescription:'#{id}' index:0") #click on first past booking
     sleep 2
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
 
@@ -73,6 +73,13 @@ class MyBookingsPage < MyBookingsBasePage
     puts reservations
     scroll_page_and_assert_text(scroll_back_to, "up")
     return reservations
+  end
+
+
+
+
+  def get_days_left(val="typical_booking")
+    get_countdown_days(val)
   end
 
 end
