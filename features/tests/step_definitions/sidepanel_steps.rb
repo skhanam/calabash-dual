@@ -8,7 +8,6 @@ end
 
 When(/^I see holiday countdown page$/) do
   @countDownPage.check_count_down_page
-  step "I navigate back to home page from countdown page"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------

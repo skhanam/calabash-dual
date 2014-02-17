@@ -29,8 +29,6 @@ class BasePage < Calabash::IBase
     define_method element_name.to_s
   end
 
-
-
   class << self
     alias :value    :element
     alias :action   :element

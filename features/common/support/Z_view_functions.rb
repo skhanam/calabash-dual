@@ -25,42 +25,25 @@ module ViewModule
 
 
   def get_acc_label_text(text)
-    return query($g_query_txt+"marked:'#{text}'", :text).first || query($g_query_txt+"contentDescription:'#{text}.'", :text).first
+    return query($g_query_txt+"marked:'#{text}'", :text).first if $g_ios
+    return query($g_query_txt+"contentDescription:'#{text}.'", :text).first if $g_android
   end
 
-  #Wait to check if acc label appears on screen
-  def assert_wait_for_acc_label(text, timeout=10)
-    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if  wait_for_acc_label text, timeout
-    return true
+  def click_accessibility_label(id)
+    touch "view marked:'#{id}'" if $g_ios
+    touch "view contentDescription:'#{id}.'" if $g_android
   end
+  #
+  #def check_text_in_view(text_to_check)
+  #  text_check=escape_quotes_smart(text_to_check)
+  #  res=element_exists($g_query_txt+"text:'#{text_check}'")
+  #  if res
+  #    flash($g_query_txt+"text:'#{text_check}'") if ($g_flash) #Flash this text if flash option is set
+  #    puts ("text_found:#{text_to_check}:")
+  #  end
+  #  return res
+  #end
 
-  def check_text_in_view(text_to_check)
-    text_check=escape_quotes_smart(text_to_check)
-    res=element_exists($g_query_txt+"text:'#{text_check}'")
-    if res
-      flash($g_query_txt+"text:'#{text_check}'") if ($g_flash) #Flash this text if flash option is set
-      puts ("text_found:#{text_to_check}:")
-    end
-    return res
-  end
-
-  #Check if text present or assert
-  def assert_text_present(text_to_check)
-    res = check_text_in_view(text_to_check)
-    if not res
-      screenshot_and_raise "assert_text_present: No element found with mark or text:#{text_to_check}:"
-    else
-      return res
-    end
-  end
-
-  # check for elements in the array and assert if one of them is not found
-  def assert_text_elements(arr)
-    arr.each do |var|
-      assert_text_present(var)
-      puts var
-    end
-  end
 
   def click_on_partial_text(text)
     touch($g_query_txt+"{text LIKE '*#{text}*'}")
@@ -78,12 +61,6 @@ module ViewModule
     rescue
       fail("Failed to find text"+text)
     end
-  end
-
-## Assert if text to check is not shown before timeout
-  def assert_wait_for_text(text, time_out=10)
-    fail("text not present") if wait_for_text(text, time_out)==false
-    return true
   end
 
   ## Specify text to check and time to wait for
@@ -130,5 +107,35 @@ module ViewModule
 
   def check_acc_label(id)
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
+  end
+
+  #Check if text present or assert
+  def assert_text_present(text_to_check)
+    res = check_text_in_view(text_to_check)
+    if not res
+      screenshot_and_raise "assert_text_present: No element found with mark or text:#{text_to_check}:"
+    else
+      return res
+    end
+  end
+
+  # check for elements in the array and assert if one of them is not found
+  def assert_text_elements(arr)
+    arr.each do |var|
+      assert_text_present(var)
+      puts var
+    end
+  end
+
+## Assert if text to check is not shown before timeout
+  def assert_wait_for_text(text, time_out=10)
+    fail("text not present") if wait_for_text(text, time_out)==false
+    return true
+  end
+
+  #Wait to check if acc label appears on screen
+  def assert_wait_for_acc_label(text, timeout=10)
+    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if  wait_for_acc_label text, timeout
+    return true
   end
 end

@@ -18,5 +18,6 @@ module TestModule
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
     @meetRepBasePage ||=MeetRepBasePage.new
+    @hotelBasePage ||=HotelBasePage.new
   end
 end

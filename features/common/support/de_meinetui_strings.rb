@@ -30,6 +30,7 @@ module DEMeineTUI
     contact_us_strings
     terms_strings
     meet_rep_strings
+    image_icons_acc_label
   end
 
   #All test data for different appication is in here
@@ -92,6 +93,7 @@ module DEMeineTUI
   def side_panel_strings
     @@side_panel_countdown="Urlaubscountdown"
     @@side_panel_weather="Reisewetter"
+    @@side_panel_hotel="Hotel"
     @@side_panel_booking_summary="Auf einen Blick"
     @@side_panel_contact_us="Kontakt"
     @@side_panel_TandC="TUI Service vor Ort"
@@ -297,9 +299,17 @@ module DEMeineTUI
   end
 
   def meet_rep_strings
+    @@meet_rep_text="Hier habe ich meinen Urlaub gebucht"
     @@meet_rep_title= get_localized_string "travelAgent_title"
     @@meet_rep_email_link= get_localized_string "travelAgent_email"
     @@meet_rep_call_us= get_localized_string "travelAgent_phone"
+  end
+
+  def image_icons_acc_label
+    @@share_button_closed_img ="share_button"
+    @@facebook_share_img="facebook_share"
+    @@twitter_share_img ="twitter_share"
+    @@share_button_open_img ="share_button_open"
   end
 end
 

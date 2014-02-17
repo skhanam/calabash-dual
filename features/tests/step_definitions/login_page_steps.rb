@@ -7,7 +7,11 @@ end
 
 Given(/^I log into Application/) do
   step "I am on 'Login' screen"
-  step 'I enter default username and password in login page'
+  step 'I enter "'+USERS[:valid][:username]+'" into input field number 1'
+  step 'I enter "'+USERS[:valid][:password]+'" into input field number 2'
+  step "I touch done" if $g_ios
+  step "I press the enter button" if $g_android
+  #step 'I enter default username and password in login page'
   step "click on login button"
 end
 
@@ -68,8 +72,8 @@ Then(/^I see my username is empty$/) do
 end
 
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
-  @forgotPasswordBasePage.enter_wrong_username_or_email  if condition.eql? 'invalid'
-  fail 'TODO'  if condition.eql? 'valid'
+  @forgotPasswordBasePage.enter_wrong_username_or_email if condition.eql? 'invalid'
+  fail 'TODO' if condition.eql? 'valid'
   @page.submit_change_password
 end
 

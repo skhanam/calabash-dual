@@ -27,4 +27,19 @@ class CountDownBasePage < BasePage
       fail ("expected:#{@@countdown_countdown_message}: actual text:#{@@countdown_message_from_screen}")
     end
   end
+
+  def check_days_left_to_travel
+    fail("Number of days are wrong") if (get_countdown_days.to_s != get_acc_label_text("days_to_go"))
+
+  end
+
+  def check_sharing
+    click_accessibility_label @@share_button_closed_img
+    wait_for_acc_label @@facebook_share_img
+    wait_for_acc_label @@twitter_share_img
+    wait_for_acc_label @@share_button_open_img
+    sleep 1
+    #TODO verify messages on facebook and twitter
+  end
+
 end

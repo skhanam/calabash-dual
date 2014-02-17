@@ -1,10 +1,11 @@
 class MeetRepBasePage < BasePage
 
-   def verify_meet_rep_screen
-     scroll_page_and_assert_text @@meet_rep_title
-     scroll_page_and_assert_text @@meet_rep_email_link
-     scroll_page_and_assert_text @@meet_rep_call_us
-   end
+  def verify_meet_rep_screen
+    assert_text_present @@meet_rep_text
+    scroll_page_and_assert_text @@meet_rep_title
+    scroll_page_and_assert_text @@meet_rep_email_link
+    scroll_page_and_assert_text @@meet_rep_call_us
+  end
 
 
   def check_name_of_rep

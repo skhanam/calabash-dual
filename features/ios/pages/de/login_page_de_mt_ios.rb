@@ -40,6 +40,7 @@ class LoginPage < LoginBasePage
     puts "IOS 7 key board"
     set_text "textField index:0", username
     sleep 1
+
     set_text "textField index:1", password
     sleep 1
     touch("* marked:'#{username}'")

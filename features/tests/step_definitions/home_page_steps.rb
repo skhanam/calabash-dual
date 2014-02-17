@@ -2,7 +2,6 @@ Then (/^I must be on Home page$/) do
   @homePage.check_i_am_on_home_page
 end
 
-
 # ----------------------------------------------------------------------------------------------------------------------
 # Weather page step definitions
 
@@ -14,6 +13,12 @@ end
 When (/^I navigate to weather page using weather biscuit$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
+end
+
+When(/^I navigate to hotel (\d+) page using side menu$/) do |num|
+  @hotel_num=num.to_i
+  @homePage.open_side_panel
+  @homePage.navigate_to_hotel(num)
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -70,4 +75,14 @@ Given(/^I navigate to terms page from side panel$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
   @homePage.navigate_to_TandC_page
+end
+
+Given(/^I have switched to typical booking$/) do
+  step "I am on Home screen"
+  @homePage.click_on_account_button
+  @myBookingsPage.switch_to_typical_booking
+end
+
+Then(/^I verify appropriate welcome message for booking$/) do
+  @homePage.check_welcome_messages
 end
