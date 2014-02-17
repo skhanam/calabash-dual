@@ -111,7 +111,7 @@ module AndroidReusableMethods
 
 
   #touch text and verify result
-  def touch_txt_and_verify(label_touch, label_expected)
+  def touch_txt_and_verify_title(id, text)
     sleep 1
     if element_exists("* text:'#{id}'")
       touch("* text:'#{id}'")
@@ -121,6 +121,8 @@ module AndroidReusableMethods
       fail("id:#{id} not found")
     end
     assert_wait_for_text(text, 10)
+    verify_page_title text
+
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)
@@ -140,7 +142,6 @@ module AndroidReusableMethods
     wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
       puts text
     end
-    fail("Actual:#{get_nav_bar_title} not equal to exp:#{txt}") if get_nav_bar_title!=txt
   end
 
   def scroll_side_panel(text)

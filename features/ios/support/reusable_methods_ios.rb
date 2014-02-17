@@ -100,10 +100,11 @@ module IosReusableMethods
   end
 
   #touch text and verify result
-  def touch_txt_and_verify(label_touch, label_expected)
+  def touch_txt_and_verify_title(txt_touch, text)
     touch_transition_timeout=10
     touch_transition_retry=1
-    touch_transition("view text:'#{label_touch}'", "view text:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
+    touch_transition("view text:'#{txt_touch}'", "view text:'#{text}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
+    verify_page_title text
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)
@@ -187,11 +188,10 @@ module IosReusableMethods
     end
   end
 
-  def verify_page_title(txt,time_out=10)
-    #wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
-    #  puts text
-    #end
-    #fail("Actual:#{get_nav_bar_title} not equal to exp:#{txt}") if get_nav_bar_title!=txt
+  def verify_page_title(txt, time_out=10)
+    wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
+      puts text
+    end
   end
 
   def get_nav_bar_title
