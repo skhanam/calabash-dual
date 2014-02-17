@@ -84,7 +84,6 @@ module IosReusableMethods
     end
   end
 
-
   #Scroll to text in side panel
   def scroll_side_panel(text)
     section=0
@@ -101,8 +100,13 @@ module IosReusableMethods
   end
 
   #touch text and verify result
+  def touch_txt_and_verify(label_touch, label_expected)
+    touch_transition_timeout=10
+    touch_transition_retry=1
+    touch_transition("view text:'#{label_touch}'", "view text:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
+  end
 
-  def touch_and_verify(label_touch, label_expected)
+  def touch_acc_label_and_verify(label_touch, label_expected)
     touch_transition_timeout=10
     touch_transition_retry=1
     touch_transition("view marked:'#{label_touch}'", "view marked:'#{label_expected}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
@@ -181,5 +185,16 @@ module IosReusableMethods
     label("view:'TiUIView'").each do |var|
       return var.strip if (var!=nil)
     end
+  end
+
+  def verify_page_title(txt,time_out=10)
+    #wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
+    #  puts text
+    #end
+    #fail("Actual:#{get_nav_bar_title} not equal to exp:#{txt}") if get_nav_bar_title!=txt
+  end
+
+  def get_nav_bar_title
+    query("view marked:'navbarTitle'",:text).first
   end
 end

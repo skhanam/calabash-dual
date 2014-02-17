@@ -17,7 +17,7 @@ Before do |scenario|
   end
 
   unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch
+    @calabash_launcher.relaunch(:timeout=>60)
     @calabash_launcher.calabash_notify(self)
   end
   #start_test_server_in_background(:timeout=>30)

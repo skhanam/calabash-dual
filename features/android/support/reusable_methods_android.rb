@@ -109,11 +109,12 @@ module AndroidReusableMethods
     sleep 2
   end
 
-  # touch id specified and wait for text to appear
-  def touch_and_verify(id, text)
+
+  #touch text and verify result
+  def touch_txt_and_verify(label_touch, label_expected)
     sleep 1
-    if element_exists("* marked:'#{id}'")
-      touch("* marked:'#{id}'")
+    if element_exists("* text:'#{id}'")
+      touch("* text:'#{id}'")
     elsif  element_exists("* contentDescription:'#{id}.'")
       touch("* contentDescription:'#{id}.'")
     else
@@ -122,6 +123,25 @@ module AndroidReusableMethods
     assert_wait_for_text(text, 10)
   end
 
+  def touch_acc_label_and_verify(label_touch, label_expected)
+    sleep 1
+    if element_exists("* marked:'#{label_touch}'")
+      touch("* marked:'#{label_touch}'")
+    elsif  element_exists("* contentDescription:'#{label_touch}.'")
+      touch("* contentDescription:'#{label_touch}.'")
+    else
+      fail("id:#{id} not found")
+    end
+    wait_for_acc_label(label_expected)
+  end
+
+
+  def verify_page_title(txt, time_out=10)
+    wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
+      puts text
+    end
+    fail("Actual:#{get_nav_bar_title} not equal to exp:#{txt}") if get_nav_bar_title!=txt
+  end
 
   def scroll_side_panel(text)
     scroll_page_and_assert_text(text)
@@ -159,4 +179,10 @@ module AndroidReusableMethods
       performAction("scroll_up") #Scroll up for small screen devices
     end
   end
+
+
+  def get_nav_bar_title
+    query("* marked:'navbarTitle.'", :text).first
+  end
+
 end
