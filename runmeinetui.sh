@@ -18,7 +18,7 @@ PROJ_LOC="${PROJ_NAME}/build/iphone/meine TUI.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
-./expect.sh $PROJ_NAME
+#./expect.sh $PROJ_NAME
 open -a Xcode
 sleep  5
 open ${PROJ_NAME}/build/iphone/*.xcodeproj
@@ -31,7 +31,6 @@ BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SEL
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
 
-echo BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios features/
+
+echo BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios_jenkins features/
 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" cucumber -p de_mt_ios_jenkins features/
-
-
