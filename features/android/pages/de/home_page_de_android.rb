@@ -11,6 +11,6 @@ class HomePage < HomeBasePage
 
   def click_booking_summary_biscuit
     scroll_page_and_assert_text("booking_summary", "down")
-    touch_and_verify("booking_summary", @@booking_summary_booking_code)
+    touch_txt_and_verify_title("booking_summary", @@booking_summary_booking_code)
   end
 end

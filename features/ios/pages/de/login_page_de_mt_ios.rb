@@ -5,11 +5,10 @@ class LoginPage < LoginBasePage
   def verify_login_page
     assert_wait_for_text @@login_page_text
     assert_wait_for_text @@email_text
-    assert_wait_for_text @@email_hint_text
     assert_wait_for_text @@password_text
-    assert_wait_for_text @@password_hint_text
+    assert_wait_for_text @@login_forgot_password
     assert_wait_for_text @@login_button
-    assert_wait_for_text @@password_reset
+    wait_for_partial_text_shown @@password_reset
     #TODO verify I need help & privacy policy text
   end
 

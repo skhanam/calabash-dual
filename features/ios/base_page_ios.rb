@@ -21,22 +21,6 @@ class BasePage < Calabash::IBase
   def initialize
   end
 
-  def method_missing sym, *args, &block
-    send sym, *args, &block
-  end
-
-  def self.element element_name
-    define_method element_name.to_s
-  end
-
-  class << self
-    alias :value    :element
-    alias :action   :element
-    alias :trait    :element
-  end
-
-
-
   def write_hash_to_file(count)
     @@result_hash.each do |key, var|
       write_welcome_messages_to_file("#{key}:   is shown #{var}/#{count} times")
