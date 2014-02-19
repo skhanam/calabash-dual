@@ -1,7 +1,7 @@
 Then(/^I verify below details on contact page:$/) do |table|
   values=table.raw
   values.each do |var|
-    @contactPage.validate_menu_items(var[0])
+    @contactPage.validate_contact_items(var[0])
   end
 end
 

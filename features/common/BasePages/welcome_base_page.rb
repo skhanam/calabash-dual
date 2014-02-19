@@ -1,7 +1,3 @@
-#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
-
-
 class WelcomeBasePage < BasePage
 
   def trait
@@ -29,8 +25,7 @@ class WelcomeBasePage < BasePage
   end
 
   def click_already_customer
-    touch_and_verify(@@have_already_booked_through_TUI, @@already_customer_title)
-    return AlreadyCustomerBasePage.new
+    touch_txt_and_verify_title(@@have_already_booked_through_TUI, @@already_customer_title)
   end
 
   def click_login_text
@@ -54,14 +49,14 @@ class WelcomeBasePage < BasePage
     AlreadyCustomerBasePage.new.check_already_customer_screen
     sleep 1
     click_on_text(@@login_with_existing_credentials)
+    sleep 1
     assert_wait_for_text(@@login_page_text, 5)
-
     @@user_details= @@user_details || User.new
   end
 
 
   def click_new_here
-    touch_and_verify(@@am_new_here, @@new_to_tui_discover_tui)
+    touch_txt_and_verify_title(@@am_new_here, @@new_to_tui_discover_tui)
   end
 
 

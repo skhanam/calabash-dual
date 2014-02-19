@@ -7,7 +7,6 @@ require_relative '../../../common/BasePages/my_bookings_base_page'
 
 class MyBookingsPage < MyBookingsBasePage
 
-
   def click_booking_in_past
     scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
 
@@ -15,13 +14,12 @@ class MyBookingsPage < MyBookingsBasePage
     name_of_last_dest= arr=query("view marked:'#{id}' index:0 descendant label", :text)[0]
     sleep 2
 
-    touch("view marked:'#{id}' index:0")#click on first past booking
+    touch("view marked:'#{id}' index:0") #click on first past booking
     sleep 2
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
 
     return name_of_last_dest
   end
-
 
 
   def get_reservations(text)

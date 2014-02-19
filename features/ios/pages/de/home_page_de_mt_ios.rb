@@ -11,7 +11,7 @@ class HomePage < HomeBasePage
 
   def check_welcome_messages
     msg=nil
-    no_of_days_to_go=-1*get_countdown_days #Hard coded for now until test data is available
+    no_of_days_to_go=-1*CommonMethods.new.get_countdown_days #Hard coded for now until test data is available
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
       msg="bald geht's in den Urlaub!"
     elsif (no_of_days_to_go < -3 && no_of_days_to_go >= -14)

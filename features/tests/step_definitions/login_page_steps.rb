@@ -63,7 +63,7 @@ end
 
 When(/^I navigate to forgot password screen$/) do
   sleep 2
-  @forgotPasswordBasePage.click_forgot_password
+  @loginPage.navigate_to_forgot_password
 end
 
 
@@ -74,7 +74,7 @@ end
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
   @forgotPasswordBasePage.enter_wrong_username_or_email if condition.eql? 'invalid'
   fail 'TODO' if condition.eql? 'valid'
-  @page.submit_change_password
+  @forgotPasswordBasePage.submit_change_password
 end
 
 Then(/^I see appropriate error message$/) do

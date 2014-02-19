@@ -22,9 +22,8 @@ class NewTOTUIBasePage < BasePage
   def check_new_to_tui_video
     scroll_page_and_assert_text(@@new_to_tui_discover_tui, "up")
     click_on_text(@@new_to_tui_video)
-    assert_wait_for_acc_label("Track position")
-    assert_wait_for_acc_label("0:02")
-    touch("button marked:'Done'")
+    wait_for_text("Done")
+    click_accessibility_label "Done"
     assert_wait_for_text(@@new_to_tui_discover_tui)
   end
 end

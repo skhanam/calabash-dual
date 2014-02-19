@@ -51,7 +51,6 @@ end
 
 Then(/^I see new to TUI page$/) do
   @new_to_tui_page.check_new_to_tui_page
-
 end
 
 When(/^I choose haven't booked through TUI$/) do

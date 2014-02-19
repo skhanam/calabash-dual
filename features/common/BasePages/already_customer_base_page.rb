@@ -20,7 +20,7 @@ class AlreadyCustomerBasePage < BasePage
   end
 
   def click_already_registered
-    touch_and_verify(@@login_with_existing_credentials,@@login_page_text)
+    touch_txt_and_verify_title(@@login_with_existing_credentials,@@login_page_text)
   end
 
   def click_register_to_tui
@@ -28,7 +28,7 @@ class AlreadyCustomerBasePage < BasePage
   end
 
   def click_not_yet_registered_with_tui
-    touch_and_verify(@@not_yet_registered,@@new_user_registration_create_account_text1)
+    touch_txt_and_verify_title(@@not_yet_registered,@@new_user_registration_create_account_text1)
     return NewUserRegistrationBasePage.new
   end
 

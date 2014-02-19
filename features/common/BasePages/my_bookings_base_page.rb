@@ -60,7 +60,8 @@ class MyBookingsBasePage < BasePage
   end
 
   def click_add_a_booking_button
-    touch_and_verify("navbarRightButton", @@add_a_booking_page_title)
+    click_accessibility_label "navbarRightButton"
+    verify_page_title @@add_a_booking_page_title
   end
 
   def check_add_booking_screen

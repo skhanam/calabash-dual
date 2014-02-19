@@ -14,7 +14,6 @@ Feature: Verify contact us page
     And I navigate to terms and conditions page
     Then I must see  terms and conditions page
 
-
   Scenario: check Terms and conditions screen from contact us
     Given I am on contact us screen
     And I navigate to TUI service onsite page

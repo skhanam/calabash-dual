@@ -30,9 +30,9 @@ Then(/^I should see the customer satisfaction ratings on a scale of (\d+) - 100%
 end
 
 When(/^I select call us button on hotel page$/) do
-  @hotelBasePage.click_call_button
+  @commonMethods.click_call_button
 end
 
 Then(/^I should see an overlay box to call or cancel$/) do
-  @hotelBasePage.verify_call_button_overlay
+  @commonMethods.verify_call_button_overlay
 end

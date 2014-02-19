@@ -19,5 +19,6 @@ module TestModule
     @countDownPage ||=CountDownBasePage.new
     @meetRepBasePage ||=MeetRepBasePage.new
     @hotelBasePage ||=HotelBasePage.new
+    @commonMethods ||=CommonMethods.new
   end
 end

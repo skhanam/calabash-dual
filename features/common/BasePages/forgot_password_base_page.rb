@@ -11,15 +11,10 @@ class ForgotPasswordBasePage < BasePage
     enter_username_or_email(USERS[:invalid][:email])
   end
 
-  def click_forgot_password
-    click_on_text @@forgot_password_title
+
+  def  submit_change_password
+    click_on_text @@forgot_password_send_button
   end
-
-
-  action(:submit_change_password)  {click_on_text @@forgot_password_send_button}
-  #def submit_change_password
-  #  click_on_text @@forgot_password_send_button
-  #end
 
   def check_wrong_username_email
     assert_wait_for_text @@forgot_password_email_help

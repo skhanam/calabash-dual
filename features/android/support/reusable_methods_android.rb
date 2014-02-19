@@ -109,8 +109,7 @@ module AndroidReusableMethods
     sleep 2
   end
 
-
-  #touch text and verify result
+#touch text and verify result
   def touch_txt_and_verify_title(id, text)
     sleep 1
     if element_exists("* text:'#{id}'")
@@ -137,7 +136,6 @@ module AndroidReusableMethods
     wait_for_acc_label(label_expected)
   end
 
-
   def verify_page_title(txt, time_out=10)
     wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
       puts text
@@ -148,12 +146,7 @@ module AndroidReusableMethods
     scroll_page_and_assert_text(text)
   end
 
-
-  def get_welcome_msg_from_screen
-    query("* contentDescription:'welcome_title.'", :text).first.strip
-  end
-
-  #Read and Enter data from excel sheet
+#Read and Enter data from excel sheet
   def enter_credentials_from_excel(test_data)
     await
     surname=test_data["Surname"]

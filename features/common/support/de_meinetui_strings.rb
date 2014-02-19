@@ -64,7 +64,7 @@ module DEMeineTUI
     @@new_to_tui_video ="Hier geht's zum Meine TUI Video"
     @@new_to_tui_travel_worlds= get_localized_string "explore_tui_carousel_header"
     @@new_to_tui_text2 ="TUI Classic bietet komfortable Anlagen mit kurzen Wegen sowie eine kompetente, deutsch sprechende Gästebetreuung zum unbeschwerten Entspannen."
-    @@new_to_tui_classic_hotel= "Ein"+ get_localized_string("explore_tui_classic_hotel_button")
+    @@new_to_tui_classic_hotel= "Ein "+get_localized_string("explore_tui_classic_hotel_button")
   end
 
   def login_page_strings
@@ -72,7 +72,7 @@ module DEMeineTUI
     @@email_text=get_localized_string "forgot_password_email_label"
     @@email_hint_text=get_localized_string "login_email_hint"
     @@password_text=get_localized_string "login_password"
-    @@password_hint_text=get_localized_string "login_forgot_password"
+    @@login_forgot_password=get_localized_string "login_forgot_password"
     @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "email_help_subject"
@@ -93,7 +93,7 @@ module DEMeineTUI
   def side_panel_strings
     @@side_panel_countdown=get_localized_string "countdown"
     @@side_panel_weather=get_localized_string "weather"
-    @@side_panel_hotel=get_localized_string "hotel"
+    @@side_panel_hotel=get_localized_string "hotels"
     @@side_panel_booking_summary="Auf einen Blick"
     @@side_panel_contact_us="Kontakt"
     @@side_panel_TandC="TUI Service vor Ort"
@@ -158,6 +158,7 @@ module DEMeineTUI
   end
 
   def loading_strings
+    @@loading_hold_on=get_localized_string "hold_on"
     @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
   end
 
@@ -324,7 +325,7 @@ module DEMeineTUI
     @@hotel_sport_link="Sport"
     @@hotel_Entertainment_link="Unterhaltung"
     @@hotel_Wellness_link="Wellness"
-    @@hotel_For_Children =" Für Kinder_link "
+    @@hotel_For_Children ="Für Kinder"
   end
 end
 

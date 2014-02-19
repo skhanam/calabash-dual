@@ -14,22 +14,11 @@ class TermsAndConditionsPage < BasePage
     scroll_page_and_assert_text(@@terms_service_contact)
   end
 
-  def check_call_us_link
-    scroll_page_and_assert_text @@terms_call_us
-    click_on_text @@terms_call_us
-    sleep 1
-    assert_text_elements([@@terms_are_you_sure, @@terms_dialog_no,
-                          @@terms_dialog_yes])
-    wait_for_partial_text_shown @@terms_dialog_number
-    click_on_text @@terms_dialog_no
-    sleep 2
-  end
-
-
   def validate_menu_items(var)
     case var
       when "call us"
-        check_call_us_link
+        CommonMethods.new.click_call_button
+        CommonMethods.new.check_call_us_link
       when "Send us email"
         scroll_page_and_assert_text @@terms_send_email
         click_on_text @@terms_send_email

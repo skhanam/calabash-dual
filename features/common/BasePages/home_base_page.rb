@@ -51,7 +51,7 @@ class HomeBasePage < BasePage
 
   def navigate_to_weather_page
     scroll_page_and_assert_text(@@side_panel_weather, "down")
-    touch_txt_and_verify_title @@side_panel_weather,@@weather_page_title
+    touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title
 
   end
 
@@ -72,7 +72,8 @@ class HomeBasePage < BasePage
 
   def navigate_to_contact_us_page
     scroll_side_panel(@@side_panel_contact_us)
-    touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_tui_service)
+    touch_txt_and_verify_title(@@side_panel_contact_us, @@side_panel_contact_us)
+    wait_for_text @@side_panel_contact_us
   end
 
 
@@ -91,9 +92,13 @@ class HomeBasePage < BasePage
     wait_for_acc_label @@home_page_account_acc_label
     sleep 2
     click_accessibility_label @@home_page_account_acc_label
+    wait_for_account_page_to_load
     verify_page_title @@my_bookings_title
   end
 
+  def wait_for_account_page_to_load
+    wait_for_progress_to_disappear(@@loading_hold_on)
+  end
 
   def check_booking_in_past_message(txt)
     sleep 5

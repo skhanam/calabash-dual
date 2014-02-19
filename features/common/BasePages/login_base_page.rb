@@ -17,10 +17,10 @@ class LoginBasePage < BasePage
     self
   end
 
-  action(:click_forgot_password) {
+  def click_forgot_password
     click_on_text @@password_reset
     assert_wait_for_text @@forgot_password_title
-  }
+  end
 
   def enter_default_username_password
     username= USERS[:valid][:username]
@@ -34,6 +34,10 @@ class LoginBasePage < BasePage
   #query("webView", :stringByEvaluatingJavaScriptFromString => js)
   #query("webView xpath:'/html/body/text()[4]'")
   #query("webView xpath:'html/body/strong[3]/p'")
+
+  def navigate_to_forgot_password
+    touch_txt_and_verify_title @@login_forgot_password, @@forgot_password_title
+  end
 
   def submit_login_button
     sleep 1

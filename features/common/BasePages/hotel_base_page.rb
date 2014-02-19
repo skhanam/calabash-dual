@@ -9,7 +9,7 @@ class HotelBasePage < BasePage
 
   def find_hotel_details(num)
     count=0
-    find_products("hotel").each do |item|
+    CommonMethods.new.find_products("hotel").each do |item|
       count+=1
       return item if count==num
     end
@@ -31,15 +31,27 @@ class HotelBasePage < BasePage
   def validate_hotel_links(var)
     case var
       when "place"
+        txt= @@hotel_place_link
       when "Food & Drink"
+        txt=@@hotel_Food_Drink_link
       when "accommodation"
+        txt=@@hotel_accommodation_link
       when "Living"
+        txt= @@hotel_Living_link
       when "sport"
+        txt= @@hotel_sport_link
       when "Entertainment"
+        txt= @@hotel_Entertainment_link
       when "Wellness"
+        txt= @@hotel_Wellness_link
       when "For Children"
+        txt= @@hotel_For_Children
     end
-
+    scroll_page_and_assert_text txt
+    touch_txt_and_verify_title txt, txt
+    click_back_button
   end
+
+
 
 end

@@ -54,12 +54,12 @@ class MyAccountBasePage < BasePage
   end
 
   def click_change_password_button
-    touch_and_verify(@@my_account_change_password, @@change_password_title)
+    touch_txt_and_verify_title(@@my_account_change_password, @@change_password_title)
   end
 
 
   def click_update_email_button
-    touch_and_verify(@@my_account_update_email, @@update_email__text2)
+    touch_txt_and_verify_title(@@my_account_update_email, @@update_email__text2)
   end
 
   def check_update_email_screen

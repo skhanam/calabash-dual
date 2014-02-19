@@ -79,7 +79,7 @@ class MyBookingsPage < MyBookingsBasePage
 
 
   def get_days_left(val="typical_booking")
-    get_countdown_days(val)
+   CommonMethods.new.get_countdown_days(val)
   end
 
 end

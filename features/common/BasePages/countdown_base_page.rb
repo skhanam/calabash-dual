@@ -23,7 +23,7 @@ class CountDownBasePage < BasePage
   end
 
   def check_days_left_to_travel
-    fail("Number of days are wrong") if (get_countdown_days.to_s != get_acc_label_text("days_to_go"))
+    fail("Number of days are wrong") if (CommonMethods.new.get_countdown_days.to_s != get_acc_label_text("days_to_go"))
 
   end
 

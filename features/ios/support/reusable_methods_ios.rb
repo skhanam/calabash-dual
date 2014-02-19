@@ -152,18 +152,15 @@ module IosReusableMethods
     return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
 
     while repeat_count < count
-
       repeat_count+=1
       scroll_view(dir)
 
       break if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-
       #If text is not found even after scrolling till end of page then fail
       if till_id!=nil && element_exists("view marked:'#{till_id}'")
         fail "id/text #{id} not present on screen"
       end
       sleep 0.5
-
     end
     fail "id/text :#{id}: not present on screen" if repeat_count==10
     sleep 2

@@ -6,6 +6,7 @@ Feature: Read Bookings Details and Verify
   Background:
     Given I am on my bookings page
 
+
   Scenario: Verify welcome text for bookings in past
     When I switch to a booking in past
     Then I verify welcome message for booking in past

@@ -15,7 +15,6 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to weather page using side menu
     Then I see holiday weather page
 
- @failed
   Scenario: navigate to booking summary page
     When I navigate to booking summary page using side menu
     Then I see holiday booking summary page

@@ -14,7 +14,6 @@ module ViewModule
   def embed(a, b, c)
   end
 
-
   # escape if there are + symbols in text
   def escape_plus(str)
     if str.include? '+'
@@ -22,7 +21,6 @@ module ViewModule
     end
     return str
   end
-
 
   def get_acc_label_text(text)
     return query($g_query_txt+"marked:'#{text}'", :text).first if $g_ios
@@ -33,17 +31,6 @@ module ViewModule
     touch "view marked:'#{id}'" if $g_ios
     touch "view contentDescription:'#{id}.'" if $g_android
   end
-  #
-  #def check_text_in_view(text_to_check)
-  #  text_check=escape_quotes_smart(text_to_check)
-  #  res=element_exists($g_query_txt+"text:'#{text_check}'")
-  #  if res
-  #    flash($g_query_txt+"text:'#{text_check}'") if ($g_flash) #Flash this text if flash option is set
-  #    puts ("text_found:#{text_to_check}:")
-  #  end
-  #  return res
-  #end
-
 
   def click_on_partial_text(text)
     touch($g_query_txt+"{text LIKE '*#{text}*'}")
@@ -61,6 +48,11 @@ module ViewModule
     rescue
       fail("Failed to find text"+text)
     end
+  end
+
+   #Check if part of text is shown
+  def check_partial_text_shown text
+    return element_exists("#{$g_query_txt}{text LIKE '*#{text}*'}")
   end
 
   ## Specify text to check and time to wait for
@@ -92,6 +84,13 @@ module ViewModule
       puts "checking #{str}"
       break if element_does_not_exist($g_query_txt+"marked:'#{str}'")
     }
+    sleep 2
+  end
+
+
+  def get_welcome_msg_from_screen
+    return query("* contentDescription:'welcome_title.'", :text).first.strip if $g_android
+    return query("view marked:'welcome_title' label", :text).first.strip if $g_ios
   end
 
   def click_button_text_repeatedly(text)

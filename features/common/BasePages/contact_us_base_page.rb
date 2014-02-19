@@ -13,10 +13,10 @@ class ContactUsBasePage < BasePage
     assert_wait_for_text @@contact_us_learn_more
     contact_us_embed_page
     scroll_page_and_assert_text(@@contact_us_disclaimer)
+    scroll_view("down")
     @@contact_us_contact_copy.each do |var|
-      scroll_page_and_assert_text(var, "down", @@contact_us_contact_copy.last) #scrolling will also verify if text is found or not
+      wait_for_partial_text_shown var
     end
-
   end
 
   # verify part of contact us page which is shown when it is linked within another page
@@ -34,7 +34,7 @@ class ContactUsBasePage < BasePage
   end
 
 
-  def validate_menu_items(var)
+  def validate_contact_items(var)
     case var
       when "email"
         assert_text_present(@@contact_us_email_id)

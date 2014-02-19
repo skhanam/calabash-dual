@@ -13,9 +13,9 @@
 
 #DEBUG=1 CALABASH_FULL_CONSOLE_OUTPUT=1
 
-de_mt_ios:   <%= common_settings_ios %> <%= common_path %> <%= de_mt_ios_specific_path %>   --tag @failed
-de_mt_android:  <%= common_settings_android %> <%= common_path %> <%= de_mt_android_specific_path %>    --tag @failed
+de_mt_ios:   <%= common_settings_ios %> <%= common_path %> <%= de_mt_ios_specific_path %>
+de_mt_android:  <%= common_settings_android %> <%= common_path %> <%= de_mt_android_specific_path %>
 
-de_mt_ios_jenkins:   <%= common_settings_ios %> <%= common_path %> <%= de_mt_ios_specific_path %>   --tag @ios-tests
-de_mt_android_jenkins:  <%= common_settings_android %> <%= common_path %> <%= de_mt_android_specific_path %>    --tag @testing
+de_mt_ios_jenkins:   <%= common_settings_ios %> <%= common_path %> <%= de_mt_ios_specific_path %>
+de_mt_android_jenkins:  <%= common_settings_android %> <%= common_path %> <%= de_mt_android_specific_path %>
 
