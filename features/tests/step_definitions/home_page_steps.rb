@@ -1,4 +1,5 @@
 Then (/^I must be on Home page$/) do
+  @homePage.wait_for_home_page_to_load
   @homePage.check_i_am_on_home_page
 end
 
@@ -85,4 +86,10 @@ end
 
 Then(/^I verify appropriate welcome message for booking$/) do
   @homePage.check_welcome_messages
+end
+
+Then(/^I must be logged and on Home page$/) do
+  @homePage.wait_login_progress_to_disappear
+  @homePage.wait_for_home_page_to_load
+  @homePage.check_i_am_on_home_page
 end

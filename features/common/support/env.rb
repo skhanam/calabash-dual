@@ -1,5 +1,7 @@
 require_relative 'page_world'
 require_relative 'application_strings'
+require 'rexml/document'
+require_relative 'data_models'
 
 
 require File.join(File.dirname(__FILE__), 'page_world')
@@ -12,8 +14,7 @@ elsif ENV['PLATFORM'] == 'android'
   require_relative '../../android/base_page_android'
 end
 
-require_relative 'data_models'
-
+$g_lang_strings_file="features/test_data/de/strings.xml"
 $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_%H_%M")}.txt"
 #puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_file}  &&&&&&&&&&&&& \n"
 

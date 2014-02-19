@@ -46,7 +46,7 @@ module DEMeineTUI
     @@welcome_page_text=get_localized_string "tell_us_header"
     @@already_a_customer=get_localized_string "tell_us_cta_with_tui_title"
     @@have_already_booked_through_TUI=get_localized_string "tell_us_cta_with_tui_body"
-    @@am_new_here= get_localized_string "tell_us_cta_new_tui_title"
+    @@did_not_book_with_tui= get_localized_string "login_did_not_book"
     @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end
 

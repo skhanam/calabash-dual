@@ -28,6 +28,11 @@ class HomeBasePage < BasePage
     return wait_for_acc_label(@@home_page_acc_label, 20)
   end
 
+  def wait_login_progress_to_disappear
+    wait_for_progress_to_disappear(@@loading_hold_on, 40)
+
+  end
+
   def wait_for_home_page_to_load
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end

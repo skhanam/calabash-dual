@@ -1,4 +1,4 @@
-@ios_test @android_test @failure
+@ios_test @android_test @failed
 Feature: Verify booking information for Typical Booking
 
   Background:

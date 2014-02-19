@@ -50,4 +50,17 @@ class LoginPage < LoginBasePage
     #end
     assert_wait_for_text(username, 10)
   end
+
+  def setCountry(country)
+    touch "TextFieldLabel index:2"
+    sleep 1
+    index=picker[0].index(country)
+    sleep 1
+    # query("view:'UIPickerView'",[{:selectRow =>index},{:inComponent => 0}, {:animated => 0}])
+    #sleep 1
+    touch("view:'UIPickerView' label text:'"+country+"'")
+    sleep 2
+    touch "view marked:'Fertig'"
+     sleep 1
+  end
 end

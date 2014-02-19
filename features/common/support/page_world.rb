@@ -8,7 +8,6 @@ module TestModule
     @holidayCountDownPage ||= HolidayCountDownPage.new
     @weatherPage ||= WeatherPage.new
     @myBookingsPage ||= MyBookingsPage.new
-    @alreadyCustomerBasePage ||= AlreadyCustomerBasePage.new
     @loginPage ||= LoginPage.new
     @newUserRegistrationBasePage ||= NewUserRegistrationBasePage.new
     @forgotPasswordBasePage ||= ForgotPasswordBasePage.new

@@ -11,6 +11,7 @@ Given(/^I log into Application/) do
   step 'I enter "'+USERS[:valid][:password]+'" into input field number 2'
   step "I touch done" if $g_ios
   step "I press the enter button" if $g_android
+  step 'I set country "'+USERS[:valid][:country]+'" in login screen'
   #step 'I enter default username and password in login page'
   step "click on login button"
 end
@@ -29,6 +30,10 @@ end
 Given (/^I am on welcome page$/) do
   step "I am on 'Welcome' screen"
   step "I see welcome page"
+end
+
+When (/^I set country "(.*?)" in login screen$/) do |var|
+ @loginPage.setCountry(var)
 end
 
 

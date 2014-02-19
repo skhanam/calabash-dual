@@ -2,6 +2,7 @@ USERS = {
     :valid => {
         :username => "peterpan",
         :password => "testtest",
+        :country => "Germany",
         :bookings => {
             :destination => "Palma de Mallorca",
             :date => "06.09.2014",

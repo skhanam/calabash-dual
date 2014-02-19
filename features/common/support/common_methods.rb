@@ -78,6 +78,14 @@ class CommonMethods < BasePage
     TYPICAL_BOOKING["payload"]["destination"]
   end
 
+  def get_all_products
+    arr=[]
+    TYPICAL_BOOKING["payload"]["bookingSummary"]["productDetails"].each do |var|
+      arr<<var["productType"]
+    end
+    return arr
+  end
+
   def get_countdown_days(val="typical_booking")
     (TYPICAL_BOOKING["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i if val=="typical_booking"
   end

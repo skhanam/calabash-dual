@@ -26,7 +26,7 @@ PROJ_LOC="${PROJ_NAME}/build/iphone/meine TUI.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
-#./expect.sh $PROJ_NAME
+./expect.exp $PROJ_NAME
 open -a Xcode
 sleep  5
 open ${PROJ_NAME}/build/iphone/*.xcodeproj

@@ -46,7 +46,6 @@ class LoginBasePage < BasePage
   end
 
   def check_login_screen
-    wait_for_home_page_to_load
     assert_wait_for_text(@@login_page_text)
   end
 

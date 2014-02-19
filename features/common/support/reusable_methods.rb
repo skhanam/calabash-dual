@@ -6,30 +6,7 @@ require_relative '../support/application_strings'
 module ReusableMethods
   include AppStrings
 
-
   def embed(a, b, c)
-  end
-
-  def read_XML_into_hash_array(filename)
-    xmlfile = File.new(filename)
-    xmldoc = Document.new(xmlfile)
-
-    xmldoc.elements.each('resources/string') do |ele|
-      name=ele.attribute("name")
-      value=ele.text
-      @hasharr["#{name}"]=value
-    end
-    return @hasharr
-  end
-
-  def read_strings_from_file
-    en_data="/Users/tejasvi.manmatha/projects/meine.tui/i18n/en/strings.xml"
-    @hasharr=read_XML_into_hash_array(en_data)
-  end
-
-  def read_str(txt)
-    puts "****read_str ******* #{txt}"
-    return @hasharr["#{txt}"]
   end
 
   # TODO not used
@@ -56,14 +33,9 @@ module ReusableMethods
 
   #Send resource id for string and get localized value
   def get_localized_string(id)
-    string_locale="DE"
-    if $g_localized_strings == nil
-      puts "readings strings for first time"
-      file_path=$g_strings
-      workbook ||= RubyXL::Parser.parse(file_path)
-      $g_localized_strings||=workbook[0].get_table[:table]
-    end
-    $g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
+    $g_localized_strings||=read_xml($g_lang_strings_file)
+    fail("string not found") if $g_localized_strings[id]==nil
+    return $g_localized_strings[id]
   end
 
 
@@ -128,4 +100,25 @@ module ReusableMethods
     24*60*60*count.to_i
   end
 
+  #Read language strings by default or else read specified file
+  # $g_language_strings is set in env.rb based on command line argument TESTENV (from cucumber profile)
+  def read_xml(filename=$g_language_strings)
+    doc = REXML::Document.new(File.new(filename))
+    all_strings_hash={}
+    doc.elements.each("resources/string") do |ele|
+      all_strings_hash[ele.attributes["name"]]=ele.text
+    end
+    return all_strings_hash
+  end
+
+  def read_string_from_excel
+    #string_locale="DE"
+    #if $g_localized_strings == nil
+    #  puts "readings strings for first time"
+    #  file_path=$g_strings
+    #  workbook ||= RubyXL::Parser.parse(file_path)
+    #  $g_localized_strings||=workbook[0].get_table[:table]
+    #end
+    #$g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
+  end
 end

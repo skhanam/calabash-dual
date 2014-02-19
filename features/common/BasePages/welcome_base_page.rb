@@ -1,37 +1,25 @@
 class WelcomeBasePage < BasePage
 
-  def trait
-    @hasharr={}
-    $g_query_txt+"marked:'#{@@welcome_page_text}'"
-  end
-
   def check_welcome_screen
-   wait_for_text(@@welcome_page_text,2)
+    wait_for_text(@@already_customer_title, 2)
   end
 
   def verify_welcome_screen
-    assert_wait_for_text(@@welcome_page_text)
+    assert_wait_for_text(@@already_customer_title)
   end
 
   def verify_welcome_page
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@welcome_page_text}'"],
+    wait_for_elements_exist([$g_query_txt+"marked:'#{@@already_customer_title}'"],
                             :timeout => 5)
+    check_welcome_screen
+    assert_text_elements([@@already_customer_title,
+                          @@already_registered,
+                          @@login_with_existing_credentials,
+                          @@not_yet_registered
+                         ])
+    sleep 2
+    #TODO verify this @@register_with_booking_code
 
-    assert_text_present(@@welcome_page_text)
-    assert_text_present(@@already_a_customer)
-    assert_text_present(@@have_already_booked_through_TUI)
-    assert_text_present(@@am_new_here)
-    assert_text_present(@@have_never_booked_through_TUI_before)
-  end
-
-  def click_already_customer
-    touch_txt_and_verify_title(@@have_already_booked_through_TUI, @@already_customer_title)
-  end
-
-  def click_login_text
-    puts "waiting"
-    sleep(5)
-    click_on_text(read_str('welcome_cta_login'))
   end
 
   def await(opts={})
@@ -39,14 +27,9 @@ class WelcomeBasePage < BasePage
     self
   end
 
-  def login_button_query
-    $g_query_txt+"text:#{read_str('welcome_login_header')}"
-  end
 
   def navigate_to_login
-    verify_welcome_screen
-    click_already_customer
-    AlreadyCustomerBasePage.new.check_already_customer_screen
+    check_welcome_screen
     sleep 1
     click_on_text(@@login_with_existing_credentials)
     sleep 1
@@ -56,9 +39,22 @@ class WelcomeBasePage < BasePage
 
 
   def click_new_here
-    touch_txt_and_verify_title(@@am_new_here, @@new_to_tui_discover_tui)
+    click_on_text @@did_not_book_with_tui
+    assert_wait_for_text @@new_to_tui_discover_tui
   end
 
+  def click_already_registered
+    touch_txt_and_verify_title(@@login_with_existing_credentials, @@login_page_text)
+  end
+
+  def click_register_to_tui
+    fail("TODO")
+  end
+
+  def click_not_yet_registered_with_tui
+    touch_txt_and_verify_title(@@not_yet_registered, @@new_user_registration_create_account_text1)
+    return NewUserRegistrationBasePage.new
+  end
 
 
 end
