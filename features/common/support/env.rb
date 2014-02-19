@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 require_relative 'page_world'
 require_relative 'application_strings'
 
