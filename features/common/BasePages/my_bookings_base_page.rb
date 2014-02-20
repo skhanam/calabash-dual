@@ -5,8 +5,8 @@ class MyBookingsBasePage < BasePage
 
   #def initialize
   #end
-  def switch_to_typical_booking
-    txt= TYPICAL_BOOKING["payload"]["destination"] #get_typical_booking_name
+  def switch_to_particular_booking
+    txt= $g_current_booking["payload"]["destination"] #get_typical_booking_name
     scroll_page_and_assert_text txt
     click_on_text txt
     sleep 3

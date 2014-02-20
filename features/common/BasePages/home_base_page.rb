@@ -126,7 +126,7 @@ class HomeBasePage < BasePage
 
   def verify_elements_for_typical_booking
     assert_wait_for_text @@side_panel_booking_summary
-    res=CommonMethods.new.get_all_products
+    res=CommonMethods.new.get_all_products_for_booking
     res.uniq.each do |var|
       count=res.count(var)
       case var
