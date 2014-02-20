@@ -9,7 +9,7 @@ class HotelBasePage < BasePage
 
   def find_hotel_details(num)
     count=0
-    CommonMethods.new.find_products("hotel").each do |item|
+    CommonMethods.new.find_products_in_booking("hotel").each do |item|
       count+=1
       return item if count==num
     end

@@ -2,13 +2,6 @@
 module DEMeineTUI
 
   def set_meine_tui_de_mt_strings
-    #fail("set_strings this method is not used")
-    #if ($g_strings_set==true)
-    #  return
-    #else
-    #  $g_strings_set=true
-    #end
-    #puts caller.first
     test_data
     welcome_page_strings
     already_customter_strings

@@ -79,9 +79,10 @@ Given(/^I navigate to terms page from side panel$/) do
 end
 
 Given(/^I have switched to typical booking$/) do
+  $g_current_booking=TYPICAL_BOOKING
   step "I am on Home screen"
   @homePage.click_on_account_button
-  @myBookingsPage.switch_to_typical_booking
+  @myBookingsPage.switch_to_particular_booking
 end
 
 Then(/^I verify appropriate welcome message for booking$/) do

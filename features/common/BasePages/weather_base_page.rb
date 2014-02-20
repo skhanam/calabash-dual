@@ -6,7 +6,7 @@ class WeatherBasePage < BasePage
     verify_page_title @@weather_page_title
   end
 
-  def check_days
+  def check_weather_forecast
     time=get_current_time
     count=1
     while (count<6) #Check values for next 5 days
@@ -25,7 +25,6 @@ class WeatherBasePage < BasePage
   #this method checks weather the page is shown by verifying one element
   def check_weather_page
     check_weather_screen_title
-    check_days
     sleep 1
   end
 

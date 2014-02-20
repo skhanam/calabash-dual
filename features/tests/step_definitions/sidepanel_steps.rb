@@ -20,7 +20,6 @@ end
 
 When(/^I see holiday weather page$/) do
   @weatherPage.check_weather_page
-  step "I navigate back to home page from weather page"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------

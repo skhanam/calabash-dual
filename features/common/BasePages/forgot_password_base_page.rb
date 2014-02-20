@@ -39,7 +39,7 @@ class ForgotPasswordBasePage < BasePage
       sleep 1
       touch("view marked:'#{text}'")
       sleep 1
-      touch done
+      tap_keyboard_action_key
       sleep 1
     elsif $g_android
       ti_enter_details(text, 1)

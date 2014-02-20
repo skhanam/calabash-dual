@@ -14,7 +14,7 @@ class FlightsBasePage < BasePage
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details(num)
+      res=CommonMethods.new.find_flight_details_for_booking(num)
       wait_for_partial_text_shown res["departureAirportName"]
       wait_for_partial_text_shown res["arrivalAirportName"]
     end
@@ -25,7 +25,7 @@ class FlightsBasePage < BasePage
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details(num)
+      res=CommonMethods.new.find_flight_details_for_booking(num)
       val=Date.parse(res["departureDateTime"]).strftime("%d. %B %Y")
       wait_for_partial_text_shown val
     end
@@ -37,7 +37,7 @@ class FlightsBasePage < BasePage
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details(num)
+      res=CommonMethods.new.find_flight_details_for_booking(num)
       val=res["passengers"]
       val.each do |passenger|
         wait_for_partial_text_shown passenger["fullName"]
