@@ -103,11 +103,19 @@ module ReusableMethods
   #Read language strings by default or else read specified file
   # $g_language_strings is set in env.rb based on command line argument TESTENV (from cucumber profile)
   def read_xml(filename=$g_language_strings)
-    doc = REXML::Document.new(File.new(filename))
+    filename = $g_lang_strings_file
     all_strings_hash={}
-    doc.elements.each("resources/string") do |ele|
-      all_strings_hash[ele.attributes["name"]]=ele.text
+
+    config = XmlSimple.xml_in(filename, {'KeyAttr' => 'resources/String'})
+    config['string'].each do |var|
+      all_strings_hash[var["name"]]=var["content"]
     end
+    #
+    #doc = REXML::Document.new(File.new(filename))
+    #all_strings_hash={}
+    #doc.elements.each("resources/string") do |ele|
+    #  all_strings_hash[ele.attributes["name"]]=ele.text
+    #end
     return all_strings_hash
   end
 
@@ -121,4 +129,8 @@ module ReusableMethods
     #end
     #$g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
   end
+
 end
+
+
+
