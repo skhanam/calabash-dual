@@ -4,12 +4,12 @@ class ContactUsBasePage < BasePage
   #def initialize
   #end
 
-  def check_contact_us_screen
+  def check_contact_us_screen_title
     assert_wait_for_text(@@contact_us_contact_tui_service)
   end
 
   def check_contact_us_page
-    check_contact_us_screen
+    check_contact_us_screen_title
     assert_wait_for_text @@contact_us_learn_more
     contact_us_embed_page
     scroll_page_and_assert_text(@@contact_us_disclaimer)

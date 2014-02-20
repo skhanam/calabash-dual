@@ -63,7 +63,7 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
 end
 
 Then(/^I see my username is already populated$/) do
-  @forgotPasswordBasePage.check_email_populated(@valid_username)
+  @forgotPasswordPage.check_email_populated(@valid_username)
 end
 
 When(/^I navigate to forgot password screen$/) do
@@ -73,15 +73,15 @@ end
 
 
 Then(/^I see my username is empty$/) do
-  @forgotPasswordBasePage.check_email_field_empty
+  @forgotPasswordPage.check_email_field_empty
 end
 
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
-  @forgotPasswordBasePage.enter_wrong_username_or_email if condition.eql? 'invalid'
+  @forgotPasswordPage.enter_wrong_username_or_email if condition.eql? 'invalid'
   fail 'TODO' if condition.eql? 'valid'
-  @forgotPasswordBasePage.submit_change_password
+  @forgotPasswordPage.submit_change_password
 end
 
 Then(/^I see appropriate error message$/) do
-  @forgotPasswordBasePage.check_wrong_username_email
+  @forgotPasswordPage.check_wrong_username_email
 end

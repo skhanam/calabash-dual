@@ -3,7 +3,7 @@ Then(/^I see my account page$/) do
 end
 
 Then(/^I see my account screen/) do
-  @myAccountPage.check_my_account_screen
+  @myAccountPage.check_my_account_screen_title
 end
 
 When(/^I select update email from my account page$/) do

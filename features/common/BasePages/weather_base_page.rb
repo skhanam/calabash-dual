@@ -1,17 +1,9 @@
-#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class WeatherBasePage < BasePage
 
-  #def initialize
-  #end
-
   #this method checks weather the page is shown by verifying one element
-  def check_weather_screen
-    sleep 2
-    if assert_wait_for_text(@@weather_page_title, 5)==false
-      fail("#{@@weather_page_title} text not found")
-    end
+  def check_weather_screen_title
+    verify_page_title @@weather_page_title
   end
 
   def check_days
@@ -32,7 +24,7 @@ class WeatherBasePage < BasePage
 
   #this method checks weather the page is shown by verifying one element
   def check_weather_page
-    check_weather_screen
+    check_weather_screen_title
     check_days
     sleep 1
   end

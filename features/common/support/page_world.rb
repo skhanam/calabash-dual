@@ -9,15 +9,16 @@ module TestModule
     @weatherPage ||= WeatherPage.new
     @myBookingsPage ||= MyBookingsPage.new
     @loginPage ||= LoginPage.new
-    @newUserRegistrationBasePage ||= NewUserRegistrationBasePage.new
-    @forgotPasswordBasePage ||= ForgotPasswordBasePage.new
+    @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
+    @forgotPasswordPage ||= ForgotPasswordBasePage.new
     @contactPage ||= ContactUsBasePage.new
     @termsPage ||= TermsAndConditionsPage.new
     @tuiServicePage ||= TUIServicePage.new
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
-    @meetRepBasePage ||=MeetRepBasePage.new
-    @hotelBasePage ||=HotelBasePage.new
+    @meetRepPage ||=MeetRepBasePage.new
+    @hotelPage ||=HotelBasePage.new
     @commonMethods ||=CommonMethods.new
+    @flightsPage ||=FlightsBasePage.new
   end
 end

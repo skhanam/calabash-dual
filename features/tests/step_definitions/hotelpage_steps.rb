@@ -1,18 +1,18 @@
 Then(/^I see hotel (\d+) page$/) do |arg|
-  @hotel_details=@hotelBasePage.verify_hotel_text(arg.to_i)
+  @hotel_details=@hotelPage.verify_hotel_text(arg.to_i)
 end
 
 
 And(/^I verify below links on hotel page:$/) do |table|
   values=table.raw
   values.each do |var|
-    @hotelBasePage.validate_hotel_links(var[0])
+    @hotelPage.validate_hotel_links(var[0])
   end
 end
 And(/^I verify below details on hotel page:$/) do |table|
   values=table.raw
   values.each do |var|
-    @hotelBasePage.validate_hotel_details(var[0],@hotel_details)
+    @hotelPage.validate_hotel_details(var[0],@hotel_details)
   end
 end
 

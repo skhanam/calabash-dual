@@ -1,10 +1,8 @@
 class BookingSummaryBasePage < BasePage
 
-
-
   #this method checks booking_summary_page is shown, by verifying one element
   def check_booking_summary_screen
-    fail("#{@@booking_summary_booking_code} text not found") if (assert_wait_for_text(@@booking_summary_booking_code) ==false)
+    assert_wait_for_text(@@booking_summary_booking_code)
   end
 
 

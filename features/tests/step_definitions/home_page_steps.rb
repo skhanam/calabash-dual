@@ -93,3 +93,7 @@ Then(/^I must be logged and on Home page$/) do
   @homePage.wait_for_home_page_to_load
   @homePage.check_i_am_on_home_page
 end
+
+Given(/^I have opened side menu$/) do
+  @homePage.open_side_panel
+end

@@ -3,18 +3,12 @@
   * Author: Tejasvi K M
   * Date: 15 jan 2013
 =end
-#
-#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class MyAccountBasePage < BasePage
 
-  #def initialize
-  #end
-
-  def check_my_account_screen
-    assert_wait_for_text(@@my_account_title)
-    assert_wait_for_text(@@personal_details)
+  def check_my_account_screen_title
+    verify_page_title @@my_account_title
+    #assert_wait_for_text(@@personal_details)
   end
 
   def verify_my_details
@@ -24,7 +18,7 @@ class MyAccountBasePage < BasePage
   end
 
   def check_my_account_page
-    check_my_account_screen
+    check_my_account_screen_title
     assert_wait_for_text(@@personal_details)
     assert_text_present(@@my_account_username)
     assert_text_present(@@my_account_first_name)

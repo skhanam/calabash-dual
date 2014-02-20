@@ -1,15 +1,12 @@
 class NewTOTUIBasePage < BasePage
 
-  #def initialize
-  #end
-
-  def check_new_to_tui_screen
+  def check_new_to_tui_screen_title
     assert_wait_for_text(@@new_to_tui_discover_tui)
 
   end
 
   def check_new_to_tui_page
-    check_new_to_tui_screen
+    check_new_to_tui_screen_title
     assert_text_elements([@@new_to_tui_discover_tui, @@new_to_tui_havent_booked,
                           @@new_to_tui_travel_worlds])
     assert_text_present @@new_to_tui_video

@@ -57,7 +57,7 @@ And(/^I have not yet registered with TUI$/) do
 end
 
 Then(/^I see new user registration page$/) do
-  @newUserRegistrationBasePage.check_new_user_reg_page
+  @newUserRegistrationPage.check_new_user_reg_page
 end
 
 And(/^I check new to TUI video$/) do

@@ -6,12 +6,12 @@ class CountDownBasePage < BasePage
   #def initialize
   #end
 
-  def check_countdown_screen
-    assert_wait_for_text(@@countdown_page_title)
+  def check_countdown_screen_title
+    verify_page_title(@@countdown_page_title)
   end
 
   def check_count_down_page
-    check_countdown_screen
+    check_countdown_screen_title
     sleep 1
     assert_text_elements([@@countdown_share_button_text, @@countdown_days_text, @@countdown_hours_text,
                           @@countdown_minutes_text, @@countdown_seconds_text])

@@ -32,6 +32,7 @@ module DEMeineTUI
     meet_rep_strings
     image_icons_acc_label
     hotel_page_strings
+    flights_strings
   end
 
   #All test data for different appication is in here
@@ -92,11 +93,21 @@ module DEMeineTUI
 
   def side_panel_strings
     @@side_panel_countdown=get_localized_string "countdown"
+
+    @@side_panel_flight=get_localized_string "flight"
+    @@side_panel_flights=get_localized_string "flights"
+    @@side_panel_extra=get_localized_string "extra"
+    @@side_panel_extras=get_localized_string "extras"
+    @@side_panel_hotel=get_localized_string "hotel"
+    @@side_panel_hotels=get_localized_string "hotels"
+
+    @@side_panel_insurance=get_localized_string "insurance"
+    @@side_panel_insurances=get_localized_string "insurances"
+
     @@side_panel_weather=get_localized_string "weather"
-    @@side_panel_hotel=get_localized_string "hotels"
-    @@side_panel_booking_summary="Auf einen Blick"
-    @@side_panel_contact_us="Kontakt"
-    @@side_panel_TandC="TUI Service vor Ort"
+    @@side_panel_booking_summary=get_localized_string "booking_summary"
+    @@side_panel_contact_us= get_localized_string "contact"
+    @@side_panel_TandC=get_localized_string "tui_service_on_site"
     @@side_panel_meet_rep=get_localized_string "travelAgent_title"
   end
 
@@ -326,6 +337,10 @@ module DEMeineTUI
     @@hotel_Entertainment_link="Unterhaltung"
     @@hotel_Wellness_link="Wellness"
     @@hotel_For_Children ="Für Kinder"
+  end
+
+  def flights_strings
+    @@flights_page_title=get_localized_string "flight"
   end
 end
 

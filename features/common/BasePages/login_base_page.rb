@@ -51,7 +51,7 @@ class LoginBasePage < BasePage
 
 
   def enter_date(date_int)
-    day, month, year=convert_excel_date_to_str(date_int).split(/-/)
+    day, month, year= convert_excel_date_to_str(date_int).split(/-/)
     puts day, month, year
     sleep(1)
 

@@ -86,6 +86,19 @@ class CommonMethods < BasePage
     return arr
   end
 
+  def find_number_of_flights
+    res=get_all_products
+    res.count "flight"
+  end
+
+  def find_flight_details(num)
+    count=0
+    TYPICAL_BOOKING["payload"]["bookingSummary"]["productDetails"].each do |var|
+      count+=1 if var["productType"]=="flight"
+      return var if count==num
+    end
+  end
+
   def get_countdown_days(val="typical_booking")
     (TYPICAL_BOOKING["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i if val=="typical_booking"
   end

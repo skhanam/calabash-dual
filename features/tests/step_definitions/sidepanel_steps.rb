@@ -35,3 +35,13 @@ When(/^I see holiday booking summary page$/) do
   step "I navigate back to home page from booking summary page"
 end
 
+
+Then(/^I should see a list of products in my booking$/) do
+  @homePage.verify_elements_for_typical_booking
+end
+
+
+Given(/^I navigate to flights page from side panel$/) do
+  @homePage.open_side_panel
+  @homePage.navigate_to_flights_page
+end
