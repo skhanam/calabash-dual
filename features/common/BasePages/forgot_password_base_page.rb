@@ -35,12 +35,13 @@ class ForgotPasswordBasePage < BasePage
 
   def enter_username_or_email(text)
     if $g_ios
-      set_text "textField index:0", text
-      sleep 1
-      touch("view marked:'#{text}'")
-      sleep 1
-      tap_keyboard_action_key
-      sleep 1
+      enter_text(text,1,"enter")
+      #set_text "textField index:0", text
+      #sleep 1
+      #touch("view marked:'#{text}'")
+      #sleep 1
+      #tap_keyboard_action_key
+      #sleep 1
     elsif $g_android
       ti_enter_details(text, 1)
     end

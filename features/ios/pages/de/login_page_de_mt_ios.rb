@@ -15,12 +15,13 @@ class LoginPage < LoginBasePage
   def enter_valid_user_name
     puts "**************"
     username=USERS[:valid][:username]
-    set_text "textField index:0", username
-    sleep 1
-    touch("* marked:'#{username}'")
-    sleep 1
-    touch("toolbarTextButton index:2")
-    sleep 1
+    enter_text(username,1,"enter")
+    #set_text "textField index:0", username
+    #sleep 1
+    #touch("* marked:'#{username}'")
+    #sleep 1
+    #touch("toolbarTextButton index:2")
+    #sleep 1
     return USERS[:valid][:username]
   end
 
@@ -37,16 +38,19 @@ class LoginPage < LoginBasePage
     #  sleep 1
     #elsif ENV['OS']=="ios7"
     puts "IOS 7 key board"
-    set_text "textField index:0", username
-    sleep 1
+    enter_text(username,1,"enter")
+    enter_text(password,2,"enter")
 
-    set_text "textField index:1", password
-    sleep 1
-    touch("* marked:'#{username}'")
-    sleep 1
-    touch("toolbarTextButton index:1")
-    sleep 1
-    touch("toolbarTextButton index:1")
+    #set_text "textField index:0", username
+    #sleep 1
+    #
+    #set_text "textField index:1", password
+    #sleep 1
+    #touch("* marked:'#{username}'")
+    #sleep 1
+    #touch("toolbarTextButton index:1")
+    #sleep 1
+    #touch("toolbarTextButton index:1")
     #end
     assert_wait_for_text(username, 10)
   end

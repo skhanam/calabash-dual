@@ -35,6 +35,16 @@ module IosReusableMethods
     return str.gsub("'", "\\\\'")
   end
 
+  def enter_text(text,index,opt="")
+    screenshot_and_raise "Index should be positive (was: #{index})" if (index<=0)
+    touch("textField index:#{index-1}")
+    wait_for_keyboard()
+    keyboard_enter_text text
+    sleep(STEP_PAUSE)
+    tap_keyboard_action_key if opt=="enter"
+    sleep(STEP_PAUSE)
+  end
+
   def click_on_text(text)
     puts "click_on_text:#{text}:"
     touch("view text:'#{escape_quotes_smart(text)}'")
