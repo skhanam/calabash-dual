@@ -28,8 +28,8 @@ module ViewModule
   end
 
   def click_accessibility_label(id)
-    touch "view marked:'#{id}'" if $g_ios
-    touch "view contentDescription:'#{id}.'" if $g_android
+    touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
+    touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
   end
 
   def click_on_partial_text(text)

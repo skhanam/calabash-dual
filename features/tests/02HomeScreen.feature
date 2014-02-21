@@ -1,4 +1,4 @@
-@android_test @ios_test
+@android_test @ios_test   @failed
 Feature: Verify product pages by navigating through biscuits
   Check countdown page is displayed correctly
   Check weather page is displayed correctly

@@ -24,4 +24,12 @@ class LoginPage < LoginBasePage
     return USERS[:valid][:username]
   end
 
+  def setCountry(country)
+    touch "* text:'Deutschland'"
+    sleep 2
+    res=query("CheckedTextView", :text)
+    index=res.index(country)
+    touch "CheckedTextView index:#{index}"
+    sleep 2
+  end
 end

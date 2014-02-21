@@ -24,4 +24,5 @@ class BasePage < Calabash::IBase
       write_welcome_messages_to_file("#{key}:   is shown #{var}/#{count} times")
     end
   end
+
 end

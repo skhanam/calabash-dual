@@ -27,13 +27,5 @@ class CountDownBasePage < BasePage
 
   end
 
-  def check_sharing
-    click_accessibility_label @@share_button_closed_img
-    wait_for_acc_label @@facebook_share_img
-    wait_for_acc_label @@twitter_share_img
-    wait_for_acc_label @@share_button_open_img
-    sleep 1
-    #TODO verify messages on facebook and twitter
-  end
 
 end

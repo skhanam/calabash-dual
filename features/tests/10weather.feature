@@ -6,7 +6,6 @@ Feature: Weather
 
   Background:
 
-  @failed
   Scenario: Verify weather screen for Single Booking
     Given I have switched to single booking
     Given I navigate to weather page using weather biscuit
@@ -18,8 +17,5 @@ Feature: Weather
     And I should weather forecast for five sequential days
 
   Scenario: Social Share
-    Given I am on a the TUI Holiday Weather page
-    When I tap on the 'Share the weather' button
-    Then I should see an overlay with buttons to social media
-      | facebook |
-      | Twitter  |
+    Given I navigate to weather page using weather biscuit
+    Then I verify facebook and twitter share icons are visible

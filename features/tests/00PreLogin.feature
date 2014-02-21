@@ -10,6 +10,7 @@ Feature: Verify screens shown before logging into App
   Scenario: Verify new to TUI page
     When I choose haven't booked through TUI
     Then I see new to TUI page
+    Then I enter "aasd" into input field number 1
 
   @android_test @ios_test
   Scenario: Already customer and I haven't logged in yet
