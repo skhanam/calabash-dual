@@ -11,7 +11,6 @@ Feature: Verify product pages by navigating through biscuits
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
 
-
   Scenario: navigate to booking summary page
     When I navigate to booking summary page using booking summary biscuit
     Then I see holiday booking summary page

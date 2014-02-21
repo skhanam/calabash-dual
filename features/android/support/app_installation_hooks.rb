@@ -24,15 +24,15 @@ Before do |scenario|
       or ENV["RESET_BETWEEN_SCENARIOS"] == "1"
     if ENV["RESET_BETWEEN_SCENARIOS"] == "1"
       log "New scenario - reinstalling apps"
-      #uninstall_apps
-      #install_app(ENV["TEST_APP_PATH"])
-      #install_app(ENV["APP_PATH"])
+      uninstall_apps
+      install_app(ENV["TEST_APP_PATH"])
+      install_app(ENV["APP_PATH"])
 
     else
       log "First scenario in feature - reinstalling apps"
-      #uninstall_apps
-      #install_app(ENV["TEST_APP_PATH"])
-      #install_app(ENV["APP_PATH"])
+      uninstall_apps
+      install_app(ENV["TEST_APP_PATH"])
+      install_app(ENV["APP_PATH"])
       clear_app_data
     end
 

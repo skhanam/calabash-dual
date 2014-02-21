@@ -35,7 +35,7 @@ module IosReusableMethods
     return str.gsub("'", "\\\\'")
   end
 
-  def enter_text(text,index,opt="")
+  def enter_text(text, index, opt="")
     screenshot_and_raise "Index should be positive (was: #{index})" if (index<=0)
     touch("textField index:#{index-1}")
     wait_for_keyboard()
@@ -157,7 +157,7 @@ module IosReusableMethods
 
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil,count=10)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
     repeat_count=0
     return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
 
@@ -196,12 +196,18 @@ module IosReusableMethods
   end
 
   def verify_page_title(txt, time_out=10)
-    wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
-      puts text
+    actual_title= get_nav_bar_title
+    count=0
+    while (actual_title!=txt && count<time_out)
+      count+=1
+      actual_title= get_nav_bar_title
+      actual_title.strip if actual_title !=nil
+      fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
+      sleep 1
     end
   end
 
   def get_nav_bar_title
-    query("view marked:'navbarTitle'",:text).first
+    query("view marked:'navbarTitle'", :text).first
   end
 end

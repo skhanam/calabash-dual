@@ -98,3 +98,11 @@ end
 Given(/^I have opened side menu$/) do
   @homePage.open_side_panel
 end
+
+
+Given(/^I have switched to single booking$/) do
+  $g_current_booking=FLIGHT_BOOKING
+  step "I am on Home screen"
+  @homePage.click_on_account_button
+  @myBookingsPage.switch_to_particular_booking
+end

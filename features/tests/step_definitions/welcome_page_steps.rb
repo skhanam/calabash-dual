@@ -20,12 +20,12 @@ end
 
 When(/^I am on Home screen$/) do
 
-  if @welcomePage.check_welcome_screen #If check if user is not logged in
+  if @welcomePage.check_welcome_screen(2) #If check if user is not logged in
     step "I log into Application"
     sleep 5
     step "I must be logged and on Home page"
   else
-    @homePage.check_home_screen
+    @homePage.check_home_screen(5)
     @homePage.wait_for_home_page_to_load
   end
 end

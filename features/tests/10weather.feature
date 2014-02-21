@@ -6,8 +6,10 @@ Feature: Weather
 
   Background:
 
+  @failed
   Scenario: Verify weather screen for Single Booking
-    Given I navigate to weather page for single booking
+    Given I have switched to single booking
+    Given I navigate to weather page using weather biscuit
     Then I see holiday weather page
 
   Scenario:Week's weather

@@ -1,6 +1,6 @@
 USERS = {
     :valid => {
-        :username => "peterpan",
+        :username => "userdea@gmail.com",
         :password => "testtest",
         :country => "Germany",
         :bookings => {

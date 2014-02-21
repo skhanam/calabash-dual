@@ -20,7 +20,7 @@ class LoginPage < LoginBasePage
   end
 
   def enter_valid_user_name
-    ti_enter_details(USERS[:valid][:username], 2)
+    ti_enter_details(USERS[:valid][:username], 1)
     return USERS[:valid][:username]
   end
 

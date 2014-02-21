@@ -15,7 +15,7 @@ else
 tagged_test=$3
 fi
 
-ruby update_tiapp.rb
+ruby update_tiapp.rb $2
 
 SCHEME_XC="meineTUI-cal"
 BUILD_CONFIG="Debug"

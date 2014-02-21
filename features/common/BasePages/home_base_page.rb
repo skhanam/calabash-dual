@@ -24,8 +24,8 @@ class HomeBasePage < BasePage
   end
 
   #Check one element on home screen to confirm page is loaded
-  def check_home_screen
-    return wait_for_acc_label(@@home_page_acc_label, 20)
+  def check_home_screen(timeout=20)
+    return wait_for_acc_label(@@home_page_acc_label, timeout)
   end
 
   def wait_login_progress_to_disappear

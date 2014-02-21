@@ -1,7 +1,7 @@
 class WelcomeBasePage < BasePage
 
-  def check_welcome_screen
-    wait_for_text(@@already_customer_title, 2)
+  def check_welcome_screen(timeout=5)
+   return wait_for_text(@@already_customer_title, timeout)
   end
 
   def verify_welcome_screen
