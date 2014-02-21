@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'calabash-android'
-gem 'calabash-cucumber', '0.9.161'
+gem 'calabash-cucumber', '0.9.167'
 gem 'multi_json','1.7.9'
 gem 'rspec', '1.3.0'
 gem 'rubyXL'

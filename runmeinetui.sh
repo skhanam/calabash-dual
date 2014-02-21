@@ -15,21 +15,25 @@ else
 tagged_test=$3
 fi
 
+ruby update_tiapp.rb
 
-SCHEME_XC="meine TUI-cal"
+SCHEME_XC="meineTUI-cal"
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
-APPNAME="meine TUI"
-PROJ_LOC="${PROJ_NAME}/build/iphone/meine TUI.xcodeproj"
+APPNAME="meineTUI"
+PROJ_LOC="../${PROJ_NAME}/build/iphone/meineTUI.xcodeproj"
 
 
 if [ "$1" == "clean" ] ; then
 killall Xcode
-./expect.exp $PROJ_NAME
+cp ./expect.exp ../${PROJ_NAME}/
+cd ../${PROJ_NAME}/
+./expect.exp
+cd -
 open -a Xcode
 sleep  5
-open ${PROJ_NAME}/build/iphone/*.xcodeproj
+open ../${PROJ_NAME}/build/iphone/*.xcodeproj
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
