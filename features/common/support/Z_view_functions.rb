@@ -137,4 +137,16 @@ module ViewModule
     fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if  wait_for_acc_label text, timeout
     return true
   end
+
+  def verify_page_title(txt, time_out=10)
+    actual_title= get_nav_bar_title
+    count=0
+    while (actual_title!=txt && count<time_out)
+      count+=1
+      actual_title= get_nav_bar_title
+      actual_title.strip if actual_title !=nil
+      fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
+      sleep 1
+    end
+  end
 end

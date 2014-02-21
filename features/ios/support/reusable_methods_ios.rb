@@ -195,17 +195,7 @@ module IosReusableMethods
     end
   end
 
-  def verify_page_title(txt, time_out=10)
-    actual_title= get_nav_bar_title
-    count=0
-    while (actual_title!=txt && count<time_out)
-      count+=1
-      actual_title= get_nav_bar_title
-      actual_title.strip if actual_title !=nil
-      fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
-      sleep 1
-    end
-  end
+
 
   def get_nav_bar_title
     query("view marked:'navbarTitle'", :text).first

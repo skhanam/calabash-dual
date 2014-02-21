@@ -136,12 +136,12 @@ module AndroidReusableMethods
     end
     wait_for_acc_label(label_expected)
   end
-
-  def verify_page_title(txt, time_out=10)
-    wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
-      puts text
-    end
-  end
+  #
+  #def verify_page_title(txt, time_out=10)
+  #  wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
+  #    puts text
+  #  end
+  #end
 
   def scroll_side_panel(text)
     scroll_page_and_assert_text(text)
