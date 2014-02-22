@@ -6,7 +6,7 @@ class HomeBasePage < BasePage
 
   def initialize
     #set_strings
-    @@user_details= @@user_details || User.new()
+    #@@user_details= @@user_details || User.new()
   end
 
   def trait
@@ -67,7 +67,7 @@ class HomeBasePage < BasePage
 
   def navigate_to_TandC_page
     scroll_side_panel(@@side_panel_TandC)
-    touch_txt_and_verify_title @@side_panel_TandC, @@terms_text
+    touch_txt_and_verify_title @@side_panel_TandC, @@tui_service_terms_text
   end
 
   def navigate_to_booking_summary_page

@@ -1,13 +1,6 @@
 #!/bin/sh
 DATE=`date +%d-%m-%Y-%H-%M`
 
-if [ -z "$2" ] ; then
-echo "Running tests on default directory \n\n"
-PROJ_NAME="meine.tui"
-else
-PROJ_NAME=$2
-fi
-
 if [ -z "$3" ] ; then
 echo "Tags not specified using @failed"
 tagged_test=@failed
@@ -15,7 +8,13 @@ else
 tagged_test=$3
 fi
 
-ruby update_tiapp.rb $2
+if [ -z "$2" ] ; then
+	PROJ_NAME="meine.tui"
+else
+	PROJ_NAME=$2
+fi
+
+ruby update_tiapp.rb $PROJ_NAME
 
 SCHEME_XC="meineTUI-cal"
 BUILD_CONFIG="Debug"
@@ -37,6 +36,7 @@ open ../${PROJ_NAME}/build/iphone/*.xcodeproj
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
+
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 

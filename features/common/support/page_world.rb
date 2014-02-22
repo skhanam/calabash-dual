@@ -12,8 +12,8 @@ module TestModule
     @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
     @forgotPasswordPage ||= ForgotPasswordBasePage.new
     @contactPage ||= ContactUsBasePage.new
-    @termsPage ||= TermsAndConditionsPage.new
-    @tuiServicePage ||= TUIServicePage.new
+    @tuiServicePage ||= TuiServiceOnsitePage.new
+    @tuiServicePage ||= TermsAndConditionsBasePage.new
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
     @meetRepPage ||=MeetRepBasePage.new

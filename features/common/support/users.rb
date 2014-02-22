@@ -1,8 +1,11 @@
 USERS = {
     :valid => {
+        :firstname => "Peter",
+        :lastname => "Pan",
         :username => "userdea@gmail.com",
+        :email => "userdea@gmail.com",
         :password => "testtest",
-        :country => "Deutschland",
+        :country => "Germany",
         :bookings => {
             :destination => "Palma de Mallorca",
             :date => "06.09.2014",
@@ -25,6 +28,8 @@ TEST_DATA ={
     }
 
 }
+
+#:country => "Deutschland",
 
 #def get_user_details(url)
 #  username="peterpan"

@@ -13,7 +13,6 @@ class BasePage < Calabash::IBase
   include AppStrings
   include IosReusableMethods
   include ViewModule
-  include UserData
   include ReusableMethods
 
   def initialize

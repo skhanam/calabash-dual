@@ -14,7 +14,7 @@ And(/^I navigate to terms and conditions page$/) do
   @contactPage.navigate_to_terms_and_conditions
 end
 
-Then(/^I must see  terms and conditions page$/) do
+Then(/^I must see terms and conditions page$/) do
   @contactPage.check_terms_and_conditions
 end
 

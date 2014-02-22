@@ -29,29 +29,29 @@ class MyBookingsBasePage < BasePage
   end
 
 
-  def fill_user_details # read my bookings page and fill that data into user_details
-    hash_arr=get_reservations("current")
-
-    count=0
-    hash_arr.each do |key, value|
-      temp_hash={:destination => value[0], :departure_date => value[1], :products => value[2]}
-      @@user_details.CurrentBookings[count]=temp_hash
-      count+=1
-    end
-
-
-    hash_arr=get_reservations("past")
-    count=0
-    hash_arr.each do |key, value|
-      temp_hash={:destination => value[0], :departure_date => value[1], :products => value[2]}
-      @@user_details.PastBookings[count]=temp_hash
-      count+=1
-    end
-    scroll_page_and_assert_text(@@my_bookings_past_bookings, "up")
-
-    puts "past bookings #{@@user_details.PastBookings}"
-    puts "current bookings #{@@user_details.CurrentBookings}"
-  end
+  #def fill_user_details # read my bookings page and fill that data into user_details
+  #  hash_arr=get_reservations("current")
+  #
+  #  count=0
+  #  hash_arr.each do |key, value|
+  #    temp_hash={:destination => value[0], :departure_date => value[1], :products => value[2]}
+  #    @@user_details.CurrentBookings[count]=temp_hash
+  #    count+=1
+  #  end
+  #
+  #
+  #  hash_arr=get_reservations("past")
+  #  count=0
+  #  hash_arr.each do |key, value|
+  #    temp_hash={:destination => value[0], :departure_date => value[1], :products => value[2]}
+  #    @@user_details.PastBookings[count]=temp_hash
+  #    count+=1
+  #  end
+  #  scroll_page_and_assert_text(@@my_bookings_past_bookings, "up")
+  #
+  #  puts "past bookings #{@@user_details.PastBookings}"
+  #  puts "current bookings #{@@user_details.CurrentBookings}"
+  #end
 
 
   def get_destination_name_of_past_booking(count)

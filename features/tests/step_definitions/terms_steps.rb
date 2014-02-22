@@ -1,10 +1,10 @@
 Then(/^I see terms page is displayed correctly$/) do
-  @termsPage.check_terms_page
+  @tuiServicePage.check_tui_service_page
 end
 
 Then(/^I verify below links on terms page$/) do |table|
   values=table.raw
   values.each do |var|
-    @termsPage.validate_menu_items(var[0])
+    @tuiServicePage.validate_menu_items(var[0])
   end
 end

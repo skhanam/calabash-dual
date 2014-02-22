@@ -31,7 +31,6 @@ end
 
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.check_booking_summary_page
-  step "I navigate back to home page from booking summary page"
 end
 
 

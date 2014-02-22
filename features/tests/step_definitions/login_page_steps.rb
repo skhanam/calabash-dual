@@ -7,13 +7,13 @@ end
 
 Given(/^I log into Application/) do
   step "I am on 'Login' screen"
-  step 'I enter "'+USERS[:valid][:username]+'" into input field number 1' if $g_ios
-  step 'I enter "'+USERS[:valid][:password]+'" into input field number 2' if $g_ios
-  step 'I enter "'+USERS[:valid][:username]+'" into input field number 2'  if $g_android
-  step 'I enter "'+USERS[:valid][:password]+'" into input field number 3'  if $g_android
+  step 'I enter "'+$g_user_details[:username]+'" into input field number 1' if $g_ios
+  step 'I enter "'+$g_user_details[:password]+'" into input field number 2' if $g_ios
+  step 'I enter "'+$g_user_details[:username]+'" into input field number 2'  if $g_android
+  step 'I enter "'+$g_user_details[:password]+'" into input field number 3'  if $g_android
   step "I touch done" if $g_ios
   step "I press the enter button" if $g_android
-  step 'I set country "'+USERS[:valid][:country]+'" in login screen'
+  step 'I set country "'+$g_user_details[:country]+'" in login screen'
   #step 'I enter default username and password in login page'
   step "click on login button"
 end

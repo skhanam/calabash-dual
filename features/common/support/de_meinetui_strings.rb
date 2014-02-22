@@ -21,11 +21,12 @@ module DEMeineTUI
     new_user_registration
     forgot_password_strings
     contact_us_strings
-    terms_strings
+    tui_service_onsite_strings
     meet_rep_strings
     image_icons_acc_label
     hotel_page_strings
     flights_strings
+    terms_strings
   end
 
   #All test data for different appication is in here
@@ -260,7 +261,7 @@ module DEMeineTUI
     @@contact_us_subject = get_localized_string "contact_subject"
     @@contact_us_message = get_localized_string "contact_message"
     @@contact_us_send_email = get_localized_string "contact_sendEmail"
-    @@contact_us_privacy_policy= get_localized_string "terms_title"
+    @@contact_us_t_and_c= get_localized_string "terms_title"
     @@contact_us_disclaimer= get_localized_string "disclaimer"
     @@contact_us_contact_copy= ["TUI Deutschland GmbH",
                                 "Karl-Wiechert-Allee 23",
@@ -278,29 +279,32 @@ module DEMeineTUI
                                 "Dr. Oliver Dörschuck",
                                 "Henrik Homann"]
 
-    @@terms_conditions_page_title="Datenschutzerklärung der TUI Deutschland GmbH"
-    @@tui_service_contact_title="Im Urlaub für Sie da"
+    @@contact_us_terms_conditions_page_title=get_localized_string "terms_title"
+    @@contact_us_tui_service_title="Im Urlaub für Sie da"
     #TODO check this text must be verified or not
     #@@contact_us_questions_about_reservations="Bei Fragen rund um Ihre Buchung, TUI allgemein oder bei technischen Problemen stehen wir Ihnen gerne zur Verfügung."
     #privacy policy button
     #@@contact_us_we_are_here="So erreichen Sie uns"
   end
 
+
+  def tui_service_onsite_strings
+    @@tui_service_title=get_localized_string "tui_service_on_site"
+    @@tui_service_terms_text= "Im Urlaub für Sie da"
+    @@tui_service_sms=get_localized_string "services_text"
+    @@tui_service_send_email=get_localized_string "services_email"
+    @@tui_service_learn_more=get_localized_string "contact_questions"
+    @@tui_service_service_contact= get_localized_string "contact_tui_services"
+
+    @@tui_service_call_us=get_localized_string "services_phone"
+    @@tui_service_are_you_sure = get_localized_string "product_call_dialog_message"
+    @@tui_service_dialog_no = get_localized_string "product_call_dialog_no"
+    @@tui_service_dialog_yes = get_localized_string "product_call_dialog_yes"
+    @@tui_service_dialog_number= "Nummer"
+  end
+
   def terms_strings
-
-    @@terms_title=get_localized_string "service_on_site"
-    @@terms_text= "Im Urlaub für Sie da"
-    @@terms_sms=get_localized_string "services_text"
-    @@terms_send_email=get_localized_string "services_email"
-    @@terms_learn_more=get_localized_string "contact_questions"
-    @@terms_service_contact= get_localized_string "contact_tui_services"
-
-    @@terms_call_us=get_localized_string "services_phone"
-    @@terms_are_you_sure = get_localized_string "product_call_dialog_message"
-    @@terms_dialog_no = get_localized_string "product_call_dialog_no"
-    @@terms_dialog_yes = get_localized_string "product_call_dialog_yes"
-    @@terms_dialog_number= "Nummer"
-
+    @@terms_title=get_localized_string "terms_title"
   end
 
   def meet_rep_strings
@@ -335,6 +339,7 @@ module DEMeineTUI
   def flights_strings
     @@flights_page_title=get_localized_string "flight"
   end
+
 end
 
 

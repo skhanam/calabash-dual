@@ -86,6 +86,15 @@ class CommonMethods < BasePage
     return arr
   end
 
+  def get_booking_summary(key_val)
+    #key_val=["leadPassenger","otherPassengers","bookingCode"]
+    $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+      if var["key"]==key_val
+        return var["title"],var["value"]
+      end
+    end
+  end
+
   def find_number_of_flights
     res=get_all_products_for_booking
     res.count "flight"

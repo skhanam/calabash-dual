@@ -14,7 +14,7 @@ class LoginPage < LoginBasePage
 
   def enter_valid_user_name
     puts "**************"
-    username=USERS[:valid][:username]
+    username=$g_user_details[:username]
     enter_text(username,1,"enter")
     #set_text "textField index:0", username
     #sleep 1
@@ -22,7 +22,7 @@ class LoginPage < LoginBasePage
     #sleep 1
     #touch("toolbarTextButton index:2")
     #sleep 1
-    return USERS[:valid][:username]
+    return $g_user_details[:username]
   end
 
 

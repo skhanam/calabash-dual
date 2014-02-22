@@ -20,8 +20,8 @@ class LoginPage < LoginBasePage
   end
 
   def enter_valid_user_name
-    ti_enter_details(USERS[:valid][:username], 1)
-    return USERS[:valid][:username]
+    ti_enter_details($g_user_details[:username], 1)
+    return $g_user_details[:username]
   end
 
   def setCountry(country)

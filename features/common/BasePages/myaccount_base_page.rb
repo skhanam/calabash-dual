@@ -53,7 +53,7 @@ class MyAccountBasePage < BasePage
 
 
   def click_update_email_button
-    touch_txt_and_verify_title(@@my_account_update_email, @@update_email__text2)
+    touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text)
   end
 
   def check_update_email_screen
@@ -90,13 +90,13 @@ class MyAccountBasePage < BasePage
   def validate_menu_items(var)
     case var
       when "username"
-        assert_text_present(@@user_details.user_name)
+        assert_text_present($g_user_details[:username])
       when "first name"
-        assert_text_present(@@user_details.first_name)
+        assert_text_present($g_user_details[:firstname])
       when "surname"
-        assert_text_present(@@user_details.last_name)
+        assert_text_present($g_user_details[:lastname])
       when "email"
-        assert_text_present(@@user_details.email_id)
+        assert_text_present($g_user_details[:email])
       when "update email button"
         assert_text_present(@@my_account_update_email)
       when "password change button"

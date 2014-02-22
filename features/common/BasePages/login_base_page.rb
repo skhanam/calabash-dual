@@ -23,8 +23,8 @@ class LoginBasePage < BasePage
   end
 
   def enter_default_username_password
-    username= USERS[:valid][:username]
-    password= USERS[:valid][:password]
+    username= $g_user_details[:username]
+    password= $g_user_details[:password]
     enter_credentials(username, password)
   end
 
