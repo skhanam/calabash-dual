@@ -19,3 +19,41 @@ Feature: Verify product pages by navigating through side panel
     Given I have switched to typical booking
     When I navigate to booking summary page using side menu
     Then I see holiday booking summary page
+
+  Scenario: Check Navigation menus for Typical booking
+    Given I have switched to typical booking
+    When I open side panel
+    Then I must see below items:
+      | My Booking              |
+      | Booking summary         |
+      | Train                   |
+      | Flights                 |
+      | Accommodation           |
+      | Extra                   |
+      | Destination information |
+      | Destination guide       |
+      | Good to know            |
+      | Get in touch            |
+      | Travel Agent            |
+      | Kontakt                 |
+      | My representative       |
+      | TUI onsite service      |
+      | Kontakt                 |
+
+
+  Scenario: Check Navigation menus for Single booking
+    Given I have switched to single flight booking
+    When I open side panel
+    Then I must see below items:
+      | My Booking              |
+      | Booking summary         |
+      | flight                  |
+      | Extra                   |
+      | Destination information |
+      | Destination guide       |
+      | Get in touch            |
+      | Travel Agent            |
+      | Kontakt                 |
+      | My representative       |
+      | TUI onsite service      |
+      | Kontakt                 |
