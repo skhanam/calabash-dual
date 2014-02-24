@@ -6,7 +6,7 @@ Feature: Login and Home page features
     Given I log into Application
     Then I must be logged and on Home page
 
-  @sanity
+  @sanity @failed
   Scenario: Logout from my account page
     Given I am on my account page
     When I log out from application

@@ -164,7 +164,7 @@ class HomeBasePage < BasePage
   end
 
 
-  def check_side_panel(var)
+  def check_side_panel(var,count=1)
     case var
       when "flight"
         assert_wait_for_text @@side_panel_flight if count==1
