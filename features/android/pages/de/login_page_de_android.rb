@@ -25,11 +25,15 @@ class LoginPage < LoginBasePage
   end
 
   def setCountry(country)
+    puts "TODO: handle country"
+    country="Deutschland"
+    sleep 1
     touch "* text:'Deutschland'"
-    sleep 2
+    sleep 1
     res=query("CheckedTextView", :text)
+    puts "setCountry #{res}"
     index=res.index(country)
     touch "CheckedTextView index:#{index}"
-    sleep 2
+    sleep 1
   end
 end

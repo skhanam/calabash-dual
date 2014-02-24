@@ -106,3 +106,7 @@ Given(/^I have switched to single booking$/) do
   @homePage.click_on_account_button
   @myBookingsPage.switch_to_particular_booking
 end
+
+When(/^I open side panel$/) do
+  @homePage.open_side_panel
+end

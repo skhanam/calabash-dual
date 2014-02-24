@@ -53,7 +53,7 @@ class CommonMethods < BasePage
     res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
 
     m=res1.match('(PHP(.*)path=\/)')
-    res=res||`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
+    res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
     parsed=JSON.parse(res)
     return parsed
   end

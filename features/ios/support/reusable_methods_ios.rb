@@ -95,14 +95,16 @@ module IosReusableMethods
   end
 
   #Scroll to text in side panel
-  def scroll_side_panel(text)
+  def scroll_side_panel(text,index=1)
     section=0
+    count=0
     scroll_to_cell(:row => 0, :section => 0)
     sleep 1
     each_cell(:animate => false, :post_scroll => 0.2) do |row, sec|
       puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
       if query("tableViewCell indexPath:#{row},#{sec} label", :text).first==text
-        break
+        count+=1
+        break if index==count
       end
       section=section+1
     end
