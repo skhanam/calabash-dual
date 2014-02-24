@@ -11,7 +11,7 @@ Feature: Verify screens shown before logging into App
     When I choose haven't booked through TUI
     Then I see new to TUI page
 
-  @android_test @ios_test
+  @android_test @ios_test @sanity
   Scenario: Already customer and I haven't logged in yet
     When I navigate to new user registration page
     Then I see new user registration page

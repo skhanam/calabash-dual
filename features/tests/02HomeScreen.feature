@@ -4,6 +4,7 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
+  @sanity
   Scenario: navigate to countdown page
     Given I am on Home screen
     When I navigate to countdown page using countdown biscuit
