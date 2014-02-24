@@ -111,6 +111,7 @@ class HomeBasePage < BasePage
   end
 
   def wait_for_account_page_to_load
+    sleep 5
     wait_for_progress_to_disappear(@@loading_hold_on)
   end
 
