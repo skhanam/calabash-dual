@@ -288,7 +288,6 @@ module DEMeineTUI
                                 "30625 Hannover",
                                 "Telefon 05 11 / 5 67-0",
                                 "Telefax 05 11 / 5 67-13 01",
-                                "E-Mail: info@tui.de",
                                 "Handelsregister",
                                 "Amtsgericht Hannover",
                                 "HRB 56512",

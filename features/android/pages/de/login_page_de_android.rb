@@ -25,7 +25,6 @@ class LoginPage < LoginBasePage
   end
 
   def setCountry(country)
-    puts "TODO: handle country"
     country="Deutschland"
     sleep 1
     touch "* text:'Deutschland'"
