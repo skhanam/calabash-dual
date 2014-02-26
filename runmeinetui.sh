@@ -1,18 +1,23 @@
 #!/bin/sh
+clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
-if [ -z "$3" ] ; then
-echo "Tags not specified using @failed"
-tagged_test=@failed
-else
-tagged_test=$3
+if [ "$#" != "2" ]; then
+	echo "\n\n\n2 ARGUMENTS NEEDED"
+	echo "1) clean(clean project) or NA (for running project without cleaning"
+	echo "2) Tags selected for test run ex: @sanity or @reg"
+	echo "\nsample command: sh runmeinetui.sh clean @sanity\n"
+	exit
 fi
 
 if [ -z "$2" ] ; then
-	PROJ_NAME="meine.tui"
+echo "Tags not specified using @failed"
+tagged_test=@failed
 else
-	PROJ_NAME=$2
+tagged_test=$2
 fi
+
+PROJ_NAME="meine.tui"
 
 ruby update_tiapp.rb $PROJ_NAME
 

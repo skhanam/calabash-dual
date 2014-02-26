@@ -270,7 +270,7 @@ module DEMeineTUI
   end
 
   def contact_us_strings
-    @@contact_us_contact=get_localized_string "contact"
+    @@contact_us_contact_title=get_localized_string "contact"
     @@contact_us_learn_more=get_localized_string "contact_questions"
     @@contact_us_contact_tui_service = get_localized_string "service_on_site"
     @@contact_us_first_name=get_localized_string "forename"
