@@ -143,9 +143,9 @@ module DEMeineTUI
     @@my_account_change_password= get_localized_string "change_password"
     @@my_account_signup_newsletter=get_localized_string "signup_to_emails"
     @@my_account_newsletter_text= get_localized_string "signup_to_emails_blurb"
-    @@log_out_text="Abmelden"
+    @@log_out_text=get_localized_string "logout"
 
-    @@my_account_logout_title="Sind Sie sicher?"
+    @@my_account_logout_title=get_localized_string "logout_confirm_two"
     @@my_account_logout_yes="Bestätigen"
     @@my_account_logout_no="Abbrechen"
   end
