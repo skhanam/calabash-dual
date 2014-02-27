@@ -18,7 +18,6 @@ Feature: Verify booking information for Typical Booking
     Given I have opened side menu
     Then I should see a list of products in my booking
 
-  @sanity
   Scenario: Check Flights - 1st Level
     Given I navigate to flights page from side panel
     Then I should see one or more flights listed vertically

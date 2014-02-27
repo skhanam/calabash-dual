@@ -2,7 +2,7 @@
 
 Feature: Verify contact us page
 
-  @sanity @failed @failed1
+  @sanity
   Scenario: check contact us page
     Given I am on contact us screen
     Then I verify below details on contact page:
