@@ -35,13 +35,16 @@ class ContactUsBasePage < BasePage
   def validate_contact_items(var)
     case var
       when "email"
-        assert_text_present(@@contact_us_email_id)
+        assert_wait_for_text(@@contact_us_email_id)
+        sleep 1
         assert_text_present($g_user_details[:email])
       when "First name"
-        assert_text_present(@@contact_us_first_name)
-        assert_text_present($g_user_details[:lastname])
+        assert_wait_for_text(@@contact_us_first_name)
+        sleep 1
+        assert_text_present($g_user_details[:firstname])
       when "Surname"
-        assert_text_present(@@contact_us_last_name)
+        assert_wait_for_text(@@contact_us_last_name)
+        sleep 1
         assert_text_present($g_user_details[:firstname])
     end
   end

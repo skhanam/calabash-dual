@@ -151,12 +151,11 @@ module DEMeineTUI
   end
 
   def change_password_strings
-    @@change_password_title="Passwort vergessen"
-    @@change_password_create_new_password="Neues Passwort anlegen"
-    @@change_password_info="Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen. Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden."
-    @@change_password_text2="Benutzername oder E-Mail:"
-    #TODO confirm this string is correct or wrong:
-    @@change_password_send_button="Absenden"
+    @@change_password_title=get_localized_string "forgot_password_header"
+    @@change_password_create_new_password=get_localized_string "forgot_password_reset_pwd"
+    @@change_password_info=get_localized_string "new_password_body"
+    @@change_password_text2=get_localized_string "forgot_password_email_label"
+    @@change_password_send_button=get_localized_string "submit"
   end
 
 
@@ -241,7 +240,7 @@ module DEMeineTUI
     @@new_user_registration_password_hint = "Passwort eingeben"
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
-    @@new_user_registration_newsletter_text =  get_localized_string "signup_to_emails_blurb"
+    @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
     @@new_user_registration_register = "Registrieren"
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = "Ich benötige Hilfe"
@@ -324,6 +323,7 @@ module DEMeineTUI
 
   def terms_strings
     @@terms_title=get_localized_string "terms_title"
+    @@de_terms_web_content_title="Datenschutzerklärung der TUI Deutschland GmbH"
   end
 
   def meet_rep_strings

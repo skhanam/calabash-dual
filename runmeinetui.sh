@@ -19,6 +19,8 @@ fi
 
 PROJ_NAME="meine.tui"
 
+cd ../${PROJ_NAME}/;node build.js meinetui;cd -
+
 ruby update_tiapp.rb $PROJ_NAME
 
 SCHEME_XC="meineTUI-cal"
@@ -41,7 +43,6 @@ open ../${PROJ_NAME}/build/iphone/*.xcodeproj
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 fi
-
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 

@@ -13,4 +13,3 @@ Feature: Read Bookings Details and Verify
     Given I am on my bookings page
     When I navigate to add a booking page
     Then I see add a booking page
-

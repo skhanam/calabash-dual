@@ -25,3 +25,7 @@ end
 Then(/^I must see TUI service onsite page$/) do
   @tuiServicePage.check_tui_service_screen
 end
+
+And(/^I navigate Terms and conditions link from contact page$/) do
+  @contactPage.navigate_to_terms_and_conditions
+end

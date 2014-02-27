@@ -32,10 +32,10 @@
   <string name="forgot_password_reset_pwd">Neues Passwort anlegen</string>
   <string name="login_email_hint">Benutzername \// E-Mail eingeben</string>
   <string name="login_email_tooltip">Tipp: Das sollte die E-Mail Adresse oder der Benutzername sein mit dem Sie sich bei meine TUI registriert haben.</string>
-  <string name="login_country">Country</string>
+  <string name="login_country">Land:</string>
   <string name="login_country_extra">welcome login country extra</string>
-  <string name="login_country_tooltip">login_country_tooltip</string>
-  <string name="login_did_not_book">I did not book with TUI</string>
+  <string name="login_country_tooltip">Tipp: Dies ist das Land, in dem sie Ihre Reise gebucht haben</string>
+  <string name="login_did_not_book">Ich habe noch nie über TUI gebucht.</string>
   <string name="login_forgot_password">Passwort vergessen?</string>
   <string name="login_invalid_email">Fehler beim Prüfen der E-Mail-Adresse</string>
   <string name="login_login">Anmelden</string>
@@ -52,6 +52,8 @@
   <string name="meet_your_travel_agent">Lernen Sie Ihre Reiseleitung kennen</string>
   <string name="pick_your_car_up_from">Holen Sie Ihren Mietwagen ab</string>
   <string name="step_inside">Hereinspaziert!</string>
+  <string name="unforgettable_excursion">Ausflüge vor Ort</string>
+  <string name="unforgettable_excursions">Ausflüge vor Ort</string>
   <string name="your_camper_is_ready">Ihr Camper steht für Sie bereit</string>
   <string name="your_flight">Ihr Flug</string>
   <string name="accomodation">Unterkunft</string>
@@ -238,7 +240,7 @@
   <string name="call">Rufen Sie uns an</string>
   <string name="category">Kategorie:</string>
   <string name="countryName">Land</string>
-  <string name="customer_satisfaction">Kundenzufriedenheit</string>
+  <string name="customer_satisfaction">Kunden- zufriedenheit</string>
   <string name="dropoffDateTime">Rückgabe</string>
   <string name="location">Lage</string>
   <string name="locationName">Ort</string>
@@ -345,6 +347,7 @@
   <string name="map_android_version_not_uptodate_message">Sie verwenden momentan nicht die aktuellste Version auf Ihrem Smartphone. Bitte aktualisieren Sie Ihren Google Play Service für die korrekte Darstellung der Karte.</string>
   <string name="please_reauthenticate">Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an</string>
   <string name="url_dialog_buttons_to_split_by_colon">Abbrechen:Ja</string>
+  <string name="url_dialog_title">Im Browser öffnen?</string>
   <string name="meet_the_rep_help">Falls Sie Fragen oder Wünsche haben, können Sie mich telefonisch, per SMS oder per E-Mail über den TUI Service 24 Stunden am Tag erreichen. Falls ich nicht zu sprechen bin, ist einer meiner Kollegen gerne für Sie da.</string>
   <string name="meet_the_rep_information_sessions">InfoStunde:</string>
   <string name="meet_the_rep_tui_welcome">Welcome:</string>
@@ -417,13 +420,13 @@
   <string name="notification_no_internet_connection">KEINE INTERNETVERBINDUNG</string>
   <string name="notification_page_outdated">SEITE NICHT AKTUELL</string>
   <string name="notification_page_last_updated">Seite zuletzt aktualisiert: [date] um [time]</string>
-  <string name="cantFindBooking_errorMsg">Sorry, we can't find your booking for you!</string>
-  <string name="cantFindBooking_switchTo">Switch to</string>
-  <string name="cantFindBooking_de">Germany</string>
-  <string name="cantFindBooking_ch">Switzerland</string>
-  <string name="cantFindBooking_at">Austria</string>
-  <string name="cantFindBooking_ctaSwitch">Switch</string>
-  <string name="cantFindBooking_addBookingTitle">Or would you like to add a booking?</string>
-  <string name="cantFindBooking_ctaAddBooking">Add a booking</string>
-  <string name="cantFindBooking_tryThese">Did you book with our [partner] or [partner1] partners?</string>
+  <string name="cantFindBooking_errorMsg">Wir können keine aktuelle Buchung von Ihnen finden</string>
+  <string name="cantFindBooking_switchTo">Anmelden in</string>
+  <string name="cantFindBooking_de">Deutschland</string>
+  <string name="cantFindBooking_ch">Schweiz</string>
+  <string name="cantFindBooking_at">Österreich</string>
+  <string name="cantFindBooking_ctaSwitch">Land wechseln</string>
+  <string name="cantFindBooking_addBookingTitle">Oder möchten Sie eine Buchung hinzufügen?</string>
+  <string name="cantFindBooking_ctaAddBooking">Buchung hinzufügen</string>
+  <string name="cantFindBooking_tryThese">Haben Sie vielleicht bei TUI [partner] oder TUI [partner1] gebucht?</string>
 </resources>
