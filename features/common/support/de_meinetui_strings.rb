@@ -47,6 +47,7 @@ module DEMeineTUI
     @@call_us_dialog_yes = get_localized_string "product_call_dialog_yes"
     @@call_us_dialog_number= "Nummer"
 
+    @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
 
   end
 

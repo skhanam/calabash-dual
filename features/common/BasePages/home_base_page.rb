@@ -48,6 +48,20 @@ class HomeBasePage < BasePage
     #check_welcome_messages
   end
 
+  def navigate_to_currency_conv_page
+    CommonMethods.new.scroll_page_till_acc "coins"
+    get_currency_details
+    click_accessibility_label "coins"
+    verify_page_title @@currency_converter_title
+  end
+
+  def get_currency_details
+    @@currency_hash={}
+    @@currency_hash["fromcode"]=get_acc_label_text "fromcode"
+    @@currency_hash["fromvalue"]=get_acc_label_text "fromvalue"
+    @@currency_hash["tocode"]=get_acc_label_text "tocode"
+    @@currency_hash["tovalue"]=get_acc_label_text "tovalue"
+  end
 
   def click_weather_biscuit
     sleep 2

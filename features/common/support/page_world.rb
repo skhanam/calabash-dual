@@ -20,5 +20,6 @@ module TestModule
     @hotelPage ||=HotelBasePage.new
     @commonMethods ||=CommonMethods.new
     @flightsPage ||=FlightsBasePage.new
+    @currencyConvPage ||=CurrencyConverterBasePage.new
   end
 end

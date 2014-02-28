@@ -130,6 +130,20 @@ module ReusableMethods
     #$g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
   end
 
+
+  def split_to_digits(arg)
+    div=10
+    digit=0
+    arr=[]
+    while (arg>=10)
+      digit=arg%div
+      arg=arg/10
+      arr.push digit
+    end
+    arr.push arg
+    return arr.reverse
+  end
+
 end
 
 

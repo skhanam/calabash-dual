@@ -180,4 +180,21 @@ module AndroidReusableMethods
     query("* marked:'navbarTitle.'", :text).first
   end
 
+
+  def enter_digit_keys (num)
+    touch("* contentDescription:'keypad.'  * text:'#{num}'") if element_exists "* contentDescription:'keypad.'  * text:'#{num.to_s}'"
+    touch("* contentDescription:'keypad1.' * text:'#{num}'") if element_exists("* contentDescription:'keypad1.' * text:'#{num}'")
+    touch("* contentDescription:'keypad2.' * text:'#{num}'") if element_exists("* contentDescription:'keypad2.' * text:'#{num}'")
+    touch("* contentDescription:'keypad3.' * text:'#{num}'") if element_exists("* contentDescription:'keypad3.' * text:'#{num}'")
+  end
+
+  def delete_entries
+    sleep 1
+    touch("imageView")
+    sleep 1
+    touch("imageView")
+    sleep 1
+    touch("imageView")
+    sleep 1
+  end
 end

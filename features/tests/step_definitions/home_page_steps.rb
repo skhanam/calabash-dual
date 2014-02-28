@@ -78,8 +78,25 @@ Given(/^I navigate to terms page from side panel$/) do
   @homePage.navigate_to_TandC_page
 end
 
-Given(/^I have switched to typical booking$/) do
-  $g_current_booking=TYPICAL_BOOKING
+Given(/^I have switched to (.*?) booking$/) do |booking_type|
+  case booking_type
+    when "typical"
+      $g_current_booking=TYPICAL_BOOKING
+    when "flight"
+      $g_current_booking=FLIGHT_BOOKING
+    when "single"
+      $g_current_booking=FLIGHT_BOOKING
+    when "non eu"
+      $g_current_booking=NON_EU_BOOKING
+  end
+
+  step "I am on Home screen"
+  @homePage.click_on_account_button
+  @myBookingsPage.switch_to_particular_booking
+end
+
+
+Given(/^I have switched to single booking$/) do
   step "I am on Home screen"
   @homePage.click_on_account_button
   @myBookingsPage.switch_to_particular_booking
@@ -100,13 +117,11 @@ Given(/^I have opened side menu$/) do
 end
 
 
-Given(/^I have switched to single booking$/) do
-  $g_current_booking=FLIGHT_BOOKING
-  step "I am on Home screen"
-  @homePage.click_on_account_button
-  @myBookingsPage.switch_to_particular_booking
-end
 
 When(/^I open side panel$/) do
   @homePage.open_side_panel
+end
+
+Given(/^I navigate to curreny converter page from home screen$/) do
+  @homePage.navigate_to_currency_conv_page
 end

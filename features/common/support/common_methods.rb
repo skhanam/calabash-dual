@@ -46,8 +46,8 @@ class CommonMethods < BasePage
 
   #Avoid calling this method directly
   def get_user_details(url)
-    username="peterpan"
-    password="testtest"
+    username=USERS[:valid][:username]
+    password=USERS[:valid][:password]
     query_url=url||'http://37.46.24.155:3000/reservations'
     server_url="http://37.46.24.155:3000/login"
     res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
@@ -69,6 +69,8 @@ class CommonMethods < BasePage
         booking_id=38072949
       when booking_type=="car_rental_booking"
         booking_id=36739063
+      when booking_type =="non_eu_booking"
+        booking_id=80522737
     end
     query_url='http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home'
     res= get_user_details(query_url)
@@ -76,6 +78,15 @@ class CommonMethods < BasePage
 
   def get_booking_name
     $g_current_booking["payload"]["destination"]
+  end
+
+  def get_desination_countries(booking=$g_current_booking)
+    countries=[]
+    puts booking
+    booking["payload"]["destinationGuide"]["data"].each do |var|
+      countries<< var[1]["destinationName"]
+    end
+    return countries
   end
 
   def get_all_products_for_booking

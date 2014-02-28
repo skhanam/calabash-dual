@@ -95,7 +95,7 @@ module IosReusableMethods
   end
 
   #Scroll to text in side panel
-  def scroll_side_panel(text,index=1)
+  def scroll_side_panel(text, index=1)
     section=0
     count=0
     scroll_to_cell(:row => 0, :section => 0)
@@ -198,8 +198,26 @@ module IosReusableMethods
   end
 
 
+  def enter_digit_keys (num)
+    touch("view marked:'keypad' label text:'#{num}'") if query("view marked:'keypad' label", :text).include? num.to_s
+    touch("view marked:'keypad1' label text:'#{num}'") if query("view marked:'keypad1' label", :text).include? num.to_s
+    touch("view marked:'keypad2' label text:'#{num}'") if query("view marked:'keypad2' label", :text).include? num.to_s
+    touch("view marked:'keypad3' label text:'#{num}'") if query("view marked:'keypad3' label", :text).include? num.to_s
+  end
+
 
   def get_nav_bar_title
     query("view marked:'navbarTitle'", :text).first
   end
+
+  def delete_entries
+    sleep 1
+    touch "view marked:'deleteButton'"
+    sleep 1
+    touch "view marked:'deleteButton'"
+    sleep 1
+    touch "view marked:'deleteButton'"
+    sleep 1
+  end
+
 end
