@@ -14,8 +14,4 @@ class HomePage < HomeBasePage
   end
 
 
-
-  def check_welcome_messages
-    puts "TODO : to be completed"
-  end
 end

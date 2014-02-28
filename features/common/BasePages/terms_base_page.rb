@@ -6,9 +6,9 @@ class TermsAndConditionsBasePage < BasePage
 
   def check_t_and_c_page
     sleep 3
-    fail()
-    query("* css:'body>p:nth-child(1)>strong'",:textContent).first
-    fail("element not present") if element_exists "#{$g_query_txt}webview css:'#{@@de_terms_web_content_title}'"
+    terms_txt_from_screen=query("* css:'body>p:nth-child(1)>strong'").first["textContent"] if $g_android
+    terms_txt_from_screen=query("webView css:'body>p:nth-child(1)>strong'").first["textContent"] if $g_ios
+    fail("Terms webcontent not loaded") if @@de_terms_web_content_title != terms_txt_from_screen
   end
 
 end

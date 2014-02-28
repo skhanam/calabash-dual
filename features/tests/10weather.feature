@@ -10,10 +10,12 @@ Feature: Weather
     Then I see holiday weather page
 
   Scenario:Week's weather
+    Given I have switched to single booking
     When I navigate to weather page
     Then I see holiday weather page
     And I should weather forecast for five sequential days
 
   Scenario: Social Share
+    Given I have switched to single booking
     Given I navigate to weather page using weather biscuit
     Then I verify facebook and twitter share icons are visible

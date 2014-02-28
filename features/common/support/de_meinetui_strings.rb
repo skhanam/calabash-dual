@@ -3,6 +3,7 @@ module DEMeineTUI
 
   def set_meine_tui_de_mt_strings
     test_data
+    common_strings
     welcome_page_strings
     already_customter_strings
     login_page_strings
@@ -29,12 +30,24 @@ module DEMeineTUI
     terms_strings
   end
 
+
   #All test data for different appication is in here
   def test_data
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
     $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
     $g_localized_strings=nil
     @@user_details=nil
+  end
+
+  def common_strings
+    @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
+
+  @@call_us_are_you_sure = get_localized_string "product_call_dialog_message"
+    @@call_us_dialog_no = get_localized_string "product_call_dialog_no"
+    @@call_us_dialog_yes = get_localized_string "product_call_dialog_yes"
+    @@call_us_dialog_number= "Nummer"
+
+
   end
 
   def welcome_page_strings
@@ -169,6 +182,10 @@ module DEMeineTUI
     @@countdown_countdown_message1="Auf nach .*? in"
     @@countdown_countdown_message2="Ich fliege nach .*? in"
   end
+    #
+    #<string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
+    #<string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
+    #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
 
   def booking_summary_strings
     @@booking_summary_title=get_localized_string "booking_summary"
@@ -314,11 +331,8 @@ module DEMeineTUI
     @@tui_service_learn_more=get_localized_string "contact_questions"
     @@tui_service_service_contact= get_localized_string "contact_tui_services"
 
-    @@tui_service_call_us=get_localized_string "services_phone"
-    @@tui_service_are_you_sure = get_localized_string "product_call_dialog_message"
-    @@tui_service_dialog_no = get_localized_string "product_call_dialog_no"
-    @@tui_service_dialog_yes = get_localized_string "product_call_dialog_yes"
-    @@tui_service_dialog_number= "Nummer"
+    @@services_phone=get_localized_string "services_phone"
+
   end
 
   def terms_strings

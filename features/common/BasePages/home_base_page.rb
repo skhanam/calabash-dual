@@ -23,6 +23,12 @@ class HomeBasePage < BasePage
     self
   end
 
+
+  def check_welcome_messages
+    msg=get_welcome_message
+    wait_for_label(msg, 20)
+  end
+
   #Check one element on home screen to confirm page is loaded
   def check_home_screen(timeout=20)
     return wait_for_acc_label(@@home_page_acc_label, timeout)
@@ -44,14 +50,17 @@ class HomeBasePage < BasePage
 
 
   def click_weather_biscuit
+    sleep 2
     scroll_page_and_assert_text("destination_temperature", "down")
     click_accessibility_label "destination_temperature"
     verify_page_title @@weather_page_title
+    sleep 2
   end
 
   def navigate_to_hotel(num)
     scroll_page_and_assert_text @@side_panel_hotel
     touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
+    sleep 3
   end
 
   def navigate_to_weather_page
@@ -165,7 +174,7 @@ class HomeBasePage < BasePage
   end
 
 
-  def check_side_panel(var,count=1)
+  def check_side_panel(var, count=1)
     case var
       when "flight"
         assert_wait_for_text @@side_panel_flight if count==1
@@ -182,5 +191,29 @@ class HomeBasePage < BasePage
       else
         fail "product type not verified"
     end
+  end
+
+  def get_welcome_message
+    no_of_days_to_go=-1*CommonMethods.new.get_countdown_days #Hard coded for now until test data is available
+    if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
+      msg="bald geht's in den Urlaub!"
+    elsif (no_of_days_to_go < -3 && no_of_days_to_go >= -14)
+      msg="nur noch dreimal schlafen, dann geht 's endlich los!"
+    elsif (no_of_days_to_go == -3)
+      msg="Ihre Reise steht vor der Tür.Sind Sie schon urlaubsreif?"
+    elsif (no_of_days_to_go == -2)
+      msg="schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!"
+    elsif (no_of_days_to_go == -1)
+      msg="morgen geht' s los! Haben Sie an alles gedacht?"
+    elsif (no_of_days_to_go == 0)
+      msg="wir wünschen Ihnen einen schönen Urlaub!"
+    elsif (no_of_days_to_go > 1 && no_of_days_to_go <= 7)
+      msg="willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub."
+    elsif (no_of_days_to_go > 7)
+      msg="sind Sie schon wieder reif für die Insel?"
+    else
+      fail("Days are incorrect")
+    end
+    return msg
   end
 end

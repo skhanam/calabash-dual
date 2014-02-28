@@ -127,16 +127,16 @@ class CommonMethods < BasePage
   end
 
   def click_call_button
-    scroll_page_till_partial_text @@terms_call_us
-    click_on_partial_text @@terms_call_us
+    scroll_page_till_partial_text @@services_phone
+    click_on_partial_text @@services_phone
   end
 
   def verify_call_button_overlay
     sleep 1
-    assert_text_elements([@@terms_are_you_sure, @@terms_dialog_no,
-                          @@terms_dialog_yes])
-    wait_for_partial_text_shown @@terms_dialog_number
-    click_on_text @@terms_dialog_no
+    assert_text_elements([@@call_us_are_you_sure, @@call_us_dialog_yes,
+                          @@call_us_dialog_no])
+    wait_for_partial_text_shown @@call_us_dialog_number
+    click_on_text @@call_us_dialog_no
     sleep 2
   end
 
@@ -184,5 +184,6 @@ class CommonMethods < BasePage
     wait_for_acc_label @@share_button_open_img
     sleep 1
   end
+
 
 end

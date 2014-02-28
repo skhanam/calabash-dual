@@ -9,33 +9,6 @@ class HomePage < HomeBasePage
   end
 
 
-  def check_welcome_messages
-    msg=nil
-    no_of_days_to_go=-1*CommonMethods.new.get_countdown_days #Hard coded for now until test data is available
-    if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
-      msg="bald geht's in den Urlaub!"
-    elsif (no_of_days_to_go < -3 && no_of_days_to_go >= -14)
-      msg="nur noch dreimal schlafen, dann geht 's endlich los!"
-    elsif (no_of_days_to_go == -3)
-      msg="Ihre Reise steht vor der Tür.Sind Sie schon urlaubsreif?"
-    elsif (no_of_days_to_go == -2)
-      msg="schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!"
-    elsif (no_of_days_to_go == -1)
-      msg="morgen geht' s los! Haben Sie an alles gedacht?"
-    elsif (no_of_days_to_go == 0)
-      msg="wir wünschen Ihnen einen schönen Urlaub!"
-    elsif (no_of_days_to_go > 1 && no_of_days_to_go <= 7)
-      msg="willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub."
-    elsif (no_of_days_to_go > 7)
-      msg="sind Sie schon wieder reif für die Insel?"
-    else
-      fail("Days are incorrect")
-    end
-
-    wait_for_label(msg, 20)
-
-  end
-
   def open_side_panel
     sleep 1
     touch "view marked:'navbarLeftButton'"

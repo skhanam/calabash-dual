@@ -7,7 +7,7 @@ class TuiServiceOnsitePage < BasePage
   def check_tui_service_page
     scroll_page_and_assert_text(@@tui_service_title)
     scroll_page_and_assert_text(@@tui_service_terms_text)
-    scroll_page_and_assert_text(@@tui_service_call_us)
+    scroll_page_and_assert_text(@@services_phone)
     scroll_page_and_assert_text(@@tui_service_sms)
     scroll_page_and_assert_text(@@tui_service_send_email)
     scroll_page_and_assert_text(@@tui_service_learn_more)
