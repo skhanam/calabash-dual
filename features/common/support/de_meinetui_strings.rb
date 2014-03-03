@@ -5,7 +5,6 @@ module DEMeineTUI
     test_data
     common_strings
     welcome_page_strings
-    already_customter_strings
     login_page_strings
     home_page_strings
     side_panel_strings
@@ -37,6 +36,7 @@ module DEMeineTUI
     $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
     $g_localized_strings=nil
     @@user_details=nil
+    @@currency_hash={}
   end
 
   def common_strings
@@ -52,19 +52,13 @@ module DEMeineTUI
   end
 
   def welcome_page_strings
-    @@welcome_page_text=get_localized_string "tell_us_header"
-    @@already_a_customer=get_localized_string "tell_us_cta_with_tui_title"
-    @@have_already_booked_through_TUI=get_localized_string "tell_us_cta_with_tui_body"
-    @@did_not_book_with_tui= get_localized_string "login_did_not_book"
-    @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
-  end
-
-  def already_customter_strings
     @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@already_registered=get_localized_string "have_you_used_tui_cta_logged_title"
     @@login_with_existing_credentials= get_localized_string "have_you_used_tui_cta_logged_body"
     @@not_yet_registered=get_localized_string "have_you_used_tui_cta_not_logged_title"
     @@register_with_booking_code=get_localized_string "have_you_used_tui_cta_not_logged_body"
+
+    @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end
 
   def new_to_tui_strings
@@ -88,6 +82,8 @@ module DEMeineTUI
     @@privacy_terms_of_use=get_localized_string "terms_title"
     @@login_password_tooltip= get_localized_string "login_password_hint"
     @@login_password_hint = get_localized_string "login_password_tooltip"
+
+    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich."
   end
 
   def home_page_strings

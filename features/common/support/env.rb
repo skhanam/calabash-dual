@@ -22,6 +22,8 @@ $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_
 #puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_file}  &&&&&&&&&&&&& \n"
 
 $g_user_details=USERS[:valid]
+$g_valid_user_details=USERS[:valid]
+$g_invalid_user_details=USERS[:invalid]
 #$g_user_details = User.new #Create default user
 #puts "#{$g_user_details}"
 

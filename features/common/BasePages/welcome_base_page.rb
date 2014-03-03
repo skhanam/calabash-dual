@@ -18,7 +18,6 @@ class WelcomeBasePage < BasePage
                           @@not_yet_registered
                          ])
     sleep 2
-    #TODO verify this @@register_with_booking_code
 
   end
 
@@ -38,7 +37,7 @@ class WelcomeBasePage < BasePage
 
 
   def click_new_here
-    click_on_text @@did_not_book_with_tui
+    click_on_text @@have_never_booked_through_TUI_before
     assert_wait_for_text @@new_to_tui_discover_tui
   end
 
@@ -55,6 +54,17 @@ class WelcomeBasePage < BasePage
     click_on_text @@not_yet_registered
     assert_wait_for_text @@new_user_registration_create_account_text1
     return NewUserRegistrationBasePage.new
+  end
+
+
+  def check_already_registered
+    assert_wait_for_text @@already_registered
+    assert_wait_for_text @@login_with_existing_credentials
+  end
+
+  def check_not_registered
+    assert_wait_for_text @@not_yet_registered
+    assert_wait_for_text @@register_with_booking_code
   end
 
 

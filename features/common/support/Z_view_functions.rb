@@ -48,9 +48,10 @@ module ViewModule
     rescue
       fail("Failed to find text"+text)
     end
+    return true
   end
 
-   #Check if part of text is shown
+  #Check if part of text is shown
   def check_partial_text_shown text
     return element_exists("#{$g_query_txt}{text LIKE '*#{text}*'}")
   end

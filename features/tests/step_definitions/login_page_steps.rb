@@ -1,21 +1,33 @@
-Given(/^I log into Application using "(.*?)" and "(.*?)"/) do |username, password|
+Given(/^I log into the App using "(.*?)", "(.*?)" and "(.*?)"/) do |username, password, country|
   step "I am on 'Login' screen"
-  step 'I enter default username and password in login page'
-  step "I enter \"#{username}\" and \"#{password}\" in login page"
-  step "click on login button"
+  step 'I enter "'+username+'" into input field number 1' if $g_ios
+  step 'I enter "'+password+'" into input field number 2' if $g_ios
+  step 'I enter "'+username+'" into input field number 2' if $g_android
+  step 'I enter "'+password+'" into input field number 3' if $g_android
+  step "I touch done" if $g_ios
+  step "I press the enter button" if $g_android
+  step 'I set country "'+country+'" in login screen'
 end
 
 Given(/^I log into Application/) do
   step "I am on 'Login' screen"
   step 'I enter "'+$g_user_details[:username]+'" into input field number 1' if $g_ios
   step 'I enter "'+$g_user_details[:password]+'" into input field number 2' if $g_ios
-  step 'I enter "'+$g_user_details[:username]+'" into input field number 2'  if $g_android
-  step 'I enter "'+$g_user_details[:password]+'" into input field number 3'  if $g_android
+  step 'I enter "'+$g_user_details[:username]+'" into input field number 2' if $g_android
+  step 'I enter "'+$g_user_details[:password]+'" into input field number 3' if $g_android
   step "I touch done" if $g_ios
   step "I press the enter button" if $g_android
   step 'I set country "'+$g_user_details[:country]+'" in login screen'
   #step 'I enter default username and password in login page'
   step "click on login button"
+end
+
+
+Given(/^I have entered an invalid email and a valid password$/) do
+  uname=$g_invalid_user_details[:email]
+  pwd=$g_valid_user_details[:password]
+  country=$g_valid_user_details[:country]
+  step 'I log into the App using "'+uname+'", "'+pwd+'" and "'+country+'"'
 end
 
 Given(/^I am on '(.+)' screen/) do |page_name|
@@ -30,12 +42,11 @@ Given(/^I am on '(.+)' screen/) do |page_name|
 end
 
 Given (/^I am on welcome page$/) do
-  step "I am on 'Welcome' screen"
   step "I see welcome page"
 end
 
 When (/^I set country "(.*?)" in login screen$/) do |var|
- @loginPage.setCountry(var)
+  @loginPage.setCountry(var)
 end
 
 
@@ -86,4 +97,23 @@ end
 
 Then(/^I see appropriate error message$/) do
   @forgotPasswordPage.check_wrong_username_email
+end
+
+When(/^I select the Login button$/) do
+  @loginPage.submit_login_button
+end
+
+Then(/^I see appropriate username error message$/) do
+  @loginPage.check_username_pwd_error
+end
+
+Given(/^I have entered an valid email and invalid password$/) do
+  uname=$g_valid_user_details[:email]
+  pwd=$g_invalid_user_details[:password]
+  country=$g_valid_user_details[:country]
+  step 'I log into the App using "'+uname+'", "'+pwd+'" and "'+country+'"'
+end
+
+Then(/^I see appropriate password error message$/) do
+  @loginPage.check_username_pwd_error
 end

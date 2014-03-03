@@ -14,7 +14,7 @@ class NewTOTUIBasePage < BasePage
     scroll_page_and_assert_text(@@new_to_tui_classic_hotel)
 
     assert_text_elements([@@new_to_tui_text2, @@new_to_tui_classic_hotel])
-
+    check_new_to_tui_video if $g_ios
   end
 
   def check_new_to_tui_video

@@ -13,7 +13,7 @@ USERS = {
         }},
     :invalid => {
         :username => "invalidusername",
-        :password => "testtest",
+        :password => "nono",
         :email => "no@nomail.com"
     }
 }

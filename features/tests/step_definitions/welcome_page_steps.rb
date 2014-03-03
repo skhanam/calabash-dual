@@ -1,23 +1,3 @@
-When(/^I login with into app and check all messages for "([^"]*)" days$/) do |criteria|
-  fail("TODO")
-  #$g_write_to_file=true
-  #BasePage.new.create_result_hash(criteria)
-  #matching_data=@page.check_data_from_excel_matching_criteria(criteria) # Find data matching criteria
-  #puts matching_data[1]
-  #
-  #count=1 #How many times welcome messages have to be checked
-  #total_count=count
-  #while (count>0)
-  #  @welcomePage.navigate_to_login
-  #  @loginPage.check_different_welcome_messages(matching_data[1], criteria)
-  #  sleep(2)
-  #  count-=1
-  #  @homePage.logout_from_home_screen
-  #end
-  #@page.write_welcome_messages_to_file("\nTest criteria :#{criteria}:")
-  #@page.write_hash_to_file(total_count)
-end
-
 When(/^I am on Home screen$/) do
 
   if @welcomePage.check_welcome_screen(2) #If check if user is not logged in
@@ -40,14 +20,6 @@ Then(/^I see welcome page/) do
 end
 
 
-And(/^I have already registered with TUI$/) do
-  @welcomePage.click_already_registered
-end
-
-Then(/^I see new to TUI page$/) do
-  @new_to_tui_page.check_new_to_tui_page
-end
-
 When(/^I choose haven't booked through TUI$/) do
   @welcomePage.click_new_here
 end
@@ -60,10 +32,21 @@ Then(/^I see new user registration page$/) do
   @newUserRegistrationPage.check_new_user_reg_page
 end
 
-And(/^I check new to TUI video$/) do
-  @new_to_tui_page.check_new_to_tui_video
+
+Then(/^I should see two options:$/) do |table|
+  @welcomePage.check_already_registered
+  @welcomePage.check_not_registered
 end
 
-When(/^I navigate to new user registration page$/) do
+Then(/^I should see the Sales screen$/) do
+  @new_to_tui_page.check_new_to_tui_page
+end
+
+When(/^I select 'I havent logged in before'$/) do
   step "I have not yet registered with TUI"
 end
+
+When(/^I select 'I have logged in before'$/) do
+  @welcomePage.click_already_registered
+end
+

@@ -1,4 +1,6 @@
-@ios_test @android_test
+#test cases are present in - https://akqa-lon3.ontestpad.com/script/1035
+
+@ios_test @android_test  @auto2
 Feature: Verify booking information for Typical Booking
 
   Background:
@@ -6,6 +8,7 @@ Feature: Verify booking information for Typical Booking
 
   Scenario: Verify welcome screen
     Then I verify appropriate welcome message for booking
+
 
   Scenario: Verify countdown screen
     When I navigate to countdown page using side menu

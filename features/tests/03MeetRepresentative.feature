@@ -1,4 +1,4 @@
-@ios_test @android_test @login1
+@ios_test @android_test @login1 @auto3
 Feature: Verify meet representative page
 
   Scenario: Verify meet representative page

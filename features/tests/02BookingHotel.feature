@@ -1,8 +1,10 @@
-@ios_test @android_test
+#test cases are present in - https://akqa-lon3.ontestpad.com/script/1035
+@ios_test @android_test @auto2
 Feature: Verify booking information for Typical Booking
 
   Background:
     Given I have switched to typical booking
+
 
   Scenario: As a TUI client I should be able to access the Hotel page
     When I navigate to hotel 1 page using side menu
@@ -26,6 +28,7 @@ Feature: Verify booking information for Typical Booking
       | Entertainment |
       | Wellness      |
       | For Children  |
+
 
   Scenario:  Social Share link on hotel page
     When I navigate to hotel 1 page using side menu

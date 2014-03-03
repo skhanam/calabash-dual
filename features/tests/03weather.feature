@@ -1,4 +1,5 @@
-@ios_test @android_test
+#testcases - https://akqa-lon3.ontestpad.com/script/1036
+@ios_test @android_test @auto3
 Feature: Weather
   As a TUI client with a TUI booking
   I should be able to access the destination weather screens
