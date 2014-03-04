@@ -43,3 +43,10 @@ Given(/^I navigate to flights page from side panel$/) do
   @homePage.open_side_panel
   @homePage.navigate_to_flights_page
 end
+
+Then(/^I must see below items:$/) do |table|
+  values=table.raw
+  values.each do |var|
+    @sidepanel.validate_menu_items(var[0])
+  end
+end

@@ -95,13 +95,6 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
   @myBookingsPage.switch_to_particular_booking
 end
 
-
-Given(/^I have switched to single booking$/) do
-  step "I am on Home screen"
-  @homePage.click_on_account_button
-  @myBookingsPage.switch_to_particular_booking
-end
-
 Then(/^I verify appropriate welcome message for booking$/) do
   @homePage.check_welcome_messages
 end
