@@ -161,13 +161,22 @@ module IosReusableMethods
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
     repeat_count=0
+
+    if ($g_flash)
+      flash("view text:'#{id}'") if element_exists("view text:'#{id}'")
+    end
+
     return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
 
     while repeat_count < count
       repeat_count+=1
       scroll_view(dir)
 
-      break if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+      if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+        flash("view text:'#{id}'") if element_exists("view text:'#{id}'") if ($g_flash)
+        break
+      end
+
       #If text is not found even after scrolling till end of page then fail
       if till_id!=nil && element_exists("view marked:'#{till_id}'")
         fail "id/text #{id} not present on screen"

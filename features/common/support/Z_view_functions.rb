@@ -62,10 +62,10 @@ module ViewModule
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
         puts text
       end
-      flash($g_query_txt+"text:'#{text}'") if ($g_flash)
     rescue
       return false
     end
+    flash($g_query_txt+"text:'#{text}'") if ($g_flash)
     return true
   end
 

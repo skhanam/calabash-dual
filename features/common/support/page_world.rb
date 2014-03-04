@@ -21,5 +21,6 @@ module TestModule
     @commonMethods ||=CommonMethods.new
     @flightsPage ||=FlightsBasePage.new
     @currencyConvPage ||=CurrencyConverterBasePage.new
+    @sidePanel ||=SidePanel.new
   end
 end

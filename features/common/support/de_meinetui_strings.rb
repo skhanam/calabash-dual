@@ -118,8 +118,7 @@ module DEMeineTUI
     @@side_panel_destination_info=get_localized_string "destination_info"
 
     @@side_panel_weather=get_localized_string "weather"
-    @@side_panel_booking_summary=get_localized_string "booking_summary"
-    @@side_panel_contact_us= get_localized_string "contact"
+    @@side_panel_contact_us= get_localized_string "contact_us"
     @@side_panel_TandC=get_localized_string "tui_service_on_site"
     @@side_panel_meet_rep=get_localized_string "travelAgent_title"
 
@@ -127,7 +126,6 @@ module DEMeineTUI
     @@side_panel_excursions=get_localized_string "excursions"
     @@side_panel_good_to_know=get_localized_string "good_to_know"
 
-    @@side_panel_contact_us=get_localized_string "contact_us"
     @@side_panel_travel_agent=get_localized_string "travel_agent"
     @@side_panel_tui_service_on_site=get_localized_string "tui_service_on_site"
     @@side_panel_contact_heading=get_localized_string "contact"
@@ -170,7 +168,7 @@ module DEMeineTUI
 
 
   def countdown_page_strings
-    @@countdown_page_title="Mein Urlaubscountdown"
+    @@countdown_page_title=get_localized_string "countdown_header"
     @@countdown_share_button_text="Meinen Urlaubscountdown teilen"
     @@countdown_days_text="Tagen"
     @@countdown_hours_text="Stunden"

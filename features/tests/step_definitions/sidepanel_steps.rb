@@ -41,12 +41,16 @@ end
 
 Given(/^I navigate to flights page from side panel$/) do
   @homePage.open_side_panel
-  @homePage.navigate_to_flights_page
+  @sidepanel.navigate_to_flights_page
 end
 
 Then(/^I must see below items:$/) do |table|
+
+end
+
+Then(/^I must see below items on sidepanel for booking:$/) do |table|
   values=table.raw
   values.each do |var|
-    @sidepanel.validate_menu_items(var[0])
+    @sidePanel.validate_typical_booking_menu_items(var[0])
   end
 end

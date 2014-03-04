@@ -2,8 +2,8 @@
 # encoding: utf-8
 require_relative 'page_world'
 require_relative 'application_strings'
-require_relative 'data_models'
 require 'xmlsimple'
+require 'unicode_utils'
 require_relative '../support/users'
 
 require File.join(File.dirname(__FILE__), 'page_world')

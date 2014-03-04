@@ -8,7 +8,7 @@ end
 
 Then (/^I navigate to weather page using side menu$/) do
   @homePage.open_side_panel
-  @homePage.navigate_to_weather_page
+  @sidePanel.navigate_to_weather_page
 end
 
 When (/^I navigate to weather page using weather biscuit$/) do
@@ -19,7 +19,7 @@ end
 When(/^I navigate to hotel (\d+) page using side menu$/) do |num|
   @hotel_num=num.to_i
   @homePage.open_side_panel
-  @homePage.navigate_to_hotel(num)
+  @sidePanel.navigate_to_hotel(num)
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ end
 
 Then (/^I navigate to countdown page using side menu$/) do
   @homePage.open_side_panel
-  @homePage.navigate_to_countdown_page
+  @sidePanel.navigate_to_countdown_page
 end
 
 When (/^I navigate to countdown page using countdown biscuit$/) do
@@ -43,7 +43,7 @@ end
 #booking summary page down step definitions
 When (/^I navigate to booking summary page using side menu$/) do
   @homePage.open_side_panel
-  @homePage.navigate_to_booking_summary_page
+  @sidePanel.navigate_to_booking_summary_page
 end
 
 
@@ -61,21 +61,21 @@ end
 Given(/^I navigate to meet representative page from side panel$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
-  @homePage.navigate_to_meet_rep_page
+  @sidePanel.navigate_to_meet_rep_page
 end
 
 
 Given(/^I am on contact us screen$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
-  @homePage.navigate_to_contact_us_page
+  @sidePanel.navigate_to_contact_us_page
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
 Given(/^I navigate to terms page from side panel$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
-  @homePage.navigate_to_TandC_page
+  @sidePanel.navigate_to_TandC_page
 end
 
 Given(/^I have switched to (.*?) booking$/) do |booking_type|
