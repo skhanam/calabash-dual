@@ -6,7 +6,7 @@ Feature: Verify product pages by navigating through biscuits
 
   @sanity
   Scenario: navigate to countdown page
-    Given I am on Home screen
+    Given I have switched to typical booking
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
 
