@@ -5,13 +5,16 @@ Feature: Verify product pages by navigating through side panel
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
+
   Scenario: navigate to countdown page
+    Given I have switched to typical booking
     Given I am on Home screen
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
 
   @sanity
   Scenario: navigate to weather page
+    Given I have switched to typical booking
     Given I am on Home screen
     When I navigate to weather page using side menu
     Then I see holiday weather page
