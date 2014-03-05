@@ -9,7 +9,7 @@ class BookingSummaryBasePage < BasePage
 #this method checks check_booking_summary_page is shown, by verifying elements
   def check_booking_summary_page
     title, value=CommonMethods.new.get_booking_summary("bookingCode")
-    scroll_page_and_assert_text value
+    assert_wait_for_text value
     check_partial_text_shown title
     title, value=CommonMethods.new.get_booking_summary("leadPassenger")
     scroll_page_and_assert_text value
