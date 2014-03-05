@@ -16,7 +16,7 @@ PROJ_NAME="meine.tui"
 if [ "$1" == "clean" ] ; then
 	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
 	cd ../$PROJ_NAME
-	node build.js meinetui
+	node build.js -B meinetui
     ti clean 
 	ti build --platform android -b
 	cd -
