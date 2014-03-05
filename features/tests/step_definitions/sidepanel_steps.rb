@@ -35,13 +35,13 @@ end
 
 
 Then(/^I should see a list of products in my booking$/) do
-  @homePage.verify_elements_for_typical_booking
+  @sidePanel.verify_elements_for_typical_booking
 end
 
 
 Given(/^I navigate to flights page from side panel$/) do
   @homePage.open_side_panel
-  @sidepanel.navigate_to_flights_page
+  @sidePanel.navigate_to_flights_page
 end
 
 Then(/^I must see below items:$/) do |table|

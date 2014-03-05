@@ -1,24 +1,21 @@
-Given(/^I log into the App using "(.*?)", "(.*?)" and "(.*?)"/) do |username, password, country|
+Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password, country|
+  puts "#{username}, #{password}, #{country}"
   step "I am on 'Login' screen"
-  step 'I enter "'+username+'" into input field number 1' if $g_ios
-  step 'I enter "'+password+'" into input field number 2' if $g_ios
-  step 'I enter "'+username+'" into input field number 2' if $g_android
-  step 'I enter "'+password+'" into input field number 3' if $g_android
-  step "I touch done" if $g_ios
-  step "I press the enter button" if $g_android
+  if $g_ios
+    step 'I enter "'+username+'" into input field number 1'
+    step 'I enter "'+password+'" into input field number 2'
+    step "I touch done"
+  elsif $g_android
+    step 'I enter "'+username+'" into input field number 2'
+    step 'I enter "'+password+'" into input field number 3'
+    step "I press the enter button"
+  end
   step 'I set country "'+country+'" in login screen'
+  sleep 2
 end
 
 Given(/^I log into Application/) do
-  step "I am on 'Login' screen"
-  step 'I enter "'+$g_user_details[:username]+'" into input field number 1' if $g_ios
-  step 'I enter "'+$g_user_details[:password]+'" into input field number 2' if $g_ios
-  step 'I enter "'+$g_user_details[:username]+'" into input field number 2' if $g_android
-  step 'I enter "'+$g_user_details[:password]+'" into input field number 3' if $g_android
-  step "I touch done" if $g_ios
-  step "I press the enter button" if $g_android
-  step 'I set country "'+$g_user_details[:country]+'" in login screen'
-  #step 'I enter default username and password in login page'
+  step "I log into the App using #{$g_user_details[:username]}, #{$g_user_details[:password]} and #{$g_user_details[:country]}"
   step "click on login button"
 end
 
@@ -117,3 +114,4 @@ end
 Then(/^I see appropriate password error message$/) do
   @loginPage.check_username_pwd_error
 end
+
