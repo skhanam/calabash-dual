@@ -10,7 +10,7 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
     step 'I enter "'+password+'" into input field number 3'
     step "I press the enter button"
   end
-  step 'I set country "'+country+'" in login screen'
+  step "I set country #{country} in login screen"
   sleep 2
 end
 
@@ -41,24 +41,24 @@ Given(/^I am on '(.+)' screen/) do |page_name|
   end
 end
 
-Given (/^I am on welcome page$/) do
+Given(/^I am on welcome page$/) do
   step "I see welcome page"
 end
 
-When (/^I set country "(.*?)" in login screen$/) do |var|
+When(/^I set country (\w+) in login screen$/) do |var|
   @loginPage.setCountry(var)
 end
 
 
-When (/^I enter "(.*?)" and "(.*?)" in login page$/) do |username, password|
+When(/^I enter "(.*?)" and "(.*?)" in login page$/) do |username, password|
   @loginPage.enter_credentials(username, password)
 end
 
-When (/^I enter default username and password in login page$/) do
+When(/^I enter default username and password in login page$/) do
   @loginPage.enter_default_username_password
 end
 
-When (/^click on login button$/) do
+When(/^click on login button$/) do
   @loginPage.submit_login_button
 end
 
@@ -111,7 +111,7 @@ Given(/^I have entered an valid email and invalid password$/) do
   uname=$g_valid_user_details[:email]
   pwd=$g_invalid_user_details[:password]
   country=$g_valid_user_details[:country]
-  step 'I log into the App using "'+uname+'", "'+pwd+'" and "'+country+'"'
+  step "I log into the App using #{uname}, #{pwd} and #{country}"
 end
 
 Then(/^I see appropriate password error message$/) do

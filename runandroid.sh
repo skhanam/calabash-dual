@@ -23,8 +23,9 @@ if [ "$1" == "clean" ] ; then
 	cp ../$PROJ_NAME/build/android/bin/meine\ TUI.apk  app.apk
 fi
 
-        rm -rf test_servers/
-        calabash-android resign app.apk
-        calabash-android build app.apk
-        adb install -r test_servers/*.apk app.apk
-	calabash-android  run app.apk -p de_mt_android_jenkins --tag $2
+rm -rf test_servers/
+calabash-android resign app.apk
+calabash-android build app.apk
+adb install -r app.apk
+adb install -r test_servers/*.apk
+calabash-android  run app.apk -p de_mt_android_jenkins --tag $2
