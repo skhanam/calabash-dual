@@ -15,7 +15,10 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
 end
 
 Given(/^I log into Application/) do
-  step "I log into the App using #{$g_user_details[:username]}, #{$g_user_details[:password]} and #{$g_user_details[:country]}"
+  uname=$g_user_details[:username]
+  pwd=$g_user_details[:password]
+  country=$g_user_details[:country]
+  step "I log into the App using #{uname}, #{pwd} and #{country}"
   step "click on login button"
 end
 
@@ -24,7 +27,7 @@ Given(/^I have entered an invalid email and a valid password$/) do
   uname=$g_invalid_user_details[:email]
   pwd=$g_valid_user_details[:password]
   country=$g_valid_user_details[:country]
-  step 'I log into the App using "'+uname+'", "'+pwd+'" and "'+country+'"'
+  step "I log into the App using #{uname}, #{pwd} and #{country}"
 end
 
 Given(/^I am on '(.+)' screen/) do |page_name|
