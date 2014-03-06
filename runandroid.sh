@@ -1,6 +1,10 @@
 #!/bin/sh
 clear
 
+echo "launching simulator"
+sh start_device.sh 
+
+
 if [ "$#" != "2" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
