@@ -27,6 +27,7 @@ module DEMeineTUI
     hotel_page_strings
     flights_strings
     terms_strings
+    dest_info_strings
   end
 
 
@@ -42,7 +43,7 @@ module DEMeineTUI
   def common_strings
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
 
-  @@call_us_are_you_sure = get_localized_string "product_call_dialog_message"
+    @@call_us_are_you_sure = get_localized_string "product_call_dialog_message"
     @@call_us_dialog_no = get_localized_string "product_call_dialog_no"
     @@call_us_dialog_yes = get_localized_string "product_call_dialog_yes"
     @@call_us_dialog_number= "Nummer"
@@ -177,10 +178,11 @@ module DEMeineTUI
     @@countdown_countdown_message1="Auf nach .*? in"
     @@countdown_countdown_message2="Ich fliege nach .*? in"
   end
-    #
-    #<string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
-    #<string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
-    #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
+
+  #
+  #<string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
+  #<string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
+  #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
 
   def booking_summary_strings
     @@booking_summary_title=get_localized_string "booking_summary"
@@ -366,6 +368,10 @@ module DEMeineTUI
 
   def flights_strings
     @@flights_page_title=get_localized_string "flight"
+  end
+
+  def dest_info_strings
+    @@dest_info_screen_title = get_localized_string "destination_info"
   end
 
   def extra_strings

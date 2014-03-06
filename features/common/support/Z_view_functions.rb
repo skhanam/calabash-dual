@@ -65,7 +65,7 @@ module ViewModule
     rescue
       return false
     end
-    flash($g_query_txt+"text:'#{text}'") if ($g_flash)
+    flash($g_query_txt+"text:'#{text}'") if $g_flash
     return true
   end
 
@@ -149,5 +149,6 @@ module ViewModule
       fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
       sleep 1
     end
+    flash("view text:'#{txt}'") if $g_flash
   end
 end

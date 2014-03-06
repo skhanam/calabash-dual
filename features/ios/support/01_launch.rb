@@ -8,6 +8,7 @@ require 'calabash-cucumber/launcher'
 
 
 Before do |scenario|
+  sleep 5
   initialize_all
   #set_strings
   @calabash_launcher = Calabash::Cucumber::Launcher.new
@@ -17,7 +18,7 @@ Before do |scenario|
   end
 
   unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch(:timeout=>60)
+    @calabash_launcher.relaunch(:timeout => 60)
     @calabash_launcher.calabash_notify(self)
   end
   #start_test_server_in_background(:timeout=>30)

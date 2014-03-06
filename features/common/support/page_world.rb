@@ -22,5 +22,6 @@ module TestModule
     @flightsPage ||=FlightsBasePage.new
     @currencyConvPage ||=CurrencyConverterBasePage.new
     @sidePanel ||=SidePanel.new
+    @destInfoPage||=DestinationInfoBasePage.new
   end
 end
