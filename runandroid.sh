@@ -1,8 +1,8 @@
 #!/bin/sh
 clear
 
-echo "launching simulator"
-sh start_device.sh 
+#echo "launching simulator"
+#sh start_device.sh 
 
 
 if [ "$#" != "2" ]; then
