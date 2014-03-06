@@ -95,6 +95,7 @@ class SidePanel < BasePage
   end
 
   def verify_elements_for_flight_single_booking
+    fail("unused")
     $g_current_booking=FLIGHT_BOOKING
     assert_wait_for_text @@side_panel_booking_summary
     res=CommonMethods.new.get_all_products_for_booking

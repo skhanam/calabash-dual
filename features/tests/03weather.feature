@@ -5,11 +5,6 @@ Feature: Weather
   I should be able to access the destination weather screens
   So I am informed about the current and forecasted weather
 
-  Scenario: Verify weather screen for Single Booking
-    Given I have switched to single booking
-    Given I navigate to weather page using weather biscuit
-    Then I see holiday weather page
-
   Scenario:Week's weather
     Given I have switched to single booking
     When I navigate to weather page

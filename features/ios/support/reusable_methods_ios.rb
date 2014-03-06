@@ -38,7 +38,7 @@ module IosReusableMethods
   def enter_text(text, index, opt="")
     screenshot_and_raise "Index should be positive (was: #{index})" if (index<=0)
     touch("textField index:#{index-1}")
-    wait_for_keyboard()
+    wait_for_keyboard
     keyboard_enter_text text
     sleep(STEP_PAUSE)
     tap_keyboard_action_key if opt=="enter"
@@ -72,6 +72,7 @@ module IosReusableMethods
     rescue
       return false
     end
+    flash(query_txt) if $g_flash
     return true
   end
 
@@ -79,9 +80,7 @@ module IosReusableMethods
     text_check=escape_quotes_smart(text_to_check)
     res=element_exists("view text:'#{text_check}'")
     if res
-      if ($g_flash)
-        flash("view text:'#{text_check}'")
-      end
+      flash("view text:'#{text_check}'") if $g_flash
     end
     return res
   end
@@ -160,6 +159,8 @@ module IosReusableMethods
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
+    puts "scrolling page to #{id}"
+
     repeat_count=0
 
     if ($g_flash)

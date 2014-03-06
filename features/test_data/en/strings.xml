@@ -32,7 +32,7 @@
   <string name="forgot_password_reset_pwd">Neues Passwort anlegen</string>
   <string name="login_email_hint">Benutzername \// E-Mail eingeben</string>
   <string name="login_email_tooltip">Tipp: Das sollte die E-Mail Adresse oder der Benutzername sein mit dem Sie sich bei meine TUI registriert haben.</string>
-  <string name="login_country">Land:</string>
+  <string name="login_country">Anmelden in:</string>
   <string name="login_country_extra">welcome login country extra</string>
   <string name="login_country_tooltip">Tipp: Dies ist das Land, in dem sie Ihre Reise gebucht haben</string>
   <string name="login_did_not_book">Ich habe noch nie über TUI gebucht.</string>
@@ -426,7 +426,15 @@
   <string name="cantFindBooking_ch">Schweiz</string>
   <string name="cantFindBooking_at">Österreich</string>
   <string name="cantFindBooking_ctaSwitch">Land wechseln</string>
-  <string name="cantFindBooking_addBookingTitle">Oder möchten Sie eine Buchung hinzufügen?</string>
+  <string name="cantFindBooking_addBookingTitle">Möchten Sie eine Buchung hinzufügen?</string>
   <string name="cantFindBooking_ctaAddBooking">Buchung hinzufügen</string>
   <string name="cantFindBooking_tryThese">Haben Sie vielleicht bei TUI [partner] oder TUI [partner1] gebucht?</string>
+  <string name="">Einen Moment bitte, wir suchen gerade Ihren Urlaub</string>
+  <string name="">Wir haben Ihre Buchung gefunden...</string>
+  <string name="">Wir haben Ihr Reiseland entdeckt..</string>
+  <string name="">Wir suchen nach Ihrem Hotel...</string>
+  <string name="">Wir lesen die Wettervorhersage...</string>
+  <string name="">Wir suchen nach Ausflügen...</string>
+  <string name="">Nun noch die Extras finden...</string>
+  <string name="">Wir geben den letzten Schliff...</string>
 </resources>

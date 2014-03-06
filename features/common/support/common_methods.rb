@@ -82,7 +82,7 @@ class CommonMethods < BasePage
 
   def get_desination_countries(booking=$g_current_booking)
     countries=[]
-    puts booking
+    #puts booking
     booking["payload"]["destinationGuide"]["data"].each do |var|
       countries<< var[1]["destinationName"]
     end
