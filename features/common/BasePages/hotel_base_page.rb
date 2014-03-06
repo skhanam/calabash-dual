@@ -11,7 +11,7 @@ class HotelBasePage < BasePage
     count=0
     CommonMethods.new.find_products_in_booking("hotel").each do |item|
       count+=1
-      return item if count==num
+      return item if count==num.to_i
     end
     return nil
   end

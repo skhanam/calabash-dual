@@ -37,7 +37,6 @@ When (/^I navigate to countdown page using countdown biscuit$/) do
 end
 
 
-
 # ----------------------------------------------------------------------------------------------------------------------
 
 #booking summary page down step definitions
@@ -109,12 +108,29 @@ Given(/^I have opened side menu$/) do
   @homePage.open_side_panel
 end
 
-
-
 When(/^I open side panel$/) do
   @homePage.open_side_panel
 end
 
 Given(/^I navigate to curreny converter page from home screen$/) do
   @homePage.navigate_to_currency_conv_page
+end
+
+When(/^I navigate to hotel (\d+) from home page$/) do |arg|
+  hotel_details=@hotelPage.find_hotel_details(arg)
+  hotel_name=hotel_details["name"]
+  @page.scroll_page_and_assert_text(hotel_name)
+  @page.click_on_text(hotel_name)
+end
+
+When(/^I navigate to destination using home page biscuit$/) do
+  @countries= @commonMethods.get_desination_countries
+  @dest_country=@countries[0]
+  @page.scroll_page_and_assert_text(@dest_country)
+  @page.click_on_text(@dest_country)
+end
+
+Then(/^I see destination information page$/) do
+  @destInfoPage.check_dest_info_screen_title
+  @page.assert_wait_for_text @dest_country
 end

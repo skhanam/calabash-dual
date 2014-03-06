@@ -15,8 +15,9 @@ class NewUserRegistrationBasePage < BasePage
     #screen 2
     scroll_page_and_assert_text(@@new_user_registration_arrival_date)
 
-    assert_text_elements([@@new_user_registration_last_name, @@new_user_registration_booking_code,
-                          @@new_user_registration_arrival_date])
+    assert_text_present @@new_user_registration_last_name
+    assert_text_present @@new_user_registration_booking_code
+    assert_text_present @@new_user_registration_arrival_date
 
     #screen 3
     scroll_page_and_assert_text @@new_user_registration_password
