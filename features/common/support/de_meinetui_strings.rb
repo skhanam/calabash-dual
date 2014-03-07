@@ -313,10 +313,6 @@ module DEMeineTUI
 
     @@contact_us_terms_conditions_page_title=get_localized_string "terms_title"
     @@contact_us_tui_service_title="Im Urlaub für Sie da"
-    #TODO check this text must be verified or not
-    #@@contact_us_questions_about_reservations="Bei Fragen rund um Ihre Buchung, TUI allgemein oder bei technischen Problemen stehen wir Ihnen gerne zur Verfügung."
-    #privacy policy button
-    #@@contact_us_we_are_here="So erreichen Sie uns"
   end
 
 

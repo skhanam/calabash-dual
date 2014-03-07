@@ -63,9 +63,6 @@ class ContactUsBasePage < BasePage
 
   def check_terms_and_conditions
     verify_page_title @@contact_us_terms_conditions_page_title
-    #element ="webView css:'*' textContent:'#{@@contact_us_terms_conditions_page_title}'"
-    #wait_poll({:until_exists => element, :timeout => 5}) do
-    #end
   end
 
 

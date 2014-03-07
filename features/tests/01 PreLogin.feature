@@ -54,3 +54,7 @@ Feature: Verify screens shown before logging into App
     Given I have entered an valid email and invalid password
     When I select the Login button
     Then I see appropriate password error message
+
+  Scenario: Verify Terms and conditions page from login screen
+    Given I navigate to terms page from login screen
+    Then I see terms page is displayed correctly

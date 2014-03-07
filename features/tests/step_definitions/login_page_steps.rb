@@ -74,7 +74,8 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
   #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
-    step 'I enter "'+@valid_username+'" into input field number 1'
+    step 'I enter "'+@valid_username+'" into input field number 1' if $g_ios
+    step 'I enter "'+@valid_username+'" into input field number 2' if $g_android
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
@@ -101,13 +102,13 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
 
   if condition.eql? 'invalid'
     @invalid_username = USERS[:invalid][:email]
-    step 'I enter "'+@invalid_username+'" into input field number 1'
+    step 'I enter "'+@invalid_username+'" into input field number 1' if $g_ios
+    step 'I enter "'+@invalid_username+'" into input field number 2' if $g_android
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
     sleep 1
   end
-
   #@forgotPasswordPage.enter_wrong_username_or_email if condition.eql? 'invalid'
   fail 'TODO' if condition.eql? 'valid'
   @forgotPasswordPage.submit_change_password

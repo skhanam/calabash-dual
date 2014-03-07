@@ -13,7 +13,7 @@ module TestModule
     @forgotPasswordPage ||= ForgotPasswordBasePage.new
     @contactPage ||= ContactUsBasePage.new
     @tuiServicePage ||= TuiServiceOnsitePage.new
-    @tuiServicePage ||= TermsAndConditionsBasePage.new
+    @termsPage ||= TermsAndConditionsBasePage.new
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
     @meetRepPage ||=MeetRepBasePage.new

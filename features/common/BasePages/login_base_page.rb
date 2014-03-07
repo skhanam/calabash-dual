@@ -145,4 +145,9 @@ class LoginBasePage < BasePage
     end
   end
 
+
+  def navigate_to_terms
+    scroll_page_and_assert_text @@privacy_terms_of_use
+    click_on_text @@privacy_terms_of_use
+  end
 end
