@@ -24,20 +24,25 @@ Test data is stored in file users.rb
 Execute tests
 ===============
 
-sh runmeinetui.sh clean - IOS
-sh
+####Clean and run project
+	 sh runmeinetui.sh clean @sanity
+	 sh runandroid.sh clean @sanity
+
+####Clean and run regression project
+	 sh runmeinetui.sh clean @android_test
+	 sh runandroid.sh clean @ios_test
+
+####Run tests without cleaning
+	 sh runmeinetui.sh NA @sanity
+	 sh runandroid.sh NA @sanity
 
 Getting Started
 ===============
-
 #Install RUBY
-use ruby version >= 1.9.3
-
-Install source tree & clone 2 projects
-1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
-2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git
-
-
+<br />use ruby version >= 1.9.3
+<br />Install source tree & clone 2 projects
+<br />1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
+<br />2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git
 
 #To install gems needed for this project
 Gems needed for this project are present in Gemfile (located under meine.tui.ui-automation folder)
@@ -47,10 +52,9 @@ if bundler  is not installed install it
 	gem install bundler
 Run below command to install all gems needed
 
-	bundle install
+    bundle install
 
 #Install calabash
-
 	gem install calabash-cucumber
 	gem install calabash-android
 
@@ -60,7 +64,6 @@ Run below command to install all gems needed
 
 ### Download and Install Android SDK
 #####Set environment variables
-
 	export PATH=/Users/<username>/Documents/adt-bundle-mac/sdk/tools:$PATH
 	export PATH=/Users/<username>/Documents/adt-bundle-mac/sdk/platform-tools:$PATH
 	export ANDROID_HOME=/Users/<username>/Documents/adt-bundle-mac/sdk
@@ -103,14 +106,9 @@ ensure Android API 18 installed.:
 
 ##Download and Build: iOS
     calabash-ios setup (set up calabash framework to existing project)
-
-
 ##Meine tui commands
-
-
 ###Build
 #### building for meine tui using UK 4.0 code
-
     meine.tui.ui-automation - Automation folder
     meine.tui - project folder
 
