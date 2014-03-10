@@ -17,6 +17,13 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to weather page using side menu
     Then I see holiday weather page
 
+  Scenario: navigate to weather page
+    Given I have switched to insurance booking
+    Given I am on Home screen
+    When I navigate to insurance page using side menu
+    Then I see insurance page
+
+
   @sanity
   Scenario: navigate to booking summary page
     Given I have switched to typical booking

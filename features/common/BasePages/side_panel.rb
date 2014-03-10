@@ -36,7 +36,11 @@ class SidePanel < BasePage
   def navigate_to_weather_page
     scroll_page_and_assert_text(@@side_panel_weather, "down")
     touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title
+  end
 
+  def navigate_to_insurance_page
+    scroll_page_and_assert_text(@@side_panel_insurance, "down")
+    touch_txt_and_verify_title @@side_panel_insurance, @@insurance_title
   end
 
   def navigate_to_meet_rep_page
@@ -101,7 +105,7 @@ class SidePanel < BasePage
 
   def verify_elements_for_flight_single_booking
     fail("unused")
-    $g_current_booking=FLIGHT_BOOKING
+    #$g_current_booking=FLIGHT_BOOKING
     assert_wait_for_text @@side_panel_booking_summary
     res=CommonMethods.new.get_all_products_for_booking
     res.uniq.each do |var|

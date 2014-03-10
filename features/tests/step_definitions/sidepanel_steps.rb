@@ -54,3 +54,8 @@ Then(/^I must see below items on sidepanel for booking:$/) do |table|
     @sidePanel.validate_typical_booking_menu_items(var[0])
   end
 end
+
+When(/^I navigate to insurance page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_to_insurance_page
+end
