@@ -41,7 +41,7 @@ class SidePanel < BasePage
 
   def navigate_to_meet_rep_page
     scroll_page_and_assert_text(@@side_panel_meet_rep, "down")
-    touch_txt_and_verify_title @@side_panel_meet_rep, @@side_panel_meet_rep
+    touch_txt_and_verify_title @@side_panel_meet_rep, @@meet_rep_title
   end
 
 

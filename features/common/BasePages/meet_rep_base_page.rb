@@ -9,12 +9,13 @@ class MeetRepBasePage < BasePage
 
 
   def check_name_of_rep
-    scroll_page_and_assert_text(TEST_DATA[:meet_representative][:rep_name])
-    assert_wait_for_text(TEST_DATA[:meet_representative][:Department])
+    if $g_current_booking["payload"]["meetYourRep"]==nil
+      fail("No representative present")
+    else
+      rep_name=$g_current_booking["payload"]["meetYourRep"][0]["name"]
+      CommonMethods.new.scroll_page_till_partial_text rep_name
+      wait_for_partial_text_shown rep_name
+    end
   end
 
-  def check_address_of_rep
-    scroll_page_and_assert_text TEST_DATA[:meet_representative][:address1]
-    scroll_page_and_assert_text TEST_DATA[:meet_representative][:address2]
-  end
 end

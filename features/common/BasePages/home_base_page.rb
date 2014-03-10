@@ -84,6 +84,7 @@ class HomeBasePage < BasePage
   def click_on_account_button
     wait_for_acc_label @@home_page_account_acc_label
     sleep 2
+    wait_for_acc_label @@home_page_account_acc_label
     click_accessibility_label @@home_page_account_acc_label
     wait_for_account_page_to_load
     verify_page_title @@my_bookings_title

@@ -121,7 +121,8 @@ module DEMeineTUI
     @@side_panel_weather=get_localized_string "weather"
     @@side_panel_contact_us= get_localized_string "contact_us"
     @@side_panel_TandC=get_localized_string "tui_service_on_site"
-    @@side_panel_meet_rep=get_localized_string "travelAgent_title"
+    @@side_panel_meet_rep=get_localized_string "meet_the_rep"
+    @@side_panel_my_travel_agent=get_localized_string "travelAgent_title"
 
     @@side_panel_destination_guide=get_localized_string "destination_guide"
     @@side_panel_excursions=get_localized_string "excursions"
@@ -132,6 +133,7 @@ module DEMeineTUI
     @@side_panel_contact_heading=get_localized_string "contact"
 
   end
+
 
   def my_bookings_strings
     @@my_bookings_title=get_localized_string "my_bookings"
@@ -334,10 +336,13 @@ module DEMeineTUI
   end
 
   def meet_rep_strings
-    @@meet_rep_text="Hier habe ich meinen Urlaub gebucht"
-    @@meet_rep_title= get_localized_string "travelAgent_title"
-    @@meet_rep_email_link= get_localized_string "travelAgent_email"
-    @@meet_rep_call_us= get_localized_string "travelAgent_phone"
+    @@meet_rep_title=get_localized_string "meet_the_rep"
+  end
+
+  def my_travel_agent_strings
+    @@my_travel_agent_text="Hier habe ich meinen Urlaub gebucht"
+    @@my_travel_agent_email_link= get_localized_string "travelAgent_email"
+    @@my_travel_agent_call_us= get_localized_string "travelAgent_phone"
   end
 
   def image_icons_acc_label

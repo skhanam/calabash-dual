@@ -18,17 +18,6 @@ USERS = {
     }
 }
 
-
-TEST_DATA ={
-    :meet_representative => {
-        :Department => "Sales- & Fulfillmentsystems",
-        :rep_name => "M. Loehn",
-        :address1 => "Karl-Wiechert-Allee 23",
-        :address2 => "D 30625 Hannover"
-    }
-
-}
-
 #:country => "Deutschland",
 
 #def get_user_details(url)

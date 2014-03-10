@@ -2,5 +2,6 @@
 Feature: Verify meet representative page
 
   Scenario: Verify meet representative page
+    Given I have switched to typical booking
     Given I navigate to meet representative page from side panel
-    Then I see meet representative page is displayed correctly
+    Then I must see name of representative

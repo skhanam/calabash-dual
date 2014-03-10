@@ -33,7 +33,6 @@ module AndroidReusableMethods
   def click_on_text(text)
     puts "click_on_text:#{text}:"
     touch "* text:'#{text}'"
-    #performAction('click_on_text', text)
     sleep 1
   end
 

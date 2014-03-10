@@ -163,6 +163,7 @@ class CommonMethods < BasePage
         break
       end
       sleep 1
+      puts "#{text} is not visible yet"
       scroll_view(dir)
     end
 

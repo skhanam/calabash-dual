@@ -5,7 +5,3 @@ end
 Then(/^I must see name of representative$/) do
   @meetRepPage.check_name_of_rep
 end
-
-And(/^contact details of representative$/) do
-  @meetRepPage.check_address_of_rep
-end

@@ -32,4 +32,5 @@ calabash-android resign app.apk
 calabash-android build app.apk
 adb install -r app.apk
 adb install -r test_servers/*.apk
+echo calabash-android  run app.apk -p de_mt_android_jenkins --tag $2
 calabash-android  run app.apk -p de_mt_android_jenkins --tag $2
