@@ -17,4 +17,6 @@ do
     else
         echo "repeat simulator launch"
     fi
+
+    c=$(($c+1))
 done
