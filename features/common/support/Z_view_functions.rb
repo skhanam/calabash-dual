@@ -33,7 +33,7 @@ module ViewModule
   end
 
   def click_on_partial_text(text)
-    touch($g_query_txt+"{text LIKE '*#{text}*'}")
+    touch("#{$g_query_txt}{text CONTAINS '#{text}'}")
   end
 
 ## Specify text to check and time to wait for

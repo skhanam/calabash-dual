@@ -166,7 +166,7 @@ class CommonMethods < BasePage
       puts "#{text} is not visible yet"
       scroll_view(dir)
     end
-
+    sleep 2
     fail("text is not shown") if flag==0
   end
 
