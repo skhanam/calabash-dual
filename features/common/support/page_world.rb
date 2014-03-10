@@ -23,5 +23,6 @@ module TestModule
     @currencyConvPage ||=CurrencyConverterBasePage.new
     @sidePanel ||=SidePanel.new
     @destInfoPage||=DestinationInfoBasePage.new
+    @insurancePage||=InsuranceBasePage.new
   end
 end

@@ -29,7 +29,6 @@ Feature: Verify booking information for Typical Booking
       | Wellness      |
       | For Children  |
 
-
   Scenario:  Social Share link on hotel page
     When I navigate to hotel 1 page using side menu
     Then I see hotel 1 page

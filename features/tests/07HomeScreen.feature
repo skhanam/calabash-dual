@@ -33,3 +33,10 @@ Feature: Verify product pages by navigating through biscuits
     Given I have switched to single booking
     Given I navigate to weather page using weather biscuit
     Then I see holiday weather page
+
+    @testrun
+  Scenario: Verify Insurance screen
+    Given I have switched to insurance booking
+    And I navigate to insurance page from home
+    Then I see insurance page
+

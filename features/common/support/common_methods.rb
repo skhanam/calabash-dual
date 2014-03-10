@@ -101,7 +101,7 @@ class CommonMethods < BasePage
     #key_val=["leadPassenger","otherPassengers","bookingCode"]
     $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
       if var["key"]==key_val
-        return var["title"],var["value"]
+        return var["title"], var["value"]
       end
     end
   end
@@ -130,6 +130,12 @@ class CommonMethods < BasePage
       products<<var if var["productType"]==product
     end
     return products
+  end
+
+
+  def get_insurance_details
+    puts find_products_in_booking("insurance")
+    fail "failed"
   end
 
   def check_call_us_link

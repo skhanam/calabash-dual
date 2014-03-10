@@ -80,7 +80,6 @@ class HomeBasePage < BasePage
   end
 
 
-
   def click_on_account_button
     wait_for_acc_label @@home_page_account_acc_label
     sleep 2
@@ -106,8 +105,6 @@ class HomeBasePage < BasePage
   end
 
 
-
-
   def get_welcome_message
     no_of_days_to_go=-1*CommonMethods.new.get_countdown_days #Hard coded for now until test data is available
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
@@ -130,5 +127,11 @@ class HomeBasePage < BasePage
       fail("Days are incorrect")
     end
     return msg
+  end
+
+
+  def navigate_to_insurance
+    scroll_page_and_assert_text @@home_page_insurance_acc
+    click_on_text @@home_page_insurance_acc
   end
 end

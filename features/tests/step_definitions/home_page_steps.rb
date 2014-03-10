@@ -81,6 +81,8 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
   case booking_type
     when "typical"
       $g_current_booking=TYPICAL_BOOKING
+    when "insurance"
+      $g_current_booking=TYPICAL_BOOKING
     when "flight"
       $g_current_booking=FLIGHT_BOOKING
     when "single"
@@ -133,4 +135,12 @@ end
 Then(/^I see destination information page$/) do
   @destInfoPage.check_dest_info_screen_title
   @page.assert_wait_for_text @dest_country
+end
+
+Given(/^I navigate to insurance page from home$/) do
+  @homePage.navigate_to_insurance
+end
+
+Then(/^I see insurance page$/) do
+  @insurancePage.check_insurance_title
 end

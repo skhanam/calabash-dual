@@ -44,7 +44,6 @@ Feature: Verify screens shown before logging into App
     When I select 'I have logged in before'
     Then I see login Page
 
-  @failed112
   Scenario: Login with Non Matching Records  - invalid email
     Given I have entered an invalid email and a valid password
     When I select the Login button

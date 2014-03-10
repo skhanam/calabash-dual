@@ -28,6 +28,7 @@ module DEMeineTUI
     flights_strings
     terms_strings
     dest_info_strings
+    insurance_strings
   end
 
 
@@ -91,9 +92,13 @@ module DEMeineTUI
     @@home_page_loading=get_localized_string "hold_on_booking"
     @@home_page_acc_label="background_normal"
     @@home_page_booking_summary=get_localized_string "booking_summary"
-
+    @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_account_acc_label="navbarRightButton"
 
+  end
+
+  def insurance_strings
+    @@insurance_title=get_localized_string "insurance"
   end
 
   def side_panel_strings

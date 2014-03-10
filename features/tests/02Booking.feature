@@ -9,7 +9,6 @@ Feature: Verify booking information for Typical Booking
   Scenario: Verify welcome screen
     Then I verify appropriate welcome message for booking
 
-
   Scenario: Verify countdown screen
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
