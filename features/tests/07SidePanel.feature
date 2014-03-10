@@ -40,11 +40,12 @@ Feature: Verify product pages by navigating through side panel
       | Destination guide       |
       | excursions              |
       | Good to know            |
+      | My travel agent         |
       | Kontakt heading         |
-      | My representative       |
+      | My travel agent         |
+      | TUI onsite service      |
       | Kontakt                 |
 
-  @failed
   Scenario: Check Navigation menus for Single booking
     Given I have switched to single flight booking
     When I open side panel
@@ -58,6 +59,7 @@ Feature: Verify product pages by navigating through side panel
       | Destination guide       |
       | excursions              |
       | Good to know            |
-      | Kontakt                 |
-      | My representative       |
+      | Kontakt heading         |
+      | My travel agent         |
+      | TUI onsite service      |
       | Kontakt                 |

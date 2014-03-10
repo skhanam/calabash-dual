@@ -121,7 +121,7 @@ module DEMeineTUI
     @@side_panel_weather=get_localized_string "weather"
     @@side_panel_contact_us= get_localized_string "contact_us"
     @@side_panel_TandC=get_localized_string "tui_service_on_site"
-    @@side_panel_meet_rep=get_localized_string "meet_the_rep"
+    @@side_panel_my_tour_guide=get_localized_string "meet_the_rep"
     @@side_panel_my_travel_agent=get_localized_string "travelAgent_title"
 
     @@side_panel_destination_guide=get_localized_string "destination_guide"

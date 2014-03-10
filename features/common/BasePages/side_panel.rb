@@ -40,8 +40,8 @@ class SidePanel < BasePage
   end
 
   def navigate_to_meet_rep_page
-    scroll_page_and_assert_text(@@side_panel_meet_rep, "down")
-    touch_txt_and_verify_title @@side_panel_meet_rep, @@meet_rep_title
+    scroll_page_and_assert_text(@@side_panel_my_tour_guide, "down")
+    touch_txt_and_verify_title @@side_panel_my_tour_guide, @@meet_rep_title
   end
 
 
@@ -73,10 +73,15 @@ class SidePanel < BasePage
         scroll_page_and_assert_text @@side_panel_good_to_know
       when "Kontakt heading"
         scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_contact_heading)
-      when "My representative"
-        scroll_page_and_assert_text @@side_panel_meet_rep
+      when "My travel agent"
+        scroll_page_and_assert_text @@side_panel_my_tour_guide
       when "Kontakt"
         scroll_page_and_assert_text @@side_panel_contact_us
+      when "My travel agent"
+        scroll_page_and_assert_text @@side_panel_travel_agent
+      when "TUI onsite service"
+        scroll_page_and_assert_text @@side_panel_tui_service_on_site
+
     end
   end
 
