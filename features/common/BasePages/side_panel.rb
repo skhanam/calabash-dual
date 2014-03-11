@@ -43,11 +43,10 @@ class SidePanel < BasePage
     touch_txt_and_verify_title @@side_panel_insurance, @@insurance_title
   end
 
-  def navigate_to_meet_rep_page
+  def navigate_to_my_tour_guide
     scroll_page_and_assert_text(@@side_panel_my_tour_guide, "down")
-    touch_txt_and_verify_title @@side_panel_my_tour_guide, @@meet_rep_title
+    touch_txt_and_verify_title @@side_panel_my_tour_guide, @@my_tour_guide_text
   end
-
 
   def validate_typical_booking_menu_items(var)
     case var

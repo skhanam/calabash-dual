@@ -2,7 +2,7 @@
 Feature: Login and Home page features
   Login into application
 
-
+  @login1
   Scenario: Login and verify home screen
     Given I log into Application
     Then I must be logged and on Home page

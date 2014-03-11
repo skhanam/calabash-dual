@@ -57,13 +57,6 @@ When(/^I navigate to my bookings page$/) do
 end
 
 
-Given(/^I navigate to meet representative page from side panel$/) do
-  step "I am on Home screen"
-  @homePage.open_side_panel
-  @sidePanel.navigate_to_meet_rep_page
-end
-
-
 Given(/^I am on contact us screen$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
@@ -149,4 +142,14 @@ end
 
 Then(/^I see insurance page$/) do
   @insurancePage.check_insurance_title
+end
+
+Given(/^I navigate to my tour guide page from side panel$/) do
+  step "I am on Home screen"
+  @homePage.open_side_panel
+  @sidePanel.navigate_to_my_tour_guide
+end
+
+Given(/^I navigate to my tour guide page from home page$/) do
+  @homePage.navigate_my_tour_guide
 end

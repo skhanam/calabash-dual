@@ -112,9 +112,11 @@ module IosReusableMethods
 
   #touch text and verify result
   def touch_txt_and_verify_title(txt_touch, text)
-    touch_transition_timeout=10
-    touch_transition_retry=1
-    touch_transition("view text:'#{txt_touch}'", "view text:'#{text}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
+    #touch_transition_timeout=10
+    #touch_transition_retry=1
+    click_on_text txt_touch
+    sleep 2
+    #touch_transition("view text:'#{txt_touch}'", "view text:'#{text}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
     verify_page_title text
   end
 

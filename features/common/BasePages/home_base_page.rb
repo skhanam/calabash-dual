@@ -134,4 +134,10 @@ class HomeBasePage < BasePage
     scroll_page_and_assert_text @@home_page_insurance_acc
     click_on_text @@home_page_insurance_acc
   end
+
+  def navigate_my_tour_guide
+    CommonMethods.new.scroll_page_till_acc "representative"
+    click_accessibility_label "representative"
+    sleep 2
+  end
 end

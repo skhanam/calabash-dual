@@ -16,7 +16,7 @@ module TestModule
     @termsPage ||= TermsAndConditionsBasePage.new
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
-    @meetRepPage ||=MeetRepBasePage.new
+    @mytouristGuidePage ||=MyTouristGuideBasePage.new
     @hotelPage ||=HotelBasePage.new
     @commonMethods ||=CommonMethods.new
     @flightsPage ||=FlightsBasePage.new

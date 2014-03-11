@@ -191,7 +191,7 @@ class CommonMethods < BasePage
       scroll_view(dir)
     end
 
-    fail("acc:#{id}: not found") if flag==0
+    fail("acc:#{acc}: not found") if flag==0
   end
 
   def check_sharing

@@ -22,13 +22,13 @@ module DEMeineTUI
     forgot_password_strings
     contact_us_strings
     tui_service_onsite_strings
-    meet_rep_strings
     image_icons_acc_label
     hotel_page_strings
     flights_strings
     terms_strings
     dest_info_strings
     insurance_strings
+    my_tour_guide_strings
   end
 
 
@@ -94,7 +94,7 @@ module DEMeineTUI
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_account_acc_label="navbarRightButton"
-
+    @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
   end
 
   def insurance_strings
@@ -340,14 +340,10 @@ module DEMeineTUI
     @@de_terms_web_content_title="Datenschutzerklärung der TUI Deutschland GmbH"
   end
 
-  def meet_rep_strings
-    @@meet_rep_title=get_localized_string "meet_the_rep"
-  end
-
-  def my_travel_agent_strings
-    @@my_travel_agent_text="Hier habe ich meinen Urlaub gebucht"
-    @@my_travel_agent_email_link= get_localized_string "travelAgent_email"
-    @@my_travel_agent_call_us= get_localized_string "travelAgent_phone"
+  def my_tour_guide_strings
+    @@my_tour_guide_text=get_localized_string "meet_the_rep"
+    @@my_tour_guide_email_link= get_localized_string "travelAgent_email"
+    @@my_tour_guide_call_us= get_localized_string "travelAgent_phone"
   end
 
   def image_icons_acc_label

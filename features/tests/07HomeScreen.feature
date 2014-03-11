@@ -34,9 +34,15 @@ Feature: Verify product pages by navigating through biscuits
     Given I navigate to weather page using weather biscuit
     Then I see holiday weather page
 
-    @testrun
   Scenario: Verify Insurance screen
     Given I have switched to insurance booking
     And I navigate to insurance page from home
     Then I see insurance page
+
+  @testrun
+  Scenario: Verify Learn your tour guide
+    Given I have switched to typical booking
+    And I navigate to my tour guide page from home page
+    Then I must see name of my tour guide
+    Then I see my tour guide is displayed correctly
 

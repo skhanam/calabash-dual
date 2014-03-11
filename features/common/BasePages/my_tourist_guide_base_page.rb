@@ -1,14 +1,12 @@
-class MeetRepBasePage < BasePage
+class MyTouristGuideBasePage < BasePage
 
-  def verify_meet_rep_screen
-    assert_text_present @@meet_rep_text
-    scroll_page_and_assert_text @@meet_rep_title
-    scroll_page_and_assert_text @@meet_rep_email_link
-    scroll_page_and_assert_text @@meet_rep_call_us
+  def verify_my_tour_guide_screen
+    assert_text_present @@my_tour_guide_text
+    scroll_page_and_assert_text @@my_tour_tui_service
   end
 
 
-  def check_name_of_rep
+  def check_name_of_tour_guide
     if $g_current_booking["payload"]["meetYourRep"]==nil
       fail("No representative present")
     else
