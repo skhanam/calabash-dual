@@ -150,9 +150,8 @@ class CommonMethods < BasePage
 
   def verify_call_button_overlay
     sleep 1
-    assert_text_elements([@@call_us_are_you_sure, @@call_us_dialog_yes,
+    assert_text_elements([@@call_us_dialog_yes,
                           @@call_us_dialog_no])
-    wait_for_partial_text_shown @@call_us_dialog_number
     click_on_text @@call_us_dialog_no
     sleep 2
   end

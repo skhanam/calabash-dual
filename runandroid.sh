@@ -25,6 +25,7 @@ if [ "$1" == "clean" ] ; then
 	ti build --platform android -b
 	cd -
 	cp ../$PROJ_NAME/build/android/bin/meine\ TUI.apk  app.apk
+	cp -r ../meine.tui/i18n/* features/test_data/
 fi
 
 rm -rf test_servers/

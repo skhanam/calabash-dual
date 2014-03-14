@@ -43,12 +43,8 @@ module DEMeineTUI
 
   def common_strings
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
-
-    @@call_us_are_you_sure = get_localized_string "product_call_dialog_message"
-    @@call_us_dialog_no = get_localized_string "product_call_dialog_no"
+    @@call_us_dialog_no = get_localized_string "cancel"
     @@call_us_dialog_yes = get_localized_string "product_call_dialog_yes"
-    @@call_us_dialog_number= "Nummer"
-
     @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
 
   end
