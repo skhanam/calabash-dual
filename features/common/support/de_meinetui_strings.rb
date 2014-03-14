@@ -340,6 +340,7 @@ module DEMeineTUI
     @@my_tour_guide_text=get_localized_string "meet_the_rep"
     @@my_tour_guide_email_link= get_localized_string "travelAgent_email"
     @@my_tour_guide_call_us= get_localized_string "travelAgent_phone"
+    @@my_tour_tui_service=get_localized_string "tui_service_on_site"
   end
 
   def image_icons_acc_label

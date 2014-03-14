@@ -1,4 +1,4 @@
-Then(/^I see my tour guide is displayed correctly$/) do
+Then(/^I see my tour guide screen$/) do
   @mytouristGuidePage.verify_my_tour_guide_screen
 end
 

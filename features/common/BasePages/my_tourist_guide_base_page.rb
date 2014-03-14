@@ -2,9 +2,11 @@ class MyTouristGuideBasePage < BasePage
 
   def verify_my_tour_guide_screen
     assert_text_present @@my_tour_guide_text
-    scroll_page_and_assert_text @@my_tour_tui_service
   end
 
+  def verify_my_tour_guide_page
+    scroll_page_and_assert_text @@my_tour_tui_service
+  end
 
   def check_name_of_tour_guide
     if $g_current_booking["payload"]["meetYourRep"]==nil
