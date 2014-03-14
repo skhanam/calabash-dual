@@ -1,4 +1,4 @@
-@test1  @ios_test @android_test
+@ios_test @android_test
 
 Feature: Verify contact us page
 

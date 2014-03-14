@@ -5,8 +5,11 @@ When(/^I am on Home screen$/) do
     step "I must be logged and on Home page"
   else
     @homePage.check_home_screen(5)
-    @homePage.wait_for_home_page_to_load
   end
+  @homePage.wait_for_home_page_to_load
+  @homePage.wait_for_acc_label("welcome_title")
+  sleep 2
+
 end
 
 

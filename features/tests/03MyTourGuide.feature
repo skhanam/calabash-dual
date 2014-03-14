@@ -1,4 +1,4 @@
-@ios_test @android_test @login1 @auto3 @tour-guide
+@ios_test @android_test @auto3 @tour-guide
 Feature: Verify my tour guide
 
   Scenario: Verify my tour guide page
