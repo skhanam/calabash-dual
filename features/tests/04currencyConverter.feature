@@ -6,11 +6,11 @@ Feature: Currency converter
 
   Scenario: Check currency conversion
     Given I have switched to non eu booking
-    And I navigate to curreny converter page from home screen
+    And I navigate to currency converter page from home screen
     Then I default currency values pre-filled in the screen
 
   Scenario: Check currency swap
     Given I have switched to non eu booking
-    And I navigate to curreny converter page from home screen
+    And I navigate to currency converter page from home screen
     When I select on the currency swap icon
     Then I see currency pairs should swap places

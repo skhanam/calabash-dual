@@ -183,8 +183,8 @@ module DEMeineTUI
     @@countdown_hours_text="Stunden"
     @@countdown_minutes_text="Minuten"
     @@countdown_seconds_text="Sekunden"
-    @@countdown_countdown_message1="Auf nach .*? in"
-    @@countdown_countdown_message2="Ich fliege nach .*? in"
+    @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/,'.*')
+    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/,'.*')
   end
 
   #

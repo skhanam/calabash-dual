@@ -21,9 +21,16 @@ class BookingSummaryBasePage < BasePage
     check_partial_text_shown title
   end
 
-  def read_booking_information
-    booking=Booking.new
-    booking={:days_to_go => query("view marked:'daysToGo'", :text).first.to_i,
-             :booking_id => query("view marked:'bookingReference'", :text).first.to_i}
+  def verify_booking_reference_number
+    get_booking_ref_number=CommonMethods.new.get_booking_ref_number
+    puts "booking ref #{get_booking_ref_number}"
+    wait_for_text get_booking_ref_number
   end
+
+  def verify_days_to_go
+    get_countdown_days=CommonMethods.new.get_countdown_days
+    puts "days to go #{get_countdown_days}"
+    wait_for_text get_countdown_days.to_s
+  end
+
 end

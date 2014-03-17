@@ -106,6 +106,11 @@ class CommonMethods < BasePage
     end
   end
 
+
+  def get_booking_ref_number
+    $g_current_booking["payload"]["reservationCode"]
+  end
+
   def find_number_of_flights
     res=get_all_products_for_booking
     res.count "flight"
@@ -119,8 +124,8 @@ class CommonMethods < BasePage
     end
   end
 
-  def get_countdown_days(val="typical_booking")
-    ($g_current_booking["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i if val=="typical_booking"
+  def get_countdown_days(val=$g_current_booking)
+    (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
   end
 
   def find_products_in_booking(product)

@@ -1,22 +1,22 @@
-USERS = {
-    :valid => {
-        :firstname => "Peter",
-        :lastname => "Pan",
-        :username => "userdea@gmail.com",
-        :email => "userdea@gmail.com",
-        :password => "testtest",
-        :country => "Deutschland",
-        :bookings => {
-            :destination => "Palma de Mallorca",
-            :date => "06.09.2014",
-            :products => "Flug"
-        }},
-    :invalid => {
-        :username => "invalidusername",
-        :password => "nono",
-        :email => "no@nomail.com"
-    }
-}
+USERS||= {
+      :valid => {
+          :firstname => "Peter",
+          :lastname => "Pan",
+          :username => "userdea@gmail.com",
+          :email => "userdea@gmail.com",
+          :password => "testtest",
+          :country => "Deutschland",
+          :bookings => {
+              :destination => "Palma de Mallorca",
+              :date => "06.09.2014",
+              :products => "Flug"
+          }},
+      :invalid => {
+          :username => "invalidusername",
+          :password => "nono",
+          :email => "no@nomail.com"
+      }
+  }
 
 #:country => "Deutschland",
 

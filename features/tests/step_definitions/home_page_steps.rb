@@ -113,7 +113,7 @@ When(/^I open side panel$/) do
   @homePage.open_side_panel
 end
 
-Given(/^I navigate to curreny converter page from home screen$/) do
+Given(/^I navigate to currency converter page from home screen$/) do
   @homePage.navigate_to_currency_conv_page
 end
 

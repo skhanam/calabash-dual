@@ -7,7 +7,7 @@ Then(/^I see good to know page$/) do
   @countries= @commonMethods.get_desination_countries
   @dest_country=@countries[0]
   @page.assert_wait_for_text @dest_country
-  @page.assert_wait_for_text @@good_to_know_page_text
+  @goodToKnowPage.verify_good_to_know_page
 
 end
 

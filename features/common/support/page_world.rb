@@ -25,5 +25,6 @@ module TestModule
     @sidePanel ||=SidePanel.new
     @destInfoPage||=DestinationInfoBasePage.new
     @insurancePage||=InsuranceBasePage.new
+    @goodToKnowPage||=GoodToKnowBasePage.new
   end
 end
