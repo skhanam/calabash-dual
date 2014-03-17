@@ -140,4 +140,5 @@ class HomeBasePage < BasePage
     click_accessibility_label "representative"
     sleep 2
   end
+
 end

@@ -29,8 +29,9 @@ module DEMeineTUI
     dest_info_strings
     insurance_strings
     my_tour_guide_strings
+    my_travel_agent_strings
+    good_to_know_strings
   end
-
 
   #All test data for different appication is in here
   def test_data
@@ -44,7 +45,7 @@ module DEMeineTUI
   def common_strings
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
     @@call_us_dialog_no = get_localized_string "cancel"
-    @@call_us_dialog_yes = get_localized_string "product_call_dialog_yes"
+    @@call_us_dialog_yes = get_localized_string "call_dialog_yes"
     @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
 
   end
@@ -91,6 +92,10 @@ module DEMeineTUI
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_account_acc_label="navbarRightButton"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
+  end
+
+  def meet_rep_strings
+  @@meet_the_rep_help
   end
 
   def insurance_strings
@@ -350,6 +355,12 @@ module DEMeineTUI
     @@share_button_open_img ="share_button_open"
   end
 
+  def my_travel_agent_strings
+    @@my_travel_email_txt =get_localized_string "travelAgent_email"
+    @@my_travel_call_txt =get_localized_string "travelAgent_phone"
+    @@my_travel_agent_title =get_localized_string "travelAgent_title"
+  end
+
 
   def hotel_page_strings
     @@hotel_call_us = get_localized_string "call"
@@ -371,6 +382,11 @@ module DEMeineTUI
 
   def dest_info_strings
     @@dest_info_screen_title = get_localized_string "destination_info"
+  end
+
+  def good_to_know_strings
+    @@good_to_know_page_title=get_localized_string "good_to_know"
+    @@good_to_know_page_text=get_localized_string "goodtoknow_blurb"
   end
 
   def extra_strings

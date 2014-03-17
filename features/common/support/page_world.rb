@@ -17,6 +17,7 @@ module TestModule
     @new_to_tui_page ||=NewTOTUIBasePage.new
     @countDownPage ||=CountDownBasePage.new
     @mytouristGuidePage ||=MyTouristGuideBasePage.new
+    @mytravelAgentPage ||=MyTravelAgentBasePage.new
     @hotelPage ||=HotelBasePage.new
     @commonMethods ||=CommonMethods.new
     @flightsPage ||=FlightsBasePage.new

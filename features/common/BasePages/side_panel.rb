@@ -102,6 +102,17 @@ class SidePanel < BasePage
     end
   end
 
+
+  def navigate_to_travel_agent_page
+    scroll_side_panel(@@side_panel_travel_agent)
+    touch_txt_and_verify_title(@@side_panel_travel_agent,@@my_travel_agent_title)
+  end
+
+  def navigate_to_good_to_know_page
+    scroll_side_panel(@@side_panel_good_to_know)
+    touch_txt_and_verify_title(@@side_panel_good_to_know, @@good_to_know_page_title)
+  end
+
   def verify_elements_for_flight_single_booking
     fail("unused")
     #$g_current_booking=FLIGHT_BOOKING
