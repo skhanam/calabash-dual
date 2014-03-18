@@ -74,10 +74,6 @@ class MyBookingsBasePage < BasePage
     scroll_page_and_assert_text(@@add_a_booking_page_salutation, "down")
     assert_text_elements([@@add_a_booking_page_salutation, @@add_a_booking_page_firstname, @@add_a_booking_page_last_name])
 
-    assert_text_present(@@add_a_booking_page_salutation_hint) if $g_ios
-    assert_text_present(@@add_a_booking_page_firstname_hint) if $g_ios
-    assert_text_present(@@add_a_booking_page_last_name_hint) if $g_ios
-
     scroll_page_and_assert_text(@@add_a_booking_page_need_help, "down")
 
     assert_text_elements([@@add_a_booking_page_booking_code, @@add_a_booking_page_arrival_date, @@add_a_booking_page_find_booking_button, @@add_a_booking_page_need_help])
