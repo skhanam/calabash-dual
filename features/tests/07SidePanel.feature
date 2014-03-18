@@ -12,7 +12,7 @@ Feature: Verify product pages by navigating through side panel
     Then I see good to know page
 
   @travel_agent
-  Scenario: navigate to good to know page
+  Scenario: navigate to my travel agent page
     Given I have switched to single booking
     Given I am on Home screen
     When I navigate to my travel agent page

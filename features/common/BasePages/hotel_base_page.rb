@@ -2,18 +2,9 @@ class HotelBasePage < BasePage
 
   #Find hotels for typical booking and verify if that is shown
   def verify_hotel_text(num)
-    hotel_details=find_hotel_details(num)
+    hotel_details=CommonMethods.new.find_hotel_details(num)
     assert_wait_for_text hotel_details["name"]
     return hotel_details
-  end
-
-  def find_hotel_details(num)
-    count=0
-    CommonMethods.new.find_products_in_booking("hotel").each do |item|
-      count+=1
-      return item if count==num.to_i
-    end
-    return nil
   end
 
   def validate_hotel_details(var, hotel_details)

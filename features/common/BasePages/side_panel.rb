@@ -93,6 +93,12 @@ class SidePanel < BasePage
     touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
   end
 
+
+  def tui_service_onsite_from_sidepanel
+    scroll_side_panel @@contact_us_contact_tui_service
+    touch_txt_and_verify_title(@@contact_us_contact_tui_service,@@tui_service_title)
+  end
+
   def verify_elements_for_typical_booking
     assert_wait_for_text @@side_panel_booking_summary
     res=CommonMethods.new.get_all_products_for_booking

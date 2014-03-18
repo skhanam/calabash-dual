@@ -137,6 +137,14 @@ class CommonMethods < BasePage
     return products
   end
 
+  def find_hotel_details(num)
+    count=0
+    find_products_in_booking("hotel").each do |item|
+      count+=1
+      return item if count==num.to_i
+    end
+    return nil
+  end
 
   def get_insurance_details
     puts find_products_in_booking("insurance")

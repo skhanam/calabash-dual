@@ -1,12 +1,5 @@
 require 'calabash-cucumber/launcher'
 
-#if([scenario.source_tag_names][0].include? "@reset")
-#  ENV['RESET_BETWEEN_SCENARIOS']="1"
-#else
-#  ENV['RESET_BETWEEN_SCENARIOS']="0"
-#end
-
-
 Before do |scenario|
   sleep 5
   initialize_all

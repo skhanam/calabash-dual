@@ -34,4 +34,9 @@ class TuiServiceOnsitePage < BasePage
     end
   end
 
+  def tui_service_select_hotel
+    hotel_details=CommonMethods.new.find_hotel_details(1)
+    assert_wait_for_text hotel_details["name"]
+    click_on_text hotel_details["name"]
+  end
 end

@@ -5,7 +5,6 @@ Feature: Verify booking information for Typical Booking
   Background:
     Given I have switched to typical booking
 
-
   Scenario: As a TUI client I should be able to access the Hotel page
     When I navigate to hotel 1 page using side menu
     Then I see hotel 1 page

@@ -118,7 +118,7 @@ Given(/^I navigate to currency converter page from home screen$/) do
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
-  hotel_details=@hotelPage.find_hotel_details(arg)
+  hotel_details=CommonMethods.new.find_hotel_details(arg)
   hotel_name=hotel_details["name"]
   @page.scroll_page_and_assert_text(hotel_name)
   @page.click_on_text(hotel_name)
