@@ -37,6 +37,7 @@ class LoginBasePage < BasePage
   #query("webView xpath:'html/body/strong[3]/p'")
 
   def navigate_to_forgot_password
+    scroll_page_and_assert_text @@login_forgot_password
     click_on_text @@login_forgot_password
     assert_wait_for_text @@forgot_password_title
   end

@@ -3,6 +3,7 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
   step "I am on 'Login' screen"
   if $g_ios
     step 'I enter "'+username+'" into input field number 1'
+    step "I touch done"
     step 'I enter "'+password+'" into input field number 2'
     step "I touch done"
   elsif $g_android
@@ -41,8 +42,8 @@ Given(/^I am on '(.+)' screen/) do |page_name|
   end
 end
 
-Given(/^I am on welcome page$/) do
-  step "I see welcome page"
+Given(/I am on welcome page$/) do
+  step 'I see welcome page'
 end
 
 When(/^I set country (\w+) in login screen$/) do |var|
