@@ -9,9 +9,8 @@ spawn open -a Xcode
 #spawn /usr/local/bin/ti build --platform  ios --project-dir $arg1 --target-deploy development
 spawn /usr/local/bin/ti build --platform  ios --target-deploy development
 set timeout 60
-spawn sleep 20
 expect "Alloy compiler completed successfully"
-expect "BUILD SUCCEEDED"
+spawn sleep 20
 spawn echo "cleaned project"
 expect "Application booted in"
 spawn sleep 5
