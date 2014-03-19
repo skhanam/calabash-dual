@@ -4,12 +4,14 @@ set arg1 [lindex $argv 0]
 set timeout 10
 spawn /usr/local/bin/ti clean 
 expect "Project cleaned successfully"
+spawn echo "cleaned project"
 spawn open -a Xcode
 #spawn /usr/local/bin/ti build --platform  ios --project-dir $arg1 --target-deploy development
 spawn /usr/local/bin/ti build --platform  ios --target-deploy development
 set timeout 60
 expect "Alloy compiler completed successfully"
 expect "BUILD SUCCEEDED"
+spawn echo "cleaned project"
 expect "Application booted in"
 spawn sleep 5
 send \004
