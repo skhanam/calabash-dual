@@ -22,7 +22,7 @@ fi
 
 PROJ_NAME="meine.tui"
 
-cd ../${PROJ_NAME}/;/usr/local/bin/node build.js -B meinetui;cd -
+cd ../${PROJ_NAME}/;/usr/local/bin/node build.js --brand meinetui;cd -
 
 ruby update_tiapp.rb $PROJ_NAME
 
