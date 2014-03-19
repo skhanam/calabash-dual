@@ -7,9 +7,9 @@ expect "Project cleaned successfully"
 spawn echo "cleaned project"
 spawn open -a Xcode
 set timeout 60
-spawn /usr/local/bin/ti build --platform  ios --target-deploy development
+spawn /usr/local/bin/node build.js meinetui --syncLang -b
 expect "Alloy compiler completed successfully"
-spawn sleep 30
+expect "Application booted in"
 send \004
 spawn killall Xcode
 spawn sleep 5
