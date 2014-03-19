@@ -38,7 +38,7 @@ if [ "$1" == "clean" ] ; then
 killall Xcode
 cp ./expect.exp ../${PROJ_NAME}/
 cd ../${PROJ_NAME}/
-./expect.exp
+/usr/bin/expect ./expect.exp
 cd -
 open -a Xcode
 sleep  5
