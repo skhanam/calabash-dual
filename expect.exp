@@ -9,6 +9,6 @@ spawn open -a Xcode
 set timeout 60
 spawn /usr/local/bin/ti build --platform  ios --target-deploy development
 expect "Alloy compiler completed successfully"
-expect "BUILD SUCCEEDED"
-
+expect "Application booted in"
+spawn sleep 5
 
