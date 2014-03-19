@@ -2,6 +2,9 @@
 clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
+export PATH=$PATH:/usr/local/bin/node
+export PATH=$PATH:/usr/local/bin/ti
+
 if [ "$#" != "2" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
