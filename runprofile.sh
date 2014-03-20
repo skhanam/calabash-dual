@@ -6,6 +6,12 @@ echo "SETTING PROJECT TO MEINE TUI"
 #cd ../meine.tui
 #node build.js meinetui --syncLang -b
 
+
+\curl -sSL https://get.rvm.io | bash
+\curl -sSL https://get.rvm.io | bash -s -- --autolibs=read-fail
+
+
+
 echo "CLEANING AND BUILDING PROJECT"
 cd ../meine.tui.ui-automation/
 #bundle install
