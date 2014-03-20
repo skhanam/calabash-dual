@@ -15,6 +15,7 @@ rm -f *.html
 source /Users/qaautomation/.bashrc
 source /Users/qaautomation/.rvm/scripts/rvm
 echo "source completed"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 type rvm | head -n 1
 rvm use ruby-2.0.0-p353@global
 #calabash-ios sim reset
