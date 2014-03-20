@@ -11,6 +11,7 @@ cd ../meine.tui.ui-automation/
 #bundle install
 rm -f *.png
 rm -f *.html
+/bin/bash --login
 source /Users/qaautomation/.bashrc
 source /Users/qaautomation/.rvm/scripts/rvm
 echo "source completed"
