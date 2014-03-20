@@ -3,7 +3,6 @@
 
 set arg1 [lindex $argv 0]
 
-spawn source ~/.bash_profile
 set timeout 10
 spawn /usr/local/bin/ti clean 
 expect "Project cleaned successfully"
