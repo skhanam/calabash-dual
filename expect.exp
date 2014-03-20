@@ -1,5 +1,5 @@
 #!/usr/bin/expect
-#!/usr/bin/sh
+#!/bin/sh
 
 set arg1 [lindex $argv 0]
 
