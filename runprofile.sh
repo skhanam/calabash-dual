@@ -3,8 +3,8 @@
 export PATH=/usr/local/bin:$PATH
 
 echo "SETTING PROJECT TO MEINE TUI"
-cd ../meine.tui
-node build.js meinetui --syncLang -b
+#cd ../meine.tui
+#node build.js meinetui --syncLang -b
 
 echo "CLEANING AND BUILDING PROJECT"
 cd ../meine.tui.ui-automation/
