@@ -11,6 +11,8 @@ cd ../meine.tui.ui-automation/
 #bundle install
 rm -f *.png
 rm -f *.html
+/Users/qaautomation/.rvm/scripts/rvm
+type rvm | head -n 1
 rvm use ruby-2.0.0-p353@global
 #calabash-ios sim reset
 #sh runmeinetui.sh clean @login1
