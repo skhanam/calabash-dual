@@ -23,3 +23,4 @@ rvm use ruby-2.0.0-p353@global
 #calabash-ios sim reset
 #sh runmeinetui.sh clean @login1
 calabash-ios sim reset
+/Users/qaautomation/.rvm/gems/ruby-2.0.0-p353/bin/calabash-ios sim reset
