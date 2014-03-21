@@ -22,7 +22,7 @@ fi
 PROJ_NAME="meine.tui"
 echo "project name:"${PROJ_NAME}
 
-cd ../${PROJ_NAME}/;/usr/local/bin/node build.js --brand meinetui --syncLang;cd -
+cd ../${PROJ_NAME}/;/usr/local/bin/node build.js meinetui --syncLang;cd -
 
 ruby update_tiapp.rb $PROJ_NAME
 
