@@ -2,6 +2,8 @@
 clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
+export LC_CTYPE=en_US.UTF-8
+
 if [ "$#" != "2" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
@@ -20,7 +22,7 @@ fi
 PROJ_NAME="meine.tui"
 echo "project name:"${PROJ_NAME}
 
-cd ../${PROJ_NAME}/;/usr/local/bin/node build.js --brand meinetui --syncLang;cd -
+cd ../${PROJ_NAME}/;/usr/local/bin/node build.js --brand meinetui;cd -
 
 ruby update_tiapp.rb $PROJ_NAME
 
