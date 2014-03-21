@@ -9,10 +9,10 @@ expect "Project cleaned successfully"
 spawn echo "cleaned project"
 spawn open -a Xcode
 set timeout 60
-spawn node build.js meinetui --syncLang -b
-#spawn ti build args
-#expect "or platform name"
-#send "3\r"
+#spawn node build.js meinetui --syncLang -b
+spawn ti build args
+expect "or platform name"
+send "3\r"
 #spawn /usr/local/bin/node build.js meinetui --syncLang -b
 expect "Alloy compiler completed successfully"
 expect "Application booted in"
