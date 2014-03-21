@@ -35,8 +35,10 @@ source /Users/qaautomation/.rvm/scripts/rvm
 echo "source completed"
 
 bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
+source rvm.env
 bundle install
-#/Users/qaautomation/.rvm/gems/ruby-2.0.0-p353/bin/calabash-ios sim reset
+#/Users/qaautomation/.rvm/gems/ruby-2.0.0-p353/bin/
+calabash-ios sim reset
 
 if [ "$1" == "ios" ] ; then
 echo sh runmeinetui.sh $2 $3
