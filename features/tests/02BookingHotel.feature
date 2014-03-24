@@ -13,7 +13,7 @@ Feature: Verify booking information for Typical Booking
       | Hotel location  |
       | Contact buttons |
 
-  @sanity
+  @sanity @failed
   Scenario: As a TUI client with a TUI booking
   I should be able to access the Hotel page
     When I navigate to hotel 1 page using side menu

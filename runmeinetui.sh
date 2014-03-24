@@ -2,8 +2,7 @@
 clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
-export PATH=$PATH:/usr/local/bin/node
-export PATH=$PATH:/usr/local/bin/ti
+export LC_CTYPE=en_US.UTF-8
 
 if [ "$#" != "2" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
@@ -21,8 +20,9 @@ tagged_test=$2
 fi
 
 PROJ_NAME="meine.tui"
+echo "project name:"${PROJ_NAME}
 
-cd ../${PROJ_NAME}/;/usr/local/bin/node build.js --brand meinetui;cd -
+cd ../${PROJ_NAME}/;/usr/local/bin/node build.js meinetui --syncLang;cd -
 
 ruby update_tiapp.rb $PROJ_NAME
 
@@ -38,7 +38,7 @@ if [ "$1" == "clean" ] ; then
 killall Xcode
 cp ./expect.exp ../${PROJ_NAME}/
 cd ../${PROJ_NAME}/
-./expect.exp
+/usr/bin/expect ./expect.exp
 cd -
 open -a Xcode
 sleep  5

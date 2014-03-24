@@ -1,20 +1,22 @@
-@android_test @ios_test
+@android_test @ios_test @home_screen
 Feature: Verify product pages by navigating through biscuits
   Check countdown page is displayed correctly
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-  @sanity @countdown
+  @countdown @failed
   Scenario: navigate to countdown page
     Given I have switched to typical booking
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
 
+  @failed
   Scenario: navigate to booking summary page
     Given I have switched to typical booking
     When I navigate to booking summary page using booking summary biscuit
     Then I see holiday booking summary page
 
+  @failed
   Scenario: Navigate to hotel booking from home page biscuit
     Given I have switched to typical booking
     When I navigate to hotel 1 from home page
@@ -24,6 +26,7 @@ Feature: Verify product pages by navigating through biscuits
       | Hotel location  |
       | Contact buttons |
 
+  @failed
   Scenario: Navigate to destination country from home page biscuit
     Given I have switched to typical booking
     When I navigate to destination using home page biscuit

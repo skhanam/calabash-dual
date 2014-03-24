@@ -19,7 +19,7 @@ Feature: Verify contact us page
     And I navigate to terms and conditions page
     Then I must see terms and conditions page
 
-    @failed12
+  @failed
   Scenario: check TUI service screen from contact us
     Given I am on contact us screen
     When I select TUI service onsite link on contact us page

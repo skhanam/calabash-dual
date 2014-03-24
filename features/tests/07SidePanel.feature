@@ -24,7 +24,6 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
 
-  @sanity
   Scenario: navigate to weather page
     Given I have switched to typical booking
     Given I am on Home screen

@@ -8,7 +8,6 @@ Feature: Read Bookings Details and Verify
     When I switch to a booking in past
     Then I verify welcome message for booking in past
 
-  @sanity
   Scenario: Verify Add booking page
     Given I am on my bookings page
     When I navigate to add a booking page
