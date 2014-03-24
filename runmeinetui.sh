@@ -4,7 +4,7 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
-if [ "$#" != "2" ]; then
+if [ "$#" -le "1" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
