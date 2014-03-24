@@ -19,9 +19,8 @@ else
 tagged_test=$2
 fi
 
-PROJ_NAME="meine.tui"
+PROJ_NAME="${PROJ_NAME:=meine.tui}"
 echo "project name:"${PROJ_NAME}
-
 cd ../${PROJ_NAME}/;/usr/local/bin/node build.js meinetui --syncLang;cd -
 
 ruby update_tiapp.rb $PROJ_NAME
