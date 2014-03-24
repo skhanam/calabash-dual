@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$#" != "3" ]; then
+if [ "$#" -le "2" ]; then
 echo "\n\n\n2 ARGUMENTS NEEDED"
 echo "1) platform"
 echo "2) clean project ex: clean"
