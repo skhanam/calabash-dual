@@ -18,6 +18,12 @@ else
 tagged_test=$2
 fi
 
+if [ -z "$4" ] ; then
+PROJ_NAME=meine.tui
+else
+PROJ_NAME=$4
+fi
+
 export PATH=/usr/local/bin:$PATH
 
 echo "SETTING PROJECT TO MEINE TUI"
@@ -41,8 +47,8 @@ bundle install
 calabash-ios sim reset
 
 if [ "$1" == "ios" ] ; then
-echo sh runmeinetui.sh $2 $3
-sh runmeinetui.sh $2 $3
+echo sh runmeinetui.sh $2 $3 $PROJ_NAME
+sh runmeinetui.sh $2 $3 $PROJ_NAME
 else
 sh runandroid.sh $2 $3
 fi
