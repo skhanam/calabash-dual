@@ -39,4 +39,13 @@ class TuiServiceOnsitePage < BasePage
     assert_wait_for_text hotel_details["name"]
     click_on_text hotel_details["name"]
   end
+
+  def navigate_to_contact_screen
+    scroll_page_and_assert_text @@tui_service_service_contact
+    click_on_text @@tui_service_service_contact
+  end
+
+  def check_tui_contact_page
+    ContactUsBasePage.new.contact_us_embed_page
+  end
 end

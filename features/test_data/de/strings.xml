@@ -191,7 +191,7 @@
   <string name="holiday_message_minus_1">morgen geht's los! Haben Sie an alles gedacht?</string>
   <string name="holiday_message_minus_14">Ihre Reise steht vor der Tür. Sind Sie schon urlaubsreif?</string>
   <string name="holiday_message_minus_2">schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!</string>
-  <string name="holiday_message_minus_3">nur noch [days] mal schlafen, dann geht's endlich los!</string>
+  <string name="holiday_message_minus_3">nur noch [days] Tage, dann geht's endlich los! </string>
   <string name="holiday_message_minus_548">bald geht's in den Urlaub!</string>
   <string name="holiday_message_plus_1">willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub</string>
   <string name="holiday_message_plus_7">sind Sie schon wieder reif für [location]?</string>
@@ -278,6 +278,10 @@
   <string name="flight_number">Flugnummer:</string>
   <string name="flights_airport_information">Flughafen Infos</string>
   <string name="flights_carrier_information">Airline Infos</string>
+  <string name="land">Land:</string>
+  <string name="my_flight_details">Mein Flug</string>
+  <string name="my_flight_details_full_replace">[DEP] ([DEPCODE]) nach [ARR] ([ARRCODE])</string>
+  <string name="my_flight_details_replace">Mein Flug von [DEP] nach [ARR]</string>
   <string name="passengers">Personen:</string>
   <string name="take_off">Abflug:</string>
   <string name="book_with_tui_service">Beim TUI Service vor Ort anfragen</string>
