@@ -19,7 +19,12 @@ else
 tagged_test=$2
 fi
 
-PROJ_NAME="${PROJ_NAME:=meine.tui}"
+if [ -z "$3" ] ; then
+PROJ_NAME=meine.tui
+else
+PROJ_NAME=$3
+fi
+
 echo "project name:"${PROJ_NAME}
 cd ../${PROJ_NAME}/;/usr/local/bin/node build.js meinetui --syncLang;cd -
 
