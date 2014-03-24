@@ -134,7 +134,7 @@ module DEMeineTUI
     @@side_panel_excursions=get_localized_string "excursions"
     @@side_panel_good_to_know=get_localized_string "good_to_know"
 
-    @@side_panel_travel_agent=get_localized_string "travel_agent"
+    @@side_panel_travel_agent=get_localized_string "travel_agent" #Mein Reisebüro
     @@side_panel_tui_service_on_site=get_localized_string "tui_service_on_site"
     @@side_panel_contact_heading=get_localized_string "contact"
 

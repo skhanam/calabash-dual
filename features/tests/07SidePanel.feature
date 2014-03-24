@@ -11,13 +11,6 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to good to know page using side menu
     Then I see good to know page
 
-  @travel_agent
-  Scenario: navigate to my travel agent page
-    Given I have switched to single booking
-    Given I am on Home screen
-    When I navigate to my travel agent page
-    Then I see my travel agent page
-
   Scenario: navigate to countdown page
     Given I have switched to typical booking
     Given I am on Home screen

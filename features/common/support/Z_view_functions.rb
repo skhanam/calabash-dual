@@ -129,7 +129,7 @@ module ViewModule
 
 ## Assert if text to check is not shown before timeout
   def assert_wait_for_text(text, time_out=10)
-    fail("text not present") if wait_for_text(text, time_out)==false
+    fail("text:#{text}: not present") if wait_for_text(text, time_out)==false
     return true
   end
 
