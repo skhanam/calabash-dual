@@ -4,7 +4,7 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-  @countdown
+  @countdown @failed
   Scenario: navigate to countdown page
     Given I have switched to typical booking
     When I navigate to countdown page using countdown biscuit

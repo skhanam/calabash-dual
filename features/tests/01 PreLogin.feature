@@ -1,4 +1,4 @@
-@ios_test @android_test @reset @auto1
+@ios_test @android_test @reset @auto1   @failed
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
@@ -9,6 +9,7 @@ Feature: Verify screens shown before logging into App
       | Im registered with TUI |
       | Im not registered      |
 
+  @failed
   Scenario: Verify new to TUI page
     Given I am on welcome page
     When I choose haven't booked through TUI
@@ -44,6 +45,7 @@ Feature: Verify screens shown before logging into App
     When I select 'I havent logged in before'
     Then I see new user registration page
 
+  @failed
   Scenario: Already customer and I have logged in before
     Given I am on welcome page
     When I select 'I have logged in before'

@@ -21,6 +21,7 @@ Feature: Verify My account page and sub pages
     Given I choose to change password from my account page
     Then I see change password page
 
+  @failed
   Scenario: Verify update email page
     Given I select update email from my account page
     Then I see update email page
