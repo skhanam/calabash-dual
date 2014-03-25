@@ -37,6 +37,7 @@ class WelcomeBasePage < BasePage
 
 
   def click_new_here
+    scroll_page_and_assert_text @@have_never_booked_through_TUI_before
     click_on_text @@have_never_booked_through_TUI_before
     assert_wait_for_text @@new_to_tui_discover_tui
   end
