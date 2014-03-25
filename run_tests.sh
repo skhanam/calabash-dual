@@ -31,7 +31,7 @@ echo "SETTING PROJECT TO MEINE TUI"
 #node build.js meinetui --syncLang -b
 
 echo "CLEANING AND BUILDING PROJECT"
-cd ../meine.tui.ui-automation/
+cd ../uitest/
 #bundle install
 rm -f *.png
 rm -f *.html
