@@ -49,7 +49,7 @@ sleep  5
 open ../${PROJ_NAME}/build/iphone/*.xcodeproj
 sleep 30
 xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
-cp -r ../meine.tui/i18n/* features/test_data/
+cp -r ../${PROJ_NAME}/i18n/* features/test_data/
 fi
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
