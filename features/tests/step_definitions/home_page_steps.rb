@@ -84,10 +84,11 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
       $g_current_booking=NON_EU_BOOKING
   end
 
+  step "I am on Home screen"
+
   #If required booking is already selected then do switch accounts again
   if booking_type!=$selected_booking
     $selected_booking=booking_type
-    step "I am on Home screen"
     @homePage.click_on_account_button
     @myBookingsPage.switch_to_particular_booking
   else
