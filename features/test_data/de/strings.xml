@@ -220,8 +220,8 @@
   <string name="contact_us">Kontakt</string>
   <string name="countdown">Urlaubscountdown</string>
   <string name="destination">destination</string>
-  <string name="destination_guide">destination_guide</string>
-  <string name="destination_info">destination_info</string>
+  <string name="destination_guide">Infos über Ihr Reiseland</string>
+  <string name="destination_info">Infos über Ihr Reiseland</string>
   <string name="excursions">Ausflüge vor Ort</string>
   <string name="extra">Extras</string>
   <string name="extras">Extras</string>
@@ -360,6 +360,9 @@
   <string name="guide_online_sms_url">guide_online_sms_url</string>
   <string name="guide_online_send_by_sms">guide_online_send_by_sms</string>
   <string name="you_have_a_new_message">you_have_a_new_message</string>
+  <string name="guide_online_call_number">guide_online_call_number</string>
+  <string name="guide_online_open_link">guide_online_open_link</string>
+  <string name="guide_online_copy">guide_online_copy</string>
   <string name="boat_share_during_fb">Ich bin gerade auf meinem Boot [boat] in [region], [location] in meinem #TUI #Urlaub</string>
   <string name="boat_share_during_tw">Ich bin gerade auf meinem Boot [boat] in [region], [location] mit #TUI</string>
   <string name="boat_share_pre_fb">In [days] Tagen bin ich an Deck des Boots [boat] in [region], [location] in meinem #TUI #Urlaub!</string>
@@ -482,7 +485,7 @@
   <string name="checklist_hidden_title">checklist_hidden_title</string>
   <string name="checklist_title">checklist_title</string>
   <string name="delete_reminder">delete_reminder</string>
-  <string name="destination_info">Infos über Ihr Reiseland</string>
+  <string name="delete_item">Infos über Ihr Reiseland</string>
   <string name="max_length_exceeded">max_length_exceeded</string>
   <string name="my_packing_list">my_packing_list</string>
   <string name="my_todo_count">my_todo_count</string>
@@ -750,9 +753,19 @@
   <string name="done">Fertig</string>
   <string name="next">Weiter</string>
   <string name="no_change_submitted">E-Mail ändern: Es wurde keine Änderung vorgenommen.</string>
-  <string name="open_in_safari">In browser öffnen</string>
   <string name="previous">Zurück</string>
+  <string name="open_in_safari">In browser öffnen</string>
   <string name="water">Wasser</string>
   <string name="feedback_title">feedback_title</string>
-  <string name="submit_your_feedback">submit_your_feedback</string>
+  <string name="feedback_submit_button">feedback_submit_button</string>
+  <string name="feedback_navbar_title">feedback_navbar_title</string>
+  <string name="feedback_message_title_positive">feedback_message_title_positive</string>
+  <string name="feedback_message_title_negative">feedback_message_title_negative</string>
+  <string name="feedback_message_positive">feedback_message_positive</string>
+  <string name="feedback_message_negative">feedback_message_negative</string>
+  <string name="feedback_email_us_button">feedback_email_us_button</string>
+  <string name="feedback_rate_us_on_app_store_button">feedback_rate_us_on_app_store_button</string>
+  <string name="feedback_email_subject">feedback_email_subject</string>
+  <string name="feedback_email_body">feedback_email_body</string>
+  <string name="feedback_email_to_address">feedback_email_to_address</string>
 </resources>
