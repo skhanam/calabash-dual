@@ -9,6 +9,7 @@ module EN_ThomsonStrings
     welcome_messages
     home_page_strings
     loading_strings
+    side_panel_strings
     test_data
   end
 
@@ -48,6 +49,24 @@ module EN_ThomsonStrings
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_account_acc_label="navbarRightButton"
     @@home_page_sidepanel_acc_label="navbarLeftButton"
+  end
+
+  def side_panel_strings
+    @@home=get_localized_string "home" #"Home"
+    @@holiday_summary=get_localized_string "holiday_summary" #"Holiday summary"
+    @@holiday_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
+    @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
+    @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
+    @@weather=get_localized_string "weather" #"Weather"
+    @@flight=get_localized_string "flight" #"Flight"
+    @@flights=get_localized_string "flights" #"Flights"
+    @@hotel_and_resort=get_localized_string "hotel_and_resort" #"Hotel and resort"
+    @@destination=get_localized_string "destination" #"Destination"
+    @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
+    @@travel_money=get_localized_string "travel_money" #"Travel money"
+    @@important_information=get_localized_string "important_information" #"Important information"
+    @@contact_us=get_localized_string "contact_us" #"Contact us"
+    @@logout=get_localized_string "logout" #"Log out"
   end
 
   def welcome_messages

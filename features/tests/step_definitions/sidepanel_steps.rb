@@ -61,3 +61,7 @@ When(/^I navigate to insurance page using side menu$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_to_insurance_page
 end
+
+Then(/^I should see a list of products in eng booking$/) do
+  @sidePanel.verify_elements_eng_booking
+end

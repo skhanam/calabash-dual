@@ -38,11 +38,8 @@ module EN_FirstChoiceStrings
     @@login_page_error_text1="Please check your details."
     @@login_page_surname="Surname of lead passenger:"
     @@login_page_surname_hint="Enter surname"
-
     #TODO complete rest of them
-
   end
-
 
   def home_page_strings
     @@home_page_loading="We're looking up your holiday…"
@@ -83,7 +80,6 @@ module EN_FirstChoiceStrings
         "less than 1 day" => [@@welcome_need_help, @@welcome_extras_available, @@welcome_excursion, @@welcome_countdown_tomorrow, @@welcome_tips],
         "in resort" => [@@welcome_extras_available, @@welcome_at_destination, @@welcome_excursion],
         "more than 1 day past" => [@@welcome_home]
-
     }
 
     #List of states for messages to be verified, To complete verification of message for each criteria (ex: "more than 1 day past")

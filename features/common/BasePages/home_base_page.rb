@@ -9,6 +9,12 @@ class HomeBasePage < BasePage
     #@@user_details= @@user_details || User.new()
   end
 
+  def open_side_panel
+    sleep 1
+    touch "view marked:'#{@@home_page_sidepanel_acc_label}'"
+    sleep 1
+  end
+
   def trait
     $g_query_txt+"text:'#{@@home_page_loading}'"
   end
