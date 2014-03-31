@@ -91,6 +91,7 @@ module DEMeineTUI
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_account_acc_label="navbarRightButton"
+    @@home_page_sidepanel_acc_label="navbarLeftButton"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
   end
 

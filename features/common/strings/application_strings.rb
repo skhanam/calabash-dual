@@ -1,11 +1,17 @@
 # encoding: UTF-8
-if (ENV['TESTENV']=='DE_MT')
-  require_relative 'de_meinetui_strings'
-end
 
+require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
+require_relative 'en_thomson_strings' if (ENV['TESTENV']=='EN_TH')
+
+#based on App, Application strings are loaded from
+# en_thomson_strings.rb or
+# en_first_choice_strings.rb or
+# en_thomson_strings.rb
 module AppStrings
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
+  elsif (ENV['TESTENV']=='EN_TH')
+    include EN_ThomsonStrings
   else
     include EN_FirstChoiceStrings
   end
@@ -22,6 +28,8 @@ module AppStrings
       # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app
       puts "settings german strings for Meine TUI"
       set_meine_tui_de_mt_strings
+    elsif (ENV['TESTENV']=='EN_TH')
+      set_thomson_strings
     end
 
   end
