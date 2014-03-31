@@ -5,14 +5,14 @@ class HomePage < HomeBasePage
 
 
   def logout_from_home_screen
+    fail("logout_from_home_screen")
     return WelcomePage.new
   end
 
 
   def open_side_panel
     sleep 1
-    touch "view marked:'navbarLeftButton'"
-    #swipe_dir("right")
+    touch "view marked:'#{@@home_page_sidepanel_acc_label}'"
     sleep 1
   end
 

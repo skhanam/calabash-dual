@@ -9,11 +9,9 @@ expect "Project cleaned successfully"
 spawn echo "cleaned project"
 spawn open -a Xcode
 set timeout 60
-#spawn node build.js meinetui --syncLang -b
 spawn ti build args
 expect "or platform name"
 send "3\r"
-#spawn /usr/local/bin/node build.js meinetui --syncLang -b
 expect "Alloy compiler completed successfully"
 expect "Application booted in"
 send \004
@@ -22,6 +20,6 @@ spawn sleep 5
 set timeout 20
 spawn calabash-ios setup build/iphone/
 expect "Please answer yes (y) or no (n)"  { send "n\r" }
-expect "Default target: meineTUI"  {  send "\r" }
+expect "Default target: ${arg1}"  {  send "\r" }
 expect "Setup done"
 

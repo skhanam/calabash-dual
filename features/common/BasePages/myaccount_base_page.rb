@@ -68,8 +68,6 @@ class MyAccountBasePage < BasePage
                           @@update_email_submit
                           ])
     scroll_page_and_assert_text @@update_email_forgot_password
-    assert_text_present(@@update_email_new_email_hint) if $g_ios
-    assert_text_present(@@update_email_new_password_hint) if $g_ios
   end
 
 

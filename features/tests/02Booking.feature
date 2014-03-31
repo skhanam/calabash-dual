@@ -3,7 +3,9 @@
 @ios_test @android_test  @auto2
 Feature: Verify booking information for Typical Booking
 
+  @failure
   Scenario: Verify welcome screen
+    Given I have switched to typical booking
     Then I verify appropriate welcome message for booking
 
   Scenario: Verify countdown screen

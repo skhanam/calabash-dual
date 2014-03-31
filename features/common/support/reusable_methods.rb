@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rubyXL'
 require 'date'
-require_relative '../support/application_strings'
+require_relative '../strings/application_strings'
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module ReusableMethods
   include AppStrings

@@ -1,15 +1,18 @@
 # config/cucumber.yml
 
 
-<% common_path = "-r features/common/support -r features/tests/step_definitions -r features/common/BasePages" %>
+<% common_path = "-r features/common/support -r features/common/strings -r features/tests/step_definitions -r features/common/BasePages" %>
 
-<% common_settings_ios = " -f 'Slowhandcuke::Formatter' TESTENV=DE_MT DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios  -f html -o ios-report.html  -f junit -o features/report/junit -f json -o features/report/report.json" %>
+<% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios  -f html -o ios-report.html  -f junit -o features/report/junit -f json -o features/report/report.json" %>
 <% ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages/uk" %>
-<% de_mt_ios_specific_path = "-r features/ios/support -r features/ios/helpers -r features/ios/pages/de" %>
+<% de_mt_ios_specific_path = "TESTENV=DE_MT -r features/ios/support -r features/ios/helpers -r features/ios/pages/de" %>
+<% uk_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/support -r features/ios/helpers -r features/ios/pages/uk" %>
 
-<% de_mt_android_specific_path = "-r features/android/support -r features/android/helpers -r features/android/pages/de" %>
-<% common_settings_android = " -f 'Slowhandcuke::Formatter' TESTENV=DE_MT  PLATFORM=android  -f html -o android-report.html -f junit -o features/report/junit -f json -o features/report/report.json " %>
+<% de_mt_android_specific_path = "TESTENV=DE_MT -r features/android/support -r features/android/helpers -r features/android/pages/de" %>
+<% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android  -f html -o android-report.html -f junit -o features/report/junit -f json -o features/report/report.json " %>
 <% android_specific_path = "-r features/android/support -r features/android/helpers -r features/android/pages/de" %>
+
+
 
 #DEBUG=1 CALABASH_FULL_CONSOLE_OUTPUT=1
 
@@ -19,3 +22,5 @@ de_mt_android:  <%= common_settings_android %> <%= common_path %> <%= de_mt_andr
 de_mt_ios_jenkins:   <%= common_settings_ios %> <%= common_path %> <%= de_mt_ios_specific_path %>
 de_mt_android_jenkins:  <%= common_settings_android %> <%= common_path %> <%= de_mt_android_specific_path %>
 
+
+uk_th_ios: <%= common_settings_ios %> <%= common_path %> <%= uk_tm_ios_specific_path %>

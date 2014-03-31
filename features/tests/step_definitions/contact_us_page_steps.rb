@@ -28,7 +28,7 @@ And(/^I navigate Terms and conditions link from contact page$/) do
 end
 
 When(/^I select TUI service onsite link on contact us page$/) do
-  @tuiServicePage.navigate_to_contact_screen
+  @contactPage.navigate_tui_service_onsite_screen
 end
 
 Then(/^I see TUI service onsite screen from contact us page$/) do

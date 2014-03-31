@@ -2,7 +2,7 @@
 require 'calabash-cucumber/ibase'
 
 require_relative '../common/support/reusable_methods'
-require_relative '../../features/common/support/application_strings'
+require_relative '../../features/common/strings/application_strings'
 require_relative '../ios/support/reusable_methods_ios'
 require_relative '../common/support/Z_view_functions'
 require 'differ'

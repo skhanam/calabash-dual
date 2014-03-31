@@ -41,8 +41,8 @@ class TuiServiceOnsitePage < BasePage
   end
 
   def navigate_to_contact_screen
-    scroll_page_and_assert_text @@contact_us_contact_tui_service
-    click_on_text @@contact_us_contact_tui_service
+    scroll_page_and_assert_text @@tui_service_service_contact
+    click_on_text @@tui_service_service_contact
   end
 
   def check_tui_contact_page

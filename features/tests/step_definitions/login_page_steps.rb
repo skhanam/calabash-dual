@@ -1,6 +1,16 @@
 Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password, country|
+   meine_tui_login(username, password, country)
+end
+
+def thomson_login(username, password, country)
+  if $g_ios
+    step 'I enter "'+username+'" into input field number 1'
+  end
+  @loginPage.login_thomson
+end
+
+def meine_tui_login(username, password, country)
   puts "#{username}, #{password}, #{country}"
-  step "I am on 'Login' screen"
   if $g_ios
     step 'I enter "'+username+'" into input field number 1'
     step "I touch done"
@@ -19,10 +29,24 @@ Given(/^I log into Application/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
-  step "I log into the App using #{uname}, #{pwd} and #{country}"
+
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+  step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
   step "click on login button"
+
 end
 
+
+Given(/^I log into thomson application$/) do
+  step "I am on 'Login' screen"
+
+  surname=THOMSON_USER[:valid][:surname]
+  departureDate=THOMSON_USER[:valid][:departuredate]
+  visionShopNumber=THOMSON_USER[:valid][:VisionShopNumber]
+  visionBookingRef=THOMSON_USER[:valid][:VisionBookingRef]
+  @loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+
+end
 
 Given(/^I have entered an invalid email and a valid password$/) do
   uname=$g_invalid_user_details[:email]
