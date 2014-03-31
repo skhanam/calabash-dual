@@ -32,10 +32,9 @@ TI_SCHEME=$3
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
-PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 SCHEME_XC="${APPNAME}-cal"
 
-if [ $TI_SCHEME == "meineTUI" ] ; then
+if [ $TI_SCHEME == "meinetui" ] ; then
 	ruby update_tiapp.rb $PROJ_FOLDER
 	APPNAME="meineTUI"
 	CUCUMBER_PROFILE=de_mt_ios_jenkins
@@ -43,28 +42,28 @@ elif [ $TI_SCHEME == "thomson" ] ; then
 	APPNAME="MyThomson"
 	CUCUMBER_PROFILE=uk_th_ios
 fi
-
+PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
-echo "project name:"${PROJ_FOLDER}
+	echo "project name:"${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME --syncLang;cd -
 
-	if [ $TI_SCHEME == "meineTUI" ] ; then
-ruby update_tiapp.rb $PROJ_FOLDER
-fi
+	if [ $TI_SCHEME == "meinetui" ] ; then
+		ruby update_tiapp.rb $PROJ_FOLDER
+	fi
 
-killall Xcode
+	killall Xcode
 	cp ./expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
-/usr/bin/expect ./expect.exp $APPNAME
-cd -
-open -a Xcode
-sleep  5
-	open ${PROJ_FOLDER}/build/iphone/$APPNAME.xcodeproj
-sleep 30
-xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
+	/usr/bin/expect ./expect.exp $APPNAME
+	cd -
+	open -a Xcode
+	sleep  5
+	echo ${PROJ_LOC}
+	sleep 20
+	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
-killall Xcode
+	killall Xcode
 fi
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
