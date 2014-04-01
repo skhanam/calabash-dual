@@ -29,10 +29,6 @@ PROJ_FOLDER=$4
 fi
 
 TI_SCHEME=$3
-BUILD_CONFIG="Debug"
-PROJECT_PATH="features"
-ARCHITECTURE_SELECTED=i386
-SCHEME_XC="${APPNAME}-cal"
 
 if [ $TI_SCHEME == "meinetui" ] ; then
 	ruby update_tiapp.rb $PROJ_FOLDER
@@ -42,6 +38,11 @@ elif [ $TI_SCHEME == "thomson" ] ; then
 	APPNAME="MyThomson"
 	CUCUMBER_PROFILE=uk_th_ios
 fi
+
+BUILD_CONFIG="Debug"
+PROJECT_PATH="features"
+ARCHITECTURE_SELECTED=i386
+SCHEME_XC="${APPNAME}-cal"
 PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
@@ -60,6 +61,7 @@ if [ "$1" == "clean" ] ; then
 	open -a Xcode
 	sleep  5
 	echo ${PROJ_LOC}
+	open ${PROJ_LOC}
 	sleep 20
 	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
