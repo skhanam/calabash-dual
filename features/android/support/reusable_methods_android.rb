@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'rubyXL'
-require_relative '../../common/support/application_strings'
+require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
