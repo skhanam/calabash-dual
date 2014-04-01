@@ -32,6 +32,7 @@ Given(/^I log into Application/) do
 
   step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
   step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
+  sleep 2
   step "click on login button"
 
 end

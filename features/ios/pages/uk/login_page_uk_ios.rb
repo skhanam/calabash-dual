@@ -109,13 +109,15 @@ class LoginPage < LoginBasePage
     day, month, year=date.split(/-/)
     sleep(2)
 
-    puts "Departure date:#{date} :"+day+month+year
+    puts "Departure date:#{date}:"+day+month+year
     day_today, month_today, year_today=DateTime.now.strftime("%d-%B-%Y").split(/-/)
+    puts "day_today#{day_today}, month_today#{month_today}, year_today#{year_today}"
     index=2
     # touch("view {description LIKE '*UITextFieldLabel*'} index:#{index.to_i-1}")
     #Set date
-    query("view text:'#{day_today}' parent pickerTableView", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
-    query("pickerTableView index:1", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    query("pickerTableView index:4", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    #query("view text:'#{day_today}' parent pickerTableView", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    #query("pickerTableView index:1", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
     sleep(1)
     query("view text:'#{month_today}' parent pickerTableView", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
     sleep(1)

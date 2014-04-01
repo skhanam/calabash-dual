@@ -25,7 +25,7 @@ fi
 if [ -z "$4" ] ; then
 PROJ_FOLDER=../meine.tui
 else
-PROJ_FOLDER=../$4
+PROJ_FOLDER=$4
 fi
 
 TI_SCHEME=$3
