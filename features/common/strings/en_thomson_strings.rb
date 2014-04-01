@@ -10,6 +10,7 @@ module EN_ThomsonStrings
     home_page_strings
     loading_strings
     side_panel_strings
+    checklist_strings
     test_data
   end
 
@@ -52,6 +53,7 @@ module EN_ThomsonStrings
   end
 
   def side_panel_strings
+    @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
     @@holiday_summary=get_localized_string "holiday_summary" #"Holiday summary"
     @@holiday_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
@@ -67,6 +69,18 @@ module EN_ThomsonStrings
     @@important_information=get_localized_string "important_information" #"Important information"
     @@contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
+  end
+
+
+  def checklist_strings
+    @@check_list_item_text_acc = "to_text"
+    @@check_list_check_box_acc = "checkBox"
+    @@check_list_selected_items_acc = "completedItems"
+    @@check_list_email_items=get_localized_string "email_items"
+    @@my_packaging_list=get_localized_string "my_packing_list"
+    @@my_do_list=get_localized_string "my_todo_list"
+    @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])','') #"View completed items ([REPLACE])"
+    @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])','') #"Hide completed items ([REPLACE])"
   end
 
   def welcome_messages

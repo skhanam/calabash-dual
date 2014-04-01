@@ -154,3 +154,11 @@ end
 Given(/^I navigate to my tour guide page from home page$/) do
   @homePage.navigate_my_tour_guide
 end
+
+
+Given(/^I am check list page$/) do
+  step "I am on Home screen"
+  @homePage.open_side_panel
+  @homePage.navigate_to_check_list
+
+end

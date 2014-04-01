@@ -142,7 +142,7 @@ class HomeBasePage < BasePage
   end
 
   def navigate_my_tour_guide
-    CommonMethods.new.scroll_page_till_acc "representative"
+    CommonMethods.new.side "representative"
     click_accessibility_label "representative"
     sleep 2
   end

@@ -26,5 +26,8 @@ module TestModule
     @destInfoPage||=DestinationInfoBasePage.new
     @insurancePage||=InsuranceBasePage.new
     @goodToKnowPage||=GoodToKnowBasePage.new
+    if (ENV['TESTENV']== 'EN_TH')
+      @checklistPage=ChecklistPage.new
+    end
   end
 end
