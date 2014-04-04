@@ -11,7 +11,8 @@ class HomeBasePage < BasePage
 
   def open_side_panel
     sleep 1
-    touch "view marked:'#{@@home_page_sidepanel_acc_label}'"
+    click_accessibility_label @@home_page_sidepanel_acc_label
+    #touch "#{$g_query_txt}marked:'#{@@home_page_sidepanel_acc_label}'"
     sleep 1
   end
 

@@ -5,9 +5,11 @@ module TestModule
     @homePage ||= HomePage.new
     @loginPage ||= LoginPage.new
     @sidePanel ||=SidePanel.new
+    @bookingSummaryPage ||=BookingSummaryPage.new
+    @weatherPage ||= WeatherPage.new
+    @commonMethods ||=CommonMethods.new
 
     if (ENV['TESTENV']=='DE_MT')
-      @bookingSummaryPage ||=BookingSummaryPage.new
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new
       @insurancePage||=InsuranceBasePage.new
@@ -22,14 +24,13 @@ module TestModule
       @mytouristGuidePage ||=MyTouristGuideBasePage.new
       @mytravelAgentPage ||=MyTravelAgentBasePage.new
       @hotelPage ||=HotelBasePage.new
-      @commonMethods ||=CommonMethods.new
       @flightsPage ||=FlightsBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @holidayCountDownPage ||= HolidayCountDownPage.new
-      @weatherPage ||= WeatherPage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif (ENV['TESTENV']== 'EN_TH')
       @checklistPage=ChecklistPageUk.new
+      @contactPage=ContactUsUK.new
     end
   end
 end

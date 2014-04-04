@@ -2,14 +2,21 @@ class ChecklistPageUk < BasePage
 
   def open_to_do_list
     assert_text_elements([@@my_packaging_list,
-                         @@my_do_list])
+                          @@my_do_list])
     click_on_text @@to_do_lists
   end
 
   def select_first_check_list_item
-    res=query("#{$g_query_txt}marked:'#{@@check_list_item_text_acc}' index:0", :text).first
-    puts "#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:0"
-    touch("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:0")
+    query_txt="#{$g_query_txt}marked:'#{@@check_list_item_text_acc}' index:0" if $g_ios
+    query_txt= "#{$g_query_txt}contentDescription:'#{@@check_list_item_text_acc}.' index:0" if $g_android
+
+    puts "#{query_txt}"
+    res=query(query_txt, :text).first
+
+    query_txt="#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:0" if $g_ios
+    query_txt= "#{$g_query_txt}contentDescription:'#{@@check_list_check_box_acc}.' index:0" if $g_android
+
+    touch(query_txt)
     return res
   end
 
@@ -28,9 +35,11 @@ class ChecklistPageUk < BasePage
   def unselect_selected_item(text)
     CommonMethods.new.scroll_page_till_partial_text text
     sleep 1
-    count=query("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}'").count
-    touch("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:#{count-1}")
-    puts "@@check_list_check_box_acc:#{@@check_list_check_box_acc}"
+    count=query("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}'").count if $g_ios
+    touch("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:#{count-1}") if $g_ios
+
+    count=query("#{$g_query_txt}contentDescription:'#{@@check_list_check_box_acc}.'").count if $g_android
+    touch("#{$g_query_txt}contentDescription:'#{@@check_list_check_box_acc}.' index:#{count-1}") if $g_android
     sleep 1
 
   end

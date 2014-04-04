@@ -76,6 +76,25 @@ class CommonMethods < BasePage
     res= get_user_details(query_url)
   end
 
+  # get suffix of day based on number of days
+  def getDayNumberSuffix(day)
+    day=day.to_i
+    if (day >= 11 && day <= 13)
+      return "th";
+    end
+
+    case day%10
+      when 1
+        return "st"
+      when 2
+        return "nd"
+      when 3
+        return "rd"
+      else
+        return "th"
+    end
+  end
+
   def get_booking_name
     $g_current_booking["payload"]["destination"]
   end

@@ -31,7 +31,15 @@ module AppStrings
     elsif (ENV['TESTENV']=='EN_TH')
       set_thomson_strings
     end
+    image_icons_acc_label
+  end
 
+
+  def image_icons_acc_label
+    @@share_button_closed_img ="share_button"
+    @@facebook_share_img="facebook_share"
+    @@twitter_share_img ="twitter_share"
+    @@share_button_open_img ="share_button_open"
   end
 
   # setting global vars to make queries reusable

@@ -56,6 +56,7 @@ if [ "$1" == "clean" ] ; then
 	killall Xcode
 	cp ./expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
+	echo /usr/bin/expect ./expect.exp $APPNAME
 	/usr/bin/expect ./expect.exp $APPNAME
 	cd -
 	open -a Xcode

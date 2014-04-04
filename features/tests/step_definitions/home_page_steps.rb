@@ -162,3 +162,7 @@ Given(/^I am check list page$/) do
   @homePage.navigate_to_check_list
 
 end
+Given(/^I am on weather page$/) do
+  @homePage.check_home_screen
+  @homePage.click_weather_biscuit
+end

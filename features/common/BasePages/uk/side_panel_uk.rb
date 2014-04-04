@@ -3,7 +3,7 @@ class SidePanelEng < SidePanel
   def verify_side_panel_strings
     scroll_side_panel_and_assert @@home
     scroll_side_panel_and_assert @@holiday_summary
-    scroll_side_panel_and_assert @@holiday_countdown
+    scroll_side_panel_and_assert @@side_panel_countdown
     begin
       scroll_side_panel_and_assert @@holiday_checklist
     rescue
@@ -20,7 +20,7 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@getting_to_the_airport
     scroll_side_panel_and_assert @@travel_money
     scroll_side_panel_and_assert @@important_information
-    scroll_side_panel_and_assert @@contact_us
+    scroll_side_panel_and_assert @@side_panel_contact_us
     scroll_side_panel_and_assert @@logout
   end
 

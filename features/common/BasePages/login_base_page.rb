@@ -45,32 +45,11 @@ class LoginBasePage < BasePage
   def submit_login_button
     sleep 1
     click_on_text(@@login_button)
-    return HomePage.new
   end
 
   def check_login_screen
     assert_wait_for_text(@@login_page_text)
   end
-
-
-  def getDayNumberSuffix(day)
-    day=day.to_i
-    if (day >= 11 && day <= 13)
-      return "th";
-    end
-
-    case day%10
-      when 1
-        return "st"
-      when 2
-        return "nd"
-      when 3
-        return "rd"
-      else
-        return "th"
-    end
-  end
-
 
   def navigate_to_terms
     scroll_page_and_assert_text @@privacy_terms_of_use

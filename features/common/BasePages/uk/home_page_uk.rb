@@ -1,8 +1,8 @@
 require_relative '../../../common/BasePages/home_base_page'
 
-class HomePage < HomeBasePage
+class HomePageUK < HomeBasePage
   def logout_from_home_screen
-    touch("view marked:'#{@@home_page_sidepanel_acc_label}'")
+    touch($g_query_txt+"marked:'#{@@home_page_sidepanel_acc_label}'")
     sleep 2
     scroll_table_to_text("Log out")
     touch($g_query_txt+"text:'Log out'")
@@ -23,6 +23,13 @@ class HomePage < HomeBasePage
     end
     verify_page_title @@holiday_checklists
   end
+
+  def click_booking_summary_biscuit
+    scroll_page_and_assert_text("booking_summary", "down")
+    click_accessibility_label "booking_summary"
+    verify_page_title @@booking_summary_title
+  end
+
 end
 
 

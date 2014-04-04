@@ -22,7 +22,6 @@ module DEMeineTUI
     forgot_password_strings
     contact_us_strings
     tui_service_onsite_strings
-    image_icons_acc_label
     hotel_page_strings
     flights_strings
     terms_strings
@@ -349,12 +348,6 @@ module DEMeineTUI
     @@my_tour_tui_service=get_localized_string "tui_service_on_site"
   end
 
-  def image_icons_acc_label
-    @@share_button_closed_img ="share_button"
-    @@facebook_share_img="facebook_share"
-    @@twitter_share_img ="twitter_share"
-    @@share_button_open_img ="share_button_open"
-  end
 
   def my_travel_agent_strings
     @@my_travel_email_txt =get_localized_string "travelAgent_email"

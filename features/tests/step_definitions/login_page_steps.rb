@@ -28,19 +28,49 @@ end
 
 def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   if $g_ios
+    #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
     step 'I enter "'+surname+'" into input field number 1'
-    step "I touch done"
+    touch("toolbarTextButton index:1")
+    sleep 1
+    @loginPage.enter_date_ios(departureDate)
+    touch("toolbarTextButton index:1")
+    sleep 1
+    step 'I enter "'+visionShopNumber+'" into input field number 2'
+    touch("toolbarTextButton index:1")
+    sleep 1
+    step 'I enter "'+visionBookingRef+'" into input field number 3'
+    touch("toolbarTextButton index:1")
+    sleep(2)
+
   elsif $g_android
+    sleep 2
+    @page.enter_text_android(surname)
+    sleep 1
+    touch("* TiEditText index:1")
+    performAction('set_date_with_index', departureDate, 1)
+    sleep 2
+    touch("* text:'Set'")
+    sleep 2
+    touch("* TiEditText index:3")
+    sleep 2
+    @page.enter_text_android(visionShopNumber)
+    sleep 2
+    touch("* TiEditText index:4")
+    @page.enter_text_android(visionBookingRef)
+    sleep 2
+    system("#{default_device.adb_command} shell input keyevent ENTER")
+    sleep 2
+
+    #system("#{default_device.adb_command} shell input keyevent ENTER")
+
     #@page.ti_enter_details(surname, 1)
-    step 'I enter "'+surname+'" into input field number 2'
+    #step 'I enter "'+surname+'" into input field number 2'
     #@loginPage.login_thomson(departureDate)
     #@page.ti_enter_details(visionShopNumber, 4)
-    step 'I enter "'+visionShopNumber+'" into input field number 6'
-    sleep 5
+    #step 'I enter "'+visionShopNumber+'" into input field number 6'
     #@page.ti_enter_details(visionBookingRef, 7)
-    step 'I enter "'+visionBookingRef+'" into input field number 7'
-    sleep 500
-    fail("")
+    #step 'I enter "'+visionBookingRef+'" into input field number 7'
+
   end
 end
 
@@ -48,12 +78,12 @@ Given(/^I log into Application/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
-  step "I am on ' Login ' screen"
-  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV[' TESTENV ']==' DE_MT ')
-  step "I log into thomson application" if (ENV[' TESTENV ']==' EN_TH ')
+  step "I am on 'Login' screen"
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+  step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
   sleep 2
   step "click on login button"
-
+  step "I must be logged and on Home page"
 end
 
 
@@ -75,11 +105,11 @@ Given(/^I have entered an invalid email and a valid password$/) do
   step "I log into the App using #{uname}, #{pwd} and #{country}"
 end
 
-Given(/^I am on '(.+) ' screen/) do |page_name|
+Given(/^I am on '(.+)' screen/) do |page_name|
   case page_name
-    when ' Login ' then
+    when 'Login' then
       @welcomePage.navigate_to_login
-    when ' Welcome ' then
+    when 'Welcome' then
       @welcomePage.verify_welcome_screen
     else
       fail("page not found")
@@ -87,7 +117,7 @@ Given(/^I am on '(.+) ' screen/) do |page_name|
 end
 
 Given(/I am on welcome page$/) do
-  step ' I see welcome page '
+  step 'I see welcome page'
 end
 
 When(/^I set country (\w+) in login screen$/) do |var|
@@ -116,8 +146,8 @@ Then(/^I see login screen$/) do
 end
 
 When(/^I fill (valid|invalid) username in login screen$/) do |condition|
-  #@valid_username=@loginPage.enter_valid_user_name if condition.eql? ' valid '
-  if condition.eql? ' valid '
+  #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
+  if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
     step ' I enter "'+@valid_username+'" into input field number 1 ' if $g_ios
     step ' I enter "'+@valid_username+'" into input field number 2 ' if $g_android
@@ -145,7 +175,7 @@ end
 
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
 
-  if condition.eql? ' invalid '
+  if condition.eql? 'invalid'
     @invalid_username = USERS[:invalid][:email]
     step ' I enter "'+@invalid_username+'" into input field number 1 ' if $g_ios
     step ' I enter "'+@invalid_username+'" into input field number 2 ' if $g_android
@@ -154,8 +184,8 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
     step "I press the enter button" if $g_android
     sleep 1
   end
-  #@forgotPasswordPage.enter_wrong_username_or_email if condition.eql? ' invalid '
-  fail ' TODO ' if condition.eql? ' valid '
+  #@forgotPasswordPage.enter_wrong_username_or_email if condition.eql? 'invalid'
+  fail 'TODO' if condition.eql? 'valid'
   @forgotPasswordPage.submit_change_password
 end
 

@@ -11,6 +11,9 @@ module EN_ThomsonStrings
     loading_strings
     side_panel_strings
     checklist_strings
+    booking_summary_strings
+    contact_us_strings
+    weather_page_strings
     test_data
   end
 
@@ -56,7 +59,7 @@ module EN_ThomsonStrings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
     @@holiday_summary=get_localized_string "holiday_summary" #"Holiday summary"
-    @@holiday_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
+    @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
     @@weather=get_localized_string "weather" #"Weather"
@@ -67,8 +70,45 @@ module EN_ThomsonStrings
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
-    @@contact_us=get_localized_string "contact_us" #"Contact us"
+    @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
+  end
+
+  def booking_summary_strings
+    @@booking_summary_title=get_localized_string "booking_summary"
+    @@bookingSummary_bookingReference=get_localized_string "bookingSummary_bookingReference" #"Booking reference number:"
+    @@bookingSummary_quote=get_localized_string "bookingSummary_quote" #"You'll need this number if you contact us with any questions."
+    @@bookingSummary_flighthotelRefNumber=get_localized_string "bookingSummary_flighthotelRefNumber" #"Flight and hotel reference number:"
+    @@bookingSummary_flighthotelRefNumberQuote=get_localized_string "bookingSummary_flighthotelRefNumberQuote" #"You’ll need this number to book an extra for your holiday."
+    @@bookingSummary_leadPassenger=get_localized_string "bookingSummary_leadPassenger" #"Lead Passenger:"
+    @@bookingSummary_flightsNotReadyTitle=get_localized_string "bookingSummary_flightsNotReadyTitle" #"Your flights aren’t ready yet"
+    @@bookingSummary_flightsNotReadyText=get_localized_string "bookingSummary_flightsNotReadyText" #"Your flights are confirmed six weeks before you depart. When they’re ready, we’ll display your full flight details here."
+    @@bookingSummary_emailDescription=get_localized_string "bookingSummary_emailDescription" #"Send your full holiday summary to yourself or other passengers."
+    @@bookingSummary_emailTitle=get_localized_string "bookingSummary_emailTitle" #"Email my booking details"
+
+  end
+
+  def weather_page_strings
+    @@weather_page_title=get_localized_string "weather_header" #"Weather"
+    @@share_weather=get_localized_string "weather_share" #"Share the weather"
+  end
+
+  def contact_us_strings
+    @@contact_us_contact_title=get_localized_string "contactus_navbar" #"Contact us"
+    @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
+    @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
+    @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"
+    @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
+    @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
+    @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
+    @@contact_us_shop_opening_times="Shop opening times: "
+    @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
+    @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
+    @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
+    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
+    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
+    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
+
   end
 
 
@@ -79,8 +119,8 @@ module EN_ThomsonStrings
     @@check_list_email_items=get_localized_string "email_items"
     @@my_packaging_list=get_localized_string "my_packing_list"
     @@my_do_list=get_localized_string "my_todo_list"
-    @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])','') #"View completed items ([REPLACE])"
-    @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])','') #"Hide completed items ([REPLACE])"
+    @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])', '') #"View completed items ([REPLACE])"
+    @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])', '') #"Hide completed items ([REPLACE])"
   end
 
   def welcome_messages
