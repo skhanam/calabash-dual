@@ -29,7 +29,7 @@ module TestModule
       @weatherPage ||= WeatherPage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif (ENV['TESTENV']== 'EN_TH')
-      @checklistPage=ChecklistPage.new
+      @checklistPage=ChecklistPageUk.new
     end
   end
 end

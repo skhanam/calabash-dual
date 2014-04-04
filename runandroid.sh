@@ -31,6 +31,13 @@ fi
 TI_SCHEME=$3
 echo "project name:"${PROJ_FOLDER}
 
+if [ $TI_SCHEME == "meineTUI" ] ; then
+	APK_NAME=meine\ TUI.apk
+	CUCUMBER_PROFILE=de_mt_ios_jenkins
+elif [ $TI_SCHEME == "thomson" ] ; then
+	APK_NAME=MyThomson.apk
+	CUCUMBER_PROFILE=uk_th_android
+fi
 
 if [ "$1" == "clean" ] ; then
 	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
@@ -38,7 +45,7 @@ if [ "$1" == "clean" ] ; then
     ti clean
 	ti build --platform android -b
 	cd -
-	cp $PROJ_FOLDER/build/android/bin/meine\ TUI.apk  app.apk
+	cp $PROJ_FOLDER/build/android/bin/$APK_NAME  app.apk
 	cp -r $PROJ_FOLDER/i18n/* features/test_data/
 fi
 
@@ -47,5 +54,5 @@ fi
 #calabash-android build app.apk
 #adb install -r app.apk
 #adb install -r test_servers/*.apk
-echo calabash-android  run app.apk -p de_mt_android_jenkins --tag $tagged_test
-bundle exec calabash-android run app.apk -p de_mt_android_jenkins --tag $tagged_test
+echo calabash-android  run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
+bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test

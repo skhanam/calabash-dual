@@ -92,9 +92,10 @@
   <string name="welcome_help_no_holiday_take_tour_cta">welcome_help_no_holiday_take_tour_cta</string>
   <string name="welcome_help_no_holiday_take_tour_cta_link">welcome_help_no_holiday_take_tour_cta_link</string>
   <string name="welcome_book_holiday_blue_village_title">welcome_book_holiday_blue_village_title</string>
-  <string name="welcome_book_holiday_blue_village_text">welcome_book_holiday_blue_village_text</string>
+  <string name="welcome_book_holiday_scen_text">welcome_book_holiday_scen_text</string>
   <string name="welcome_book_holiday_blue_couples_title">welcome_book_holiday_blue_couples_title</string>
   <string name="welcome_book_holiday_blue_couples_text">welcome_book_holiday_blue_couples_text</string>
+  <string name="welcome_book_holiday_blue_village_text">welcome_book_holiday_blue_village_text</string>
   <string name="welcome_book_holiday_blue_village_link">welcome_book_holiday_blue_village_link</string>
   <string name="welcome_book_holiday_blue_couples_link">welcome_book_holiday_blue_couples_link</string>
   <string name="welcome_book_holiday_blue_star_title">welcome_book_holiday_blue_star_title</string>
@@ -109,11 +110,7 @@
   <string name="welcome_book_holiday_club_magic_life_title">welcome_book_holiday_club_magic_life_title</string>
   <string name="welcome_book_holiday_club_magic_life_text">welcome_book_holiday_club_magic_life_text</string>
   <string name="welcome_book_holiday_club_magic_life_link">welcome_book_holiday_club_magic_life_link</string>
-  <string name="welcome_book_holiday_holiday_village_title">welcome_book_holiday_holiday_village_title</string>
-  <string name="welcome_book_holiday_holiday_village_text">welcome_book_holiday_holiday_village_text</string>
-  <string name="welcome_book_holiday_holiday_village_link">welcome_book_holiday_holiday_village_link</string>
   <string name="welcome_book_holiday_scen_title">welcome_book_holiday_scen_title</string>
-  <string name="welcome_book_holiday_scen_text">welcome_book_holiday_scen_text</string>
   <string name="welcome_book_holiday_scen_link">welcome_book_holiday_scen_link</string>
   <string name="welcome_book_holiday_sensatori_title">welcome_book_holiday_sensatori_title</string>
   <string name="welcome_book_holiday_sensatori_text">welcome_book_holiday_sensatori_text</string>

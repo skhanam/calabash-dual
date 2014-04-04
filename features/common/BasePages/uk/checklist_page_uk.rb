@@ -1,4 +1,4 @@
-class ChecklistPage < BasePage
+class ChecklistPageUk < BasePage
 
   def open_to_do_list
     assert_text_elements([@@my_packaging_list,

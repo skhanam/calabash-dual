@@ -3,7 +3,7 @@
 module EN_ThomsonStrings
 
   def set_thomson_strings
-    puts "******* setting strings ********"
+    puts "******* thomson setting strings ********"
     welcome_page_strings
     login_page_strings
     welcome_messages

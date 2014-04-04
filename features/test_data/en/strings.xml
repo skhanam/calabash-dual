@@ -49,7 +49,7 @@
   <string name="welcome_help_cant_login_iosStore">Download MyFirstChoice app</string>
   <string name="welcome_help_cant_login_iosStoreCTA_website">https://itunes.apple.com/gb/app/myfirstchoice/id771740094</string>
   <string name="welcome_help_cant_login_subtitle">To log in you need:</string>
-  <string name="welcome_help_more_issues_body">If you’re still having problems logging in, please let us know by email.\n\n</string>
+  <string name="welcome_help_more_issues_body">If you’re still having problems logging in, please let us know by email.</string>
   <string name="welcome_help_more_issues_email_body">We're sorry you're having problems logging in to the MyThomson app. Please fill in the details below and check that everything’s correct. We’ll get back to you as soon as possible.\n\nLead passenger surname: \nDeparture date: \nBooking reference number: \nThe email address you booked your holiday with: \nPostcode: \nYour query:\n\nApp version: [version]\nOperating system: [os]\nPhone type: [phone]\nAppcelerator SDK version: [tiversion] \n</string>
   <string name="welcome_help_more_issues_email_subject">I can't log in to MyThomson</string>
   <string name="welcome_help_more_issues_email_title">Send email</string>
@@ -92,9 +92,10 @@
   <string name="welcome_help_no_holiday_take_tour_cta">Take the tour on YouTube</string>
   <string name="welcome_help_no_holiday_take_tour_cta_link">http://www.youtube.com/watch?v=ENM7Bvk3qYU</string>
   <string name="welcome_book_holiday_blue_village_title">welcome_book_holiday_blue_village_title</string>
-  <string name="welcome_book_holiday_blue_village_text">welcome_book_holiday_blue_village_text</string>
+  <string name="welcome_book_holiday_scen_text">welcome_book_holiday_scen_text</string>
   <string name="welcome_book_holiday_blue_couples_title">welcome_book_holiday_blue_couples_title</string>
   <string name="welcome_book_holiday_blue_couples_text">welcome_book_holiday_blue_couples_text</string>
+  <string name="welcome_book_holiday_blue_village_text">welcome_book_holiday_blue_village_text</string>
   <string name="welcome_book_holiday_blue_village_link">welcome_book_holiday_blue_village_link</string>
   <string name="welcome_book_holiday_blue_couples_link">welcome_book_holiday_blue_couples_link</string>
   <string name="welcome_book_holiday_blue_star_title">welcome_book_holiday_blue_star_title</string>
@@ -109,11 +110,7 @@
   <string name="welcome_book_holiday_club_magic_life_title">welcome_book_holiday_club_magic_life_title</string>
   <string name="welcome_book_holiday_club_magic_life_text">welcome_book_holiday_club_magic_life_text</string>
   <string name="welcome_book_holiday_club_magic_life_link">welcome_book_holiday_club_magic_life_link</string>
-  <string name="welcome_book_holiday_holiday_village_title">welcome_book_holiday_holiday_village_title</string>
-  <string name="welcome_book_holiday_holiday_village_text">welcome_book_holiday_holiday_village_text</string>
-  <string name="welcome_book_holiday_holiday_village_link">welcome_book_holiday_holiday_village_link</string>
   <string name="welcome_book_holiday_scen_title">welcome_book_holiday_scen_title</string>
-  <string name="welcome_book_holiday_scen_text">welcome_book_holiday_scen_text</string>
   <string name="welcome_book_holiday_scen_link">welcome_book_holiday_scen_link</string>
   <string name="welcome_book_holiday_sensatori_title">welcome_book_holiday_sensatori_title</string>
   <string name="welcome_book_holiday_sensatori_text">welcome_book_holiday_sensatori_text</string>
@@ -363,6 +360,7 @@
   <string name="guide_online_call_number">guide_online_call_number</string>
   <string name="guide_online_open_link">guide_online_open_link</string>
   <string name="guide_online_copy">guide_online_copy</string>
+  <string name="guide_online_message_failed_to_send">guide_online_message_failed_to_send</string>
   <string name="boat_share_during_fb">boat_share_during_fb</string>
   <string name="boat_share_during_tw">boat_share_during_tw</string>
   <string name="boat_share_pre_fb">boat_share_pre_fb</string>
@@ -768,4 +766,6 @@
   <string name="feedback_email_subject">feedback_email_subject</string>
   <string name="feedback_email_body">feedback_email_body</string>
   <string name="feedback_email_to_address">feedback_email_to_address</string>
+  <string name="feedback_home_screen_message_prompt">feedback_home_screen_message_prompt</string>
+  <string name="feedback_home_screen_button_prompt">feedback_home_screen_button_prompt</string>
 </resources>
