@@ -2,15 +2,16 @@ module TestModule
   def initialize_all
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
-    @homePage ||= HomePage.new
     @loginPage ||= LoginPage.new
-    @sidePanel ||=SidePanel.new
-    @bookingSummaryPage ||=BookingSummaryPage.new
-    @commonMethods ||=CommonMethods.new
-    @weatherPage ||= WeatherPage.new
 
 
-    if (ENV['TESTENV']=='DE_MT')
+    if ($g_current_app=='DE_MT')
+      @homePage ||= HomePage.new
+      @sidePanel ||=SidePanel.new
+      @bookingSummaryPage ||=BookingSummaryPage.new
+      @commonMethods ||=CommonMethods.new
+      @weatherPage ||= WeatherPage.new
+
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new
       @insurancePage||=InsuranceBasePage.new
@@ -29,7 +30,13 @@ module TestModule
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @holidayCountDownPage ||= HolidayCountDownPage.new
       @myBookingsPage ||= MyBookingsPage.new
-    elsif (ENV['TESTENV']== 'EN_TH')
+    elsif ($g_current_app== 'EN_TH')
+      @homePage ||= HomePage.new
+      @sidePanel ||=SidePanel.new
+      @bookingSummaryPage ||=BookingSummaryPage.new
+      @commonMethods ||=CommonMethods.new
+      @weatherPage ||= WeatherPage.new
+
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
     end

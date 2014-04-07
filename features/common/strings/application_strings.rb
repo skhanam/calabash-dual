@@ -1,7 +1,7 @@
 # encoding: UTF-8
-
 require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
 require_relative 'en_thomson_strings' if (ENV['TESTENV']=='EN_TH')
+require_relative 'swedish_strings' if (ENV['TESTENV']=='NOR' && ENV['LANG']=='SW')
 
 #based on App, Application strings are loaded from
 # en_thomson_strings.rb or
@@ -10,10 +10,16 @@ require_relative 'en_thomson_strings' if (ENV['TESTENV']=='EN_TH')
 module AppStrings
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
+    $g_current_app="DE_MT"
   elsif (ENV['TESTENV']=='EN_TH')
+    $g_current_app="EN_TH"
     include EN_ThomsonStrings
-  else
-    include EN_FirstChoiceStrings
+  elsif (ENV['TESTENV']=='NOR')
+    if ENV['LANG']=='SW'
+      include SwedishStrings
+      $g_current_app="NOR_SW"
+    end
+
   end
 
   def set_strings
@@ -24,12 +30,14 @@ module AppStrings
       $g_strings_set=true
     end
 
-    if (ENV['TESTENV']=='DE_MT')
+    if ($g_current_app=='DE_MT')
       # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app
       puts "settings german strings for Meine TUI"
       set_meine_tui_de_mt_strings
-    elsif (ENV['TESTENV']=='EN_TH')
+    elsif ($g_current_app=='EN_TH')
       set_thomson_strings
+    elsif ($g_current_app=='NOR_SW')
+      set_swedish_strings
     end
     image_icons_acc_label
   end

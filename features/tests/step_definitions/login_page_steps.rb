@@ -77,8 +77,8 @@ Given(/^I log into Application/) do
   country=$g_user_details[:country]
 
   step "I am on 'Login' screen"
-  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
-  step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
+  step "I log into thomson application" if ($g_current_app=='EN_TH')
   sleep 2
   step "click on login button"
   step "I must be logged and on Home page"
@@ -213,26 +213,26 @@ end
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
-  if (ENV['TESTENV']=='EN_TH')
+  if ($g_current_app=='EN_TH')
     surname=THOMSON_USER[:invalid][:surname]
     departureDate=THOMSON_USER[:invalid][:departuredate]
     visionShopNumber=THOMSON_USER[:invalid][:VisionShopNumber]
     visionBookingRef=THOMSON_USER[:invalid][:VisionBookingRef]
     thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
-  elsif (ENV['TESTENV']=='DE_MT')
+  elsif ($g_current_app=='DE_MT')
     uname=$g_user_details[:username]
     pwd="NANA"
     country=$g_user_details[:country]
-    step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+    step "I log into the App using #{uname}, #{pwd} and #{country}"
+  elsif($g_current_app.match(/NOR/)!= nil)
+    step "click on login button"
   else
-    puts("TODO")
-    fail("TODO")
   end
   sleep 2
   step "click on login button"
 end
 
 Then(/^I see correct error messages on login screen$/) do
- sleep 4
- @loginPage.check_login_error_messages
+  sleep 4
+  @loginPage.check_login_error_messages
 end

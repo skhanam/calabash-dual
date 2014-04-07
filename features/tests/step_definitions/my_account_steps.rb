@@ -37,10 +37,10 @@ And(/^verify my details on account page$/) do
 end
 
 When(/^I log out from application$/) do
-  if (ENV['TESTENV']=='DE_MT')
+  if ($g_current_app=='DE_MT')
     step "I am on my account page"
     @myAccountPage.logout_from_app
-  elsif (ENV['TESTENV']=='EN_TH')
+  elsif ($g_current_app=='EN_TH')
     step "I am on Home screen"
     @homePage.logout_from_home_screen
   end
