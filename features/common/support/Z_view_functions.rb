@@ -151,4 +151,22 @@ module ViewModule
     end
     flash("view text:'#{txt}'") if $g_flash
   end
+
+  # scroll in specified direction till partial id is found
+  def scroll_page_till_partial_text(text, dir="down", count=10)
+    flag=0
+    repeat_count=0
+    while (repeat_count < count)
+      repeat_count+=1
+      if check_partial_text_shown(text)
+        flag=1
+        break
+      end
+      sleep 1
+      puts "#{text} is not visible yet"
+      scroll_view(dir)
+    end
+    sleep 2
+    fail("text is not shown") if flag==0
+  end
 end

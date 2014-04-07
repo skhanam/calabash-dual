@@ -1,4 +1,4 @@
-require_relative '../booking_summary_base_page'
+require_relative '../Default/booking_summary_base_page'
 
 class BookingSummaryPage < BookingSummaryBasePage
 

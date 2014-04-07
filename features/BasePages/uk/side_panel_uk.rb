@@ -1,3 +1,5 @@
+require_relative '../Default/side_panel'
+
 class SidePanelEng < SidePanel
 
   def verify_side_panel_strings

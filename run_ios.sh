@@ -8,10 +8,11 @@ if [ "$#" -le "3" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
-    echo "3) App to test ex: thomson / firstchoice / meinetui"
+    echo "3) App to test ex: thomson / firstchoice / meinetui /nordics"
     echo "4) folder source code"
 
-	echo "\nsample command: sh runmeinetui.sh clean @sanity meinetui ../meine.tui\n"
+	echo "\nsample command: sh run_ios.sh clean @sanity meinetui ../meine.tui\n"
+	echo "\nsample command: sh run_ios.sh clean @sanity nordics ../meine.tui\n"
 	exit
 fi
 
@@ -37,6 +38,9 @@ if [ $TI_SCHEME == "meinetui" ] ; then
 elif [ $TI_SCHEME == "thomson" ] ; then
 	APPNAME="MyThomson"
 	CUCUMBER_PROFILE=uk_th_ios
+elif [ $TI_SCHEME == "nordics" ] ; then
+	APPNAME="MinFerie"
+	CUCUMBER_PROFILE=nor_ios
 fi
 
 BUILD_CONFIG="Debug"
@@ -70,10 +74,10 @@ if [ "$1" == "clean" ] ; then
 fi
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
+echo $BUILT_PRODUCTS_DIR
 
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
-
 
 echo BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -v
 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test

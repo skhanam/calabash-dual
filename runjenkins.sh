@@ -1,3 +1,4 @@
+#!/bin/sh
 JOB_URL=http://10.2.24.186:8080/view/TUI_Automation/job/$1/
 JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
 

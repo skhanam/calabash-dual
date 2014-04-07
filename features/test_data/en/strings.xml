@@ -170,7 +170,6 @@
   <string name="welcome_login_telephone_hint">welcome_login_telephone_hint</string>
   <string name="welcome_login_email_extra">welcome_login_email_extra</string>
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
-  <string name="welcome_login_booking_reference_extra">welcome_login_booking_reference_extra</string>
   <string name="welcome_reasons">You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson.</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
   <string name="all_you_need_to_know_about_your_boat">All you need to know about your boat</string>
@@ -768,4 +767,5 @@
   <string name="feedback_email_to_address">feedback_email_to_address</string>
   <string name="feedback_home_screen_message_prompt">feedback_home_screen_message_prompt</string>
   <string name="feedback_home_screen_button_prompt">feedback_home_screen_button_prompt</string>
+  <string name="totalstrings">totalstrings</string>
 </resources>

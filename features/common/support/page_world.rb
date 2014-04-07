@@ -6,8 +6,9 @@ module TestModule
     @loginPage ||= LoginPage.new
     @sidePanel ||=SidePanel.new
     @bookingSummaryPage ||=BookingSummaryPage.new
-    @weatherPage ||= WeatherPage.new
     @commonMethods ||=CommonMethods.new
+    @weatherPage ||= WeatherPage.new
+
 
     if (ENV['TESTENV']=='DE_MT')
       @myAccountPage ||= MyAccountPage.new

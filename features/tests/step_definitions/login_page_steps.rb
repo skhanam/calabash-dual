@@ -2,13 +2,6 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
   meine_tui_login(username, password, country)
 end
 
-def thomson_login(username, password, country)
-  if $g_ios
-    step 'I enter "'+username+'" into input field number 1'
-  end
-  @loginPage.login_thomson
-end
-
 def meine_tui_login(username, password, country)
   puts "#{username}, #{password}, #{country}"
   if $g_ios
@@ -27,17 +20,21 @@ end
 
 
 def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+
   if $g_ios
     #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+    step "I clear input field number 1"
     step 'I enter "'+surname+'" into input field number 1'
     touch("toolbarTextButton index:1")
     sleep 1
     @loginPage.enter_date_ios(departureDate)
     touch("toolbarTextButton index:1")
     sleep 1
+    step "I clear input field number 2"
     step 'I enter "'+visionShopNumber+'" into input field number 2'
     touch("toolbarTextButton index:1")
     sleep 1
+    step "I clear input field number 3"
     step 'I enter "'+visionBookingRef+'" into input field number 3'
     touch("toolbarTextButton index:1")
     sleep(2)
@@ -60,7 +57,7 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
     system("#{default_device.adb_command} shell input keyevent ENTER")
     sleep 2
-
+    @loginPage.scroll_to_end_of_page
     #system("#{default_device.adb_command} shell input keyevent ENTER")
 
     #@page.ti_enter_details(surname, 1)
@@ -78,6 +75,7 @@ Given(/^I log into Application/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
+
   step "I am on 'Login' screen"
   step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
   step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
@@ -212,3 +210,29 @@ Then(/^I see appropriate password error message$/) do
   @loginPage.check_username_pwd_error
 end
 
+Given(/^I submit wrong login details$/) do
+  step "I am on 'Login' screen"
+
+  if (ENV['TESTENV']=='EN_TH')
+    surname=THOMSON_USER[:invalid][:surname]
+    departureDate=THOMSON_USER[:invalid][:departuredate]
+    visionShopNumber=THOMSON_USER[:invalid][:VisionShopNumber]
+    visionBookingRef=THOMSON_USER[:invalid][:VisionBookingRef]
+    thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  elsif (ENV['TESTENV']=='DE_MT')
+    uname=$g_user_details[:username]
+    pwd="NANA"
+    country=$g_user_details[:country]
+    step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+  else
+    puts("TODO")
+    fail("TODO")
+  end
+  sleep 2
+  step "click on login button"
+end
+
+Then(/^I see correct error messages on login screen$/) do
+ sleep 4
+ @loginPage.check_login_error_messages
+end

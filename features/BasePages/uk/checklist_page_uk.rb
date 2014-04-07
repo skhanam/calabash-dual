@@ -33,7 +33,7 @@ class ChecklistPageUk < BasePage
   end
 
   def unselect_selected_item(text)
-    CommonMethods.new.scroll_page_till_partial_text text
+    scroll_page_till_partial_text text
     sleep 1
     count=query("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}'").count if $g_ios
     touch("#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:#{count-1}") if $g_ios

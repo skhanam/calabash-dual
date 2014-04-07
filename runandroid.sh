@@ -12,6 +12,7 @@ if [ "$#" -le "3" ]; then
     echo "4) folder source code"
 
 	echo "\nsample command: sh runandroid.sh clean @sanity meinetui ../meine.tui\n"
+	echo "or\nsample command: sh runandroid.sh NA  @sanity-eng thomson ../meine.tui\n"
 	exit
 fi
 
@@ -29,7 +30,7 @@ PROJ_FOLDER=$4
 fi
 
 TI_SCHEME=$3
-echo "project name:"${PROJ_FOLDER}
+echo "TDA project location:"${PROJ_FOLDER}
 
 if [ $TI_SCHEME == "meineTUI" ] ; then
 	APK_NAME=meine\ TUI.apk

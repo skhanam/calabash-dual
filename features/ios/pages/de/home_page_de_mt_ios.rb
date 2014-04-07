@@ -1,5 +1,5 @@
 # encoding: utf-8
-require_relative '../../../common/BasePages/home_base_page'
+require_relative '../../../BasePages/Default/home_base_page'
 
 class HomePage < HomeBasePage
 

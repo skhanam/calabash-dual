@@ -26,7 +26,6 @@ class WelcomeBasePage < BasePage
     self
   end
 
-
   def navigate_to_login
     check_welcome_screen
     sleep 1
@@ -34,7 +33,6 @@ class WelcomeBasePage < BasePage
     sleep 1
     assert_wait_for_text(@@login_page_text, 5)
   end
-
 
   def click_new_here
     scroll_page_and_assert_text @@have_never_booked_through_TUI_before

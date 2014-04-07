@@ -1,6 +1,11 @@
 @android_test @ios_test   @auto1 @sanity-eng
 Feature: English Sanity Tests
 
+  @reset  @wrong-login
+  Scenario: Login and Logout
+    Given I submit wrong login details
+    Then I see correct error messages on login screen
+
   @reset @login-eng
   Scenario: Login and Logout
     Given I log into Application

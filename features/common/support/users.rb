@@ -27,7 +27,10 @@ THOMSON_USER||={
         :VisionBookingRef => "12347027"
     },
     :invalid => {
-
+        :surname => "martin",
+        :departuredate => "26-10-2014",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347027"
     }
 }
 #:country => "Deutschland",

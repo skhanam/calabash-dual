@@ -39,6 +39,7 @@ module EN_FirstChoiceStrings
     @@login_page_surname="Surname of lead passenger:"
     @@login_page_surname_hint="Enter surname"
     #TODO complete rest of them
+    @@login_error_text=get_localized_string "welcome_login_credential_error"
   end
 
   def home_page_strings

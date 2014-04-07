@@ -1,4 +1,4 @@
-require_relative '../../../common/BasePages/login_base_page'
+require_relative '../../../BasePages/Default/login_base_page'
 
 class LoginPage < LoginBasePage
 

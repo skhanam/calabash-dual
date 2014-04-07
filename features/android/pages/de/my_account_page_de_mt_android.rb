@@ -3,7 +3,7 @@
   * Author: Tejasvi K M
   * Date: 22 jan 2013
 =end
-require_relative '../../../common/BasePages/myaccount_base_page'
+require_relative '../../../BasePages/Default/myaccount_base_page'
 
 class MyAccountPage < MyAccountBasePage
 
