@@ -1,12 +1,33 @@
-require_relative '../../../BasePages/login_base_page'
+require_relative '../../../BasePages/Default/login_base_page'
 
 class LoginPage < LoginBasePage
 
+  def login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+    sleep 3
+    enter_details(surname, 1)
+    touch("toolbarTextButton index:1")
+
+    enter_date_ios(departureDate)
+    touch("toolbarTextButton index:1")
+
+    sleep 2
+    keyboard_enter_text(visionShopNumber)
+    touch("toolbarTextButton index:1")
+
+    sleep 2
+    keyboard_enter_text(visionBookingRef)
+    touch("toolbarTextButton index:1")
+
+    sleep(2)
+
+  end
+
   def check_different_welcome_messages(test_data, criteria)
+    fail("check_different_welcome_messages")
     enter_credentials_from_excel(test_data)
     sleep 2
     flash($g_query_txt+"text:'#{@@login_page_text}'")
-    playback "touch_button",{:query => "view marked:'Log in'"}
+    playback "touch_button", {:query => "view marked:'Log in'"}
     sleep 4
 
     #Some times login button is not touched first time .. tap on it again
@@ -53,6 +74,7 @@ class LoginPage < LoginBasePage
 
   #Read and Enter data from excel sheet
   def enter_credentials_from_excel(test_data)
+    fail("enter_credentials_from_excel")
     puts "enter_credentials_from_excel:"
     puts test_data
 
@@ -83,16 +105,19 @@ class LoginPage < LoginBasePage
   end
 
   def enter_date_ios(date)
-    day, month, year=convert_date_to_str(date).split(/-/)
+    #day, month, year=convert_date_to_str(date).split(/-/)
+    day, month, year=date.split(/-/)
     sleep(2)
 
-    puts "Departure date:#{date} :"+day+month+year
+    puts "Departure date:#{date}:"+day+month+year
     day_today, month_today, year_today=DateTime.now.strftime("%d-%B-%Y").split(/-/)
+    puts "day_today#{day_today}, month_today#{month_today}, year_today#{year_today}"
     index=2
     # touch("view {description LIKE '*UITextFieldLabel*'} index:#{index.to_i-1}")
     #Set date
-    query("view text:'#{day_today}' parent pickerTableView", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
-    query("pickerTableView index:1", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    query("pickerTableView index:4", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    #query("view text:'#{day_today}' parent pickerTableView", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+    #query("pickerTableView index:1", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
     sleep(1)
     query("view text:'#{month_today}' parent pickerTableView", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
     sleep(1)

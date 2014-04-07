@@ -1,11 +1,11 @@
 require 'calabash-android/abase'
-require_relative '../../../common/BasePages/home_base_page'
+require_relative '../../../BasePages/Default/home_base_page'
 
 class HomePage < HomeBasePage
 
   def open_side_panel
     sleep 1
-    touch ("* contentDescription:'navbarLeftButton.'")
+    touch ("* contentDescription:'#{@@home_page_sidepanel_acc_label}.'")
     sleep 1
   end
 

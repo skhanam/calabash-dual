@@ -30,9 +30,9 @@ When(/^I navigate back to home page from booking summary page$/) do
 end
 
 When(/^I see holiday booking summary page$/) do
-  @bookingSummaryPage.check_booking_summary_page
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.check_booking_summary_page
 end
 
 
@@ -60,4 +60,8 @@ end
 When(/^I navigate to insurance page using side menu$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_to_insurance_page
+end
+
+Then(/^I should see a list of products in eng booking$/) do
+  @sidePanel.verify_elements_eng_booking
 end

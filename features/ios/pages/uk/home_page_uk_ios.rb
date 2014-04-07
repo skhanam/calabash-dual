@@ -1,19 +1,6 @@
-require_relative '../../../../features/BasePages/home_base_page'
+require 'calabash-cucumber/ibase'
+require_relative '../../../BasePages/uk/home_page_uk'
 
-class HomePage < HomeBasePage
-  def logout_from_home_screen
-    swipe(:right)
-    scroll_table_to_text("Log out")
-    touch($g_query_txt+"text:'Log out'")
-    sleep(2)
-    touch($g_query_txt+"text:'Confirm'")
-    sleep(5)
-    return WelcomePage.new
-  end
-
-
+class HomePage < HomePageUK
 
 end
-
-
-

@@ -1,23 +1,38 @@
 USERS||= {
-      :valid => {
-          :firstname => "Peter",
-          :lastname => "Pan",
-          :username => "userdea@gmail.com",
-          :email => "userdea@gmail.com",
-          :password => "testtest",
-          :country => "Deutschland",
-          :bookings => {
-              :destination => "Palma de Mallorca",
-              :date => "06.09.2014",
-              :products => "Flug"
-          }},
-      :invalid => {
-          :username => "invalidusername",
-          :password => "nono",
-          :email => "no@nomail.com"
-      }
-  }
+    :valid => {
+        :firstname => "Peter",
+        :lastname => "Pan",
+        :username => "userdea@gmail.com",
+        :email => "userdea@gmail.com",
+        :password => "testtest",
+        :country => "Deutschland",
+        :bookings => {
+            :destination => "Palma de Mallorca",
+            :date => "06.09.2014",
+            :products => "Flug"
+        }},
+    :invalid => {
+        :username => "invalidusername",
+        :password => "nono",
+        :email => "no@nomail.com"
+    }
+}
 
+
+THOMSON_USER||={
+    :valid => {
+        :surname => "van martin",
+        :departuredate => "26-10-2014",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347027"
+    },
+    :invalid => {
+        :surname => "martin",
+        :departuredate => "26-10-2014",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347027"
+    }
+}
 #:country => "Deutschland",
 
 #def get_user_details(url)

@@ -1,7 +1,11 @@
 require 'calabash-android/abase'
-require_relative '../../../../features/BasePages/login_base_page'
+require_relative '../../../BasePages/Default/login_base_page'
 
 class LoginPage < LoginBasePage
+
+  def login_thomson(departureDate)
+    enter_date_android(departureDate)
+  end
 
   def check_different_welcome_messages(test_data, criteria)
     enter_credentials_from_excel(test_data)

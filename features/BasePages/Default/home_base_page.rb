@@ -9,6 +9,13 @@ class HomeBasePage < BasePage
     #@@user_details= @@user_details || User.new()
   end
 
+  def open_side_panel
+    sleep 1
+    click_accessibility_label @@home_page_sidepanel_acc_label
+    #touch "#{$g_query_txt}marked:'#{@@home_page_sidepanel_acc_label}'"
+    sleep 1
+  end
+
   def trait
     $g_query_txt+"text:'#{@@home_page_loading}'"
   end
@@ -136,7 +143,7 @@ class HomeBasePage < BasePage
   end
 
   def navigate_my_tour_guide
-    CommonMethods.new.scroll_page_till_acc "representative"
+    CommonMethods.new.side "representative"
     click_accessibility_label "representative"
     sleep 2
   end

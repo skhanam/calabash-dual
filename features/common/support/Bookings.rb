@@ -29,16 +29,18 @@ def get_user_details(url)
   return parsed
 end
 
-USER_INFO=get_user_details('http://37.46.24.155:3000/reservations')
+if ENV['TESTENV']== "DE_MT"
+  USER_INFO=get_user_details('http://37.46.24.155:3000/reservations')
 
-booking_id=80522687
-TYPICAL_BOOKING||=get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
+  booking_id=80522687
+  TYPICAL_BOOKING||=get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
 
-booking_id=75511407
-FLIGHT_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
+  booking_id=75511407
+  FLIGHT_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
 
-booking_id=38072949
-TYPICAL_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
+  booking_id=38072949
+  TYPICAL_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
 
-booking_id=80522737
-NON_EU_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
+  booking_id=80522737
+  NON_EU_BOOKING||= get_user_details('http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home')
+end

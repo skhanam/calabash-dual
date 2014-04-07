@@ -1,7 +1,7 @@
 require 'calabash-android/abase'
-require_relative '../../../BasePages/home_base_page'
+require_relative '../../../BasePages/uk/home_page_uk'
 
-class HomePage < HomeBasePage
+class HomePage < HomePageUK
 
   def logout_from_home_screen
     performAction("go_back")

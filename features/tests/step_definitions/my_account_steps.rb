@@ -37,13 +37,16 @@ And(/^verify my details on account page$/) do
 end
 
 When(/^I log out from application$/) do
-  @myAccountPage.logout_from_app
+  if (ENV['TESTENV']=='DE_MT')
+    step "I am on my account page"
+    @myAccountPage.logout_from_app
+  elsif (ENV['TESTENV']=='EN_TH')
+    step "I am on Home screen"
+    @homePage.logout_from_home_screen
+  end
+
 end
 
-#Given(/^I choose to edit my account$/) do
-#  step "I am on my bookings page"
-#  step "I click on edit account button from my bookings page"
-#end
 
 Given(/^I choose to change password from my account page$/) do
   step "I am on my account page"

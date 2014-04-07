@@ -84,10 +84,11 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
       $g_current_booking=NON_EU_BOOKING
   end
 
+  step "I am on Home screen"
+
   #If required booking is already selected then do switch accounts again
   if booking_type!=$selected_booking
     $selected_booking=booking_type
-    step "I am on Home screen"
     @homePage.click_on_account_button
     @myBookingsPage.switch_to_particular_booking
   else
@@ -102,7 +103,7 @@ end
 Then(/^I must be logged and on Home page$/) do
   @homePage.wait_login_progress_to_disappear
   @homePage.wait_for_home_page_to_load
-  @homePage.check_i_am_on_home_page
+  fail("Not logged in") if (@homePage.check_i_am_on_home_page!=false)
 end
 
 Given(/^I have opened side menu$/) do
@@ -152,4 +153,16 @@ end
 
 Given(/^I navigate to my tour guide page from home page$/) do
   @homePage.navigate_my_tour_guide
+end
+
+
+Given(/^I am check list page$/) do
+  step "I am on Home screen"
+  @homePage.open_side_panel
+  @homePage.navigate_to_check_list
+
+end
+Given(/^I am on weather page$/) do
+  @homePage.check_home_screen
+  @homePage.click_weather_biscuit
 end

@@ -1,4 +1,4 @@
-require_relative '../../../common/BasePages/login_base_page'
+require_relative '../../../BasePages/Default/login_base_page'
 
 class LoginPage < LoginBasePage
 
@@ -6,6 +6,8 @@ class LoginPage < LoginBasePage
     assert_wait_for_text @@login_page_text
     assert_wait_for_text @@email_text
     assert_wait_for_text @@password_text
+
+    scroll_page_and_assert_text @@login_forgot_password
     assert_wait_for_text @@login_forgot_password
     assert_wait_for_text @@login_button
     wait_for_partial_text_shown @@password_reset

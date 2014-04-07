@@ -13,7 +13,7 @@ class MyTouristGuideBasePage < BasePage
       fail("No representative present")
     else
       rep_name=$g_current_booking["payload"]["meetYourRep"][0]["name"]
-      CommonMethods.new.scroll_page_till_partial_text rep_name
+     scroll_page_till_partial_text rep_name
       wait_for_partial_text_shown rep_name
     end
   end

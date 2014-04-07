@@ -1,6 +1,9 @@
 Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password, country|
+  meine_tui_login(username, password, country)
+end
+
+def meine_tui_login(username, password, country)
   puts "#{username}, #{password}, #{country}"
-  step "I am on 'Login' screen"
   if $g_ios
     step 'I enter "'+username+'" into input field number 1'
     step "I touch done"
@@ -15,14 +18,83 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
   sleep 2
 end
 
+
+def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+
+  if $g_ios
+    #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+    step "I clear input field number 1"
+    step 'I enter "'+surname+'" into input field number 1'
+    touch("toolbarTextButton index:1")
+    sleep 1
+    @loginPage.enter_date_ios(departureDate)
+    touch("toolbarTextButton index:1")
+    sleep 1
+    step "I clear input field number 2"
+    step 'I enter "'+visionShopNumber+'" into input field number 2'
+    touch("toolbarTextButton index:1")
+    sleep 1
+    step "I clear input field number 3"
+    step 'I enter "'+visionBookingRef+'" into input field number 3'
+    touch("toolbarTextButton index:1")
+    sleep(2)
+
+  elsif $g_android
+    sleep 2
+    @page.enter_text_android(surname)
+    sleep 1
+    touch("* TiEditText index:1")
+    performAction('set_date_with_index', departureDate, 1)
+    sleep 2
+    touch("* text:'Set'")
+    sleep 2
+    touch("* TiEditText index:3")
+    sleep 2
+    @page.enter_text_android(visionShopNumber)
+    sleep 2
+    touch("* TiEditText index:4")
+    @page.enter_text_android(visionBookingRef)
+    sleep 2
+    system("#{default_device.adb_command} shell input keyevent ENTER")
+    sleep 2
+    @loginPage.scroll_to_end_of_page
+    #system("#{default_device.adb_command} shell input keyevent ENTER")
+
+    #@page.ti_enter_details(surname, 1)
+    #step 'I enter "'+surname+'" into input field number 2'
+    #@loginPage.login_thomson(departureDate)
+    #@page.ti_enter_details(visionShopNumber, 4)
+    #step 'I enter "'+visionShopNumber+'" into input field number 6'
+    #@page.ti_enter_details(visionBookingRef, 7)
+    #step 'I enter "'+visionBookingRef+'" into input field number 7'
+
+  end
+end
+
 Given(/^I log into Application/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
-  step "I log into the App using #{uname}, #{pwd} and #{country}"
+
+  step "I am on 'Login' screen"
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+  step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
+  sleep 2
   step "click on login button"
+  step "I must be logged and on Home page"
 end
 
+
+Given(/^I log into thomson application$/) do
+  surname=THOMSON_USER[:valid][:surname]
+  departureDate=THOMSON_USER[:valid][:departuredate]
+  visionShopNumber=THOMSON_USER[:valid][:VisionShopNumber]
+  visionBookingRef=THOMSON_USER[:valid][:VisionBookingRef]
+
+  thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+
+end
 
 Given(/^I have entered an invalid email and a valid password$/) do
   uname=$g_invalid_user_details[:email]
@@ -75,8 +147,8 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
   #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
-    step 'I enter "'+@valid_username+'" into input field number 1' if $g_ios
-    step 'I enter "'+@valid_username+'" into input field number 2' if $g_android
+    step ' I enter "'+@valid_username+'" into input field number 1 ' if $g_ios
+    step ' I enter "'+@valid_username+'" into input field number 2 ' if $g_android
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
@@ -103,8 +175,8 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
 
   if condition.eql? 'invalid'
     @invalid_username = USERS[:invalid][:email]
-    step 'I enter "'+@invalid_username+'" into input field number 1' if $g_ios
-    step 'I enter "'+@invalid_username+'" into input field number 2' if $g_android
+    step ' I enter "'+@invalid_username+'" into input field number 1 ' if $g_ios
+    step ' I enter "'+@invalid_username+'" into input field number 2 ' if $g_android
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
@@ -138,3 +210,29 @@ Then(/^I see appropriate password error message$/) do
   @loginPage.check_username_pwd_error
 end
 
+Given(/^I submit wrong login details$/) do
+  step "I am on 'Login' screen"
+
+  if (ENV['TESTENV']=='EN_TH')
+    surname=THOMSON_USER[:invalid][:surname]
+    departureDate=THOMSON_USER[:invalid][:departuredate]
+    visionShopNumber=THOMSON_USER[:invalid][:VisionShopNumber]
+    visionBookingRef=THOMSON_USER[:invalid][:VisionBookingRef]
+    thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  elsif (ENV['TESTENV']=='DE_MT')
+    uname=$g_user_details[:username]
+    pwd="NANA"
+    country=$g_user_details[:country]
+    step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+  else
+    puts("TODO")
+    fail("TODO")
+  end
+  sleep 2
+  step "click on login button"
+end
+
+Then(/^I see correct error messages on login screen$/) do
+ sleep 4
+ @loginPage.check_login_error_messages
+end

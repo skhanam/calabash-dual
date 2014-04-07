@@ -48,4 +48,8 @@ class TuiServiceOnsitePage < BasePage
   def check_tui_contact_page
     ContactUsBasePage.new.contact_us_embed_page
   end
+
+  def select_tui_service_onsite
+    click_on_text
+  end
 end

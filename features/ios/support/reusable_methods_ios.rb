@@ -1,11 +1,13 @@
 # encoding: utf-8
 require 'rubyXL'
-require_relative '../../common/support/application_strings'
+require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
+require_relative '../../common/support/Z_view_functions'
 
 module IosReusableMethods
   include AppStrings
   include ReusableMethods
+  include ViewModule
 
   #Use this method for text
   def wait_for_page_to_load(text, time_out)
@@ -91,6 +93,11 @@ module IosReusableMethods
     elsif dir=="left"
       swipe(:left)
     end
+  end
+
+  def scroll_side_panel_and_assert(text, index=1)
+    scroll_side_panel(text, index)
+    assert_text_present text
   end
 
   #Scroll to text in side panel

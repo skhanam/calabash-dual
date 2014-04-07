@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'rubyXL'
-require_relative '../../common/support/application_strings'
+require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
@@ -12,6 +12,18 @@ module AndroidReusableMethods
     sleep 1
     query("all TiEditText index:#{index}", setText: "#{text}")
     sleep(1)
+  end
+
+  def scroll_side_panel_and_assert(text, index=1)
+    scroll_side_panel(text, index)
+    assert_text_present text
+  end
+
+  def enter_text_android( text)
+    sleep 2
+    text=text.gsub(' ','%s')
+    command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
+    raise "Could not send text" unless system(command)
   end
 
   #This method avoids calabash from crashing while using single quotes
@@ -62,7 +74,7 @@ module AndroidReusableMethods
   def check_text_in_view(txt)
     begin
       return query "* text:'#{txt}'"
-      #performAction('wait_for_text', txt, 2)["success"]
+        #performAction('wait_for_text', txt, 2)["success"]
     rescue
       return false
     end
@@ -136,14 +148,15 @@ module AndroidReusableMethods
     end
     wait_for_acc_label(label_expected)
   end
-  #
-  #def verify_page_title(txt, time_out=10)
-  #  wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
-  #    puts text
-  #  end
-  #end
 
-  def scroll_side_panel(text)
+#
+#def verify_page_title(txt, time_out=10)
+#  wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
+#    puts text
+#  end
+#end
+
+  def scroll_side_panel(text,index=1)
     scroll_page_and_assert_text(text)
   end
 
@@ -197,4 +210,89 @@ module AndroidReusableMethods
     touch("imageView")
     sleep 1
   end
+
+  def enter_date_android(date_int)
+    #day, month, year= convert_excel_date_to_str(date_int).split(/-/)
+    day, month, year= (date_int).split(/-/)
+    puts "day#{day}, month#{month}, year#{year}"
+    sleep(1)
+
+    touch("all TiEditText index:2")
+    sleep 3
+    query("datePicker", {:method_name => :updateDate, :arguments => [year.to_i, month.to_i-1, day.to_i]})
+    sleep 1
+    performAction('go_back')
+    sleep 2
+    return
+
+    #Commented code is useful to set date in nexus4 (OS 4.3)
+    puts "DATE: #{day}#{getDayNumberSuffix(day)} #{month} #{year}"
+    touch("all TiEditText index:3")
+    #Set date
+    if ($g_ginger_bread==true)
+      date_string ="* id:'timepicker_input' index:1"
+      year_string ="* id:'timepicker_input' index:2"
+      month_string ="* id:'timepicker_input' index:0"
+
+      date_increment="* id:'day' child android.widget.NumberPickerButton id:'increment'"
+      date_decrement="* id:'day' child android.widget.NumberPickerButton id:'decrement'"
+      month_increment="* id:'month' child android.widget.NumberPickerButton id:'increment'"
+      month_decrement="* id:'month' child android.widget.NumberPickerButton id:'decrement'"
+      year_increment="* id:'year' child android.widget.NumberPickerButton id:'increment'"
+      year_decrement="* id:'year' child android.widget.NumberPickerButton id:'decrement'"
+    else
+      date_string ="* id:'numberpicker_input' index:0"
+      year_string ="* id:'numberpicker_input' index:2"
+      month_string ="* id:'numberpicker_input' index:1"
+      date_increment="* contentDescription:'Increase day'"
+      date_decrement="* contentDescription:'Decrease day'"
+      month_increment="* contentDescription:'Increase month'"
+      month_decrement="* contentDescription:'Decrease month'"
+      year_increment ="* contentDescription:'Increase year'"
+      year_decrement ="* contentDescription:'Decrease year'"
+    end
+
+    date_value = query(date_string, :text)[0].to_i
+    month_value =query(month_string, :text)[0].to_s
+    year_value=query(year_string, :text)[0].to_i
+
+    #Set date
+    if date_value > day.to_i
+      date_change=date_decrement
+    else
+      date_change=date_increment
+    end
+
+    while (query(date_string, :text)[0].to_i != day.to_i)
+      sleep(0.5)
+      touch(date_change)
+    end
+
+    #Set Month
+    while (month_value != month)
+      sleep(0.5)
+      touch(month_increment)
+      month_value =query(month_string, :text)[0].to_s
+    end
+
+
+    #Set year
+    while (year_value != year.to_i)
+      sleep(0.25)
+      if year_value > year.to_i
+        touch(year_decrement)
+      elsif year_value < year.to_i
+        touch(year_increment)
+      end
+
+      year_value=(query(year_string, :text)[0].to_i)
+    end
+
+
+    sleep(1)
+    touch("button text:'Set'")
+    sleep(1)
+
+  end
+
 end

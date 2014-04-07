@@ -22,7 +22,6 @@ module DEMeineTUI
     forgot_password_strings
     contact_us_strings
     tui_service_onsite_strings
-    image_icons_acc_label
     hotel_page_strings
     flights_strings
     terms_strings
@@ -91,6 +90,7 @@ module DEMeineTUI
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_account_acc_label="navbarRightButton"
+    @@home_page_sidepanel_acc_label="navbarLeftButton"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
   end
 
@@ -348,12 +348,6 @@ module DEMeineTUI
     @@my_tour_tui_service=get_localized_string "tui_service_on_site"
   end
 
-  def image_icons_acc_label
-    @@share_button_closed_img ="share_button"
-    @@facebook_share_img="facebook_share"
-    @@twitter_share_img ="twitter_share"
-    @@share_button_open_img ="share_button_open"
-  end
 
   def my_travel_agent_strings
     @@my_travel_email_txt =get_localized_string "travelAgent_email"

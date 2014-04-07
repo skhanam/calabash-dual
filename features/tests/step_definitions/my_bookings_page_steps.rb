@@ -12,6 +12,7 @@ end
 
 
 When(/^I switch to a booking in past$/) do
+  $selected_booking="past"
   @myBookingsPage.click_booking_in_past
 end
 
