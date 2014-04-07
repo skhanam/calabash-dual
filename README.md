@@ -3,7 +3,6 @@ Folder structure
 
 <br /> Gemfile   - gems required for running calabash test suite
 <br /> README.md - Help file
-<br /> android_run.rb - ruby script to run tests for android
 <br /> runmeinetui.sh - Shell script required to run IOS tests
 <br /> ios-report.html - IOS test report
 <br /> android-report.html - android test report
