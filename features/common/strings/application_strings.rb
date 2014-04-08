@@ -44,6 +44,8 @@ module AppStrings
 
 
   def image_icons_acc_label
+    @@login_button_acc = "loginButton"
+
     @@share_button_closed_img ="share_button"
     @@facebook_share_img="facebook_share"
     @@twitter_share_img ="twitter_share"
