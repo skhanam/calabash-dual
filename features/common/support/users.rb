@@ -33,6 +33,19 @@ THOMSON_USER||={
         :VisionBookingRef => "12347027"
     }
 }
+
+
+NOR_SWE_USER||={
+    :valid => {
+        :bookingnumber => "1Y30060",
+        :emailid => "niclas.westling@fritidsresor.se",
+        :telefon => "0722177937",
+    },
+    :invalid => {
+        :bookingnumber => "11Y30060",
+        :emailid => "ns.w@or.se",
+        :telefon => "0722377937", }
+}
 #:country => "Deutschland",
 
 #def get_user_details(url)
