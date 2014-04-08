@@ -44,7 +44,8 @@ class LoginBasePage < BasePage
 
   def submit_login_button
     sleep 1
-    click_on_text(@@login_button)
+    scroll_page_till_acc @@login_button_acc
+    click_accessibility_label(@@login_button_acc)
   end
 
   def check_login_screen

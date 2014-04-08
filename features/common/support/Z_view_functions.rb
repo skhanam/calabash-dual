@@ -69,7 +69,6 @@ module ViewModule
     return true
   end
 
-
   def wait_for_label(lbl, timeout)
     timeout=timeout.to_i
     while (timeout > 0)
@@ -135,7 +134,7 @@ module ViewModule
 
   #Wait to check if acc label appears on screen
   def assert_wait_for_acc_label(text, timeout=10)
-    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if  wait_for_acc_label text, timeout
+    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if (wait_for_acc_label(text, timeout)==false)
     return true
   end
 
@@ -169,4 +168,23 @@ module ViewModule
     sleep 2
     fail("text is not shown") if flag==0
   end
+
+
+  # scroll in specified direction till partial id is found
+  def scroll_page_till_acc(acc, dir="down", count=10)
+    flag=0
+    repeat_count=0
+    while (repeat_count < count)
+      repeat_count+=1
+      if check_acc_label(acc)
+        flag=1
+        break
+      end
+      sleep 1
+      scroll_view(dir)
+    end
+
+    fail("acc:#{acc}: not found") if flag==0
+  end
+
 end

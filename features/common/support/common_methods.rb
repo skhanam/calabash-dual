@@ -188,22 +188,6 @@ class CommonMethods < BasePage
     sleep 2
   end
 
-  # scroll in specified direction till partial id is found
-  def scroll_page_till_acc(acc, dir="down", count=10)
-    flag=0
-    repeat_count=0
-    while (repeat_count < count)
-      repeat_count+=1
-      if check_acc_label(acc)
-        flag=1
-        break
-      end
-      sleep 1
-      scroll_view(dir)
-    end
-
-    fail("acc:#{acc}: not found") if flag==0
-  end
 
   def check_sharing
     scroll_page_till_acc @@share_button_closed_img

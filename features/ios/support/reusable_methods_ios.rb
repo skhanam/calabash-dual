@@ -64,8 +64,7 @@ module IosReusableMethods
   end
 
   def wait_for_acc_label(text, timeout=10)
-    query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}'"
-
+    query_txt=$g_query_txt+"marked:'#{text}'"
     begin
       wait_poll({:until_exists => query_txt, :timeout => timeout.to_i}) do
         puts text
