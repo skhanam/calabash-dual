@@ -22,7 +22,7 @@ USERS||= {
 THOMSON_USER||={
     :valid => {
         :surname => "martin",
-        :departuredate => "29-04-2015",
+        :departuredate => "22-04-2015",
         :VisionShopNumber => "9999",
         :VisionBookingRef => "12347059"
     },
