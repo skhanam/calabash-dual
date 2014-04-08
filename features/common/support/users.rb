@@ -21,10 +21,10 @@ USERS||= {
 
 THOMSON_USER||={
     :valid => {
-        :surname => "van martin",
-        :departuredate => "26-10-2014",
+        :surname => "martin",
+        :departuredate => "29-04-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12347027"
+        :VisionBookingRef => "12347059"
     },
     :invalid => {
         :surname => "martin",
@@ -33,7 +33,6 @@ THOMSON_USER||={
         :VisionBookingRef => "12347027"
     }
 }
-
 
 NOR_SWE_USER||={
     :valid => {
