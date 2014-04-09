@@ -5,12 +5,17 @@ end
 def meine_tui_login(username, password, country)
   puts "#{username}, #{password}, #{country}"
   if $g_ios
+    step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
     step "I touch done"
+
+    step "I clear input field number 2"
     step 'I enter "'+password+'" into input field number 2'
     step "I touch done"
   elsif $g_android
+    step "I clear input field number 2"
     step 'I enter "'+username+'" into input field number 2'
+    step "I clear input field number 3"
     step 'I enter "'+password+'" into input field number 3'
     step "I press the enter button"
   end
@@ -196,8 +201,13 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
 
   if condition.eql? 'invalid'
     @invalid_username = USERS[:invalid][:email]
-    step ' I enter "'+@invalid_username+'" into input field number 1 ' if $g_ios
-    step ' I enter "'+@invalid_username+'" into input field number 2 ' if $g_android
+    if $g_ios
+      step "I clear input field number 1"
+      step 'I enter "'+@invalid_username+'" into input field number 1'
+    elsif $g_android
+      step "I clear input field number 2"
+      step 'I enter "'+@invalid_username+'" into input field number 2'
+    end
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
