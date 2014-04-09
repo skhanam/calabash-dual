@@ -4,7 +4,7 @@
 
 <% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios LANG=SW  -f html -o ios-report.html  -f junit -o features/report/junit -f json -o features/report/report.json" %>
 <% ios_specific_path = " -r features/ios/support -r features/ios/helpers " %>
-<% de_mt_ios_specific_path = "TESTENV=DE_MT-r features/ios/pages/de" %>
+<% de_mt_ios_specific_path = "TESTENV=DE_MT -r features/ios/pages/de" %>
 <% uk_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/pages/uk -r features/BasePages/uk" %>
 <% nor_ios_specific_path = "TESTENV=NOR -r features/ios/pages/nor -r features/BasePages/nor" %>
 <% sw = "LANG=SW" %>

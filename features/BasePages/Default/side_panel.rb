@@ -12,8 +12,10 @@ class SidePanel < BasePage
     wait_for_text @@side_panel_contact_us
   end
 
-  def verify_elements_eng_booking
-    SidePanelEng.new.verify_side_panel_strings
+  def verify_elements_booking(lang)
+    @sidepanel=SidePanelEng.new if lang=="eng"
+    @sidepanel=SidePanelNor.new if lang=="nor"
+    @sidepanel.verify_side_panel_strings
   end
 
   def navigate_to_flights_page

@@ -47,17 +47,10 @@ module EN_ThomsonStrings
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
 
-  def loading_strings
-    @@loading_hold_on=get_localized_string "hold_on"
-    @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
-  end
 
   def home_page_strings
     @@home_page_loading=get_localized_string "hold_on_booking"
-    @@home_page_acc_label="background_normal"
     @@home_page_booking_summary=get_localized_string "booking_summary"
-    @@home_page_account_acc_label="navbarRightButton"
-    @@home_page_sidepanel_acc_label="navbarLeftButton"
   end
 
   def side_panel_strings
@@ -77,6 +70,7 @@ module EN_ThomsonStrings
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
+    @@logout_confirm=get_localized_string "confirm" # yes
   end
 
   def booking_summary_strings

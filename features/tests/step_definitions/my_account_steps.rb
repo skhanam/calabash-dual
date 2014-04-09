@@ -37,21 +37,22 @@ And(/^verify my details on account page$/) do
 end
 
 When(/^I log out from application$/) do
+  puts "LANGUAGE HAS TO BE SPECIFIED #{$g_current_app}"
   if ($g_current_app=='DE_MT')
     step "I am on my account page"
     @myAccountPage.logout_from_app
-  elsif ($g_current_app=='EN_TH')
+  elsif ($g_current_app=='EN_TH' || $g_current_app=='NOR_SW')
     step "I am on Home screen"
     @homePage.logout_from_home_screen
+  else
+  fail("LANGUAGE HAS TO BE SPECIFIED #{$g_current_app}")
   end
-
 end
 
 
 Given(/^I choose to change password from my account page$/) do
   step "I am on my account page"
   step "I select change password from my account page"
-
 end
 
 

@@ -17,6 +17,7 @@ class ContactUsUK < ContactUsBasePage
   end
 
   def verify_contact_us_page
+    wait_for_page_to_load(@@loading_hold_on,5)
     scroll_page_and_assert_text(@@contact_us_title) #"Need some help?"
     scroll_page_and_assert_text(@@contactus_subtitle) #"Get in touch"
     scroll_page_and_assert_text(@@contact_us_travel_shop)

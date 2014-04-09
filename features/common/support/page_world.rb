@@ -3,12 +3,12 @@ module TestModule
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new
+    @bookingSummaryPage ||=BookingSummaryPage.new
 
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanel.new
-      @bookingSummaryPage ||=BookingSummaryPage.new
       @commonMethods ||=CommonMethods.new
       @weatherPage ||= WeatherPage.new
 
@@ -32,13 +32,15 @@ module TestModule
       @myBookingsPage ||= MyBookingsPage.new
     elsif ($g_current_app== 'EN_TH')
       @homePage ||= HomePage.new
-      @sidePanel ||=SidePanel.new
-      @bookingSummaryPage ||=BookingSummaryPage.new
+      @sidePanel ||=SidePanelEng.new
       @commonMethods ||=CommonMethods.new
       @weatherPage ||= WeatherPage.new
 
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
+    elsif ($g_current_app== 'NOR_SW')
+      @homePage ||= HomePageNOR.new
+      @sidePanel ||=SidePanelNor.new
     end
   end
 end
