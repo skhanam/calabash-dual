@@ -16,7 +16,7 @@ class BookingSummaryBasePage < BasePage
     check_partial_text_shown title
     title, value=CommonMethods.new.get_booking_summary("otherPassengers")
     value.each do |var|
-      scroll_page_and_assert_text var
+      scroll_page_till_partial_text var
     end
     check_partial_text_shown title
   end

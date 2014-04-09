@@ -30,7 +30,7 @@ Feature: Verify product pages by navigating through side panel
     Then I see insurance page
 
 
-  @sanity
+  @sanity @holiday-booking-summary
   Scenario: navigate to booking summary page
     Given I have switched to typical booking
     When I navigate to booking summary page using side menu

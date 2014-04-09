@@ -358,13 +358,13 @@ module DEMeineTUI
     @@hotel_email = get_localized_string "product_send_email"
     ##Links
     @@hotel_place_link="Ort"
-    @@hotel_Food_Drink_link="Essen & Trinken"
+    @@hotel_Food_Drink_link="Essen & Trinken"
     @@hotel_accommodation_link="Unterkunft"
     @@hotel_Living_link="Wohnen"
     @@hotel_sport_link="Sport"
     @@hotel_Entertainment_link="Unterhaltung"
     @@hotel_Wellness_link="Wellness"
-    @@hotel_For_Children ="Für Kinder"
+    @@hotel_For_Children ="Für Kinder"
   end
 
   def flights_strings
