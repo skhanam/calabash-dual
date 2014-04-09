@@ -128,6 +128,7 @@ Given(/^I log into nordics application$/) do
 end
 
 Given(/^I have entered an invalid email and a valid password$/) do
+  step "I am on 'Login' screen"
   uname=$g_invalid_user_details[:email]
   pwd=$g_valid_user_details[:password]
   country=$g_valid_user_details[:country]
@@ -173,11 +174,15 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
   #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
-    step 'I enter "'+@valid_username+'" into input field number 1' if $g_ios
-    step 'I enter "'+@valid_username+'" into input field number 2' if $g_android
-
-    step "I touch done" if $g_ios
-    step "I press the enter button" if $g_android
+    if $g_ios
+      step "I clear input field number 1"
+      step 'I enter "'+@valid_username+'" into input field number 1'
+      step "I touch done"
+    elsif $g_android
+      step "I clear input field number 2"
+      step 'I enter "'+@valid_username+'" into input field number 2'
+      step "I press the enter button"
+    end
     sleep 1
   end
 
@@ -231,6 +236,7 @@ Then(/^I see appropriate username error message$/) do
 end
 
 Given(/^I have entered an valid email and invalid password$/) do
+  step "I am on 'Login' screen"
   uname=$g_valid_user_details[:email]
   pwd=$g_invalid_user_details[:password]
   country=$g_valid_user_details[:country]

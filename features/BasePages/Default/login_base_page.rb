@@ -1,7 +1,7 @@
 class LoginBasePage < BasePage
 
   def check_username_pwd_error
-    assert_text_present @@username_email_error
+    assert_wait_for_text @@username_email_error
   end
 
 
