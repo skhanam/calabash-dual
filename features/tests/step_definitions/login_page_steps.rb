@@ -173,8 +173,8 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
   #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
-    step ' I enter "'+@valid_username+'" into input field number 1 ' if $g_ios
-    step ' I enter "'+@valid_username+'" into input field number 2 ' if $g_android
+    step 'I enter "'+@valid_username+'" into input field number 1' if $g_ios
+    step 'I enter "'+@valid_username+'" into input field number 2' if $g_android
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android

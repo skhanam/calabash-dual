@@ -1,4 +1,4 @@
-@android_test @ios_test @auto1 @sanity-eng
+@android_test-eng @ios_test-eng @auto1 @sanity-eng
 Feature: English Sanity Tests
 
   @reset  @wrong-login  @nor @eng
