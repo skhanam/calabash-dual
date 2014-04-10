@@ -70,7 +70,10 @@ if [ "$1" == "clean" ] ; then
 	sleep 20
 	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
+	sleep 1
+    killall "iPhone Simulator"
 	killall Xcode
+    sleep 1
 fi
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)

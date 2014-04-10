@@ -33,9 +33,7 @@ source rvm.env
 
 bundle install
 calabash-ios sim reset
-sleep 1
-killall "iPhone Simulator"
-sleep 1
+
 if [ "$1" == "ios" ] ; then
 echo sh run_ios.sh $2 $3 $4 $5
 sh run_ios.sh $2 $3 $4 $5
