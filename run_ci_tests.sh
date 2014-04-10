@@ -21,8 +21,7 @@ export PATH=/usr/local/bin:$PATH
 echo "Removing old reports and jpeg files"
 rm -f *.png
 rm -f *.html
-
-echo "source completed"
+rm -rf features/report/junit
 
 bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
 source rvm.env
