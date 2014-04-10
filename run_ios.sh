@@ -5,14 +5,14 @@ DATE=`date +%d-%m-%Y-%H-%M`
 export LC_CTYPE=en_US.UTF-8
 
 if [ "$#" -le "3" ]; then
-	echo "\n\n\n2 ARGUMENTS NEEDED"
+	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
     echo "3) App to test ex: thomson / firstchoice / meinetui /nordics"
-    echo "4) folder source code"
+    echo "4) relative folder path where source code is located"
 
-	echo "\nsample command: sh run_ios.sh clean @sanity meinetui ../meine.tui\n"
-	echo "\nsample command: sh run_ios.sh clean @sanity nordics ../meine.tui\n"
+	echo "\nsample command: \n 1) sh run_ios.sh clean @sanity meinetui ../meine.tui"
+	echo " 2) sh run_ios.sh NA @sanity nordics ../meine.tui\n"
 	exit
 fi
 
