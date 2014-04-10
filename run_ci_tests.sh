@@ -10,8 +10,8 @@ if [ "$#" -le "4" ]; then
     echo "5) relative folder path where source code is located"
 
 	echo "\nsample command"
-	echo " 1) run_ci_tests.sh ios clean @sanity meinetui ../meine.tui"
-	echo " 2) run_ci_tests.sh android clean @sanity meinetui ../meine.tui"
+	echo " 1) sh run_ci_tests.sh ios clean @sanity meinetui ../meine.tui"
+	echo " 2) sh run_ci_tests.sh android clean @sanity meinetui ../meine.tui"
 	echo "\n"
 	exit
 fi
@@ -26,18 +26,19 @@ echo "source completed"
 
 bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
 source rvm.env
-gem install bundler
-gem list
-ls
+
+# install bundler only first time
+#gem install bundler
+#gem list
+
 bundle install
-#/Users/qaautomation/.rvm/gems/ruby-2.0.0-p353/bin/
 calabash-ios sim reset
 
 if [ "$1" == "ios" ] ; then
 echo sh runmeinetui.sh $2 $3 $4 $5
-sh runmeinetui.sh $2 $3 $4 $5
+sh run_.sh $2 $3 $4 $5
 else
-echo sh runandroid.sh $2 $3 $4 $5
+echo sh run_ios.sh $2 $3 $4 $5
 sh runandroid.sh $2 $3 $4 $5
 fi
 
