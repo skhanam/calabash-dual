@@ -12,12 +12,12 @@ class WeatherPage < BasePage
       next_day=time+add_days(count)
       next_day_text=next_day.strftime("%A")
 
-      if (ENV['TESTENV']=='EN_TH')
+      if ($g_current_app=='EN_TH')
         days=next_day.strftime("%e")
         suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)
         next_day_date_text=next_day.strftime("%e#{suffix_days} %B %Y")
         puts "#{next_day_text} #{next_day_date_text}"
-      elsif (ENV['TESTENV']=='DE_MT')
+      elsif ($g_current_app=='DE_MT')
         next_day_date_text=next_day.strftime("%e. %B %Y")
       end
       scroll_page_and_assert_text(next_day_text.strip)

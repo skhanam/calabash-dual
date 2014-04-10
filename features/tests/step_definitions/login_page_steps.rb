@@ -5,12 +5,17 @@ end
 def meine_tui_login(username, password, country)
   puts "#{username}, #{password}, #{country}"
   if $g_ios
+    step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
     step "I touch done"
+
+    step "I clear input field number 2"
     step 'I enter "'+password+'" into input field number 2'
     step "I touch done"
   elsif $g_android
+    step "I clear input field number 2"
     step 'I enter "'+username+'" into input field number 2'
+    step "I clear input field number 3"
     step 'I enter "'+password+'" into input field number 3'
     step "I press the enter button"
   end
@@ -71,16 +76,35 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   end
 end
 
+
+def nordics_login(bookingNum, email, telephone)
+  #step "I clear input field number 1"
+  #step 'I enter "'+bookingNum+'" into input field number 1'
+  #touch("toolbarTextButton index:1")
+  #sleep 1
+  #step "I clear input field number 2"
+  #step 'I enter "'+email+'" into input field number 2'
+  #touch("toolbarTextButton index:1")
+  #sleep 1
+  #step "I clear input field number 3"
+  #step 'I enter "'+telephone+'" into input field number 3'
+  #touch("toolbarTextButton index:1")
+  #sleep 1
+
+end
+
 Given(/^I log into Application/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
 
   step "I am on 'Login' screen"
-  step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
-  step "I log into thomson application" if (ENV['TESTENV']=='EN_TH')
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
+  step "I log into thomson application" if ($g_current_app=='EN_TH')
+  step "I log into nordics application" if ($g_current_app=='NOR_SW')
+
   sleep 2
-  step "click on login button"
+  step "I select the Login button"
   step "I must be logged and on Home page"
 end
 
@@ -96,7 +120,15 @@ Given(/^I log into thomson application$/) do
 
 end
 
+Given(/^I log into nordics application$/) do
+  bookingNum = NOR_SWE_USER[:valid][:bookingnumber]
+  email = NOR_SWE_USER[:valid][:emailid]
+  telephone = NOR_SWE_USER[:valid][:telefon]
+  nordics_login(bookingNum, email, telephone)
+end
+
 Given(/^I have entered an invalid email and a valid password$/) do
+  step "I am on 'Login' screen"
   uname=$g_invalid_user_details[:email]
   pwd=$g_valid_user_details[:password]
   country=$g_valid_user_details[:country]
@@ -131,11 +163,6 @@ When(/^I enter default username and password in login page$/) do
   @loginPage.enter_default_username_password
 end
 
-When(/^click on login button$/) do
-  @loginPage.submit_login_button
-end
-
-
 Then(/^I see login Page/) do
   @loginPage.verify_login_page
 end
@@ -147,11 +174,15 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
   #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
-    step ' I enter "'+@valid_username+'" into input field number 1 ' if $g_ios
-    step ' I enter "'+@valid_username+'" into input field number 2 ' if $g_android
-
-    step "I touch done" if $g_ios
-    step "I press the enter button" if $g_android
+    if $g_ios
+      step "I clear input field number 1"
+      step 'I enter "'+@valid_username+'" into input field number 1'
+      step "I touch done"
+    elsif $g_android
+      step "I clear input field number 2"
+      step 'I enter "'+@valid_username+'" into input field number 2'
+      step "I press the enter button"
+    end
     sleep 1
   end
 
@@ -175,8 +206,13 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
 
   if condition.eql? 'invalid'
     @invalid_username = USERS[:invalid][:email]
-    step ' I enter "'+@invalid_username+'" into input field number 1 ' if $g_ios
-    step ' I enter "'+@invalid_username+'" into input field number 2 ' if $g_android
+    if $g_ios
+      step "I clear input field number 1"
+      step 'I enter "'+@invalid_username+'" into input field number 1'
+    elsif $g_android
+      step "I clear input field number 2"
+      step 'I enter "'+@invalid_username+'" into input field number 2'
+    end
 
     step "I touch done" if $g_ios
     step "I press the enter button" if $g_android
@@ -200,6 +236,7 @@ Then(/^I see appropriate username error message$/) do
 end
 
 Given(/^I have entered an valid email and invalid password$/) do
+  step "I am on 'Login' screen"
   uname=$g_valid_user_details[:email]
   pwd=$g_invalid_user_details[:password]
   country=$g_valid_user_details[:country]
@@ -213,26 +250,31 @@ end
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
-  if (ENV['TESTENV']=='EN_TH')
+  if ($g_current_app=='EN_TH')
     surname=THOMSON_USER[:invalid][:surname]
     departureDate=THOMSON_USER[:invalid][:departuredate]
     visionShopNumber=THOMSON_USER[:invalid][:VisionShopNumber]
     visionBookingRef=THOMSON_USER[:invalid][:VisionBookingRef]
     thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
-  elsif (ENV['TESTENV']=='DE_MT')
+  elsif ($g_current_app=='DE_MT')
     uname=$g_user_details[:username]
     pwd="NANA"
     country=$g_user_details[:country]
-    step "I log into the App using #{uname}, #{pwd} and #{country}" if (ENV['TESTENV']=='DE_MT')
+    step "I log into the App using #{uname}, #{pwd} and #{country}"
+  elsif ($g_current_app.match(/NOR/)!= nil)
+    bookingNum = NOR_SWE_USER[:valid][:bookingnumber]
+    email = NOR_SWE_USER[:valid][:emailid]
+    telephone = NOR_SWE_USER[:valid][:telefon]
+    nordics_login(bookingNum, email, telephone)
+    step "I select the Login button"
   else
-    puts("TODO")
-    fail("TODO")
+    fail "TODO"
   end
   sleep 2
-  step "click on login button"
+  step "I select the Login button"
 end
 
 Then(/^I see correct error messages on login screen$/) do
- sleep 4
- @loginPage.check_login_error_messages
+  sleep 4
+  @loginPage.check_login_error_messages
 end

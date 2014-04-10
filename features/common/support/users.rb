@@ -21,10 +21,10 @@ USERS||= {
 
 THOMSON_USER||={
     :valid => {
-        :surname => "van martin",
-        :departuredate => "26-10-2014",
+        :surname => "martin",
+        :departuredate => "22-04-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12347027"
+        :VisionBookingRef => "12347059"
     },
     :invalid => {
         :surname => "martin",
@@ -32,6 +32,18 @@ THOMSON_USER||={
         :VisionShopNumber => "9999",
         :VisionBookingRef => "12347027"
     }
+}
+
+NOR_SWE_USER||={
+    :valid => {
+        :bookingnumber => "1Y30060",
+        :emailid => "niclas.westling@fritidsresor.se",
+        :telefon => "0722177937",
+    },
+    :invalid => {
+        :bookingnumber => "11Y30060",
+        :emailid => "ns.w@or.se",
+        :telefon => "0722377937", }
 }
 #:country => "Deutschland",
 

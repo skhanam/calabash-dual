@@ -39,6 +39,7 @@ class HotelBasePage < BasePage
         txt= @@hotel_For_Children
     end
     scroll_page_and_assert_text txt
+    sleep 1
     touch_txt_and_verify_title txt, txt
     click_back_button
   end

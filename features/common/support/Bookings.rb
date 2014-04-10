@@ -29,7 +29,7 @@ def get_user_details(url)
   return parsed
 end
 
-if ENV['TESTENV']== "DE_MT"
+if $g_current_app== "DE_MT"
   USER_INFO=get_user_details('http://37.46.24.155:3000/reservations')
 
   booking_id=80522687

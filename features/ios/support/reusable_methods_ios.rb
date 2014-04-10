@@ -64,8 +64,7 @@ module IosReusableMethods
   end
 
   def wait_for_acc_label(text, timeout=10)
-    query_txt=$g_query_txt+"marked:'#{escape_quotes_smart(text)}'"
-
+    query_txt=$g_query_txt+"marked:'#{text}'"
     begin
       wait_poll({:until_exists => query_txt, :timeout => timeout.to_i}) do
         puts text
@@ -119,11 +118,8 @@ module IosReusableMethods
 
   #touch text and verify result
   def touch_txt_and_verify_title(txt_touch, text)
-    #touch_transition_timeout=10
-    #touch_transition_retry=1
     click_on_text txt_touch
     sleep 2
-    #touch_transition("view text:'#{txt_touch}'", "view text:'#{text}'", {:timeout => touch_transition_timeout, :retry_frequency => touch_transition_retry})
     verify_page_title text
   end
 
@@ -168,15 +164,15 @@ module IosReusableMethods
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
-    puts "scrolling page to #{id}"
-
+    id=escape_quotes_smart(id)
     repeat_count=0
 
-    if ($g_flash)
-      flash("view text:'#{id}'") if element_exists("view text:'#{id}'")
-    end
+      flash("view text:'#{id}'") if (element_exists("view text:'#{id}'") && $g_flash)
 
-    return if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+    if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+      puts "scrolled to text:#{id}:"
+      return
+    end
 
     while repeat_count < count
       repeat_count+=1
@@ -194,7 +190,7 @@ module IosReusableMethods
       sleep 0.5
     end
     fail "id/text :#{id}: not present on screen" if repeat_count==10
-    sleep 2
+    sleep 1
   end
 
   def scroll_view(dir)

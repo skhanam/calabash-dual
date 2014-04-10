@@ -9,7 +9,6 @@ When(/^I am on Home screen$/) do
   @homePage.wait_for_home_page_to_load
   @homePage.wait_for_acc_label("welcome_title")
   sleep 2
-
 end
 
 

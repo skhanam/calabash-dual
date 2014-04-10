@@ -86,11 +86,8 @@ module DEMeineTUI
 
   def home_page_strings
     @@home_page_loading=get_localized_string "hold_on_booking"
-    @@home_page_acc_label="background_normal"
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
-    @@home_page_account_acc_label="navbarRightButton"
-    @@home_page_sidepanel_acc_label="navbarLeftButton"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
   end
 
@@ -203,10 +200,10 @@ module DEMeineTUI
     @@share_weather="Reisewetter teilen"
   end
 
-  def loading_strings
-    @@loading_hold_on=get_localized_string "hold_on"
-    @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
-  end
+  #def loading_strings
+  #  @@loading_hold_on=get_localized_string "hold_on"
+  #  @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
+  #end
 
   def add_booking_page_strings
     @@add_a_booking_page_title ="Buchung hinzufügen"
@@ -361,13 +358,13 @@ module DEMeineTUI
     @@hotel_email = get_localized_string "product_send_email"
     ##Links
     @@hotel_place_link="Ort"
-    @@hotel_Food_Drink_link="Essen & Trinken"
+    @@hotel_Food_Drink_link="Essen & Trinken"
     @@hotel_accommodation_link="Unterkunft"
     @@hotel_Living_link="Wohnen"
     @@hotel_sport_link="Sport"
     @@hotel_Entertainment_link="Unterhaltung"
     @@hotel_Wellness_link="Wellness"
-    @@hotel_For_Children ="Für Kinder"
+    @@hotel_For_Children ="Für Kinder"
   end
 
   def flights_strings

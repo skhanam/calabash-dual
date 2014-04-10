@@ -1,18 +1,10 @@
 # encoding: utf-8
-#require_relative 'base_page_ios' if ENV['PLATFORM'] == 'ios'
-#require_relative 'base_page_android' if ENV['PLATFORM'] == 'android'
 
 class HomeBasePage < BasePage
-
-  def initialize
-    #set_strings
-    #@@user_details= @@user_details || User.new()
-  end
 
   def open_side_panel
     sleep 1
     click_accessibility_label @@home_page_sidepanel_acc_label
-    #touch "#{$g_query_txt}marked:'#{@@home_page_sidepanel_acc_label}'"
     sleep 1
   end
 
@@ -43,7 +35,6 @@ class HomeBasePage < BasePage
 
   def wait_login_progress_to_disappear
     wait_for_progress_to_disappear(@@loading_hold_on, 40)
-
   end
 
   def wait_for_home_page_to_load

@@ -103,7 +103,8 @@ end
 Then(/^I must be logged and on Home page$/) do
   @homePage.wait_login_progress_to_disappear
   @homePage.wait_for_home_page_to_load
-  fail("Not logged in") if (@homePage.check_i_am_on_home_page!=false)
+  @homePage.assert_wait_for_acc_label("background_normal", 20)
+
 end
 
 Given(/^I have opened side menu$/) do

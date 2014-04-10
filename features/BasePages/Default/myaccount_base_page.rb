@@ -66,7 +66,7 @@ class MyAccountBasePage < BasePage
                           @@update_email_new_password,
                           @@update_email__text2,
                           @@update_email_submit
-                          ])
+                         ])
     scroll_page_and_assert_text @@update_email_forgot_password
   end
 
@@ -99,13 +99,11 @@ class MyAccountBasePage < BasePage
       when "update email button"
         assert_text_present(@@my_account_update_email)
       when "password change button"
-        assert_text_present(@@my_account_change_password)
+        scroll_page_and_assert_text(@@my_account_change_password)
       when "newsletter"
         scroll_page_and_assert_text(@@my_account_newsletter_text)
-        assert_text_present(@@my_account_newsletter_text)
       when "logout"
         scroll_page_and_assert_text(@@log_out_text)
-        assert_text_present(@@log_out_text)
     end
   end
 

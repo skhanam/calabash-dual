@@ -11,7 +11,7 @@ Feature: Verify booking information for Typical Booking
       | Hotel location  |
       | Contact buttons |
 
-  @sanity @failed
+  @sanity @failed @verify-hotel-links
   Scenario: As a TUI client with a TUI booking
   I should be able to access the Hotel page
     Given I have switched to typical booking
@@ -21,9 +21,9 @@ Feature: Verify booking information for Typical Booking
       | place         |
       | Food & Drink  |
       | accommodation |
+      | Entertainment |
       | Living        |
       | sport         |
-      | Entertainment |
       | Wellness      |
       | For Children  |
 
