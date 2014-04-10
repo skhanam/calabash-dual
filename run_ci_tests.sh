@@ -18,7 +18,7 @@ fi
 
 export PATH=/usr/local/bin:$PATH
 
-cd $5
+echo "Removing old reports and jpeg files"
 rm -f *.png
 rm -f *.html
 
