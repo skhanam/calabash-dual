@@ -32,13 +32,15 @@ fi
 TI_SCHEME=$3
 echo "TDA project location:"${PROJ_FOLDER}
 
-if [ $TI_SCHEME == "meineTUI" ] ; then
-	APK_NAME=meine\ TUI.apk
-	CUCUMBER_PROFILE=de_mt_ios_jenkins
+if [ $TI_SCHEME == "meinetui" ] ; then
+	APK_NAME="meine TUI.apk"
+	CUCUMBER_PROFILE=de_mt_android_jenkins
 elif [ $TI_SCHEME == "thomson" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=uk_th_android
 fi
+
+cp $PROJ_FOLDER/build/android/bin/"$APK_NAME" app.apk
 
 if [ "$1" == "clean" ] ; then
 	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
@@ -50,10 +52,10 @@ if [ "$1" == "clean" ] ; then
 	cp -r $PROJ_FOLDER/i18n/* features/test_data/
 fi
 
-#rm -rf test_servers/
-#calabash-android resign app.apk
-#calabash-android build app.apk
-#adb install -r app.apk
-#adb install -r test_servers/*.apk
+rm -rf test_servers/
+calabash-android resign app.apk
+calabash-android build app.apk
+adb install -r app.apk
+adb install -r test_servers/*.apk
 echo calabash-android  run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
 bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
