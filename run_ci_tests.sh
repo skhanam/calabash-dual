@@ -35,10 +35,10 @@ bundle install
 calabash-ios sim reset
 
 if [ "$1" == "ios" ] ; then
-echo sh runmeinetui.sh $2 $3 $4 $5
-sh run_.sh $2 $3 $4 $5
-else
 echo sh run_ios.sh $2 $3 $4 $5
+sh run_ios.sh $2 $3 $4 $5
+else
+echo sh runandroid.sh $2 $3 $4 $5
 sh runandroid.sh $2 $3 $4 $5
 fi
 
