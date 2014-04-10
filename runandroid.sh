@@ -2,6 +2,8 @@
 clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
+sh start_device.sh
+
 export LC_CTYPE=en_US.UTF-8
 
 if [ "$#" -le "3" ]; then
@@ -39,8 +41,6 @@ elif [ $TI_SCHEME == "thomson" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=uk_th_android
 fi
-
-cp $PROJ_FOLDER/build/android/bin/"$APK_NAME" app.apk
 
 if [ "$1" == "clean" ] ; then
 	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
