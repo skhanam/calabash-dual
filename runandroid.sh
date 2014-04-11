@@ -18,6 +18,7 @@ if [ "$#" -le "3" ]; then
 	exit
 fi
 
+export LC_CTYPE=en_US.UTF-8
 if [ -z "$2" ] ; then
 echo "Tags not specified using @failed"
 exit
@@ -48,7 +49,7 @@ if [ "$1" == "clean" ] ; then
     ti clean
 	ti build --platform android -b
 	cd -
-	cp $PROJ_FOLDER/build/android/bin/$APK_NAME  app.apk
+	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
 	cp -r $PROJ_FOLDER/i18n/* features/test_data/
 fi
 

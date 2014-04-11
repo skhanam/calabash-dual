@@ -45,33 +45,34 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep(2)
 
   elsif $g_android
-    sleep 2
+    performAction('clear_numbered_field', 2)
+    performAction('clear_numbered_field', 6)
+    performAction('clear_numbered_field', 8)
+
+    touch("* marked:'surname.'")
     @page.enter_text_android(surname)
-    sleep 1
-    touch("* TiEditText index:1")
+
+    touch("* marked:'departureDate.'")
+    sleep 2
     performAction('set_date_with_index', departureDate, 1)
     sleep 2
-    touch("* text:'Set'")
+    if element_exists "* text:'Set'"
+      touch("* text:'Set'")
+    elsif element_exists "* text:'Done'"
+      touch("* text:'Done'")
+    end
     sleep 2
-    touch("* TiEditText index:3")
-    sleep 2
-    @page.enter_text_android(visionShopNumber)
-    sleep 2
-    touch("* TiEditText index:4")
-    @page.enter_text_android(visionBookingRef)
-    sleep 2
-    system("#{default_device.adb_command} shell input keyevent ENTER")
-    sleep 2
-    @loginPage.scroll_to_end_of_page
-    #system("#{default_device.adb_command} shell input keyevent ENTER")
 
-    #@page.ti_enter_details(surname, 1)
-    #step 'I enter "'+surname+'" into input field number 2'
-    #@loginPage.login_thomson(departureDate)
-    #@page.ti_enter_details(visionShopNumber, 4)
-    #step 'I enter "'+visionShopNumber+'" into input field number 6'
-    #@page.ti_enter_details(visionBookingRef, 7)
-    #step 'I enter "'+visionBookingRef+'" into input field number 7'
+    touch("* marked:'bookingReference1.'")
+    sleep 1
+    @page.enter_text_android(visionShopNumber)
+    sleep 1
+
+    touch("* marked:'bookingReference2.'")
+    sleep 1
+    @page.enter_text_android(visionBookingRef)
+
+    @loginPage.scroll_to_end_of_page
 
   end
 end
