@@ -6,6 +6,9 @@ sh start_device.sh
 
 export LC_CTYPE=en_US.UTF-8
 
+echo $ANDROID_HOME
+exit
+
 if [ "$#" -le "3" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
