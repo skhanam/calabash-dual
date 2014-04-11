@@ -1,6 +1,10 @@
 #!/bin/sh
 
 clear
+
+echo $ANDROID_HOME
+exit
+
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) ios or android - select platform"
@@ -16,6 +20,7 @@ if [ "$#" -le "4" ]; then
 	exit
 fi
 
+export LC_CTYPE=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
 
 echo "Removing old reports and jpeg files"
