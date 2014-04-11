@@ -11,9 +11,6 @@ echo "$ANDROID_HOME"
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 
-
-exit
-
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) ios or android - select platform"
@@ -29,8 +26,6 @@ if [ "$#" -le "4" ]; then
 	exit
 fi
 
-export LC_CTYPE=en_US.UTF-8
-export PATH=/usr/local/bin:$PATH
 
 echo "Removing old reports and jpeg files"
 rm -f *.png
