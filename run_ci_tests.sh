@@ -2,7 +2,9 @@
 
 clear
 
+echo "android path"
 echo $ANDROID_HOME
+echo "$ANDROID_HOME"
 exit
 
 if [ "$#" -le "4" ]; then
