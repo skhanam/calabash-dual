@@ -31,9 +31,9 @@ source rvm.env
 #gem list
 
 bundle install
-calabash-ios sim reset
 
 if [ "$1" == "ios" ] ; then
+calabash-ios sim reset
 echo sh run_ios.sh $2 $3 $4 $5
 sh run_ios.sh $2 $3 $4 $5
 else
