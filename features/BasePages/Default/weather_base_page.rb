@@ -1,4 +1,4 @@
-class WeatherPage < BasePage
+class WeatherBasePage < BasePage
 
   #this method checks weather the page is shown by verifying one element
   def check_weather_screen_title
@@ -12,7 +12,7 @@ class WeatherPage < BasePage
       next_day=time+add_days(count)
       next_day_text=next_day.strftime("%A")
 
-      if ($g_current_app=='EN_TH')
+      if ($g_current_app=='EN_TH' || $g_current_app=='NOR_SW')
         days=next_day.strftime("%e")
         suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)
         next_day_date_text=next_day.strftime("%e#{suffix_days} %B %Y")

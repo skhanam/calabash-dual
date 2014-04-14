@@ -1,12 +1,13 @@
 # encoding: UTF-8
 
-module SwedishStrings
-  def set_swedish_strings
-    puts "settings set_swedish_strings"
+module NordicsStrings
+  def set_nordics_strings
+    puts "settings nordics strings"
     login_page_strings
     welcome_page_strings
     side_panel_strings
     booking_summary_strings
+    weather_page_strings
   end
 
   def login_page_strings
@@ -19,7 +20,7 @@ module SwedishStrings
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
     @@login_error_text=get_localized_string "welcome_login_credential_error"
-    @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra"
+    @@login_error2_text=get_localized_string "welcome_login_error"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
@@ -34,6 +35,11 @@ module SwedishStrings
 
   end
 
+
+  def weather_page_strings
+    @@weather_page_title=get_localized_string "weather_header" #"Weather"
+    @@share_weather=get_localized_string "weather_share" #"Share the weather"
+  end
 
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
@@ -53,6 +59,11 @@ module SwedishStrings
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
+    @@accomadation = get_localized_string "accomodation"
+    @@duty_free = get_localized_string "duty_free"
+    @@guide_online = get_localized_string "guide_online"
+    @@app_feed_back = get_localized_string "app_feedback"
+
   end
 
   def booking_summary_strings

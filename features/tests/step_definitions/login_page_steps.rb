@@ -35,12 +35,13 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
     @loginPage.enter_date_ios(departureDate)
     touch("toolbarTextButton index:1")
     sleep 1
-    step "I clear input field number 2"
-    step 'I enter "'+visionShopNumber+'" into input field number 2'
+    step "I clear input field number 3"
+    step 'I enter "'+visionShopNumber+'" into input field number 3'
+    sleep 2
     touch("toolbarTextButton index:1")
     sleep 1
-    step "I clear input field number 3"
-    step 'I enter "'+visionBookingRef+'" into input field number 3'
+    step "I clear input field number 4"
+    step 'I enter "'+visionBookingRef+'" into input field number 4'
     touch("toolbarTextButton index:1")
     sleep(2)
 
@@ -79,14 +80,14 @@ end
 
 
 def nordics_login(bookingNum, email, telephone)
-  #step "I clear input field number 1"
-  #step 'I enter "'+bookingNum+'" into input field number 1'
-  #touch("toolbarTextButton index:1")
-  #sleep 1
-  #step "I clear input field number 2"
-  #step 'I enter "'+email+'" into input field number 2'
-  #touch("toolbarTextButton index:1")
-  #sleep 1
+  step "I clear input field number 1"
+  step 'I enter "'+bookingNum+'" into input field number 1'
+  touch("toolbarTextButton index:1")
+  sleep 1
+  step "I clear input field number 2"
+  step 'I enter "'+email+'" into input field number 2'
+  touch("toolbarTextButton index:1")
+  sleep 1
   #step "I clear input field number 3"
   #step 'I enter "'+telephone+'" into input field number 3'
   #touch("toolbarTextButton index:1")
@@ -102,7 +103,7 @@ Given(/^I log into Application/) do
   step "I am on 'Login' screen"
   step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
   step "I log into thomson application" if ($g_current_app=='EN_TH')
-  step "I log into nordics application" if ($g_current_app=='NOR_SW')
+  step "I log into nordics application" if ($g_current_app.match(/NOR/)!=nil)
 
   sleep 2
   step "I select the Login button"
@@ -262,10 +263,10 @@ Given(/^I submit wrong login details$/) do
     pwd="NANA"
     country=$g_user_details[:country]
     step "I log into the App using #{uname}, #{pwd} and #{country}"
-  elsif ($g_current_app.match(/NOR/)!= nil)
-    bookingNum = NOR_SWE_USER[:valid][:bookingnumber]
-    email = NOR_SWE_USER[:valid][:emailid]
-    telephone = NOR_SWE_USER[:valid][:telefon]
+  elsif ($g_nordics_app)
+    bookingNum = NOR_SWE_USER[:invalid][:bookingnumber]
+    email = NOR_SWE_USER[:invalid][:emailid]
+    telephone = NOR_SWE_USER[:invalid][:telefon]
     nordics_login(bookingNum, email, telephone)
     step "I select the Login button"
   else

@@ -18,9 +18,12 @@ elsif ENV['PLATFORM'] == 'android'
   require_relative '../../android/base_page_android'
 end
 
-$g_lang_strings_file="features/test_data/de/strings.xml" if ($g_current_app=='DE_MT')
-$g_lang_strings_file="features/test_data/en/strings.xml" if ($g_current_app== 'EN_TH')
-$g_lang_strings_file="features/test_data/sv/strings.xml" if ($g_current_app== 'NOR_SW')
+$g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
+$g_lang_strings_file="features/test_data/en/strings.xml" if (ENV['LANG']=='uk_th' || ENV['LANG']=='uk_fc')
+$g_lang_strings_file="features/test_data/sv/strings.xml" if ENV['LANG']=='sv'
+$g_lang_strings_file="features/test_data/da/strings.xml" if ENV['LANG']=='da'
+$g_lang_strings_file="features/test_data/fi/strings.xml" if ENV['LANG']=='fi'
+$g_lang_strings_file="features/test_data/nb/strings.xml" if ENV['LANG']=='nb'
 
 $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_%H_%M")}.txt"
 #puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_file}  &&&&&&&&&&&&& \n"

@@ -4,13 +4,13 @@ module TestModule
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new
     @bookingSummaryPage ||=BookingSummaryPage.new
+    @weatherPage ||= WeatherBasePage.new
+    @commonMethods ||=CommonMethods.new
 
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanel.new
-      @commonMethods ||=CommonMethods.new
-      @weatherPage ||= WeatherPage.new
 
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new
@@ -18,7 +18,7 @@ module TestModule
       @goodToKnowPage||=GoodToKnowBasePage.new
       @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
       @forgotPasswordPage ||= ForgotPasswordBasePage.new
-      @contactPage ||= ContactUsBasePage.new
+      @contactPage ||= ContactUsDe.new
       @tuiServicePage ||= TuiServiceOnsitePage.new
       @termsPage ||= TermsAndConditionsBasePage.new
       @new_to_tui_page ||=NewTOTUIBasePage.new
@@ -33,14 +33,12 @@ module TestModule
     elsif ($g_current_app== 'EN_TH')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanelEng.new
-      @commonMethods ||=CommonMethods.new
-      @weatherPage ||= WeatherPage.new
-
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
-    elsif ($g_current_app== 'NOR_SW')
+    elsif ($g_nordics_app)
       @homePage ||= HomePageNOR.new
       @sidePanel ||=SidePanelNor.new
+      @contactPage=ContactUsNOR.new
     end
   end
 end

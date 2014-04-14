@@ -1,6 +1,12 @@
 require_relative '../Default/login_base_page'
 
 class LoginPage < LoginBasePage
+
+  def check_login_error_messages
+    assert_wait_for_text @@login_error_text
+    assert_text_present @@login_error2_text
+    fail("check_login_error_messages:TBD")
+  end
   #def submit_login_button
   #  sleep 1
   #  #click_on_text(@@login_button)
