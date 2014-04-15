@@ -31,8 +31,10 @@ class ContactUsDe < ContactUsBasePage
     click_on_text @@contactus_privacyPolicy
     verify_external_links
     scroll_page_and_assert_text(@@contactus_support) #"MyThomson support"
+  end
 
-
+  def validate_contact_items(var)
+    scroll_page_and_assert_text var
   end
 end
 

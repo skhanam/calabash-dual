@@ -111,6 +111,7 @@ module DEMeineTUI
     @@side_panel_extras=get_localized_string "extras"
     @@side_panel_hotel=get_localized_string "hotel"
     @@side_panel_hotels=get_localized_string "hotels"
+    @@side_panel_transfer=get_localized_string "transfer"
 
     @@side_panel_insurance=get_localized_string "insurance"
     @@side_panel_insurances=get_localized_string "insurances"

@@ -171,8 +171,10 @@ class SidePanel < BasePage
       when "insurance"
         assert_wait_for_text @@side_panel_insurance if count==1
         assert_wait_for_text @@side_panel_insurances if count>1
+      when "transfer"
+        assert_wait_for_text @@side_panel_transfer
       else
-        fail "product type not verified"
+        fail "product type not verified:#{var}:"
     end
   end
 
