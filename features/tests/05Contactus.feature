@@ -5,7 +5,6 @@ Feature: Verify contact us page
   Background:
     Given I have switched to typical booking
 
-  @sanity
   Scenario: check contact us page
     Given I am on contact us screen
     Then I verify below details on contact page:
