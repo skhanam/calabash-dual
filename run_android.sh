@@ -95,6 +95,22 @@ fi
 	export PATH=$ANDROID_HOME/platform-tools:$PATH
 	STRINGS_FOLDER=features/test_data/$LANG_STR/
 
+
+
+killall -9 adb
+sleep 2
+ADB=adb
+#ADB=$ANDROID_HOME/platform-tools/adb
+which $ADB
+
+if [ "$2" != "NA" ] ; then
+	sh start_device.sh "S5"
+	DEVICE_ID=`adb get-serialno`
+	echo $DEVICE_ID
+fi
+
+$ADB devices
+
   if [ $DEVICE_ID  ] ; then
   	ADB_DEVICE="-s "$DEVICE_ID
   else
@@ -102,12 +118,6 @@ fi
   	exit 1
   fi
 
-killall -9 adb
-sleep 2
-ADB=adb
-#ADB=$ANDROID_HOME/platform-tools/adb
-which $ADB
-$ADB devices
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
 			if [ $HW == "phone" ] ; then
