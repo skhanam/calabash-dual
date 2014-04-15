@@ -2,14 +2,13 @@
 
 clear
 
-echo "android path"
-echo $ANDROID_HOME
 export LC_CTYPE=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
-export ANDROID_HOME=/Users/QA/Documents/adt/sdk
-echo "$ANDROID_HOME"
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+export ANDROID_HOME=/Applications/adt/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+echo "$ANDROID_HOME"
+
 
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"

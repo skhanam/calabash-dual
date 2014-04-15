@@ -3,7 +3,9 @@ clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
-export  ANDROID_HOME="/Users/tejasvi.manmatha/Documents/tut/adt-bundle-mac/sdk"
+export ANDROID_HOME=/Applications/adt/sdk
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
 
 if [ "$#" -le "3" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
