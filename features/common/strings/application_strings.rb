@@ -37,6 +37,8 @@ module AppStrings
       $g_strings_set=true
     end
 
+    puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
+
     if ($g_current_app=='DE_MT')
       # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app
       puts "settings german strings for Meine TUI"

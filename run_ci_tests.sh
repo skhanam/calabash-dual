@@ -22,6 +22,7 @@ if [ "$#" -le "4" ]; then
 	echo "\nsample command"
 	echo " 1) sh run_ci_tests.sh ios clean @sanity meinetui ../meine.tui"
 	echo " 2) sh run_ci_tests.sh android clean @sanity meinetui ../meine.tui"
+	echo " 3) sh run_ci_tests.sh android clean @sanity de ../TDA"
 	echo "\n"
 	exit
 fi

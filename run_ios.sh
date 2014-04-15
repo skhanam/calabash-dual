@@ -34,7 +34,7 @@ if [ $3 == "de" ] ; then
 	TI_SCHEME="meinetui"
 	ruby update_tiapp.rb $PROJ_FOLDER
 	APPNAME="meineTUI"
-	CUCUMBER_PROFILE=de_mt_ios_jenkins
+	CUCUMBER_PROFILE=de_mt_ios
 elif [ $3 == "uk_th" ] || [ $3 == "uk_fc" ] ; then
 	TI_SCHEME="thomson"
 	APPNAME="MyThomson"
