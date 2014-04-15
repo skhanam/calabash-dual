@@ -10,7 +10,7 @@ module TestModule
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
-      @sidePanel ||=SidePanel.new
+      @sidePanel ||=SidePanelDe.new
 
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new

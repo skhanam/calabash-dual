@@ -23,12 +23,7 @@ else
 tagged_test=$2
 fi
 
-if [ -z "$4" ] ; then
-PROJ_FOLDER=../meine.tui
-else
 PROJ_FOLDER=$4
-fi
-
 
 if [ $3 == "de" ] ; then
 	TI_SCHEME="meinetui"

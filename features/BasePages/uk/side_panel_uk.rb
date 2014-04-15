@@ -30,4 +30,9 @@ class SidePanelEng < SidePanel
     #Holiday extras
     #excursions
   end
+
+  def navigate_to_booking_summary_page
+    scroll_side_panel(@@holiday_summary)
+    touch_txt_and_verify_title(@@holiday_summary, @@holiday_summary)
+  end
 end
