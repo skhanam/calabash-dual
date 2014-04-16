@@ -262,7 +262,7 @@
   <string name="weather">Reisewetter</string>
   <string name="duty_free">duty_free</string>
   <string name="guide_online">guide_online</string>
-  <string name="app_feedback">app_feedback</string>
+  <string name="app_feedback">Feedback</string>
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
   <string name="extras_call">extras_call</string>
@@ -328,6 +328,11 @@
   <string name="contactus_terms">contactus_terms</string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
   <string name="contactus_title">contactus_title</string>
+  <string name="contactus_helptext">contactus_helptext</string>
+  <string name="contactus_cta_guideonline">contactus_cta_guideonline</string>
+  <string name="contactus_cta_phone">contactus_cta_phone</string>
+  <string name="contactus_cta_terms">contactus_cta_terms</string>
+  <string name="contactus_cta_privacy">contactus_cta_privacy</string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
   <string name="contactus_extra_text_1">contactus_extra_text_1</string>
@@ -555,9 +560,10 @@
   <string name="period_of_travel">Reisezeitraum:</string>
   <string name="pickupDateTime">Abholung</string>
   <string name="call_dialog_message">Sind Sie sicher?</string>
-  <string name="call_dialog_cancel">Nein</string>
+  <string name="call_dialog_cancel">Abbrechen</string>
   <string name="call_dialog_title">Nummer [number]</string>
   <string name="call_dialog_yes">Ja</string>
+  <string name="call_dialog_call">Anrufen</string>
   <string name="call_us">Rufen Sie uns an</string>
   <string name="product_carhire">product_carhire</string>
   <string name="product_checkin">product_checkin</string>

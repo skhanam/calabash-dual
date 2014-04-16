@@ -53,13 +53,20 @@ module ViewModule
 
   #Check if part of text is shown
   def check_partial_text_shown text
-    return element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}")
+    if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}") == true
+      flash("#{$g_query_txt}{text CONTAINS '#{text}'}") if ($g_flash)
+      return true
+    else
+      return false
+    end
   end
 
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
     begin
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
+        sleep 1
+        puts text
       end
     rescue
       return false

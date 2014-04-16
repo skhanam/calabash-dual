@@ -1,5 +1,17 @@
 class ChecklistPageUk < BasePage
 
+  def verify_checklist_page
+    $g_engChecklist.each do |var|
+      txt=escape_quotes(var["message"])
+      scroll_page_till_partial_text (txt[0..30])
+      #click_on_partial_text (txt[0..30])
+      #sleep 1
+      #scroll_page_and_assert_text txt
+      #click_on_text txt
+      #puts %Q(verified #{txt})
+    end
+  end
+
   def open_to_do_list
     assert_text_elements([@@my_packaging_list,
                           @@my_do_list])

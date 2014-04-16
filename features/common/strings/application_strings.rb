@@ -45,6 +45,7 @@ module AppStrings
       set_meine_tui_de_mt_strings
     elsif ($g_current_app=='EN_TH')
       set_thomson_strings
+      $g_ENG_USER_DETAILS=nil
     elsif ($g_nordics_app)
       set_nordics_strings
     end

@@ -103,22 +103,7 @@ NOR_SWE_USER||={
 
 #Thomson login and strings
 
-#require 'json'
-#surname="Martin"
-#departureDate="22-04-2015"
-#visionBookingRef="12347059"
-#visionShopNumber="9999"
-#public_key="4d4a745f-2047-44b1-9491-4c1e65af1b13"
-#url="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com/login"
-#brand="uk-thomson"
-#cmd=%Q(curl '#{url}' -H 'tui-public-key: #{public_key}' -H 'Origin: #{origin_url}' -H 'tui-brand: uk-thomson' -H 'Accept-Language: en-US,en;q=0.8' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundarycijTb11fJBEC0qJE' -H 'Accept: */*' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: 4bcc8b056a6cda510b103f2ff8f966e283969780' --data-binary $'------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="surname"\r\n\r\n#{surname}\r\n------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n#{departureDate}\r\n------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n#{visionShopNumber}\r\n------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n#{visionBookingRef}\r\n------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundarycijTb11fJBEC0qJE\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundarycijTb11fJBEC0qJE--\r\n' --compressed)
-#res=`#{cmd}`
-#JSON.parse(res)
-#
-#tui_auth_key=JSON.parse(res)["payload"]["auth"]
-#cmd=%Q(curl 'https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com/reservation/undefined/home' -H 'tui-public-key: 34021639-deb5-467b-b542-8e680512142d' -H 'Origin: http://37.46.24.155:8001' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-auth-key: #{tui_auth_key}' -H 'tui-brand: uk-thomson' -H 'tui-handshake: ff9151e530104b30391e1412376ff3b810be5967' --compressed)
-#res=`#{cmd}`
-#JSON.parse(res)
+
 #
 #
 #reservationCode="1Y30060"

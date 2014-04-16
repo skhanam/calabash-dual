@@ -20,19 +20,25 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@hotel_and_resort
     scroll_side_panel_and_assert @@destination
     scroll_side_panel_and_assert @@getting_to_the_airport
+    scroll_side_panel_and_assert @@holiday_extras
+    scroll_side_panel_and_assert @@app_feedback
     scroll_side_panel_and_assert @@travel_money
     scroll_side_panel_and_assert @@important_information
+    scroll_side_panel_and_assert @@app_feedback
     scroll_side_panel_and_assert @@side_panel_contact_us
+    check_sidepanel_based_on_bookings
     scroll_side_panel_and_assert @@logout
   end
 
   def check_sidepanel_based_on_bookings
-    #Holiday extras
-    #excursions
+
+    if($g_ENG_USER_DETAILS["payload"]["excursions"]["numberOfExcursions"].to_i > 0)
+      scroll_side_panel_and_assert @@excursions
+    end
   end
 
   def navigate_to_booking_summary_page
     scroll_side_panel(@@holiday_summary)
-    touch_txt_and_verify_title(@@holiday_summary, @@holiday_summary)
+    touch_txt_and_verify_title(@@holiday_summary, @@booking_summary_title)
   end
 end

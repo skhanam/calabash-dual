@@ -63,5 +63,5 @@ When(/^I navigate to insurance page using side menu$/) do
 end
 
 Then(/^I should see a list of products in (eng|nor) booking$/) do  |var|
-  @sidePanel.verify_elements_booking(var)
+  @sidePanel.verify_side_panel_strings
 end

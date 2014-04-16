@@ -66,11 +66,15 @@ module EN_ThomsonStrings
     @@hotel_and_resort=get_localized_string "hotel_and_resort" #"Hotel and resort"
     @@destination=get_localized_string "destination" #"Destination"
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
+    @@holiday_extras=get_localized_string "extras_title"
+    @@app_feedback=get_localized_string "app_feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
+    
+    @@excursions=get_localized_string "excursions"
   end
 
   def booking_summary_strings
