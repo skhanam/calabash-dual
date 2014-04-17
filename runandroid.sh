@@ -45,7 +45,7 @@ fi
 
 if [ "$1" == "clean" ] ; then
 	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
-    cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME --syncLang
+    cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME -l
     ti clean
 	ti build --platform android -b
 	cd -

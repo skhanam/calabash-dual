@@ -48,7 +48,7 @@ PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 
 if [ "$1" == "clean" ] ; then
 	echo "project name:"${PROJ_FOLDER}
-	cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME --syncLang;cd -
+	cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME -l;cd -
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
