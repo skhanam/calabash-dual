@@ -37,8 +37,5 @@ class SidePanelEng < SidePanel
     end
   end
 
-  def navigate_to_booking_summary_page
-    scroll_side_panel(@@holiday_summary)
-    touch_txt_and_verify_title(@@holiday_summary, @@booking_summary_title)
-  end
+
 end
