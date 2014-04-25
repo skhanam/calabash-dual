@@ -1,16 +1,10 @@
-@nor  @eng @sanity-eng
+@nor  @eng @sanity-eng @sanity-nor
 Feature: English Sanity Tests
 
   @reset  @wrong-login-nor
   Scenario: Verify error message for wrong login
     Given I submit wrong login details
     Then I see correct error messages on login screen
-
-  @reset @nor-login
-  Scenario: Login and Logout
-    Given I log into Application
-    When I log out from application
-    Then I see welcome screen
 
   @offcanvas-nor
   Scenario: Left off canvas Menu listing
