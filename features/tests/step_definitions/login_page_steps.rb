@@ -123,9 +123,9 @@ Given(/^I log into thomson application$/) do
 end
 
 Given(/^I log into nordics application$/) do
-  bookingNum = NOR_SWE_USER[:valid][:bookingnumber]
-  email = NOR_SWE_USER[:valid][:emailid]
-  telephone = NOR_SWE_USER[:valid][:telefon]
+  bookingNum = NOR_USER[:valid][:bookingnumber]
+  email = NOR_USER[:valid][:emailid]
+  telephone = NOR_USER[:valid][:telefon]
   nordics_login(bookingNum, email, telephone)
 end
 
@@ -264,11 +264,10 @@ Given(/^I submit wrong login details$/) do
     country=$g_user_details[:country]
     step "I log into the App using #{uname}, #{pwd} and #{country}"
   elsif ($g_nordics_app)
-    bookingNum = NOR_SWE_USER[:invalid][:bookingnumber]
-    email = NOR_SWE_USER[:invalid][:emailid]
-    telephone = NOR_SWE_USER[:invalid][:telefon]
+    bookingNum = NOR_USER[:invalid][:bookingnumber]
+    email = NOR_USER[:invalid][:emailid]
+    telephone = NOR_USER[:invalid][:telefon]
     nordics_login(bookingNum, email, telephone)
-    step "I select the Login button"
   else
     fail "TODO"
   end

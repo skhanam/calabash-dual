@@ -2,9 +2,9 @@
 <resources>
   <string name="postholiday_alert">Toivomme, että lomasi oli onnistunut! Voit jatkossakin käyttää Minun lomani –sovellusta. Saat vinkkejä uusista lomaelämyksistä, tai voit ottaa meihin yhteyttä edelliseen lomaasi liittyen.</string>
   <string name="postholiday_alert_title">Tervetuloa kotiin!</string>
-  <string name="postholiday_callcentre">postholiday_callcentre</string>
-  <string name="postholiday_callus">postholiday_callus</string>
-  <string name="postholiday_disclaimer">postholiday_disclaimer</string>
+  <string name="postholiday_callcentre">Puhelinpalvelu:</string>
+  <string name="postholiday_callus">0303 60 640</string>
+  <string name="postholiday_disclaimer">Puhelinoperaattori veloittaa matkapuhelimen käytöstä hinnoitteluperusteidensa mukaisesti</string>
   <string name="postholiday_emailus">myynti@finnmatkat.fi</string>
   <string name="postholiday_needhelp">Ota yhteyttä</string>
   <string name="postholiday_needhelp_sub">postholiday_needhelp_sub</string>
@@ -15,6 +15,13 @@
   <string name="postholiday_writetous">postholiday_writetous</string>
   <string name="postholiday_writetous_address">postholiday_writetous_address</string>
   <string name="postholiday_writetous_disclaimer">postholiday_writetous_disclaimer</string>
+  <string name="monday">Maanantai</string>
+  <string name="tuesday">tuesday</string>
+  <string name="wednesday">wednesday</string>
+  <string name="thursday">Torstai</string>
+  <string name="friday">Perjantai</string>
+  <string name="saturday">Lauantai</string>
+  <string name="sunday">Sunnuntai</string>
   <string name="tell_us_cta_new_tui_body">tell_us_cta_new_tui_body</string>
   <string name="tell_us_cta_new_tui_title">tell_us_cta_new_tui_title</string>
   <string name="tell_us_cta_with_tui_body">tell_us_cta_with_tui_body</string>
@@ -153,7 +160,10 @@
   <string name="welcome_login_booking_reference1_hint">welcome_login_booking_reference1_hint</string>
   <string name="welcome_login_booking_reference2_extra">welcome_login_booking_reference2_extra</string>
   <string name="welcome_login_booking_reference2_hint">welcome_login_booking_reference2_hint</string>
-  <string name="welcome_login_credential_error">Virheellinen varausnumero. Varausnumero on seitsemän merkkiä pitkä (kaksi kirjainta + viisi numeroa) ja esimerkiksi muotoa AJ01234 tai AH12345. </string>
+  <string name="welcome_login_credential_error">Emme löydä varaustasi. Tarkistathan vielä, että olet käyttänyt samoja tietoja kuin varausta tehdessäsi. Katso lisävinkkejä kohdasta ”Apua sisäänkirjautumisessa”.</string>
+  <string name="welcome_login_credential_failed_threetimes_title">welcome_login_credential_failed_threetimes_title</string>
+  <string name="welcome_login_credential_failed_threetimes_body">welcome_login_credential_failed_threetimes_body</string>
+  <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
   <string name="welcome_login_cta_login">Kirjaudu</string>
   <string name="welcome_login_departure_date">welcome_login_departure_date</string>
   <string name="welcome_login_departure_date_extra">welcome_login_departure_date_extra</string>
@@ -318,6 +328,11 @@
   <string name="contactus_terms">contactus_terms</string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
   <string name="contactus_title">contactus_title</string>
+  <string name="contactus_helptext">contactus_helptext</string>
+  <string name="contactus_cta_email">contactus_cta_email</string>
+  <string name="contactus_cta_phone">contactus_cta_phone</string>
+  <string name="contactus_cta_terms">contactus_cta_terms</string>
+  <string name="contactus_cta_privacy">contactus_cta_privacy</string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
   <string name="contactus_extra_text_1">Jos sinua askarruuttaa jokin seikka lomaasi liittyen, voit lähettää meille kysymyksesi jo ennen lomaasi ja tietysti myös lomasi aikana. Autamme mielellämme! Voit ottaa yhteyttä joko asiakaspalveluumme kotimaassa tai oppaisiimme lomakohteessa. </string>
@@ -327,7 +342,7 @@
   <string name="contactus_extra_text_2">Soita tai lähetä sähköpostia jos sinulla on kysyttävää matkavarauksestasi, lennoista tai hotellista, tai jos haluat varata lomallesi lisäpalveluita.</string>
   <string name="contactus_extra_text_3_subheading">contactus_extra_text_3_subheading</string>
   <string name="contactus_extra_text_3">contactus_extra_text_3</string>
-  <string name="dial_number">dial_number</string>
+  <string name="dial_number">Soita</string>
   <string name="disclaimer">disclaimer</string>
   <string name="send_sms">Lähetä tekstiviestinä</string>
   <string name="we_are_here_for_you">we_are_here_for_you</string>
@@ -548,6 +563,7 @@
   <string name="call_dialog_cancel">Keskeytä</string>
   <string name="call_dialog_title">Soita [number]</string>
   <string name="call_dialog_yes">Kyllä</string>
+  <string name="call_dialog_call">Soita</string>
   <string name="call_us">call_us</string>
   <string name="product_carhire">product_carhire</string>
   <string name="product_checkin">product_checkin</string>
@@ -657,14 +673,14 @@
   <string name="today">today</string>
   <string name="tomorrow">tomorrow</string>
   <string name="dont_forget_to">dont_forget_to</string>
+  <string name="email_impressum">email_impressum</string>
+  <string name="delete">delete</string>
   <string name="email_items">email_items</string>
   <string name="email_help_body">email_help_body</string>
   <string name="email_help_subject">email_help_subject</string>
   <string name="email_help_subject_booking">email_help_subject_booking</string>
   <string name="email_help_subject_hotel">email_help_subject_hotel</string>
   <string name="email_help_subject_registration">email_help_subject_registration</string>
-  <string name="email_impressum">email_impressum</string>
-  <string name="delete">delete</string>
   <string name="view">view</string>
   <string name="notification_no_internet_connection">Verkko ei ole juuri nyt saatavilla.</string>
   <string name="notification_page_last_updated">Sivu päivitetty viimeeksi [date] klo [time]</string>

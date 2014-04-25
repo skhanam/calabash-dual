@@ -34,9 +34,9 @@ THOMSON_USER||={
     }
 }
 
-NOR_SWE_USER||={
+NOR_USER||={
     :valid => {
-        :bookingnumber => "1Y30060",
+        :bookingnumber => "1Y30064",
         :emailid => "niclas.westling@fritidsresor.se",
         :telefon => "0722177937",
     },

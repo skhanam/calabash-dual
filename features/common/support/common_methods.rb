@@ -46,17 +46,23 @@ class CommonMethods < BasePage
 
   #Avoid calling this method directly
   def get_user_details(url)
-    username=USERS[:valid][:username]
-    password=USERS[:valid][:password]
-    query_url=url||'http://37.46.24.155:3000/reservations'
-    server_url="http://37.46.24.155:3000/login"
-    res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
 
-    m=res1.match('(PHP(.*)path=\/)')
-    res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
-    parsed=JSON.parse(res)
-    return parsed
+    if ENV['LANG']=='de'
+      username=USERS[:valid][:username]
+      password=USERS[:valid][:password]
+      query_url=url||'http://37.46.24.155:3000/reservations'
+      server_url="http://37.46.24.155:3000/login"
+      res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
+
+      m=res1.match('(PHP(.*)path=\/)')
+      res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
+      parsed=JSON.parse(res)
+      return parsed
+    else
+      fail("Language not recognized")
+    end
   end
+
 
   #specify the booking type and this method will return hash of booking details
   def get_booking_details(booking_type)

@@ -6,4 +6,9 @@ class SidePanel < BasePage
     touch_txt_and_verify_title(@@side_panel_contact_us, @@side_panel_contact_us)
     wait_for_text @@side_panel_contact_us
   end
+
+  def navigate_to_booking_summary_page
+    scroll_side_panel(@@holiday_summary)
+    touch_txt_and_verify_title(@@holiday_summary, @@booking_summary_title)
+  end
 end

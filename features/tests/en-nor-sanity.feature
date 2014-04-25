@@ -2,12 +2,11 @@
 Feature: English Sanity Tests
 
   @reset  @wrong-login-nor
-  Scenario: Verify error message for wrong login
+  Scenario: Login and Logout
     Given I submit wrong login details
     Then I see correct error messages on login screen
 
   @reset @nor-login
-
   Scenario: Login and Logout
     Given I log into Application
     When I log out from application
@@ -19,7 +18,7 @@ Feature: English Sanity Tests
     Given I have opened side menu
     Then I should see a list of products in booking
 
-  @booking-nor1
+ @booking-nor1
   Scenario: navigate to booking summary page
     Given I am on Home screen
     When I navigate to booking summary page using side menu
@@ -41,15 +40,3 @@ Feature: English Sanity Tests
     Given I am on weather page
     Then I see holiday weather page
     And I should weather forecast for five sequential days
-
-  @countdown2
-  Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Then I navigate to countdown page using countdown biscuit
-    Then I verify number of days left to travel
-
-  @countdown3
-  Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Then I verify number of days to go on home page
-

@@ -2,9 +2,9 @@
 <resources>
   <string name="postholiday_alert">Vi håper du har hatt en fin ferie! Du kan fortsatt bruke appen Min Ferie for å få tips om nye reiseopplevelser eller kontakte oss om reisen du har vært på.</string>
   <string name="postholiday_alert_title">Velkommen hjem!</string>
-  <string name="postholiday_callcentre">postholiday_callcentre</string>
-  <string name="postholiday_callus">postholiday_callus</string>
-  <string name="postholiday_disclaimer">postholiday_disclaimer</string>
+  <string name="postholiday_callcentre">Åpningstider:</string>
+  <string name="postholiday_callus">8100</string>
+  <string name="postholiday_disclaimer">Prisen avhenger av din teleoperatør</string>
   <string name="postholiday_emailus">kundeservice@startour.no</string>
   <string name="postholiday_needhelp">Kontakt oss</string>
   <string name="postholiday_needhelp_sub">postholiday_needhelp_sub</string>
@@ -15,6 +15,13 @@
   <string name="postholiday_writetous">postholiday_writetous</string>
   <string name="postholiday_writetous_address">postholiday_writetous_address</string>
   <string name="postholiday_writetous_disclaimer">postholiday_writetous_disclaimer</string>
+  <string name="monday">Mandag</string>
+  <string name="tuesday">tuesday</string>
+  <string name="wednesday">wednesday</string>
+  <string name="thursday">Torsdag</string>
+  <string name="friday">Fredag</string>
+  <string name="saturday">Lørdag</string>
+  <string name="sunday">Søndag</string>
   <string name="tell_us_cta_new_tui_body">tell_us_cta_new_tui_body</string>
   <string name="tell_us_cta_new_tui_title">tell_us_cta_new_tui_title</string>
   <string name="tell_us_cta_with_tui_body">tell_us_cta_with_tui_body</string>
@@ -154,7 +161,10 @@
   <string name="welcome_login_booking_reference1_hint">welcome_login_booking_reference1_hint</string>
   <string name="welcome_login_booking_reference2_extra">welcome_login_booking_reference2_extra</string>
   <string name="welcome_login_booking_reference2_hint">welcome_login_booking_reference2_hint</string>
-  <string name="welcome_login_credential_error">Feil bestillingsnummer. Kontroller at nummeret er skrevet riktig og inneholder 7 tegn. Versjonsnummer (f.eks -01) skal ikke oppgis.</string>
+  <string name="welcome_login_credential_error">Vi finner ikke din bestilling. Vennligst sjekk at du har oppgitt samme opplysninger som du oppga når du bestilte reisen. Klikk på hjelp nedenfor for flere tips.</string>
+  <string name="welcome_login_credential_failed_threetimes_title">welcome_login_credential_failed_threetimes_title</string>
+  <string name="welcome_login_credential_failed_threetimes_body">welcome_login_credential_failed_threetimes_body</string>
+  <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
   <string name="welcome_login_cta_login">Logg inn</string>
   <string name="welcome_login_departure_date">welcome_login_departure_date</string>
   <string name="welcome_login_departure_date_extra">welcome_login_departure_date_extra</string>
@@ -321,6 +331,11 @@ when] klokken [time] fra [airport]? </string>
   <string name="contactus_terms">contactus_terms</string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
   <string name="contactus_title">contactus_title</string>
+  <string name="contactus_helptext">contactus_helptext</string>
+  <string name="contactus_cta_email">contactus_cta_email</string>
+  <string name="contactus_cta_phone">contactus_cta_phone</string>
+  <string name="contactus_cta_terms">contactus_cta_terms</string>
+  <string name="contactus_cta_privacy">contactus_cta_privacy</string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
   <string name="contactus_extra_text_1">Vi hjelper deg gjerne med store og små spørsmål, både før og under ferien. Avhengig av hva det gjelder og når du skal reise, så kan du velge å kontakte kundeservice her hjemme eller guider på reisemålet. </string>
@@ -330,7 +345,7 @@ when] klokken [time] fra [airport]? </string>
   <string name="contactus_extra_text_2">Ring eller send en mail om du har spørsmål om din bestilling, eller ønsker å oppgradere ferien. </string>
   <string name="contactus_extra_text_3_subheading">contactus_extra_text_3_subheading</string>
   <string name="contactus_extra_text_3">contactus_extra_text_3</string>
-  <string name="dial_number">dial_number</string>
+  <string name="dial_number">Ring</string>
   <string name="disclaimer">disclaimer</string>
   <string name="send_sms">Send sms</string>
   <string name="we_are_here_for_you">we_are_here_for_you</string>
@@ -341,9 +356,7 @@ when] klokken [time] fra [airport]? </string>
   <string name="guide_online_important">Viktige</string>
   <string name="guide_online_transfers">Transport</string>
   <string name="guide_online_welcome">Få raskt svar fra eksperter på stedet</string>
-  <string name="guide_online_welcome_blurb">Her kommer du enkelt i
-direktekontakt med guidene
-på ditt reisemål. Du vil motta en velkomstmelding ca to uker før avreise.                                   </string>
+  <string name="guide_online_welcome_blurb">Her kommer du enkelt i direktekontakt med guidene på ditt reisemål. Du vil motta en velkomstmelding ca to uker før avreise.                </string>
   <string name="guide_online_respond_in_resort">Mellom klokken 8–20 svarer vi innen</string>
   <string name="guide_online_respond_in_resort_time">1 time</string>
   <string name="guide_online_respond_pre_dep">Når du sender spørsmål, svarer vi innen</string>
@@ -554,6 +567,7 @@ du kobler deg til nettet</string>
   <string name="call_dialog_cancel">Avbryt </string>
   <string name="call_dialog_title">Ring [number]</string>
   <string name="call_dialog_yes">Ja</string>
+  <string name="call_dialog_call">Ring</string>
   <string name="call_us">call_us</string>
   <string name="product_carhire">product_carhire</string>
   <string name="product_checkin">product_checkin</string>
@@ -663,14 +677,14 @@ du kobler deg til nettet</string>
   <string name="today">I dag</string>
   <string name="tomorrow">I morgen</string>
   <string name="dont_forget_to">dont_forget_to</string>
+  <string name="email_impressum">email_impressum</string>
+  <string name="delete">delete</string>
   <string name="email_items">email_items</string>
   <string name="email_help_body">email_help_body</string>
   <string name="email_help_subject">email_help_subject</string>
   <string name="email_help_subject_booking">email_help_subject_booking</string>
   <string name="email_help_subject_hotel">email_help_subject_hotel</string>
   <string name="email_help_subject_registration">email_help_subject_registration</string>
-  <string name="email_impressum">email_impressum</string>
-  <string name="delete">delete</string>
   <string name="view">view</string>
   <string name="notification_no_internet_connection">FINNER INGET NETTVERK</string>
   <string name="notification_page_last_updated">Sist oppdatert [date] kl [time]</string>

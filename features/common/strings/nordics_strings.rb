@@ -8,6 +8,7 @@ module NordicsStrings
     side_panel_strings
     booking_summary_strings
     weather_page_strings
+    contact_us_strings
   end
 
   def login_page_strings
@@ -77,6 +78,24 @@ module NordicsStrings
     @@bookingSummary_flightsNotReadyText=get_localized_string "bookingSummary_flightsNotReadyText" #"Your flights are confirmed six weeks before you depart. When they’re ready, we’ll display your full flight details here."
     @@bookingSummary_emailDescription=get_localized_string "bookingSummary_emailDescription" #"Send your full holiday summary to yourself or other passengers."
     @@bookingSummary_emailTitle=get_localized_string "bookingSummary_emailTitle" #"Email my booking details"
+  end
+
+  def contact_us_strings
+    @@contact_us_contact_title=get_localized_string "contactus_navbar" #"Contact us"
+    @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
+    @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
+    @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"
+    @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
+    @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
+    @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
+    @@contact_us_shop_opening_times="Shop opening times: "
+    @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
+    @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
+    @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
+    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
+    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
+    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
+
   end
 end
 
