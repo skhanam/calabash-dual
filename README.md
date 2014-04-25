@@ -1,3 +1,17 @@
+
+
+
+Install Appcelerator
+===============
+Open - http://developer.appcelerator.com and log on to appcelerator.com
+On top right corner find download appcelerator studio link and download appcelerator studio
+Complete installation
+
+Check out code
+===============
+Download application source code from stash - https://stash.akqa.net/scm/lontui/tda.git
+Download calabash test source code from stash - https://stash.akqa.net/scm/lontui/tda.ui-automation.git
+
 Folder structure
 ===============
 

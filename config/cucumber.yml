@@ -2,8 +2,8 @@
 
 <% common_path = "-r features/common/support -r features/common/strings -r features/tests/step_definitions -r features/BasePages/Default" %>
 
-<% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios -f junit -o features/report/junit -f json -o features/report/report.json" %>
-<% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android -f junit -o features/report/junit -f json -o features/report/report.json " %>
+<% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios -f json -o features/report/report.json" %>
+<% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android -f json -o features/report/report.json " %>
 
 <% ios_specific_path = " -r features/ios/support -r features/ios/helpers " %>
 <% android_specific_path = "-r features/android/support -r features/android/helpers" %>
