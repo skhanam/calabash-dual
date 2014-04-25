@@ -16,8 +16,8 @@
   <string name="postholiday_writetous_address">postholiday_writetous_address</string>
   <string name="postholiday_writetous_disclaimer">postholiday_writetous_disclaimer</string>
   <string name="monday">Mandag</string>
-  <string name="tuesday">tuesday</string>
-  <string name="wednesday">wednesday</string>
+  <string name="tuesday">Tirsdag</string>
+  <string name="wednesday">Onsdag</string>
   <string name="thursday">Torsdag</string>
   <string name="friday">Fredag</string>
   <string name="saturday">Lørdag</string>
@@ -162,7 +162,7 @@
   <string name="welcome_login_booking_reference2_hint">welcome_login_booking_reference2_hint</string>
   <string name="welcome_login_credential_error">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp med log ind” nedenfor.</string>
   <string name="welcome_login_credential_failed_threetimes_title">welcome_login_credential_failed_threetimes_title</string>
-  <string name="welcome_login_credential_failed_threetimes_body">welcome_login_credential_failed_threetimes_body</string>
+  <string name="welcome_login_credential_failed_threetimes_body">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp med log ind” nedenfor.</string>
   <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
   <string name="welcome_login_cta_login">Log ind</string>
   <string name="welcome_login_departure_date">welcome_login_departure_date</string>
@@ -331,10 +331,10 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
   <string name="contactus_title">contactus_title</string>
   <string name="contactus_helptext">contactus_helptext</string>
-  <string name="contactus_cta_email">contactus_cta_email</string>
-  <string name="contactus_cta_phone">contactus_cta_phone</string>
-  <string name="contactus_cta_terms">contactus_cta_terms</string>
-  <string name="contactus_cta_privacy">contactus_cta_privacy</string>
+  <string name="contactus_cta_email">info@startour.dk</string>
+  <string name="contactus_cta_phone">70 10 10 50</string>
+  <string name="contactus_cta_terms">Rejsevilkår</string>
+  <string name="contactus_cta_privacy">Integritet &amp; sikkerhed </string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
   <string name="contactus_extra_text_1">Vi hjælper gerne til med spørgsmål om stort og småt, både før og i ferien. Afhængig af, hvad det drejer sig om, og hvor tæt du er på afrejsen, kan du vælge at kontakte vores salgskonsulenter herhjemme eller guiderne på dit rejsemål.</string>
@@ -361,8 +361,8 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_online_respond_pre_dep">Når du har sendt et spørgsmål, svarer vi indenfor </string>
   <string name="guide_online_respond_pre_dep_time">24 timer</string>
   <string name="guide_online_sent_just_now">Netop nu</string>
-  <string name="guide_online_sent_min_ago">Sendt for [mins] minut siden</string>
-  <string name="guide_online_sent_mins_ago">Sendt for [mins] minutter siden</string>
+  <string name="guide_online_sent_min_ago">Sendt [hhmm] i dag</string>
+  <string name="guide_online_sent_mins_ago">Sendt [hhmm] i dag</string>
   <string name="guide_online_sent_today">Sendt [hhmm] i dag</string>
   <string name="guide_online_sent_on_day">Sendt [hhmm] den [date]</string>
   <string name="guide_online_currently_offline">Lige nu er der intet netværk</string>
@@ -541,7 +541,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="overview">overview</string>
   <string name="period_of_travel">period_of_travel</string>
   <string name="rooms">rooms</string>
-  <string name="share_my_accomodation">share_my_accomodation</string>
+  <string name="share_my_accomodation">Del med andre</string>
   <string name="address">address</string>
   <string name="availability_from">availability_from</string>
   <string name="awards">awards</string>
@@ -783,10 +783,12 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="feedback_navbar_title">feedback_navbar_title</string>
   <string name="feedback_message_title_positive">feedback_message_title_positive</string>
   <string name="feedback_message_title_negative">feedback_message_title_negative</string>
+  <string name="feedback_message_you_rated_the_app">feedback_message_you_rated_the_app</string>
   <string name="feedback_message_positive">feedback_message_positive</string>
   <string name="feedback_message_negative">feedback_message_negative</string>
   <string name="feedback_email_us_button">feedback_email_us_button</string>
   <string name="feedback_rate_us_on_app_store_button">feedback_rate_us_on_app_store_button</string>
+  <string name="feedback_rate_again_button">feedback_rate_again_button</string>
   <string name="feedback_email_subject">feedback_email_subject</string>
   <string name="feedback_email_body">feedback_email_body</string>
   <string name="feedback_email_to_address">feedback_email_to_address</string>

@@ -3,16 +3,20 @@
 <% common_path = "-r features/common/support -r features/common/strings -r features/tests/step_definitions -r features/BasePages/Default" %>
 
 <% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios -f html -o ios-report.html  -f junit -o features/report/junit -f json -o features/report/report.json" %>
-<% ios_specific_path = " -r features/ios/support -r features/ios/helpers " %>
-<% de_mt_ios_specific_path = "TESTENV=DE_MT -r features/ios/pages/de -r features/BasePages/de" %>
-<% uk_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/pages/uk -r features/BasePages/uk" %>
-<% nor_ios_specific_path = "TESTENV=NOR -r features/ios/pages/nor -r features/BasePages/nor" %>
-
-<% android_specific_path = "-r features/android/support -r features/android/helpers" %>
-<% uk_tm_android_specific_path = "TESTENV=EN_TH -r features/android/pages/uk -r features/BasePages/uk" %>
-<% de_mt_android_specific_path = "TESTENV=DE_MT -r features/android/pages/de -r features/BasePages/de" %>
-<% nor_android_specific_path = "TESTENV=NOR -r features/android/pages/nor" %>
 <% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android  -f html -o android-report.html -f junit -o features/report/junit -f json -o features/report/report.json " %>
+
+<% ios_specific_path = " -r features/ios/support -r features/ios/helpers " %>
+<% android_specific_path = "-r features/android/support -r features/android/helpers" %>
+
+<% de_mt_ios_specific_path = "TESTENV=DE_MT -r features/ios/pages/de -r features/BasePages/de" %>
+<% de_mt_android_specific_path = "TESTENV=DE_MT -r features/android/pages/de -r features/BasePages/de" %>
+
+<% uk_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/pages/uk -r features/BasePages/uk" %>
+<% uk_tm_android_specific_path = "TESTENV=EN_TH -r features/android/pages/uk -r features/BasePages/uk" %>
+
+<% nor_ios_specific_path = "TESTENV=NOR -r features/ios/pages/nor -r features/BasePages/nor" %>
+<% nor_android_specific_path = "TESTENV=NOR -r features/android/pages/nor -r features/BasePages/nor" %>
+
 
 #DEBUG=1 CALABASH_FULL_CONSOLE_OUTPUT=1
 de_mt_ios:   <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= de_mt_ios_specific_path %>
@@ -24,5 +28,6 @@ de_mt_android:  <%= common_settings_android %> <%= common_path %>  <%= android_s
 
 uk_th_ios: <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= uk_tm_ios_specific_path %>
 uk_th_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= uk_tm_android_specific_path %>
+
 nor_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= nor_android_specific_path %>
-nor_ios: <%= common_settings_ios %> <%= nor_ios_specific_path %> <%= common_path %>  <%= ios_specific_path %>
+nor_ios: <%= common_settings_ios %>  <%= common_path %>  <%= ios_specific_path %> <%= nor_ios_specific_path %>

@@ -14,3 +14,21 @@ end
 Then(/^I see currency pairs should swap places$/) do
   @currencyConvPage.check_currency_swapped
 end
+
+When(/^I navigate to currency page from travel money page$/) do
+  step "I navigate to travel money page from home screen"
+  @travelMoneyPage.navigate_to_currency_page
+end
+
+Then(/^I verify currency page$/) do
+  @travelMoneyPage.verify_travel_money_currency_page
+end
+
+When(/^I navigate to money on card page from travel money page$/) do
+  step "I navigate to travel money page from home screen"
+  @travelMoneyPage.navigate_to_money_on_card
+end
+
+Then(/^I verify money on card page$/) do
+  @travelMoneyPage.verify_money_on_card_page
+end

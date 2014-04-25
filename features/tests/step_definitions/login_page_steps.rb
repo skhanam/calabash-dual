@@ -80,19 +80,31 @@ end
 
 
 def nordics_login(bookingNum, email, telephone)
-  step "I clear input field number 1"
-  step 'I enter "'+bookingNum+'" into input field number 1'
-  touch("toolbarTextButton index:1")
-  sleep 1
-  step "I clear input field number 2"
-  step 'I enter "'+email+'" into input field number 2'
-  touch("toolbarTextButton index:1")
-  sleep 1
-  #step "I clear input field number 3"
-  #step 'I enter "'+telephone+'" into input field number 3'
-  #touch("toolbarTextButton index:1")
-  #sleep 1
+  if $g_ios
+    step "I clear input field number 1"
+    step 'I enter "'+bookingNum+'" into input field number 1'
+    touch("toolbarTextButton index:1")
+    sleep 1
+    step "I clear input field number 2"
+    step 'I enter "'+email+'" into input field number 2'
+    touch("toolbarTextButton index:1")
+    sleep 1
 
+  elsif $g_android
+       performAction('clear_numbered_field', 2)
+    performAction('clear_numbered_field', 4)
+    performAction('clear_numbered_field', 6)
+
+    touch("* marked:'bookingReference.'")
+    @page.enter_text_android(bookingNum)
+
+    touch("* marked:'emailid.'")
+    @page.enter_text_android(email)
+
+
+    @loginPage.scroll_to_end_of_page
+
+  end
 end
 
 Given(/^I log into Application/) do
@@ -112,10 +124,10 @@ end
 
 
 Given(/^I log into thomson application$/) do
-  surname=THOMSON_USER[:valid][:surname]
-  departureDate=THOMSON_USER[:valid][:departuredate]
-  visionShopNumber=THOMSON_USER[:valid][:VisionShopNumber]
-  visionBookingRef=THOMSON_USER[:valid][:VisionBookingRef]
+  surname=$g_current_user_details[:valid][:surname]
+  departureDate=$g_current_user_details[:valid][:departuredate]
+  visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
+  visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
 
   thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
@@ -207,7 +219,7 @@ end
 And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condition|
 
   if condition.eql? 'invalid'
-    @invalid_username = USERS[:invalid][:email]
+    @invalid_username = $g_current_user_details[:invalid][:email]
     if $g_ios
       step "I clear input field number 1"
       step 'I enter "'+@invalid_username+'" into input field number 1'
@@ -253,10 +265,10 @@ Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
   if ($g_current_app=='EN_TH')
-    surname=THOMSON_USER[:invalid][:surname]
-    departureDate=THOMSON_USER[:invalid][:departuredate]
-    visionShopNumber=THOMSON_USER[:invalid][:VisionShopNumber]
-    visionBookingRef=THOMSON_USER[:invalid][:VisionBookingRef]
+    surname=$g_current_user_details[:invalid][:surname]
+    departureDate=$g_current_user_details[:invalid][:departuredate]
+    visionShopNumber=$g_current_user_details[:invalid][:VisionShopNumber]
+    visionBookingRef=$g_current_user_details[:invalid][:VisionBookingRef]
     thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   elsif ($g_current_app=='DE_MT')
     uname=$g_user_details[:username]

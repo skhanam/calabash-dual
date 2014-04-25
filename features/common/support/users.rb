@@ -1,4 +1,4 @@
-USERS||= {
+DE_USER||= {
     :valid => {
         :firstname => "Peter",
         :lastname => "Pan",
@@ -24,7 +24,8 @@ THOMSON_USER||={
         :surname => "martin",
         :departuredate => "22-04-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12347059"
+        :VisionBookingRef => "12347813",
+        :DepartureTime => "09:20"
     },
     :invalid => {
         :surname => "martin",

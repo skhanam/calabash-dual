@@ -1,79 +1,50 @@
-class CurrencyConverterBasePage < BasePage
+class TravelMoneyBasePage < BasePage
 
-  def check_currency_screen_title
-    verify_page_title(@@currency_converter_title)
+  def verify_travel_money_page
+    assert_wait_for_text @@currency_title1
+    assert_text_present @@currency_subTitle1
+    assert_text_present @@currency_title2
+    assert_text_present @@currency_subTitle2
+    assert_text_present @@currency_title3
+    subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
+    assert_wait_for_text subtitle3
   end
 
-  def check_currency_page
-    check_currency_screen_title
-  end
+  def verify_travel_money_currency_page
+    assert_text_present @@foreigncurrency_detail_nav_title
 
-  def enter_currency_and_verify(arg)
-    delete_entries
-    arr= split_to_digits arg.to_i
-    arr.each do |var|
-      enter_digit_keys(var)
-      sleep 0.25
-    end
-    sleep 1
+    assert_text_present @@foreigncurrency_detail_title
+    assert_text_present @@foreigncurrency_detail_intro
 
-    @from_cur_val_from_screen=query("* marked:'currencyFrom.' *", :text)[2] if $g_android
-    @from_cur_val_from_screen=query("view marked:'currencyFrom' label", :text)[1] if $g_ios
-
-    puts "@from_cur_val_from_screen #{@from_cur_val_from_screen}"
-    fail("#{@@currency_hash["fromcode"]} #{arg} not found") if @from_cur_val_from_screen!=arg.to_s
-    puts "1 #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
-    wait_for_text "1 #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
-
-  end
-
-  def select_currency_swap_icon
-
-    if $g_ios
-      @from_cur_symbol_from_screen=query("view marked:'currencyFrom' label", :text).first
-      @to_cur_symbol_from_screen=query("view marked:'currencyTo' label", :text).first
-      @from_cur_val_from_screen=query("view marked:'currencyFrom' label", :text)[1]
-      @to_cur_val_from_screen=query("view marked:'currencyTo' label", :text)[1]
-
-    elsif $g_android
-      @from_cur_symbol_from_screen=query("* marked:'currencyFrom.' *", :text)[1]
-      @to_cur_symbol_from_screen=query("* marked:'currencyTo.' *", :text)[3]
-      @from_cur_val_from_screen=query("* marked:'currencyFrom.' *", :text)[2]
-      @to_cur_val_from_screen=query("* marked:'currencyTo.' *", :text)[4]
+    @@foreigncurrency_detail_reasons.split('::').each do |var|
+      assert_text_present var
     end
 
+    assert_text_present @@foreigncurrency_detail_rate_title
+    scroll_page_till_partial_text @@foreigncurrency_detail_rate_date
 
-    @xchange_rate=@from_cur_val_from_screen.to_f/@to_cur_val_from_screen.to_f
-    sleep 2
-    click_accessibility_label "currencySwap"
-    sleep 2
+    scroll_page_and_assert_text @@foreigncurrency_detail_book_online
+    scroll_page_and_assert_text @@foreigncurrency_detail_find_shop
   end
 
-  #Read currency and symbol before and after swap and compare them
-  def check_currency_swapped
-    sleep 1
-    if $g_ios
-      @from_cur_symbol_after_swap=query("view marked:'currencyFrom' label", :text).first
-      @to_cur_symbol_after_swap=query("view marked:'currencyTo' label", :text).first
-      @from_cur_val_after_swap=query("view marked:'currencyFrom' label", :text)[1]
-      @to_cur_val_after_swap=query("view marked:'currencyTo' label", :text)[1]
-
-    elsif $g_android
-      @from_cur_symbol_after_swap=query("* contentDescription:'currencyFrom.' *", :text)[1]
-      @to_cur_symbol_after_swap=query("* contentDescription:'currencyTo.' *", :text)[3]
-      @from_cur_val_after_swap=query("* contentDescription:'currencyFrom.' *", :text)[2]
-      @to_cur_val_after_swap=query("* contentDescription:'currencyTo.' *", :text)[4]
-    end
-
-    fail("currency not swapped") if @from_cur_symbol_from_screen!=@to_cur_symbol_after_swap
-    fail("currency not swapped") if @to_cur_symbol_from_screen!=@from_cur_symbol_after_swap
-
-    #Check values (from currency values remains same)
-    fail("from currency value wrong") if @from_cur_val_from_screen!=@from_cur_val_after_swap
-
-    str="1 #{@from_cur_symbol_after_swap} = "
-    fail("#{str} not shown") if wait_for_partial_text_shown(str)!=true
-
+  def navigate_to_currency_page
+    touch_txt_and_verify_title(@@currency_title1, @@foreigncurrency_detail_nav_title)
   end
 
+  def navigate_to_money_on_card
+    touch_txt_and_verify_title(@@currency_title2, @@money_on_card)
+  end
+
+  def verify_money_on_card_page
+    assert_wait_for_text @@travel_money_card_benefits
+    assert_text_present @@travel_money_card_benefits1
+    assert_text_present @@travel_money_card_benefits2
+    assert_text_present @@travel_money_card_benefits3
+
+    assert_text_present @@foreigncurrency_detail_rate_title
+    scroll_page_till_partial_text @@foreigncurrency_detail_rate_date
+
+    scroll_page_and_assert_text @@foreigncurrency_detail_book_online
+    scroll_page_and_assert_text @@foreigncurrency_detail_find_shop
+  end
 end

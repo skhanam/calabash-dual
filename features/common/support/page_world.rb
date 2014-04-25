@@ -1,11 +1,15 @@
 module TestModule
   def initialize_all
+    puts $g_current_app
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new
     @bookingSummaryPage ||=BookingSummaryPage.new
     @weatherPage ||= WeatherBasePage.new
     @commonMethods ||=CommonMethods.new
+    @holidayCountDownPage ||= HolidayCountDownPage.new
+    @countDownPage ||=CountDownBasePage.new
+    @travelMoneyPage=TravelMoneyBasePage.new
 
 
     if ($g_current_app=='DE_MT')
@@ -22,13 +26,11 @@ module TestModule
       @tuiServicePage ||= TuiServiceOnsitePage.new
       @termsPage ||= TermsAndConditionsBasePage.new
       @new_to_tui_page ||=NewTOTUIBasePage.new
-      @countDownPage ||=CountDownBasePage.new
       @mytouristGuidePage ||=MyTouristGuideBasePage.new
       @mytravelAgentPage ||=MyTravelAgentBasePage.new
       @hotelPage ||=HotelBasePage.new
       @flightsPage ||=FlightsBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
-      @holidayCountDownPage ||= HolidayCountDownPage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif ($g_current_app== 'EN_TH')
       @homePage ||= HomePage.new

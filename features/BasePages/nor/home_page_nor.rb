@@ -14,8 +14,10 @@ class HomePageNOR < HomeBasePage
   end
 
   def click_booking_summary_biscuit
-    scroll_page_and_assert_text("booking_summary", "down")
+    scroll_page_till_acc "booking_summary"
     click_accessibility_label "booking_summary"
+    touch($g_query_txt+"marked:'booking_summary' text:'#{@@holiday_summary}'") if $g_ios
+    touch($g_query_txt+"marked:'booking_summary.' text:'#{@@holiday_summary}'") if $g_android
     verify_page_title @@booking_summary_title
   end
 end

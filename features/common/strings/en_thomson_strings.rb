@@ -15,6 +15,7 @@ module EN_ThomsonStrings
     contact_us_strings
     weather_page_strings
     test_data
+    travel_money_strings
   end
 
   #All test data for different appication is in here
@@ -47,10 +48,37 @@ module EN_ThomsonStrings
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
 
+  def travel_money_strings
+    @@currency_title1='Currency'
+    @@currency_subTitle1='0% commission on your holiday money'
+    @@currency_title2='Travel Money Card'
+    @@currency_subTitle2='Carry your cash on a prepaid card'
+    @@currency_title3='Currency converter'
+
+    #Currency page
+    @@foreigncurrency_detail_nav_title= get_localized_string "foreigncurrency_detail_nav_title" #Currency
+
+    @@foreigncurrency_detail_title= get_localized_string "foreigncurrency_detail_title" #Cash in your pocket
+    @@foreigncurrency_detail_intro= get_localized_string "foreigncurrency_detail_intro" #Pop in to your local Thomson travel shop to get 0% commission on all foreign currency, along with:
+    @@foreigncurrency_detail_reasons= get_localized_string "foreigncurrency_detail_reasons" #Competitive rates::No last-minute airport prices::A range of currencies and travellers' cheques
+
+    @@foreigncurrency_detail_rate_title= get_localized_string "foreigncurrency_detail_rate_title" #Most recent rate:
+    @@foreigncurrency_detail_rate_date= "Updated at"
+
+    @@foreigncurrency_detail_book_online= get_localized_string "foreigncurrency_detail_book_online" #Book Online
+    @@foreigncurrency_detail_find_shop= get_localized_string "foreigncurrency_detail_find_shop" #Find a shop
+
+    @@money_on_card=get_localized_string "travel_money_card"
+    @@travel_money_card_benefits= "Get a Thomson Prepaid Travel Money MasterCard® at your local Thomson travel shop to enjoy these great benefits:"
+    @@travel_money_card_benefits1= "Free to use in shops and restaurants"
+    @@travel_money_card_benefits2 = "A convenient way of taking your money abroad"
+    @@travel_money_card_benefits3 = "Can be reloaded again and again"
+  end
 
   def home_page_strings
     @@home_page_loading=get_localized_string "hold_on_booking"
     @@home_page_booking_summary=get_localized_string "booking_summary"
+    @@home_page_days_to_go= get_localized_string "days_to_go"
   end
 
   def side_panel_strings
@@ -73,7 +101,7 @@ module EN_ThomsonStrings
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@logout=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
-    
+
     @@excursions=get_localized_string "excursions"
   end
 

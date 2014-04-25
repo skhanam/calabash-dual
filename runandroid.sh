@@ -19,8 +19,8 @@ if [ "$#" -le "3" ]; then
 	exit
 fi
 
-sh start_device.sh
-export LC_CTYPE=en_US.UTF-8
+#sh start_device.sh
+
 if [ -z "$2" ] ; then
 echo "Tags not specified using @failed"
 exit
@@ -41,22 +41,31 @@ elif [ $TI_SCHEME == "uk_th" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=uk_th_android
 	TI_SCHEME=thomson
+elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
+	TI_SCHEME="nordics"
+	APK_NAME="MinFerie.apk"
+	CUCUMBER_PROFILE=nor_android
 fi
 
-if [ "$1" == "clean" ] ; then
-	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
-    cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME -l
-    ti clean
-	ti build --platform android -b
-	cd -
-	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
-	cp -r $PROJ_FOLDER/i18n/* features/test_data/
-fi
+if [ $1 == "install" ] || [ $1 == "clean" ] ; then
+
+	if [ "$1" == "clean" ] ; then
+		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
+   		cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME -l
+    	ti clean
+		ti build --platform android -b
+		cd -
+		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
+		cp -r $PROJ_FOLDER/i18n/* features/test_data/
+	fi
 
 rm -rf test_servers/
 calabash-android resign app.apk
 calabash-android build app.apk
 adb install -r app.apk
 adb install -r test_servers/*.apk
-echo calabash-android  run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
+
+fi
+
+echo LANG=$3 bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
 LANG=$3 bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test

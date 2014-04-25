@@ -48,8 +48,8 @@ class CommonMethods < BasePage
   def get_user_details(url)
 
     if ENV['LANG']=='de'
-      username=USERS[:valid][:username]
-      password=USERS[:valid][:password]
+      username=$g_current_user_details[:valid][:username]
+      password=$g_current_user_details[:valid][:password]
       query_url=url||'http://37.46.24.155:3000/reservations'
       server_url="http://37.46.24.155:3000/login"
       res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
@@ -150,7 +150,15 @@ class CommonMethods < BasePage
   end
 
   def get_countdown_days(val=$g_current_booking)
-    (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    puts $g_current_app
+    if $g_current_app=="DE_MT"
+      return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    else
+      date_string = $g_current_user_details[:valid][:departuredate]
+      days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
+      puts "days_left #{days_left}"
+      return days_left
+    end
   end
 
   def find_products_in_booking(product)

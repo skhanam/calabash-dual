@@ -788,7 +788,7 @@
   <string name="feedback_email_subject">Feedback zur meine TUI App</string>
   <string name="feedback_email_body">Wir freuen uns über Ihre Meinung. Was können wir besser machen? Was gefällt Ihnen gut?</string>
   <string name="feedback_email_to_address">info@crm.de</string>
-  <string name="feedback_home_screen_message_prompt">feedback_home_screen_message_prompt</string>
-  <string name="feedback_home_screen_button_prompt">feedback_home_screen_button_prompt</string>
+  <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
+  <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
   <string name="totalstrings">totalstrings</string>
 </resources>

@@ -50,10 +50,24 @@ module AppStrings
       set_nordics_strings
     end
 
+    common_strings
+    set_test_data
     image_icons_acc_label
     loading_strings
+    countdown_page_strings
   end
 
+  def set_test_data
+    @@currency_hash={}
+  end
+
+  def common_strings
+    @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
+    @@call_us_dialog_no = get_localized_string "cancel"
+    @@call_us_dialog_yes = get_localized_string "call_dialog_yes"
+    @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
+    @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
+  end
 
   def image_icons_acc_label
     @@login_button_acc = "loginButton"
@@ -72,6 +86,18 @@ module AppStrings
     @@loading_hold_on=get_localized_string "hold_on"
     @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
   end
+
+  def countdown_page_strings
+    @@countdown_page_title=get_localized_string "countdown_header"
+    @@countdown_share_button_text="Meinen Urlaubscountdown teilen"
+    @@countdown_days_text=get_localized_string "countdown_days"
+    @@countdown_hours_text=get_localized_string "countdown_hours"
+    @@countdown_minutes_text=get_localized_string "countdown_minutes"
+    @@countdown_seconds_text=get_localized_string "countdown_seconds"
+    @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
+    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*')
+  end
+
 
   # setting global vars to make queries reusable
   def set_query_text

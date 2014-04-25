@@ -21,8 +21,8 @@ class BookingSummaryPage < BookingSummaryBasePage
   end
 
   def verify_booking_reference_number
-    visionShopNumber=THOMSON_USER[:valid][:VisionShopNumber]
-    visionBookingRef=THOMSON_USER[:valid][:VisionBookingRef]
+    visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
+    visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
     puts "visionBookingRef #{visionBookingRef} vision shop number #{visionShopNumber}"
     wait_for_partial_text_shown visionShopNumber
     wait_for_partial_text_shown visionBookingRef
@@ -30,7 +30,7 @@ class BookingSummaryPage < BookingSummaryBasePage
 
 
   def verify_days_to_go
-    get_countdown_days= THOMSON_USER[:valid][:departuredate]
+    get_countdown_days= $g_current_user_details[:valid][:departuredate]
     res1=Date.parse(get_countdown_days)
     days=res1.strftime("%e")
     suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)

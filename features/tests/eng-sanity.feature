@@ -1,24 +1,5 @@
-@android_test-eng @ios_test-eng @auto1 @eng
+@android_test-eng @ios_test-eng @auto1 @eng @sanity-eng
 Feature: English Sanity Tests
-
-  @reset  @wrong-login
-  Scenario: Wrong login
-    Given I submit wrong login details
-    Then I see correct error messages on login screen
-
-  @reset @login-eng @sanity-eng
-
-  Scenario: Login and Logout
-    Given I log into Application
-    When I log out from application
-    Then I see welcome screen
-
-  @offcanvas-eng  @sanity-eng
-
-  Scenario: Left off canvas Menu listing
-    Given I am on Home screen
-    Given I have opened side menu
-    Then I should see a list of products in eng booking
 
   @first-check_list  @sanity-eng
   Scenario: Verify check list item selection
@@ -34,20 +15,19 @@ Feature: English Sanity Tests
     When I open to do list
     Then I verify all check list items are shown
 
-  @bookings-eng  @sanity-eng
-  Scenario: navigate to booking summary page
+  @currency_conv
+  Scenario: Check currency converter screen
     Given I am on Home screen
-    When I navigate to booking summary page using side menu
-    Then I see holiday booking summary page
+    And I navigate to travel money page from home screen
 
-  @contact_us-eng  @sanity-eng
-  Scenario: Verify contact us page and external links present
-    Given I am on contact us screen
-    Then I verify contact us page
+  @currency_conv2
+  Scenario: Check currency converter screen
+    Given I am on Home screen
+    And I navigate to currency page from travel money page
+    Then I verify currency page
 
-  @weather-eng  @sanity-eng
-  Scenario:Week's weather
-    Given I am on weather page
-    Then I see holiday weather page
-    And I should weather forecast for five sequential days
-    Then I verify facebook and twitter share icons are visible
+  @currency_conv3
+  Scenario: Check currency converter screen
+    Given I am on Home screen
+    And I navigate to money on card page from travel money page
+    Then I verify money on card page

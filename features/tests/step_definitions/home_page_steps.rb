@@ -115,8 +115,9 @@ When(/^I open side panel$/) do
   @homePage.open_side_panel
 end
 
-Given(/^I navigate to currency converter page from home screen$/) do
+Given(/^I navigate to travel money page from home screen$/) do
   @homePage.navigate_to_currency_conv_page
+  @travelMoneyPage.verify_travel_money_page
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
