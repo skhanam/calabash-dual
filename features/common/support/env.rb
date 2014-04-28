@@ -19,7 +19,7 @@ elsif ENV['PLATFORM'] == 'android'
 end
 
 $g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
-$g_lang_strings_file="features/test_data/en/strings.xml" if (ENV['LANG']=='uk_th' || ENV['LANG']=='uk_fc')
+$g_lang_strings_file="features/test_data/en/strings.xml" if (ENV['LANG']=='en_th' || ENV['LANG']=='en_fc')
 $g_lang_strings_file="features/test_data/sv/strings.xml" if ENV['LANG']=='sv'
 $g_lang_strings_file="features/test_data/da/strings.xml" if ENV['LANG']=='da'
 $g_lang_strings_file="features/test_data/fi/strings.xml" if ENV['LANG']=='fi'
@@ -29,6 +29,8 @@ if (ENV['TESTENV']=='DE_MT')
   $g_current_user_details=DE_USER
 elsif (ENV['TESTENV']=='EN_TH')
   $g_current_user_details=THOMSON_USER
+elsif (ENV['TESTENV']=='EN_FC')
+  $g_current_user_details=FIRSTCHOICE_USER
 elsif (ENV['TESTENV']=='NOR')
   $g_current_user_details=NOR_USER
 end
@@ -39,11 +41,8 @@ $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_
 $g_user_details=$g_current_user_details[:valid]
 $g_valid_user_details=$g_current_user_details[:valid]
 $g_invalid_user_details=$g_current_user_details[:invalid]
-#$g_user_details = User.new #Create default user
-#puts "#{$g_user_details}"
 
 World(TestModule)
 World(AppStrings)
 BasePage.new.set_strings
-#World(PageWorld)
 

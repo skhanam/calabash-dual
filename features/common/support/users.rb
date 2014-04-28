@@ -34,6 +34,21 @@ THOMSON_USER||={
         :VisionBookingRef => "12347027"
     }
 }
+FIRSTCHOICE_USER||={
+    :valid => {
+        :surname => "martin",
+        :departuredate => "20-04-2015",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12346474",
+        :DepartureTime => "08:20"
+    },
+    :invalid => {
+        :surname => "martin",
+        :departuredate => "26-10-2014",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347027"
+    }
+}
 
 NOR_USER||={
     :valid => {

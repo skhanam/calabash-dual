@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
 require_relative 'en_thomson_strings' if (ENV['TESTENV']=='EN_TH')
+require_relative 'en_first_choice_strings' if (ENV['TESTENV']=='EN_FC')
 require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
 #based on App, Application strings are loaded from
@@ -9,12 +10,16 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 # en_thomson_strings.rb
 module AppStrings
   $g_nordics_app=false
+  puts ENV['TESTENV']
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
     $g_current_app="DE_MT"
   elsif (ENV['TESTENV']=='EN_TH')
     $g_current_app="EN_TH"
     include EN_ThomsonStrings
+  elsif (ENV['TESTENV']=='EN_FC')
+    $g_current_app="EN_FC"
+    include EN_FirstChoiceStrings
   elsif (ENV['TESTENV']=='NOR')
     $g_nordics_app=true
     include NordicsStrings
@@ -46,6 +51,9 @@ module AppStrings
     elsif ($g_current_app=='EN_TH')
       set_thomson_strings
       $g_ENG_USER_DETAILS=nil
+    elsif ($g_current_app=='EN_FC')
+      set_firstchoice_strings
+      $g_ENG_USER_DETAILS=nil
     elsif ($g_nordics_app)
       set_nordics_strings
     end
@@ -55,10 +63,18 @@ module AppStrings
     image_icons_acc_label
     loading_strings
     countdown_page_strings
+    home_page_strings
+
   end
 
   def set_test_data
     @@currency_hash={}
+  end
+
+  def home_page_strings
+    @@home_page_loading=get_localized_string "hold_on_booking"
+    @@home_page_booking_summary=get_localized_string "booking_summary"
+    @@home_page_days_to_go= get_localized_string "days_to_go"
   end
 
   def common_strings

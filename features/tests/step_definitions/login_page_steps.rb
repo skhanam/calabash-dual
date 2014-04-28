@@ -115,6 +115,7 @@ Given(/^I log into Application/) do
   step "I am on 'Login' screen"
   step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
   step "I log into thomson application" if ($g_current_app=='EN_TH')
+  step "I log into first choice application" if ($g_current_app=='EN_FC')
   step "I log into nordics application" if ($g_current_app.match(/NOR/)!=nil)
 
   sleep 2
@@ -123,6 +124,16 @@ Given(/^I log into Application/) do
 end
 
 
+Given(/^I log into first choice application$/) do
+  surname=$g_current_user_details[:valid][:surname]
+  departureDate=$g_current_user_details[:valid][:departuredate]
+  visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
+  visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
+
+  thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+
+end
 Given(/^I log into thomson application$/) do
   surname=$g_current_user_details[:valid][:surname]
   departureDate=$g_current_user_details[:valid][:departuredate]
@@ -264,7 +275,7 @@ end
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
-  if ($g_current_app=='EN_TH')
+  if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
     surname=$g_current_user_details[:invalid][:surname]
     departureDate=$g_current_user_details[:invalid][:departuredate]
     visionShopNumber=$g_current_user_details[:invalid][:VisionShopNumber]

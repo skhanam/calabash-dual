@@ -1,4 +1,4 @@
-@nor
+@nor @sanity-nor
 Feature: English Sanity Tests
 
   @booking-nor2

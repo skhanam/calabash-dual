@@ -15,7 +15,7 @@ if [ "$#" -le "3" ]; then
     echo "4) folder source code"
 
 	echo "\nsample command: sh runandroid.sh clean @sanity de ../meine.tui\n"
-	echo "or\nsample command: sh runandroid.sh NA  @sanity-eng uk_th ../meine.tui\n"
+	echo "or\nsample command: sh runandroid.sh NA  @sanity-eng en_th ../meine.tui\n"
 	exit
 fi
 
@@ -37,9 +37,9 @@ if [ $TI_SCHEME == "de" ] ; then
 	APK_NAME="meine TUI.apk"
 	CUCUMBER_PROFILE=de_mt_android
 	TI_SCHEME=meinetui
-elif [ $TI_SCHEME == "uk_th" ] ; then
+elif [ $TI_SCHEME == "en_th" ] ; then
 	APK_NAME=MyThomson.apk
-	CUCUMBER_PROFILE=uk_th_android
+	CUCUMBER_PROFILE=en_th_android
 	TI_SCHEME=thomson
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	TI_SCHEME="nordics"

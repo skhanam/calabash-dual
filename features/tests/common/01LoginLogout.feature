@@ -1,4 +1,4 @@
-@android_test @ios_test  @reset @auto1
+@android_test @ios_test  @reset @auto1 @nor
 Feature: Login and Home page features
   Login into application
 

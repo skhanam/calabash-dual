@@ -32,7 +32,7 @@ module TestModule
       @flightsPage ||=FlightsBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
-    elsif ($g_current_app== 'EN_TH')
+    elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new

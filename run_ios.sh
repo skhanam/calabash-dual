@@ -8,10 +8,10 @@ if [ "$#" -le "3" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
-    echo "3) App to test ex: uk_th / de / da / uk_fc"
+    echo "3) App to test ex: en_th / de / da / en_fc"
     echo "4) relative folder path where source code is located"
 
-	echo "\nsample command: \n 1) sh run_ios.sh clean @sanity uk_th ../meine.tui"
+	echo "\nsample command: \n 1) sh run_ios.sh clean @sanity en_th ../meine.tui"
 	echo " 2) sh run_ios.sh NA @sanity da ../meine.tui\n"
 	exit
 fi
@@ -30,10 +30,14 @@ if [ $3 == "de" ] ; then
 	ruby update_tiapp.rb $PROJ_FOLDER
 	APPNAME="meineTUI"
 	CUCUMBER_PROFILE=de_mt_ios
-elif [ $3 == "uk_th" ] || [ $3 == "uk_fc" ] ; then
+elif [ $3 == "en_th" ] ; then
 	TI_SCHEME="thomson"
 	APPNAME="MyThomson"
-	CUCUMBER_PROFILE=uk_th_ios
+	CUCUMBER_PROFILE=en_th_ios
+elif [ $3 == "en_fc" ] ; then
+	TI_SCHEME="firstchoice"
+	APPNAME="MyFirstChoice"
+	CUCUMBER_PROFILE=en_fc_ios
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	calabash-ios sim locale $3
 	TI_SCHEME="nordics"

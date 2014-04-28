@@ -41,7 +41,7 @@ When(/^I log out from application$/) do
   if ($g_current_app=='DE_MT')
     step "I am on my account page"
     @myAccountPage.logout_from_app
-  elsif ($g_current_app=='EN_TH' || $g_nordics_app)
+  elsif ($g_current_app=='EN_TH' ||$g_current_app=='EN_FC' || $g_nordics_app)
     step "I am on Home screen"
     @homePage.logout_from_home_screen
   else

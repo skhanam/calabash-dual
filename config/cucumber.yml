@@ -11,8 +11,11 @@
 <% de_mt_ios_specific_path = "TESTENV=DE_MT -r features/ios/pages/de -r features/BasePages/de" %>
 <% de_mt_android_specific_path = "TESTENV=DE_MT -r features/android/pages/de -r features/BasePages/de" %>
 
-<% uk_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/pages/uk -r features/BasePages/uk" %>
-<% uk_tm_android_specific_path = "TESTENV=EN_TH -r features/android/pages/uk -r features/BasePages/uk" %>
+<% en_fc_ios_specific_path = "TESTENV=EN_FC -r features/ios/pages/uk -r features/BasePages/uk" %>
+<% en_fc_android_specific_path = "TESTENV=EN_FC -r features/android/pages/uk -r features/BasePages/uk" %>
+
+<% en_tm_ios_specific_path = "TESTENV=EN_TH -r features/ios/pages/uk -r features/BasePages/uk" %>
+<% en_tm_android_specific_path = "TESTENV=EN_TH -r features/android/pages/uk -r features/BasePages/uk" %>
 
 <% nor_ios_specific_path = "TESTENV=NOR -r features/ios/pages/nor -r features/BasePages/nor" %>
 <% nor_android_specific_path = "TESTENV=NOR -r features/android/pages/nor -r features/BasePages/nor" %>
@@ -26,8 +29,12 @@ de_mt_ios:   <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_pat
 de_mt_android:  <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= de_mt_android_specific_path %>
 
 
-uk_th_ios: <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= uk_tm_ios_specific_path %>
-uk_th_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= uk_tm_android_specific_path %>
+en_fc_ios: <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= en_fc_ios_specific_path %>
+en_fc_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= en_fc_android_specific_path %>
+
+
+en_th_ios: <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= en_tm_ios_specific_path %>
+en_th_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= en_tm_android_specific_path %>
 
 nor_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= nor_android_specific_path %>
 nor_ios: <%= common_settings_ios %>  <%= common_path %>  <%= ios_specific_path %> <%= nor_ios_specific_path %>
