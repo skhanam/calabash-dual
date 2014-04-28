@@ -35,6 +35,7 @@ elif [ $3 == "uk_th" ] || [ $3 == "uk_fc" ] ; then
 	APPNAME="MyThomson"
 	CUCUMBER_PROFILE=uk_th_ios
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
+	calabash-ios sim locale $3
 	TI_SCHEME="nordics"
 	APPNAME="MinFerie"
 	CUCUMBER_PROFILE=nor_ios
