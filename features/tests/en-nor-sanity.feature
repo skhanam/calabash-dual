@@ -6,7 +6,7 @@ Feature: English Sanity Tests
     Given I submit wrong login details
     Then I see correct error messages on login screen
 
-  @offcanvas-nor
+  @offcanvas
   Scenario: Left off canvas Menu listing
     Given I am on Home screen
     Given I have opened side menu
@@ -18,22 +18,10 @@ Feature: English Sanity Tests
     When I navigate to booking summary page using side menu
     Then I see holiday booking summary page
 
-  @booking-nor2
-  Scenario: navigate to booking summary page
-    Given I am on Home screen
-    When I navigate to booking summary page using booking summary biscuit
-    Then I see holiday booking summary page
-
   @contact_us-nor
   Scenario: Verify contact us page and external links present
     Given I am on contact us screen
     Then I verify contact us page
-
-  @weather-nor
-  Scenario:Week's weather
-    Given I am on weather page
-    Then I see holiday weather page
-    And I should weather forecast for five sequential days
 
   @countdown2
   Scenario:Check holiday countdown using biscuit

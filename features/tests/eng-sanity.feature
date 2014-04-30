@@ -31,3 +31,9 @@ Feature: English Sanity Tests
     Given I am on Home screen
     And I navigate to money on card page from travel money page
     Then I verify money on card page
+
+  @weather-nor
+  Scenario:Week's weather
+    Given I am on weather page
+    Then I see holiday weather page
+    And I should weather forecast for five sequential days

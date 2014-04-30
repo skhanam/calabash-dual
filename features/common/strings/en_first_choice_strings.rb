@@ -105,7 +105,7 @@ end
   end
 
   def booking_summary_strings
-    @@booking_summary_title=get_localized_string "booking_summary"
+    @@booking_summary_title= get_localized_capitalized_string "booking_summary"
     @@bookingSummary_bookingReference=get_localized_string "bookingSummary_bookingReference" #"Booking reference number:"
     @@bookingSummary_quote=get_localized_string "bookingSummary_quote" #"You'll need this number if you contact us with any questions."
     @@bookingSummary_flighthotelRefNumber=get_localized_string "bookingSummary_flighthotelRefNumber" #"Flight and hotel reference number:"
@@ -124,7 +124,7 @@ end
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_string "contactus_navbar" #"Contact us"
+    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" #"Contact us"
     @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
     @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
     @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"

@@ -55,11 +55,15 @@ NOR_USER||={
         :bookingnumber => "1Y30064",
         :emailid => "niclas.westling@fritidsresor.se",
         :telefon => "0722177937",
+        :departuredate => "08-05-2014",
+
     },
     :invalid => {
         :bookingnumber => "11Y30060",
         :emailid => "ns.w@or.se",
-        :telefon => "0722377937", }
+        :telefon => "0722377937",
+        :departuredate => "26-10-2014",
+    }
 }
 #:country => "Deutschland",
 
