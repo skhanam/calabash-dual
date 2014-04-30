@@ -41,6 +41,10 @@ elif [ $TI_SCHEME == "en_th" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=en_th_android
 	TI_SCHEME=thomson
+elif [ $TI_SCHEME == "en_fc" ] ; then
+	APK_NAME=MyFirstChoice.apk
+	CUCUMBER_PROFILE=en_fc_android
+	TI_SCHEME=firstchoice
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	TI_SCHEME="nordics"
 	APK_NAME="MinFerie.apk"

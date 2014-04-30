@@ -73,8 +73,8 @@ class HomeBasePage < BasePage
     sleep 2
     scroll_page_till_acc "destination_temperature"
     click_accessibility_label "destination_temperature"
-    verify_page_title @@weather_page_title
     sleep 2
+    verify_page_title @@weather_page_title
   end
 
 

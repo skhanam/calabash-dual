@@ -119,7 +119,7 @@ end
   end
 
   def weather_page_strings
-    @@weather_page_title=get_localized_string "weather_header" #"Weather"
+    @@weather_page_title=get_localized_capitalized_string "weather_header" #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
 
