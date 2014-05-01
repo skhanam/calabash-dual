@@ -47,7 +47,7 @@ end
 
 
 When (/^I navigate to booking summary page using booking summary biscuit$/) do
-  @homePage.check_home_screen
+  step "I am on Home screen"
   @homePage.click_booking_summary_biscuit
 end
 

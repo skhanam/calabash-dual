@@ -36,7 +36,7 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to booking summary page using side menu
     Then I see holiday booking summary page
 
-  @failed
+  @failed @typical-sidepanel
   Scenario: Check Navigation menus for Typical booking
     Given I have switched to typical booking
     When I open side panel

@@ -56,4 +56,9 @@ class LoginBasePage < BasePage
     scroll_page_and_assert_text @@privacy_terms_of_use
     click_on_text @@privacy_terms_of_use
   end
+
+  def scroll_to_end_of_page
+    scroll_page_and_assert_text(@@welcome_cta_help_login)
+  end
+
 end

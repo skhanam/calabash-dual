@@ -91,7 +91,7 @@ def nordics_login(bookingNum, email, telephone)
     sleep 1
 
   elsif $g_android
-       performAction('clear_numbered_field', 2)
+    performAction('clear_numbered_field', 2)
     performAction('clear_numbered_field', 4)
     performAction('clear_numbered_field', 6)
 
@@ -101,6 +101,7 @@ def nordics_login(bookingNum, email, telephone)
     touch("* marked:'emailid.'")
     @page.enter_text_android(email)
 
+    touch("* marked:'bookingReference.'")
 
     @loginPage.scroll_to_end_of_page
 
