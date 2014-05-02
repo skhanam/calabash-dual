@@ -5,7 +5,6 @@ When(/^I navigate back to home page from countdown page$/) do
   @page.click_back_button
 end
 
-
 When(/^I see holiday countdown page$/) do
   @countDownPage.check_count_down_page
 end
@@ -70,6 +69,7 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
   values=table.raw
   values.each do |var|
     @homePage.open_side_panel
+    sleep 2
     @sidePanel.navigate_from_side_menu(var[0])
     sleep 2
     @page.navigate_back
@@ -77,5 +77,4 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
     @homePage.check_home_screen
     sleep 2
   end
-
 end
