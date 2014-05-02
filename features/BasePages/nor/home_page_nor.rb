@@ -3,9 +3,9 @@ require_relative '../Default/home_base_page'
 class HomePageNOR < HomeBasePage
 
   def logout_from_home_screen
-    touch($g_query_txt+"marked:'#{@@home_page_sidepanel_acc_label}'")
+    click_accessibility_label @@home_page_sidepanel_acc_label
     sleep 2
-    scroll_table_to_text(@@logout)
+    scroll_side_panel(@@logout)
     touch($g_query_txt+"text:'#{@@logout}'")
     sleep(2)
     touch($g_query_txt+"text:'#{@@logout_confirm}'")
