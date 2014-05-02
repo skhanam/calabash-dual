@@ -6,30 +6,10 @@ class SidePanelDe < SidePanel
   end
 
 
-  def navigate_to_flights_page
-    count=CommonMethods.new.find_number_of_flights
-    txt=@@side_panel_flight if count==1
-    txt=@@side_panel_flights if count>1
-
-    scroll_page_and_assert_text(txt, "down")
-    touch_txt_and_verify_title(txt, @@flights_page_title)
-  end
-
-
-  def navigate_to_countdown_page
-    scroll_page_and_assert_text(@@side_panel_countdown, "down")
-    touch_txt_and_verify_title(@@side_panel_countdown, @@countdown_page_title)
-  end
-
-  def navigate_to_hotel(num)
+  def navigate_to_hotel(num=1)
     scroll_page_and_assert_text @@side_panel_hotel
     touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
     sleep 3
-  end
-
-  def navigate_to_weather_page
-    scroll_page_and_assert_text(@@side_panel_weather, "down")
-    touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title
   end
 
   def navigate_to_insurance_page

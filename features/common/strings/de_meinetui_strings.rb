@@ -30,6 +30,7 @@ module DEMeineTUI
     my_tour_guide_strings
     my_travel_agent_strings
     good_to_know_strings
+    countdown_strings
   end
 
   #All test data for different appication is in here
@@ -347,6 +348,10 @@ module DEMeineTUI
     @@hotel_For_Children ="Für Kinder"
   end
 
+
+  def countdown_strings
+    @@countdown_page_title=get_localized_string "countdown_header"
+  end
   def flights_strings
     @@flights_page_title=get_localized_string "flight"
   end

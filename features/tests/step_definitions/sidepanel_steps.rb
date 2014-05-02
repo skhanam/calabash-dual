@@ -65,3 +65,17 @@ end
 Then(/^I should see a list of products in booking$/) do
   @sidePanel.verify_side_panel_strings
 end
+
+Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
+  values=table.raw
+  values.each do |var|
+    @homePage.open_side_panel
+    @sidePanel.navigate_from_side_menu(var[0])
+    sleep 2
+    @page.navigate_back
+    sleep 2
+    @homePage.check_home_screen
+    sleep 2
+  end
+
+end

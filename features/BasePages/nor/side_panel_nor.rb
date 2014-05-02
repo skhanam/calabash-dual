@@ -16,6 +16,7 @@ class SidePanelNor < SidePanel
     scroll_side_panel_and_assert @@destination
     scroll_side_panel_and_assert @@duty_free
 
+    check_sidepanel_based_on_bookings
     scroll_side_panel_and_assert @@guide_online
     scroll_side_panel_and_assert @@app_feed_back
     scroll_side_panel_and_assert @@side_panel_contact_us
@@ -24,8 +25,4 @@ class SidePanelNor < SidePanel
 
   end
 
-  def check_sidepanel_based_on_bookings
-    #Holiday extras
-    #excursions
-  end
 end

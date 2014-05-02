@@ -15,11 +15,21 @@ module EN_ThomsonStrings
     weather_page_strings
     test_data
     travel_money_strings
+    countdown_strings
+    flights_strings
   end
 
   #All test data for different appication is in here
   def test_data
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
+  end
+
+  def countdown_strings
+    @@countdown_page_title=get_localized_string "countdown_header"
+  end
+
+  def flights_strings
+    @@flights_page_title=get_localized_string "flight"
   end
 
   def welcome_page_strings
@@ -87,10 +97,10 @@ module EN_ThomsonStrings
     @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
-    @@weather=get_localized_string "weather" #"Weather"
-    @@flight=get_localized_string "flight" #"Flight"
-    @@flights=get_localized_string "flights" #"Flights"
-    @@hotel_and_resort=get_localized_string "hotel_and_resort" #"Hotel and resort"
+    @@side_panel_weather=get_localized_string "weather" #"Weather"
+    @@side_panel_flight=get_localized_string "flight" #"Flight"
+    @@side_panel_flights=get_localized_string "flights" #"Flights"
+    @@side_panel_hotel=get_localized_string "hotel_and_resort" #"Hotel and resort"
     @@destination=get_localized_string "destination" #"Destination"
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@holiday_extras=get_localized_string "extras_title"

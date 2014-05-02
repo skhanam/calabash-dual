@@ -17,9 +17,11 @@ module AppStrings
   elsif (ENV['TESTENV']=='EN_TH')
     $g_current_app="EN_TH"
     include EN_ThomsonStrings
+    $g_eng_app=true
   elsif (ENV['TESTENV']=='EN_FC')
     $g_current_app="EN_FC"
     include EN_FirstChoiceStrings
+    $g_eng_app=true
   elsif (ENV['TESTENV']=='NOR')
     $g_nordics_app=true
     include NordicsStrings
@@ -42,6 +44,14 @@ module AppStrings
       $g_strings_set=true
     end
 
+    common_strings
+    set_test_data
+    image_icons_acc_label
+    loading_strings
+    countdown_page_strings
+    home_page_strings
+
+
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -50,20 +60,16 @@ module AppStrings
       set_meine_tui_de_mt_strings
     elsif ($g_current_app=='EN_TH')
       set_thomson_strings
+
       $g_ENG_USER_DETAILS=nil
     elsif ($g_current_app=='EN_FC')
       set_firstchoice_strings
       $g_ENG_USER_DETAILS=nil
     elsif ($g_nordics_app)
       set_nordics_strings
+      $g_NOR_user=nil
     end
 
-    common_strings
-    set_test_data
-    image_icons_acc_label
-    loading_strings
-    countdown_page_strings
-    home_page_strings
 
   end
 
@@ -104,7 +110,6 @@ module AppStrings
   end
 
   def countdown_page_strings
-    @@countdown_page_title=get_localized_string "countdown_header"
     @@countdown_share_button_text="Meinen Urlaubscountdown teilen"
     @@countdown_days_text=get_localized_string "countdown_days"
     @@countdown_hours_text=get_localized_string "countdown_hours"

@@ -116,7 +116,8 @@ class CommonMethods < BasePage
 
   def get_all_products_for_booking
     arr=[]
-    $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+    products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
+    products.each do |var|
       arr<<var["productType"]
     end
     return arr
@@ -137,8 +138,12 @@ class CommonMethods < BasePage
   end
 
   def find_number_of_flights
-    res=get_all_products_for_booking
-    res.count "flight"
+    if $g_eng_app
+      return $g_current_booking["payload"]["products"]["flight"].count
+    else
+      res=get_all_products_for_booking
+      return res.count "flight"
+    end
   end
 
   def find_flight_details_for_booking(num)
@@ -151,7 +156,7 @@ class CommonMethods < BasePage
 
   def get_countdown_days(val=$g_current_booking)
     puts $g_current_app
-    if $g_current_app=="DE_MT"
+    if $g_current_app=="DE_MT" || $g_nordics_app
       return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
     else
       date_string = $g_current_user_details[:valid][:departuredate]
@@ -211,6 +216,5 @@ class CommonMethods < BasePage
     wait_for_acc_label @@share_button_open_img
     sleep 1
   end
-
 
 end

@@ -30,12 +30,7 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@logout
   end
 
-  def check_sidepanel_based_on_bookings
 
-    if($g_ENG_USER_DETAILS["payload"]["excursions"]["numberOfExcursions"].to_i > 0)
-      scroll_side_panel_and_assert @@excursions
-    end
-  end
 
 
 end

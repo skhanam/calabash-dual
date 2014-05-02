@@ -194,4 +194,9 @@ module ViewModule
     fail("acc:#{acc}: not found") if flag==0
   end
 
+
+  def navigate_back
+    click_accessibility_label "navbarLeftButton"
+  end
+
 end

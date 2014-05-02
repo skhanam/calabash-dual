@@ -9,6 +9,13 @@ module NordicsStrings
     booking_summary_strings
     weather_page_strings
     contact_us_strings
+    hotel_strings
+    flights_strings
+    countdown_strings
+  end
+
+  def countdown_strings
+    @@countdown_page_title=get_localized_string "countdown_header"
   end
 
   def login_page_strings
@@ -26,6 +33,10 @@ module NordicsStrings
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
 
+  def flights_strings
+    @@flights_page_title=get_localized_string "flight"
+  end
+
   def welcome_page_strings
     @@welcome_page_text=get_localized_string "welcome_login_header"
     #@@welcome_help_no_holiday_body=get_localized_string "welcome_help_no_holiday_body" #"The MyThomson app is for people who have booked a holiday directly with Thomson. To discover all of the great benefits of the MyThomson app, take a tour, then choose the perfect holiday for you."
@@ -36,6 +47,10 @@ module NordicsStrings
 
   end
 
+
+  def hotel_strings
+  @@hotel_page_title=get_localized_string "hotel"
+  end
 
   def weather_page_strings
     @@weather_page_title=get_localized_string "weather_header" #"Weather"
@@ -49,10 +64,10 @@ module NordicsStrings
     @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
-    @@weather=get_localized_string "weather" #"Weather"
-    @@flight=get_localized_string "flight" #"Flight"
-    @@flights=get_localized_string "flights" #"Flights"
-    @@hotel_and_resort=get_localized_string "hotel_and_resort" #"Hotel and resort"
+    @@side_panel_weather=get_localized_string "weather" #"Weather"
+    @@side_panel_flight=get_localized_string "flight" #"Flight"
+    @@side_panel_flights=get_localized_string "flights" #"Flights"
+    @@side_panel_hotel=get_localized_string "hotel_and_resort" #"Hotel and resort"
     @@destination=get_localized_string "destination" #"Destination"
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
@@ -64,6 +79,8 @@ module NordicsStrings
     @@duty_free = get_localized_string "duty_free"
     @@guide_online = get_localized_string "guide_online"
     @@app_feed_back = get_localized_string "app_feedback"
+
+    @@excursions=get_localized_string "excursions"
 
   end
 
