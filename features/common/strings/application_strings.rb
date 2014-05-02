@@ -10,9 +10,12 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 # en_thomson_strings.rb
 module AppStrings
   $g_nordics_app=false
+  $g_german_app=false
+  $g_eng_app=false
   puts ENV['TESTENV']
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
+    $g_german_app=true
     $g_current_app="DE_MT"
   elsif (ENV['TESTENV']=='EN_TH')
     $g_current_app="EN_TH"

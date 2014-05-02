@@ -22,11 +22,18 @@ class SidePanel < BasePage
 
   def navigate_to_flights_page
     count=CommonMethods.new.find_number_of_flights
-    txt=@@side_panel_flight if count==1
-    txt=@@side_panel_flights if count>1
+    if count==1
+      txt=@@side_panel_flight
+      title=@@flight_page_title
+    end
+
+    if count>1
+      txt=@@side_panel_flights
+      title=@@flights_page_title
+    end
 
     scroll_page_and_assert_text(txt, "down")
-    touch_txt_and_verify_title(txt, @@flights_page_title)
+    touch_txt_and_verify_title(txt, title)
   end
 
 
@@ -49,8 +56,8 @@ class SidePanel < BasePage
   def navigate_from_side_menu(var)
     case var
       when "Holiday summary"
-        scroll_side_panel(@@holiday_summary)
-        touch_txt_and_verify_title(@@holiday_summary, @@booking_summary_title)
+        scroll_side_panel(@@side_panel_booking_summary)
+        touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
       when "Countdown"
         navigate_to_countdown_page
       when "Weather"

@@ -12,25 +12,6 @@ Feature: English Sanity Tests
     Given I have opened side menu
     Then I should see a list of products in booking
 
-  @basic-sanity
-  Scenario: Check Navigation menus for Typical booking
-    Given I am on Home screen
-    Then I navigate to each item and navigate back to home screen
-      | Flight          |
-      | Holiday summary |
-      | Countdown       |
-      | Weather         |
-      | Flight          |
-      | Hotel           |
-      | Contact us      |
-
-#      | Destination     |
-#      | Duty Free       |
-#      | Guide Online    |
-#      | App Feedback    |
-#      | Log out         |
-
-
   @booking-nor1
   Scenario: navigate to booking summary page
     Given I am on Home screen

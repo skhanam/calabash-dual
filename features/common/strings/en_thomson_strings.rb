@@ -29,7 +29,8 @@ module EN_ThomsonStrings
   end
 
   def flights_strings
-    @@flights_page_title=get_localized_string "flight"
+    @@flight_page_title=get_localized_string "flight"
+    @@flights_page_title=get_localized_string "flights"
   end
 
   def welcome_page_strings
@@ -93,7 +94,7 @@ module EN_ThomsonStrings
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
-    @@holiday_summary=get_localized_string "holiday_summary" #"Holiday summary"
+    @@side_panel_booking_summary=get_localized_string "holiday_summary" #"Holiday summary"
     @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"

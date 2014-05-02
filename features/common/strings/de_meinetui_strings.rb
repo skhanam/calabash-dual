@@ -353,7 +353,8 @@ module DEMeineTUI
     @@countdown_page_title=get_localized_string "countdown_header"
   end
   def flights_strings
-    @@flights_page_title=get_localized_string "flight"
+    @@flight_page_title=get_localized_string "flight"
+    @@flights_page_title=get_localized_string "flights"
   end
 
   def dest_info_strings

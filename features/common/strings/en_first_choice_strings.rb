@@ -29,7 +29,8 @@ module EN_FirstChoiceStrings
   end
 
   def flights_strings
-    @@flights_page_title=get_localized_capitalized_string "flight"
+    @@flight_page_title=get_localized_string "flight"
+    @@flights_page_title=get_localized_capitalized_string "flights"
   end
 
   def welcome_page_strings
@@ -39,7 +40,6 @@ module EN_FirstChoiceStrings
     @@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
     @@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
     @@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-
 end
 
   def login_page_strings
@@ -93,7 +93,7 @@ end
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
-    @@holiday_summary=get_localized_string "holiday_summary" #"Holiday summary"
+    @@side_panel_booking_summary=get_localized_string "holiday_summary" #"Holiday summary"
     @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"

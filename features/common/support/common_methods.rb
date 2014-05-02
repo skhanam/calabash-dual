@@ -140,9 +140,18 @@ class CommonMethods < BasePage
   def find_number_of_flights
     if $g_eng_app
       return $g_current_booking["payload"]["products"]["flight"].count
+    elsif $g_nordics_app
+      count=0
+      $g_current_booking["payload"]["products"].each do |var|
+        var["flights"].each do
+          count+=1
+        end
+        return count
+      end
     else
       res=get_all_products_for_booking
       return res.count "flight"
+
     end
   end
 
