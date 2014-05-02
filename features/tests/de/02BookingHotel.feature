@@ -20,8 +20,8 @@ Feature: Verify booking information for Typical Booking
     And I verify below links on hotel page:
       | place         |
       | Food & Drink  |
-      | accommodation |
       | Living        |
+      | accommodation |
       | sport         |
       | Wellness      |
       | For Children  |
