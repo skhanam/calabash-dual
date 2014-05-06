@@ -1,9 +1,9 @@
 # encoding: UTF-8
 
-module EN_FirstChoiceStrings
+module EN_Strings
 
-  def set_firstchoice_strings
-    puts "******* thomson setting strings ********"
+  def set_en_strings
+    puts "*******  setting #{ENV['TESTENV']} strings ********"
     welcome_page_strings
     login_page_strings
     loading_strings
@@ -24,12 +24,14 @@ module EN_FirstChoiceStrings
   end
 
   def countdown_strings
-    @@countdown_page_title=get_localized_capitalized_string "countdown_header"
+    @@countdown_page_title=get_localized_capitalized_string "countdown_header" if $g_current_app=="EN_FC"
+    @@countdown_page_title=get_localized_string "countdown_header" if $g_current_app=="EN_TH"
   end
 
   def flights_strings
     @@flight_page_title=get_localized_string "flight"
-    @@flights_page_title=get_localized_capitalized_string "flights"
+    @@flights_page_title=get_localized_string "flights"  if $g_current_app=="EN_TH"
+    @@flights_page_title=get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
   end
 
   def welcome_page_strings
@@ -108,7 +110,8 @@ end
   end
 
   def booking_summary_strings
-    @@booking_summary_title= get_localized_capitalized_string "booking_summary"
+    @@booking_summary_title=get_localized_string "booking_summary"   if $g_current_app=="EN_TH"
+    @@booking_summary_title= get_localized_capitalized_string "booking_summary"   if $g_current_app=="EN_FC"
     @@bookingSummary_bookingReference=get_localized_string "bookingSummary_bookingReference" #"Booking reference number:"
     @@bookingSummary_quote=get_localized_string "bookingSummary_quote" #"You'll need this number if you contact us with any questions."
     @@bookingSummary_flighthotelRefNumber=get_localized_string "bookingSummary_flighthotelRefNumber" #"Flight and hotel reference number:"
@@ -122,12 +125,14 @@ end
   end
 
   def weather_page_strings
-    @@weather_page_title=get_localized_capitalized_string "weather_header" #"Weather"
+    @@weather_page_title=get_localized_capitalized_string "weather_header" if $g_current_app=="EN_FC" #"Weather"
+    @@weather_page_title=get_localized_string "weather_header" if $g_current_app=="EN_TH"  #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" #"Contact us"
+    @@contact_us_contact_title=get_localized_string "contactus_navbar" if $g_current_app=="EN_TH"   #"Contact us"
+    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" if $g_current_app=="EN_FC"  #"Contact us"
     @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
     @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
     @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"

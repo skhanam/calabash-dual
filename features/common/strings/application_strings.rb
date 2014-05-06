@@ -1,7 +1,6 @@
 # encoding: UTF-8
 require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
-require_relative 'en_thomson_strings' if (ENV['TESTENV']=='EN_TH')
-require_relative 'en_first_choice_strings' if (ENV['TESTENV']=='EN_FC')
+require_relative 'en_strings' if (ENV['TESTENV']=='EN_TH' || ENV['TESTENV']=='EN_FC')
 require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
 #based on App, Application strings are loaded from
@@ -19,11 +18,11 @@ module AppStrings
     $g_current_app="DE_MT"
   elsif (ENV['TESTENV']=='EN_TH')
     $g_current_app="EN_TH"
-    include EN_ThomsonStrings
+    include EN_Strings
     $g_eng_app=true
   elsif (ENV['TESTENV']=='EN_FC')
     $g_current_app="EN_FC"
-    include EN_FirstChoiceStrings
+    include EN_Strings
     $g_eng_app=true
   elsif (ENV['TESTENV']=='NOR')
     $g_nordics_app=true
@@ -54,7 +53,6 @@ module AppStrings
     countdown_page_strings
     home_page_strings
 
-
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -62,18 +60,15 @@ module AppStrings
       puts "settings german strings for Meine TUI"
       set_meine_tui_de_mt_strings
     elsif ($g_current_app=='EN_TH')
-      set_thomson_strings
-
+      set_en_strings
       $g_ENG_USER_DETAILS=nil
     elsif ($g_current_app=='EN_FC')
-      set_firstchoice_strings
+      set_en_strings
       $g_ENG_USER_DETAILS=nil
     elsif ($g_nordics_app)
       set_nordics_strings
       $g_NOR_user=nil
     end
-
-
   end
 
   def set_test_data
@@ -113,13 +108,15 @@ module AppStrings
   end
 
   def countdown_page_strings
-    @@countdown_share_button_text="Meinen Urlaubscountdown teilen"
+    @@countdown_share_button_text=get_localized_string "countdown_share"
     @@countdown_days_text=get_localized_string "countdown_days"
     @@countdown_hours_text=get_localized_string "countdown_hours"
     @@countdown_minutes_text=get_localized_string "countdown_minutes"
     @@countdown_seconds_text=get_localized_string "countdown_seconds"
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
-    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*')
+    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')  if $g_nordics_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')  if $g_eng_app
   end
 
 

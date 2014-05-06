@@ -1,4 +1,4 @@
-@android_test @ios_test @auto1 @nor @sanity-all
+@android_test @ios_test @auto1 @nor @sanity-all @common-tests
 Feature: Login and Home page features
   Login into application
 

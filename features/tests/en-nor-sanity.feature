@@ -17,14 +17,3 @@ Feature: English Sanity Tests
   Scenario: Verify contact us page and external links present
     Given I am on contact us screen
     Then I verify contact us page
-
-  @countdown2
-  Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Then I navigate to countdown page using countdown biscuit
-    Then I verify number of days left to travel
-
-  @countdown3
-  Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Then I verify number of days to go on home page
