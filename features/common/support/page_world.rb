@@ -8,13 +8,14 @@ module TestModule
     @weatherPage ||= WeatherBasePage.new
     @commonMethods ||=CommonMethods.new
     @holidayCountDownPage ||= HolidayCountDownPage.new
-    @countDownPage ||=CountDownBasePage.new
     @travelMoneyPage=TravelMoneyBasePage.new
 
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanelDe.new
+
+      @countDownPage ||=CountDownDE.new
 
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new
@@ -37,10 +38,14 @@ module TestModule
       @sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
+      @countDownPage ||=CountDownEN.new
+
     elsif ($g_nordics_app)
       @homePage ||= HomePageNOR.new
       @sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
+      @countDownPage ||=CountDownNOR.new
+
     end
   end
 end

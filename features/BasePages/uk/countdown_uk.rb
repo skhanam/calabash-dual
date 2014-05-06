@@ -1,7 +1,7 @@
 require_relative '../Default/contact_us_base_page'
 
 ## verify contact us page
-class ContactUsUK < ContactUsBasePage
+class CountDownEN < CountDownBasePage
 
   def check_count_down_page
     check_countdown_screen_title

@@ -4,7 +4,6 @@ require_relative '../Default/contact_us_base_page'
 class ContactUsNOR < ContactUsBasePage
 
 
-
 end
 
 
