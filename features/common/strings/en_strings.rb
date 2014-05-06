@@ -1,12 +1,11 @@
 # encoding: UTF-8
 
-module EN_ThomsonStrings
+module EN_FirstChoiceStrings
 
-  def set_thomson_strings
+  def set_firstchoice_strings
     puts "******* thomson setting strings ********"
     welcome_page_strings
     login_page_strings
-    #home_page_strings
     loading_strings
     side_panel_strings
     checklist_strings
@@ -25,12 +24,12 @@ module EN_ThomsonStrings
   end
 
   def countdown_strings
-    @@countdown_page_title=get_localized_string "countdown_header"
+    @@countdown_page_title=get_localized_capitalized_string "countdown_header"
   end
 
   def flights_strings
     @@flight_page_title=get_localized_string "flight"
-    @@flights_page_title=get_localized_string "flights"
+    @@flights_page_title=get_localized_capitalized_string "flights"
   end
 
   def welcome_page_strings
@@ -40,8 +39,7 @@ module EN_ThomsonStrings
     @@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
     @@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
     @@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-
-  end
+end
 
   def login_page_strings
     @@login_page_text = get_localized_string "welcome_login_header"
@@ -84,12 +82,6 @@ module EN_ThomsonStrings
     @@travel_money_card_benefits2 = "A convenient way of taking your money abroad"
     @@travel_money_card_benefits3 = "Can be reloaded again and again"
   end
-  #
-  #def home_page_strings
-  #  @@home_page_loading=get_localized_string "hold_on_booking"
-  #  @@home_page_booking_summary=get_localized_string "booking_summary"
-  #  @@home_page_days_to_go= get_localized_string "days_to_go"
-  #end
 
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
@@ -116,7 +108,7 @@ module EN_ThomsonStrings
   end
 
   def booking_summary_strings
-    @@booking_summary_title=get_localized_string "booking_summary"
+    @@booking_summary_title= get_localized_capitalized_string "booking_summary"
     @@bookingSummary_bookingReference=get_localized_string "bookingSummary_bookingReference" #"Booking reference number:"
     @@bookingSummary_quote=get_localized_string "bookingSummary_quote" #"You'll need this number if you contact us with any questions."
     @@bookingSummary_flighthotelRefNumber=get_localized_string "bookingSummary_flighthotelRefNumber" #"Flight and hotel reference number:"
@@ -130,12 +122,12 @@ module EN_ThomsonStrings
   end
 
   def weather_page_strings
-    @@weather_page_title=get_localized_string "weather_header" #"Weather"
+    @@weather_page_title=get_localized_capitalized_string "weather_header" #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_string "contactus_navbar" #"Contact us"
+    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" #"Contact us"
     @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
     @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
     @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"
