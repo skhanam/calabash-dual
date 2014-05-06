@@ -23,11 +23,6 @@ Feature: Verify screens shown before logging into App
     And submit an invalid email id in forgot password screen
     Then I see appropriate error message
 
-  Scenario: Login with Non Matching Records  - invalid password
-    Given I have entered an valid email and invalid password
-    When I select the Login button
-    Then I see appropriate password error message
-
   @forgot-password
   Scenario: Forgot password - Populated email field
     Given I am on 'Login' screen

@@ -1,10 +1,5 @@
 class LoginBasePage < BasePage
 
-  def check_username_pwd_error
-    assert_wait_for_text @@username_email_error
-  end
-
-
   def verify_login_screen
     wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"])
   end

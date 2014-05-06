@@ -261,12 +261,16 @@ Then(/^I see appropriate username error message$/) do
   @loginPage.check_username_pwd_error
 end
 
-Given(/^I have entered an valid email and invalid password$/) do
-  step "I am on 'Login' screen"
+Given(/^I enter valid email and invalid password$/) do
   uname=$g_valid_user_details[:email]
   pwd=$g_invalid_user_details[:password]
   country=$g_valid_user_details[:country]
   step "I log into the App using #{uname}, #{pwd} and #{country}"
+
+end
+Given(/^I have entered an valid email and invalid password$/) do
+  step "I am on 'Login' screen"
+  step "I enter valid email and invalid password"
 end
 
 Then(/^I see appropriate password error message$/) do
@@ -275,7 +279,6 @@ end
 
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
-
   if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
     surname=$g_current_user_details[:invalid][:surname]
     departureDate=$g_current_user_details[:invalid][:departuredate]
@@ -283,10 +286,11 @@ Given(/^I submit wrong login details$/) do
     visionBookingRef=$g_current_user_details[:invalid][:VisionBookingRef]
     thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   elsif ($g_current_app=='DE_MT')
-    uname=$g_user_details[:username]
-    pwd="NANA"
-    country=$g_user_details[:country]
-    step "I log into the App using #{uname}, #{pwd} and #{country}"
+    step "I enter valid email and invalid password"
+    #uname=$g_user_details[:username]
+    #pwd="NANA"
+    #country=$g_user_details[:country]
+    #step "I log into the App using #{uname}, #{pwd} and #{country}"
   elsif ($g_nordics_app)
     bookingNum = NOR_USER[:invalid][:bookingnumber]
     email = NOR_USER[:invalid][:emailid]

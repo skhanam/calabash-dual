@@ -1,11 +1,6 @@
 @nor  @eng @sanity-eng @sanity-nor
 Feature: English Sanity Tests
 
-  @reset  @wrong-login-nor
-  Scenario: Verify error message for wrong login
-    Given I submit wrong login details
-    Then I see correct error messages on login screen
-
   @offcanvas
   Scenario: Left off canvas Menu listing
     Given I am on Home screen

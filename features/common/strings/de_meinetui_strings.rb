@@ -73,7 +73,7 @@ module DEMeineTUI
     @@login_password_tooltip= get_localized_string "login_password_hint"
     @@login_password_hint = get_localized_string "login_password_tooltip"
 
-    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich."
+    @@username_email_error=get_localized_string "error_default_header"
   end
 
   def home_page_strings
