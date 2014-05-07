@@ -168,6 +168,17 @@ Given(/^I am on weather page$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
 end
+
 Given(/^I am on default booking$/) do
   step "I have switched to typical booking" if $g_german_app
+end
+
+Given(/^I have home screen with default booking$/) do
+  step "I am on Home screen"
+  step "I am on default booking"
+end
+
+When(/^I navigate to App feedback page$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_to_app_feedback
 end

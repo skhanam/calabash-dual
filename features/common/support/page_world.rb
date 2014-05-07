@@ -9,6 +9,7 @@ module TestModule
     @commonMethods ||=CommonMethods.new
     @holidayCountDownPage ||= HolidayCountDownPage.new
     @travelMoneyPage=TravelMoneyBasePage.new
+    @appFeedbackPage=AppFeedbackBasePage.new
 
 
     if ($g_current_app=='DE_MT')

@@ -52,6 +52,7 @@ module AppStrings
     loading_strings
     countdown_page_strings
     home_page_strings
+    app_feedback_strings
 
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
@@ -115,10 +116,26 @@ module AppStrings
     @@countdown_seconds_text=get_localized_string "countdown_seconds"
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
-    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')  if $g_nordics_app
-    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')  if $g_eng_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_nordics_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_eng_app
   end
 
+  def app_feedback_strings
+    @@side_panel_app_feedback = get_localized_string "app_feedback"
+
+    if $g_current_app=='EN_FC'
+      @@app_feed_back_title1= get_localized_capitalized_string "feedback_navbar_title"
+    else
+      @@app_feed_back_title1= get_localized_string "feedback_navbar_title"
+    end
+
+    @@app_feed_back_title2= get_localized_string "feedback_title"
+    @@app_feed_back_message_negative = get_localized_string "feedback_message_negative"
+    @@app_feed_back_negative_rating= get_localized_string "feedback_message_title_negative"
+    @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
+    @@app_feed_back_submit= get_localized_string "feedback_submit_button"
+    @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
+  end
 
   # setting global vars to make queries reusable
   def set_query_text

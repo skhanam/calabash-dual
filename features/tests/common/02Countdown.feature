@@ -4,8 +4,7 @@ Feature: Verify Countdown details for bookings
 
   @countdown2
   Scenario: navigate to countdown page
-    Given I am on Home screen
-    Given I am on default booking
+    Given I have home screen with default booking
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
 

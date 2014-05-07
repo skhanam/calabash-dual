@@ -42,6 +42,11 @@ class SidePanel < BasePage
     touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title
   end
 
+  def navigate_to_app_feedback
+    scroll_side_panel_and_assert @@side_panel_app_feedback
+    touch_txt_and_verify_title @@side_panel_app_feedback,@@app_feed_back_title1
+  end
+
   def navigate_to_hotel(num=1)
     scroll_page_and_assert_text @@side_panel_hotel
     touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"

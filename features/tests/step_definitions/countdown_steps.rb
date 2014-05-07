@@ -7,6 +7,7 @@ And(/^I verify facebook and twitter share icons are visible$/) do
 end
 
 Then(/^I verify number of days to go on home page$/) do
+  sleep 5
   @homePage.check_countdown_days_text
   expected_count=CommonMethods.new.get_countdown_days.to_s
 

@@ -45,6 +45,12 @@ Given(/^I navigate to flights page from side panel$/) do
   @sidePanel.navigate_to_flights_page
 end
 
+
+Then(/^I see app feedback page$/) do
+  @appFeedbackPage.check_app_feedback_title
+  @appFeedbackPage.verify_app_feedback_page
+end
+
 Then(/^I must see below items:$/) do |table|
 
 end

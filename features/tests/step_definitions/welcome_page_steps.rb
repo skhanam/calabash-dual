@@ -1,6 +1,6 @@
 When(/^I am on Home screen$/) do
 
-  if @homePage.check_home_screen(1)!=true
+  if @homePage.check_home_screen(1)==true
     puts "Already on home screen"
 
     if @welcomePage.check_welcome_screen #If check if user is not logged in
@@ -13,8 +13,13 @@ When(/^I am on Home screen$/) do
     @homePage.wait_for_home_page_to_load
     @homePage.wait_for_acc_label("welcome_title")
     sleep 2
-  end
+  elsif @welcomePage.check_welcome_screen #If check if user is not logged in
+    puts "Not logged in"
 
+    step "I log into Application"
+    sleep 5
+    step "I must be logged and on Home page"
+  end
 end
 
 
