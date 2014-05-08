@@ -8,12 +8,12 @@ class AppFeedbackBasePage < BasePage
     assert_text_present @@app_feed_back_title1
     assert_text_present @@app_feed_back_title2
 
-    if check_text_in_view(@@app_feed_back_rate_again)
-      verify_default_submitted_feedback
-      puts "Already rated"
-    elsif check_text_in_view(@@app_feed_back_submit)
+    if check_text_in_view(@@app_feed_back_submit)
       assert_text_present @@app_feed_back_submit
       puts "feed back to be submitted"
+    elsif check_text_in_view(@@app_feed_back_rate_again)
+      verify_default_submitted_feedback
+      puts "Already rated"
     end
   end
 

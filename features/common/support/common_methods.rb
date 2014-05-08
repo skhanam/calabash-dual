@@ -135,6 +135,10 @@ class CommonMethods < BasePage
 
   def get_booking_ref_number
     $g_current_booking["payload"]["reservationCode"]
+
+    THOMSON_USER[:valid][:VisionBookingRef]
+    FIRSTCHOICE_USER[:valid][:VisionBookingRef]
+    NOR_USER[:valid][:bookingnumber]
   end
 
   def find_number_of_flights

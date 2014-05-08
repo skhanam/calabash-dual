@@ -31,7 +31,7 @@ end
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
-  @bookingSummaryPage.check_booking_summary_page
+  @bookingSummaryPage.verify_booking_summary_details
 end
 
 

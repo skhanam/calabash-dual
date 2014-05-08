@@ -7,6 +7,7 @@ Feature: Verify App feedback page
     When I navigate to App feedback page
     Then I see app feedback page
 
+  @app-feedback2
   Scenario: Verify App feedback page
     Given I have home screen with default booking
     When I navigate to App feedback page

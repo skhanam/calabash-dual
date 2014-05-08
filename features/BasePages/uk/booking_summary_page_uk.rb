@@ -6,7 +6,7 @@ class BookingSummaryPage < BookingSummaryBasePage
     assert_wait_for_text(@@booking_summary_title)
   end
 
-  def check_booking_summary_page
+  def verify_booking_summary_details
     check_booking_summary_screen
     verify_booking_reference_number
 
