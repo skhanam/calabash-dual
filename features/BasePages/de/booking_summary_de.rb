@@ -2,6 +2,12 @@ require_relative '../Default/booking_summary_base_page'
 
 class BookingSummaryPage < BookingSummaryBasePage
 
+
+  def verify_booking_reference_number
+    get_booking_ref_number=CommonMethods.new.get_booking_ref_number
+    wait_for_text get_booking_ref_number
+  end
+
   #returns elements to verify on booking summary page
   def verify_booking_summary_details
     title, value=CommonMethods.new.get_booking_summary("bookingCode")

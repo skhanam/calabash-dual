@@ -8,7 +8,7 @@ Feature: Verify Countdown details for bookings
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
 
-  @countdown3
+  @countdown3 @basic-sanity
   Scenario:Check holiday countdown using biscuit
     Given I am on Home screen
     Given I am on default booking
