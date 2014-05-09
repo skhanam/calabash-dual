@@ -22,8 +22,8 @@ class BookingSummaryPage < BookingSummaryBasePage
 
     assert_wait_for_text(@@bookingSummary_bookingReference) # "Booking reference number:"
     assert_wait_for_text(escape_quotes(@@bookingSummary_quote)) # "You'll need this number if you contact us with any questions."
-    assert_wait_for_text(@@bookingSummary_flighthotelRefNumber) # "Flight and hotel reference number:"
-    assert_wait_for_text(@@bookingSummary_flighthotelRefNumberQuote) # "You’ll need this number to book an extra for your holiday."
+    #assert_wait_for_text(@@bookingSummary_flighthotelRefNumber) # "Flight and hotel reference number:"
+    #assert_wait_for_text(@@bookingSummary_flighthotelRefNumberQuote) # "You’ll need this number to book an extra for your holiday."
     assert_wait_for_text(@@bookingSummary_leadPassenger) # "Lead Passenger:"
     scroll_page_and_assert_text(@@bookingSummary_emailDescription) # "Send your full holiday summary to yourself or other passengers."
     scroll_page_and_assert_text(@@bookingSummary_emailTitle) # "Email my booking details"
@@ -47,7 +47,7 @@ class BookingSummaryPage < BookingSummaryBasePage
 
     str=res1.strftime("%e %B %Y")
     puts "Departure date :#{str}:"
-    assert_wait_for_text str.to_s
+    #assert_wait_for_text str.to_s
   end
 
 
