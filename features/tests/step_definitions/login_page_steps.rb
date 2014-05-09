@@ -29,19 +29,28 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
   if $g_ios
     #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
     step "I clear input field number 1"
+    step "I clear input field number 3"
+    step "I clear input field number 4"
+
     step 'I enter "'+surname+'" into input field number 1'
     touch("toolbarTextButton index:1")
     sleep 1
     @loginPage.enter_date_ios(departureDate)
     touch("toolbarTextButton index:1")
     sleep 1
-    step "I clear input field number 3"
-    step 'I enter "'+visionShopNumber+'" into input field number 3'
+
+    #step 'I enter "'+visionShopNumber+'" into input field number 3'
+    touch("view marked:'bookingReference1'")
+    keyboard_enter_text visionShopNumber
     sleep 2
-    touch("toolbarTextButton index:1")
-    sleep 1
-    step "I clear input field number 4"
-    step 'I enter "'+visionBookingRef+'" into input field number 4'
+
+    touch("view marked:'bookingReference2'")
+    keyboard_enter_text visionBookingRef
+    sleep 2
+
+    #touch("toolbarTextButton index:1")
+    #sleep 1
+    #step 'I enter "'+visionBookingRef+'" into input field number 4'
     touch("toolbarTextButton index:1")
     sleep(2)
 
