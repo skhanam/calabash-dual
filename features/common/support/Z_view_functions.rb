@@ -61,6 +61,10 @@ module ViewModule
     end
   end
 
+  def assert_partial_text text
+    fail("text not shown #{text}")if check_partial_text_shown(text) ==false
+  end
+
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
     begin

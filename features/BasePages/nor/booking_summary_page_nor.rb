@@ -9,10 +9,17 @@ class BookingSummaryPage < BookingSummaryBasePage
   def verify_booking_summary_details
     check_booking_summary_screen
     verify_booking_reference_number
-    arr=get_booking_summary_details
-    arr.each do |var|
-      assert_text_present var
+
+    $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+      arr=var["value"] if var["key"]=="bookingCode"
+      arr=var["value"] if var["key"]=="leadPassenger"
+      arr=var["value"] if var["key"]=="otherPassengers"
+
+      arr.each do |var|
+        assert_partial_text var
+      end
     end
+
     assert_wait_for_text(@@bookingSummary_bookingReference) # "Booking reference number:"
     assert_wait_for_text(escape_quotes(@@bookingSummary_quote)) # "You'll need this number if you contact us with any questions."
     assert_wait_for_text(@@bookingSummary_flighthotelRefNumber) # "Flight and hotel reference number:"
@@ -38,25 +45,11 @@ class BookingSummaryPage < BookingSummaryBasePage
     days=res1.strftime("%e")
     suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)
 
-    str=res1.strftime("%e#{suffix_days} %B %Y")
+    str=res1.strftime("%e %B %Y")
     puts "Departure date :#{str}:"
     assert_wait_for_text str.to_s
   end
 
-    #returns elements to verify on booking summary page
-  def get_booking_summary_details
-    arr=[]
-    nor_user["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
-      arr.push(var["value"]) if var["key"]=="bookingCode"
-      arr.push(var["value"]) if var["key"]=="leadPassenger"
-      if var["key"]=="otherPassengers"
-        var["value"].each do |name|
-          arr.push(name)
-        end
-      end
-    end
-    return arr
-  end
 
 end
 

@@ -55,7 +55,7 @@ NOR_USER||={
         :bookingnumber => "AK56424",
         :emailid => "niclas.westling@fritidsresor.se",
         :telefon => "0722177937",
-        :departuredate => "08-05-2014",
+        :departuredate => "20-07-2014",
 
     },
     :invalid => {

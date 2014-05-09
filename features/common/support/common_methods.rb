@@ -132,7 +132,6 @@ class CommonMethods < BasePage
     end
   end
 
-
   def get_booking_ref_number
     $g_current_booking["payload"]["reservationCode"] if $g_german_app
     $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
@@ -217,7 +216,6 @@ class CommonMethods < BasePage
     click_on_text @@call_us_dialog_no
     sleep 2
   end
-
 
   def check_sharing
     scroll_page_till_acc @@share_button_closed_img
