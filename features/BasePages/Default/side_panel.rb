@@ -51,6 +51,7 @@ class SidePanel < BasePage
     scroll_page_and_assert_text @@side_panel_hotel
     touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
     sleep 3
+    wait_for_progress_to_disappear @@loading_hold_on
   end
 
   def navigate_to_countdown_page
@@ -90,7 +91,6 @@ class SidePanel < BasePage
         scroll_side_panel(@@logout)
         touch_txt_and_verify_title(@@logout, nil)
     end
-
 
   end
 end

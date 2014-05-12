@@ -31,11 +31,9 @@ class BookingSummaryPage < BookingSummaryBasePage
   end
 
   def verify_booking_reference_number
-    visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
-    visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
-    puts "visionBookingRef #{visionBookingRef} vision shop number #{visionShopNumber}"
-    wait_for_partial_text_shown visionShopNumber
-    wait_for_partial_text_shown visionBookingRef
+    bookingReference=$g_current_user_details[:valid][:bookingnumber]
+    puts "bookingReference #{bookingReference}"
+    wait_for_partial_text_shown bookingReference
   end
 
 

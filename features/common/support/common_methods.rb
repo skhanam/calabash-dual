@@ -152,7 +152,6 @@ class CommonMethods < BasePage
     else
       res=get_all_products_for_booking
       return res.count "flight"
-
     end
   end
 
@@ -225,5 +224,36 @@ class CommonMethods < BasePage
     wait_for_acc_label @@share_button_open_img
     sleep 1
   end
+
+
+  def get_flights_details
+    arr=[]
+    temp={}
+
+    #eng app
+    if ($g_eng_app)
+      $g_current_booking["payload"]["flight"].each do |var|
+        puts var["DepartureAirportCode"]
+        temp[:departureAirportCode]=var["DepartureAirportCode"]
+        temp[:departureAirportName]=var["DepartureAirportName"]
+        temp[:arrivalAirportCode]=var["ArrivalAirportCode"]
+        temp[:arrivalAirportName]=var["ArrivalAirportName"]
+        arr.push(temp)
+      end
+
+      #nor user
+      elsif ($g_nordics_app)
+        $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
+          arr.push(val["flight"]) if val.keys.include? "flight"
+        end
+
+      elsif $g_german_app
+        arr=find_products_in_booking("flight")
+      end
+
+     return arr
+
+    end
+
 
 end

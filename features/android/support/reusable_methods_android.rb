@@ -76,10 +76,10 @@ module AndroidReusableMethods
       res=query "* text:'#{txt}'"
 
       if res.count==0
-        puts "check_text_in_view(txt) res=false"
+        puts "check_text_in_view(#{txt}) res=false"
         return false
       else
-        puts "check_text_in_view(txt) res=true"
+        puts "check_text_in_view(#{txt}) res=true"
         return true
       end
         #performAction('wait_for_text', txt, 2)["success"]

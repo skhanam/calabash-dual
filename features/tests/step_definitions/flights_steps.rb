@@ -13,3 +13,7 @@ end
 And(/^I should see the list of passengers on each flight leg$/) do
   @flightsPage.check_passenger_names
 end
+
+Then(/^I see flights page with my flights listed$/) do
+  @flightsPage.check_flights_listing
+end

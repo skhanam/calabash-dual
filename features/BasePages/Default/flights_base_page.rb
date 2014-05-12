@@ -5,6 +5,15 @@ class FlightsBasePage < BasePage
     verify_page_title @@flights_page_title
   end
 
+  def check_flights_listing
+    arr= CommonMethods.new.get_flights_details
+    arr.each do |var|
+      assert_text_present "#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
+    end
+    puts arr.count
+
+  end
+
   def check_flights_page
     check_from_to_airports
   end

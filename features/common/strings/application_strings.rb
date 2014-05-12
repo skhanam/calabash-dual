@@ -80,6 +80,7 @@ module AppStrings
     @@home_page_loading=get_localized_string "hold_on_booking"
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_days_to_go= get_localized_string "days_to_go"
+    @@to_flight_strings= get_localized_string "to"
   end
 
   def common_strings

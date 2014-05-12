@@ -10,6 +10,7 @@ module TestModule
     @holidayCountDownPage ||= HolidayCountDownPage.new
     @travelMoneyPage=TravelMoneyBasePage.new
     @appFeedbackPage=AppFeedbackBasePage.new
+    @flightsPage ||=FlightsBasePage.new
 
 
     if ($g_current_app=='DE_MT')
@@ -31,7 +32,6 @@ module TestModule
       @mytouristGuidePage ||=MyTouristGuideBasePage.new
       @mytravelAgentPage ||=MyTravelAgentBasePage.new
       @hotelPage ||=HotelBasePage.new
-      @flightsPage ||=FlightsBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
