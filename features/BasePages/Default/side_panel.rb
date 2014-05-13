@@ -44,7 +44,7 @@ class SidePanel < BasePage
 
   def navigate_to_app_feedback
     scroll_side_panel_and_assert @@side_panel_app_feedback
-    touch_txt_and_verify_title @@side_panel_app_feedback,@@app_feed_back_title1
+    touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1
   end
 
   def navigate_to_hotel(num=1)
@@ -86,7 +86,7 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@app_feed_back, nil)
       when "Contact us"
         scroll_side_panel(@@side_panel_contact_us)
-        scroll_side_panel(@@logout) if $g_nordics_app
+        scroll_side_panel(@@logout) if ($g_nordics_app || $g_eng_app)
         touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
       when "Log out"
         scroll_side_panel(@@logout)

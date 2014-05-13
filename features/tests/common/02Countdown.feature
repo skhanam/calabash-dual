@@ -8,7 +8,7 @@ Feature: Verify Countdown details for bookings
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
     And I verify number of days left to travel
-
+    And I verify share icons are visible
 
   @countdown4 @common-tests @basic-sanity
   Scenario:Check holiday countdown using biscuit
