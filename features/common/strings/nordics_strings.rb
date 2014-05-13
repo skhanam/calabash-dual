@@ -12,6 +12,7 @@ module NordicsStrings
     hotel_strings
     flights_strings
     countdown_strings
+    flight_details_strings
   end
 
   def countdown_strings
@@ -36,6 +37,14 @@ module NordicsStrings
   def flights_strings
     @@flight_page_title=get_localized_string "flight"
     @@flights_page_title=get_localized_string "flights"
+  end
+
+  def flight_details_strings
+    @@flight_details_title= get_localized_string "flight_details"
+    @@flight_details_airline= get_localized_string "airline"
+    @@flight_details_passengers= get_localized_string "passengers"
+    @@flight_details_cabin_class= get_localized_string "cabin_class"
+    @@flight_details_flight_number= get_localized_string "flight_number"
   end
 
   def welcome_page_strings

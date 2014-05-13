@@ -8,7 +8,7 @@ Feature: Verify flight page details
     Given I navigate to flights page from side panel
     Then I see flights page with my flights listed
 
-  @flights2
+  @flights
   Scenario:Get flight booking details
     Given I am on home screen with default booking
     Given I navigate to flights page from side panel

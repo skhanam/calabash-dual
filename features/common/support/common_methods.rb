@@ -235,26 +235,27 @@ class CommonMethods < BasePage
     if ($g_eng_app)
       $g_current_booking["payload"]["flight"].each do |var|
         puts var["DepartureAirportCode"]
-        temp[:departureAirportCode]=var["DepartureAirportCode"]
-        temp[:departureAirportName]=var["DepartureAirportName"]
-        temp[:arrivalAirportCode]=var["ArrivalAirportCode"]
-        temp[:arrivalAirportName]=var["ArrivalAirportName"]
+        temp["departureAirportCode"]=var["DepartureAirportCode"]
+        temp["departureAirportName"]=var["DepartureAirportName"]
+        temp["arrivalAirportCode"]=var["ArrivalAirportCode"]
+        temp["arrivalAirportName"]=var["ArrivalAirportName"]
         arr.push(temp)
+        #puts "temp #{temp}"
       end
 
       #nor user
-      elsif ($g_nordics_app)
-        $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
-          arr.push(val["flight"]) if val.keys.include? "flight"
-        end
-
-      elsif $g_german_app
-        arr=find_products_in_booking("flight")
+    elsif ($g_nordics_app)
+      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
+        arr.push(val["flight"]) if val.keys.include? "flight"
       end
 
-     return arr
-
+    elsif $g_german_app
+      arr=find_products_in_booking("flight")
     end
+
+    return arr
+
+  end
 
 
   def get_weekday_translated(weekday)

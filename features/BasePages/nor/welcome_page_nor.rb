@@ -2,6 +2,7 @@ require_relative '../Default/welcome_base_page'
 
 class WelcomePage < WelcomeBasePage
   def navigate_to_login
+    assert_wait_for_text @@welcome_page_text
   end
 
   def check_welcome_screen

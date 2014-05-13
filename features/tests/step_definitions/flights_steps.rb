@@ -21,6 +21,7 @@ end
 
 Then(/^I verify details of all flights$/) do
   count=CommonMethods.new.find_number_of_flights
+  @flightsPage.check_flights_listing
   if count>1
     @flightsPage.check_details_of_flight
   end

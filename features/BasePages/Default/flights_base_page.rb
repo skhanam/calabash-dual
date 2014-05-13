@@ -27,13 +27,15 @@ class FlightsBasePage < BasePage
 
   def verify_flight_details_page
     verify_page_title @@flight_details_title
+    return if $g_eng_app  # just verify title and return for english app
+
     scroll_page_and_assert_text @@flight_details_title
     scroll_page_and_assert_text @@flight_details_airline
     scroll_page_and_assert_text @@flight_details_flight_number
     scroll_page_and_assert_text @@flight_details_passengers
-    scroll_page_and_assert_text @@flight_details_cabin_class
-    scroll_page_and_assert_text @@flight_details_airport_info
-    scroll_page_and_assert_text @@flight_details_carrier_info
+    #scroll_page_and_assert_text @@flight_details_cabin_class  #not present in nordics & en
+    #scroll_page_and_assert_text @@flight_details_airport_info  #not present in nordics & en
+    #scroll_page_and_assert_text @@flight_details_carrier_info
   end
 
   def check_flights_page
