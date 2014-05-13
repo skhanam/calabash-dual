@@ -78,6 +78,7 @@ module IosReusableMethods
   end
 
   def check_text_in_view(text_to_check)
+    puts "check_text_in_view #{text_to_check}"
     text_check=escape_quotes_smart(text_to_check)
     res=element_exists("view text:'#{text_check}'")
     if res

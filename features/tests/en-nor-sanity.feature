@@ -11,3 +11,4 @@ Feature: English Sanity Tests
   Scenario: Verify contact us page and external links present
     Given I am on contact us screen
     Then I verify contact us page
+

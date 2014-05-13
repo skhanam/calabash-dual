@@ -1,6 +1,7 @@
 require 'rubyXL'
 require_relative '../../ios/base_page_ios' if $g_ios
 require_relative '../../android/base_page_android' if $g_android
+require 'yaml'
 
 #Methods common across android and ios are added here
 class CommonMethods < BasePage
@@ -234,26 +235,39 @@ class CommonMethods < BasePage
     if ($g_eng_app)
       $g_current_booking["payload"]["flight"].each do |var|
         puts var["DepartureAirportCode"]
-        temp[:departureAirportCode]=var["DepartureAirportCode"]
-        temp[:departureAirportName]=var["DepartureAirportName"]
-        temp[:arrivalAirportCode]=var["ArrivalAirportCode"]
-        temp[:arrivalAirportName]=var["ArrivalAirportName"]
+        temp["departureAirportCode"]=var["DepartureAirportCode"]
+        temp["departureAirportName"]=var["DepartureAirportName"]
+        temp["arrivalAirportCode"]=var["ArrivalAirportCode"]
+        temp["arrivalAirportName"]=var["ArrivalAirportName"]
         arr.push(temp)
+        #puts "temp #{temp}"
       end
 
       #nor user
-      elsif ($g_nordics_app)
-        $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
-          arr.push(val["flight"]) if val.keys.include? "flight"
-        end
-
-      elsif $g_german_app
-        arr=find_products_in_booking("flight")
+    elsif ($g_nordics_app)
+      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
+        arr.push(val["flight"]) if val.keys.include? "flight"
       end
 
-     return arr
-
+    elsif $g_german_app
+      arr=find_products_in_booking("flight")
     end
 
+    return arr
+
+  end
+
+
+  def get_weekday_translated(weekday)
+    data=YAML.load(File.open($g_locale))
+    locale=ENV['LANG']
+    data["#{locale}"]["weekdays"]["#{weekday}"]
+  end
+
+  def get_month_translated(month)
+    data=YAML.load(File.open($g_locale))
+    locale=ENV['LANG']
+    data["#{locale}"]["months"]["#{month}"]
+  end
 
 end

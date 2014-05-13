@@ -6,6 +6,10 @@ And(/^I verify facebook and twitter share icons are visible$/) do
   @commonMethods.check_sharing
 end
 
+And(/^I verify share icons are visible$/) do
+  step "I verify facebook and twitter share icons are visible"
+end
+
 Then(/^I verify number of days to go on home page$/) do
   sleep 10
   @homePage.check_countdown_days_text

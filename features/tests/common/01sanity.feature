@@ -19,7 +19,7 @@ Feature: Login and Home page features
     When I log out from application
     Then I see welcome screen
 
-  @basic-sanity
+  @basic-sanity @check1
   Scenario: Check Navigation menus
     Given I am on default booking
     Given I am on Home screen

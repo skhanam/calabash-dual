@@ -31,6 +31,7 @@ module DEMeineTUI
     my_travel_agent_strings
     good_to_know_strings
     countdown_strings
+    flight_details_strings
   end
 
   #All test data for different appication is in here
@@ -302,6 +303,17 @@ module DEMeineTUI
   end
 
 
+  def flight_details_strings
+    @@flight_details_title= get_localized_string "flight_details"
+    @@flight_details_airline= get_localized_string "airline"
+    @@flight_details_passengers= get_localized_string "passengers"
+    @@flight_details_cabin_class= get_localized_string "cabin_class"
+    @@flight_details_flight_number= get_localized_string "flight_number"
+    @@flight_details_airport_info= get_localized_string "flights_airport_information"
+    @@flight_details_carrier_info= get_localized_string "flights_carrier_information"
+  end
+
+
   def tui_service_onsite_strings
     @@tui_service_title=get_localized_string "tui_service_on_site"
     @@tui_service_terms_text= "Im Urlaub für Sie da"
@@ -352,6 +364,7 @@ module DEMeineTUI
   def countdown_strings
     @@countdown_page_title=get_localized_string "countdown_header"
   end
+
   def flights_strings
     @@flight_page_title=get_localized_string "flight"
     @@flights_page_title=get_localized_string "flights"

@@ -18,6 +18,7 @@ elsif ENV['PLATFORM'] == 'android'
   require_relative '../../android/base_page_android'
 end
 
+$g_locale="./config/locale.yml"
 $g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
 $g_lang_strings_file="features/test_data/en/strings.xml" if (ENV['LANG']=='en_th' || ENV['LANG']=='en_fc')
 $g_lang_strings_file="features/test_data/sv/strings.xml" if ENV['LANG']=='sv'

@@ -180,7 +180,6 @@ module ViewModule
     fail("text is not shown") if flag==0
   end
 
-
   # scroll in specified direction till partial id is found
   def scroll_page_till_acc(acc, dir="down", count=10)
     flag=0
@@ -194,10 +193,8 @@ module ViewModule
       sleep 1
       scroll_view(dir)
     end
-
     fail("acc:#{acc}: not found") if flag==0
   end
-
 
   def navigate_back
     click_accessibility_label "navbarLeftButton"

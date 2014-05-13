@@ -16,11 +16,17 @@ module EN_Strings
     travel_money_strings
     countdown_strings
     flights_strings
+    flight_details_strings
   end
 
   #All test data for different appication is in here
   def test_data
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
+  end
+
+  def flight_details_strings
+    @@flight_details_title= get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
+    @@flight_details_title= get_localized_string "flights" if $g_current_app=="EN_TH"
   end
 
   def countdown_strings
