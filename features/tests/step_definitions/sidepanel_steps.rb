@@ -5,7 +5,6 @@ When(/^I navigate back to home page from countdown page$/) do
   @page.click_back_button
 end
 
-
 When(/^I see holiday countdown page$/) do
   @countDownPage.check_count_down_page
 end
@@ -32,7 +31,7 @@ end
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
-  @bookingSummaryPage.check_booking_summary_page
+  @bookingSummaryPage.verify_booking_summary_details
 end
 
 
@@ -44,6 +43,12 @@ end
 Given(/^I navigate to flights page from side panel$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_to_flights_page
+end
+
+
+Then(/^I see app feedback page$/) do
+  @appFeedbackPage.check_app_feedback_title
+  @appFeedbackPage.verify_app_feedback_page
 end
 
 Then(/^I must see below items:$/) do |table|
@@ -62,6 +67,20 @@ When(/^I navigate to insurance page using side menu$/) do
   @sidePanel.navigate_to_insurance_page
 end
 
-Then(/^I should see a list of products in (eng|nor) booking$/) do  |var|
-  @sidePanel.verify_elements_booking(var)
+Then(/^I should see a list of products in booking$/) do
+  @sidePanel.verify_side_panel_strings
+end
+
+Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
+  values=table.raw
+  values.each do |var|
+    @homePage.open_side_panel
+    sleep 2
+    @sidePanel.navigate_from_side_menu(var[0])
+    sleep 2
+    @page.navigate_back
+    sleep 2
+    @homePage.check_home_screen
+    sleep 2
+  end
 end

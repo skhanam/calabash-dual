@@ -47,16 +47,23 @@ class HomeBasePage < BasePage
   end
 
   def navigate_to_currency_conv_page
-    CommonMethods.new.scroll_page_till_acc "fromcode"
+    CommonMethods.new.scroll_page_till_acc "tovalue"
     sleep 1
     get_currency_details
     click_accessibility_label "coins"
-    verify_page_title @@currency_converter_title
+    if ($g_current_app=="DE_MT")
+      verify_page_title @@currency_converter_title
+    else
+      verify_page_title @@travel_money_title
+    end
   end
 
   def get_currency_details
     @@currency_hash["fromcode"]=get_acc_label_text "fromcode"
-    @@currency_hash["fromvalue"]=get_acc_label_text "fromvalue"
+
+    @@currency_hash["fromvalue"]=query($g_query_txt+"marked:'fromvalue'", :text).first.match(/\d/)[0] if $g_ios
+    @@currency_hash["fromvalue"]=query($g_query_txt+"marked:'fromvalue.'", :text).first.match(/\d/)[0] if $g_android
+
     @@currency_hash["tocode"]=get_acc_label_text "tocode"
     @@currency_hash["tovalue"]=get_acc_label_text "tovalue"
     puts "#{@@currency_hash}"
@@ -64,10 +71,10 @@ class HomeBasePage < BasePage
 
   def click_weather_biscuit
     sleep 2
-    scroll_page_and_assert_text("destination_temperature", "down")
+    scroll_page_till_acc "destination_temperature"
     click_accessibility_label "destination_temperature"
-    verify_page_title @@weather_page_title
     sleep 2
+    verify_page_title @@weather_page_title
   end
 
 
@@ -137,6 +144,10 @@ class HomeBasePage < BasePage
     CommonMethods.new.side "representative"
     click_accessibility_label "representative"
     sleep 2
+  end
+
+  def check_countdown_days_text
+    assert_wait_for_text(@@home_page_days_to_go)
   end
 
 end

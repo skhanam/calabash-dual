@@ -20,14 +20,17 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@hotel_and_resort
     scroll_side_panel_and_assert @@destination
     scroll_side_panel_and_assert @@getting_to_the_airport
+    scroll_side_panel_and_assert @@holiday_extras
+    scroll_side_panel_and_assert @@app_feedback
     scroll_side_panel_and_assert @@travel_money
     scroll_side_panel_and_assert @@important_information
+    scroll_side_panel_and_assert @@app_feedback
     scroll_side_panel_and_assert @@side_panel_contact_us
+    check_sidepanel_based_on_bookings
     scroll_side_panel_and_assert @@logout
   end
 
-  def check_sidepanel_based_on_bookings
-    #Holiday extras
-    #excursions
-  end
+
+
+
 end

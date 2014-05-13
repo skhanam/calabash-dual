@@ -1,10 +1,5 @@
 class LoginBasePage < BasePage
 
-  def check_username_pwd_error
-    assert_wait_for_text @@username_email_error
-  end
-
-
   def verify_login_screen
     wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"])
   end
@@ -56,4 +51,9 @@ class LoginBasePage < BasePage
     scroll_page_and_assert_text @@privacy_terms_of_use
     click_on_text @@privacy_terms_of_use
   end
+
+  def scroll_to_end_of_page
+    scroll_page_and_assert_text(@@welcome_cta_help_login)
+  end
+
 end

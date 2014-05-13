@@ -1,3 +1,17 @@
+
+
+
+Install Appcelerator
+===============
+Open - http://developer.appcelerator.com and log on to appcelerator.com
+On top right corner find download appcelerator studio link and download appcelerator studio
+Complete installation
+
+Check out code
+===============
+Download application source code from stash - https://stash.akqa.net/scm/lontui/tda.git
+Download calabash test source code from stash - https://stash.akqa.net/scm/lontui/tda.ui-automation.git
+
 Folder structure
 ===============
 
@@ -38,7 +52,7 @@ Execute tests
 Getting Started
 ===============
 #Install RUBY
-<br />use ruby version >= 1.9.3
+<br />use ruby version >= 2.0.0
 <br />Install source tree & clone 2 projects
 <br />1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
 <br />2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git

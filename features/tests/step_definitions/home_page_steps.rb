@@ -47,7 +47,7 @@ end
 
 
 When (/^I navigate to booking summary page using booking summary biscuit$/) do
-  @homePage.check_home_screen
+  step "I am on Home screen"
   @homePage.click_booking_summary_biscuit
 end
 
@@ -115,8 +115,9 @@ When(/^I open side panel$/) do
   @homePage.open_side_panel
 end
 
-Given(/^I navigate to currency converter page from home screen$/) do
+Given(/^I navigate to travel money page from home screen$/) do
   @homePage.navigate_to_currency_conv_page
+  @travelMoneyPage.verify_travel_money_page
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
@@ -166,4 +167,18 @@ end
 Given(/^I am on weather page$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
+end
+
+Given(/^I am on default booking$/) do
+  step "I have switched to typical booking" if $g_german_app
+end
+
+Given(/^I have home screen with default booking$/) do
+  step "I am on Home screen"
+  step "I am on default booking"
+end
+
+When(/^I navigate to App feedback page$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_to_app_feedback
 end

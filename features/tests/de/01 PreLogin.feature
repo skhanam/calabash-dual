@@ -3,6 +3,7 @@ Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
 
+  @fail1
   Scenario: Verify first welcome screen
     Given I am on welcome page
     Then I should see two options:
@@ -21,11 +22,6 @@ Feature: Verify screens shown before logging into App
     When I navigate to forgot password screen
     And submit an invalid email id in forgot password screen
     Then I see appropriate error message
-
-  Scenario: Login with Non Matching Records  - invalid password
-    Given I have entered an valid email and invalid password
-    When I select the Login button
-    Then I see appropriate password error message
 
   @forgot-password
   Scenario: Forgot password - Populated email field

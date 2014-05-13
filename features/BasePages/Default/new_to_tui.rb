@@ -20,8 +20,8 @@ class NewTOTUIBasePage < BasePage
   def check_new_to_tui_video
     scroll_page_and_assert_text(@@new_to_tui_discover_tui, "up")
     click_on_text(@@new_to_tui_video)
-    wait_for_text("Done")
-    click_accessibility_label "Done"
+    wait_for_text("Fertig")
+    click_accessibility_label "Fertig"
     assert_wait_for_text(@@new_to_tui_discover_tui)
   end
 end

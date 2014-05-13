@@ -106,14 +106,14 @@ module IosReusableMethods
     scroll_to_cell(:row => 0, :section => 0)
     sleep 1
     each_cell(:animate => false, :post_scroll => 0.2) do |row, sec|
-      puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
+      #puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
       if query("tableViewCell indexPath:#{row},#{sec} label", :text).first==text
         count+=1
         break if index==count
       end
       section=section+1
     end
-    puts "scroll_side_panel:element number:#{section}"
+    puts "scroll_side_panel:element number:#{section}  text:#{text} index:#{index}"
   end
 
   #touch text and verify result
@@ -222,6 +222,7 @@ module IosReusableMethods
 
 
   def get_nav_bar_title
+    puts query("view marked:'navbarTitle'", :text).first
     query("view marked:'navbarTitle'", :text).first
   end
 

@@ -2,6 +2,8 @@
 require 'rubyXL'
 require 'date'
 require_relative '../strings/application_strings'
+require "unicode_utils/upcase"
+
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module ReusableMethods
   include AppStrings
@@ -29,6 +31,10 @@ module ReusableMethods
       end
       return properties[arg1]
     end
+  end
+
+  def get_localized_capitalized_string(id)
+    UnicodeUtils.upcase(get_localized_string(id))
   end
 
   #Send resource id for string and get localized value

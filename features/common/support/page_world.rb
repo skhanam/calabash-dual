@@ -1,16 +1,23 @@
 module TestModule
   def initialize_all
+    puts $g_current_app
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new
     @bookingSummaryPage ||=BookingSummaryPage.new
+    @weatherPage ||= WeatherBasePage.new
+    @commonMethods ||=CommonMethods.new
+    @holidayCountDownPage ||= HolidayCountDownPage.new
+    @travelMoneyPage=TravelMoneyBasePage.new
+    @appFeedbackPage=AppFeedbackBasePage.new
+    @flightsPage ||=FlightsBasePage.new
 
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
-      @sidePanel ||=SidePanel.new
-      @commonMethods ||=CommonMethods.new
-      @weatherPage ||= WeatherPage.new
+      @sidePanel ||=SidePanelDe.new
+
+      @countDownPage ||=CountDownDE.new
 
       @myAccountPage ||= MyAccountPage.new
       @destInfoPage||=DestinationInfoBasePage.new
@@ -18,29 +25,28 @@ module TestModule
       @goodToKnowPage||=GoodToKnowBasePage.new
       @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
       @forgotPasswordPage ||= ForgotPasswordBasePage.new
-      @contactPage ||= ContactUsBasePage.new
+      @contactPage ||= ContactUsDe.new
       @tuiServicePage ||= TuiServiceOnsitePage.new
       @termsPage ||= TermsAndConditionsBasePage.new
       @new_to_tui_page ||=NewTOTUIBasePage.new
-      @countDownPage ||=CountDownBasePage.new
       @mytouristGuidePage ||=MyTouristGuideBasePage.new
       @mytravelAgentPage ||=MyTravelAgentBasePage.new
       @hotelPage ||=HotelBasePage.new
-      @flightsPage ||=FlightsBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
-      @holidayCountDownPage ||= HolidayCountDownPage.new
       @myBookingsPage ||= MyBookingsPage.new
-    elsif ($g_current_app== 'EN_TH')
+    elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
       @homePage ||= HomePage.new
       @sidePanel ||=SidePanelEng.new
-      @commonMethods ||=CommonMethods.new
-      @weatherPage ||= WeatherPage.new
-
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
-    elsif ($g_current_app== 'NOR_SW')
+      @countDownPage ||=CountDownEN.new
+
+    elsif ($g_nordics_app)
       @homePage ||= HomePageNOR.new
       @sidePanel ||=SidePanelNor.new
+      @contactPage=ContactUsNOR.new
+      @countDownPage ||=CountDownNOR.new
+
     end
   end
 end

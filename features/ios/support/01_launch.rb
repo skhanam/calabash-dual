@@ -17,7 +17,6 @@ Before do |scenario|
   #start_test_server_in_background(:timeout=>30)
 end
 
-
 After do |scenario|
   if scenario.failed?
     screenshot_embed

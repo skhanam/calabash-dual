@@ -30,6 +30,7 @@ module DEMeineTUI
     my_tour_guide_strings
     my_travel_agent_strings
     good_to_know_strings
+    countdown_strings
   end
 
   #All test data for different appication is in here
@@ -38,15 +39,6 @@ module DEMeineTUI
     $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
     $g_localized_strings=nil
     @@user_details=nil
-    @@currency_hash={}
-  end
-
-  def common_strings
-    @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
-    @@call_us_dialog_no = get_localized_string "cancel"
-    @@call_us_dialog_yes = get_localized_string "call_dialog_yes"
-    @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
-
   end
 
   def welcome_page_strings
@@ -81,7 +73,7 @@ module DEMeineTUI
     @@login_password_tooltip= get_localized_string "login_password_hint"
     @@login_password_hint = get_localized_string "login_password_tooltip"
 
-    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich."
+    @@username_email_error=get_localized_string "error_default_header"
   end
 
   def home_page_strings
@@ -92,7 +84,7 @@ module DEMeineTUI
   end
 
   def meet_rep_strings
-  @@meet_the_rep_help
+    @@meet_the_rep_help
   end
 
   def insurance_strings
@@ -111,6 +103,7 @@ module DEMeineTUI
     @@side_panel_extras=get_localized_string "extras"
     @@side_panel_hotel=get_localized_string "hotel"
     @@side_panel_hotels=get_localized_string "hotels"
+    @@side_panel_transfer=get_localized_string "transfer"
 
     @@side_panel_insurance=get_localized_string "insurance"
     @@side_panel_insurances=get_localized_string "insurances"
@@ -170,18 +163,6 @@ module DEMeineTUI
     @@change_password_info=get_localized_string "new_password_body"
     @@change_password_text2=get_localized_string "forgot_password_email_label"
     @@change_password_send_button=get_localized_string "submit"
-  end
-
-
-  def countdown_page_strings
-    @@countdown_page_title=get_localized_string "countdown_header"
-    @@countdown_share_button_text="Meinen Urlaubscountdown teilen"
-    @@countdown_days_text="Tagen"
-    @@countdown_hours_text="Stunden"
-    @@countdown_minutes_text="Minuten"
-    @@countdown_seconds_text="Sekunden"
-    @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/,'.*')
-    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/,'.*')
   end
 
   #
@@ -367,8 +348,13 @@ module DEMeineTUI
     @@hotel_For_Children ="Für Kinder"
   end
 
+
+  def countdown_strings
+    @@countdown_page_title=get_localized_string "countdown_header"
+  end
   def flights_strings
-    @@flights_page_title=get_localized_string "flight"
+    @@flight_page_title=get_localized_string "flight"
+    @@flights_page_title=get_localized_string "flights"
   end
 
   def dest_info_strings

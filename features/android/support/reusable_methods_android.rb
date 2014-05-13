@@ -19,9 +19,9 @@ module AndroidReusableMethods
     assert_text_present text
   end
 
-  def enter_text_android( text)
+  def enter_text_android(text)
     sleep 2
-    text=text.gsub(' ','%s')
+    text=text.gsub(' ', '%s')
     command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
     raise "Could not send text" unless system(command)
   end
@@ -73,7 +73,15 @@ module AndroidReusableMethods
 
   def check_text_in_view(txt)
     begin
-      return query "* text:'#{txt}'"
+      res=query "* text:'#{txt}'"
+
+      if res.count==0
+        puts "check_text_in_view(#{txt}) res=false"
+        return false
+      else
+        puts "check_text_in_view(#{txt}) res=true"
+        return true
+      end
         #performAction('wait_for_text', txt, 2)["success"]
     rescue
       return false
@@ -103,6 +111,9 @@ module AndroidReusableMethods
   # scroll in specified direction till id is found
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
     repeat_count=0
+    sleep 1
+    puts "scroll_page_and_assert_text #{id}"
+    puts element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'")
     return if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
 
     while (repeat_count < count)
@@ -149,14 +160,7 @@ module AndroidReusableMethods
     wait_for_acc_label(label_expected)
   end
 
-#
-#def verify_page_title(txt, time_out=10)
-#  wait_poll({:until_exists => $g_query_txt+"text:'#{txt}'", :timeout => time_out.to_i}) do
-#    puts text
-#  end
-#end
-
-  def scroll_side_panel(text,index=1)
+  def scroll_side_panel(text, index=1)
     scroll_page_and_assert_text(text)
   end
 
@@ -287,7 +291,6 @@ module AndroidReusableMethods
 
       year_value=(query(year_string, :text)[0].to_i)
     end
-
 
     sleep(1)
     touch("button text:'Set'")

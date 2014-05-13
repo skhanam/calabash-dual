@@ -1,4 +1,4 @@
-USERS||= {
+DE_USER||= {
     :valid => {
         :firstname => "Peter",
         :lastname => "Pan",
@@ -24,7 +24,23 @@ THOMSON_USER||={
         :surname => "martin",
         :departuredate => "22-04-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12347059"
+        :VisionBookingRef => "12347813",
+        :DepartureTime => "09:20"
+    },
+    :invalid => {
+        :surname => "martin",
+        :departuredate => "26-10-2014",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347027"
+    }
+}
+FIRSTCHOICE_USER||={
+    :valid => {
+        :surname => "martin",
+        :departuredate => "20-04-2015",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12346474",
+        :DepartureTime => "08:20"
     },
     :invalid => {
         :surname => "martin",
@@ -34,17 +50,22 @@ THOMSON_USER||={
     }
 }
 
-NOR_SWE_USER||={
+NOR_USER||={
     :valid => {
-        :bookingnumber => "1Y30060",
+        :bookingnumber => "AK56424",
         :emailid => "niclas.westling@fritidsresor.se",
         :telefon => "0722177937",
+        :departuredate => "20-07-2014",
+
     },
     :invalid => {
         :bookingnumber => "11Y30060",
         :emailid => "ns.w@or.se",
-        :telefon => "0722377937", }
+        :telefon => "0722377937",
+        :departuredate => "26-10-2014",
+    }
 }
+
 #:country => "Deutschland",
 
 #def get_user_details(url)
@@ -100,3 +121,17 @@ NOR_SWE_USER||={
 #JSON.parse `curl --header 'tui-auth-key:#{m[1]}' 'http://37.46.24.155:3000/reservation/75458864/summary'`
 #JSON.parse `curl --header 'tui-auth-key:#{m[1]}' 'http://37.46.24.155:3000/reservation/75458864/home'`
 #JSON.parse `curl --header 'tui-auth-key:#{m[1]}' 'http://37.46.24.155:3000/reservation/75458864/countdown'`
+
+#Thomson login and strings
+
+
+#
+#
+#reservationCode="1Y30060"
+#phone="0722177937"
+#origin_url="http://37.46.24.155:8001"
+#public_key="ddeb9c38-dab7-4c71-8c99-d3f0670ca705"
+#email="niclas.westling@fritidsresor.se"
+#cmd=%Q(curl 'https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com/login' -H 'tui-public-key: #{public_key}' -H 'Origin: #{origin_url}' -H 'tui-brand: nordics' -H 'Accept-Language: en-US,en;q=0.8' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryoDlgjn22vAh0Cv4v' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: 30abb32337d60918b2d270640cadc7859df1702b' --data-binary $'------WebKitFormBoundaryoDlgjn22vAh0Cv4v\r\nContent-Disposition: form-data; name="reservationCode"\r\n\r\n#{reservationCode}\r\n------WebKitFormBoundaryoDlgjn22vAh0Cv4v\r\nContent-Disposition: form-data; name="email"\r\n\r\n#{email}\r\n------WebKitFormBoundaryoDlgjn22vAh0Cv4v\r\nContent-Disposition: form-data; name="phone"\r\n\r\n#{phone}\r\n------WebKitFormBoundaryoDlgjn22vAh0Cv4v\r\nContent-Disposition: form-data; name="returnWithHomeScreen"\r\n\r\n0\r\n------WebKitFormBoundaryoDlgjn22vAh0Cv4v--\r\n' --compressed)
+#res=`#{cmd}`
+#JSON.parse(res)

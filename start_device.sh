@@ -1,11 +1,10 @@
-
 #!/bin/bash
 c=1
 while [ $c -le 5 ]
 do
     ps | grep "player" | awk '{print $1}' | xargs kill
     adb kill-server
-    player --vm-name Nexus_5 &
+    /Applications/Genymotion.app/Contents/MacOS/player --vm-name Nexus_5 &
     sleep 2
     adb start-server
     sleep 30

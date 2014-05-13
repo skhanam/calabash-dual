@@ -12,9 +12,6 @@ class LoginPage < LoginBasePage
   #  sleep 1
   #end
 
-  def scroll_to_end_of_page
-    scroll_page_and_assert_text(@@welcome_cta_help_login)
-  end
 
   def check_login_error_messages
     assert_wait_for_text @@login_error_text

@@ -22,9 +22,9 @@ module ViewModule
     return str
   end
 
-  def get_acc_label_text(text)
-    return query($g_query_txt+"marked:'#{text}'", :text).first if $g_ios
-    return query($g_query_txt+"contentDescription:'#{text}.'", :text).first if $g_android
+  def get_acc_label_text(id)
+    return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
+    return query($g_query_txt+"contentDescription:'#{id}.'", :text).first if $g_android
   end
 
   def click_accessibility_label(id)
@@ -53,13 +53,24 @@ module ViewModule
 
   #Check if part of text is shown
   def check_partial_text_shown text
-    return element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}")
+    if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}") == true
+      flash("#{$g_query_txt}{text CONTAINS '#{text}'}") if ($g_flash)
+      return true
+    else
+      return false
+    end
+  end
+
+  def assert_partial_text text
+    fail("text not shown #{text}")if check_partial_text_shown(text) ==false
   end
 
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
     begin
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
+        sleep 1
+        puts text
       end
     rescue
       return false
@@ -185,6 +196,11 @@ module ViewModule
     end
 
     fail("acc:#{acc}: not found") if flag==0
+  end
+
+
+  def navigate_back
+    click_accessibility_label "navbarLeftButton"
   end
 
 end

@@ -9,7 +9,7 @@ class ForgotPasswordBasePage < BasePage
 
   def enter_wrong_username_or_email
     fail("unused")
-    enter_username_or_email(USERS[:invalid][:email])
+    enter_username_or_email($g_current_user_details[:invalid][:email])
   end
 
 

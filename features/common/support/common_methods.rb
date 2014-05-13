@@ -46,17 +46,23 @@ class CommonMethods < BasePage
 
   #Avoid calling this method directly
   def get_user_details(url)
-    username=USERS[:valid][:username]
-    password=USERS[:valid][:password]
-    query_url=url||'http://37.46.24.155:3000/reservations'
-    server_url="http://37.46.24.155:3000/login"
-    res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
 
-    m=res1.match('(PHP(.*)path=\/)')
-    res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
-    parsed=JSON.parse(res)
-    return parsed
+    if ENV['LANG']=='de'
+      username=$g_current_user_details[:valid][:username]
+      password=$g_current_user_details[:valid][:password]
+      query_url=url||'http://37.46.24.155:3000/reservations'
+      server_url="http://37.46.24.155:3000/login"
+      res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
+
+      m=res1.match('(PHP(.*)path=\/)')
+      res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
+      parsed=JSON.parse(res)
+      return parsed
+    else
+      fail("Language not recognized")
+    end
   end
+
 
   #specify the booking type and this method will return hash of booking details
   def get_booking_details(booking_type)
@@ -110,7 +116,8 @@ class CommonMethods < BasePage
 
   def get_all_products_for_booking
     arr=[]
-    $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+    products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
+    products.each do |var|
       arr<<var["productType"]
     end
     return arr
@@ -125,14 +132,27 @@ class CommonMethods < BasePage
     end
   end
 
-
   def get_booking_ref_number
-    $g_current_booking["payload"]["reservationCode"]
+    $g_current_booking["payload"]["reservationCode"] if $g_german_app
+    $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
+    $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
   end
 
   def find_number_of_flights
-    res=get_all_products_for_booking
-    res.count "flight"
+    if $g_eng_app
+      return $g_current_booking["payload"]["products"]["flight"].count
+    elsif $g_nordics_app
+      count=0
+      $g_current_booking["payload"]["products"].each do |var|
+        var["flights"].each do
+          count+=1
+        end
+        return count
+      end
+    else
+      res=get_all_products_for_booking
+      return res.count "flight"
+    end
   end
 
   def find_flight_details_for_booking(num)
@@ -144,7 +164,15 @@ class CommonMethods < BasePage
   end
 
   def get_countdown_days(val=$g_current_booking)
-    (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    puts $g_current_app
+    if $g_current_app=="DE_MT" || $g_nordics_app
+      return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    else
+      date_string = $g_current_user_details[:valid][:departuredate]
+      days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
+      puts "days_left #{days_left}"
+      return days_left
+    end
   end
 
   def find_products_in_booking(product)
@@ -188,7 +216,6 @@ class CommonMethods < BasePage
     sleep 2
   end
 
-
   def check_sharing
     scroll_page_till_acc @@share_button_closed_img
     click_accessibility_label @@share_button_closed_img
@@ -197,6 +224,36 @@ class CommonMethods < BasePage
     wait_for_acc_label @@share_button_open_img
     sleep 1
   end
+
+
+  def get_flights_details
+    arr=[]
+    temp={}
+
+    #eng app
+    if ($g_eng_app)
+      $g_current_booking["payload"]["flight"].each do |var|
+        puts var["DepartureAirportCode"]
+        temp[:departureAirportCode]=var["DepartureAirportCode"]
+        temp[:departureAirportName]=var["DepartureAirportName"]
+        temp[:arrivalAirportCode]=var["ArrivalAirportCode"]
+        temp[:arrivalAirportName]=var["ArrivalAirportName"]
+        arr.push(temp)
+      end
+
+      #nor user
+      elsif ($g_nordics_app)
+        $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
+          arr.push(val["flight"]) if val.keys.include? "flight"
+        end
+
+      elsif $g_german_app
+        arr=find_products_in_booking("flight")
+      end
+
+     return arr
+
+    end
 
 
 end
