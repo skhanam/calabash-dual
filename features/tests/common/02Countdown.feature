@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/script/1035
-@ios_test @android_test  @countdown
+@ios_test @android_test  @countdown @common-tests
 Feature: Verify Countdown details for bookings
 
   @countdown2
