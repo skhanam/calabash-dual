@@ -11,7 +11,29 @@ class FlightsBasePage < BasePage
       assert_text_present "#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
     end
     puts arr.count
+  end
 
+  def check_details_of_flight
+    arr= CommonMethods.new.get_flights_details
+    arr.each do |var|
+      txt="#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
+      assert_text_present txt
+      click_on_text txt
+      verify_flight_details_page
+      navigate_back
+      sleep 2
+    end
+  end
+
+  def verify_flight_details_page
+    verify_page_title @@flight_details_title
+    scroll_page_and_assert_text @@flight_details_title
+    scroll_page_and_assert_text @@flight_details_airline
+    scroll_page_and_assert_text @@flight_details_flight_number
+    scroll_page_and_assert_text @@flight_details_passengers
+    scroll_page_and_assert_text @@flight_details_cabin_class
+    scroll_page_and_assert_text @@flight_details_airport_info
+    scroll_page_and_assert_text @@flight_details_carrier_info
   end
 
   def check_flights_page

@@ -53,6 +53,7 @@ module AppStrings
     countdown_page_strings
     home_page_strings
     app_feedback_strings
+    flight_details_strings
 
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
@@ -136,6 +137,16 @@ module AppStrings
     @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
     @@app_feed_back_submit= get_localized_string "feedback_submit_button"
     @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
+  end
+
+  def flight_details_strings
+    @@flight_details_title= get_localized_string "flight_details"
+    @@flight_details_airline= get_localized_string "airline"
+    @@flight_details_passengers= get_localized_string "passengers"
+    @@flight_details_cabin_class= get_localized_string "cabin_class"
+    @@flight_details_flight_number= get_localized_string "flight_number"
+    @@flight_details_airport_info= get_localized_string "flights_airport_information"
+    @@flight_details_carrier_info= get_localized_string "flights_carrier_information"
   end
 
   # setting global vars to make queries reusable

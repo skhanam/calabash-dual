@@ -22,6 +22,7 @@ class SidePanel < BasePage
 
   def navigate_to_flights_page
     count=CommonMethods.new.find_number_of_flights
+    
     if count==1
       txt=@@side_panel_flight
       title=@@flight_page_title
