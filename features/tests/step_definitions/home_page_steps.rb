@@ -174,6 +174,7 @@ Given(/^I am on default booking$/) do
 end
 
 Given(/^I am on home screen with default booking$/) do
+  step "I am on Home screen"
   step "I am on default booking"
 end
 
