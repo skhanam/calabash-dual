@@ -173,7 +173,7 @@ Given(/^I am on default booking$/) do
   step "I have switched to typical booking" if $g_german_app
 end
 
-Given(/^I have home screen with default booking$/) do
+Given(/^I am on home screen with default booking$/) do
   step "I am on default booking"
 end
 
@@ -182,7 +182,7 @@ When(/^I navigate to App feedback page$/) do
   @sidePanel.navigate_to_app_feedback
 end
 
-Given(/^I have home screen with single booking$/) do
+Given(/^I am on home screen with single booking$/) do
   step "I am on Home screen"
   step "I have switched to single booking" if $g_german_app
 end

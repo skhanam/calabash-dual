@@ -5,11 +5,6 @@ class SidePanelDe < SidePanel
     touch_txt_and_verify_title @@side_panel_TandC, @@tui_service_terms_text
   end
 
-def navigate_to_booking_summary_page
-    scroll_side_panel(@@side_panel_booking_summary)
-    touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
-  end
-
   def navigate_to_hotel(num=1)
     scroll_page_and_assert_text @@side_panel_hotel
     touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
