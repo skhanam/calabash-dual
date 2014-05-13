@@ -9,14 +9,10 @@ expect "Project cleaned successfully"
 spawn echo "cleaned project"
 spawn open -a Xcode
 set timeout 60
-spawn ti build args
+spawn ti build args -b
 expect "or platform name"
 send "3\r"
-expect "Alloy compiler completed successfully"
-expect "Application booted in"
-send \004
-spawn killall Xcode
-spawn sleep 5
+expect "Project built successfully"
 set timeout 20
 spawn calabash-ios setup build/iphone/
 expect "Please answer yes (y) or no (n)"  { send "n\r" }

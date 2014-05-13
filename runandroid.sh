@@ -70,14 +70,16 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
     	ti clean
 		ti build --platform android -b
 		cd -
+		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  "$3"app.apk
 		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
+
 		cp -r $PROJ_FOLDER/i18n/* features/test_data/
 	fi
 
 rm -rf test_servers/
-calabash-android resign app.apk
-calabash-android build app.apk
-adb install -r app.apk
+calabash-android resign "$3"app.apk
+calabash-android build "$3"app.apk
+adb install -r "$3"app.apk
 adb install -r test_servers/*.apk
 
 fi
