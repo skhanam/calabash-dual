@@ -1,6 +1,7 @@
 require 'rubyXL'
 require_relative '../../ios/base_page_ios' if $g_ios
 require_relative '../../android/base_page_android' if $g_android
+require 'yaml'
 
 #Methods common across android and ios are added here
 class CommonMethods < BasePage
@@ -255,5 +256,17 @@ class CommonMethods < BasePage
 
     end
 
+
+  def get_weekday_translated(weekday)
+    data=YAML.load(File.open($g_locale))
+    locale=ENV['LANG']
+    data["#{locale}"]["weekdays"]["#{weekday}"]
+  end
+
+  def get_month_translated(month)
+    data=YAML.load(File.open($g_locale))
+    locale=ENV['LANG']
+    data["#{locale}"]["months"]["#{month}"]
+  end
 
 end

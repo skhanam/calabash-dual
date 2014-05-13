@@ -11,32 +11,13 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to good to know page using side menu
     Then I see good to know page
 
-  Scenario: navigate to countdown page
-    Given I have switched to typical booking
-    Given I am on Home screen
-    When I navigate to countdown page using side menu
-    Then I see holiday countdown page
-
-  Scenario: navigate to weather page
-    Given I have switched to typical booking
-    Given I am on Home screen
-    When I navigate to weather page using side menu
-    Then I see holiday weather page
-
   Scenario: navigate to insurance page
     Given I have switched to insurance booking
     Given I am on Home screen
     When I navigate to insurance page using side menu
     Then I see insurance page
 
-
-  @sanity @holiday-booking-summary
-  Scenario: navigate to booking summary page
-    Given I have switched to typical booking
-    When I navigate to booking summary page using side menu
-    Then I see holiday booking summary page
-
-  @failed @typical-sidepanel
+   @typical-sidepanel
   Scenario: Check Navigation menus for Typical booking
     Given I have switched to typical booking
     When I open side panel

@@ -7,16 +7,10 @@ Feature: Verify Countdown details for bookings
     Given I have home screen with default booking
     When I navigate to countdown page using countdown biscuit
     Then I see holiday countdown page
+    And I verify number of days left to travel
 
-  @countdown3 @basic-sanity @common-tests
-  Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Given I am on default booking
-    Then I navigate to countdown page using side menu
-    Then I verify number of days left to travel
 
-  @countdown4 @common-tests
+  @countdown4 @common-tests @basic-sanity
   Scenario:Check holiday countdown using biscuit
-    Given I am on Home screen
-    Given I am on default booking
+    Given I have home screen with default booking
     Then I verify number of days to go on home page

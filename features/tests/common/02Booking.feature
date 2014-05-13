@@ -2,7 +2,7 @@
 
 Feature: Verify booking summary page
 
-  @booking-nor1
+  @booking-nor1 @basic-sanity
   Scenario: navigate to booking summary page
     Given I have home screen with default booking
     When I navigate to booking summary page using side menu

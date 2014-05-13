@@ -86,6 +86,7 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@app_feed_back, nil)
       when "Contact us"
         scroll_side_panel(@@side_panel_contact_us)
+        scroll_side_panel(@@logout) if $g_nordics_app
         touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
       when "Log out"
         scroll_side_panel(@@logout)
