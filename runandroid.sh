@@ -87,5 +87,5 @@ adb install -r test_servers/*.apk
 
 fi
 
-echo LANG=$3 bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
-LANG=$3 bundle exec calabash-android run app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+echo LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
+LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
