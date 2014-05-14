@@ -37,32 +37,35 @@ if [ $TI_SCHEME == "de" ] ; then
 	APK_NAME="meine TUI.apk"
 	CUCUMBER_PROFILE=de_mt_android
 	TI_SCHEME=meinetui
-	adb uninstall de.tui.meinetui.test
-    adb uninstall de.tui.meinetui
 
 elif [ $TI_SCHEME == "en_th" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=en_th_android
 	TI_SCHEME=thomson
-    adb uninstall com.thomson.mythomson
-    adb uninstall com.thomson.mythomson.test
 
 elif [ $TI_SCHEME == "en_fc" ] ; then
 	APK_NAME=MyFirstChoice.apk
 	CUCUMBER_PROFILE=en_fc_android
 	TI_SCHEME=firstchoice
-	adb uninstall com.firstchoice.myfirstchoice.test
-    adb uninstall com.firstchoice.myfirstchoice
 
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	TI_SCHEME="nordics"
 	APK_NAME="MinFerie.apk"
 	CUCUMBER_PROFILE=nor_android
-	adb uninstall com.tuitravelplc.myholiday
-    adb uninstall com.tuitravelplc.myholiday.test
 fi
 
 if [ $1 == "install" ] || [ $1 == "clean" ] ; then
+	adb uninstall de.tui.meinetui.test
+    adb uninstall de.tui.meinetui
+
+    adb uninstall com.thomson.mythomson
+    adb uninstall com.thomson.mythomson.test
+
+	adb uninstall com.firstchoice.myfirstchoice.test
+    adb uninstall com.firstchoice.myfirstchoice
+
+	adb uninstall com.tuitravelplc.myholiday
+    adb uninstall com.tuitravelplc.myholiday.test
 
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"

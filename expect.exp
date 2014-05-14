@@ -7,7 +7,6 @@ set timeout 10
 spawn /usr/local/bin/ti clean 
 expect "Project cleaned successfully"
 spawn echo "cleaned project"
-spawn open -a Xcode
 set timeout 60
 spawn ti build args -b
 expect "or platform name"
