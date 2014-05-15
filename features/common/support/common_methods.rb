@@ -176,8 +176,10 @@ class CommonMethods < BasePage
       puts countdown.to_s
       return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
     else
-      date_string = $g_current_user_details[:valid][:departuredate]
-      days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
+      date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
+      days_left=(DateTime.strptime(date_string,'%d-%m-%Y %H:%M') - DateTime.now).to_i
+      #date_string = $g_current_user_details[:valid][:departuredate]
+      #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
       puts "days_left #{days_left}"
       return days_left
     end
