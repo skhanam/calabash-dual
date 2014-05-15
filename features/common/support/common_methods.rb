@@ -117,7 +117,7 @@ class CommonMethods < BasePage
 
   def get_all_products_for_booking
     arr=[]
-    products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
+    products=$g_current_booking["payload"]["productDetails"]
     products.each do |var|
       arr<<var["productType"]
     end
@@ -126,7 +126,7 @@ class CommonMethods < BasePage
 
   def get_booking_summary(key_val)
     #key_val=["leadPassenger","otherPassengers","bookingCode"]
-    $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+    $g_current_booking["payload"]["overview"]["infoList"].each do |var|
       if var["key"]==key_val
         return var["title"], var["value"]
       end
@@ -166,8 +166,15 @@ class CommonMethods < BasePage
 
   def get_countdown_days(val=$g_current_booking)
     puts $g_current_app
-    if $g_current_app=="DE_MT" || $g_nordics_app
+    if $g_current_app==$g_nordics_app
       return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    elsif $g_current_app=="DE_MT"
+      countdown=0
+      val["payload"]["overview"]["infoList"].each do |var|
+        countdown=var["value"] if var["title"]=="Countdown"
+      end
+      puts countdown.to_s
+      return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
     else
       date_string = $g_current_user_details[:valid][:departuredate]
       days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
