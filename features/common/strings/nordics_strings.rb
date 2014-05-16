@@ -83,6 +83,7 @@ module NordicsStrings
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
+    @@side_panel_destination=get_localized_string "destination_guide"
     @@logout=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
     @@accomadation = get_localized_string "accomodation"

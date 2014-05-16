@@ -11,7 +11,7 @@ module TestModule
     @travelMoneyPage=TravelMoneyBasePage.new
     @appFeedbackPage=AppFeedbackBasePage.new
     @flightsPage ||=FlightsBasePage.new
-
+    @destinationInfo ||= DestinationInfoBasePage.new
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new

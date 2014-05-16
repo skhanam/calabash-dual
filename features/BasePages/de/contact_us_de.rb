@@ -7,30 +7,26 @@ class ContactUsDe < ContactUsBasePage
     check_contact_us_screen_title
   end
 
-  def verify_external_links
-    sleep 2
-    assert_wait_for_text @@url_dialog_title
-    assert_wait_for_text @@url_dialog_cancel
-    assert_wait_for_text @@url_dialog_yes
-    click_on_text @@url_dialog_cancel
-    sleep 2
-  end
 
   def verify_contact_us_page
     wait_for_page_to_load(@@loading_hold_on,5)
-    scroll_page_and_assert_text(@@contact_us_title) #"Need some help?"
-    scroll_page_and_assert_text(@@contactus_subtitle) #"Get in touch"
-    scroll_page_and_assert_text(@@contact_us_travel_shop)
-    #scroll_page_and_assert_text(@@postholiday_emailus) #"Email us"
-    scroll_page_and_assert_text(@@contact_us_shop_opening_times)
-    wait_for_partial_text_shown @@contactus_call_us #"Call us on [number]"
-    scroll_page_and_assert_text(@@contactus_termsAndConditions)
-    click_on_text @@contactus_termsAndConditions
-    verify_external_links
-    scroll_page_and_assert_text(@@contactus_privacyPolicy) #"Privacy policy"
-    click_on_text @@contactus_privacyPolicy
-    verify_external_links
-    scroll_page_and_assert_text(@@contactus_support) #"MyThomson support"
+    scroll_page_and_assert_text(@@contact_us_contact_title)
+    scroll_page_and_assert_text(@@contact_us_learn_more)
+    scroll_page_and_assert_text(@@contact_us_contact_tui_service)
+    scroll_page_and_assert_text @@contact_us_first_name
+    scroll_page_and_assert_text @@contact_us_last_name
+    scroll_page_and_assert_text @@contact_us_email_id
+    scroll_page_and_assert_text @@contact_us_telephone
+    scroll_page_and_assert_text @@contact_us_subject
+    scroll_page_and_assert_text @@contact_us_message
+    scroll_page_and_assert_text @@contact_us_send_email
+    scroll_page_and_assert_text @@contact_us_t_and_c
+    scroll_page_and_assert_text @@contact_us_disclaimer
+
+    @@contact_us_contact_copy.each do |var|
+      scroll_page_till_partial_text  var
+    end
+
   end
 
   def validate_contact_items(var)

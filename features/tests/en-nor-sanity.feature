@@ -7,8 +7,3 @@ Feature: English Sanity Tests
     Given I have opened side menu
     Then I should see a list of products in booking
 
-  @contact_us-nor
-  Scenario: Verify contact us page and external links present
-    Given I am on contact us screen
-    Then I verify contact us page
-

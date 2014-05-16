@@ -24,6 +24,7 @@ module EN_Strings
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
   end
 
+
   def flight_details_strings
     @@flight_details_title= get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
     @@flight_details_title= get_localized_string "flights" if $g_current_app=="EN_TH"
@@ -36,7 +37,7 @@ module EN_Strings
 
   def flights_strings
     @@flight_page_title=get_localized_string "flight"
-    @@flights_page_title=get_localized_string "flights"  if $g_current_app=="EN_TH"
+    @@flights_page_title=get_localized_string "flights" if $g_current_app=="EN_TH"
     @@flights_page_title=get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
   end
 
@@ -47,19 +48,20 @@ module EN_Strings
     @@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
     @@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
     @@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-end
+  end
 
   def login_page_strings
     @@login_page_text = get_localized_string "welcome_login_header"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
-    @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra" #"welcome_login_booking_reference_extra"
+    @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
     @@welcome_help_cant_login_cta=get_localized_string "welcome_help_cant_login_cta" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
     @@login_error_text=get_localized_string "welcome_login_credential_error"
-    @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra"
+    @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra"  if $g_current_app=="EN_TH"
+    @@login_error_booking_ref='Tip: You should have received this number in an email a few days after you booked your holiday. It looks like this: 1234/567891. The number of digits may vary.'  if $g_current_app=="EN_FC"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
@@ -109,6 +111,9 @@ end
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
+
+    @@side_panel_destination=get_localized_string "destination"
+
     @@logout=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
 
@@ -116,8 +121,8 @@ end
   end
 
   def booking_summary_strings
-    @@booking_summary_title=get_localized_string "booking_summary"   if $g_current_app=="EN_TH"
-    @@booking_summary_title= get_localized_capitalized_string "booking_summary"   if $g_current_app=="EN_FC"
+    @@booking_summary_title=get_localized_string "booking_summary" if $g_current_app=="EN_TH"
+    @@booking_summary_title= get_localized_capitalized_string "booking_summary" if $g_current_app=="EN_FC"
     @@bookingSummary_bookingReference=get_localized_string "bookingSummary_bookingReference" #"Booking reference number:"
     @@bookingSummary_quote=get_localized_string "bookingSummary_quote" #"You'll need this number if you contact us with any questions."
     @@bookingSummary_flighthotelRefNumber=get_localized_string "bookingSummary_flighthotelRefNumber" #"Flight and hotel reference number:"
@@ -132,13 +137,13 @@ end
 
   def weather_page_strings
     @@weather_page_title=get_localized_capitalized_string "weather_header" if $g_current_app=="EN_FC" #"Weather"
-    @@weather_page_title=get_localized_string "weather_header" if $g_current_app=="EN_TH"  #"Weather"
+    @@weather_page_title=get_localized_string "weather_header" if $g_current_app=="EN_TH" #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_string "contactus_navbar" if $g_current_app=="EN_TH"   #"Contact us"
-    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" if $g_current_app=="EN_FC"  #"Contact us"
+    @@contact_us_contact_title=get_localized_string "contactus_navbar" if $g_current_app=="EN_TH" #"Contact us"
+    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" if $g_current_app=="EN_FC" #"Contact us"
     @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
     @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
     @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"

@@ -117,7 +117,7 @@ class CommonMethods < BasePage
 
   def get_all_products_for_booking
     arr=[]
-    products=$g_current_booking["payload"]["productDetails"]
+    products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
     products.each do |var|
       arr<<var["productType"]
     end
@@ -126,7 +126,7 @@ class CommonMethods < BasePage
 
   def get_booking_summary(key_val)
     #key_val=["leadPassenger","otherPassengers","bookingCode"]
-    $g_current_booking["payload"]["overview"]["infoList"].each do |var|
+    $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
       if var["key"]==key_val
         return var["title"], var["value"]
       end
@@ -170,7 +170,7 @@ class CommonMethods < BasePage
       return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
     elsif $g_current_app=="DE_MT"
       countdown=0
-      val["payload"]["overview"]["infoList"].each do |var|
+      val["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
         countdown=var["value"] if var["title"]=="Countdown"
       end
       puts countdown.to_s
@@ -227,11 +227,14 @@ class CommonMethods < BasePage
   end
 
   def check_sharing
+    scroll_page_and_assert_text @@share_weather
     scroll_page_till_acc @@share_button_closed_img
+    scroll_view("down")
+    sleep 2
     click_accessibility_label @@share_button_closed_img
-    wait_for_acc_label @@facebook_share_img
-    wait_for_acc_label @@twitter_share_img
-    wait_for_acc_label @@share_button_open_img
+    assert_wait_for_acc_label @@facebook_share_img
+    assert_wait_for_acc_label @@twitter_share_img
+    assert_wait_for_acc_label @@share_button_open_img
     sleep 1
   end
 

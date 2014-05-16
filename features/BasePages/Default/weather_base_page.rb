@@ -42,7 +42,6 @@ class WeatherBasePage < BasePage
   def check_weather_page
     check_weather_screen_title
     sleep 1
-    check_weather_forecast
   end
 
 end

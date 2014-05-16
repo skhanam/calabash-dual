@@ -32,7 +32,3 @@ Feature: English Sanity Tests
     And I navigate to money on card page from travel money page
     Then I verify money on card page
 
-  Scenario:Week's weather
-    Given I am on weather page
-    Then I see holiday weather page
-    And I should weather forecast for five sequential days

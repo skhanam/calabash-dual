@@ -4,7 +4,6 @@ class SidePanel < BasePage
     scroll_side_panel(@@side_panel_contact_us)
     sleep 1
     touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
-    wait_for_text @@side_panel_contact_us
   end
 
   def navigate_to_booking_summary_page
@@ -89,6 +88,9 @@ class SidePanel < BasePage
         scroll_side_panel(@@side_panel_contact_us)
         scroll_side_panel(@@logout) if ($g_nordics_app || $g_eng_app)
         touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
+      when "destination"
+        scroll_side_panel(@@side_panel_destination)
+        touch_txt_and_verify_title(@@side_panel_destination,@@destination_title)
       when "Log out"
         scroll_side_panel(@@logout)
         touch_txt_and_verify_title(@@logout, nil)

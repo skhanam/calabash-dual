@@ -53,7 +53,7 @@ module AppStrings
     countdown_page_strings
     home_page_strings
     app_feedback_strings
-
+    destination_info_strings
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -74,6 +74,15 @@ module AppStrings
 
   def set_test_data
     @@currency_hash={}
+  end
+
+  def destination_info_strings
+    @@destination_page_gen_info = get_localized_string "general_information"
+    @@destination_page_location_info = get_localized_string "location"
+
+    @@destination_title=get_localized_capitalized_string "destination_guide" if $g_current_app=="EN_FC"
+    @@destination_title=get_localized_string "destination_guide" if $g_current_app=="EN_TH"
+    @@destination_title=get_localized_string "destination_info" if !$g_eng_app
   end
 
   def home_page_strings

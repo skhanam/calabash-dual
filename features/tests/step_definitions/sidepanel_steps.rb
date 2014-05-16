@@ -84,3 +84,9 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
     sleep 2
   end
 end
+
+
+When(/^I navigate to destination using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("destination")
+end

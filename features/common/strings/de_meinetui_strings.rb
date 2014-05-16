@@ -74,7 +74,7 @@ module DEMeineTUI
     @@login_password_tooltip= get_localized_string "login_password_hint"
     @@login_password_hint = get_localized_string "login_password_tooltip"
 
-    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich."  #get_localized_string "error_default_header"
+    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
   end
 
   def home_page_strings
@@ -113,7 +113,7 @@ module DEMeineTUI
     @@side_panel_camper=get_localized_string "camper"
     @@side_panel_car_hire=get_localized_string "car_hire"
 
-    @@side_panel_destination_info=get_localized_string "destination_info"
+    @@side_panel_destination=get_localized_string "destination_guide"
 
     @@side_panel_weather=get_localized_string "weather"
     @@side_panel_contact_us= get_localized_string "contact_us"
