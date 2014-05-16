@@ -10,7 +10,7 @@ Feature: Verify Countdown details for bookings
     And I verify number of days left to travel
     And I verify share icons are visible
 
-  @countdown4 @common-tests @basic-sanity
+  @countdown4 @common-tests
   Scenario:Check holiday countdown using biscuit
     Given I am on home screen with default booking
     Then I verify number of days to go on home page
