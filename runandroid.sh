@@ -37,21 +37,25 @@ if [ $TI_SCHEME == "de" ] ; then
 	APK_NAME="meine TUI.apk"
 	CUCUMBER_PROFILE=de_mt_android
 	TI_SCHEME=meinetui
+    TESTENV='DE_MT'
 
 elif [ $TI_SCHEME == "en_th" ] ; then
 	APK_NAME=MyThomson.apk
 	CUCUMBER_PROFILE=en_th_android
 	TI_SCHEME=thomson
+    TESTENV='EN_TH'
 
 elif [ $TI_SCHEME == "en_fc" ] ; then
 	APK_NAME=MyFirstChoice.apk
 	CUCUMBER_PROFILE=en_fc_android
 	TI_SCHEME=firstchoice
+    TESTENV='EN_FC'
 
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	TI_SCHEME="nordics"
 	APK_NAME="MinFerie.apk"
 	CUCUMBER_PROFILE=nor_android
+	TESTENV='NOR'
 fi
 
 if [ $1 == "install" ] || [ $1 == "clean" ] ; then
@@ -87,5 +91,5 @@ adb install -r test_servers/*.apk
 
 fi
 
-echo LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test
-LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+echo TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3

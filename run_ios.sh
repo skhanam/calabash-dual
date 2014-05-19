@@ -29,20 +29,24 @@ if [ $3 == "de" ] ; then
 	TI_SCHEME="meinetui"
 	ruby update_tiapp.rb $PROJ_FOLDER
 	APPNAME="meineTUI"
+	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 elif [ $3 == "en_th" ] ; then
 	TI_SCHEME="thomson"
 	APPNAME="MyThomson"
+	TESTENV='EN_TH'
 	CUCUMBER_PROFILE=en_th_ios
 elif [ $3 == "en_fc" ] ; then
 	TI_SCHEME="firstchoice"
 	APPNAME="MyFirstChoice"
 	CUCUMBER_PROFILE=en_fc_ios
+	TESTENV='EN_FC'
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	calabash-ios sim locale $3
 	TI_SCHEME="nordics"
 	APPNAME="MinFerie"
 	CUCUMBER_PROFILE=nor_ios
+	TESTENV='NOR'
 fi
 
 BUILD_CONFIG="Debug"
@@ -72,6 +76,7 @@ if [ "$1" == "clean" ] ; then
 	sleep 20
 	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
+#	${PROJ_FOLDER}/app/themes/${TI_SCHEME}/i18n/
 	sleep 1
     killall "iPhone Simulator"
 	killall Xcode
@@ -84,5 +89,5 @@ echo $BUILT_PRODUCTS_DIR
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
 
-echo LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -v
-SCREENSHOT_PATH=$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+echo SCREENSHOT_PATH=$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+TESTENV=$TESTENV SCREENSHOT_PATH=$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
