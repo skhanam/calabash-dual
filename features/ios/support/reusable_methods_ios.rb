@@ -190,7 +190,7 @@ module IosReusableMethods
       end
       sleep 0.5
     end
-    fail "id/text :#{id}: not present on screen" if repeat_count==10
+    fail "id/text :#{id}: not present on screen" if repeat_count==count
     sleep 1
   end
 
