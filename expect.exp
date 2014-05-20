@@ -10,7 +10,7 @@ spawn echo "cleaned project"
 set timeout 60
 spawn ti build args -b
 expect "or platform name"
-send "3\r"
+send "2\r"
 expect "Project built successfully"
 set timeout 20
 spawn calabash-ios setup build/iphone/
