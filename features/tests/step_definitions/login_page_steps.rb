@@ -91,11 +91,20 @@ end
 def nordics_login(bookingNum, email, telephone)
   if $g_ios
     step "I clear input field number 1"
+    step "I clear input field number 2"
+    step "I clear input field number 3"
+
+
     step 'I enter "'+bookingNum+'" into input field number 1'
+    sleep 1
     touch("toolbarTextButton index:1")
     sleep 1
     step "I clear input field number 2"
-    step 'I enter "'+email+'" into input field number 2'
+    #step 'I enter "'+email+'" into input field number 2' #uncomment this line for email booking
+    sleep 1
+    touch("toolbarTextButton index:2")
+    sleep 2
+    step 'I enter "'+telephone+'" into input field number 3'
     touch("toolbarTextButton index:1")
     sleep 1
 
@@ -107,8 +116,10 @@ def nordics_login(bookingNum, email, telephone)
     touch("* marked:'bookingReference.'")
     @page.enter_text_android(bookingNum)
 
-    touch("* marked:'emailid.'")
-    @page.enter_text_android(email)
+    #touch("* marked:'emailid.'")
+    #@page.enter_text_android(email)
+    touch("* marked:'telephone.'")
+    @page.enter_text_android(telephone)
 
     touch("* marked:'bookingReference.'")
 
