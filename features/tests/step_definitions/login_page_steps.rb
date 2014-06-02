@@ -327,3 +327,26 @@ Then(/^I see correct error messages on login screen$/) do
   sleep 4
   @loginPage.check_login_error_messages
 end
+
+
+Then(/^I verify text content on login screen$/) do
+  @loginPage.verify_login_page
+end
+
+When(/^I select help logging in page$/) do
+  @loginPage.select_help_logging_in
+
+end
+
+Then(/^I verify help logging in page$/) do
+  @loginPage.verify_help_logging_in
+
+end
+
+When(/^I select book visit page$/) do
+  pending
+end
+
+Then(/^I verify book visit page$/) do
+  pending
+end

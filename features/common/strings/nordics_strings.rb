@@ -20,14 +20,31 @@ module NordicsStrings
   end
 
   def login_page_strings
-    @@login_page_text = get_localized_string "welcome_login_header"
-    @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
-    @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
-    @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra" #"welcome_login_booking_reference_extra"
+    @@login_page_title = get_localized_string "login_welcome"
+    @@login_page_text = get_localized_string "welcome_login_paragraph" # Appen Min semester vänder
+
+    @@login_page_booking_ref = get_localized_string "welcome_login_booking_reference"
+    @@login_page_email = get_localized_string "login_user_email"
+    @@login_page_telephone = get_localized_string "welcome_login_telephone"
+
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
+    @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"
+    @@login_page_book_visit=get_localized_string "welcome_book_holiday"
+
+
     @@welcome_help_cant_login_cta=get_localized_string "welcome_help_cant_login_cta" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
+    @@help_login_tips=get_localized_string "welcome_help_cant_login_subtitle"
+    @@help_login_login_body=get_localized_string "welcome_help_cant_login_body"
+
+    @@help_logging_kontakt_header = get_localized_string "welcome_help_more_issues_header"
+    @@help_logging_kontakt_text = get_localized_string "welcome_help_more_issues_body"
+    @@help_logging_ring = get_localized_string "welcome_help_more_issues_phone_title"
+    @@help_logging_email = get_localized_string "welcome_help_more_issues_email_title"
+    @@help_logging_privacy_title = get_localized_string "welcome_help_more_issues_privacy_title"
+
+    @@help_logging_text=get_localized_string "welcome_help_cant_login_description"
     @@login_error_text=get_localized_string "welcome_login_credential_error"
     @@login_error2_text=get_localized_string "welcome_login_error"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
@@ -59,7 +76,7 @@ module NordicsStrings
 
 
   def hotel_strings
-  @@hotel_page_title=get_localized_string "hotel"
+    @@hotel_page_title=get_localized_string "hotel"
   end
 
   def weather_page_strings
