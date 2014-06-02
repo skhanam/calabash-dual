@@ -11,7 +11,7 @@ if [ "$#" -le "3" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
-    echo "3) App to test ex: thomson / firstchoice / meinetui"
+    echo "3) App to test ex: sv / en_fc / de"
     echo "4) folder source code"
 
 	echo "\nsample command: sh runandroid.sh clean @sanity de ../meine.tui\n"

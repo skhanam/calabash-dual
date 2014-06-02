@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="postholiday_alert">Vi håber, at du har haft en rigtig skøn ferie. Du kan stadig benytte app’en Min ferie til at få tips om nye rejseoplevelser, eller kontakte os om rejsen du netop har været på. </string>
+  <!-- 0.0.1 post holiday -->
+  <string name="postholiday_alert">Vi håber, at du har haft en rigtig skøn ferie. Du kan stadig benytte app’en Min ferie til at få tips om nye rejseoplevelser, eller til at kontakte os om rejsen du netop har været på.</string>
   <string name="postholiday_alert_title">Velkommen hjem!</string>
   <string name="postholiday_callcentre">Telefonåbent:</string>
   <string name="postholiday_callus">70 10 10 50</string>
   <string name="postholiday_disclaimer">Pris ifølge operatørens samtaletakst</string>
   <string name="postholiday_emailus">kontakt@startour.dk</string>
   <string name="postholiday_needhelp">Kontakt os</string>
-  <string name="postholiday_needhelp_sub">postholiday_needhelp_sub</string>
+  <string name="postholiday_needhelp_sub">Har du spørgsmål om rejsen du har foretaget, eller rejser du planlægger, er du altid velkommen til at ringe eller maile til os.</string>
   <string name="postholiday_needhelp_sub_retail">postholiday_needhelp_sub_retail</string>
-  <string name="postholiday_subtitle">Find ferien der passer dig</string>
+  <string name="postholiday_subtitle">Find ferien, der passer dig</string>
   <string name="postholiday_telephone_no">70101050</string>
   <string name="postholiday_title">Velkommen hjem!</string>
   <string name="postholiday_writetous">postholiday_writetous</string>
@@ -22,11 +23,13 @@
   <string name="friday">Fredag</string>
   <string name="saturday">Lørdag</string>
   <string name="sunday">Søndag</string>
+  <!-- 0.2 have a tui booking -->
   <string name="tell_us_cta_new_tui_body">tell_us_cta_new_tui_body</string>
   <string name="tell_us_cta_new_tui_title">tell_us_cta_new_tui_title</string>
   <string name="tell_us_cta_with_tui_body">tell_us_cta_with_tui_body</string>
   <string name="tell_us_cta_with_tui_title">tell_us_cta_with_tui_title</string>
   <string name="tell_us_header">tell_us_header</string>
+  <!-- 0.2.1 help logging in -->
   <string name="help_email_address">kontakt@startour.dk</string>
   <string name="welcome_help_cant_login_cta">welcome_help_cant_login_cta</string>
   <string name="welcome_help_cant_use_app_body">welcome_help_cant_use_app_body</string>
@@ -34,46 +37,52 @@
   <string name="welcome_help_link1">welcome_help_link1</string>
   <string name="welcome_help_link2">welcome_help_link2</string>
   <string name="welcome_help_link3">welcome_help_link3</string>
+  <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">welcome_help_retrieve_booking_body</string>
   <string name="welcome_help_retrieve_booking_cta">welcome_help_retrieve_booking_cta</string>
   <string name="welcome_help_retrieve_booking_email">welcome_help_retrieve_booking_email</string>
   <string name="welcome_help_retrieve_booking_email_extra">E-mailen matcher ikke bestillingsnummeret. Hvis du ikke har oplyst din e-mail da du bestilte rejsen, skal du gå videre til telefonnummer.</string>
   <string name="welcome_help_retrieve_booking_email_hint">welcome_help_retrieve_booking_email_hint</string>
-  <string name="welcome_help_retrieve_booking_error">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp med log ind” nedenfor.</string>
+  <string name="welcome_help_retrieve_booking_error">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har indtastet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp til log ind” nedenfor.</string>
   <string name="welcome_help_retrieve_booking_header">welcome_help_retrieve_booking_header</string>
   <string name="welcome_help_retrieve_booking_ref_validation">welcome_help_retrieve_booking_ref_validation</string>
   <string name="welcome_help_retrieve_booking_success">welcome_help_retrieve_booking_success</string>
   <string name="welcome_help_retrieve_booking_surname">welcome_help_retrieve_booking_surname</string>
   <string name="welcome_help_retrieve_booking_surname_extra">welcome_help_retrieve_booking_surname_extra</string>
   <string name="welcome_help_retrieve_booking_surname_hint">welcome_help_retrieve_booking_surname_hint</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_cant_login_androidStore">welcome_help_cant_login_androidStore</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">welcome_help_cant_login_androidStoreCTA_website</string>
-  <string name="welcome_help_cant_login_body">Forkert bestillingsnummer! Bestillingsnummeret starter med B efterfulgt af endnu et bogstav og fem cifre. Versionsnummeret (f.eks. -01) skal ikke oplyses.::Forkert e-mailadresse. Tjek at du har skrevet rigtig og vær opmærksom på at hvis du ikke oplyste en e-mail ved bestilling, skal feltet være tomt.::Forkert telefonnummer. Det skal være teleonnummeret i dagtimerne (f.eks. mobil) som du oplyste ved bestilling. Hvis du har oplyst e-mailadresse, behøver du ikke skrive telefonnummer.</string>
+  <string name="welcome_help_cant_login_body">Forkert bestillingsnummer. Bestillingsnummeret starter med B efterfulgt af endnu et bogstav og fem cifre. Versionsnummeret (f.eks. -01) skal ikke oplyses.::Forkert e-mailadresse. Tjek at du har skrevet rigtig og vær opmærksom på, at hvis du ikke oplyste en e-mail ved bestilling, skal feltet være tomt.::Forkert telefonnummer. Det skal være telefonnummeret i dagtimerne (f.eks. mobil) som du oplyste ved bestilling. Hvis du har oplyst e-mailadresse, behøver du ikke skrive telefonnummer.</string>
   <string name="welcome_help_cant_login_cruise">welcome_help_cant_login_cruise</string>
   <string name="welcome_help_cant_login_cruise_website">welcome_help_cant_login_cruise_website</string>
-  <string name="welcome_help_cant_login_description">For at logge ind på Min rejse-app'en skal du oplyse dit bestillingsnummer, e-mailadresse og telefonnummer. Bestillingsnummeret og andre oplysninger blev sendt til dig på e-mail eller med posten, da du bestilte din rejse med Star Tour. Kan du ikke finde oplysningerne er du velkommen til at kontakte os. Vi hjælper dig med at finde din bestilling og kan sende oplysninger til dig på ny. Om du inte hittar uppgifterna kan du kontakta oss. Vi hjälper dig att lokalisera din bokning och skickar uppgifterna på nytt via brev eller e-post. Du kan også få udleveret oplysningerne i en af Star Tour butikker.</string>
+  <string name="welcome_help_cant_login_description">For at logge ind på Min ferie-app'en skal du oplyse dit bestillingsnummer og enten e-mailadresse eller telefonnummer.\n \nBestillingsnummeret og andre oplysninger blev sendt til dig på e-mail eller med posten, da du bestilte din rejse.\n \nKan du ikke finde oplysningerne, bedes du ringe til os på tlf. 70 10 10 50. Hvis vi kan lokalisere din booking, sender vi oplysningerne igen via brev eller e-mail.\n \nDu kan også få udleveret oplysningerne i en af Star Tours butikker mod fremvisning af legitimation.</string>
   <string name="welcome_help_cant_login_header">Hjælp til log ind</string>
   <string name="welcome_help_cant_login_iosStore">welcome_help_cant_login_iosStore</string>
   <string name="welcome_help_cant_login_iosStoreCTA_website">welcome_help_cant_login_iosStoreCTA_website</string>
   <string name="welcome_help_cant_login_subtitle">Tips til log ind</string>
   <string name="welcome_help_more_issues_body">Kontakt os, så hjælper vi dig med at logge ind</string>
-  <string name="welcome_help_more_issues_email_body">Hvor ærgeligt, at du har problemer med indlogningen. Udfyld nedenstående oplysninger, kontroller nøje at alt er stavet rigtigt, og send mailen til os hos Star Tour. Vi vender tilbage så hurtigt som muligt.\n\nNavn: \nBookingnummer: \nTelefonnummer: \nE-mailadresse:</string>
+  <string name="welcome_help_more_issues_email_body">Vi beklager at du har problemer med at logge ind. Udfyld nedenstående oplysninger og kontrollér nøje at alt er korrekt. Send mailen til os, og vi vender tilbage så hurtigt som muligt.\n\nNavn: \nBestillingsnummer: \nTelefonnummer (dagtid): \nE-mail:</string>
   <string name="welcome_help_more_issues_email_subject">Hjælp med indlogning i app'en Min ferie</string>
   <string name="welcome_help_more_issues_email_title">Send e-mail til kontakt@startour.dk</string>
-  <string name="error_default_body">Desværre kunne siden ikke indlæses korrekt. Vælg en anden side eller luk app'en og prøv igen senere.</string>
+  <!-- Error Screen -->
+  <string name="error_default_body">Desværre kunne siden ikke indlæses korrekt. Prøv at opdatere siden eller luk app´en og prøv igen senere.</string>
   <string name="error_default_header">Ups!</string>
   <string name="error_no_internet_body">For at se denne side kræves internettilslutning. Opdater siden.</string>
   <string name="error_no_internet_header">Er du offline?</string>
   <string name="error_no_internet_refresh">Opdater siden</string>
   <string name="try_again">Forsøg igen</string>
-  <string name="welcome_book_holiday">Bestil en rejse!</string>
+  <!-- 0.3 login (nodics) -->
+  <string name="welcome_book_holiday">Bestil en rejse</string>
   <string name="welcome_help_no_holiday_call_cta">Ring til os på 70 10 10 50</string>
   <string name="welcome_help_no_holiday_call_number">70101050</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_more_issues_phone_title">Ring til os på 70 10 10 50</string>
-  <string name="welcome_help_more_issues_privacy_title">Personlige oplysninger</string>
+  <string name="welcome_help_more_issues_privacy_title">Information om dine personlige oplysninger</string>
   <string name="welcome_help_more_issues_phone_url">70101050</string>
   <string name="welcome_help_more_issues_privacy_link">http://www.startour.dk/Om-Star-Tour/cookies-og-sikkerhed/Personlige-oplysninger/</string>
   <string name="welcome_help_more_issues_header">Kontakt os</string>
+  <!-- 0.2.4 book a holiday -->
   <string name="explore_tui_beach_hotel_body">explore_tui_beach_hotel_body</string>
   <string name="explore_tui_beach_hotel_button">explore_tui_beach_hotel_button</string>
   <string name="explore_tui_body">explore_tui_body</string>
@@ -92,36 +101,37 @@
   <string name="explore_tui_tour">explore_tui_tour</string>
   <string name="explore_tui_vital_hotel_body">explore_tui_vital_hotel_body</string>
   <string name="explore_tui_vital_hotel_button">explore_tui_vital_hotel_button</string>
-  <string name="welcome_help_no_holiday_body">Min rejse-app'en er til kunder som allerede har bestilt en rejse. Hvis du endnu ikke har bestilt, kan du finde masser af inspiration og aktuelle tilbud her:</string>
+  <string name="welcome_help_no_holiday_body">Min Ferie app'en er til dig, som allerede har bestilt en rejse med Star Tour. Hvis du endnu ikke har bestilt, kan du finde masser af inspiration og aktuelle tilbud her:</string>
   <string name="welcome_help_no_holiday_explore_cta">Mere om [location] </string>
   <string name="welcome_help_no_holiday_find_holiday_header">Flere ferietips</string>
   <string name="welcome_help_no_holiday_header">Bestil rejse</string>
-  <string name="welcome_help_no_holiday_take_tour_cta">Star Tour på nettet</string>
+  <string name="welcome_help_no_holiday_take_tour_cta">Besøg www.startour.dk</string>
   <string name="welcome_help_no_holiday_take_tour_cta_link">http://www.startour.dk/</string>
   <string name="welcome_book_holiday_blue_village_title">Blue Village</string>
-  <string name="welcome_book_holiday_scen_text">Moderne hotell med urban atmosfære nær uteliv og shopping. Gratis WiFi på hele hotellet og frokost helt frem til kl 12. </string>
+  <string name="welcome_book_holiday_scen_text">Moderne hoteller med en urban fornemmelse, nær shopping og natteliv. Gratis WiFi på hele hotellet, og morgenmad helt frem til kl. 12. </string>
   <string name="welcome_book_holiday_blue_couples_title">Blue Couples</string>
-  <string name="welcome_book_holiday_blue_couples_text">Våre beste hotell for deg som reiser uten barn, alltid ved havet og med flere restauranter og barer. </string>
+  <string name="welcome_book_holiday_blue_couples_text">Hoteller designede til voksne, der rejser uden børn, altid nær havet og med flere barer og restauranter.</string>
   <string name="welcome_book_holiday_blue_village_text">Vores bedste feriebyer med store poolområder, strandbeliggenhed, Bamseklubben og masser af aktiviteter for alle aldersgrupper.</string>
   <string name="welcome_book_holiday_blue_village_link">http://www.startour.dk/Vores-hoteller/Blue-Village/</string>
   <string name="welcome_book_holiday_blue_couples_link">http://www.startour.dk/Vores-hoteller/Blue-Couples/</string>
   <string name="welcome_book_holiday_blue_star_title">Blue Star</string>
-  <string name="welcome_book_holiday_blue_star_text">Prisgunstige hoteller med familieaktiviteter og gratis aktiviteter som våre Blue Sta-verter tar hånd om. </string>
+  <string name="welcome_book_holiday_blue_star_text">Populære hoteller til gode priser med mange faciliteter og gratis aktiviteter, som vores Blue Star-værter arrangerer.</string>
   <string name="welcome_book_holiday_blue_star_link">http://www.startour.dk/Vores-hoteller/Blue-star/</string>
   <string name="welcome_book_holiday_splash_world_title">Splash World</string>
-  <string name="welcome_book_holiday_splash_world_text">Hotellene der du har gratis tilgang til badeland hele ferien.</string>
+  <string name="welcome_book_holiday_splash_world_text">Hoteller, hvor du har gratis adgang til vandland hele ferien.</string>
   <string name="welcome_book_holiday_splash_world_link">http://www.startour.dk/Vores-hoteller/Splash/</string>
   <string name="welcome_book_holiday_suneo_club_title">Suneo Club</string>
-  <string name="welcome_book_holiday_suneo_club_text">Fartsfylte hotell med All Inclusive, aktiviteter og kveldsunderholdning. Her får du mye for pengene.</string>
+  <string name="welcome_book_holiday_suneo_club_text">Tempofyldte internationale hoteller med All Inclusive, aktiviteter og aftenunderholdning. Her får du meget for pengene.</string>
   <string name="welcome_book_holiday_suneo_club_link">http://www.startour.dk/Vores-hoteller/SuneoClub/</string>
   <string name="welcome_book_holiday_club_magic_life_title">Club Magic Life</string>
-  <string name="welcome_book_holiday_club_magic_life_text">Aktiv ferie der All Inclusive ikke bare gjelder mat og drikke, men også mange sportsaktiviteter, vannaktiviteter og treningstimer. </string>
+  <string name="welcome_book_holiday_club_magic_life_text">Aktiv ferie hvor All Inclusive ikke kun gælder mad og drikke, men også masser af sport, vandaktiviteter og træningstimer.</string>
   <string name="welcome_book_holiday_club_magic_life_link">http://www.startour.dk/Vores-hoteller/Magic-Life/</string>
   <string name="welcome_book_holiday_scen_title">Scene</string>
   <string name="welcome_book_holiday_scen_link">http://www.startour.dk/Vores-hoteller/Sensatori/</string>
   <string name="welcome_book_holiday_sensatori_title">Sensatori</string>
-  <string name="welcome_book_holiday_sensatori_text">Femstjernede hoteller for store og små livsnydere. Altid med spa, wellness og flere gourmetrestauranter.</string>
+  <string name="welcome_book_holiday_sensatori_text">5-stjernede hoteller for store og små livsnydere. Altid med spa, wellness og flere gourmetrestauranter.</string>
   <string name="welcome_book_holiday_sensatori_link">http://www.startour.dk/Vores-hoteller/Sensatori/</string>
+  <!-- 0.3 login -->
   <string name="forgot_password_body"> </string>
   <string name="forgot_password_email_help">forgot_password_email_help</string>
   <string name="forgot_password_email_hint">forgot_password_email_hint</string>
@@ -131,6 +141,7 @@
   <string name="login_email_hint">Oplys e-mail</string>
   <string name="login_email_tooltip">Samme adresse som på din bestilling. Hvis du ikke har oplyst en e-mail her, skal du gå videre til telefonnummeret.</string>
   <string name="login_telephone">Telefon: </string>
+  <!-- 0.3 login -->
   <string name="login_country">login_country</string>
   <string name="login_country_extra">login_country_extra</string>
   <string name="login_country_tooltip">login_country_tooltip</string>
@@ -145,14 +156,14 @@
   <string name="login_welcome">Velkommen!</string>
   <string name="reset_password_error">reset_password_error</string>
   <string name="reset_password_okay">reset_password_okay</string>
-  <string name="welcome_body">Her logger du ind på Min ferie. Udover bestillingsnummer skal du også oplyse om din e-mail eller dit telefonnummer. Det skal være de samme oplysninger, som du brugte ved bestilling af rejsen.</string>
+  <string name="welcome_body">welcome_body</string>
   <string name="welcome_cta_help_login">Hjælp til log ind</string>
   <string name="welcome_cta_login">Log ind</string>
   <string name="welcome_header">welcome_header</string>
   <string name="welcome_help_cant_use_app_cta1">welcome_help_cant_use_app_cta1</string>
   <string name="welcome_help_cant_use_app_cta2">welcome_help_cant_use_app_cta2</string>
   <string name="welcome_help_cant_use_app_paragraph">welcome_help_cant_use_app_paragraph</string>
-  <string name="welcome_help_header">Hjælp med log ind</string>
+  <string name="welcome_help_header">Hjælp til log ind</string>
   <string name="welcome_login_booking_reference">Bestillingsnummer:</string>
   <string name="welcome_login_booking_reference_extra">Bestillingsnummeret har syv tegn og starter altid med B. Herefter følger endnu et bogstav og fem cifre.</string>
   <string name="welcome_login_booking_reference1_extra">welcome_login_booking_reference1_extra</string>
@@ -160,38 +171,39 @@
   <string name="welcome_login_booking_reference1_hint">welcome_login_booking_reference1_hint</string>
   <string name="welcome_login_booking_reference2_extra">welcome_login_booking_reference2_extra</string>
   <string name="welcome_login_booking_reference2_hint">welcome_login_booking_reference2_hint</string>
-  <string name="welcome_login_credential_error">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp med log ind” nedenfor.</string>
-  <string name="welcome_login_credential_failed_threetimes_title">welcome_login_credential_failed_threetimes_title</string>
-  <string name="welcome_login_credential_failed_threetimes_body">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp med log ind” nedenfor.</string>
-  <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
+  <string name="welcome_login_credential_error">Kontroller at alle oplysninger stemmer overens med din booking.</string>
+  <string name="welcome_login_credential_failed_threetimes_title">Beklager</string>
+  <string name="welcome_login_credential_failed_threetimes_body">Vi kan stadig ikke finde din bestilling. Tjek venligst at du har benyttet de samme oplysninger, som da du bestilte rejsen eller læs vejledningen under ”Hjælp til log ind” nedenfor.</string>
+  <string name="welcome_login_failed_threetimes_cta">Prøv igen</string>
   <string name="welcome_login_cta_login">Log ind</string>
   <string name="welcome_login_departure_date">welcome_login_departure_date</string>
   <string name="welcome_login_departure_date_extra">welcome_login_departure_date_extra</string>
   <string name="welcome_login_departure_date_hint">welcome_login_departure_date_hint</string>
   <string name="welcome_login_error">Kunne ikke logge ind</string>
-  <string name="welcome_login_header">Log ind</string>
+  <string name="welcome_login_header">Velkommen</string>
   <string name="welcome_login_surname">welcome_login_surname</string>
   <string name="welcome_login_surname_extra">welcome_login_surname_extra</string>
   <string name="welcome_login_surname_hint">welcome_login_surname_hint</string>
-  <string name="welcome_login_paragraph">Min rejse-app'en er til kunder som allerede har bestilt en rejse. Hvis du endnu ikke har bestilt, kan du finde masser af inspiration og aktuelle tilbud her:</string>
+  <string name="welcome_login_paragraph">Her logger du ind på Min ferie. Udover bestillingsnummer skal du også oplyse din e-mail eller dit telefonnummer. Det skal være de samme oplysninger, som du brugte ved bestilling af rejsen.</string>
   <string name="welcome_login_email">E-mail:</string>
   <string name="welcome_login_telephone">Telefon: </string>
   <string name="welcome_login_email_hint">Oplys e-mail</string>
   <string name="welcome_login_telephone_hint">Oplys telefonnummer</string>
   <string name="welcome_login_email_extra">Samme adresse som på din bestilling. Hvis du ikke har oplyst en e-mail her, skal du gå videre til telefonnummeret.</string>
-  <string name="welcome_login_telephone_extra">Telefonnummber dagtimer (f.eks. mobil) som du har oplyst ved bestilling.</string>
+  <string name="welcome_login_telephone_extra">Telefonnummer dagtimer (f.eks. mobil) som du har oplyst ved bestilling.</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
+  <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
   <string name="bookingSummary_daysToGo">[Days] dage tilbage!</string>
   <string name="departing_on">Jeg rejser på </string>
-  <string name="discover">Udforsk</string>
-  <string name="explore"> Udforsk</string>
+  <string name="discover">**Udforsk</string>
+  <string name="explore">Om dit rejsemål</string>
   <string name="home">Hjem</string>
   <string name="leaving">Jeg rejser på </string>
   <string name="meet_your_travel_agent">meet_your_travel_agent</string>
   <string name="pick_your_car_up_from">pick_your_car_up_from</string>
-  <string name="step_inside">Udforsk</string>
+  <string name="step_inside">Om dit hotel</string>
   <string name="unforgettable_excursion">Udflugter</string>
   <string name="unforgettable_excursions">Udflugter</string>
   <string name="w_button_contact">Kontakt os</string>
@@ -208,20 +220,28 @@
   <string name="w_msg_flights">Du  har vel ikke glemt at dit fly afgår 
 when] klokkenn [time] fra [airport]? </string>
   <string name="w_msg_good_news">Gode nyheder, [name]!</string>
-  <string name="w_msg_hi">Hej [name]!</string>
+  <string name="w_msg_hi">Hej!</string>
   <string name="w_msg_weather">Det bliver 
 [temperature] grader varmt på [location] på [when].</string>
   <string name="w_msg_welcome_app">Hvad synes du om vores app? Vi vil gerne høre din synspunkter!</string>
   <string name="w_msg_welcome_great">Vi håber, at du havde en rigtig skøn ferie med os.</string>
   <string name="w_msg_welcome_home">Velkommen hjem [name]!</string>
-  <string name="w_msg_welcome_personal">Velkommen til Min rejse-app'en. Her kan du finde gode tips og aktuel information om den rejse du h ar bestilt.</string>
+  <string name="w_msg_welcome_personal">Velkommen til Star Tours Min Ferie app. Her får du gode tips og aktuel information om din rejse.</string>
   <string name="w_msg_welcome_question">Har du nogle spørgsmål til din bestilling? Vi er her for at hjælpe, hvis du har brug fo det</string>
   <string name="w_msg_welcome_to">Velkommen til [location]! Vi håber du får en dejlig ferie. Hvis du har nogle spørgsmål, så tag fat i os med det samme.</string>
   <string name="your_camper_is_ready">your_camper_is_ready</string>
   <string name="your_flight">Mine flyrejser</string>
+  <string name="w_msg_about_your_hotel">Om dit hotel</string>
+  <string name="w_msg_about_your_destination">Om din destination</string>
+  <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
+  <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
+  <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
+  <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
+  <!-- 1.0 off canvas -->
   <string name="accomodation">Hotel</string>
   <string name="boat">boat</string>
-  <string name="booking_summary">Alt om din rejse</string>
+  <string name="booking_summary">Alt om min rejse</string>
+  <string name="booking_extras">booking_extras</string>
   <string name="camper">camper</string>
   <string name="car_hire">car_hire</string>
   <string name="contact">Kontakt os</string>
@@ -236,13 +256,13 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="flight">Flyinformation</string>
   <string name="flight_details">Flyinformation</string>
   <string name="flights">Flyinformation</string>
-  <string name="general_information">general_information</string>
+  <string name="general_information">Værd at vide</string>
   <string name="getting_to_the_airport">getting_to_the_airport</string>
   <string name="good_to_know">Vigtig information</string>
   <string name="holiday_checklist">holiday_checklist</string>
   <string name="holiday_checklists">holiday_checklists</string>
   <string name="holiday_countdown">Ferie-nedtælling</string>
-  <string name="holiday_summary">Alt om din rejse</string>
+  <string name="holiday_summary">Alt om min rejse</string>
   <string name="hotel">Hotel</string>
   <string name="hotel_and_resort">Hotel</string>
   <string name="hotels">Hotel</string>
@@ -251,7 +271,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="insurances">insurances</string>
   <string name="meet_the_rep">meet_the_rep</string>
   <string name="roundtrip">roundtrip</string>
-  <string name="share_destination">Del med andre</string>
+  <string name="share_destination">Del på Facebook</string>
   <string name="thunderstorm">thunderstorm</string>
   <string name="ticket">ticket</string>
   <string name="tools">tools</string>
@@ -265,6 +285,9 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="duty_free">Taxfree</string>
   <string name="guide_online">Spørg guiderne</string>
   <string name="app_feedback">Bedøm app'en</string>
+  <!-- 7,1 Seleted Hotel -->
+  <string name="hotel_to_destinations">Mere om rejsemålet</string>
+  <!-- 11.0 extras -->
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
   <string name="extras_call">extras_call</string>
@@ -273,8 +296,10 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="extras_title">extras_title</string>
   <string name="holiday_extra">holiday_extra</string>
   <string name="holiday_extras">holiday_extras</string>
+  <!-- 12.0 travel money -->
   <string name="money_on_card">money_on_card</string>
   <string name="travel_money_card">travel_money_card</string>
+  <!-- 12.3 currency -->
   <string name="currency_converter">Rejsevaluta</string>
   <string name="currency_converter_tool">Rejsevaluta</string>
   <string name="find_a_shop_url">find_a_shop_url</string>
@@ -291,6 +316,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_rate_only">guide_rate_only</string>
   <string name="select_currency">select_currency</string>
   <string name="updated_at">updated_at</string>
+  <!-- 13.0 important information -->
   <string name="good_to_know">good_to_know</string>
   <string name="good_to_know_null">good_to_know_null</string>
   <string name="goodtoknow_blurb">goodtoknow_blurb</string>
@@ -303,6 +329,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="leaving">leaving</string>
   <string name="resort_blurb">resort_blurb</string>
   <string name="resort_blurb_null">resort_blurb_null</string>
+  <!-- 14.0 contact -->
   <string name="contact_message">contact_message</string>
   <string name="contact_messageHint">contact_messageHint</string>
   <string name="contact_phone">contact_phone</string>
@@ -313,7 +340,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="contact_sendEmail">contact_sendEmail</string>
   <string name="contact_subject">contact_subject</string>
   <string name="contact_subjectHint">contact_subjectHint</string>
-  <string name="contactus_email_body">contactus_email_body</string>
+  <string name="contactus_email_body">Her bedes du udfylde dine bestillingsinformationer, og det du har brug for hjælp til. Vi vender tilbage så hurtigt som muligt.\n\nE-mail: [email]\nTelefonnummer dagtid: [phone]\nBestillingsnummer: [booking]\n\nSkriv dit spørgsmål her:</string>
   <string name="contactus_flightCTA">contactus_flightCTA</string>
   <string name="contactus_manageBookingsCTA">contactus_manageBookingsCTA</string>
   <string name="contactus_manageBookingsTitle">contactus_manageBookingsTitle</string>
@@ -322,10 +349,10 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="contactus_privacyPolicy">contactus_privacyPolicy</string>
   <string name="contactus_specialEnquiriesCTA">contactus_specialEnquiriesCTA</string>
   <string name="contactus_specialEnquiriesTitle">contactus_specialEnquiriesTitle</string>
-  <string name="contactus_subject">contactus_subject</string>
-  <string name="contactus_subtitle">contactus_subtitle</string>
+  <string name="contactus_subject">Spørgsmål til Star Tour om min ferie</string>
+  <string name="contactus_subtitle">Spørgsmål til Star Tour om min ferie</string>
   <string name="contactus_support">contactus_support</string>
-  <string name="contactus_supportemail">contactus_supportemail</string>
+  <string name="contactus_supportemail">info@startour.dk</string>
   <string name="contactus_supportsite">contactus_supportsite</string>
   <string name="contactus_terms">contactus_terms</string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
@@ -337,20 +364,20 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="contactus_cta_privacy">Integritet &amp; sikkerhed </string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
-  <string name="contactus_extra_text_1">Vi hjælper gerne til med spørgsmål om stort og småt, både før og i ferien. Afhængig af, hvad det drejer sig om, og hvor tæt du er på afrejsen, kan du vælge at kontakte vores salgskonsulenter herhjemme eller guiderne på dit rejsemål.</string>
+  <string name="contactus_extra_text_1">Ca. 2 uger før din afrejse kan du begynde at stille spørgsmål direkte til guiderne på dit rejsemål. De besvarer spørgsmål om alt fra strande til udflugter, og hjælper dig gerne med at planlægge feriedagene. Du kan nemt og bekvemt stille dine spørgsmål her i Min ferie-app’en.</string>
   <string name="contactus_extra_text_1_subheading">Spørg guiderne på rejsemålet</string>
-  <string name="">Cirka to uger før afrejsen kan du begynde at stille spørgsmål direkte til guiderne på dit rejsemål. De besvarer spørgsmål om alt fra strande til udflugter, og hjælper dig gerne med at planlægge feriedagene. Det nemmeste er, at du stiller dine spørgsmål her i ferie-app’en.</string>
-  <string name="contactus_extra_text_2_subheading">Spørg en sælger herhjemme</string>
+  <string name="contactus_extra_text_2_subheading">Spørg en rejsekonsulent</string>
   <string name="contactus_extra_text_2">Ring eller send os en mail, hvis du har spørgsmål til din booking, om fly og hoteller, eller måske vil opgradere ferien med et tilvalg.</string>
-  <string name="contactus_extra_text_3_subheading">contactus_extra_text_3_subheading</string>
-  <string name="contactus_extra_text_3">contactus_extra_text_3</string>
   <string name="dial_number">Ring</string>
-  <string name="disclaimer">disclaimer</string>
+  <string name="disclaimer">Pris ifølge operatørens samtaletakst</string>
+  <string name="contactus_email_title">Spørgsmål til Star Tour om min ferie</string>
+  <string name="contactus_cta_guideonline">Stil et spørgsmål til guiderne</string>
   <string name="send_sms">Send som sms</string>
   <string name="we_are_here_for_you">we_are_here_for_you</string>
+  <!-- 16.0 Guide Online -->
   <string name="guide_online">Spørg guiderne</string>
-  <string name="tap_to_type_message">Still spørsmål her</string>
-  <string name="tap_to_reply">Still spørsmål her</string>
+  <string name="tap_to_type_message">Stil spørgsmål her</string>
+  <string name="tap_to_reply">Stil spørgsmål her</string>
   <string name="guide_online_all">Alle</string>
   <string name="guide_online_important">Vigtige</string>
   <string name="guide_online_transfers">Transfer</string>
@@ -365,6 +392,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_online_sent_mins_ago">Sendt [hhmm] i dag</string>
   <string name="guide_online_sent_today">Sendt [hhmm] i dag</string>
   <string name="guide_online_sent_on_day">Sendt [hhmm] den [date]</string>
+  <string name="guide_online_dateformat">D MMMM</string>
   <string name="guide_online_currently_offline">Lige nu er der intet netværk</string>
   <string name="guide_online_offline_warning">Opdateres næste gang du kobler dig på</string>
   <string name="guide_online_send_text">Send</string>
@@ -378,12 +406,23 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_online_biscuit_buttonTitles">Vis meddelelse</string>
   <string name="guide_online_biscuit_unread_messages">Du har [amount] ulæste meddelelser fra guiderne</string>
   <string name="guide_online_sms_url">sms:+46737494060</string>
-  <string name="guide_online_send_by_sms">Der er intet ledigt netværk netop nu. Vil du sende meddelelsen som sms? Afgift til teleselskab kan tilkomme.</string>
+  <string name="guide_online_send_by_sms">Der er intet tilgængeligt netværk netop nu. Vil du sende meddelelsen som sms? Afgiften kan variere afhængig af teleoperatør.</string>
   <string name="you_have_a_new_message">Du har modtaget en ny meddelelse</string>
   <string name="guide_online_call_number">Ring:</string>
   <string name="guide_online_open_link">Åben:</string>
+  <string name="guide_online_email">Send e-mail:</string>
   <string name="guide_online_copy">Kopier</string>
-  <string name="guide_online_message_failed_to_send">Meddelelse ikke afsendt</string>
+  <string name="guide_online_message_failed_to_send">Beskeden kunne desværre ikke sendes. </string>
+  <string name="guide_online_message_failed_to_send_body">Beskeden kunne desværre ikke sendes. Vil du prøve igen?</string>
+  <!-- 16.0 My Messages -->
+  <string name="mymessages">mymessages</string>
+  <string name="mymessages_all">mymessages_all</string>
+  <string name="mymessages_important">mymessages_important</string>
+  <string name="mymessages_extras">mymessages_extras</string>
+  <string name="mymessages_booking">mymessages_booking</string>
+  <string name="mymessages_cta_label">mymessages_cta_label</string>
+  <string name="mymessages_virgin_message">mymessages_virgin_message</string>
+  <!-- 18.0 social share -->
   <string name="boat_share_during_fb">boat_share_during_fb</string>
   <string name="boat_share_during_tw">boat_share_during_tw</string>
   <string name="boat_share_pre_fb">boat_share_pre_fb</string>
@@ -396,17 +435,17 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="camper_share_pre_tw">camper_share_pre_tw</string>
   <string name="camper_share_today_fb">camper_share_today_fb</string>
   <string name="camper_share_today_tw">camper_share_today_tw</string>
-  <string name="countdown_share_during_fb">Er på #ferie i/på [destination] med #Star Tour!</string>
+  <string name="countdown_share_during_fb">Jeg er taget på #ferie til [location] med #StarTour!</string>
   <string name="countdown_share_during_tw">countdown_share_during_tw</string>
-  <string name="countdown_share_pre_fb">Om [days] dage tager jeg til  [destination] på #ferie med #Star Tour!</string>
+  <string name="countdown_share_pre_fb">Om [days] dage tager jeg til [location] på #ferie med #StarTour!</string>
   <string name="countdown_share_pre_tw">countdown_share_pre_tw</string>
-  <string name="countdown_share_today_fb">I dag tager jeg til [destination] på #ferie med #Star Tour!</string>
+  <string name="countdown_share_today_fb">I dag tager jeg til [destination] på #ferie med #StarTour!</string>
   <string name="countdown_share_today_tw">countdown_share_today_tw</string>
-  <string name="destination_share_during_fb">Hilsen fra [destination]! Er på #ferie med #Star Tour, lige nu [temperature] °C i skyggen!</string>
+  <string name="destination_share_during_fb">Hilsen fra [location]! Er på #ferie med #StarTour, lige nu [degrees] °C i skyggen!</string>
   <string name="destination_share_during_tw">destination_share_during_tw</string>
-  <string name="destination_share_pre_fb">På vej til [destination] om [days] dage, på #ferie med #Star Tour. Føles skønt!</string>
+  <string name="destination_share_pre_fb">På vej til [location] om [days] dage, på #ferie med #StarTour. Jeg glæder mig!</string>
   <string name="destination_share_pre_tw">destination_share_pre_tw</string>
-  <string name="destination_share_today_fb">I dag tager jeg til [destination] på #ferie med #Star Tour. Ikke dårligt!</string>
+  <string name="destination_share_today_fb">I dag tager jeg til [location] på #ferie med #StarTour. Ikke dårligt!</string>
   <string name="destination_share_today_tw">destination_share_today_tw</string>
   <string name="excursion_share_fb">excursion_share_fb</string>
   <string name="excursion_share_tw">excursion_share_tw</string>
@@ -414,11 +453,12 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="flight_share_pre_tw">flight_share_pre_tw</string>
   <string name="flight_share_today_fb">flight_share_today_fb</string>
   <string name="flight_share_today_tw">flight_share_today_tw</string>
-  <string name="hotel_share_during_fb">Endelig #ferie med #Star Tour! Bor på [hotel] i/på [destination]. Lige nu [temperature] °C i skyggen.</string>
+  <string name="hotel_share_during_fb">Endelig #ferie med #StarTour! Bor på [hotel] i [location].</string>
+  <string name="hotel_share_during_fb_previous">Endelig #ferie med #StarTour! Bor på [hotel] i [destination]. Lige nu [degrees] °C i skyggen.</string>
   <string name="hotel_share_during_tw">hotel_share_during_tw</string>
-  <string name="hotel_share_pre_fb">[days] dage tilbage til min #ferie med #Star Tour. Skal bo på [hotel] i/på [destination]. Skønt!</string>
+  <string name="hotel_share_pre_fb">[days] dage tilbage til min #ferie med #StarTour. Skal bo på [hotel] i [location]. Skønt!</string>
   <string name="hotel_share_pre_tw">hotel_share_pre_tw</string>
-  <string name="hotel_share_today_fb">I dag starter min #ferie med #Star Tour. Bor på [hotel] i/på [destination]. Helt perfekt!</string>
+  <string name="hotel_share_today_fb">I dag starter min #ferie med #StarTour. Bor på [hotel] i [location]. Helt perfekt!</string>
   <string name="hotel_share_today_tw">hotel_share_today_tw</string>
   <string name="roundtrip_share_during_fb">roundtrip_share_during_fb</string>
   <string name="roundtrip_share_during_tw">roundtrip_share_during_tw</string>
@@ -430,18 +470,20 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="share_my_camper">share_my_camper</string>
   <string name="share_my_flight">share_my_flight</string>
   <string name="share_my_roundtrip">share_my_roundtrip</string>
-  <string name="share_nofacebook_support_message">For at dele, skal du først koble app'en til din Facebook-konto. Det gør du under indstillinger.</string>
-  <string name="share_nofacebook_support_title">Tilslut til Facebook</string>
+  <string name="share_nofacebook_support_message">For at dele, skal du først forbinde app'en til din Facebook-konto. Det gør du under indstillinger.</string>
+  <string name="share_nofacebook_support_title">Opret forbindelse til Facebook</string>
   <string name="share_notwitter_support_message">share_notwitter_support_message</string>
   <string name="share_notwitter_support_title">share_notwitter_support_title</string>
-  <string name="weather_share_during_fb">Er taget på #ferie til [destination] med #Star Tour! Lige nu er der [temperature] °C i skyggen.</string>
+  <string name="weather_share_during_fb">Er taget på #ferie til [location] med #StarTour! Lige nu er der [temperature] °C i skyggen.</string>
   <string name="weather_share_during_tw">weather_share_during_tw</string>
-  <string name="weather_share_pre_fb">Om [days] dage tager jeg på #ferie med #Star Tour til [destination]! Lige nu er der [temperature] °C der.</string>
+  <string name="weather_share_pre_fb">Om [days] dage tager jeg på #ferie med #StarTour til [location]! Lige nu er der [temperature] °C.</string>
   <string name="weather_share_pre_tw">weather_share_pre_tw</string>
-  <string name="weather_share_today_fb">I dag tager jeg på #ferie med #Star Tour til [destination]! Lige nu er der [temperature] °C der.</string>
+  <string name="weather_share_today_fb">I dag tager jeg på #ferie med #StarTour til [location]! Lige nu er der [temperature] °C.</string>
   <string name="weather_share_today_tw">weather_share_today_tw</string>
-  <string name="product_share_my_accommodation">Del med andre</string>
-  <string name="bookingSummary_bookingReference">Bokningsnummer: </string>
+  <!-- 18.0 social sharing -->
+  <string name="product_share_my_accommodation">Del på Facebook</string>
+  <!-- 2.0 holiday summary -->
+  <string name="bookingSummary_bookingReference">Bestillingsnummer:</string>
   <string name="bookingSummary_emailDescription">Vil du sende din fly- og hotelinformation til andre? Så kan du nemt dele denne oversigt via mail.</string>
   <string name="bookingSummary_emailTitle">Send min rejseinfo</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>
@@ -451,17 +493,21 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="bookingSummary_flightsNotReadyText">bookingSummary_flightsNotReadyText</string>
   <string name="bookingSummary_flightsNotReadyTitle">bookingSummary_flightsNotReadyTitle</string>
   <string name="bookingSummary_leadPassenger">Rejsende (fornavn):</string>
-  <string name="bookingSummary_quote">Oplys altid dit bestilligsnummer når du har spørgsmål om din rejse</string>
+  <string name="bookingSummary_quote">Oplys altid dit bestillingsnummer, når du har spørgsmål om din rejse</string>
   <string name="bookingsummary_share_subject">bookingsummary_share_subject</string>
-  <string name="bookingSummary_viewType">bookingSummary_viewType</string>
-  <string name="bookingSummary_viewType_alternative">bookingSummary_viewType_alternative</string>
+  <string name="bookingSummary_viewType">Mere om [type]</string>
+  <string name="bookingSummary_viewType_alternative">Mere om [type]</string>
   <string name="bookingSummary_yourParty">Du rejser med:</string>
   <string name="current_bookings">current_bookings</string>
   <string name="my_booking">my_booking</string>
   <string name="past_bookings">past_bookings</string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
+  <!-- 2.1 booking selector -->
   <string name="booking_details">booking_details</string>
   <string name="booking_details_blurb">booking_details_blurb</string>
   <string name="i_need_help">i_need_help</string>
+  <!-- 3.0 countdown -->
   <string name="car_message_minus_548">car_message_minus_548</string>
   <string name="car_message_plus_1">car_message_plus_1</string>
   <string name="car_message_zero">car_message_zero</string>
@@ -479,7 +525,9 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="insurance_message_minus_548">insurance_message_minus_548</string>
   <string name="insurance_message_plus_1">insurance_message_plus_1</string>
   <string name="insurance_message_zero">insurance_message_zero</string>
+  <!-- 3.0 find a booking -->
   <string name="find_booking">find_booking</string>
+  <!-- 3.0 holiday countdown -->
   <string name="countdown_active">Jeg på ferie!</string>
   <string name="countdown_day">dag</string>
   <string name="countdown_days">dage</string>
@@ -488,11 +536,12 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="countdown_hours">Timer</string>
   <string name="countdown_minutes">Minutter </string>
   <string name="countdown_seconds">Sekunder</string>
-  <string name="countdown_share">Del med andre</string>
+  <string name="countdown_share">Del på Facebook</string>
   <string name="countdown_today">Rejseklar! Jeg er i luften om</string>
   <string name="countdown_waiting">Sidder på flyet til [location] om</string>
   <string name="day_to_go">dag tilbage</string>
   <string name="days_to_go">dage tilbage</string>
+  <!-- 4.0 checklist -->
   <string name="add_an_item">add_an_item</string>
   <string name="biscuit_checklist_plural">biscuit_checklist_plural</string>
   <string name="biscuit_checklist_reminderSet">biscuit_checklist_reminderSet</string>
@@ -518,6 +567,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="things_todo">things_todo</string>
   <string name="you_are_packed">you_are_packed</string>
   <string name="your_todolist_is_done">your_todolist_is_done</string>
+  <!-- 5.0 / 5.1 weather -->
   <string name="average">Gennemsnit for [month]</string>
   <string name="climate">climate</string>
   <string name="cloudy">cloudy</string>
@@ -527,31 +577,36 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="overcast">overcast</string>
   <string name="partially_cloudy">partially_cloudy</string>
   <string name="rain">rain</string>
-  <string name="share_weather">Del med andre</string>
+  <string name="share_weather">Del på Facebook</string>
   <string name="snow">snow</string>
   <string name="sunny">sunny</string>
   <string name="terms_title">terms_title</string>
-  <string name="to">to</string>
+  <string name="to">til</string>
   <string name="weather_forecast">Prognose for [location]</string>
   <string name="weather_header">Vejret</string>
-  <string name="weather_share">Del med andre</string>
+  <string name="weather_share">Del på Facebook</string>
+  <string name="climate_rain_free_days">Regnfri dage:</string>
+  <string name="weather_coming_soon">Vejrudsigten mangler lige nu</string>
+  <!-- 5.1 product -->
   <string name="booked_for">booked_for</string>
   <string name="category">category</string>
   <string name="my_accomodation">my_accomodation</string>
-  <string name="overview">overview</string>
-  <string name="period_of_travel">period_of_travel</string>
+  <string name="overview">Oversigt</string>
+  <string name="checkin_title">Du ankommer:</string>
+  <string name="checkout_title">Og forlader hotellet:</string>
   <string name="rooms">rooms</string>
-  <string name="share_my_accomodation">Del med andre</string>
-  <string name="address">address</string>
-  <string name="availability_from">availability_from</string>
+  <string name="share_my_accomodation">Del på Facebook</string>
+  <!-- 5.1 product pages -->
+  <string name="address">Adresse</string>
+  <string name="availability_from">Ledig fra:</string>
   <string name="awards">awards</string>
   <string name="bookedFor">bookedFor</string>
-  <string name="call">call</string>
+  <string name="call">Ring:</string>
   <string name="category">category</string>
   <string name="countryName">countryName</string>
   <string name="customer_satisfaction">customer_satisfaction</string>
   <string name="dropoffDateTime">dropoffDateTime</string>
-  <string name="location">location</string>
+  <string name="location">Kort</string>
   <string name="locationName">locationName</string>
   <string name="name">name</string>
   <string name="numberOfAdults">numberOfAdults</string>
@@ -559,7 +614,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="numberOfInfants">numberOfInfants</string>
   <string name="numberOfPax">numberOfPax</string>
   <string name="owner">owner</string>
-  <string name="period_of_travel">period_of_travel</string>
+  <string name="period_of_travel">Rejseperiode:</string>
   <string name="pickupDateTime">pickupDateTime</string>
   <string name="call_dialog_message">Er du sikker?</string>
   <string name="call_dialog_cancel">Afbryd</string>
@@ -586,16 +641,17 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="titles_to_split_by_colon">titles_to_split_by_colon</string>
   <string name="transfer">transfer</string>
   <string name="transfers">transfers</string>
+  <!-- 6.1 flights -->
   <string name="airline">Flyselskab: </string>
   <string name="approximate">approximate</string>
-  <string name="approximate_arrival">approximate_arrival</string>
-  <string name="approximate_departure">approximate_departure</string>
+  <string name="approximate_arrival">Ankomsttid</string>
+  <string name="approximate_departure">Afgangstid</string>
   <string name="cabin_class">cabin_class</string>
   <string name="checkin_area">checkin_area</string>
   <string name="checkin_closes">checkin_closes</string>
   <string name="checkin_opens">checkin_opens</string>
   <string name="early_checkin_blurb">Kom til lufthavnen i god tid, indcheckningen lukker en time før afgang.</string>
-  <string name="email_my_flight_details">email_my_flight_details</string>
+  <string name="email_my_flight_details">Send flyinformation på e-mail</string>
   <string name="flight_number">Flynummer:</string>
   <string name="flight_number_tbc">flight_number_tbc</string>
   <string name="flightnotreadyblurb">flightnotreadyblurb</string>
@@ -605,15 +661,23 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="flights_disclaimer">Alle tider er lokale. Vær opmærksom på, at dine flytider kan blive ændret.</string>
   <string name="flights_getting_to">flights_getting_to</string>
   <string name="getting_to_the_airport_driving_directions">getting_to_the_airport_driving_directions</string>
-  <string name="land">land</string>
+  <string name="land">Ankomsttid:</string>
   <string name="my_flight_details">Min flyrejse</string>
   <string name="my_flight_details_full_replace">Fra [DEP] ([DEPCODE]) til [ARR] ([ARRCODE])</string>
   <string name="my_flight_details_replace">Du rejser fra [DEP] og lander i [ARR]</string>
-  <string name="passengers">passengers</string>
-  <string name="take_off">take_off</string>
+  <string name="passengers">Du rejser med:</string>
+  <string name="take_off">Afgangstid:</string>
+  <string name="flight_details_flight_information">Mere om flyrejsen</string>
+  <string name="flight_details_extras_check_in_details">Om indcheckning</string>
+  <string name="flight_details_extras_seating">Forudbestil sæde</string>
+  <string name="flight_details_extras_meals">Mad ombord</string>
+  <string name="flight_details_extras_luggage_allowance">Bagageregler</string>
+  <string name="flight_details_extras_duty_free">Bestil taxfree</string>
+  <!-- 8.0 destination -->
   <string name="destinations_goexploring">destinations_goexploring</string>
   <string name="destinations_goexploring_sub_title">destinations_goexploring_sub_title</string>
   <string name="destinations_goexploring_title">destinations_goexploring_title</string>
+  <!-- 9.0 excursions -->
   <string name="book_with_tui_service">book_with_tui_service</string>
   <string name="excursion_email">excursion_email</string>
   <string name="excursions_here_available">excursions_here_available</string>
@@ -622,6 +686,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="experience_the_country_subtitle">experience_the_country_subtitle</string>
   <string name="plan_your_excursions">plan_your_excursions</string>
   <string name="share_my_excursion">share_my_excursion</string>
+  <!-- 9.0 travel agent -->
   <string name="contact_tui_services">contact_tui_services</string>
   <string name="service_on_site">service_on_site</string>
   <string name="services_email">services_email</string>
@@ -635,15 +700,19 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="travelAgent_phone">travelAgent_phone</string>
   <string name="travelAgent_title">travelAgent_title</string>
   <string name="travelAgent_website">travelAgent_website</string>
+  <!-- activity indicator -->
   <string name="hold_holiday_found">Vi har fundet din bestilling…</string>
   <string name="hold_on">Et øjeblik…</string>
   <string name="hold_on_booking">Vi søger din rejse…</string>
+  <!-- already registered -->
   <string name="have_you_used_tui_cta_logged_body">have_you_used_tui_cta_logged_body</string>
   <string name="have_you_used_tui_cta_logged_title">have_you_used_tui_cta_logged_title</string>
   <string name="have_you_used_tui_cta_not_logged_body">have_you_used_tui_cta_not_logged_body</string>
   <string name="have_you_used_tui_cta_not_logged_title">have_you_used_tui_cta_not_logged_title</string>
   <string name="have_you_used_tui_header">have_you_used_tui_header</string>
+  <!-- Booking Details -->
   <string name="my_bookings">my_bookings</string>
+  <!-- Cant Find Booking -->
   <string name="cantFindBooking_errorMsg">cantFindBooking_errorMsg</string>
   <string name="cantFindBooking_switchTo">cantFindBooking_switchTo</string>
   <string name="cantFindBooking_de">cantFindBooking_de</string>
@@ -653,76 +722,92 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="cantFindBooking_addBookingTitle">cantFindBooking_addBookingTitle</string>
   <string name="cantFindBooking_ctaAddBooking">cantFindBooking_ctaAddBooking</string>
   <string name="cantFindBooking_tryThese">cantFindBooking_tryThese</string>
+  <!-- Dates -->
   <string name="april">april</string>
   <string name="august">august</string>
-  <string name="datetime">DD/MM/YYYY HH:mm</string>
+  <string name="datetime">YYYY-MM-DD HH:mm</string>
   <string name="december">december</string>
-  <string name="february">february</string>
-  <string name="hours">hours</string>
-  <string name="january">january</string>
-  <string name="july">july</string>
-  <string name="june">june</string>
-  <string name="longdate">dddd, Do MMMM YYYY</string>
-  <string name="march">march</string>
-  <string name="may">may</string>
-  <string name="mediumdate">Do MMMM YYYY</string>
+  <string name="february">februar</string>
+  <string name="hours">timer</string>
+  <string name="january">januar</string>
+  <string name="july">juli</string>
+  <string name="june">juni</string>
+  <string name="longdate">dddd D MMMM YYYY</string>
+  <string name="march">marts</string>
+  <string name="may">maj</string>
+  <string name="mediumdate">D. MMMM YYYY</string>
   <string name="november">november</string>
-  <string name="october">october</string>
+  <string name="october">oktober</string>
   <string name="september">september</string>
   <string name="shortdate">YYYY-MM-DD</string>
   <string name="til">til</string>
   <string name="timeformat">HH:mm</string>
-  <string name="today">today</string>
-  <string name="tomorrow">tomorrow</string>
+  <string name="today">I dag</string>
+  <string name="tomorrow">I morgen</string>
+  <!-- Don't forget -->
   <string name="dont_forget_to">dont_forget_to</string>
+  <!-- Email Help -->
   <string name="email_impressum">email_impressum</string>
-  <string name="delete">delete</string>
+  <!-- General -->
+  <string name="delete">Annuller</string>
+  <!-- Email -->
   <string name="email_items">email_items</string>
+  <!-- Email Help -->
   <string name="email_help_body">email_help_body</string>
   <string name="email_help_subject">email_help_subject</string>
   <string name="email_help_subject_booking">email_help_subject_booking</string>
   <string name="email_help_subject_hotel">email_help_subject_hotel</string>
   <string name="email_help_subject_registration">email_help_subject_registration</string>
-  <string name="view">view</string>
+  <!-- General -->
+  <string name="view">Åben</string>
   <string name="notification_no_internet_connection">FINDER INTET NETVÆRK</string>
   <string name="notification_page_last_updated">Senest opdateret [date] kl [time]</string>
   <string name="notification_page_outdated">FINDER INTET NETVÆRK</string>
   <string name="services_description">services_description</string>
   <string name="services_numbers">services_numbers</string>
   <string name="services_questions">services_questions</string>
+  <!-- Generic -->
   <string name="car">car</string>
-  <string name="email_noemail_message">email_noemail_message</string>
-  <string name="email_noemail_title">email_noemail_title</string>
-  <string name="generic_field_validation">generic_field_validation</string>
+  <string name="email_noemail_message">Du har ikke tilsluttet en e-mailkonto til telefonen. Det gør du under indstillinger.</string>
+  <string name="email_noemail_title">E-mailkonto mangler</string>
+  <string name="generic_field_validation">Kontroller at alle felter er udfyldt</string>
   <string name="map_android_version_not_uptodate">Du har ikke den seneste version af Google Maps. Opdater for at se kortet.</string>
   <string name="map_android_version_not_uptodate_message">Du har ikke den seneste version af Google Maps. Opdater for at se kortet.</string>
   <string name="map_open_text">Åben kortet</string>
-  <string name="please_reauthenticate">please_reauthenticate</string>
+  <string name="please_reauthenticate">Tidsgrænsen er overskredet, log ind på ny</string>
   <string name="url_dialog_buttons_to_split_by_colon">Afbryd: Ja</string>
   <string name="url_dialog_title">Åben i browser</string>
+  <string name="app_update_popup_title">app_update_popup_title</string>
+  <string name="app_update_popup_body">app_update_popup_body</string>
+  <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Vent et øjeblik, vi finder din rejse…</string>
   <string name="activity_indicator_two">Vi har fundet din bestilling…</string>
   <string name="activity_indicator_three">Vi finder dit rejsemål…</string>
   <string name="activity_indicator_four">Vi finder dit rejsemål…</string>
   <string name="activity_indicator_five">Lokaliserer dit hotel…</string>
   <string name="activity_indicator_six">Tjekker vejret….</string>
-  <string name="activity_indicator_seven">Søger efter perfekte udflugter…</string>
+  <string name="activity_indicator_seven">Søger efter spændende udflugter…</string>
   <string name="activity_indicator_eight">Leder efter tilvalg…</string>
-  <string name="activity_indicator_nine">Lægger sidste hånd på…</string>
+  <string name="activity_indicator_nine">Søgningen fuldføres, vent venligst…</string>
+  <string name="activity_indicator_ten">Vi tjekker lige at alt stemmer…</string>
+  <string name="activity_indicator_eleven">Tilpasser siden til dig</string>
+  <string name="activity_indicator_twelve">Næsten færdig…</string>
+  <!-- meet the rep -->
   <string name="meet_the_rep_help">meet_the_rep_help</string>
   <string name="meet_the_rep_information_sessions">meet_the_rep_information_sessions</string>
   <string name="meet_the_rep_tui_welcome">meet_the_rep_tui_welcome</string>
+  <!-- my account -->
   <string name="cancel">Afbryd</string>
   <string name="change_password">change_password</string>
   <string name="confirm">Ja</string>
   <string name="create_new_password">create_new_password</string>
-  <string name="destination_guide">destination_guide</string>
+  <string name="destination_guide">Om rejsemålet</string>
   <string name="edit_my_account">edit_my_account</string>
   <string name="email">email</string>
   <string name="forename">forename</string>
-  <string name="logout">Logg ut</string>
+  <string name="logout">Log af</string>
   <string name="logout_confirm">Er du sikker?</string>
-  <string name="logout_confirm_two">Vil du virkelig logge ud?</string>
+  <string name="logout_confirm_two">Er du sikker på, at du vil logge af?</string>
   <string name="my_account">my_account</string>
   <string name="new_email">new_email</string>
   <string name="new_email_hint_text">new_email_hint_text</string>
@@ -737,7 +822,9 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="update_reminder">update_reminder</string>
   <string name="username">username</string>
   <string name="your_password">your_password</string>
+  <!-- Privacy Policy -->
   <string name="privacy_policy_header">privacy_policy_header</string>
+  <!-- registration -->
   <string name="is_this_you">is_this_you</string>
   <string name="is_this_you_introduction">is_this_you_introduction</string>
   <string name="salutations_to_split_by_colon">salutations_to_split_by_colon</string>
@@ -771,28 +858,69 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="signup_your_booking">signup_your_booking</string>
   <string name="time">HH:mm</string>
   <string name="your_postcode">your_postcode</string>
+  <!-- Sign up -->
+  <string name="email_signup_successful">email_signup_successful</string>
+  <string name="email_signup_failed">email_signup_failed</string>
+  <string name="welcome_help_no_holiday_email_header">welcome_help_no_holiday_email_header</string>
+  <string name="welcome_help_no_holiday_email_body">welcome_help_no_holiday_email_body</string>
+  <string name="email_field_validation">email_field_validation</string>
+  <string name="firstName_field_validation">firstName_field_validation</string>
+  <string name="lastName_field_validation">lastName_field_validation</string>
+  <string name="salutation_field_validation">salutation_field_validation</string>
+  <string name="optin_to_emails_blurb">optin_to_emails_blurb</string>
+  <string name="optin_to_emails">optin_to_emails</string>
+  <string name="agree_to_emails_blurb">agree_to_emails_blurb</string>
+  <string name="agree_to_emails">agree_to_emails</string>
+  <string name="welcome_help_no_holiday_email_disclaimer">welcome_help_no_holiday_email_disclaimer</string>
+  <!-- text field widget -->
   <string name="are_you_sure">Er du sikker?</string>
   <string name="done">Klar</string>
   <string name="next">Næste</string>
   <string name="no_change_submitted">no_change_submitted</string>
   <string name="previous">Tilbage</string>
-  <string name="open_in_safari">Åben i browser</string>
+  <string name="open_in_safari">Åben i browser?</string>
   <string name="water">water</string>
-  <string name="feedback_title">feedback_title</string>
-  <string name="feedback_submit_button">feedback_submit_button</string>
-  <string name="feedback_navbar_title">feedback_navbar_title</string>
-  <string name="feedback_message_title_positive">feedback_message_title_positive</string>
-  <string name="feedback_message_title_negative">feedback_message_title_negative</string>
-  <string name="feedback_message_you_rated_the_app">feedback_message_you_rated_the_app</string>
-  <string name="feedback_message_positive">feedback_message_positive</string>
-  <string name="feedback_message_negative">feedback_message_negative</string>
+  <!-- 16.0 Push Notifications -->
+  <string name="push_notifications">Min Ferie vil gerne sende dig push-meddelelser</string>
+  <string name="we_would_like_to_send_push">Vi vil gerne give dig besked om relevante informationer om din ferie </string>
+  <string name="not_now">Ikke nu</string>
+  <string name="allow">OK</string>
+  <!-- 19.0 App Feedback -->
+  <string name="feedback_title">På en skala fra 0-10, hvor sandsynligt er det, at du ville anbefale denne app?</string>
+  <string name="feedback_submit_button">Send dit svar</string>
+  <string name="feedback_navbar_title">Bedøm app'en</string>
+  <string name="feedback_message_title_positive">Dejligt at høre</string>
+  <string name="feedback_message_title_negative">Hvor ærgerligt…</string>
+  <string name="feedback_message_you_rated_the_app">Din bedømmelse blev [grade] af [total].</string>
+  <string name="feedback_message_positive">Vi er glade for, at du kan lide app'en, tak fordi du tog dig tid til at svare.</string>
+  <string name="feedback_message_negative">Tak for dit svar, ærgerligt at du ikke er helt tilfreds. Vi arbejder videre med fremtidige forbedringer.</string>
   <string name="feedback_email_us_button">feedback_email_us_button</string>
-  <string name="feedback_rate_us_on_app_store_button">feedback_rate_us_on_app_store_button</string>
-  <string name="feedback_rate_again_button">feedback_rate_again_button</string>
+  <string name="feedback_rate_us_on_app_store_button_apple">Anmeld os i App Store</string>
+  <string name="feedback_rate_us_on_app_store_button_google">Anmeld os i Google Play Store</string>
+  <string name="feedback_rate_again_button">Bedøm på ny</string>
   <string name="feedback_email_subject">feedback_email_subject</string>
   <string name="feedback_email_body">feedback_email_body</string>
   <string name="feedback_email_to_address">feedback_email_to_address</string>
-  <string name="feedback_home_screen_message_prompt">feedback_home_screen_message_prompt</string>
-  <string name="feedback_home_screen_button_prompt">feedback_home_screen_button_prompt</string>
-  <string name="totalstrings">totalstrings</string>
+  <string name="feedback_home_screen_message_prompt">Hvad synes du om vores app? Her kan du give os feedback</string>
+  <string name="feedback_home_screen_button_prompt">Bedøm app'en</string>
+  <!-- 20.0 In App Browser -->
+  <string name="browser_openExternal">Åben i browser?</string>
+  <string name="browser_copyUrl">Kopiere URL?</string>
+  <string name="browser_leaving_title">Vil du forlade denne side?</string>
+  <string name="browser_leaving_cancel">Bliv her</string>
+  <string name="browser_warning">Dine ændringer vil gå tabt hvis du åbner et nyt vindue. </string>
+  <string name="browser_leaving_okay">Forlad siden</string>
+  <!-- 25.0 Booking Extras - Car Hire -->
+  <string name="car_hire_title">car_hire_title</string>
+  <string name="car_hire_main_text">car_hire_main_text</string>
+  <string name="car_hire_bullet_points_title">car_hire_bullet_points_title</string>
+  <string name="car_hire_bullet_point_1">car_hire_bullet_point_1</string>
+  <string name="car_hire_bullet_point_2">car_hire_bullet_point_2</string>
+  <string name="car_hire_bullet_point_3">car_hire_bullet_point_3</string>
+  <string name="car_hire_bullet_point_4">car_hire_bullet_point_4</string>
+  <string name="car_hire_bullet_point_5">car_hire_bullet_point_5</string>
+  <string name="car_hire_web_link_title">car_hire_web_link_title</string>
+  <string name="car_hire_footnote">car_hire_footnote</string>
+  <!-- Google Analytics - Brand Name -->
+  <string name="ga_brandName">startoursdenmark</string>
 </resources>

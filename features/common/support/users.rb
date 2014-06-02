@@ -52,10 +52,10 @@ FIRSTCHOICE_USER||={
 
 NOR_USER||={
     :valid => {
-        :bookingnumber => "AK56423",
-        :emailid => "karin.ohlsson@fritidsresor.se",
-        :telefon => "0722177937",
-        :departuredate => "20-07-2014",
+        :bookingnumber => "AL02298",
+        :emailid => "ann-louise.ehrl@fritidsresor.se",
+        :telefon => "0702242046",
+        :departuredate => "23-05-2014",
 
     },
     :invalid => {

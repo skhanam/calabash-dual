@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <!-- 0.0.1 post holiday -->
   <string name="postholiday_alert">Toivomme, että lomasi oli onnistunut! Voit jatkossakin käyttää Minun lomani –sovellusta. Saat vinkkejä uusista lomaelämyksistä, tai voit ottaa meihin yhteyttä edelliseen lomaasi liittyen.</string>
   <string name="postholiday_alert_title">Tervetuloa kotiin!</string>
   <string name="postholiday_callcentre">Puhelinpalvelu:</string>
@@ -7,7 +8,7 @@
   <string name="postholiday_disclaimer">Puhelinoperaattori veloittaa matkapuhelimen käytöstä hinnoitteluperusteidensa mukaisesti</string>
   <string name="postholiday_emailus">myynti@finnmatkat.fi</string>
   <string name="postholiday_needhelp">Ota yhteyttä</string>
-  <string name="postholiday_needhelp_sub">postholiday_needhelp_sub</string>
+  <string name="postholiday_needhelp_sub">Mikäli haluat keskustella lomastasi palattuasi kotiin, ota yhteyttä asiakaspalveluumme.</string>
   <string name="postholiday_needhelp_sub_retail">postholiday_needhelp_sub_retail</string>
   <string name="postholiday_subtitle">Löydä sinulle sopivin loma</string>
   <string name="postholiday_telephone_no">030360640</string>
@@ -22,11 +23,13 @@
   <string name="friday">Perjantai</string>
   <string name="saturday">Lauantai</string>
   <string name="sunday">Sunnuntai</string>
+  <!-- 0.2 have a tui booking -->
   <string name="tell_us_cta_new_tui_body">tell_us_cta_new_tui_body</string>
   <string name="tell_us_cta_new_tui_title">tell_us_cta_new_tui_title</string>
   <string name="tell_us_cta_with_tui_body">tell_us_cta_with_tui_body</string>
   <string name="tell_us_cta_with_tui_title">tell_us_cta_with_tui_title</string>
   <string name="tell_us_header">tell_us_header</string>
+  <!-- 0.2.1 help logging in -->
   <string name="help_email_address">myynti@finnmatkat.fi</string>
   <string name="welcome_help_cant_login_cta">welcome_help_cant_login_cta</string>
   <string name="welcome_help_cant_use_app_body">welcome_help_cant_use_app_body</string>
@@ -34,6 +37,7 @@
   <string name="welcome_help_link1">welcome_help_link1</string>
   <string name="welcome_help_link2">welcome_help_link2</string>
   <string name="welcome_help_link3">welcome_help_link3</string>
+  <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">welcome_help_retrieve_booking_body</string>
   <string name="welcome_help_retrieve_booking_cta">welcome_help_retrieve_booking_cta</string>
   <string name="welcome_help_retrieve_booking_email">welcome_help_retrieve_booking_email</string>
@@ -46,34 +50,39 @@
   <string name="welcome_help_retrieve_booking_surname">welcome_help_retrieve_booking_surname</string>
   <string name="welcome_help_retrieve_booking_surname_extra">welcome_help_retrieve_booking_surname_extra</string>
   <string name="welcome_help_retrieve_booking_surname_hint">welcome_help_retrieve_booking_surname_hint</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_cant_login_androidStore">welcome_help_cant_login_androidStore</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">welcome_help_cant_login_androidStoreCTA_website</string>
-  <string name="welcome_help_cant_login_body">Kirjoititko varausnumeron oikein? Varausnumero on yhdistelmä kirjaimia ja numeroita.::Virhe sähköpostiosoitteessa? Varmista että olet kirjoittanut osoitteen oikein. Sähköpostiosoitteen tulee olla sama jolla teit varauksen. Kentän voi jättää myös tyhjäksi mikäli et antanut osoitetta varauksen yhteydessä.::Kirjoititko puhelinnumeron oikein? Puhelinumeron tulee olla sama numero jota käytit varausta tehdessäsi. Mikäli olet toimittanut meille sähköpostiosoitteen voit jättää tämän kentän tyhjäksi.</string>
+  <string name="welcome_help_cant_login_body">Kirjoititko varausnumeron oikein? Varausnumero on yhdistelmä kirjaimia ja numeroita.::Virhe sähköpostiosoitteessa? Varmista että olet kirjoittanut osoitteen oikein. Sähköpostiosoitteen tulee olla sama jolla teit varauksen.::Kirjoititko puhelinnumeron oikein? Puhelinumeron tulee olla sama numero jota käytit varausta tehdessäsi. </string>
   <string name="welcome_help_cant_login_cruise">welcome_help_cant_login_cruise</string>
   <string name="welcome_help_cant_login_cruise_website">welcome_help_cant_login_cruise_website</string>
-  <string name="welcome_help_cant_login_description">Kirjautuaksesi Sinun Lomasi palveluun tarvitset matkan varausnumeron, sähköpostiosoiteen  ja puhelinnumeron. Varausnumero on lähetetty sinulle sähköpostitse. Mikäli et löydä varausnumeroa ota yhteyttä asiakaspalveluumme lähetämme sinulle tiedot uudelleen.</string>
+  <string name="welcome_help_cant_login_description">Kirjautuaksesi Minun Lomani -palveluun tarvitset matkan varausnumeron tai puhelinnumeron ja sähköpostiosoiteen. Varausnumero on lähetetty sinulle sähköpostitse. Mikäli et löydä varausnumeroa ota yhteyttä asiakaspalveluumme niin lähetämme sinulle tiedot uudelleen.</string>
   <string name="welcome_help_cant_login_header">Apua sisäänkirjautumisessa</string>
   <string name="welcome_help_cant_login_iosStore">welcome_help_cant_login_iosStore</string>
   <string name="welcome_help_cant_login_iosStoreCTA_website">welcome_help_cant_login_iosStoreCTA_website</string>
   <string name="welcome_help_cant_login_subtitle">Kirjautumisohjeita</string>
-  <string name="welcome_help_more_issues_body">Voit olla myös yhteydessä asiakaspalveluumme kirjautumiseen liittyvissä ongelmissa.</string>
-  <string name="welcome_help_more_issues_email_body">Pahoittelemme, että kirjautumisesi ei onnistunut. Täytä alla olevat tiedot, tarkista huolellisesti, että ne ovat oikein kirjoitettu ja lähetä meille sähköpostia. Palaamme asiaan mahdollisimman pian.\n\Nimi: \nVarausnumero: \nPuhelinnumero: \nSähköpostiosoite: </string>
+  <string name="welcome_help_more_issues_body">Mikäli sinulla on ongelmia Minun lomani -palveluun kirjautuessa, ota yhteyttä asiakaspalveluumme.</string>
+  <string name="welcome_help_more_issues_email_body">Pahoittelemme, että kirjautumisesi ei onnistunut. Täytä alla olevat tiedot, tarkista huolellisesti, että ne ovat oikein kirjoitettu ja lähetä meille sähköpostia. Palaamme asiaan mahdollisimman pian.\nNimi: \nVarausnumero: \nPuhelinnumero: \nSähköpostiosoite: </string>
   <string name="welcome_help_more_issues_email_subject">En voi kirjautua Minun lomani -sovellukseen</string>
   <string name="welcome_help_more_issues_email_title">Lähetä sähköpostia: myynti@finnmatkat.fi</string>
-  <string name="error_default_body">Valitettavasti sivua ei voitu ladata. Valitse toinen sivu tai sulje applikaatio ja yritä hetken kuluttua uudelleen.</string>
+  <!-- Error Screen -->
+  <string name="error_default_body">Valitettavasti sivua ei voitu ladata. Valitse toinen sivu tai sulje sovellus ja yritä hetken kuluttua uudelleen.</string>
   <string name="error_default_header">Oops, jokin meni vikaan</string>
   <string name="error_no_internet_body">Tarvitset internet-yhteyen nähdäksesi sivun. Ole hyvä ja lataa sivu uudelleen. </string>
   <string name="error_no_internet_header">Tarkista, oletko verkossa.</string>
   <string name="error_no_internet_refresh">Lataa sivu uudelleen</string>
   <string name="try_again">Kokeile uudelleen</string>
-  <string name="welcome_book_holiday">Varaa matka!</string>
+  <!-- 0.3 login (nodics) -->
+  <string name="welcome_book_holiday">Varaa loma</string>
   <string name="welcome_help_no_holiday_call_cta">Soita 0303 60 640</string>
   <string name="welcome_help_no_holiday_call_number">030360640</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_more_issues_phone_title">Soita 0303 60 640</string>
   <string name="welcome_help_more_issues_privacy_title">Rekisteriseloste ja tietosuoja</string>
   <string name="welcome_help_more_issues_phone_url">030360640</string>
   <string name="welcome_help_more_issues_privacy_link">http://www.finnmatkat.fi/Tietoa-Finnmatkoista/rekisteriseloste-ja-tietosuoja/</string>
   <string name="welcome_help_more_issues_header">Ota yhteyttä</string>
+  <!-- 0.2.4 book a holiday -->
   <string name="explore_tui_beach_hotel_body">explore_tui_beach_hotel_body</string>
   <string name="explore_tui_beach_hotel_button">explore_tui_beach_hotel_button</string>
   <string name="explore_tui_body">explore_tui_body</string>
@@ -92,36 +101,37 @@
   <string name="explore_tui_tour">explore_tui_tour</string>
   <string name="explore_tui_vital_hotel_body">explore_tui_vital_hotel_body</string>
   <string name="explore_tui_vital_hotel_button">explore_tui_vital_hotel_button</string>
-  <string name="welcome_help_no_holiday_body">Sinun lomasi applikaatio on tarkoitettu niille jotka ovat jo varanneet matkan. Mikäli et ole vielä varannut matkaa löydät kiinnostavia kohteita ja tarjouksia täältä:</string>
-  <string name="welcome_help_no_holiday_explore_cta">Lue lisää [location] </string>
-  <string name="welcome_help_no_holiday_find_holiday_header">Lisää lomavinkkejä</string>
-  <string name="welcome_help_no_holiday_header">Varaa matka!</string>
+  <string name="welcome_help_no_holiday_body">Minun lomani -sovellus on tarkoitettu niille jotka ovat jo varanneet matkan. Mikäli et ole vielä varannut matkaa löydät kiinnostavia kohteita ja tarjouksia täältä:</string>
+  <string name="welcome_help_no_holiday_explore_cta">Lue lisää: [location]</string>
+  <string name="welcome_help_no_holiday_find_holiday_header">Parhaat hotellivaihtoehdot</string>
+  <string name="welcome_help_no_holiday_header">Varaa loma</string>
   <string name="welcome_help_no_holiday_take_tour_cta">Finnmatkat verkossa</string>
   <string name="welcome_help_no_holiday_take_tour_cta_link">http://www.finnmatkat.fi/</string>
   <string name="welcome_book_holiday_blue_village_title">Blue Village</string>
-  <string name="welcome_book_holiday_scen_text">Moderneja hotelleja lähellä ostoksia ja iltaelämää. Ilmainen WiFi koko hotelialueella ja aamiainen tarjolla aina klo 12 saakka.</string>
+  <string name="welcome_book_holiday_scen_text">Modernit Scene -hotellit sijaitsevat lähellä ostoksia ja iltaelämää. Hotelleista löytyy ilmainen WiFi koko hotelialueella ja aamiainen on tarjolla aina klo 12 saakka.</string>
   <string name="welcome_book_holiday_blue_couples_title">Blue Couples</string>
-  <string name="welcome_book_holiday_blue_couples_text">Hotell designade för vuxna som reser utan barn, alltid nära havet med flera barer och restauranger.</string>
-  <string name="welcome_book_holiday_blue_village_text">Kohteen parhaita perhehotellejamme, jotka sijaitsevat aina rannalla. Täältä löydät Bamseklubin, suuren allasalueen ja monipuolisia aktiviteetteja kaikenikäisille.</string>
+  <string name="welcome_book_holiday_blue_couples_text">Blue Couples -hotellit on suunniteltu kahdelle, eikä niissä ole alle 16-vuotiaita lapsia. Tasokkaat hotellit huokuvat modernia designia meren äärellä ja niistä löytyy rauhallinen allasalue, spa ja kuntosali.</string>
+  <string name="welcome_book_holiday_blue_village_text">Blue Village -hotellit sijaitsevat aina rannalla. Hotelleista löydät Bamseklubin, suuren allasalueen ja monipuolisia aktiviteetteja kaikenikäisille.</string>
   <string name="welcome_book_holiday_blue_village_link">http://www.finnmatkat.fi/Hotellit/Blue-Village/</string>
   <string name="welcome_book_holiday_blue_couples_link">http://www.finnmatkat.fi/Hotellit/Blue-Couples/</string>
   <string name="welcome_book_holiday_blue_star_title">Blue Star</string>
-  <string name="welcome_book_holiday_blue_star_text">Edullisia hotelleja, joissa on lukuisia mukavuuksia sekä maksuttomia, Blue Star -ohjaajiemme järjestämiä koko perheen aktiviteetteja.</string>
+  <string name="welcome_book_holiday_blue_star_text">Edullisissa Blue Star -hotelleissa on lukuisia mukavuuksia sekä maksuttomia, Blue Star -ohjaajiemme järjestämiä koko perheen aktiviteetteja.</string>
   <string name="welcome_book_holiday_blue_star_link">http://www.finnmatkat.fi/Hotellit/Blue-star/</string>
   <string name="welcome_book_holiday_splash_world_title">Splash World</string>
-  <string name="welcome_book_holiday_splash_world_text">Hotelleja, joissa on oma upea vesipuisto. Ilmainen sisäänpääsy koko loman ajan!</string>
+  <string name="welcome_book_holiday_splash_world_text">Splash World -hotelleissa on oma upea vesipuisto! Vesipuistoon on ilmainen sisäänpääsy koko loman ajan. Tarjolla on myös rauhallisia allasalueita. </string>
   <string name="welcome_book_holiday_splash_world_link">http://www.finnmatkat.fi/Hotellit/Splash/</string>
   <string name="welcome_book_holiday_suneo_club_title">Suneo Club</string>
-  <string name="welcome_book_holiday_suneo_club_text">Vauhdikasta lomaa kansainvälisessä ilmapiirissä. All Inclusive, aktiviteetteja ja iltaohjelmaa. Paljon vastinetta rahoillesi.</string>
+  <string name="welcome_book_holiday_suneo_club_text">Suneo Club -hotelleissa vietät vauhdikasta lomaa kansainvälisessä ilmapiirissä. All Inclusive, aktiviteetteja ja iltaohjelmaa. Suneo Club tarjoaa paljon vastinetta rahoillesi.</string>
   <string name="welcome_book_holiday_suneo_club_link">http://www.finnmatkat.fi/Hotellit/Suneo-Club/</string>
   <string name="welcome_book_holiday_club_magic_life_title">Club Magic Life</string>
-  <string name="welcome_book_holiday_club_magic_life_text">Hotelleja, joissa All Inclusive ei ole vain pelkkää ruokaa ja juomaa. Tarjolla on myös runsaasti aktiviteetteja, kuten vesiurheilua ja monipuolista liikuntaa.</string>
+  <string name="welcome_book_holiday_club_magic_life_text">Club Magic Life -hotelleissa All Inclusive ei ole vain pelkkää ruokaa ja juomaa. Tarjolla on myös runsaasti aktiviteetteja, kuten vesiurheilua ja monipuolista liikuntaa.</string>
   <string name="welcome_book_holiday_club_magic_life_link">http://www.finnmatkat.fi/Hotellit/Magic-Life/</string>
   <string name="welcome_book_holiday_scen_title">Scene</string>
   <string name="welcome_book_holiday_scen_link">http://www.finnmatkat.fi/Hotellit/Scene/</string>
   <string name="welcome_book_holiday_sensatori_title">Sensatori</string>
-  <string name="welcome_book_holiday_sensatori_text">Viiden tähden lomaa isoille ja pienille nautiskelijoille. Spa, wellness ja lukuisia gourmét-ravintoloita.</string>
+  <string name="welcome_book_holiday_sensatori_text">Sensatori -hotellit tarjoavat viiden tähden lomaa isoille ja pienille nautiskelijoille. Hotelleista löytyy spa ja wellness palvelut sekä lukuisia gourmét-ravintoloita.</string>
   <string name="welcome_book_holiday_sensatori_link">http://www.finnmatkat.fi/Hotellit/Sensatori/</string>
+  <!-- 0.3 login -->
   <string name="forgot_password_body">forgot_password_body</string>
   <string name="forgot_password_email_help">forgot_password_email_help</string>
   <string name="forgot_password_email_hint">forgot_password_email_hint</string>
@@ -131,6 +141,7 @@
   <string name="login_email_hint">Syötä sähköpostiosoite</string>
   <string name="login_email_tooltip">Käytä samaa sähköpostiosoitetta kuin varausta tehdessäsi. Mikäli et ole ilmoittanut sähköpostiosoitettasi, siirry suoraan kenttään puhelinnumero.</string>
   <string name="login_telephone">Puhelinnumero:</string>
+  <!-- 0.3 login -->
   <string name="login_country">login_country</string>
   <string name="login_country_extra">login_country_extra</string>
   <string name="login_country_tooltip">login_country_tooltip</string>
@@ -145,7 +156,7 @@
   <string name="login_welcome">Käy peremmälle!</string>
   <string name="reset_password_error">reset_password_error</string>
   <string name="reset_password_okay">reset_password_okay</string>
-  <string name="welcome_body">Täällä voit kirjautua Sinun lomasi -sivulle. Varausnumeron lisäksi tarvitset sähköpostiosoitteesi tai puhelinnumerosi. Tarkistathan, että syötetyt tiedot vastaavat varauksen yhteydessä antamiasi tietoja.</string>
+  <string name="welcome_body">welcome_body</string>
   <string name="welcome_cta_help_login">Apua sisäänkirjautumisessa</string>
   <string name="welcome_cta_login">Kirjaudu</string>
   <string name="welcome_header">welcome_header</string>
@@ -160,20 +171,20 @@
   <string name="welcome_login_booking_reference1_hint">welcome_login_booking_reference1_hint</string>
   <string name="welcome_login_booking_reference2_extra">welcome_login_booking_reference2_extra</string>
   <string name="welcome_login_booking_reference2_hint">welcome_login_booking_reference2_hint</string>
-  <string name="welcome_login_credential_error">Emme löydä varaustasi. Tarkistathan vielä, että olet käyttänyt samoja tietoja kuin varausta tehdessäsi. Katso lisävinkkejä kohdasta ”Apua sisäänkirjautumisessa”.</string>
-  <string name="welcome_login_credential_failed_threetimes_title">welcome_login_credential_failed_threetimes_title</string>
+  <string name="welcome_login_credential_error">Tarkista, että tiedot vastaavat varauksesi tietoja.</string>
+  <string name="welcome_login_credential_failed_threetimes_title">Pahoittelut</string>
   <string name="welcome_login_credential_failed_threetimes_body">Emme löydä varaustasi. Tarkistathan vielä, että olet käyttänyt samoja tietoja kuin varausta tehdessäsi. Katso lisävinkkejä kohdasta ”Apua sisäänkirjautumisessa”.</string>
-  <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
+  <string name="welcome_login_failed_threetimes_cta">Yritä uudelleen</string>
   <string name="welcome_login_cta_login">Kirjaudu</string>
   <string name="welcome_login_departure_date">welcome_login_departure_date</string>
   <string name="welcome_login_departure_date_extra">welcome_login_departure_date_extra</string>
   <string name="welcome_login_departure_date_hint">welcome_login_departure_date_hint</string>
   <string name="welcome_login_error">Kirjautuminen ei juuri nyt onnistu</string>
-  <string name="welcome_login_header">Kirjaudu</string>
+  <string name="welcome_login_header">Käy peremmälle!</string>
   <string name="welcome_login_surname">welcome_login_surname</string>
   <string name="welcome_login_surname_extra">welcome_login_surname_extra</string>
   <string name="welcome_login_surname_hint">welcome_login_surname_hint</string>
-  <string name="welcome_login_paragraph">Sinun lomasi applikaatio on tarkoitettu niille jotka ovat jo varanneet matkan. Mikäli et ole vielä varannut matkaa löydät kiinnostavia kohteita ja tarjouksia täältä:</string>
+  <string name="welcome_login_paragraph">Täällä voit kirjautua Minun lomani -sivulle. Varausnumeron lisäksi tarvitset sähköpostiosoitteesi tai puhelinnumerosi. Tarkistathan, että syötetyt tiedot vastaavat varauksen yhteydessä antamiasi tietoja.</string>
   <string name="welcome_login_email">Sähköpostiosoite:</string>
   <string name="welcome_login_telephone">Puhelinnumero:</string>
   <string name="welcome_login_email_hint">Syötä sähköpostiosoite:</string>
@@ -182,16 +193,17 @@
   <string name="welcome_login_telephone_extra">Puhelinnumero päivisin (esim. kännykkä), jonka olet ilmoittanut varausta tehdessä.</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
+  <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
   <string name="bookingSummary_daysToGo">[Days] päivää jäljellä!</string>
   <string name="departing_on">Matkustan</string>
-  <string name="discover">Kohde</string>
-  <string name="explore">Kohde</string>
+  <string name="discover">**Kohde</string>
+  <string name="explore">Lue lisää lomakohteesta</string>
   <string name="home">Aloitus</string>
   <string name="leaving">Matkustan</string>
   <string name="meet_your_travel_agent">meet_your_travel_agent</string>
   <string name="pick_your_car_up_from">pick_your_car_up_from</string>
-  <string name="step_inside">Kohde</string>
+  <string name="step_inside">Lue lisää hotellista</string>
   <string name="unforgettable_excursion">Retket</string>
   <string name="unforgettable_excursions">Retket</string>
   <string name="w_button_contact">Ota yhteyttä</string>
@@ -207,19 +219,27 @@
   <string name="w_msg_extras">w_msg_extras</string>
   <string name="w_msg_flights">Lentosi lähtee [when] klo [time].</string>
   <string name="w_msg_good_news">Hyviä uutisia, [name]!</string>
-  <string name="w_msg_hi">Hei [name]!</string>
+  <string name="w_msg_hi">Hei!</string>
   <string name="w_msg_weather">Lämpötila: [location] [when] [temperature].</string>
-  <string name="w_msg_welcome_app">Mitä mieltä olet tästä mobiilipalvelusta? Meistä olisi mukava kuulla kokemuksiasi applikaation käytöstä.</string>
+  <string name="w_msg_welcome_app">Mitä mieltä olet tästä mobiilipalvelusta? Meistä olisi mukava kuulla kokemuksiasi sovelluksen käytöstä.</string>
   <string name="w_msg_welcome_great">Toivottavasti lomasi kanssamme oli onnistunut!</string>
   <string name="w_msg_welcome_home">Tervetuloa kotiin [name]</string>
-  <string name="w_msg_welcome_personal">Tervetuloa Sinun lomasi palveluun. Löydät täältä uutisia, vinkkejä sekä tärkeää tietoa lomastasi. Autamme sinua koko matkan ajan.</string>
+  <string name="w_msg_welcome_personal">Tervetuloa Finnmatkojen Minun lomani -palveluun. Löydät täältä uutisia, vinkkejä sekä tärkeää tietoa lomastasi. Autamme sinua koko lomasi ajan.</string>
   <string name="w_msg_welcome_question">Onko sinulla kysyttävää varauksestasi? Autamme mielellämme!</string>
   <string name="w_msg_welcome_to">[location] toivottaa sinut tervetulleeksi! Mikäli sinulla on kysyttävää kohteesta tai muusta lomaan liittyvästä, voit olla yhteydessä oppaisiimme. Toivotamme mukavaa lomaa!  </string>
   <string name="your_camper_is_ready">your_camper_is_ready</string>
   <string name="your_flight">Lentomatkani</string>
+  <string name="w_msg_about_your_hotel">Lennosta</string>
+  <string name="w_msg_about_your_destination">Lue lisää lomakohteesta</string>
+  <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
+  <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
+  <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
+  <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
+  <!-- 1.0 off canvas -->
   <string name="accomodation">Hotelli</string>
   <string name="boat">boat</string>
-  <string name="booking_summary">Kaikki lomastasi</string>
+  <string name="booking_summary">Kaikki lomastani</string>
+  <string name="booking_extras">booking_extras</string>
   <string name="camper">camper</string>
   <string name="car_hire">car_hire</string>
   <string name="contact">Ota yhteyttä</string>
@@ -234,7 +254,7 @@
   <string name="flight">Lennot</string>
   <string name="flight_details">Lennot</string>
   <string name="flights">Lennot</string>
-  <string name="general_information">general_information</string>
+  <string name="general_information">Hyvä tietää</string>
   <string name="getting_to_the_airport">getting_to_the_airport</string>
   <string name="good_to_know">Tärkeää tietoa</string>
   <string name="holiday_checklist">holiday_checklist</string>
@@ -242,14 +262,14 @@
   <string name="holiday_countdown">Lähtölaskenta</string>
   <string name="holiday_summary">Kaikki lomastasi</string>
   <string name="hotel">Hotelli</string>
-  <string name="hotel_and_resort">Hotelli</string>
-  <string name="hotels">Hotelli</string>
+  <string name="hotel_and_resort">Hotelli ja kohde</string>
+  <string name="hotels">Hotellit </string>
   <string name="important_information">Tärkeää tietoa</string>
   <string name="insurance">insurance</string>
   <string name="insurances">insurances</string>
   <string name="meet_the_rep">meet_the_rep</string>
   <string name="roundtrip">roundtrip</string>
-  <string name="share_destination">Jaa</string>
+  <string name="share_destination">Jaa Facebookissa</string>
   <string name="thunderstorm">thunderstorm</string>
   <string name="ticket">ticket</string>
   <string name="tools">tools</string>
@@ -263,6 +283,9 @@
   <string name="duty_free">Taxfree</string>
   <string name="guide_online">Kysy oppaalta</string>
   <string name="app_feedback">Anna palautetta palvelusta</string>
+  <!-- 7,1 Seleted Hotel -->
+  <string name="hotel_to_destinations">Lue lisää lomakohteesta:</string>
+  <!-- 11.0 extras -->
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
   <string name="extras_call">extras_call</string>
@@ -271,8 +294,10 @@
   <string name="extras_title">extras_title</string>
   <string name="holiday_extra">holiday_extra</string>
   <string name="holiday_extras">holiday_extras</string>
+  <!-- 12.0 travel money -->
   <string name="money_on_card">money_on_card</string>
   <string name="travel_money_card">travel_money_card</string>
+  <!-- 12.3 currency -->
   <string name="currency_converter">Valuutta</string>
   <string name="currency_converter_tool">Matkavaluutta</string>
   <string name="find_a_shop_url">find_a_shop_url</string>
@@ -289,6 +314,7 @@
   <string name="guide_rate_only">guide_rate_only</string>
   <string name="select_currency">select_currency</string>
   <string name="updated_at">updated_at</string>
+  <!-- 13.0 important information -->
   <string name="good_to_know">good_to_know</string>
   <string name="good_to_know_null">good_to_know_null</string>
   <string name="goodtoknow_blurb">goodtoknow_blurb</string>
@@ -301,6 +327,7 @@
   <string name="leaving">leaving</string>
   <string name="resort_blurb">resort_blurb</string>
   <string name="resort_blurb_null">resort_blurb_null</string>
+  <!-- 14.0 contact -->
   <string name="contact_message">contact_message</string>
   <string name="contact_messageHint">contact_messageHint</string>
   <string name="contact_phone">contact_phone</string>
@@ -311,7 +338,7 @@
   <string name="contact_sendEmail">contact_sendEmail</string>
   <string name="contact_subject">contact_subject</string>
   <string name="contact_subjectHint">contact_subjectHint</string>
-  <string name="contactus_email_body">contactus_email_body</string>
+  <string name="contactus_email_body">Täytä ystävällisesti varauksesi tiedot niin autamme sinua mahdollisimman pikaisesti. \n\nNimi: [name]\nEmail: \nPuhelinumero: \nOsoite: \nPostinumero (optional): \nVarausnumero: [booking]\nLähtöpäivä: [date]\nKohde: [destination]\n\nKirjoita kysymyksesi tähän:</string>
   <string name="contactus_flightCTA">contactus_flightCTA</string>
   <string name="contactus_manageBookingsCTA">contactus_manageBookingsCTA</string>
   <string name="contactus_manageBookingsTitle">contactus_manageBookingsTitle</string>
@@ -320,10 +347,10 @@
   <string name="contactus_privacyPolicy">contactus_privacyPolicy</string>
   <string name="contactus_specialEnquiriesCTA">contactus_specialEnquiriesCTA</string>
   <string name="contactus_specialEnquiriesTitle">contactus_specialEnquiriesTitle</string>
-  <string name="contactus_subject">contactus_subject</string>
-  <string name="contactus_subtitle">contactus_subtitle</string>
+  <string name="contactus_subject">Kysy Finnmatkoilta lomastasi</string>
+  <string name="contactus_subtitle">Kysy Finnmatkoilta lomastasi</string>
   <string name="contactus_support">contactus_support</string>
-  <string name="contactus_supportemail">contactus_supportemail</string>
+  <string name="contactus_supportemail">myynti@finnmatkat.fi</string>
   <string name="contactus_supportsite">contactus_supportsite</string>
   <string name="contactus_terms">contactus_terms</string>
   <string name="contactus_termsAndConditions">contactus_termsAndConditions</string>
@@ -335,17 +362,17 @@
   <string name="contactus_cta_privacy">Reksiteriseloste ja tietosuoja </string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
-  <string name="contactus_extra_text_1">Jos sinua askarruuttaa jokin seikka lomaasi liittyen, voit lähettää meille kysymyksesi jo ennen lomaasi ja tietysti myös lomasi aikana. Autamme mielellämme! Voit ottaa yhteyttä joko asiakaspalveluumme kotimaassa tai oppaisiimme lomakohteessa. </string>
+  <string name="contactus_extra_text_1">Noin 2 viikkoa ennen matkalle lähtöäsi, voit lähettää kysymyksiä  oppaillemme lomakohteessa. Oppaamme vastaavat kysymyksiisi aina retkistä parhaisiin rantoihin liittyen, ja auttavat sinua lomapäiviesi suunnittelussa. </string>
   <string name="contactus_extra_text_1_subheading">Kysy oppailtamme lomakohteessa</string>
-  <string name="">Jo noin 2 viikkoa ennen matkalle lähtöäsi voit lähettää kysymyksiä suoraan oppaillemme lomakohteessa. Oppaamme vastaavat kysymyksiisi aina retkistä parhaisiin rantoihin liittyen ja auttavat sinua lomapäiviesi suunnittelussa. Voit lähettää kysymyksesi oppaillemme kätevästi tämän sovelluksen avulla.</string>
   <string name="contactus_extra_text_2_subheading">Kysy asiakaspalvelustamme kotimaassa</string>
-  <string name="contactus_extra_text_2">Soita tai lähetä sähköpostia jos sinulla on kysyttävää matkavarauksestasi, lennoista tai hotellista, tai jos haluat varata lomallesi lisäpalveluita.</string>
-  <string name="contactus_extra_text_3_subheading">contactus_extra_text_3_subheading</string>
-  <string name="contactus_extra_text_3">contactus_extra_text_3</string>
+  <string name="contactus_extra_text_2">Soita tai lähetä sähköpostia asiakaspalveluumme jos sinulla on kysyttävää matkavarauksestasi, lennoista, hotellista, tai jos haluat varata lomallesi lisäpalveluita.</string>
   <string name="dial_number">Soita</string>
-  <string name="disclaimer">disclaimer</string>
+  <string name="disclaimer">Puhelinoperaattori veloittaa matkapuhelimen käytöstä hinnoitteluperusteidensa mukaisesti.</string>
+  <string name="contactus_email_title">Kysy Finnmatkoilta lomastasi</string>
+  <string name="contactus_cta_guideonline">Kysy oppailtamme</string>
   <string name="send_sms">Lähetä tekstiviestinä</string>
   <string name="we_are_here_for_you">we_are_here_for_you</string>
+  <!-- 16.0 Guide Online -->
   <string name="guide_online">Kysy oppaalta</string>
   <string name="tap_to_type_message">Esitä kysymyksesi tässä</string>
   <string name="tap_to_reply">Esitä kysymyksesi tässä</string>
@@ -353,7 +380,7 @@
   <string name="guide_online_important">Tärkeät </string>
   <string name="guide_online_transfers">Kuljetukset</string>
   <string name="guide_online_welcome">Tervetuloa Guide Online palveluun</string>
-  <string name="guide_online_welcome_blurb">Guide Online palvelun avulla voit ottaa yhteyttä lomakohteesi oppaaseen 2 viikkoa ennen matkan alkua, sekä loman aikana kohteessa. Lähetämme sinulle viestin kun opas on vapaana.</string>
+  <string name="guide_online_welcome_blurb">Voit ottaa yhteyttä lomakohteesi oppaaseen 2 viikkoa ennen matkan alkua, sekä loman aikana kohteessa. Saat viestin puhelimeesi kun opas on vapaana.</string>
   <string name="guide_online_respond_in_resort">Vastaamme kysymykseesi tunnin kuluessa klo 8–20 välisenä aikana. </string>
   <string name="guide_online_respond_in_resort_time">1 tunti</string>
   <string name="guide_online_respond_pre_dep">Kun olet lähettänyt kysymyksen, vastaamme</string>
@@ -363,6 +390,7 @@
   <string name="guide_online_sent_mins_ago">Lähetetty [hhmm], tänään</string>
   <string name="guide_online_sent_today">Lähetetty [hhmm], tänään</string>
   <string name="guide_online_sent_on_day">Lähetetty [hhmm], [date]</string>
+  <string name="guide_online_dateformat">D MMMM</string>
   <string name="guide_online_currently_offline">Verkko ei ole juuri nyt saatavilla</string>
   <string name="guide_online_offline_warning">Keskustelu ei ole enää ajantasalla</string>
   <string name="guide_online_send_text">Lähetä kysymys tekstiviestinä</string>
@@ -380,8 +408,19 @@
   <string name="you_have_a_new_message">Olet saanut uuden viestin</string>
   <string name="guide_online_call_number">Soita:</string>
   <string name="guide_online_open_link">Avaa:</string>
+  <string name="guide_online_email">Sähköposti:</string>
   <string name="guide_online_copy">Kopioi</string>
   <string name="guide_online_message_failed_to_send">Viestin lähetys epäonnistui</string>
+  <string name="guide_online_message_failed_to_send_body">Viestin lähetys epäonnistui. Yritä uudelleen.</string>
+  <!-- 16.0 My Messages -->
+  <string name="mymessages">mymessages</string>
+  <string name="mymessages_all">mymessages_all</string>
+  <string name="mymessages_important">mymessages_important</string>
+  <string name="mymessages_extras">mymessages_extras</string>
+  <string name="mymessages_booking">mymessages_booking</string>
+  <string name="mymessages_cta_label">mymessages_cta_label</string>
+  <string name="mymessages_virgin_message">mymessages_virgin_message</string>
+  <!-- 18.0 social share -->
   <string name="boat_share_during_fb">boat_share_during_fb</string>
   <string name="boat_share_during_tw">boat_share_during_tw</string>
   <string name="boat_share_pre_fb">boat_share_pre_fb</string>
@@ -398,13 +437,13 @@
   <string name="countdown_share_during_tw">countdown_share_during_tw</string>
   <string name="countdown_share_pre_fb">Enää [days] päivää lomaan kohteessa [days] #loma #Finnmatkat. </string>
   <string name="countdown_share_pre_tw">countdown_share_pre_tw</string>
-  <string name="countdown_share_today_fb">Lähden tänään lomalle kohteeseen [destination]! #loma #Finnmatkat</string>
+  <string name="countdown_share_today_fb">Lähden tänään lomalle kohteeseen [location]! #loma #Finnmatkat</string>
   <string name="countdown_share_today_tw">countdown_share_today_tw</string>
-  <string name="destination_share_during_fb">Lomaterveiset kohteesta [destination]! Juuri nyt lämpötila on [temperature] °C. #loma #Finnmatkat</string>
+  <string name="destination_share_during_fb">Lomaterveiset kohteesta [location]! Juuri nyt lämpötila on [degrees] °C. #loma #Finnmatkat</string>
   <string name="destination_share_during_tw">destination_share_during_tw</string>
   <string name="destination_share_pre_fb">Enää [days] päivää lomaan kohteessa [location]. Tuskin maltan odottaa! #loma #Finnmatkat</string>
   <string name="destination_share_pre_tw">destination_share_pre_tw</string>
-  <string name="destination_share_today_fb">Lähden tänään lomalle kohteeseen [destination]. Ei hassumpaa! #loma #Finnmatkat</string>
+  <string name="destination_share_today_fb">Lähden tänään lomalle kohteeseen [location]. Ei hassumpaa! #loma #Finnmatkat</string>
   <string name="destination_share_today_tw">destination_share_today_tw</string>
   <string name="excursion_share_fb">excursion_share_fb</string>
   <string name="excursion_share_tw">excursion_share_tw</string>
@@ -412,11 +451,12 @@
   <string name="flight_share_pre_tw">flight_share_pre_tw</string>
   <string name="flight_share_today_fb">flight_share_today_fb</string>
   <string name="flight_share_today_tw">flight_share_today_tw</string>
-  <string name="hotel_share_during_fb">Vihdoinkin  lomalla! [hotel], [resort]. Juuri nyt lämpötila on [temperature] °C. #loma #Finnmatkat </string>
+  <string name="hotel_share_during_fb">Vihdoinkin  lomalla! [hotel], [location]. #loma #Finnmatkat </string>
+  <string name="hotel_share_during_fb_previous">Vihdoinkin  lomalla! [hotel], [resort]. Juuri nyt lämpötila on [degrees] °C. #loma #Finnmatkat </string>
   <string name="hotel_share_during_tw">hotel_share_during_tw</string>
-  <string name="hotel_share_pre_fb">Enää [days] päivää lomaan! [hotel], [destination] odottaa. Mahtavaa! #loma #Finnmatkat</string>
+  <string name="hotel_share_pre_fb">Enää [days] päivää lomaan! [hotel], [location] odottaa. Mahtavaa! #loma #Finnmatkat</string>
   <string name="hotel_share_pre_tw">hotel_share_pre_tw</string>
-  <string name="hotel_share_today_fb">Lähden tänään lomalle! [resort], [hotel] odottaa. Ei hassumpaa! #loma #Finnmatkat</string>
+  <string name="hotel_share_today_fb">Lähden tänään lomalle! [location], [hotel] odottaa. Ei hassumpaa! #loma #Finnmatkat</string>
   <string name="hotel_share_today_tw">hotel_share_today_tw</string>
   <string name="roundtrip_share_during_fb">roundtrip_share_during_fb</string>
   <string name="roundtrip_share_during_tw">roundtrip_share_during_tw</string>
@@ -434,14 +474,16 @@
   <string name="share_notwitter_support_title">share_notwitter_support_title</string>
   <string name="weather_share_during_fb">Lomailen kohteessa [location] #loma #Finnmatkat. Juuri nyt lämpötila on [temperature] °C.</string>
   <string name="weather_share_during_tw">weather_share_during_tw</string>
-  <string name="weather_share_pre_fb">Enää [days] päivää lomaan! [destination] odottaa. #loma #Finnmatkat. Juuri nyt lämpötila on siellä [temperature] °C.</string>
+  <string name="weather_share_pre_fb">Enää [days] päivää lomaan! [location] odottaa. #loma #Finnmatkat. Juuri nyt lämpötila on siellä [temperature] °C.</string>
   <string name="weather_share_pre_tw">weather_share_pre_tw</string>
   <string name="weather_share_today_fb">Lähden tänään lomalle kohteeseen [location] #loma #Finnmatkat. Juuri nyt lämpötila on siellä [temperature] °C.</string>
   <string name="weather_share_today_tw">weather_share_today_tw</string>
-  <string name="product_share_my_accommodation">Jaa</string>
+  <!-- 18.0 social sharing -->
+  <string name="product_share_my_accommodation">Jaa Facebookissa</string>
+  <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Varausnumero: </string>
   <string name="bookingSummary_emailDescription">Lähetä yhteenveto lomastasi itsellesi tai matkaseurueellesi.</string>
-  <string name="bookingSummary_emailTitle">Lähetä yhtenveto matkastani</string>
+  <string name="bookingSummary_emailTitle">Lähetä yhteenveto matkastani</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>
   <string name="bookingSummary_flighthotelRefNumberQuote">bookingSummary_flighthotelRefNumberQuote</string>
   <string name="bookingSummary_flightsNotAvailableText">bookingSummary_flightsNotAvailableText</string>
@@ -449,17 +491,21 @@
   <string name="bookingSummary_flightsNotReadyText">bookingSummary_flightsNotReadyText</string>
   <string name="bookingSummary_flightsNotReadyTitle">bookingSummary_flightsNotReadyTitle</string>
   <string name="bookingSummary_leadPassenger">Matkustaja (etunimi): </string>
-  <string name="bookingSummary_quote">Syötä aina varausnumerosi, kun haluat lisätietoja Sinun lomastasi</string>
+  <string name="bookingSummary_quote">Tarvitset varausnumeroa kun haluat lisätietoja lomastasi.</string>
   <string name="bookingsummary_share_subject">bookingsummary_share_subject</string>
-  <string name="bookingSummary_viewType">bookingSummary_viewType</string>
-  <string name="bookingSummary_viewType_alternative">bookingSummary_viewType_alternative</string>
+  <string name="bookingSummary_viewType">Lue lisää: [type]</string>
+  <string name="bookingSummary_viewType_alternative">Lue lisää: [type]</string>
   <string name="bookingSummary_yourParty">Matkaseuralainen: </string>
   <string name="current_bookings">current_bookings</string>
   <string name="my_booking">my_booking</string>
   <string name="past_bookings">past_bookings</string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
+  <!-- 2.1 booking selector -->
   <string name="booking_details">booking_details</string>
   <string name="booking_details_blurb">booking_details_blurb</string>
   <string name="i_need_help">i_need_help</string>
+  <!-- 3.0 countdown -->
   <string name="car_message_minus_548">car_message_minus_548</string>
   <string name="car_message_plus_1">car_message_plus_1</string>
   <string name="car_message_zero">car_message_zero</string>
@@ -477,7 +523,9 @@
   <string name="insurance_message_minus_548">insurance_message_minus_548</string>
   <string name="insurance_message_plus_1">insurance_message_plus_1</string>
   <string name="insurance_message_zero">insurance_message_zero</string>
+  <!-- 3.0 find a booking -->
   <string name="find_booking">find_booking</string>
+  <!-- 3.0 holiday countdown -->
   <string name="countdown_active">Olen lomalla!</string>
   <string name="countdown_day">päivän kuluttua!</string>
   <string name="countdown_days">päivän kuluttua!</string>
@@ -486,11 +534,12 @@
   <string name="countdown_hours">Tuntia</string>
   <string name="countdown_minutes">Minuuttia</string>
   <string name="countdown_seconds">Sekuntia</string>
-  <string name="countdown_share">Jaa</string>
-  <string name="countdown_today">countdown_today</string>
-  <string name="countdown_waiting">countdown_waiting</string>
+  <string name="countdown_share">Jaa Facebookissa</string>
+  <string name="countdown_today">Valmiina lomalle! Juuri nyt olen ilmassa…</string>
+  <string name="countdown_waiting">Hyppään koneeseen ja lennän kohteeseen [location]</string>
   <string name="day_to_go">päivä jäljellä</string>
   <string name="days_to_go">päivää jäljellä</string>
+  <!-- 4.0 checklist -->
   <string name="add_an_item">add_an_item</string>
   <string name="biscuit_checklist_plural">biscuit_checklist_plural</string>
   <string name="biscuit_checklist_reminderSet">biscuit_checklist_reminderSet</string>
@@ -516,6 +565,7 @@
   <string name="things_todo">things_todo</string>
   <string name="you_are_packed">you_are_packed</string>
   <string name="your_todolist_is_done">your_todolist_is_done</string>
+  <!-- 5.0 / 5.1 weather -->
   <string name="average">Keskiarvo [month]</string>
   <string name="climate">climate</string>
   <string name="cloudy">cloudy</string>
@@ -525,31 +575,36 @@
   <string name="overcast">overcast</string>
   <string name="partially_cloudy">partially_cloudy</string>
   <string name="rain">rain</string>
-  <string name="share_weather">Jaa</string>
+  <string name="share_weather">Jaa Facebookissa</string>
   <string name="snow">snow</string>
   <string name="sunny">sunny</string>
   <string name="terms_title">terms_title</string>
-  <string name="to">to</string>
+  <string name="to"> – </string>
   <string name="weather_forecast">Sääennuste [location]</string>
   <string name="weather_header">Sää</string>
-  <string name="weather_share">Jaa</string>
+  <string name="weather_share">Jaa Facebookissa</string>
+  <string name="climate_rain_free_days">Poutapäiviä:</string>
+  <string name="weather_coming_soon">Säätilaa ei ole tällä hetkellä saatavilla</string>
+  <!-- 5.1 product -->
   <string name="booked_for">booked_for</string>
   <string name="category">category</string>
   <string name="my_accomodation">my_accomodation</string>
-  <string name="overview">overview</string>
-  <string name="period_of_travel">period_of_travel</string>
+  <string name="overview">Varauksen tiedot</string>
+  <string name="checkin_title">Saapuminen:</string>
+  <string name="checkout_title">Lähtöaika:</string>
   <string name="rooms">rooms</string>
-  <string name="share_my_accomodation">Jaa</string>
-  <string name="address">address</string>
-  <string name="availability_from">availability_from</string>
+  <string name="share_my_accomodation">Jaa Facebookissa</string>
+  <!-- 5.1 product pages -->
+  <string name="address">Osoite</string>
+  <string name="availability_from">Saatavilla:</string>
   <string name="awards">awards</string>
   <string name="bookedFor">bookedFor</string>
-  <string name="call">call</string>
+  <string name="call">Soita</string>
   <string name="category">category</string>
   <string name="countryName">countryName</string>
   <string name="customer_satisfaction">customer_satisfaction</string>
   <string name="dropoffDateTime">dropoffDateTime</string>
-  <string name="location">location</string>
+  <string name="location">Kartta</string>
   <string name="locationName">locationName</string>
   <string name="name">name</string>
   <string name="numberOfAdults">numberOfAdults</string>
@@ -557,7 +612,7 @@
   <string name="numberOfInfants">numberOfInfants</string>
   <string name="numberOfPax">numberOfPax</string>
   <string name="owner">owner</string>
-  <string name="period_of_travel">period_of_travel</string>
+  <string name="period_of_travel">Matkan pituus:</string>
   <string name="pickupDateTime">pickupDateTime</string>
   <string name="call_dialog_message">Oletko varma?</string>
   <string name="call_dialog_cancel">Keskeytä</string>
@@ -584,16 +639,17 @@
   <string name="titles_to_split_by_colon">titles_to_split_by_colon</string>
   <string name="transfer">transfer</string>
   <string name="transfers">transfers</string>
+  <!-- 6.1 flights -->
   <string name="airline">Lentoyhtiö:</string>
   <string name="approximate">approximate</string>
-  <string name="approximate_arrival">approximate_arrival</string>
-  <string name="approximate_departure">approximate_departure</string>
+  <string name="approximate_arrival">Saapuminen</string>
+  <string name="approximate_departure">Lähtöaika</string>
   <string name="cabin_class">cabin_class</string>
   <string name="checkin_area">checkin_area</string>
   <string name="checkin_closes">checkin_closes</string>
   <string name="checkin_opens">checkin_opens</string>
   <string name="early_checkin_blurb">Saavuthan lentokentälle hyvissä ajoin. Lähtöselvitys suljetaan tuntia ennen koneen lähtöaikaa.</string>
-  <string name="email_my_flight_details">email_my_flight_details</string>
+  <string name="email_my_flight_details">Lähetä lentotiedot sähköpostilla</string>
   <string name="flight_number">Lennon numero:</string>
   <string name="flight_number_tbc">flight_number_tbc</string>
   <string name="flightnotreadyblurb">flightnotreadyblurb</string>
@@ -603,15 +659,23 @@
   <string name="flights_disclaimer">Kaikki ajat ovat paikallisia aikoja.</string>
   <string name="flights_getting_to">flights_getting_to</string>
   <string name="getting_to_the_airport_driving_directions">getting_to_the_airport_driving_directions</string>
-  <string name="land">land</string>
+  <string name="land">Saapuminen:</string>
   <string name="my_flight_details">Lentomatkani</string>
   <string name="my_flight_details_full_replace">[DEP] ([DEPCODE]) – [ARR] ([ARRCODE])</string>
   <string name="my_flight_details_replace">Lähtöpaikka [DEP] matkakohde [ARR]</string>
-  <string name="passengers">passengers</string>
-  <string name="take_off">take_off</string>
+  <string name="passengers">Matkaseuralainen:</string>
+  <string name="take_off">Lähtöaika:</string>
+  <string name="flight_details_flight_information">Lentotiedot</string>
+  <string name="flight_details_extras_check_in_details">Lähtöselvitys</string>
+  <string name="flight_details_extras_seating">Istumapaikat</string>
+  <string name="flight_details_extras_meals">Lentoateriat</string>
+  <string name="flight_details_extras_luggage_allowance">Matkatavarasäännöt</string>
+  <string name="flight_details_extras_duty_free">Tax-free</string>
+  <!-- 8.0 destination -->
   <string name="destinations_goexploring">destinations_goexploring</string>
   <string name="destinations_goexploring_sub_title">destinations_goexploring_sub_title</string>
   <string name="destinations_goexploring_title">destinations_goexploring_title</string>
+  <!-- 9.0 excursions -->
   <string name="book_with_tui_service">book_with_tui_service</string>
   <string name="excursion_email">excursion_email</string>
   <string name="excursions_here_available">excursions_here_available</string>
@@ -620,6 +684,7 @@
   <string name="experience_the_country_subtitle">experience_the_country_subtitle</string>
   <string name="plan_your_excursions">plan_your_excursions</string>
   <string name="share_my_excursion">share_my_excursion</string>
+  <!-- 9.0 travel agent -->
   <string name="contact_tui_services">contact_tui_services</string>
   <string name="service_on_site">service_on_site</string>
   <string name="services_email">services_email</string>
@@ -633,15 +698,19 @@
   <string name="travelAgent_phone">travelAgent_phone</string>
   <string name="travelAgent_title">travelAgent_title</string>
   <string name="travelAgent_website">travelAgent_website</string>
+  <!-- activity indicator -->
   <string name="hold_holiday_found">Olemme löytäneet varauksesi…</string>
   <string name="hold_on">Pieni hetki…</string>
   <string name="hold_on_booking">Haemme lomaasi…</string>
+  <!-- already registered -->
   <string name="have_you_used_tui_cta_logged_body">have_you_used_tui_cta_logged_body</string>
   <string name="have_you_used_tui_cta_logged_title">have_you_used_tui_cta_logged_title</string>
   <string name="have_you_used_tui_cta_not_logged_body">have_you_used_tui_cta_not_logged_body</string>
   <string name="have_you_used_tui_cta_not_logged_title">have_you_used_tui_cta_not_logged_title</string>
   <string name="have_you_used_tui_header">have_you_used_tui_header</string>
+  <!-- Booking Details -->
   <string name="my_bookings">my_bookings</string>
+  <!-- Cant Find Booking -->
   <string name="cantFindBooking_errorMsg">cantFindBooking_errorMsg</string>
   <string name="cantFindBooking_switchTo">cantFindBooking_switchTo</string>
   <string name="cantFindBooking_de">cantFindBooking_de</string>
@@ -651,53 +720,64 @@
   <string name="cantFindBooking_addBookingTitle">cantFindBooking_addBookingTitle</string>
   <string name="cantFindBooking_ctaAddBooking">cantFindBooking_ctaAddBooking</string>
   <string name="cantFindBooking_tryThese">cantFindBooking_tryThese</string>
-  <string name="april">april</string>
-  <string name="august">august</string>
-  <string name="datetime">DD/MM/YYYY HH:mm</string>
-  <string name="december">december</string>
-  <string name="february">february</string>
-  <string name="hours">hours</string>
-  <string name="january">january</string>
-  <string name="july">july</string>
-  <string name="june">june</string>
-  <string name="longdate">dddd, Do MMMM YYYY</string>
-  <string name="march">march</string>
-  <string name="may">may</string>
-  <string name="mediumdate">Do MMMM YYYY</string>
-  <string name="november">november</string>
-  <string name="october">october</string>
-  <string name="september">september</string>
+  <!-- Dates -->
+  <string name="april">huhtikuu</string>
+  <string name="august">elokuu</string>
+  <string name="datetime">YYYY-MM-DD HH:mm</string>
+  <string name="december">joulukuu</string>
+  <string name="february">helmikuu</string>
+  <string name="hours">tuntia</string>
+  <string name="january"> tammikuu</string>
+  <string name="july">heinäkuu</string>
+  <string name="june">kesäkuu</string>
+  <string name="longdate">dddd D MMMM YYYY</string>
+  <string name="march">maaliskuu</string>
+  <string name="may">toukokuu</string>
+  <string name="mediumdate">D MMMM YYYY</string>
+  <string name="november">marraskuu</string>
+  <string name="october"> lokakuu</string>
+  <string name="september">syyskuu</string>
   <string name="shortdate">YYYY-MM-DD</string>
-  <string name="til">til</string>
+  <string name="til">-</string>
   <string name="timeformat">HH:mm</string>
-  <string name="today">today</string>
-  <string name="tomorrow">tomorrow</string>
+  <string name="today">Tänään</string>
+  <string name="tomorrow">Huomenna</string>
+  <!-- Don't forget -->
   <string name="dont_forget_to">dont_forget_to</string>
+  <!-- Email Help -->
   <string name="email_impressum">email_impressum</string>
-  <string name="delete">delete</string>
+  <!-- General -->
+  <string name="delete">Poista</string>
+  <!-- Email -->
   <string name="email_items">email_items</string>
+  <!-- Email Help -->
   <string name="email_help_body">email_help_body</string>
   <string name="email_help_subject">email_help_subject</string>
   <string name="email_help_subject_booking">email_help_subject_booking</string>
   <string name="email_help_subject_hotel">email_help_subject_hotel</string>
   <string name="email_help_subject_registration">email_help_subject_registration</string>
-  <string name="view">view</string>
+  <!-- General -->
+  <string name="view">Avaa</string>
   <string name="notification_no_internet_connection">Verkko ei ole juuri nyt saatavilla.</string>
   <string name="notification_page_last_updated">Sivu päivitetty viimeeksi [date] klo [time]</string>
   <string name="notification_page_outdated">Verkko ei ole juuri nyt saatavilla.   </string>
   <string name="services_description">services_description</string>
   <string name="services_numbers">services_numbers</string>
   <string name="services_questions">services_questions</string>
+  <!-- Generic -->
   <string name="car">car</string>
-  <string name="email_noemail_message">email_noemail_message</string>
-  <string name="email_noemail_title">email_noemail_title</string>
-  <string name="generic_field_validation">generic_field_validation</string>
+  <string name="email_noemail_message">Puhelimeesi ei ole yhdistetty sähköpostitiliä. Voit tehdä sen Asetukset-kohdassa.</string>
+  <string name="email_noemail_title">Sähköpostitili puuttuu</string>
+  <string name="generic_field_validation">Tarkista, että olet täyttänyt kaikki kentät</string>
   <string name="map_android_version_not_uptodate">Käytössäsi ei ole uusin Google Maps -versio. Päivitä uusin versio Google Play Storesta.</string>
   <string name="map_android_version_not_uptodate_message">Käytössäsi ei ole uusin Google Maps -versio. Päivitä uusin versio Google Play Storesta.</string>
   <string name="map_open_text">Avaa kartalla</string>
-  <string name="please_reauthenticate">please_reauthenticate</string>
+  <string name="please_reauthenticate">Istuntosi on vanhentunut, kirjaudu uudelleen.</string>
   <string name="url_dialog_buttons_to_split_by_colon">Keskeytä:Kyllä</string>
   <string name="url_dialog_title">Avaa selaimessa?</string>
+  <string name="app_update_popup_title">app_update_popup_title</string>
+  <string name="app_update_popup_body">app_update_popup_body</string>
+  <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Pieni hetki, etsimme varaustasi…</string>
   <string name="activity_indicator_two">Olemme löytäneet varauksesi…</string>
   <string name="activity_indicator_three">Etsitään lomakohdetta…</string>
@@ -707,14 +787,19 @@
   <string name="activity_indicator_seven">Etsitään retkiä…</string>
   <string name="activity_indicator_eight">Etsitään lisäpalveluita…</string>
   <string name="activity_indicator_nine">Viimeistellään hakutuloksia…</string>
+  <string name="activity_indicator_ten">Haetaan lisätietoja…</string>
+  <string name="activity_indicator_eleven">Räätälöimme sivua sinulle…</string>
+  <string name="activity_indicator_twelve">Melkein valmista…</string>
+  <!-- meet the rep -->
   <string name="meet_the_rep_help">meet_the_rep_help</string>
   <string name="meet_the_rep_information_sessions">meet_the_rep_information_sessions</string>
   <string name="meet_the_rep_tui_welcome">meet_the_rep_tui_welcome</string>
+  <!-- my account -->
   <string name="cancel">Keskeytä</string>
   <string name="change_password">change_password</string>
   <string name="confirm">Kyllä</string>
   <string name="create_new_password">create_new_password</string>
-  <string name="destination_guide">destination_guide</string>
+  <string name="destination_guide">Lue lisää lomakohteesta</string>
   <string name="edit_my_account">edit_my_account</string>
   <string name="email">email</string>
   <string name="forename">forename</string>
@@ -735,7 +820,9 @@
   <string name="update_reminder">update_reminder</string>
   <string name="username">username</string>
   <string name="your_password">your_password</string>
+  <!-- Privacy Policy -->
   <string name="privacy_policy_header">privacy_policy_header</string>
+  <!-- registration -->
   <string name="is_this_you">is_this_you</string>
   <string name="is_this_you_introduction">is_this_you_introduction</string>
   <string name="salutations_to_split_by_colon">salutations_to_split_by_colon</string>
@@ -769,6 +856,21 @@
   <string name="signup_your_booking">signup_your_booking</string>
   <string name="time">HH:mm</string>
   <string name="your_postcode">your_postcode</string>
+  <!-- Sign up -->
+  <string name="email_signup_successful">email_signup_successful</string>
+  <string name="email_signup_failed">email_signup_failed</string>
+  <string name="welcome_help_no_holiday_email_header">welcome_help_no_holiday_email_header</string>
+  <string name="welcome_help_no_holiday_email_body">welcome_help_no_holiday_email_body</string>
+  <string name="email_field_validation">email_field_validation</string>
+  <string name="firstName_field_validation">firstName_field_validation</string>
+  <string name="lastName_field_validation">lastName_field_validation</string>
+  <string name="salutation_field_validation">salutation_field_validation</string>
+  <string name="optin_to_emails_blurb">optin_to_emails_blurb</string>
+  <string name="optin_to_emails">optin_to_emails</string>
+  <string name="agree_to_emails_blurb">agree_to_emails_blurb</string>
+  <string name="agree_to_emails">agree_to_emails</string>
+  <string name="welcome_help_no_holiday_email_disclaimer">welcome_help_no_holiday_email_disclaimer</string>
+  <!-- text field widget -->
   <string name="are_you_sure">Oletko varma?</string>
   <string name="done">Valmis</string>
   <string name="next">Seuraava</string>
@@ -776,21 +878,47 @@
   <string name="previous">Takaisin</string>
   <string name="open_in_safari">Avaa selaimessa?</string>
   <string name="water">water</string>
-  <string name="feedback_title">feedback_title</string>
-  <string name="feedback_submit_button">feedback_submit_button</string>
-  <string name="feedback_navbar_title">feedback_navbar_title</string>
-  <string name="feedback_message_title_positive">feedback_message_title_positive</string>
-  <string name="feedback_message_title_negative">feedback_message_title_negative</string>
-  <string name="feedback_message_you_rated_the_app">feedback_message_you_rated_the_app</string>
-  <string name="feedback_message_positive">feedback_message_positive</string>
-  <string name="feedback_message_negative">feedback_message_negative</string>
+  <!-- 16.0 Push Notifications -->
+  <string name="push_notifications">Minun lomani –sovellus haluaa lähettää sinulle push-ilmoituksia</string>
+  <string name="we_would_like_to_send_push">Haluaisimme lähettää sinulle hyödyllistä tietoa lomaasi liittyen.</string>
+  <string name="not_now">Ei kiitos</string>
+  <string name="allow">Salli</string>
+  <!-- 19.0 App Feedback -->
+  <string name="feedback_title">Asteikolla 1-10 kuinka todennäköistä on, että suosittelisit tätä sovellusta?</string>
+  <string name="feedback_submit_button">Lähetä</string>
+  <string name="feedback_navbar_title">Palaute</string>
+  <string name="feedback_message_title_positive">Hyvä uutisia!</string>
+  <string name="feedback_message_title_negative">Harmi…</string>
+  <string name="feedback_message_you_rated_the_app">Annoit sovellukselle arvosanaksi [grade]/[total].</string>
+  <string name="feedback_message_positive">Olemme iloisia, että pidit Minun lomani -sovelluksesta. Kiitos palautteestasi.</string>
+  <string name="feedback_message_negative">Ikävää, että et ollut täysin tyytyväinen. Teemme parhaamme, jotta seuraava käyttökokemuksesi olisi parempi. </string>
   <string name="feedback_email_us_button">feedback_email_us_button</string>
-  <string name="feedback_rate_us_on_app_store_button">feedback_rate_us_on_app_store_button</string>
-  <string name="feedback_rate_again_button">feedback_rate_again_button</string>
+  <string name="feedback_rate_us_on_app_store_button_apple">Arvostele App Storessa</string>
+  <string name="feedback_rate_us_on_app_store_button_google">Arvostele Google Play Storessa</string>
+  <string name="feedback_rate_again_button">Arvostele uudelleen</string>
   <string name="feedback_email_subject">feedback_email_subject</string>
   <string name="feedback_email_body">feedback_email_body</string>
   <string name="feedback_email_to_address">feedback_email_to_address</string>
-  <string name="feedback_home_screen_message_prompt">feedback_home_screen_message_prompt</string>
-  <string name="feedback_home_screen_button_prompt">feedback_home_screen_button_prompt</string>
-  <string name="totalstrings">totalstrings</string>
+  <string name="feedback_home_screen_message_prompt">Mitä olet mieltä sovelluksesta? Voit antaa palautetta tässä.</string>
+  <string name="feedback_home_screen_button_prompt">Arvostele Minun lomani -sovellus</string>
+  <!-- 20.0 In App Browser -->
+  <string name="browser_openExternal">Avaa selaimessa?</string>
+  <string name="browser_copyUrl">Kopioi URL?</string>
+  <string name="browser_leaving_title">Haluatko poistua tältä sivulta?</string>
+  <string name="browser_leaving_cancel">Pysy tällä sivulla</string>
+  <string name="browser_warning">Tekemäsi muutokset voivat kadota kun avaat selaimen.</string>
+  <string name="browser_leaving_okay">Poistu sivulta</string>
+  <!-- 25.0 Booking Extras - Car Hire -->
+  <string name="car_hire_title">car_hire_title</string>
+  <string name="car_hire_main_text">car_hire_main_text</string>
+  <string name="car_hire_bullet_points_title">car_hire_bullet_points_title</string>
+  <string name="car_hire_bullet_point_1">car_hire_bullet_point_1</string>
+  <string name="car_hire_bullet_point_2">car_hire_bullet_point_2</string>
+  <string name="car_hire_bullet_point_3">car_hire_bullet_point_3</string>
+  <string name="car_hire_bullet_point_4">car_hire_bullet_point_4</string>
+  <string name="car_hire_bullet_point_5">car_hire_bullet_point_5</string>
+  <string name="car_hire_web_link_title">car_hire_web_link_title</string>
+  <string name="car_hire_footnote">car_hire_footnote</string>
+  <!-- Google Analytics - Brand Name -->
+  <string name="ga_brandName">finnmatkat</string>
 </resources>

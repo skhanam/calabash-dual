@@ -229,10 +229,13 @@
   <string name="w_msg_welcome_to">w_msg_welcome_to</string>
   <string name="your_camper_is_ready">Ihr Camper steht für Sie bereit</string>
   <string name="your_flight">Ihr Flug</string>
+  <string name="w_msg_about_your_hotel">Über Ihr Hotel</string>
+  <string name="w_msg_about_your_destination">Über Ihr Reiseland</string>
   <!-- 1.0 off canvas -->
   <string name="accomodation">Unterkunft</string>
   <string name="boat">Boot</string>
-  <string name="booking_summary">Ihr Reiseplan</string>
+  <string name="booking_summary">Mein Reiseplan</string>
+  <string name="booking_extras">Extras hinzubuchen</string>
   <string name="camper">Camper</string>
   <string name="car_hire">Mein Mietwagen</string>
   <string name="contact">Kontakt</string>
@@ -276,6 +279,8 @@
   <string name="duty_free">duty_free</string>
   <string name="guide_online">guide_online</string>
   <string name="app_feedback">Feedback</string>
+  <!-- 7,1 Seleted Hotel -->
+  <string name="hotel_to_destinations">hotel_to_destinations</string>
   <!-- 11.0 extras -->
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
@@ -381,6 +386,7 @@
   <string name="guide_online_sent_mins_ago">guide_online_sent_mins_ago</string>
   <string name="guide_online_sent_today">guide_online_sent_today</string>
   <string name="guide_online_sent_on_day">guide_online_sent_on_day</string>
+  <string name="guide_online_dateformat">guide_online_dateformat</string>
   <string name="guide_online_currently_offline">guide_online_currently_offline</string>
   <string name="guide_online_offline_warning">guide_online_offline_warning</string>
   <string name="guide_online_send_text">guide_online_send_text</string>
@@ -408,10 +414,9 @@
   <string name="mymessages_important">mymessages_important</string>
   <string name="mymessages_extras">mymessages_extras</string>
   <string name="mymessages_booking">mymessages_booking</string>
-  <string name=""></string>
-  <string name=""></string>
-  <!-- 17.0 Duty Free -->
-  <string name="dutyfree_cta">dutyfree_cta</string>
+  <string name="mymessages_cta_label">mymessages_cta_label</string>
+  <string name="mymessages_virgin_title">mymessages_virgin_title</string>
+  <string name="mymessages_virgin_message">mymessages_virgin_message</string>
   <!-- 18.0 social share -->
   <string name="boat_share_during_fb">Ich bin gerade auf meinem Boot [boat] in [region], [location] in meinem #TUI #Urlaub</string>
   <string name="boat_share_during_tw">Ich bin gerade auf meinem Boot [boat] in [region], [location] mit #TUI</string>
@@ -573,6 +578,7 @@
   <string name="weather_forecast">Vorhersage für [location]</string>
   <string name="weather_header">Reisewetter</string>
   <string name="weather_share">Reisewetter teilen</string>
+  <string name="climate_rain_free_days">climate_rain_free_days</string>
   <!-- 5.1 product -->
   <string name="booked_for">Gebucht für:</string>
   <string name="category">Kategorie</string>
@@ -580,7 +586,6 @@
   <string name="overview">Überblick</string>
   <string name="checkin_title">checkin_title</string>
   <string name="checkout_title">checkout_title</string>
-  <string name="period_of_travel">Reisezeitraum:</string>
   <string name="rooms">Zimmertyp</string>
   <string name="share_my_accomodation">Meine Unterkunft teilen</string>
   <!-- 5.1 product pages -->
@@ -764,6 +769,8 @@
   <string name="please_reauthenticate">Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an</string>
   <string name="url_dialog_buttons_to_split_by_colon">Abbrechen:Ja</string>
   <string name="url_dialog_title">Im Browser öffnen?</string>
+  <string name="app_update_popup_title">app_update_popup_title</string>
+  <string name="app_update_popup_body">app_update_popup_body</string>
   <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Einen Moment bitte, wir suchen gerade Ihren Urlaub</string>
   <string name="activity_indicator_two">Wir haben Ihre Buchung gefunden...</string>
@@ -862,6 +869,11 @@
   <string name="previous">Zurück</string>
   <string name="open_in_safari">In browser öffnen</string>
   <string name="water">Wasser</string>
+  <!-- 16.0 Push Notifications -->
+  <string name="push_notifications">push_notifications</string>
+  <string name="we_would_like_to_send_push">we_would_like_to_send_push</string>
+  <string name="not_now">not_now</string>
+  <string name="allow">allow</string>
   <!-- 19.0 App Feedback -->
   <string name="feedback_title">Wie würden Sie uns auf einer Skala von 0 - 10 bewerten?</string>
   <string name="feedback_submit_button">Feedback absenden</string>
@@ -880,4 +892,22 @@
   <string name="feedback_email_to_address">info@crm.de</string>
   <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
   <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
+  <!-- 20.0 In App Browser -->
+  <string name="browser_options">browser_options</string>
+  <string name="browser_openExternal">browser_openExternal</string>
+  <string name="browser_copyUrl">browser_copyUrl</string>
+  <string name="browser_leaving_title">browser_leaving_title</string>
+  <string name="browser_leaving_cancel">browser_leaving_cancel</string>
+  <string name="browser_leaving_okay">browser_leaving_okay</string>
+  <!-- 25.0 Booking Extras - Car Hire -->
+  <string name="car_hire_title">TUI Cars</string>
+  <string name="car_hire_main_text">Sie haben noch keinen Mietwagen für Ihre Reise? Hier finden Sie die passenden Angebote.</string>
+  <string name="car_hire_bullet_points_title">Ihre Vorteile*</string>
+  <string name="car_hire_bullet_point_1">Unbegrenzte Kilometer</string>
+  <string name="car_hire_bullet_point_2">Keine Kosten im Schadensfall</string>
+  <string name="car_hire_bullet_point_3">Diebstahlschutz</string>
+  <string name="car_hire_bullet_point_4">Haftpflichtversicherung (mind. 7,5 Mio. €)</string>
+  <string name="car_hire_bullet_point_5">Kostenlose Stornierung</string>
+  <string name="car_hire_web_link_title">Hier geht es zur Buchung</string>
+  <string name="car_hire_footnote">* Ausnahmen siehe Mietbedingungen</string>
 </resources>
