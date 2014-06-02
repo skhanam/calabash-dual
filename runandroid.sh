@@ -3,16 +3,22 @@ clear
 DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
+
+if [ "$5" == "ci" ]; then
+echo "Running tests from CI"
+exit
 export ANDROID_HOME=/Applications/adt/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
+fi
+
 
 if [ "$#" -le "3" ]; then
 	echo "\n\n\n2 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
-    echo "3) App to test ex: sv / en_fc / de"
-    echo "4) folder source code"
+    echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb"
+    echo "4) relative folder path where source code is located"
 
 	echo "\nsample command: sh runandroid.sh clean @sanity de ../meine.tui\n"
 	echo "or\nsample command: sh runandroid.sh NA  @sanity-eng en_th ../meine.tui\n"

@@ -8,7 +8,7 @@ if [ "$#" -le "3" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
-    echo "3) App to test ex: en_th / de / da / en_fc"
+    echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb "
     echo "4) relative folder path where source code is located"
 
 	echo "\nsample command: \n 1) sh run_ios.sh clean @sanity en_th ../meine.tui"
