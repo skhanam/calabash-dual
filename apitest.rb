@@ -1,5 +1,5 @@
 require 'json'
-
+`export LC_CTYPE=en_US.UTF-8`
 def check_de_api
   begin
   username="userdea@gmail.com"
