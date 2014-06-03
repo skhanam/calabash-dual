@@ -31,16 +31,19 @@ if [ $3 == "de" ] ; then
 	APPNAME="meineTUI"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
+	calabash-ios sim locale en
 elif [ $3 == "en_th" ] ; then
 	TI_SCHEME="thomson"
 	APPNAME="MyThomson"
 	TESTENV='EN_TH'
 	CUCUMBER_PROFILE=en_th_ios
+	calabash-ios sim locale en
 elif [ $3 == "en_fc" ] ; then
 	TI_SCHEME="firstchoice"
 	APPNAME="MyFirstChoice"
 	CUCUMBER_PROFILE=en_fc_ios
 	TESTENV='EN_FC'
+	calabash-ios sim locale en
 elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	calabash-ios sim locale $3
 	TI_SCHEME="nordics"
