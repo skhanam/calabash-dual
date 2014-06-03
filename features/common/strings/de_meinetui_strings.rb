@@ -178,8 +178,8 @@ module DEMeineTUI
   end
 
   def weather_page_strings
-    @@weather_page_title="Reisewetter"
-    @@share_weather="Reisewetter teilen"
+    @@weather_page_title=get_localized_string "weather_header"
+    @@share_weather=get_localized_string "countdown_share"
   end
 
   #def loading_strings
@@ -188,12 +188,12 @@ module DEMeineTUI
   #end
 
   def add_booking_page_strings
-    @@add_a_booking_page_title ="Buchung hinzufügen"
-    @@add_a_booking_page_text1 ="Ihre Buchungsdetails"
+    @@add_a_booking_page_title =get_localized_string "find_booking"
+    @@add_a_booking_page_text1 =get_localized_string "booking_details"
     @@add_a_booking_page_text2 ="Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen."
 
-    @@add_a_booking_page_salutation ="Anrede:"
-    @@add_a_booking_page_salutation_hint ="Bitte auswählen"
+    @@add_a_booking_page_salutation =get_localized_string "signup_salutation"
+    @@add_a_booking_page_salutation_hint =get_localized_string "signup_selector"
 
     @@add_a_booking_page_firstname =get_localized_string "forename"
     @@add_a_booking_page_firstname_hint ="Vorname eingeben"

@@ -7,8 +7,14 @@ class LoginPage < LoginBasePage
   end
 
   def verify_login_page
+    puts "verify_login_page"
     assert_wait_for_text @@login_page_title
-    scroll_page_and_assert_text @@login_page_text if $g_ios #TODO Need to check why its not working for android
+    #scroll_page_and_assert_text @@login_page_text if $g_ios #TODO Need to check why its not working for android
+
+    arr=@@login_page_text.split(/\n\n/)
+    arr.each do |var|
+      assert_partial_text var
+    end
 
     scroll_page_and_assert_text @@login_page_booking_ref
     scroll_page_and_assert_text @@login_page_email
@@ -27,10 +33,21 @@ class LoginPage < LoginBasePage
 
   def verify_help_logging_in
     assert_text_present @@login_page_help_logging_in
+
+    arr=@@help_logging_text.split(/\n\n/)
+    arr.each do |var|
+      puts var
+      assert_partial_text var if var!=""
+      sleep 1
+    end
+
     scroll_page_and_assert_text @@help_login_tips
+
     arr=@@help_login_login_body.split(/:/)
     arr.each do |var|
-      scroll_page_and_assert_text var
+      puts var
+      scroll_page_and_assert_text var if var!=""
+      sleep 1
     end
 
     scroll_page_and_assert_text @@help_logging_kontakt_header

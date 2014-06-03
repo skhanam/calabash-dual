@@ -2,7 +2,7 @@
 @ios_test @android_test  @countdown @common-tests
 Feature: Verify Countdown details for bookings
 
-  @countdown2
+  @countdown2 @failed
   Scenario: navigate to countdown page
     Given I am on home screen with default booking
     When I navigate to countdown page using countdown biscuit
