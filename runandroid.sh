@@ -6,7 +6,6 @@ export LC_CTYPE=en_US.UTF-8
 
 if [ "$5" == "ci" ]; then
 echo "Running tests from CI"
-exit
 export ANDROID_HOME=/Applications/adt/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
@@ -76,6 +75,10 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 
 	adb uninstall com.tuitravelplc.myholiday
     adb uninstall com.tuitravelplc.myholiday.test
+
+    adb uninstall com.tuitravel.minferie.test
+    adb uninstall com.tuitravel.minferie
+
 
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
