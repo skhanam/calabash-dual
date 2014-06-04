@@ -44,6 +44,16 @@ module NordicsStrings
     @@help_logging_email = get_localized_string "welcome_help_more_issues_email_title"
     @@help_logging_privacy_title = get_localized_string "welcome_help_more_issues_privacy_title"
 
+
+    #Book a visit page
+    @@book_visit_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
+    @@book_visit_holiday_blue_text = get_localized_string "welcome_book_holiday_blue_village_text"
+    @@book_visit_find_holiday_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
+    @@book_visit_no_holiday_header = get_localized_string "welcome_help_no_holiday_header"
+    @@book_visit_no_holiday_body = get_localized_string "welcome_help_no_holiday_body"
+    @@book_visit_no_holiday_take_tour_cta = get_localized_string "welcome_help_no_holiday_take_tour_cta"
+    @@book_visit_no_holiday_call_cta = get_localized_string "welcome_help_no_holiday_call_cta"
+
     @@help_logging_text=get_localized_string "welcome_help_cant_login_description"
     @@login_error_text=get_localized_string "welcome_login_credential_error"
     @@login_error2_text=get_localized_string "welcome_login_error"
@@ -83,6 +93,7 @@ module NordicsStrings
     @@weather_page_title=get_localized_string "weather_header" #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
+
 
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"

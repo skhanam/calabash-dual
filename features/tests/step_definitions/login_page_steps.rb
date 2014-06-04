@@ -344,9 +344,9 @@ Then(/^I verify help logging in page$/) do
 end
 
 When(/^I select book visit page$/) do
-  pending
+  @loginPage.select_book_visit
 end
 
 Then(/^I verify book visit page$/) do
-  pending
+  @loginPage.verify_book_visit
 end

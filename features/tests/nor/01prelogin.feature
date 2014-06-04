@@ -1,4 +1,4 @@
-@android_test @ios_test
+@android_test @ios_test @prelogin
 Feature: Verify pre login screen
 
   @prelogin1
@@ -12,6 +12,7 @@ Feature: Verify pre login screen
     When I select help logging in page
     Then I verify help logging in page
 
+  @prelogin3
   Scenario: Verify links present on welcome screen
     Given I am on 'Login' screen
     When I select book visit page

@@ -75,6 +75,18 @@ module ReusableMethods
   end
 
 
+  def click_element(query)
+    touch(query)
+  end
+
+  def assert_element(query)
+    res = element_exists(query)
+    if not res
+      screenshot_and_raise "No element found with mark or text: #{element}"
+    end
+    return res
+  end
+
   def assert_element_exists(element)
     res = element_exists($g_query_txt+"text:'#{element}'")
     if not res

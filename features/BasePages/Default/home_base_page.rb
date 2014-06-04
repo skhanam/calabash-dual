@@ -23,6 +23,21 @@ class HomeBasePage < BasePage
   end
 
 
+  def check_taxfree_biscuit
+    query=("* contentDescription:'booking_summary.' text:'#{@@duty_free}'") if $g_android
+    query=("view marked:'booking_summary' text:'#{@@duty_free}'") if $g_ios
+    scroll_page_and_assert_text("#{@@duty_free}")
+    assert_element(query)
+  end
+
+  def select_booking_summary_biscuit
+    query=("* contentDescription:'booking_summary.' text:'#{@@side_panel_booking_summary}'") if $g_android
+    query=("view marked:'booking_summary' text:'#{@@side_panel_booking_summary}'") if $g_ios
+    scroll_page_and_assert_text("#{@@side_panel_booking_summary}")
+    assert_element(query)
+    touch query
+  end
+
   def check_welcome_messages
     msg=get_welcome_message
     wait_for_label(msg, 20)

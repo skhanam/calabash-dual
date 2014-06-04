@@ -58,21 +58,18 @@ class LoginPage < LoginBasePage
   end
 
   def select_book_visit
-
+    scroll_page_and_assert_text @@login_page_book_visit
+    click_on_text @@login_page_book_visit
   end
 
   def verify_book_visit
-
+    assert_wait_for_text @@book_visit_header
+    scroll_page_and_assert_text @@book_visit_holiday_blue_text
+    scroll_page_and_assert_text @@book_visit_find_holiday_header
+    scroll_page_and_assert_text @@book_visit_no_holiday_header
+    scroll_page_and_assert_text @@book_visit_no_holiday_body
+    scroll_page_and_assert_text @@book_visit_no_holiday_take_tour_cta
+    scroll_page_and_assert_text @@book_visit_no_holiday_call_cta
   end
 
-  #def submit_login_button
-  #  sleep 1
-  #  #click_on_text(@@login_button)
-  #  scroll_page_and_assert_text @@login_button
-  #  puts "submit_login_button"
-  #  count=query("#{$g_query_txt}text:'#{@@login_button}'").count-1
-  #  puts "#{$g_query_txt}text:'#{@@login_button}' index:#{count}"
-  #  touch("#{$g_query_txt}text:'#{@@login_button}' index:#{count}")
-  #  sleep 1
-  #end
 end

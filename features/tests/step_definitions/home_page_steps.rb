@@ -186,3 +186,11 @@ Given(/^I am on home screen with single booking$/) do
   step "I am on Home screen"
   step "I have switched to single booking" if $g_german_app
 end
+
+Then(/^I verify taxfree biscuit on home page$/) do
+  @homePage.check_taxfree_biscuit
+end
+
+When(/^I select booking summary biscuit on home page$/) do
+  @homePage.select_booking_summary_biscuit
+end
