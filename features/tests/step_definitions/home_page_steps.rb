@@ -194,3 +194,7 @@ end
 When(/^I select booking summary biscuit on home page$/) do
   @homePage.select_booking_summary_biscuit
 end
+
+When(/^I select guide online biscuit on home page$/) do
+  @homePage.select_guide_online
+end

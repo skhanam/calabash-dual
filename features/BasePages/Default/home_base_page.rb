@@ -22,6 +22,13 @@ class HomeBasePage < BasePage
     self
   end
 
+  def select_guide_online
+    scroll_page_and_assert_text @@guide_online
+    query=("* contentDescription:'booking_summary.' text:'#{@@guide_online}'") if $g_android
+    query=("view marked:'booking_summary' text:'#{@@guide_online}'") if $g_ios
+    assert_element(query)
+    touch query
+  end
 
   def check_taxfree_biscuit
     query=("* contentDescription:'booking_summary.' text:'#{@@duty_free}'") if $g_android
