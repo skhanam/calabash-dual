@@ -20,7 +20,6 @@ module TestModule
       @countDownPage ||=CountDownDE.new
 
       @myAccountPage ||= MyAccountPage.new
-      @destInfoPage||=DestinationInfoBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
       @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
@@ -46,6 +45,7 @@ module TestModule
       @sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @countDownPage ||=CountDownNOR.new
+      @guideOnlinePage ||= GuideOnlineBasePage.new
 
     end
   end

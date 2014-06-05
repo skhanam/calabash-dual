@@ -1,4 +1,4 @@
-@android_test @ios_test @prelogin
+@android_test @ios_test @prelogin @nor
 Feature: Verify pre login screen
 
   @prelogin1

@@ -1,4 +1,4 @@
-@android_test @ios_test @home_screen
+@android_test @ios_test @home_screen_nor @nor
 Feature: Check home screen biscuits
 
   @taxfree_biscuit
@@ -17,3 +17,17 @@ Feature: Check home screen biscuits
     Given I am on home screen with default booking
     When I select guide online biscuit on home page
     Then I see guide online page
+
+  @destination1
+  Scenario: Open Destination page from home page biscuit
+    Given I am on home screen with default booking
+    When I select destination biscuit
+    Then I see destination information page
+
+  @destination2
+  Scenario: Verify Destination page
+    Given I am on home screen with default booking
+    When I select destination biscuit
+    Then I see destination information page
+    And I verify destination information page
+

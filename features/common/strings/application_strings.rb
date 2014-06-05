@@ -78,11 +78,12 @@ module AppStrings
 
   def destination_info_strings
     @@destination_page_gen_info = get_localized_string "general_information"
-    @@destination_page_location_info = get_localized_string "location"
+    @@destination_page_location = get_localized_string "location"
+    @@destination_share_facebook = get_localized_string "share_destination"
 
     @@destination_title=get_localized_capitalized_string "destination_guide" if $g_current_app=="EN_FC"
-    @@destination_title=get_localized_string "destination_guide" if $g_current_app=="EN_TH"
-    @@destination_title=get_localized_string "destination_info" if !$g_eng_app
+    @@destination_title=get_localized_string "destination_guide" if $g_current_app=="EN_TH" || $g_nordics_app
+    @@destination_title=get_localized_string "destination_info" if $g_german_app
   end
 
   def home_page_strings

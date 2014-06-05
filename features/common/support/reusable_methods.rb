@@ -82,7 +82,7 @@ module ReusableMethods
   def assert_element(query)
     res = element_exists(query)
     if not res
-      screenshot_and_raise "No element found with mark or text: #{element}"
+      screenshot_and_raise "No element found for query: #{query}"
     end
     return res
   end

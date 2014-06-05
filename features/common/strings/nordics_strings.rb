@@ -5,6 +5,7 @@ module NordicsStrings
     puts "settings nordics strings"
     login_page_strings
     welcome_page_strings
+    home_strings
     side_panel_strings
     booking_summary_strings
     weather_page_strings
@@ -13,6 +14,11 @@ module NordicsStrings
     flights_strings
     countdown_strings
     flight_details_strings
+    destination_info_strings
+  end
+
+  def home_strings
+    @@home_destination_string= get_localized_string "explore" # Om mitt resmål
   end
 
   def countdown_strings
@@ -83,7 +89,10 @@ module NordicsStrings
     #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
 
   end
-
+  #
+  #def destination_info_strings
+  # @@destination_title
+  #end
 
   def hotel_strings
     @@hotel_page_title=get_localized_string "hotel"
@@ -151,7 +160,6 @@ module NordicsStrings
     @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
     @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
     @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
-
   end
 end
 

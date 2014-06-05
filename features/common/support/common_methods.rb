@@ -109,9 +109,16 @@ class CommonMethods < BasePage
   def get_desination_countries(booking=$g_current_booking)
     countries=[]
     #puts booking
-    booking["payload"]["destinationGuide"]["data"].each do |var|
-      countries<< var[1]["destinationName"]
+    if $g_nordics_app
+      booking["payload"]["destinationGuide"]["data"].each do |var|
+        countries<< var["destinationName"]
+      end
+    else
+      booking["payload"]["destinationGuide"]["data"].each do |var|
+        countries<< var[1]["destinationName"]
+      end
     end
+
     return countries
   end
 
@@ -177,7 +184,7 @@ class CommonMethods < BasePage
       return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
     else
       date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
-      days_left=(DateTime.strptime(date_string,'%d-%m-%Y %H:%M') - DateTime.now).to_i
+      days_left=(DateTime.strptime(date_string, '%d-%m-%Y %H:%M') - DateTime.now).to_i
       #date_string = $g_current_user_details[:valid][:departuredate]
       #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
       puts "days_left #{days_left}"

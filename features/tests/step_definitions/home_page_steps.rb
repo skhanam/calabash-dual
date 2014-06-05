@@ -134,7 +134,9 @@ When(/^I navigate to destination using home page biscuit$/) do
 end
 
 Then(/^I see destination information page$/) do
-  @destInfoPage.check_dest_info_screen_title
+  @destinationInfo.check_dest_info_screen_title
+  @countries= @commonMethods.get_desination_countries
+  @dest_country=@countries[0]
   @page.assert_wait_for_text @dest_country
 end
 
@@ -197,4 +199,12 @@ end
 
 When(/^I select guide online biscuit on home page$/) do
   @homePage.select_guide_online
+end
+
+Then(/^I see guide online page$/) do
+  @guideOnlinePage.verify_guide_online_screen
+end
+
+When(/^I select destination biscuit$/) do
+  @homePage.select_destination_biscuit
 end

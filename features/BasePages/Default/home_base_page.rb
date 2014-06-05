@@ -22,6 +22,15 @@ class HomeBasePage < BasePage
     self
   end
 
+  def select_destination_biscuit
+    scroll_page_till_partial_text @@home_destination_string
+    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
+    query("* contentDescription:'photo_biscuit.' * {text CONTAINS '#{@@home_destination_string}'}") if $g_android
+    assert_element(query)
+    touch query
+
+  end
+
   def select_guide_online
     scroll_page_and_assert_text @@guide_online
     query=("* contentDescription:'booking_summary.' text:'#{@@guide_online}'") if $g_android
