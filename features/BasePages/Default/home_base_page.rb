@@ -25,7 +25,7 @@ class HomeBasePage < BasePage
   def select_destination_biscuit
     scroll_page_till_partial_text @@home_destination_string
     query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
-    query("* contentDescription:'photo_biscuit.' * {text CONTAINS '#{@@home_destination_string}'}") if $g_android
+    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{@@home_destination_string}' }") if $g_android
     assert_element(query)
     touch query
 

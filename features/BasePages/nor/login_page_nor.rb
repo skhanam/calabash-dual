@@ -11,7 +11,7 @@ class LoginPage < LoginBasePage
     assert_wait_for_text @@login_page_title
     #scroll_page_and_assert_text @@login_page_text if $g_ios #TODO Need to check why its not working for android
 
-    arr=@@login_page_text.split(/\n\n/)
+    arr="#{@@login_page_text}".split(/\\n\\n/)
     arr.each do |var|
       assert_partial_text var
     end
@@ -34,7 +34,7 @@ class LoginPage < LoginBasePage
   def verify_help_logging_in
     assert_text_present @@login_page_help_logging_in
 
-    arr=@@help_logging_text.split(/\n\n/)
+    arr=@@help_logging_text.split(/\\n\\n/)
     arr.each do |var|
       puts var
       assert_partial_text var if var!=""
