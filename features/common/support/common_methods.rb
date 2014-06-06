@@ -172,10 +172,9 @@ class CommonMethods < BasePage
   end
 
   def get_countdown_days(val=$g_current_booking)
-    puts $g_current_app
-    if $g_current_app==$g_nordics_app
-      return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
-    elsif $g_current_app=="DE_MT"
+    if $g_nordics_app
+      return ((val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
+    elsif $g_german_app
       countdown=0
       val["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
         countdown=var["value"] if var["title"]=="Countdown"
