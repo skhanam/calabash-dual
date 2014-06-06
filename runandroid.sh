@@ -92,13 +92,18 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		cp -r $PROJ_FOLDER/i18n/* features/test_data/
 	fi
 
-rm -rf test_servers/
-calabash-android resign "$3"app.apk
-calabash-android build "$3"app.apk
-adb install -r "$3"app.apk
-adb install -r test_servers/*.apk
+	#Do not perform below steps when there are no tests selected to run
+	if [ "$2" != "NA" ] ; then
+		rm -rf test_servers/
+		calabash-android resign "$3"app.apk
+		calabash-android build "$3"app.apk
+		adb install -r "$3"app.apk
+		adb install -r test_servers/*.apk
+	fi
 
 fi
 
-echo TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
-TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+if [ "$2" != "NA" ] ; then
+echo SCREENSHOT_PATH=android_$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+SCREENSHOT_PATH=android_$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+fi
