@@ -1,4 +1,4 @@
-@ios_test @android_test  @app-feedback @common-tests
+@ios_test @android_test  @app-feedback @common-tests @nor
 Feature: Verify App feedback page
 
   @reset @basic-sanity
