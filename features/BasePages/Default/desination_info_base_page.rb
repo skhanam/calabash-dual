@@ -29,7 +29,7 @@ class DestinationInfoBasePage < BasePage
       click_on_text var
       verify_page_title @@destination_title
       scroll_page_and_assert_text @@destination_page_gen_info
-      scroll_page_and_assert_text @@destination_page_location_info
+      scroll_page_and_assert_text @@destination_page_location
       navigate_back
       sleep 2
     end

@@ -5,7 +5,9 @@ Before do |scenario|
   initialize_all
   #set_strings
   @calabash_launcher = Calabash::Cucumber::Launcher.new
+
   scenario_tags = scenario.source_tag_names
+
   if scenario_tags.include?('@reset')
     @calabash_launcher.reset_app_jail
   end

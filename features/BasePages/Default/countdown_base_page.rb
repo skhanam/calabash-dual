@@ -13,4 +13,7 @@ class CountDownBasePage < BasePage
     fail("Number of days are wrong") if (res1 != res2)
   end
 
+  def check_sharing_text
+    scroll_page_and_assert_text @@countdown_share_button_text
+  end
 end

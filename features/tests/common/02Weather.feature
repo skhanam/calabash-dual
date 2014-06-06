@@ -1,5 +1,4 @@
-@android_test @ios_test @common-tests
-
+@android_test @ios_test
 Feature: Verify weather features
 
   @week-weather
@@ -9,7 +8,7 @@ Feature: Verify weather features
     Then I see holiday weather page
     And I should weather forecast for five sequential days
 
-  @weather2
+  @weather2 @common-tests
   Scenario:check share weather
     Given I am on home screen with single booking
     And I am on weather page

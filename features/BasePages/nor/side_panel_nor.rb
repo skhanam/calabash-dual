@@ -4,15 +4,15 @@ class SidePanelNor < SidePanel
 
   def verify_side_panel_strings
     scroll_side_panel_and_assert @@home
-    scroll_side_panel_and_assert @@holiday_summary
+    scroll_side_panel_and_assert @@side_panel_booking_summary
     scroll_side_panel_and_assert @@side_panel_countdown
-    scroll_side_panel_and_assert @@weather
+    scroll_side_panel_and_assert @@side_panel_weather
     begin
-      scroll_side_panel_and_assert @@flight
+      scroll_side_panel_and_assert @@side_panel_flight
     rescue
-      scroll_side_panel_and_assert @@flights
+      scroll_side_panel_and_assert @@side_panel_flights
     end
-    scroll_side_panel_and_assert @@accomadation
+    scroll_side_panel_and_assert @@side_panel_hotel
     scroll_side_panel_and_assert @@destination
     scroll_side_panel_and_assert @@duty_free
 
