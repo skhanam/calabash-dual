@@ -412,7 +412,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_online_open_link">Åben:</string>
   <string name="guide_online_email">Send e-mail:</string>
   <string name="guide_online_copy">Kopier</string>
-  <string name="guide_online_message_failed_to_send">Beskeden kunne desværre ikke sendes. </string>
+  <string name="guide_online_message_failed_to_send">Beskeden kunne desværre ikke sendes</string>
   <string name="guide_online_message_failed_to_send_body">Beskeden kunne desværre ikke sendes. Vil du prøve igen?</string>
   <!-- 16.0 My Messages -->
   <string name="mymessages">mymessages</string>

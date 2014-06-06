@@ -231,6 +231,10 @@
   <string name="your_flight">Ihr Flug</string>
   <string name="w_msg_about_your_hotel">Über Ihr Hotel</string>
   <string name="w_msg_about_your_destination">Über Ihr Reiseland</string>
+  <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
+  <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
+  <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
+  <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
   <!-- 1.0 off canvas -->
   <string name="accomodation">Unterkunft</string>
   <string name="boat">Boot</string>
@@ -415,7 +419,6 @@
   <string name="mymessages_extras">mymessages_extras</string>
   <string name="mymessages_booking">mymessages_booking</string>
   <string name="mymessages_cta_label">mymessages_cta_label</string>
-  <string name="mymessages_virgin_title">mymessages_virgin_title</string>
   <string name="mymessages_virgin_message">mymessages_virgin_message</string>
   <!-- 18.0 social share -->
   <string name="boat_share_during_fb">Ich bin gerade auf meinem Boot [boat] in [region], [location] in meinem #TUI #Urlaub</string>
@@ -496,6 +499,8 @@
   <string name="current_bookings">Aktuelle Buchungen</string>
   <string name="my_booking">Meine Buchung</string>
   <string name="past_bookings">Vergangene Buchungen</string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
   <!-- 2.1 booking selector -->
   <string name="booking_details">Ihre Buchungsdetails</string>
   <string name="booking_details_blurb">Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen.</string>
@@ -579,6 +584,7 @@
   <string name="weather_header">Reisewetter</string>
   <string name="weather_share">Reisewetter teilen</string>
   <string name="climate_rain_free_days">climate_rain_free_days</string>
+  <string name="weather_coming_soon">weather_coming_soon</string>
   <!-- 5.1 product -->
   <string name="booked_for">Gebucht für:</string>
   <string name="category">Kategorie</string>
@@ -781,6 +787,9 @@
   <string name="activity_indicator_seven">Wir suchen nach Ausflügen...</string>
   <string name="activity_indicator_eight">Nun noch die Extras finden...</string>
   <string name="activity_indicator_nine">Wir geben den letzten Schliff...</string>
+  <string name="activity_indicator_ten">Wir prüfen nur noch die Details...</string>
+  <string name="activity_indicator_eleven">Wir passen die Seite an...</string>
+  <string name="activity_indicator_twelve">Fast fertig...</string>
   <!-- meet the rep -->
   <string name="meet_the_rep_help">Falls Sie Fragen oder Wünsche haben, können Sie mich telefonisch, per SMS oder per E-Mail über den TUI Service 24 Stunden am Tag erreichen. Falls ich nicht zu sprechen bin, ist einer meiner Kollegen gerne für Sie da.</string>
   <string name="meet_the_rep_information_sessions">InfoStunde:</string>
@@ -893,12 +902,12 @@
   <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
   <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
   <!-- 20.0 In App Browser -->
-  <string name="browser_options">browser_options</string>
-  <string name="browser_openExternal">browser_openExternal</string>
-  <string name="browser_copyUrl">browser_copyUrl</string>
-  <string name="browser_leaving_title">browser_leaving_title</string>
-  <string name="browser_leaving_cancel">browser_leaving_cancel</string>
-  <string name="browser_leaving_okay">browser_leaving_okay</string>
+  <string name="browser_openExternal">Im Browser öffnen</string>
+  <string name="browser_copyUrl">Linkadresse kopieren</string>
+  <string name="browser_leaving_title">Sind Sie sicher, dass Sie diese Seite verlassen möchten?</string>
+  <string name="browser_leaving_cancel">Hier bleiben</string>
+  <string name="browser_warning">browser_warning</string>
+  <string name="browser_leaving_okay">Seite verlassen</string>
   <!-- 25.0 Booking Extras - Car Hire -->
   <string name="car_hire_title">TUI Cars</string>
   <string name="car_hire_main_text">Sie haben noch keinen Mietwagen für Ihre Reise? Hier finden Sie die passenden Angebote.</string>
@@ -910,4 +919,6 @@
   <string name="car_hire_bullet_point_5">Kostenlose Stornierung</string>
   <string name="car_hire_web_link_title">Hier geht es zur Buchung</string>
   <string name="car_hire_footnote">* Ausnahmen siehe Mietbedingungen</string>
+  <!-- Google Analytics - Brand Name -->
+  <string name="ga_brandName">ga_brandName</string>
 </resources>

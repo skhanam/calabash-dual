@@ -909,7 +909,7 @@ du kobler deg til nettet</string>
   <string name="browser_copyUrl">Kopiere url?</string>
   <string name="browser_leaving_title">Vil du forlate denne siden?</string>
   <string name="browser_leaving_cancel">Bli her</string>
-  <string name="browser_warning">Endringer du har gjort kan forsvinne når du åpner en ekstern nettleser.</string>
+  <string name="browser_warning">Endringene forsvinner når du åpner en ekstern nettleser. </string>
   <string name="browser_leaving_okay">Forlat siden</string>
   <!-- 25.0 Booking Extras - Car Hire -->
   <string name="car_hire_title">car_hire_title</string>

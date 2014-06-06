@@ -239,7 +239,7 @@
   <!-- 1.0 off canvas -->
   <string name="accomodation">Hotell</string>
   <string name="boat">boat</string>
-  <string name="booking_summary">Allt om din resa</string>
+  <string name="booking_summary">Allt om min resa</string>
   <string name="booking_extras">booking_extras</string>
   <string name="camper">camper</string>
   <string name="car_hire">car_hire</string>
@@ -398,8 +398,8 @@
   <string name="guide_online_biscuit_title">Fråga guiderna</string>
   <string name="guide_online_biscuit_new_message_plural">Nya meddelanden</string>
   <string name="guide_online_biscuit_new_message">Nytt meddelande</string>
-  <string name="guide_online_biscuit_important_messages">Du har fått [amount] viktigt meddelande från guiderna.</string>
-  <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] transfermeddelande.</string>
+  <string name="guide_online_biscuit_important_messages">Du har fått [amount] viktiga meddelanden från guiderna.</string>
+  <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] transfermeddelanden.</string>
   <string name="guide_online_biscuit_unread_message">Du har fått [amount] oläst meddelande från guiderna.</string>
   <string name="guide_online_biscuit_buttonTitle">Visa meddelande</string>
   <string name="guide_online_biscuit_buttonTitles">Visa meddelanden</string>
