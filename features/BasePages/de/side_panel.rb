@@ -37,7 +37,7 @@ class SidePanelDe < SidePanel
       when "Insurance"
         check_side_panel("insurance", 1) # 1 insurance
       when "Extra"
-        check_side_panel("extra", 2) # 2 extras
+        check_side_panel("extra", 1) # 2 extras
       when "Weather"
         scroll_page_and_assert_text @@side_panel_weather
       when "Destination guide"
@@ -124,8 +124,11 @@ class SidePanelDe < SidePanel
         assert_wait_for_text @@side_panel_flight if count==1
         assert_wait_for_text @@side_panel_flights if count>1
       when "extra"
-        assert_wait_for_text @@side_panel_extra if count==1
-        assert_wait_for_text @@side_panel_extras if count>1
+        if (check_text_in_view @@side_panel_extra) != true
+          assert_wait_for_text @@side_panel_extras
+        end
+        #assert_wait_for_text @@side_panel_extra if count==1
+        #assert_wait_for_text @@side_panel_extras if count>1
       when "hotel"
         assert_wait_for_text @@side_panel_hotel if count==1
         assert_wait_for_text @@side_panel_hotels if count>1
