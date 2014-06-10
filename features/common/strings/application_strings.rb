@@ -95,8 +95,8 @@ module AppStrings
 
   def common_strings
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
-    @@call_us_dialog_no = get_localized_string "cancel"
-    @@call_us_dialog_yes = get_localized_string "call_dialog_yes"
+    @@call_us_dialog_no = get_localized_string "call_dialog_cancel"
+    @@call_us_dialog_yes = get_localized_string "call_dialog_call"
     @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
   end

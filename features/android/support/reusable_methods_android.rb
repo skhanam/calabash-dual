@@ -143,8 +143,10 @@ module AndroidReusableMethods
     else
       fail("id:#{id} not found")
     end
-    assert_wait_for_text(text, 10)
-    verify_page_title text
+
+    title_text=UnicodeUtils.upcase(text) if ENV['TESTENV']=="EN_FC"
+    assert_wait_for_text(title_text, 10)
+    verify_page_title title_text
 
   end
 

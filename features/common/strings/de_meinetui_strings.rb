@@ -179,7 +179,7 @@ module DEMeineTUI
 
   def weather_page_strings
     @@weather_page_title=get_localized_string "weather_header"
-    @@share_weather=get_localized_string "countdown_share"
+    @@share_weather=get_localized_string "share_weather"
   end
 
   #def loading_strings

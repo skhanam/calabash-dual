@@ -1,4 +1,4 @@
-@ios_test @android_test
+@ios_test @android_test  @de
 Feature: Currency converter
   As a TUI client with a TUI booking
   I should be able to access the currency converter page

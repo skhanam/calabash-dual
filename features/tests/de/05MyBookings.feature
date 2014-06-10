@@ -1,4 +1,4 @@
-@android_test @ios_test @myaccount_tests
+@android_test @ios_test @myaccount_tests  @de
 Feature: Read Bookings Details and Verify
   Verify welcome text for bookings in past
   Verify Add booking page
