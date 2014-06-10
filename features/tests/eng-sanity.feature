@@ -20,13 +20,13 @@ Feature: English Sanity Tests
     Given I am on Home screen
     And I navigate to travel money page from home screen
 
-  @currency_conv2
+  @currency_conv2 @failed
   Scenario: Check currency converter screen
     Given I am on Home screen
     And I navigate to currency page from travel money page
     Then I verify currency page
 
-  @currency_conv3
+  @currency_conv3  @failed
   Scenario: Check currency converter screen
     Given I am on Home screen
     And I navigate to money on card page from travel money page

@@ -13,4 +13,4 @@ Feature: Verify weather features
     Given I am on home screen with single booking
     And I am on weather page
     Then I see holiday weather page
-    And I verify share icons are visible
+    And verify weather sharing text

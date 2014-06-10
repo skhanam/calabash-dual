@@ -93,7 +93,7 @@ class HomeBasePage < BasePage
     @@currency_hash["fromcode"]=get_acc_label_text "fromcode"
 
     @@currency_hash["fromvalue"]=query($g_query_txt+"marked:'fromvalue'", :text).first.match(/\d/)[0] if $g_ios
-    @@currency_hash["fromvalue"]=query($g_query_txt+"marked:'fromvalue.'", :text).first.match(/\d/)[0] if $g_android
+    @@currency_hash["fromvalue"]=query($g_query_txt+"contentDescription:'fromvalue.'", :text).first.match(/\d/)[0] if $g_android
 
     @@currency_hash["tocode"]=get_acc_label_text "tocode"
     @@currency_hash["tovalue"]=get_acc_label_text "tovalue"

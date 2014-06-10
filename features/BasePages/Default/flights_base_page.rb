@@ -26,6 +26,7 @@ class FlightsBasePage < BasePage
   end
 
   def verify_flight_details_page
+    puts ":#{@@flight_details_title}:"
     verify_page_title @@flight_details_title
     return if $g_eng_app  # just verify title and return for english app
 

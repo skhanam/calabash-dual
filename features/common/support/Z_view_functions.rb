@@ -39,6 +39,7 @@ module ViewModule
 ## Specify text to check and time to wait for
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)
+    puts "wait_for_partial_text_shown (#{text})"
     query_text=$g_query_txt+"{text CONTAINS '#{text}'}"
     begin
       wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
@@ -150,6 +151,8 @@ module ViewModule
   end
 
   def verify_page_title(txt, time_out=10)
+    txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC"
+    puts "verify_page_title (#{txt})"
     actual_title= get_nav_bar_title
     count=0
     while (actual_title!=txt && count<time_out)

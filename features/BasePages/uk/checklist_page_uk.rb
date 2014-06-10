@@ -1,9 +1,10 @@
 class ChecklistPageUk < BasePage
 
   def verify_checklist_page
+    sleep 2
     $g_engChecklist.each do |var|
       txt=escape_quotes(var["message"])
-      scroll_page_till_partial_text (txt[0..30])
+      scroll_page_till_partial_text (txt[0..20])
       #click_on_partial_text (txt[0..30])
       #sleep 1
       #scroll_page_and_assert_text txt
@@ -13,8 +14,8 @@ class ChecklistPageUk < BasePage
   end
 
   def open_to_do_list
-    assert_text_elements([@@my_packaging_list,
-                          @@my_do_list])
+    fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
+    assert_text_present @@my_do_list
     click_on_text @@to_do_lists
   end
 

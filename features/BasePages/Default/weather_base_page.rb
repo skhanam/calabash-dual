@@ -44,4 +44,8 @@ class WeatherBasePage < BasePage
     sleep 1
   end
 
+  def check_weather_sharing_text
+    scroll_page_and_assert_text @@share_weather
+  end
+
 end
