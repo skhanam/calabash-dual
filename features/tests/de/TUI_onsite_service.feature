@@ -1,4 +1,4 @@
-@ios_test @android_test  @de
+@ios_test @android_test  @de  @auto4
 
 Feature: Verify TUI onsite service
 

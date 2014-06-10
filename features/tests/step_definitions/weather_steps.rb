@@ -9,3 +9,8 @@ end
 When(/^verify weather sharing text$/) do
   @weatherPage.check_weather_sharing_text
 end
+
+Then(/^I verify share icons on weather page$/) do
+  @weatherPage.check_weather_page
+  @weatherPage.check_weather_sharing_text
+end
