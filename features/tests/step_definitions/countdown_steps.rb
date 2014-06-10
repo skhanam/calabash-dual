@@ -3,6 +3,7 @@ And(/^I verify number of days left to travel$/) do
 end
 
 And(/^I verify facebook and twitter share icons are visible$/) do
+  @countDownPage.check_sharing_text
   @commonMethods.check_sharing
 end
 

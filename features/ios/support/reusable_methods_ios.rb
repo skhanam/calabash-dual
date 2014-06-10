@@ -165,14 +165,14 @@ module IosReusableMethods
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
-    puts "scroll_page_and_assert_text #{id}"
+    puts "scroll_page_and_assert_text (#{id})"
     id=escape_quotes_smart(id)
     repeat_count=0
 
       flash("view text:'#{id}'") if (element_exists("view text:'#{id}'") && $g_flash)
 
     if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-      puts "scrolled to text:#{id}:"
+      puts "scrolled to text (#{id})"
       return
     end
 

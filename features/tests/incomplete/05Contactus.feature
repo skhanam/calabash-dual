@@ -1,5 +1,3 @@
-@ios_test @android_test  @de
-
 Feature: Verify contact us page
 
   Background:

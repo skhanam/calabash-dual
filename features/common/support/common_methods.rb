@@ -233,7 +233,6 @@ class CommonMethods < BasePage
   end
 
   def check_sharing
-    scroll_page_and_assert_text @@share_weather
     scroll_page_till_acc @@share_button_closed_img
     scroll_view("down")
     sleep 2

@@ -112,7 +112,7 @@ module AndroidReusableMethods
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
     repeat_count=0
     sleep 1
-    puts "scroll_page_and_assert_text #{id}"
+    puts "scroll_page_and_assert_text (#{id})"
     puts element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'")
     return if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
 

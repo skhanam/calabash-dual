@@ -22,6 +22,7 @@ class SidePanelDe < SidePanel
   end
 
   def validate_typical_booking_menu_items(var)
+    puts "validate_typical_booking_menu_items (#{var})"
     case var
       when "Countdown"
         scroll_page_and_assert_text @@side_panel_countdown
@@ -37,8 +38,6 @@ class SidePanelDe < SidePanel
         check_side_panel("insurance", 1) # 1 insurance
       when "Extra"
         check_side_panel("extra", 2) # 2 extras
-      when "Destination information"
-        scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_destination_info)
       when "Weather"
         scroll_page_and_assert_text @@side_panel_weather
       when "Destination guide"
@@ -60,7 +59,6 @@ class SidePanelDe < SidePanel
 
     end
   end
-
 
 
   def tui_service_onsite_from_sidepanel

@@ -29,7 +29,6 @@ Feature: Verify product pages by navigating through side panel
       | Hotel                   |
       | Insurance               |
       | Extra                   |
-      | Destination information |
       | Weather                 |
       | Destination guide       |
       | excursions              |
@@ -48,7 +47,6 @@ Feature: Verify product pages by navigating through side panel
       | My Booking              |
       | Booking summary         |
       | Flights                 |
-      | Destination information |
       | Weather                 |
       | Destination guide       |
       | excursions              |
