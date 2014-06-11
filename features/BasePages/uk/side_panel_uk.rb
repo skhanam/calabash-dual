@@ -27,7 +27,7 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@app_feedback
     scroll_side_panel_and_assert @@side_panel_contact_us
     check_sidepanel_based_on_bookings
-    scroll_side_panel_and_assert @@logout
+    scroll_side_panel_and_assert @@log_out_text
   end
 
 

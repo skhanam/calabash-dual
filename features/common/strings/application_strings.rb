@@ -146,6 +146,8 @@ module AppStrings
     @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
     @@app_feed_back_submit= get_localized_string "feedback_submit_button"
     @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
+    @@app_feed_back_email_us = get_localized_string "feedback_email_us_button" # Send us more feedback
+
   end
 
   # setting global vars to make queries reusable

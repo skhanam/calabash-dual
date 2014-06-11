@@ -20,7 +20,7 @@ class SidePanelNor < SidePanel
     scroll_side_panel_and_assert @@guide_online
     scroll_side_panel_and_assert @@app_feed_back
     scroll_side_panel_and_assert @@side_panel_contact_us
-    scroll_side_panel_and_assert @@logout
+    scroll_side_panel_and_assert @@log_out_text
     # excursion
 
   end

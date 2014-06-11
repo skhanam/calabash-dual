@@ -80,7 +80,7 @@
   <string name="welcome_help_more_issues_phone_title">Call us on 0000        00</string>
   <string name="welcome_help_more_issues_privacy_title">Privacy policy</string>
   <string name="welcome_help_more_issues_phone_url"> 000 000</string>
-  <string name="welcome_help_more_issues_privacy_link">http://replaceme.com</string>
+  <string name="welcome_help_more_issues_privacy_link">http://www.firstchoice.co.uk/our-policies/privacy-policy/</string>
   <string name="welcome_help_more_issues_header">Still having problems?</string>
   <!-- 0.2.4 book a holiday -->
   <string name="explore_tui_beach_hotel_body">Makes every summer even more beautiful: sun, sand and sea. Find your place in the sun!</string>
@@ -231,6 +231,10 @@
   <string name="your_flight">Your flights</string>
   <string name="w_msg_about_your_hotel">About Your Hotel</string>
   <string name="w_msg_about_your_destination">About Your Destination</string>
+  <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
+  <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
+  <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
+  <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
   <!-- 1.0 off canvas -->
   <string name="accomodation">Accommodation</string>
   <string name="boat">Boat</string>
@@ -278,7 +282,7 @@
   <string name="weather">Weather</string>
   <string name="duty_free">Duty Free</string>
   <string name="guide_online">Guide Online</string>
-  <string name="app_feedback">App Feedback</string>
+  <string name="app_feedback">App feedback</string>
   <!-- 7,1 Seleted Hotel -->
   <string name="hotel_to_destinations">Learn more about:</string>
   <!-- 11.0 extras -->
@@ -772,7 +776,9 @@
   <string name="url_dialog_buttons_to_split_by_colon">Cancel:Yes</string>
   <string name="url_dialog_title">Open in browser?</string>
   <string name="app_update_popup_title">What's new?</string>
-  <string name="app_update_popup_body">app_update_popup_body</string>
+  <string name="app_update_popup_body">·         MyMessages – this is where you can find useful, real-time updates about your holiday.
+·         In-app feedback – you can rate the app and send your thoughts straight to our developers.
+·         Bug fixes – things are running even better now.</string>
   <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Hold on, we’re just finding your holiday…</string>
   <string name="activity_indicator_two">We’ve found your booking…</string>
@@ -898,12 +904,12 @@
   <string name="feedback_home_screen_message_prompt">What do you think of our app? It'd be great to hear your views.</string>
   <string name="feedback_home_screen_button_prompt">Rate the MyFirstChoice app</string>
   <!-- 20.0 In App Browser -->
-  <string name="browser_options">browser_options</string>
-  <string name="browser_openExternal">browser_openExternal</string>
-  <string name="browser_copyUrl">browser_copyUrl</string>
-  <string name="browser_leaving_title">browser_leaving_title</string>
-  <string name="browser_leaving_cancel">browser_leaving_cancel</string>
-  <string name="browser_leaving_okay">browser_leaving_okay</string>
+  <string name="browser_openExternal">Open in Browser</string>
+  <string name="browser_copyUrl">Copy link</string>
+  <string name="browser_leaving_title">Are you sure you want to leave this page?</string>
+  <string name="browser_leaving_cancel">Stay on page</string>
+  <string name="browser_warning">Your changes will be lost when opening in browser</string>
+  <string name="browser_leaving_okay">Leave page</string>
   <!-- 25.0 Booking Extras - Car Hire -->
   <string name="car_hire_title">car_hire_title</string>
   <string name="car_hire_main_text">car_hire_main_text</string>
@@ -915,4 +921,6 @@
   <string name="car_hire_bullet_point_5">car_hire_bullet_point_5</string>
   <string name="car_hire_web_link_title">car_hire_web_link_title</string>
   <string name="car_hire_footnote">car_hire_footnote</string>
+  <!-- Google Analytics - Brand Name -->
+  <string name="ga_brandName">ga_brandName</string>
 </resources>

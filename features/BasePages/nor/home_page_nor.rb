@@ -5,8 +5,8 @@ class HomePageNOR < HomeBasePage
   def logout_from_home_screen
     click_accessibility_label @@home_page_sidepanel_acc_label
     sleep 2
-    scroll_side_panel(@@logout)
-    touch($g_query_txt+"text:'#{@@logout}'")
+    scroll_side_panel(@@log_out_text)
+    touch($g_query_txt+"text:'#{@@log_out_text}'")
     sleep(2)
     touch($g_query_txt+"text:'#{@@logout_confirm}'")
     sleep(5)

@@ -87,14 +87,14 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@app_feed_back, nil)
       when "Contact us"
         scroll_side_panel(@@side_panel_contact_us)
-        scroll_side_panel(@@logout) if ($g_nordics_app || $g_eng_app)
+        scroll_side_panel(@@log_out_text) if ($g_nordics_app || $g_eng_app)
         touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
       when "destination"
         scroll_side_panel(@@side_panel_destination)
         touch_txt_and_verify_title(@@side_panel_destination,@@destination_title)
       when "Log out"
-        scroll_side_panel(@@logout)
-        touch_txt_and_verify_title(@@logout, nil)
+        scroll_side_panel(@@log_out_text)
+        touch_txt_and_verify_title(@@log_out_text, nil)
     end
 
   end
