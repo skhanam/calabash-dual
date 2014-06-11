@@ -49,6 +49,7 @@ module IosReusableMethods
 
   def click_on_text(text)
     puts "click_on_text:(#{text}):"
+    write_verified_text_to_file "click_on_text:(#{text}):"
     touch("view text:'#{escape_quotes_smart(text)}'")
     sleep 1
   end
@@ -78,6 +79,7 @@ module IosReusableMethods
   end
 
   def check_text_in_view(text_to_check)
+    write_verified_text_to_file "check_text_in_view (#{text_to_check})"
     puts "check_text_in_view (#{text_to_check})"
     text_check=escape_quotes_smart(text_to_check)
     res=element_exists("view text:'#{text_check}'")
@@ -165,6 +167,7 @@ module IosReusableMethods
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
+    write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
     puts "scroll_page_and_assert_text (#{id})"
     id=escape_quotes_smart(id)
     repeat_count=0

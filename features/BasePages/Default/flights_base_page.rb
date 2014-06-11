@@ -17,7 +17,8 @@ class FlightsBasePage < BasePage
     arr= CommonMethods.new.get_flights_details
     arr.each do |var|
       txt="#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
-      assert_text_present txt
+      assert_text_present var["departureAirportName"]
+      assert_text_present var["arrivalAirportName"]
       click_on_text txt
       verify_flight_details_page
       navigate_back

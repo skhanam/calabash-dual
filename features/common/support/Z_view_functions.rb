@@ -117,6 +117,8 @@ module ViewModule
 
 
   def check_acc_label(id)
+    puts "check_acc_label (#{id})"
+    write_verified_text_to_file "check_acc_label (#{id})"
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
   end
 
@@ -140,12 +142,14 @@ module ViewModule
 
 ## Assert if text to check is not shown before timeout
   def assert_wait_for_text(text, time_out=10)
+    write_verified_text_to_file "assert_wait_for_text (#{text})"
     fail("text:#{text}: not present") if wait_for_text(text, time_out)==false
     return true
   end
 
   #Wait to check if acc label appears on screen
   def assert_wait_for_acc_label(text, timeout=10)
+    write_verified_text_to_file "assert_wait_for_acc_label (#{text})"
     fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if (wait_for_acc_label(text, timeout)==false)
     return true
   end
@@ -153,6 +157,7 @@ module ViewModule
   def verify_page_title(txt, time_out=10)
     txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC"
     puts "verify_page_title (#{txt})"
+    write_verified_text_to_file "verify_page_title (#{txt})"
     actual_title= get_nav_bar_title
     count=0
     while (actual_title!=txt && count<time_out)
@@ -167,6 +172,8 @@ module ViewModule
 
   # scroll in specified direction till partial id is found
   def scroll_page_till_partial_text(text, dir="down", count=10)
+    write_verified_text_to_file "scroll_page_till_partial_text (#{text})"
+
     flag=0
     repeat_count=0
     while (repeat_count < count)
@@ -185,6 +192,8 @@ module ViewModule
 
   # scroll in specified direction till partial id is found
   def scroll_page_till_acc(acc, dir="down", count=10)
+    write_verified_text_to_file "scroll_page_till_acc (#{acc})"
+
     flag=0
     repeat_count=0
     while (repeat_count < count)

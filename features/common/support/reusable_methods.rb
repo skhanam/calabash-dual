@@ -74,6 +74,19 @@ module ReusableMethods
     end
   end
 
+  def write_verified_text_to_file(txt)
+    if (ENV['LOG_VERIFIED_TXT']=="yes")
+      begin
+        filename = File.open($g_verified_strings, "a")
+        filename.write("#{txt}\n")
+      rescue IOError => e
+        fail("Write to file failed")
+      ensure
+        filename.close unless filename == nil
+      end
+    end
+  end
+
 
   def click_element(query)
     touch(query)

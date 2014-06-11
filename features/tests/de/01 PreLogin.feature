@@ -3,7 +3,6 @@ Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
 
-
   Scenario: Verify first welcome screen
     Given I am on welcome page
     Then I should see two options:
