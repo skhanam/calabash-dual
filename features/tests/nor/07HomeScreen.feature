@@ -7,7 +7,7 @@ Feature: Check home screen biscuits
     Then I verify taxfree biscuit on home page
 
   @bookingsummary_biscuit
-  Scenario: Check tax free biscuit
+  Scenario: Booking summary biscuit on home page
     Given I am on home screen with default booking
     When I select booking summary biscuit on home page
     Then I see holiday booking summary page
