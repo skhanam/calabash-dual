@@ -52,11 +52,11 @@ FIRSTCHOICE_USER||={
 
 NOR_USER||={
     :valid => {
-        :bookingnumber => "3T02809",
-        :emailid => "Karin.ohlsson@fritidsresor.se",
-        :telefon => "0739888303",
-        :departuredate => "22-07-2014",
-        :DepartureTime => "16:20",
+        :bookingnumber => "1Z10583",
+        :emailid => "hakan.ahman@fritidsresor.se ",
+        :telefon => "0708915078",
+        :departuredate => "22-06-2014",
+        :DepartureTime => "09:20",
 
     },
     :invalid => {
@@ -66,6 +66,23 @@ NOR_USER||={
         :departuredate => "26-10-2014",
     }
 }
+#
+#NOR_USER||={
+#    :valid => {
+#        :bookingnumber => "3T02809",
+#        :emailid => "Karin.ohlsson@fritidsresor.se",
+#        :telefon => "0739888303",
+#        :departuredate => "22-07-2014",
+#        :DepartureTime => "16:20",
+#
+#    },
+#    :invalid => {
+#        :bookingnumber => "11Y30060",
+#        :emailid => "ns.w@or.se",
+#        :telefon => "0722377937",
+#        :departuredate => "26-10-2014",
+#    }
+#}
 
 #:country => "Deutschland",
 
