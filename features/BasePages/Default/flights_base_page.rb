@@ -17,8 +17,8 @@ class FlightsBasePage < BasePage
     arr= CommonMethods.new.get_flights_details
     arr.each do |var|
       txt="#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
-      assert_text_present var["departureAirportName"]
-      assert_text_present var["arrivalAirportName"]
+      assert_partial_text var["departureAirportName"]
+      assert_partial_text var["arrivalAirportName"]
       click_on_text txt
       verify_flight_details_page
       navigate_back
@@ -29,11 +29,10 @@ class FlightsBasePage < BasePage
   def verify_flight_details_page
     puts ":#{@@flight_details_title}:"
     verify_page_title @@flight_details_title
+    scroll_page_and_assert_text @@flight_details_flight_number
     return if $g_eng_app  # just verify title and return for english app
 
-    scroll_page_and_assert_text @@flight_details_title
     scroll_page_and_assert_text @@flight_details_airline
-    scroll_page_and_assert_text @@flight_details_flight_number
     scroll_page_and_assert_text @@flight_details_passengers
     #scroll_page_and_assert_text @@flight_details_cabin_class  #not present in nordics & en
     #scroll_page_and_assert_text @@flight_details_airport_info  #not present in nordics & en

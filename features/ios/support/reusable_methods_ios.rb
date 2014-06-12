@@ -48,8 +48,8 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-    puts "click_on_text:(#{text}):"
-    write_verified_text_to_file "click_on_text:(#{text}):"
+    puts "click_on_text (#{text})"
+    write_verified_text_to_file "click_on_text (#{text})"
     touch("view text:'#{escape_quotes_smart(text)}'")
     sleep 1
   end

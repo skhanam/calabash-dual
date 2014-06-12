@@ -39,6 +39,8 @@ module EN_Strings
     @@flight_page_title=get_localized_string "flight"
     @@flights_page_title=get_localized_string "flights" if $g_current_app=="EN_TH"
     @@flights_page_title=get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
+    @@flight_details_flight_number= get_localized_string "flight_number"
+
   end
 
   def welcome_page_strings

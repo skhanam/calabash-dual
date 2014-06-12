@@ -1,5 +1,5 @@
 @nor @sanity-nor
-Feature: English Sanity Tests
+Feature: Nordics Sanity Tests
 
   @booking-nor2
   Scenario: navigate to booking summary page
