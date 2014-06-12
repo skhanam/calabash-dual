@@ -29,6 +29,8 @@ class FlightsBasePage < BasePage
   def verify_flight_details_page
     puts ":#{@@flight_details_title}:"
     verify_page_title @@flight_details_title
+    sleep 3
+    screenshot(options={:name => "flight_details"})
     scroll_page_and_assert_text @@flight_details_flight_number
     return if $g_eng_app  # just verify title and return for english app
 

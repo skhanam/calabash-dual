@@ -1,7 +1,7 @@
 @android_test @ios_test @prelogin @nor @reset
 Feature: Verify pre login screen
 
-  @prelogin1
+  @prelogin1 @ss
   Scenario: Verify welcome screen
     Given I am on 'Login' screen
     Then I verify text content on login screen

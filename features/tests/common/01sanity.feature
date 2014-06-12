@@ -7,7 +7,7 @@ Feature: Login and Home page features
     Given I submit wrong login details
     Then I see correct error messages on login screen
 
-  @login1 @reset
+  @login1 @reset @ss
   Scenario: Login and verify home screen
     Given I log into Application
     Then I must be logged and on Home page
@@ -18,7 +18,7 @@ Feature: Login and Home page features
     When I log out from application
     Then I see welcome screen
 
-  @basic-sanity @check1
+  @basic-sanity @check1 @ss
   Scenario: Check Navigation menus
     Given I am on default booking
     Given I am on Home screen
@@ -29,6 +29,7 @@ Feature: Login and Home page features
       | Flight          |
       | Hotel           |
       | Contact us      |
+      | App Feedback    |
 
 #      | Destination     |
 #      | Duty Free       |

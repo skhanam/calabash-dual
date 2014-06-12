@@ -83,8 +83,8 @@ class SidePanel < BasePage
         scroll_side_panel(@@guide_online)
         touch_txt_and_verify_title(@@guide_online, nil)
       when "App Feedback"
-        scroll_side_panel(@@app_feed_back)
-        touch_txt_and_verify_title(@@app_feed_back, nil)
+        scroll_side_panel_and_assert @@side_panel_app_feedback
+        touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1
       when "Contact us"
         scroll_side_panel(@@side_panel_contact_us)
         scroll_side_panel(@@log_out_text) if ($g_nordics_app || $g_eng_app)

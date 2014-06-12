@@ -78,6 +78,8 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
     sleep 2
     @sidePanel.navigate_from_side_menu(var[0])
     sleep 2
+    sleep 5
+    screenshot(options={:name => "#{var[0]}"})
     @page.navigate_back
     sleep 2
     @homePage.check_home_screen

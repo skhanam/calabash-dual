@@ -16,6 +16,7 @@ class DestinationInfoBasePage < BasePage
 
   def verify_list_of_destinations
     @countries= CommonMethods.new.get_desination_countries
+    screenshot(options={:name => "destinations"})
     @countries.each do |var|
       puts "checking destination name #{var}"
       assert_wait_for_text var

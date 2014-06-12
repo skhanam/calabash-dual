@@ -330,6 +330,7 @@ end
 
 
 Then(/^I verify text content on login screen$/) do
+  screenshot(options={:name => "Login"})
   @loginPage.verify_login_page
 end
 
