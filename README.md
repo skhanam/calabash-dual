@@ -36,6 +36,14 @@ Folder structure
  ------- TDA.ui.automation  (Automation source code)
  ------- Application_source_code  (Application source code)
 
+
+Environment variables which can be configured
+===============
+ENV['LOG_VERIFIED_TXT']=="yes" # for writing verified text onto a file
+ENV['TAKE_SS']=="yes" # for taking screenshots
+
+
+
 Execute tests
 ===============
 

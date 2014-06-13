@@ -48,8 +48,6 @@ class SidePanelDe < SidePanel
         scroll_page_and_assert_text @@side_panel_good_to_know
       when "Kontakt heading"
         scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_contact_heading)
-      when "My travel agent"
-        scroll_page_and_assert_text @@side_panel_my_tour_guide
       when "Kontakt"
         scroll_page_and_assert_text @@side_panel_contact_us
       when "My travel agent"

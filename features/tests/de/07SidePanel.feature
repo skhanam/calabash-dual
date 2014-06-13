@@ -17,7 +17,7 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to insurance page using side menu
     Then I see insurance page
 
-   @typical-sidepanel
+   @typical-sidepanel @sidepanel
   Scenario: Check Navigation menus for Typical booking
     Given I have switched to typical booking
     When I open side panel
@@ -28,17 +28,16 @@ Feature: Verify product pages by navigating through side panel
       | Flights                 |
       | Hotel                   |
       | Insurance               |
-      | Extra                   |
       | Weather                 |
       | Destination guide       |
       | excursions              |
       | Good to know            |
-      | My travel agent         |
       | Kontakt heading         |
       | My travel agent         |
       | TUI onsite service      |
       | Kontakt                 |
 
+  @sidepanel
   Scenario: Check Navigation menus for Single booking
     Given I have switched to single flight booking
     When I open side panel
@@ -52,6 +51,5 @@ Feature: Verify product pages by navigating through side panel
       | excursions              |
       | Good to know            |
       | Kontakt heading         |
-      | My travel agent         |
       | TUI onsite service      |
       | Kontakt                 |
