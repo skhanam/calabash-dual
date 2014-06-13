@@ -1,3 +1,21 @@
+# Pre prod
+# #DE_USER||= {
+#    :valid => {
+#        :firstname => "Susi",
+#        :lastname => "Sonne",
+#        :username => "Reisender",
+#        :email => "Susi.Sonne@tui.de",
+#        :password => "meinetui",
+#        :country => "Deutschland",
+#        },
+#    :invalid => {
+#        :username => "invalidusername",
+#        :password => "nono",
+#        :email => "no@nomail.com"
+#    }
+#}
+
+#DEV user
 DE_USER||= {
     :valid => {
         :firstname => "Peter",
@@ -66,7 +84,8 @@ NOR_USER||={
         :departuredate => "26-10-2014",
     }
 }
-#
+
+#  DEV user
 #NOR_USER||={
 #    :valid => {
 #        :bookingnumber => "3T02809",

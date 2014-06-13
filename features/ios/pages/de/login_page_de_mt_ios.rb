@@ -58,7 +58,7 @@ class LoginPage < LoginBasePage
   end
 
   def setCountry(country)
-    touch "TextFieldLabel index:2"
+    touch "textFieldLabel index:2"
     sleep 1
     index=picker[0].index(country)
     sleep 1
