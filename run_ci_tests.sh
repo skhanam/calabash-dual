@@ -43,6 +43,7 @@ calabash-ios sim reset
 echo sh run_ios.sh $2 $3 $4 $5
 sh run_ios.sh $2 $3 $4 $5
 else
+sh shell_scripts/start_device.sh
 echo sh runandroid.sh $2 $3 $4 $5 "ci"
 sh runandroid.sh $2 $3 $4 $5 "ci"
 fi
