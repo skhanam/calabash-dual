@@ -30,10 +30,9 @@ class FlightsBasePage < BasePage
     puts ":#{@@flight_details_title}:"
     verify_page_title @@flight_details_title
     sleep 3
-    screenshot(options={:name => "flight_details"})
-    scroll_page_and_assert_text @@flight_details_flight_number
+    screenshot(options={:name => "flight_details"})  if ENV['TAKE_SS']=="yes"
     return if $g_eng_app  # just verify title and return for english app
-
+    scroll_page_and_assert_text @@flight_details_flight_number
     scroll_page_and_assert_text @@flight_details_airline
     scroll_page_and_assert_text @@flight_details_passengers
     #scroll_page_and_assert_text @@flight_details_cabin_class  #not present in nordics & en

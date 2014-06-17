@@ -104,7 +104,7 @@ Then(/^I must be logged and on Home page$/) do
   @homePage.wait_for_home_page_to_load
   @homePage.assert_wait_for_acc_label("background_normal", 20)
   sleep 5
-  screenshot(options={:name => "home"})
+  screenshot(options={:name => "home"})  if ENV['TAKE_SS']=="yes"
 end
 
 Given(/^I have opened side menu$/) do

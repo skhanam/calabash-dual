@@ -330,7 +330,7 @@ end
 
 
 Then(/^I verify text content on login screen$/) do
-  screenshot(options={:name => "Login"})
+  screenshot(options={:name => "Login"})  if ENV['TAKE_SS']=="yes"
   @loginPage.verify_login_page
 end
 
