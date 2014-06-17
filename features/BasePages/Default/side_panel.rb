@@ -22,7 +22,7 @@ class SidePanel < BasePage
 
   def navigate_to_flights_page
     count=CommonMethods.new.find_number_of_flights
-    
+
     if count==1
       txt=@@side_panel_flight
       title=@@flight_page_title
@@ -65,6 +65,9 @@ class SidePanel < BasePage
       when "Holiday summary"
         scroll_side_panel(@@side_panel_booking_summary)
         touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
+      when "Excursions"
+        scroll_side_panel(@@side_panel_excursions)
+        touch_txt_and_verify_title(@@side_panel_excursions, @@excursions_title)
       when "Countdown"
         navigate_to_countdown_page
       when "Weather"
@@ -78,7 +81,7 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@destination, nil)
       when "Duty Free"
         scroll_side_panel(@@duty_free)
-        touch_txt_and_verify_title(@@duty_free, nil)
+        touch_txt_and_verify_title(@@duty_free, @@duty_free)
       when "Guide Online"
         scroll_side_panel(@@guide_online)
         touch_txt_and_verify_title(@@guide_online, nil)
@@ -91,7 +94,7 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
       when "destination"
         scroll_side_panel(@@side_panel_destination)
-        touch_txt_and_verify_title(@@side_panel_destination,@@destination_title)
+        touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)
       when "Log out"
         scroll_side_panel(@@log_out_text)
         touch_txt_and_verify_title(@@log_out_text, nil)

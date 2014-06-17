@@ -189,18 +189,18 @@
   <string name="welcome_login_telephone">Puhelinnumero:</string>
   <string name="welcome_login_email_hint">Syötä sähköpostiosoite:</string>
   <string name="welcome_login_telephone_hint">Syötä puhelinnumero:</string>
-  <string name="welcome_login_email_extra">Käytä samaa sähköpostiosoitetta kuin varausta tehdessäsi. Mikäli et ole ilmoittanut sähköpostiosoitettasi, siirry suoraan kenttään puhelinnumero.</string>
+  <string name="welcome_login_email_extra">Käytä samaa sähköpostiosoitetta kuin varausta tehdessäsi. Mikäli et ole ilmoittanut sähköpostiosoitettasi, siirry suoraan puhelinnumerokenttään.</string>
   <string name="welcome_login_telephone_extra">Puhelinnumero päivisin (esim. kännykkä), jonka olet ilmoittanut varausta tehdessä.</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
   <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
   <string name="bookingSummary_daysToGo">[Days] päivää jäljellä!</string>
-  <string name="departing_on">Matkustan</string>
+  <string name="departing_on">Matkustan:</string>
   <string name="discover">**Kohde</string>
   <string name="explore">Lue lisää lomakohteesta</string>
   <string name="home">Aloitus</string>
-  <string name="leaving">Matkustan</string>
+  <string name="leaving">Matkustan:</string>
   <string name="meet_your_travel_agent">meet_your_travel_agent</string>
   <string name="pick_your_car_up_from">pick_your_car_up_from</string>
   <string name="step_inside">Lue lisää hotellista</string>
@@ -212,19 +212,19 @@
   <string name="w_button_flights">Näytä lentoajat</string>
   <string name="w_button_rate">w_button_rate</string>
   <string name="w_button_weather">Katso säätiedot</string>
-  <string name="w_msg_countdown_1">Lähtölaskenta lomaan on alkanut! [location] on enää muutaman päivän päässä.</string>
-  <string name="w_msg_countdown_2">[location] odottaa - Tähän aikaan huomenna nautit jo lomasta. Älä unohda passia!</string>
-  <string name="w_msg_countdown_3">[location] odottaa - Kuukaiden kuluttua olet jo lomalla. Muista tarkistaa passin voimassaolo!</string>
+  <string name="w_msg_countdown_1">Lomasi lähtölaskenta on alkanut! [location] on enää muutaman päivän päässä.</string>
+  <string name="w_msg_countdown_2">[location] odottaa - Tähän aikaan huomenna olet jo lomalla. Älä unohda passia!</string>
+  <string name="w_msg_countdown_3">[location] odottaa - Kuukauden kuluttua olet jo lomalla. Muista tarkistaa passin voimassaolo!</string>
   <string name="w_msg_excursions">[location] tarjoaa useita mielenkiintoisia retkiä. Tutustu retkitarjontaan alla olevasta linkistä.</string>
   <string name="w_msg_extras">w_msg_extras</string>
   <string name="w_msg_flights">Lentosi lähtee [when] klo [time].</string>
   <string name="w_msg_good_news">Hyviä uutisia, [name]!</string>
   <string name="w_msg_hi">Hei!</string>
   <string name="w_msg_weather">Lämpötila: [location] [when] [temperature].</string>
-  <string name="w_msg_welcome_app">Mitä mieltä olet tästä mobiilipalvelusta? Meistä olisi mukava kuulla kokemuksiasi sovelluksen käytöstä.</string>
+  <string name="w_msg_welcome_app">Mitä mieltä olet Minun lomani -sovelluksesta?</string>
   <string name="w_msg_welcome_great">Toivottavasti lomasi kanssamme oli onnistunut!</string>
   <string name="w_msg_welcome_home">Tervetuloa kotiin [name]</string>
-  <string name="w_msg_welcome_personal">Tervetuloa Finnmatkojen Minun lomani -palveluun. Löydät täältä uutisia, vinkkejä sekä tärkeää tietoa lomastasi. Autamme sinua koko lomasi ajan.</string>
+  <string name="w_msg_welcome_personal">Tervetuloa Finnmatkojen Minun lomani -palveluun. Sovelluksesta löydät uutisia, vinkkejä sekä tärkeää tietoa lomastasi. Autamme sinua koko lomasi ajan.</string>
   <string name="w_msg_welcome_question">Onko sinulla kysyttävää varauksestasi? Autamme mielellämme!</string>
   <string name="w_msg_welcome_to">[location] toivottaa sinut tervetulleeksi! Mikäli sinulla on kysyttävää kohteesta tai muusta lomaan liittyvästä, voit olla yhteydessä oppaisiimme. Toivotamme mukavaa lomaa!  </string>
   <string name="your_camper_is_ready">your_camper_is_ready</string>
@@ -362,7 +362,7 @@
   <string name="contactus_cta_privacy">Reksiteriseloste ja tietosuoja </string>
   <string name="contactus_to">contactus_to</string>
   <string name="contactus_writeTitle">contactus_writeTitle</string>
-  <string name="contactus_extra_text_1">Noin 2 viikkoa ennen matkalle lähtöäsi, voit lähettää kysymyksiä  oppaillemme lomakohteessa. Oppaamme vastaavat kysymyksiisi aina retkistä parhaisiin rantoihin liittyen, ja auttavat sinua lomapäiviesi suunnittelussa. </string>
+  <string name="contactus_extra_text_1">Voit lähettää kysymyksiä oppaillemme lomakohteessa noin 2 viikkoa ennen matkalle lähtöä. Oppaamme vastaavat kysymyksiisi aina retkistä parhaisiin rantoihin liittyen, ja auttavat sinua lomapäiviesi suunnittelussa.</string>
   <string name="contactus_extra_text_1_subheading">Kysy oppailtamme lomakohteessa</string>
   <string name="contactus_extra_text_2_subheading">Kysy asiakaspalvelustamme kotimaassa</string>
   <string name="contactus_extra_text_2">Soita tai lähetä sähköpostia asiakaspalveluumme jos sinulla on kysyttävää matkavarauksestasi, lennoista, hotellista, tai jos haluat varata lomallesi lisäpalveluita.</string>
@@ -383,8 +383,8 @@
   <string name="guide_online_welcome_blurb">Voit ottaa yhteyttä lomakohteesi oppaaseen 2 viikkoa ennen matkan alkua, sekä loman aikana kohteessa. Saat viestin puhelimeesi kun opas on vapaana.</string>
   <string name="guide_online_respond_in_resort">Vastaamme kysymykseesi tunnin kuluessa klo 8–20 välisenä aikana. </string>
   <string name="guide_online_respond_in_resort_time">1 tunti</string>
-  <string name="guide_online_respond_pre_dep">Kun olet lähettänyt kysymyksen, vastaamme</string>
-  <string name="guide_online_respond_pre_dep_time">24 tuntia</string>
+  <string name="guide_online_respond_pre_dep">Kysymyksen lähetettyäsi vastaamme</string>
+  <string name="guide_online_respond_pre_dep_time">24 tunnin kuluessa</string>
   <string name="guide_online_sent_just_now">Juuri nyt</string>
   <string name="guide_online_sent_min_ago">Lähetetty [hhmm], tänään</string>
   <string name="guide_online_sent_mins_ago">Lähetetty [hhmm], tänään</string>
@@ -435,7 +435,7 @@
   <string name="camper_share_today_tw">camper_share_today_tw</string>
   <string name="countdown_share_during_fb">Lomailen tällä hetkellä kohteessa [location]! #loma #Finnmatkat</string>
   <string name="countdown_share_during_tw">countdown_share_during_tw</string>
-  <string name="countdown_share_pre_fb">Enää [days] päivää lomaan kohteessa [days] #loma #Finnmatkat. </string>
+  <string name="countdown_share_pre_fb">Enää [days] päivää lomaan kohteessa #loma #Finnmatkat. </string>
   <string name="countdown_share_pre_tw">countdown_share_pre_tw</string>
   <string name="countdown_share_today_fb">Lähden tänään lomalle kohteeseen [location]! #loma #Finnmatkat</string>
   <string name="countdown_share_today_tw">countdown_share_today_tw</string>
@@ -899,7 +899,7 @@
   <string name="feedback_email_subject">feedback_email_subject</string>
   <string name="feedback_email_body">feedback_email_body</string>
   <string name="feedback_email_to_address">feedback_email_to_address</string>
-  <string name="feedback_home_screen_message_prompt">Mitä olet mieltä sovelluksesta? Voit antaa palautetta tässä.</string>
+  <string name="feedback_home_screen_message_prompt">Mitä mieltä olet Minun lomani -sovelluksesta?</string>
   <string name="feedback_home_screen_button_prompt">Arvostele Minun lomani -sovellus</string>
   <!-- 20.0 In App Browser -->
   <string name="browser_openExternal">Avaa selaimessa?</string>

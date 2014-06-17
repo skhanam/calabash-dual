@@ -92,3 +92,14 @@ When(/^I navigate to destination using side menu$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_from_side_menu("destination")
 end
+
+When(/^I navigate to Taxfree page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Duty Free")
+end
+
+
+When(/^I navigate to excursion page from side panel$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Excursions")
+end

@@ -91,7 +91,7 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
     @homePage.click_on_account_button
     @myBookingsPage.switch_to_particular_booking
   else
-    puts "already switched to #{booking_type} "
+    #puts "already switched to #{booking_type} "
   end
 end
 

@@ -46,6 +46,8 @@ module TestModule
       @contactPage=ContactUsNOR.new
       @countDownPage ||=CountDownNOR.new
       @guideOnlinePage ||= GuideOnlineBasePage.new
+      @dutyFreePage ||= DutyFreePage.new
+      @excursionsPage ||= ExcursionsPage.new
 
     end
   end

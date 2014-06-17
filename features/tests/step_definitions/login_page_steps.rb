@@ -3,7 +3,7 @@ Given(/^I log into the App using (.*?), (.*?) and (\w+)/) do |username, password
 end
 
 def meine_tui_login(username, password, country)
-  puts "#{username}, #{password}, #{country}"
+  #puts "#{username}, #{password}, #{country}"
   if $g_ios
     step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
@@ -278,7 +278,7 @@ When(/^I select the Login button$/) do
 end
 
 Then(/^I see appropriate username error message$/) do
-  @loginPage.check_username_pwd_error
+  @loginPage.check_login_error_messages
 end
 
 Given(/^I enter valid email and invalid password$/) do
@@ -294,7 +294,7 @@ Given(/^I have entered an valid email and invalid password$/) do
 end
 
 Then(/^I see appropriate password error message$/) do
-  @loginPage.check_username_pwd_error
+  @loginPage.check_login_error_messages
 end
 
 Given(/^I submit wrong login details$/) do

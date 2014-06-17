@@ -11,7 +11,7 @@ module AppStrings
   $g_nordics_app=false
   $g_german_app=false
   $g_eng_app=false
-  puts ENV['TESTENV']
+  #puts ENV['TESTENV']
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
     $g_german_app=true

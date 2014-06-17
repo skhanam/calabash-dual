@@ -5,6 +5,8 @@ module NordicsStrings
     puts "settings nordics strings"
     login_page_strings
     welcome_page_strings
+    duty_free_strings
+    excursions_strings
     home_strings
     side_panel_strings
     booking_summary_strings
@@ -15,6 +17,19 @@ module NordicsStrings
     countdown_strings
     flight_details_strings
     destination_info_strings
+  end
+
+  def excursions_strings
+    @@excursions_title= get_localized_string "excursions" #"Utflykter"
+    @@side_panel_link=get_localized_string "excursions" #"Utflykter"
+    @@excursions_webview_txt="Guide Online"
+  end
+
+  def duty_free_strings
+    @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="sv"
+    @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="fi"
+    @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="da"
+    @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="nb"
   end
 
   def home_strings
@@ -107,6 +122,7 @@ module NordicsStrings
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
+    @@side_panel_excursions=get_localized_string "excursions" #"Utflykter"
     @@side_panel_booking_summary=get_localized_string "holiday_summary" #"Holiday summary"
     @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"

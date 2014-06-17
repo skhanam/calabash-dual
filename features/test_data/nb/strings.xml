@@ -215,7 +215,7 @@
   <string name="w_msg_countdown_1">Nedtellingen har startet! Nå er det bare noen dager igjen til du reiser til [location]!</string>
   <string name="w_msg_countdown_2">På denne tiden i morgen er du i [location] - husk pass!</string>
   <string name="w_msg_countdown_3">Nå er det bare en måned igjen til du reiser til [location]! Husk å sjekke om passet ditt fortsatt er gyldig.</string>
-  <string name="w_msg_excursions">Vi har flere spennende utflukter å velge imellom i [location]. Hvilken utflukt passer best for deg?</string>
+  <string name="w_msg_excursions">Det er flere spennende utflukter å velge imellom i [location]. Hvilken utflukt passer best for deg?</string>
   <string name="w_msg_extras">w_msg_extras</string>
   <string name="w_msg_flights">Du har vel ikke glemt at flyet går 
 when] klokken [time] fra [airport]? </string>
@@ -401,7 +401,7 @@ du kobler deg til nettet</string>
   <string name="guide_online_biscuit_new_message_plural">Nye meldinger</string>
   <string name="guide_online_biscuit_new_message">Ny melding</string>
   <string name="guide_online_biscuit_important_messages">Du har fått [amount] viktige beskjeder fra guidene.</string>
-  <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] beskjed vedrørende transport.</string>
+  <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] beskjeder vedrørende transport.</string>
   <string name="guide_online_biscuit_unread_message">Du har [amount] ulest beskjed fra guidene.</string>
   <string name="guide_online_biscuit_buttonTitle">Vis beskjed</string>
   <string name="guide_online_biscuit_buttonTitles">Vis beskjeder</string>

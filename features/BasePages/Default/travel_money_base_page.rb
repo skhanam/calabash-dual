@@ -6,8 +6,9 @@ class TravelMoneyBasePage < BasePage
     assert_text_present @@currency_title2
     assert_text_present @@currency_subTitle2
     assert_text_present @@currency_title3
-    subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
-    assert_wait_for_text subtitle3
+    #subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
+    subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} ="
+    assert_partial_text subtitle3
   end
 
   def verify_travel_money_currency_page

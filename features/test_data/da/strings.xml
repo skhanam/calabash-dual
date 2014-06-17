@@ -215,7 +215,7 @@
   <string name="w_msg_countdown_1">Nedtællingen er begyndt, der er kun få dage til din ferie til [location]!</string>
   <string name="w_msg_countdown_2">Ved denne tid i morgen er du fremme på [location] – husk passet!</string>
   <string name="w_msg_countdown_3">Nu er der kun en måned til du rejser til [location]! Husk at tjekke at du pas stadig er gyldigt.</string>
-  <string name="w_msg_excursions">Vi har flere spændende udflugter at vælge mellem på [location]. Se dem her...</string>
+  <string name="w_msg_excursions">Der er flere spændende udflugter at vælge imellem i [location] se dem her.</string>
   <string name="w_msg_extras">w_msg_extras</string>
   <string name="w_msg_flights">Du  har vel ikke glemt at dit fly afgår 
 when] klokkenn [time] fra [airport]? </string>
@@ -399,8 +399,8 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="guide_online_biscuit_title">Spørg guiderne</string>
   <string name="guide_online_biscuit_new_message_plural">Nye beskeder</string>
   <string name="guide_online_biscuit_new_message">Ny besked</string>
-  <string name="guide_online_biscuit_important_messages">Du har fået [amount] en vigtig besked fra guiderne.</string>
-  <string name="guide_online_biscuit_transfer_messages">Du har fået [amount] en transfermeddelelse.</string>
+  <string name="guide_online_biscuit_important_messages">Du har fået [amount] vigtige beskeder fra guiderne.</string>
+  <string name="guide_online_biscuit_transfer_messages">Du har fået [amount] vigtige beskeder fra guiderne vedrørende transport.</string>
   <string name="guide_online_biscuit_unread_message">Du har modtaget [amount] en ulæst meddelelse fra guiderne</string>
   <string name="guide_online_biscuit_buttonTitle">Vis meddelelse</string>
   <string name="guide_online_biscuit_buttonTitles">Vis meddelelse</string>

@@ -215,7 +215,7 @@
   <string name="w_msg_countdown_1">Nedräkningen har börjat, nu är det bara några dagar kvar innan du reser till [location]!</string>
   <string name="w_msg_countdown_2">Så här dags i morgon är du framme i [location] – glöm inte passet!</string>
   <string name="w_msg_countdown_3">Nu är det bara en månad kvar innan du reser till [location]! Glöm inte kolla att ditt pass är giltigt.</string>
-  <string name="w_msg_excursions">Vi har flera spännande utflykter att välja mellan i [location]. Vilken får dig på bäst semesterhumör?</string>
+  <string name="w_msg_excursions">Det finns flera spännande utflykter att välja mellan i [location]. Vilken får dig på bäst semesterhumör?</string>
   <string name="w_msg_extras">w_msg_extras</string>
   <string name="w_msg_flights">Du har väl inte glömt att ditt flyg avgår [when] klockan [time] från [airport]? </string>
   <string name="w_msg_good_news">Goda nyheter, [name]!</string>
@@ -230,8 +230,8 @@
   <string name="w_msg_welcome_to">Välkommen till [location]! Vi hoppas att du kommer att få en riktigt skön semester här med oss. Hör av dig direkt om du har några frågor.</string>
   <string name="your_camper_is_ready">your_camper_is_ready</string>
   <string name="your_flight">Mina flygresor</string>
-  <string name="w_msg_about_your_hotel">Om ditt hotell</string>
-  <string name="w_msg_about_your_destination">Om ditt resmål</string>
+  <string name="w_msg_about_your_hotel">Om mitt hotell</string>
+  <string name="w_msg_about_your_destination">Om mitt resmål</string>
   <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>

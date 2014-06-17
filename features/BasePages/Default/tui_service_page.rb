@@ -1,6 +1,6 @@
 class TuiServiceOnsitePage < BasePage
 
-  def check_tui_service_screen
+def check_tui_service_screen
     verify_page_title @@tui_service_title
   end
 

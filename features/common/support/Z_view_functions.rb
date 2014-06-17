@@ -118,7 +118,7 @@ module ViewModule
 
   def check_acc_label(id)
     puts "check_acc_label (#{id})"
-    write_verified_text_to_file "check_acc_label (#{id})"
+    #write_verified_text_to_file "check_acc_label (#{id})"
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
   end
 
@@ -142,6 +142,7 @@ module ViewModule
 
 ## Assert if text to check is not shown before timeout
   def assert_wait_for_text(text, time_out=10)
+    puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
     fail("text:#{text}: not present") if wait_for_text(text, time_out)==false
     return true
@@ -149,6 +150,7 @@ module ViewModule
 
   #Wait to check if acc label appears on screen
   def assert_wait_for_acc_label(text, timeout=10)
+    puts "assert_wait_for_acc_label (#{text})"
     write_verified_text_to_file "assert_wait_for_acc_label (#{text})"
     fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if (wait_for_acc_label(text, timeout)==false)
     return true
