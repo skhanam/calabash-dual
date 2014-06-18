@@ -43,6 +43,17 @@ ENV['LOG_VERIFIED_TXT']=="yes" # for writing verified text onto a file
 ENV['TAKE_SS']=="yes" # for taking screenshots
 
 
+Taking screenshot to compare(for raf)
+===============
+
+calabash-ios sim locale en
+TAKE_SS="yes" sh run_ios.sh NA @ss sv ../meine.tui
+calabash-ios sim locale da
+TAKE_SS="yes" sh run_ios.sh NA @ss da ../meine.tui
+calabash-ios sim locale nb
+TAKE_SS="yes" sh run_ios.sh NA @ss nb ../meine.tui
+calabash-ios sim locale fi
+TAKE_SS="yes" sh run_ios.sh NA @ss fi ../meine.tui
 
 Execute tests
 ===============

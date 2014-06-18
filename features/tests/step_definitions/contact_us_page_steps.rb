@@ -38,3 +38,6 @@ end
 Then(/^I verify contact us page$/) do
   @contactPage.verify_contact_us_page
 end
+Then(/^I see contact us page$/) do
+  @contactPage.check_contact_us_page
+end

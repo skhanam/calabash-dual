@@ -61,6 +61,7 @@ class SidePanel < BasePage
   end
 
   def navigate_from_side_menu(var)
+    sleep 2
     case var
       when "Holiday summary"
         scroll_side_panel(@@side_panel_booking_summary)

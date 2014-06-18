@@ -32,7 +32,7 @@ class LoginPage < LoginBasePage
   end
 
   def verify_help_logging_in
-    assert_text_present @@login_page_help_logging_in
+    assert_partial_text @@login_page_help_logging_in.strip
 
     arr=@@help_logging_text.split(/\\n\\n/)
     arr.each do |var|

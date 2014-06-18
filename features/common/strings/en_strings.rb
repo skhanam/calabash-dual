@@ -156,10 +156,6 @@ module EN_Strings
     @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
     @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
     @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
-    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
-    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
-    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
-
   end
 
 

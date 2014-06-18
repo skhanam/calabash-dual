@@ -54,6 +54,7 @@ module AppStrings
     home_page_strings
     app_feedback_strings
     destination_info_strings
+    check_open_url_in_browser_cta
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -74,6 +75,12 @@ module AppStrings
 
   def set_test_data
     @@currency_hash={}
+  end
+
+  def check_open_url_in_browser_cta
+    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
+    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
+    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
   end
 
   def destination_info_strings

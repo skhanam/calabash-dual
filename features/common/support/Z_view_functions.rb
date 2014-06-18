@@ -66,6 +66,7 @@ module ViewModule
     fail("text not shown #{text}") if check_partial_text_shown(text) ==false
   end
 
+
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
     begin
@@ -140,7 +141,19 @@ module ViewModule
     end
   end
 
-## Assert if text to check is not shown before timeout
+  def assert_wait_for_element(query,time_out=10)
+    begin
+      wait_poll({:until_exists => query, :timeout => time_out.to_i}) do
+        sleep 1
+        puts "assert_wait_for_element: waiting for webview element"
+      end
+    rescue
+      return false
+    end
+
+  end
+
+  ## Assert if text to check is not shown before timeout
   def assert_wait_for_text(text, time_out=10)
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"

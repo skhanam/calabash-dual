@@ -10,7 +10,7 @@ class ContactUsBasePage < BasePage
     sleep 2
   end
   def check_contact_us_page
-    check_contact_us_screen_title
+    assert_wait_for_text @@contact_us_contact_title
   end
 
   def contact_us_embed_page

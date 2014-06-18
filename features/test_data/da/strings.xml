@@ -227,7 +227,7 @@ when] klokkenn [time] fra [airport]? </string>
   <string name="w_msg_welcome_great">Vi håber, at du havde en rigtig skøn ferie med os.</string>
   <string name="w_msg_welcome_home">Velkommen hjem [name]!</string>
   <string name="w_msg_welcome_personal">Velkommen til Star Tours Min Ferie app. Her får du gode tips og aktuel information om din rejse.</string>
-  <string name="w_msg_welcome_question">Har du nogle spørgsmål til din bestilling? Vi er her for at hjælpe, hvis du har brug fo det</string>
+  <string name="w_msg_welcome_question">Har du nogle spørgsmål til din bestilling? Vi er her for at hjælpe, hvis du har brug for det</string>
   <string name="w_msg_welcome_to">Velkommen til [location]! Vi håber du får en dejlig ferie. Hvis du har nogle spørgsmål, så tag fat i os med det samme.</string>
   <string name="your_camper_is_ready">your_camper_is_ready</string>
   <string name="your_flight">Mine flyrejser</string>

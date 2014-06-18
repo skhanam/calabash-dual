@@ -36,7 +36,7 @@ Before do |scenario|
     end
   end
 
-  puts "Launching app"
+  #puts "Launching app"
   start_test_server_in_background(:Timeout=>30)
   sleep 3
 end

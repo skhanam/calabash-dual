@@ -78,8 +78,12 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
     sleep 2
     @sidePanel.navigate_from_side_menu(var[0])
     sleep 2
-    sleep 5
-    screenshot(options={:name => "#{var[0]}"})  if ENV['TAKE_SS']=="yes"
+
+    if ENV['TAKE_SS']=="yes"
+      sleep 5
+    screenshot(options={:name => "#{var[0]}"})
+    end
+
     @page.navigate_back
     sleep 2
     @homePage.check_home_screen
@@ -102,4 +106,9 @@ end
 When(/^I navigate to excursion page from side panel$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_from_side_menu("Excursions")
+end
+
+When(/^I navigate to contact us page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Contact us")
 end

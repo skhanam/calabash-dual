@@ -26,6 +26,7 @@ module NordicsStrings
   end
 
   def duty_free_strings
+    @@duty_free_title= get_localized_string "duty_free"
     @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="sv"
     @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="fi"
     @@duty_free_webview_link="Till taxfree-butiken" if ENV['LANG']=="da"
@@ -162,21 +163,18 @@ module NordicsStrings
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_string "contactus_navbar" #"Contact us"
-    @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
-    @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
-    @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"
-    @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
-    @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
-    @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
-    @@contact_us_shop_opening_times="Shop opening times: "
-    @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
-    @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
-    @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
-    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
-    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
-    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
-  end
+    @@contact_us_contact_title=get_localized_string "contact"
+    @@contactus_cta_email= get_localized_string "contactus_cta_email"
+    @@contactus_cta_phone= get_localized_string "contactus_cta_phone"
+    @@contactus_cta_terms= get_localized_string "contactus_cta_terms"
+    @@contactus_cta_privacy= get_localized_string "contactus_cta_privacy"
+    @@contactus_to= get_localized_string "contactus_to"
+    @@contactus_writeTitle= get_localized_string "contactus_writeTitle"
+    @@contactus_extra_text_1= get_localized_string "contactus_extra_text_1"
+    @@contactus_extra_text_1_subheading= get_localized_string "contactus_extra_text_1_subheading"
+    @@contactus_extra_text_2_subheading= get_localized_string "contactus_extra_text_2_subheading"
+    @@contactus_extra_text_2= get_localized_string "contactus_extra_text_2"
+end
 end
 
 
