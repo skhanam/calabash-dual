@@ -1,4 +1,4 @@
-@nor  @eng @sanity-eng @sanity-nor
+@nor @eng @sanity-eng @sanity-nor
 Feature: English Sanity Tests
 
   @offcanvas @failed

@@ -1,4 +1,4 @@
-@nor @sanity-nor
+@nor
 Feature: Nordics Sanity Tests
 
   @booking-nor2

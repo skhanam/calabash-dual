@@ -1,4 +1,4 @@
-@android_test-eng @ios_test-eng @auto1 @eng @sanity-eng
+ @eng @sanity-eng
 Feature: English Sanity Tests
 
   @first-check_list  @sanity-eng
