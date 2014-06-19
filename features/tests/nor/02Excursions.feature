@@ -1,4 +1,4 @@
-@android_test @ios_test @excursions
+@android_test @ios_test @excursions @nor
 Feature: Verify Excursions page
 
   @excursions1
