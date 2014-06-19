@@ -1,4 +1,4 @@
-@android_test @ios_test @taxfree
+@android_test @ios_test @taxfree @nor
 Feature: Verify Tax free features
 
   @taxfree1
