@@ -1,4 +1,4 @@
-@android_test @ios_test @contactus @nor
+@android_test @ios_test @common-tests
 Feature: Verify contact us page
 
   @contactus1

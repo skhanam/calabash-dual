@@ -12,6 +12,8 @@ module TestModule
     @appFeedbackPage=AppFeedbackBasePage.new
     @flightsPage ||=FlightsBasePage.new
     @destinationInfo ||= DestinationInfoBasePage.new
+    @excursionsPage ||= ExcursionsPage.new
+    @guideOnlinePage ||= GuideOnlineBasePage.new
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
@@ -45,9 +47,7 @@ module TestModule
       @sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @countDownPage ||=CountDownNOR.new
-      @guideOnlinePage ||= GuideOnlineBasePage.new
       @dutyFreePage ||= DutyFreePage.new
-      @excursionsPage ||= ExcursionsPage.new
 
     end
   end

@@ -209,6 +209,7 @@ end
 When(/^I select destination biscuit$/) do
   @homePage.select_destination_biscuit
 end
+
 Then(/^I verify booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go

@@ -32,6 +32,7 @@ module DEMeineTUI
     good_to_know_strings
     countdown_strings
     flight_details_strings
+    excursions_strings
   end
 
   #All test data for different appication is in here
@@ -40,6 +41,13 @@ module DEMeineTUI
     $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
     $g_localized_strings=nil
     @@user_details=nil
+  end
+
+  def excursions_strings
+    @@excursions_title= get_localized_string "excursions" #"Utflykter"
+    @@side_panel_link=get_localized_string "excursions" #"Utflykter"
+    @@experience_the_country= get_localized_string "experience_the_country" #Land und Leute hautnah erleben
+
   end
 
   def welcome_page_strings
@@ -120,6 +128,8 @@ module DEMeineTUI
     @@side_panel_TandC=get_localized_string "tui_service_on_site"
     @@side_panel_my_tour_guide=get_localized_string "meet_the_rep"
     @@side_panel_my_travel_agent=get_localized_string "travelAgent_title"
+
+    @@guide_online = get_localized_string "guide_online_biscuit_title"
 
     @@side_panel_destination_guide=get_localized_string "destination_guide"
     @@side_panel_excursions=get_localized_string "excursions"

@@ -17,6 +17,7 @@ module EN_Strings
     countdown_strings
     flights_strings
     flight_details_strings
+    excursions_strings
   end
 
   #All test data for different appication is in here
@@ -24,6 +25,18 @@ module EN_Strings
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
   end
 
+  def excursions_strings
+    @@excursions_title= get_localized_string "excursions" #"Utflykter"
+    @@side_panel_link=get_localized_string "excursions" #"Utflykter"
+
+    @@experience_the_country= get_localized_string "experience_the_country" # Time to explore
+    @@experience_the_country_subtitle= get_localized_string "experience_the_country_subtitle" # With First Choice Excursions
+    @@excursions_here_available= get_localized_string "excursions_here_available" # Excursions available:
+
+    @@excursions_overviewTitle= get_localized_string "excursions_overviewTitle" # Overview
+    @@plan_your_excursions= get_localized_string "plan_your_excursions" # Plan your excursions
+    @@share_my_excursion= get_localized_string "share_my_excursion" # Share this excursion
+  end
 
   def flight_details_strings
     @@flight_details_title= get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
@@ -62,8 +75,8 @@ module EN_Strings
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
     @@login_error_text=get_localized_string "welcome_login_credential_error"
-    @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra"  if $g_current_app=="EN_TH"
-    @@login_error_booking_ref='Tip: You should have received this number in an email a few days after you booked your holiday. It looks like this: 1234/567891. The number of digits may vary.'  if $g_current_app=="EN_FC"
+    @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra" if $g_current_app=="EN_TH"
+    @@login_error_booking_ref='Tip: You should have received this number in an email a few days after you booked your holiday. It looks like this: 1234/567891. The number of digits may vary.' if $g_current_app=="EN_FC"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
   end
@@ -114,6 +127,9 @@ module EN_Strings
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
 
+    @@guide_online = get_localized_string "guide_online_biscuit_title"
+
+    @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
     @@side_panel_destination=get_localized_string "destination"
 
     @@log_out_text=get_localized_string "logout" #"Log out"

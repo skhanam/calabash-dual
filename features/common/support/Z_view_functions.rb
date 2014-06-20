@@ -187,6 +187,7 @@ module ViewModule
 
   # scroll in specified direction till partial id is found
   def scroll_page_till_partial_text(text, dir="down", count=10)
+    puts "scroll_page_till_partial_text (#{text})"
     write_verified_text_to_file "scroll_page_till_partial_text (#{text})"
 
     flag=0

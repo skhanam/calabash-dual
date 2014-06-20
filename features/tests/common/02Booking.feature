@@ -7,3 +7,4 @@ Feature: Verify booking summary page
     Given I am on home screen with default booking
     When I navigate to booking summary page using side menu
     Then I see holiday booking summary page
+
