@@ -140,7 +140,8 @@ Given(/^I log into Application/) do
   step "I log into nordics application" if ($g_current_app.match(/NOR/)!=nil)
 
   sleep 2
-  step "I select the Login button"
+  step "I select the Login button" if !$g_german_app
+  step "I select the Login text"   if $g_german_app
   step "I must be logged and on Home page"
 end
 
@@ -273,6 +274,13 @@ Then(/^I see appropriate error message$/) do
   @forgotPasswordPage.check_wrong_username_email
 end
 
+
+When(/^I select the Login text$/) do
+  @loginPage.scroll_page_and_assert_text("Anmelden")
+  @loginPage.click_on_text("Anmelden")
+end
+
+
 When(/^I select the Login button$/) do
   @loginPage.submit_login_button
 end
@@ -305,22 +313,27 @@ Given(/^I submit wrong login details$/) do
     visionShopNumber=$g_current_user_details[:invalid][:VisionShopNumber]
     visionBookingRef=$g_current_user_details[:invalid][:VisionBookingRef]
     thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+    sleep 2
+    step "I select the Login button"
   elsif ($g_current_app=='DE_MT')
     step "I enter valid email and invalid password"
     #uname=$g_user_details[:username]
     #pwd="NANA"
     #country=$g_user_details[:country]
     #step "I log into the App using #{uname}, #{pwd} and #{country}"
+    sleep 2
+    step "I select the Login text"
   elsif ($g_nordics_app)
     bookingNum = NOR_USER[:invalid][:bookingnumber]
     email = NOR_USER[:invalid][:emailid]
     telephone = NOR_USER[:invalid][:telefon]
     nordics_login(bookingNum, email, telephone)
+    sleep 2
+    step "I select the Login button"
   else
     fail "TODO"
   end
-  sleep 2
-  step "I select the Login button"
+
 end
 
 Then(/^I see correct error messages on login screen$/) do

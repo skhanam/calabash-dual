@@ -2,6 +2,7 @@
 @ios_test @android_test  @countdown  @de @auto2
 Feature: Verify Countdown details for bookings
 
+  @sanity @weather-de1
   Scenario: navigate to countdown page
     Given I am on home screen with default booking
     When I navigate to countdown page using countdown biscuit

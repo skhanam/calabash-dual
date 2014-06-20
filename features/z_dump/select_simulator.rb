@@ -8,7 +8,5 @@
     end
   end
 
-
   set_simulated_device("iPhone Retina (4-inch)")
-
   defaults read com.apple.iphonesimulator "iPhone Retina (4-inch)"

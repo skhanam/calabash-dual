@@ -166,7 +166,7 @@ module NordicsStrings
     @@contact_us_contact_title=get_localized_string "contact"
     @@contactus_cta_email= get_localized_string "contactus_cta_email"
     @@contactus_cta_phone= get_localized_string "contactus_cta_phone"
-    @@contactus_cta_terms= get_localized_string "contactus_cta_terms"
+    @@contactus_cta_terms= (get_localized_string "contactus_cta_terms").gsub('*','')
     @@contactus_cta_privacy= get_localized_string "contactus_cta_privacy"
     @@contactus_to= get_localized_string "contactus_to"
     @@contactus_writeTitle= get_localized_string "contactus_writeTitle"

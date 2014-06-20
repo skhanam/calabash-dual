@@ -11,13 +11,12 @@ Feature: Verify booking information for Typical Booking
       | Hotel location  |
       | Contact buttons |
 
-  @sanity  @verify-hotel-links
-
+ @verify-hotel-links
   Scenario: As a TUI client with a TUI booking
   I should be able to access the Hotel page
     Given I have switched to typical booking
-    When I navigate to hotel 2 page using side menu
-    Then I see hotel 2 page
+    When I navigate to hotel 1 page using side menu
+    Then I see hotel 1 page
     And I verify below links on hotel page:
       | place         |
       | Food & Drink  |
