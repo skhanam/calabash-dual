@@ -41,7 +41,7 @@ Environment variables which can be configured
 ===============
 ENV['LOG_VERIFIED_TXT']=="yes" # for writing verified text onto a file
 ENV['TAKE_SS']=="yes" # for taking screenshots
-
+ENV['ENDPOINT']=="dev" or "preprod"  # for testing dev or pre prod environments
 
 Taking screenshot to compare(for raf)
 ===============
