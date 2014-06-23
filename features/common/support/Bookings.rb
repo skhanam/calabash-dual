@@ -1,28 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-if $g_current_app== "DE_MT"
-  check_de_api
-
-  if ENV['ENDPOINT']=="preprod"
-  else
-    set_de_dev_bookings
-  end
-
-elsif $g_current_app== "EN_TH"
-  check_thomson_api
-  set_th_dev_bookings
-
-elsif $g_nordics_app
-  check_nor_api
-  $g_NOR_user=set_nor_dev_booking_data
-  $g_current_booking=$g_NOR_user
-
-elsif $g_current_app== "EN_FC"
-  check_firstchoice_api
-  set_fc_dev_bookings
-end
-
 def set_fc_dev_bookings
   eng_user= {"payload" => {"surname" => "Martin", "username" => "Mrs Martin", "reservationCode" => "9999/12346474", "bookingRef" => "9999/12346474", "holidayExtraLength" => 9, "retail" => true, "departureDate" => "2015-04-20", "returnDate" => "2015-04-27", "holidayStatus" => "PreDeparture", "destinationName" => "Madeira", "todayTemperature" => "21", "airportName" => "London Gatwick", "todayIcon" => "partly-cloudy", "hotel" => "Pestana Bay", "productName" => "Hotels", "resortName" => "Funchal", "inBrief" => [{"Text" => "Holidays to Funchal are a real pick ’n’ mix job. You can laze round the lidos, spend in the shopping malls, or stroll in the gardens. All this and year-round sunshine, too."}], "flight" => [{"ArrivalAirportCode" => "FNC", "ArrivalAirportName" => "Funchal", "ArrivalDate" => "2015-04-20", "CheckInTime" => nil, "CheckOutTime" => nil, "DepartureAirportCode" => "LGW", "DepartureAirportName" => "London Gatwick", "DepartureDate" => "2015-04-20", "Duration" => "03:45:00", "FlightNumber" => "TOM4134", "LegNumber" => 1}, {"ArrivalAirportCode" => "LGW", "ArrivalAirportName" => "London Gatwick", "ArrivalDate" => "2015-04-27", "CheckInTime" => nil, "CheckOutTime" => nil, "DepartureAirportCode" => "FNC", "DepartureAirportName" => "Funchal", "DepartureDate" => "2015-04-27", "Duration" => "03:40:00", "FlightNumber" => "TOM4135", "LegNumber" => 2}], "destination" => "Madeira", "ttl" => 3600, "destinationImg" => ["http://media.thomson.co.uk/asset/lpp/v00/953/128.jpg", "http://media.thomson.co.uk/asset/lpp/v00/953/136.jpg", "http://media.thomson.co.uk/asset/lpp/v01/017/571.jpg"], "hotelImg" => ["http://media.thomson.co.uk/asset/lpp/v01/091/949.jpg", "http://media.thomson.co.uk/asset/lpp/v01/091/923.jpg", "http://media.thomson.co.uk/asset/lpp/v01/091/945.jpg"], "excursions" => {"imageUrl" => [], "numberOfExcursions" => 0}, "currency" => {"fromCurrency" => "GBP", "EUR" => 1.17}, "currencyRate" => 1.17, "currencyCode" => "EUR", "currencySymbol" => "€", "countdown" => {"startDateTimeAsUnixTime" => 1429516800, "endDateTimeAsUnixTime" => 1430152800, "status" => "countdown"}, "weather" => {"data" => [{"name" => "Madeira", "temperature" => "21", "temperatureFor" => "air", "type" => 1}], "numberOfLocations" => 1}, "destinationGuide" => {"data" => {"dest" => {"destinationName" => "Madeira", "imageUrl" => ["http://media.thomson.co.uk/asset/lpp/v00/953/128.jpg", "http://media.thomson.co.uk/asset/lpp/v00/953/136.jpg", "http://media.thomson.co.uk/asset/lpp/v01/017/571.jpg"]}}}, "products" => {"extra" => {"productType" => "extra", "multiple" => false}, "hotel" => {"title" => "", "subTitle" => "Pestana Bay", "location" => {"latitude" => 32.63805, "longitude" => -16.948883}, "productType" => "hotel", "imageUrl" => ["http://media.thomson.co.uk/asset/lpp/v01/091/949.jpg", "http://media.thomson.co.uk/asset/lpp/v01/091/923.jpg", "http://media.thomson.co.uk/asset/lpp/v01/091/945.jpg"]}, "flight" => [{"arrivalAirportCode" => "FNC", "arrivalAirportName" => "Funchal", "departureAirportCode" => "LGW", "departureAirportName" => "London Gatwick", "subTitle" => "Departing on Mon 20 Apr 2015", "passengers" => [{"fullName" => "Mrs L Martin"}, {"fullName" => "Mr E Martin"}]}, {"arrivalAirportCode" => "LGW", "arrivalAirportName" => "London Gatwick", "departureAirportCode" => "FNC", "departureAirportName" => "Funchal", "subTitle" => "Departing on Mon 27 Apr 2015", "passengers" => [{"fullName" => "Mrs L Martin"}, {"fullName" => "Mr E Martin"}]}]}, "ItineraryView" => {"name" => "ItineraryView"}}}
   $g_ENG_USER_DETAILS=eng_user
@@ -131,4 +109,28 @@ def check_firstchoice_api
   rescue
     fail "Not Server not responding"
   end
+end
+
+
+
+if $g_current_app== "DE_MT"
+  check_de_api
+
+  if ENV['ENDPOINT']=="preprod"
+  else
+    set_de_dev_bookings
+  end
+
+elsif $g_current_app== "EN_TH"
+  check_thomson_api
+  set_th_dev_bookings
+
+elsif $g_nordics_app
+  check_nor_api
+  $g_NOR_user=set_nor_dev_booking_data
+  $g_current_booking=$g_NOR_user
+
+elsif $g_current_app== "EN_FC"
+  check_firstchoice_api
+  set_fc_dev_bookings
 end
