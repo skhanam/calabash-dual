@@ -9,7 +9,6 @@ class LoginPage < LoginBasePage
   def verify_login_page
     puts "verify_login_page"
     assert_wait_for_text @@login_page_title
-    #scroll_page_and_assert_text @@login_page_text if $g_ios #TODO Need to check why its not working for android
 
     arr="#{@@login_page_text}".split(/\\n\\n/)
     arr.each do |var|

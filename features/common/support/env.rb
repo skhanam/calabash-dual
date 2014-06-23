@@ -8,7 +8,7 @@ require_relative '../support/users'
 
 require File.join(File.dirname(__FILE__), 'page_world')
 
-`defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina)"'`
+`defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina 4-inch)"'`
 
 if ENV['PLATFORM'] == 'ios'
   require 'calabash-cucumber/cucumber'

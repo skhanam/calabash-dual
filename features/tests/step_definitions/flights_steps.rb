@@ -26,3 +26,9 @@ Then(/^I verify details of all flights$/) do
     @flightsPage.check_details_of_flight
   end
 end
+
+Then(/^I should not see flights list$/) do
+  #pending
+  #count=CommonMethods.new.find_number_of_flights
+  #fail("List of flights must not be present") if count.to_i>1
+end

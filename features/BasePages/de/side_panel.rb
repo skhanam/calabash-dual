@@ -86,7 +86,7 @@ class SidePanelDe < SidePanel
 
   def verify_elements_for_flight_single_booking
     fail("unused")
-    #$g_current_booking=FLIGHT_BOOKING
+    #$g_current_booking=$g_flight_booking_data
     assert_wait_for_text @@side_panel_booking_summary
     res=CommonMethods.new.get_all_products_for_booking
     res.uniq.each do |var|

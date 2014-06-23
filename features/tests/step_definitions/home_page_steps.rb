@@ -73,15 +73,15 @@ end
 Given(/^I have switched to (.*?) booking$/) do |booking_type|
   case booking_type
     when "typical"
-      $g_current_booking=TYPICAL_BOOKING
+      $g_current_booking=$g_typical_booking_data
     when "insurance"
-      $g_current_booking=TYPICAL_BOOKING
+      $g_current_booking=$g_typical_booking_data
     when "flight"
-      $g_current_booking=FLIGHT_BOOKING
+      $g_current_booking=$g_flight_booking_data
     when "single"
-      $g_current_booking=FLIGHT_BOOKING
+      $g_current_booking=$g_flight_booking_data
     when "non eu"
-      $g_current_booking=NON_EU_BOOKING
+      $g_current_booking=$g_non_eu_booking_data
   end
   step "I am on Home screen"
 
