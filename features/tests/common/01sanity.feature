@@ -30,9 +30,3 @@ Feature: Login and Home page features
       | Hotel           |
       | Contact us      |
       | App Feedback    |
-
-#      | Destination     |
-#      | Duty Free       |
-#      | Guide Online    |
-#      | App Feedback    |
-#      | Log out         |

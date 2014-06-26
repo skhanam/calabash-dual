@@ -287,4 +287,5 @@ class CommonMethods < BasePage
     data["#{locale}"]["months"]["#{month}"]
   end
 
+
 end

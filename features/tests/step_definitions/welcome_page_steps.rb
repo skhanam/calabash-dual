@@ -1,5 +1,6 @@
 When(/^I am on Home screen$/) do
 
+  @page.close_whats_new_dialog
   if @homePage.check_home_screen(2)==true
     #if @welcomePage.check_welcome_screen #If check if user is not logged in
     #  step "I log into Application"
