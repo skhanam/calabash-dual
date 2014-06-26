@@ -65,6 +65,8 @@
   <string name="welcome_help_more_issues_email_body">Pahoittelemme, että kirjautumisesi ei onnistunut. Täytä alla olevat tiedot, tarkista huolellisesti, että ne ovat oikein kirjoitettu ja lähetä meille sähköpostia. Palaamme asiaan mahdollisimman pian.\nNimi: \nVarausnumero: \nPuhelinnumero: \nSähköpostiosoite: </string>
   <string name="welcome_help_more_issues_email_subject">En voi kirjautua Minun lomani -sovellukseen</string>
   <string name="welcome_help_more_issues_email_title">Lähetä sähköpostia: myynti@finnmatkat.fi</string>
+  <!-- 0.2.4 OK -->
+  <string name="ok">ok</string>
   <!-- Error Screen -->
   <string name="error_default_body">Valitettavasti sivua ei voitu ladata. Valitse toinen sivu tai sulje sovellus ja yritä hetken kuluttua uudelleen.</string>
   <string name="error_default_header">Oops, jokin meni vikaan</string>
@@ -195,7 +197,7 @@
   <string name="welcome_refuse">welcome_refuse</string>
   <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
-  <string name="bookingSummary_daysToGo">[Days] päivää jäljellä!</string>
+  <string name="bookingSummary_daysToGo">[Days] päivää jäljellä</string>
   <string name="departing_on">Matkustan:</string>
   <string name="discover">**Kohde</string>
   <string name="explore">Lue lisää lomakohteesta</string>
@@ -231,6 +233,8 @@
   <string name="your_flight">Lentomatkani</string>
   <string name="w_msg_about_your_hotel">Lennosta</string>
   <string name="w_msg_about_your_destination">Lue lisää lomakohteesta</string>
+  <string name="countdown_biscuit_title_almost">Äntligen semester!!!</string>
+  <string name="countdown_biscuit_title_complete">Äntligen semester!</string>
   <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
@@ -398,6 +402,7 @@
   <string name="guide_online_biscuit_new_message_plural">Uusia viestejä</string>
   <string name="guide_online_biscuit_new_message">Uusi viesti</string>
   <string name="guide_online_biscuit_important_messages">Sinulla on [amount] kiireellistä viestiä oppaaltamme!</string>
+  <string name="guide_online_biscuit_button_gotoPage">guide_online_biscuit_button_gotoPage</string>
   <string name="guide_online_biscuit_transfer_messages">Sinulla on [amount] kiireellistä viestiä liittyen lentokenttäkuljetukseen.</string>
   <string name="guide_online_biscuit_unread_message">Sinulla on [amount] lukematonta viestiä.</string>
   <string name="guide_online_biscuit_buttonTitle">Näytä viestit</string>
@@ -482,6 +487,8 @@
   <string name="product_share_my_accommodation">Jaa Facebookissa</string>
   <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Varausnumero: </string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_filename">holiday_summary_filename</string>
   <string name="bookingSummary_emailDescription">Lähetä yhteenveto lomastasi itsellesi tai matkaseurueellesi.</string>
   <string name="bookingSummary_emailTitle">Lähetä yhteenveto matkastani</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>

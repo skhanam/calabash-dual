@@ -65,6 +65,8 @@
   <string name="welcome_help_more_issues_email_body">Vi beklagar att du har problem att logga in på Fritidsresors app Min semester. Vänligen fyll i uppgifterna nedan och skicka mejlet till oss, så återkommer vi till dig så snart som möjligt. \n\nNamn: \nBokningsnummer: \nTelefonnummer: \nE-postadress:</string>
   <string name="welcome_help_more_issues_email_subject">Hjälp med inloggning i appen Min semester</string>
   <string name="welcome_help_more_issues_email_title">Skicka e-post till info@fritidsresor.se</string>
+  <!-- 0.2.4 OK -->
+  <string name="ok">ok</string>
   <!-- Error Screen -->
   <string name="error_default_body">Tyvärr har sidan inte kunnat laddas på rätt sätt. Välj en annan sida eller stäng appen och anslut igen senare.</string>
   <string name="error_default_header">Oops... </string>
@@ -195,7 +197,7 @@
   <string name="welcome_refuse">welcome_refuse</string>
   <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
-  <string name="bookingSummary_daysToGo">[Days] dagar kvar!</string>
+  <string name="bookingSummary_daysToGo">[Days] dagar kvar</string>
   <string name="departing_on">Jag reser på</string>
   <string name="discover">**Utforska</string>
   <string name="explore">Om mitt resmål</string>
@@ -232,6 +234,8 @@
   <string name="your_flight">Mina flygresor</string>
   <string name="w_msg_about_your_hotel">Om mitt hotell</string>
   <string name="w_msg_about_your_destination">Om mitt resmål</string>
+  <string name="countdown_biscuit_title_almost">countdown_biscuit_title_almost</string>
+  <string name="countdown_biscuit_title_complete">countdown_biscuit_title_complete</string>
   <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
@@ -399,6 +403,7 @@
   <string name="guide_online_biscuit_new_message_plural">Nya meddelanden</string>
   <string name="guide_online_biscuit_new_message">Nytt meddelande</string>
   <string name="guide_online_biscuit_important_messages">Du har fått [amount] viktiga meddelanden från guiderna.</string>
+  <string name="guide_online_biscuit_button_gotoPage">guide_online_biscuit_button_gotoPage</string>
   <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] transfermeddelanden.</string>
   <string name="guide_online_biscuit_unread_message">Du har fått [amount] oläst meddelande från guiderna.</string>
   <string name="guide_online_biscuit_buttonTitle">Visa meddelande</string>
@@ -483,6 +488,8 @@
   <string name="product_share_my_accommodation">Dela på Facebook</string>
   <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Bokningsnummer: </string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_filename">holiday_summary_filename</string>
   <string name="bookingSummary_emailDescription">Vill du skicka din flyg- och hotellinformation till andra? Då kan du enkelt dela den här översikten via mejl.</string>
   <string name="bookingSummary_emailTitle">Skicka min reseinfo</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>

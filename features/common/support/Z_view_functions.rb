@@ -228,12 +228,4 @@ module ViewModule
     click_accessibility_label "navbarLeftButton"
   end
 
-
-  def close_whats_new_dialog
-    if element_exists("#{$g_query_txt}text:'What\\\'s new?'")
-      touch ("#{$g_query_txt}text:'OK'")
-      sleep 2
-    end
-  end
-
 end

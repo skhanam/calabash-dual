@@ -65,6 +65,8 @@
   <string name="welcome_help_more_issues_email_body">Vi beklager at du har problemer med innloggingen. Vennligst fyll inn detaljene under og sjekk at alt er korrekt. Vi vil komme tilbake til deg så raskt vi kan. \n\nNavn: \nBestillingsnummer: \nTelefonnummer: \nE-postadresse:</string>
   <string name="welcome_help_more_issues_email_subject">Hjelp til innlogging i appen Min ferie</string>
   <string name="welcome_help_more_issues_email_title">Send e-post til kundeservice@startour.no</string>
+  <!-- 0.2.4 OK -->
+  <string name="ok">ok</string>
   <!-- Error Screen -->
   <string name="error_default_body">Beklager, siden ble ikke lastet riktig. Velg en annen side, eller lukk appen og prøv igjen senere.</string>
   <string name="error_default_header">Oops, noe gikk feil…</string>
@@ -195,7 +197,7 @@
   <string name="welcome_refuse">welcome_refuse</string>
   <!-- 1.0 home -->
   <string name="all_you_need_to_know_about_your_boat">all_you_need_to_know_about_your_boat</string>
-  <string name="bookingSummary_daysToGo">[Days] dager igjen!</string>
+  <string name="bookingSummary_daysToGo">[Days] dager igjen</string>
   <string name="departing_on">Jeg reiser på</string>
   <string name="discover">**Utforsk</string>
   <string name="explore">Om mitt reisemål</string>
@@ -233,6 +235,8 @@ when] klokken [time] fra [airport]? </string>
   <string name="your_flight">Min flyreise</string>
   <string name="w_msg_about_your_hotel">Om mitt hotell</string>
   <string name="w_msg_about_your_destination">Om mitt reisemål</string>
+  <string name="countdown_biscuit_title_almost">Äntligen semester!!!</string>
+  <string name="countdown_biscuit_title_complete">Äntligen semester!!!</string>
   <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
@@ -401,6 +405,7 @@ du kobler deg til nettet</string>
   <string name="guide_online_biscuit_new_message_plural">Nye meldinger</string>
   <string name="guide_online_biscuit_new_message">Ny melding</string>
   <string name="guide_online_biscuit_important_messages">Du har fått [amount] viktige beskjeder fra guidene.</string>
+  <string name="guide_online_biscuit_button_gotoPage">guide_online_biscuit_button_gotoPage</string>
   <string name="guide_online_biscuit_transfer_messages">Du har fått [amount] beskjeder vedrørende transport.</string>
   <string name="guide_online_biscuit_unread_message">Du har [amount] ulest beskjed fra guidene.</string>
   <string name="guide_online_biscuit_buttonTitle">Vis beskjed</string>
@@ -485,6 +490,8 @@ du kobler deg til nettet</string>
   <string name="product_share_my_accommodation">Dele på Facebook</string>
   <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Bestillingsnummer: </string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_filename">holiday_summary_filename</string>
   <string name="bookingSummary_emailDescription">Vil du sende din fly- og hotellinformasjon til andre via e-post? </string>
   <string name="bookingSummary_emailTitle">Send min ferieinfo</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>
