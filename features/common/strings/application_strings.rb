@@ -55,7 +55,9 @@ module AppStrings
     app_feedback_strings
     destination_info_strings
     check_open_url_in_browser_cta
+    whats_new_strings
     push_notification_dialog
+
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -78,13 +80,18 @@ module AppStrings
     @@currency_hash={}
   end
 
+  def whats_new_strings
+    @@app_update_popup_title= escape_quotes(get_localized_string "app_update_popup_title")
+    @@app_update_popup_body= get_localized_string "app_update_popup_body"
+    @@ok= get_localized_string "ok"
+  end
 
   def push_notification_dialog
     @@push_notifications=get_localized_string "push_notifications"
     @@we_would_like_to_send_push=get_localized_string "we_would_like_to_send_push"
     @@push_not_now=get_localized_string "not_now"
     @@push_allow=get_localized_string "allow"
-    end
+  end
 
   def check_open_url_in_browser_cta
     @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"

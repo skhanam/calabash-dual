@@ -22,13 +22,4 @@ class BasePage < Calabash::ABase
     end
   end
 
-  def close_whats_new_dialog
-    if element_exists("#{$g_query_txt}text:'#{@@push_notifications}'")
-      assert_wait_for_text @@we_would_like_to_send_push
-      assert_wait_for_text @@push_not_now
-      touch ("#{$g_query_txt}text:'#{@@push_not_now}'")
-      sleep 2
-    end
-  end
-
 end

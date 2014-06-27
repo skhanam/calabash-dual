@@ -27,9 +27,6 @@ end
 
 def check_thomson_api
   surname="martin"
-  departureDate="22-04-2015"
-  visionBookingRef="12347813"
-  visionShopNumber="9999"
 
   begin
     cmd=%Q(curl 'http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: fbe37b64-9a09-4bbd-ae59-d3433ba74af0' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-thomson' -H 'Accept-Language: en-US,en;q=0.8' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryBFMoUGekbBDoloDt' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: ffa667411e1e44908aa3b66e18b84a7ea3eec658' --data-binary $'------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="surname"\r\n\r\n#{surname}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n#{departureDate}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n#{visionShopNumber}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n#{visionBookingRef}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt--\r\n' --compressed)
