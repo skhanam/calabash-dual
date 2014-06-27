@@ -2,8 +2,8 @@ require_relative '../Default/welcome_base_page'
 
 class WelcomePage < WelcomeBasePage
   def navigate_to_login
-    @welcomePage.close_whats_new_dialog
-    @welcomePage.close_push_notifications
+    close_whats_new_dialog
+    close_push_notifications
     assert_wait_for_text(@@welcome_page_text,10)
   end
 
