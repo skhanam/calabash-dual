@@ -27,8 +27,8 @@ class WelcomeBasePage < BasePage
   end
 
   def navigate_to_login
-    @welcome.close_whats_new_dialog
-    @welcome.close_push_notifications
+    @welcomePage.close_whats_new_dialog
+    @welcomePage.close_push_notifications
     check_welcome_screen
     sleep 1
     click_on_text(@@login_with_existing_credentials)
