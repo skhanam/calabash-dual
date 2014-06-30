@@ -82,6 +82,8 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
       $g_current_booking=$g_flight_booking_data
     when "non eu"
       $g_current_booking=$g_non_eu_booking_data
+    when "one way"
+      $g_current_booking=$single_journey_multi_leg
   end
   step "I am on Home screen"
 
@@ -91,7 +93,7 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
     @homePage.click_on_account_button
     @myBookingsPage.switch_to_particular_booking
   else
-    #puts "already switched to #{booking_type} "
+    puts "already switched to #{booking_type} "
   end
 end
 
@@ -173,6 +175,11 @@ end
 
 Given(/^I am on default booking$/) do
   step "I have switched to typical booking" if $g_german_app
+end
+
+Given(/^I am on home screen with one way booking$/) do
+  step "I am on Home screen"
+  step "I have switched to one way booking" if $g_german_app
 end
 
 Given(/^I am on home screen with default booking$/) do

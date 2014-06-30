@@ -5,6 +5,12 @@ class FlightsBasePage < BasePage
     verify_page_title @@flights_page_title
   end
 
+  def check_flights_list_is_not_shown
+    if check_text_in_view(@@flight_page_title)
+      fail("Flights list must not be shown for one way flights")
+    end
+  end
+
   def check_flights_listing
     arr= CommonMethods.new.get_flights_details
     arr.each do |var|
