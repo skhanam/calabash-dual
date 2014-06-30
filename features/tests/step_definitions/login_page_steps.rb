@@ -308,6 +308,10 @@ end
 
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
+
+  @page.close_whats_new_dialog
+  @page.close_push_notifications
+
   if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
     surname=$g_current_user_details[:invalid][:surname]
     departureDate=$g_current_user_details[:invalid][:departuredate]
@@ -328,6 +332,7 @@ Given(/^I submit wrong login details$/) do
     bookingNum = NOR_USER[:invalid][:bookingnumber]
     email = NOR_USER[:invalid][:emailid]
     telephone = NOR_USER[:invalid][:telefon]
+
     nordics_login(bookingNum, email, telephone)
     sleep 2
     step "I select the Login button"
