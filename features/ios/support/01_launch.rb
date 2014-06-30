@@ -10,6 +10,7 @@ Before do |scenario|
 
   if scenario_tags.include?('@reset')
     @calabash_launcher.reset_app_jail
+    $selected_booking="NA"
   end
 
   unless @calabash_launcher.calabash_no_launch?
