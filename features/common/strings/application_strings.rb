@@ -122,6 +122,8 @@ module AppStrings
     @@call_us_dialog_yes = get_localized_string "call_dialog_call"
     @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
+
+    @@weather_coming_soon=get_localized_string "weather_coming_soon"
   end
 
   def image_icons_acc_label

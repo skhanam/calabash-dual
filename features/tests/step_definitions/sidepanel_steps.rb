@@ -71,9 +71,16 @@ Then(/^I should see a list of products in booking$/) do
   @sidePanel.verify_side_panel_strings
 end
 
-Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
+Then(/^I navigate to each item and navigate back to home screen$/) do |table|
   values=table.raw
   values.each do |var|
+
+    #skip the iteration if weather is not retrieved
+    #if (var[0]=="Weather" && @page.check_text_in_view(@page.get_localized_string("weather_coming_soon"))) == true
+    #  puts "weather info not available coming soon"
+    #  next
+    #end
+
     @homePage.open_side_panel
     sleep 2
     @sidePanel.navigate_from_side_menu(var[0])
@@ -81,7 +88,7 @@ Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
 
     if ENV['TAKE_SS']=="yes"
       sleep 5
-    screenshot(options={:name => "#{var[0]}"})
+      screenshot(options={:name => "#{var[0]}"})
     end
 
     @page.navigate_back
