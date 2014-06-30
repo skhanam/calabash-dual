@@ -76,10 +76,10 @@ Then(/^I navigate to each item and navigate back to home screen$/) do |table|
   values.each do |var|
 
     #skip the iteration if weather is not retrieved
-    #if (var[0]=="Weather" && @page.check_text_in_view(@page.get_localized_string("weather_coming_soon"))) == true
-    #  puts "weather info not available coming soon"
-    #  next
-    #end
+    if (var[0]=="Weather" && @page.check_text_in_view(@page.get_localized_string("weather_coming_soon"))) == true
+      puts "weather info not available coming soon"
+      next
+    end
 
     @homePage.open_side_panel
     sleep 2
