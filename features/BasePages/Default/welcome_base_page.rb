@@ -44,6 +44,9 @@ class WelcomeBasePage < BasePage
   end
 
   def click_already_registered
+    close_whats_new_dialog
+    close_push_notifications
+
     click_on_text @@login_with_existing_credentials
     assert_wait_for_text @@login_page_text
   end
@@ -53,7 +56,11 @@ class WelcomeBasePage < BasePage
   end
 
   def click_not_yet_registered_with_tui
-    click_on_text @@not_yet_registered
+    sleep 2
+    close_whats_new_dialog
+    close_push_notifications
+
+    click_on_text @@register_with_booking_code
     assert_wait_for_text @@new_user_registration_create_account_text1
     return NewUserRegistrationBasePage.new
   end
