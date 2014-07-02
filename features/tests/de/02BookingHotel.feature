@@ -24,7 +24,6 @@ Feature: Verify booking information for Typical Booking
       | accommodation |
       | sport         |
       | Wellness      |
-      | For Children  |
 
  @hotel3
   Scenario: Call us button on hotel page

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <!-- 0.0.1 post holiday -->
   <string name="postholiday_alert">We hope you had a great time away. Ready to plan your next holiday? Feel free to browse our great range of holidays. Or contact us about your recent trip.</string>
   <string name="postholiday_alert_title">Welcome back</string>
   <string name="postholiday_callcentre">Call centre opening times:</string>
@@ -22,18 +23,21 @@
   <string name="friday">friday</string>
   <string name="saturday">saturday</string>
   <string name="sunday">sunday</string>
+  <!-- 0.2 have a tui booking -->
   <string name="tell_us_cta_new_tui_body">tell_us_cta_new_tui_body</string>
   <string name="tell_us_cta_new_tui_title">tell_us_cta_new_tui_title</string>
   <string name="tell_us_cta_with_tui_body">tell_us_cta_with_tui_body</string>
   <string name="tell_us_cta_with_tui_title">tell_us_cta_with_tui_title</string>
   <string name="tell_us_header">tell_us_header</string>
+  <!-- 0.2.1 help logging in -->
   <string name="help_email_address">mobilesupport@thomson.co.uk</string>
   <string name="welcome_help_cant_login_cta">Retrieve a booking reference number</string>
-  <string name="welcome_help_cant_use_app_body">You didn’t book directly with Thomson.::Your booking includes more than 1 hotel or 2 flights.::You have booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson.</string>
+  <string name="welcome_help_cant_use_app_body">You didn’t book directly with Thomson.::Your booking includes more than 1 hotel or 2 flights.::You have booked a Thomson Cruise.::You have booked a First Choice holiday through Thomson.</string>
   <string name="welcome_help_cant_use_app_header">Sorry, you can’t use the app if:</string>
   <string name="welcome_help_link1">I can't log in</string>
   <string name="welcome_help_link2">Retrieve my booking reference number</string>
   <string name="welcome_help_link3">I haven’t booked a Thomson holiday</string>
+  <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">We’ll send your booking reference number by email when your MyThomson app is ready to use. You should expect to receive it 3-4 days after booking a holiday directly with Thomson, in store, online or over the phone. If you have forgotten your booking reference number, please enter your details below.\n\n</string>
   <string name="welcome_help_retrieve_booking_cta">Submit</string>
   <string name="welcome_help_retrieve_booking_email">Email address used for booking:</string>
@@ -46,6 +50,7 @@
   <string name="welcome_help_retrieve_booking_surname">Surname of lead passenger:</string>
   <string name="welcome_help_retrieve_booking_surname_extra">Please use the surname of the person that booked your holiday, as detailed on your invoice.</string>
   <string name="welcome_help_retrieve_booking_surname_hint">Enter surname</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_cant_login_androidStore">Download MyFirstChoice app</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">https://play.google.com/store/apps/details?id=com.firstchoice.myfirstchoice</string>
   <string name="welcome_help_cant_login_body">Your lead passenger surname. (That’s the person that booked your holiday and receives all correspondence).::Your departure date.::Your booking reference number. It looks like this: 1234/12345678. The first number is four digits long. The second number is 4-8 digits long.</string>
@@ -55,26 +60,31 @@
   <string name="welcome_help_cant_login_header">Help logging in</string>
   <string name="welcome_help_cant_login_iosStore">Download MyFirstChoice app</string>
   <string name="welcome_help_cant_login_iosStoreCTA_website">https://itunes.apple.com/gb/app/myfirstchoice/id771740094</string>
-  <string name="welcome_help_cant_login_subtitle">To log in you need:</string>
+  <string name="welcome_help_cant_login_subtitle">To log in you'll need:</string>
   <string name="welcome_help_more_issues_body">If you’re still having problems logging in, please let us know by email.</string>
   <string name="welcome_help_more_issues_email_body">We're sorry you're having problems logging in to the MyThomson app. Please fill in the details below and check that everything’s correct. We’ll get back to you as soon as possible.\n\nLead passenger surname: \nDeparture date: \nBooking reference number: \nThe email address you booked your holiday with: \nPostcode: \nYour query:\n\nApp version: [version]\nOperating system: [os]\nPhone type: [phone]\nAppcelerator SDK version: [tiversion] \n</string>
   <string name="welcome_help_more_issues_email_subject">I can't log in to MyThomson</string>
   <string name="welcome_help_more_issues_email_title">Send email</string>
+  <!-- 0.2.4 OK -->
   <string name="ok">OK</string>
+  <!-- Error Screen -->
   <string name="error_default_body">Sorry some of our content hasn’t loaded correctly. Please try viewing another page or close the app and connect again later.</string>
   <string name="error_default_header">Oops something went wrong</string>
   <string name="error_no_internet_body">Sorry to view this page internet connection is required. Please refresh the page.</string>
   <string name="error_no_internet_header">Internet required</string>
   <string name="error_no_internet_refresh">Refresh</string>
   <string name="try_again">Try again</string>
+  <!-- 0.3 login (nodics) -->
   <string name="welcome_book_holiday">Book a Holiday</string>
   <string name="welcome_help_no_holiday_call_cta">Call us on 000000000</string>
   <string name="welcome_help_no_holiday_call_number">12345678</string>
+  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_more_issues_phone_title">Call us on 000 000</string>
   <string name="welcome_help_more_issues_privacy_title">Privacy policy</string>
   <string name="welcome_help_more_issues_phone_url"> 000 000</string>
   <string name="welcome_help_more_issues_privacy_link">http://www.thomson.co.uk/editorial/legal/privacy-policy.html</string>
   <string name="welcome_help_more_issues_header">Still having problems?</string>
+  <!-- 0.2.4 book a holiday -->
   <string name="explore_tui_beach_hotel_body">Makes every summer even more beautiful: sun, sand and sea. Find your place in the sun!</string>
   <string name="explore_tui_beach_hotel_button">Discover TUI Beach Hotel</string>
   <string name="explore_tui_body">Welcome to your mobile travel world! Find out what dream destinations await you – and which services this app keeps for you.</string>
@@ -98,7 +108,7 @@
   <string name="welcome_help_no_holiday_find_holiday_header">Find a holiday you love</string>
   <string name="welcome_help_no_holiday_header">Book your holiday today</string>
   <string name="welcome_help_no_holiday_take_tour_cta">Take the tour on YouTube</string>
-  <string name="welcome_help_no_holiday_take_tour_cta_link">http://www.youtube.com/watch?v=ENM7Bvk3qYU</string>
+  <string name="welcome_help_no_holiday_take_tour_cta_link">https://www.youtube.com/watch?v=tswt3SG69xM</string>
   <string name="welcome_book_holiday_blue_village_title">welcome_book_holiday_blue_village_title</string>
   <string name="welcome_book_holiday_scen_text">welcome_book_holiday_scen_text</string>
   <string name="welcome_book_holiday_blue_couples_title">welcome_book_holiday_blue_couples_title</string>
@@ -123,6 +133,7 @@
   <string name="welcome_book_holiday_sensatori_title">welcome_book_holiday_sensatori_title</string>
   <string name="welcome_book_holiday_sensatori_text">welcome_book_holiday_sensatori_text</string>
   <string name="welcome_book_holiday_sensatori_link">welcome_book_holiday_sensatori_link</string>
+  <!-- 0.3 login -->
   <string name="forgot_password_body">forgot_password_body</string>
   <string name="forgot_password_email_help">forgot_password_email_help</string>
   <string name="forgot_password_email_hint">forgot_password_email_hint</string>
@@ -132,6 +143,7 @@
   <string name="login_email_hint">login_email_hint</string>
   <string name="login_email_tooltip">login_email_tooltip</string>
   <string name="login_telephone">login_telephone</string>
+  <!-- 0.3 login -->
   <string name="login_country">login_country</string>
   <string name="login_country_extra">login_country_extra</string>
   <string name="login_country_tooltip">login_country_tooltip</string>
@@ -183,6 +195,7 @@
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson.</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
+  <!-- 1.0 home -->
   <string name="newsletter_signup_title">newsletter_signup_title</string>
   <string name="newsletter_signup_success">newsletter_signup_success</string>
   <string name="newsletter_try_again_cta">newsletter_try_again_cta</string>
@@ -231,6 +244,7 @@
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
   <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
+  <!-- 1.0 off canvas -->
   <string name="accomodation">Accommodation</string>
   <string name="boat">Boat</string>
   <string name="booking_summary">Holiday summary</string>
@@ -278,7 +292,9 @@
   <string name="duty_free">Duty free</string>
   <string name="guide_online">Guide Online</string>
   <string name="app_feedback">App feedback</string>
+  <!-- 7,1 Seleted Hotel -->
   <string name="hotel_to_destinations">Learn more about:</string>
+  <!-- 11.0 extras -->
   <string name="book_holiday_extras">Book holiday extras</string>
   <string name="extras_book_online">Order online now</string>
   <string name="extras_call">Call us on [number]</string>
@@ -287,8 +303,10 @@
   <string name="extras_title">Holiday extras</string>
   <string name="holiday_extra">Holiday extra</string>
   <string name="holiday_extras">Holiday extras</string>
+  <!-- 12.0 travel money -->
   <string name="money_on_card">Money on a card</string>
   <string name="travel_money_card">Travel Money Card</string>
+  <!-- 12.3 currency -->
   <string name="currency_converter">Travel Money</string>
   <string name="currency_converter_tool">Currency converter</string>
   <string name="find_a_shop_url">http://www.thomson.co.uk/shopfinder/shop-finder.html</string>
@@ -305,6 +323,7 @@
   <string name="guide_rate_only">Guide rate only</string>
   <string name="select_currency">Select Currency</string>
   <string name="updated_at">Updated at [time] on [date]</string>
+  <!-- 13.0 important information -->
   <string name="good_to_know">Important information</string>
   <string name="good_to_know_null">TBC</string>
   <string name="goodtoknow_blurb">Useful information for your holiday destination</string>
@@ -317,6 +336,7 @@
   <string name="leaving">Leaving</string>
   <string name="resort_blurb">Useful information for your holiday destination:</string>
   <string name="resort_blurb_null">TBC</string>
+  <!-- 14.0 contact -->
   <string name="contact_message">contact_message</string>
   <string name="contact_messageHint">contact_messageHint</string>
   <string name="contact_phone">contact_phone</string>
@@ -361,6 +381,7 @@
   <string name="contactus_cta_guideonline">contactus_cta_guideonline</string>
   <string name="send_sms">Send SMS</string>
   <string name="we_are_here_for_you">we_are_here_for_you</string>
+  <!-- 16.0 Guide Online -->
   <string name="guide_online">Guide Online</string>
   <string name="tap_to_type_message">Type message</string>
   <string name="tap_to_reply">Tap to reply</string>
@@ -401,6 +422,7 @@
   <string name="guide_online_copy">guide_online_copy</string>
   <string name="guide_online_message_failed_to_send">threetimes</string>
   <string name="guide_online_message_failed_to_send_body">guide_online_message_failed_to_send_body</string>
+  <!-- 16.0 My Messages -->
   <string name="mymessages">MyMessages</string>
   <string name="mymessages_all">All</string>
   <string name="mymessages_important">Important</string>
@@ -408,6 +430,7 @@
   <string name="mymessages_booking">Booking</string>
   <string name="mymessages_cta_label">Visit page</string>
   <string name="mymessages_virgin_message">Welcome to MyMessages. This is where you can find any useful updates we send about your holiday.</string>
+  <!-- 18.0 social share -->
   <string name="boat_share_during_fb">boat_share_during_fb</string>
   <string name="boat_share_during_tw">boat_share_during_tw</string>
   <string name="boat_share_pre_fb">boat_share_pre_fb</string>
@@ -465,7 +488,9 @@
   <string name="weather_share_pre_tw">Just [days] days until my @ThomsonHolidays to [location], it’s [temperature]˚C today!</string>
   <string name="weather_share_today_fb">I’m going to [location] today on my #Thomson #holiday. It’s [temperature]˚C today!</string>
   <string name="weather_share_today_tw">I’m going to [location] today on my @ThomsonHolidays. It’s [temperature]˚C today!</string>
+  <!-- 18.0 social sharing -->
   <string name="product_share_my_accommodation">Share my accommodation</string>
+  <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Booking reference number:</string>
   <string name="holiday_summary_pdf">holiday_summary_pdf</string>
   <string name="holiday_summary_filename">holiday_summary_filename</string>
@@ -488,9 +513,11 @@
   <string name="past_bookings">Past Bookings</string>
   <string name="holiday_summary_pdf">holiday_summary_pdf</string>
   <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
+  <!-- 2.1 booking selector -->
   <string name="booking_details">booking_details</string>
   <string name="booking_details_blurb">booking_details_blurb</string>
   <string name="i_need_help">i_need_help</string>
+  <!-- 3.0 countdown -->
   <string name="car_message_minus_548">Your car is ready for you. We look forward to meeting you!</string>
   <string name="car_message_plus_1">did you have a good trip?</string>
   <string name="car_message_zero">Your car is already waiting for you. See you soon!</string>
@@ -508,7 +535,9 @@
   <string name="insurance_message_minus_548">good insurance is half the holiday. See you soon at TUI!</string>
   <string name="insurance_message_plus_1">did you enjoy your trip?</string>
   <string name="insurance_message_zero">Your holiday can start safely now</string>
+  <!-- 3.0 find a booking -->
   <string name="find_booking">Add a booking</string>
+  <!-- 3.0 holiday countdown -->
   <string name="countdown_active">I’m on holiday!</string>
   <string name="countdown_day">Day</string>
   <string name="countdown_days">Days</string>
@@ -522,6 +551,7 @@
   <string name="countdown_waiting">I’m flying to [location] in</string>
   <string name="day_to_go">day to go</string>
   <string name="days_to_go">days to go</string>
+  <!-- 4.0 checklist -->
   <string name="add_an_item">Add an item...</string>
   <string name="biscuit_checklist_plural">items still to do </string>
   <string name="biscuit_checklist_reminderSet">Reminder set for [time]</string>
@@ -547,6 +577,7 @@
   <string name="things_todo">Things to do</string>
   <string name="you_are_packed">You're packed!</string>
   <string name="your_todolist_is_done">Your to-do list is done</string>
+  <!-- 5.0 / 5.1 weather -->
   <string name="average">average</string>
   <string name="climate">climate</string>
   <string name="cloudy">Cloudy</string>
@@ -566,6 +597,7 @@
   <string name="weather_share">Share the weather</string>
   <string name="climate_rain_free_days">climate_rain_free_days</string>
   <string name="weather_coming_soon">weather_coming_soon</string>
+  <!-- 5.1 product -->
   <string name="booked_for">Booked for:</string>
   <string name="category">Category:</string>
   <string name="my_accomodation">My accommodation</string>
@@ -574,6 +606,7 @@
   <string name="checkout_title">checkout_title</string>
   <string name="rooms">Rooms:</string>
   <string name="share_my_accomodation">Share my accommodation</string>
+  <!-- 5.1 product pages -->
   <string name="address">Address</string>
   <string name="availability_from">Available on:</string>
   <string name="awards">Awards</string>
@@ -618,6 +651,7 @@
   <string name="titles_to_split_by_colon">to</string>
   <string name="transfer">Transfer</string>
   <string name="transfers">Transfer</string>
+  <!-- 6.1 flights -->
   <string name="airline">Airline:</string>
   <string name="approximate">Approximate</string>
   <string name="approximate_arrival">Land</string>
@@ -649,9 +683,11 @@
   <string name="flight_details_extras_meals">flight_details_extras_meals</string>
   <string name="flight_details_extras_luggage_allowance">flight_details_extras_luggage_allowance</string>
   <string name="flight_details_extras_duty_free">flight_details_extras_duty_free</string>
+  <!-- 8.0 destination -->
   <string name="destinations_goexploring">Explore your destination</string>
   <string name="destinations_goexploring_sub_title">With our great range of excursions</string>
   <string name="destinations_goexploring_title">View excursions</string>
+  <!-- 9.0 excursions -->
   <string name="book_with_tui_service">Book with TUI service</string>
   <string name="excursion_email">Book online [url]...</string>
   <string name="excursions_here_available">Excursions available:</string>
@@ -660,6 +696,7 @@
   <string name="experience_the_country_subtitle">With Thomson Excursions</string>
   <string name="plan_your_excursions">Plan your excursions</string>
   <string name="share_my_excursion">Share this excursion</string>
+  <!-- 9.0 travel agent -->
   <string name="contact_tui_services">contact_tui_services</string>
   <string name="service_on_site">service_on_site</string>
   <string name="services_email">services_email</string>
@@ -673,15 +710,19 @@
   <string name="travelAgent_phone">travelAgent_phone</string>
   <string name="travelAgent_title">travelAgent_title</string>
   <string name="travelAgent_website">travelAgent_website</string>
+  <!-- activity indicator -->
   <string name="hold_holiday_found">We’ve found your booking…</string>
   <string name="hold_on">One moment please …</string>
   <string name="hold_on_booking">We're looking up your holiday…</string>
+  <!-- already registered -->
   <string name="have_you_used_tui_cta_logged_body">have_you_used_tui_cta_logged_body</string>
   <string name="have_you_used_tui_cta_logged_title">have_you_used_tui_cta_logged_title</string>
   <string name="have_you_used_tui_cta_not_logged_body">have_you_used_tui_cta_not_logged_body</string>
   <string name="have_you_used_tui_cta_not_logged_title">have_you_used_tui_cta_not_logged_title</string>
   <string name="have_you_used_tui_header">have_you_used_tui_header</string>
+  <!-- Booking Details -->
   <string name="my_bookings">my_bookings</string>
+  <!-- Cant Find Booking -->
   <string name="cantFindBooking_errorMsg">cantFindBooking_errorMsg</string>
   <string name="cantFindBooking_switchTo">cantFindBooking_switchTo</string>
   <string name="cantFindBooking_de">cantFindBooking_de</string>
@@ -691,6 +732,7 @@
   <string name="cantFindBooking_addBookingTitle">cantFindBooking_addBookingTitle</string>
   <string name="cantFindBooking_ctaAddBooking">cantFindBooking_ctaAddBooking</string>
   <string name="cantFindBooking_tryThese">cantFindBooking_tryThese</string>
+  <!-- Dates -->
   <string name="april">April</string>
   <string name="august">August</string>
   <string name="datetime">DD/MM/YYYY HH:mm</string>
@@ -712,15 +754,21 @@
   <string name="timeformat">HH:mm</string>
   <string name="today">Today</string>
   <string name="tomorrow">Tomorrow</string>
+  <!-- Don't forget -->
   <string name="dont_forget_to">Don't forget to:</string>
+  <!-- Email Help -->
   <string name="email_impressum">email_impressum</string>
+  <!-- General -->
   <string name="delete">Delete</string>
+  <!-- Email -->
   <string name="email_items">Email items</string>
+  <!-- Email Help -->
   <string name="email_help_body">Please fill in the following fields or check the details below so that we can help you further.\n\nFirst name: \nSurname: \nEmail: \nPhone number (optional): \nFirst line of address: \nPost code (optional): \nBooking reference number: \nDeparture date: \nDestination: \n\nPlease enter any questions or comments here: \n</string>
   <string name="email_help_subject">email_help_subject</string>
   <string name="email_help_subject_booking">I need help with my booking</string>
   <string name="email_help_subject_hotel">TUI Guest Request</string>
   <string name="email_help_subject_registration">I need help with my registration</string>
+  <!-- General -->
   <string name="view">View</string>
   <string name="notification_no_internet_connection">NO CONNECTION FOUND</string>
   <string name="notification_page_last_updated">Page last updated: [date] at [time]</string>
@@ -728,6 +776,7 @@
   <string name="services_description">services_description</string>
   <string name="services_numbers">services_numbers</string>
   <string name="services_questions">services_questions</string>
+  <!-- Generic -->
   <string name="car">car</string>
   <string name="email_noemail_message">You don’t have an email account set up on this phone. Please visit ‘Settings’ to do this.</string>
   <string name="email_noemail_title">Sorry</string>
@@ -739,8 +788,8 @@
   <string name="url_dialog_buttons_to_split_by_colon">Cancel:Yes</string>
   <string name="url_dialog_title">Open in browser?</string>
   <string name="app_update_popup_title">What's new?</string>
-  <string name="app_update_popup_body">• MyMessages – this is where you can find useful, real-time updates about
-your holiday.\n• In-app feedback: you can rate the app and send your thoughts straight to our team.\n• Push notifications: if you enable these, we can now send you useful updates about your holiday, like online check-in, Select-your-Seat and exclusive offers.</string>
+  <string name="app_update_popup_body">• MyMessages – this is where you can find useful, real-time updates about your holiday.\n• In-app feedback: you can rate the app and send your thoughts straight to our team.\n• Push notifications: if you enable these, we can now send you useful updates about your holiday, like online check-in, Select-your-Seat and exclusive offers.</string>
+  <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Hold on, we’re just finding your holiday…</string>
   <string name="activity_indicator_two">We’ve found your booking…</string>
   <string name="activity_indicator_three">Spotted your destination…</string>
@@ -753,9 +802,11 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="activity_indicator_ten">We’re just checking details for you…</string>
   <string name="activity_indicator_eleven">Tailoring the page to you…</string>
   <string name="activity_indicator_twelve">Almost done...</string>
+  <!-- meet the rep -->
   <string name="meet_the_rep_help">meet_the_rep_help</string>
   <string name="meet_the_rep_information_sessions">meet_the_rep_information_sessions</string>
   <string name="meet_the_rep_tui_welcome">meet_the_rep_tui_welcome</string>
+  <!-- my account -->
   <string name="cancel">Cancel</string>
   <string name="change_password">Change password</string>
   <string name="confirm">Confirm</string>
@@ -781,7 +832,9 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="update_reminder">update_reminder</string>
   <string name="username">Username:</string>
   <string name="your_password">Your Password:</string>
+  <!-- Privacy Policy -->
   <string name="privacy_policy_header">Privacy policy</string>
+  <!-- registration -->
   <string name="is_this_you">is_this_you</string>
   <string name="is_this_you_introduction">is_this_you_introduction</string>
   <string name="salutations_to_split_by_colon">Mr:Mrs:Ms:Miss:Dr</string>
@@ -815,6 +868,7 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="signup_your_booking">signup_your_booking</string>
   <string name="time">time</string>
   <string name="your_postcode">your_postcode</string>
+  <!-- Sign up -->
   <string name="email_signup_successful">Thanks for signing up. Keep an eye on your inbox for upcoming offers.</string>
   <string name="email_signup_failed">Oops, looks like something went wrong. Please check your connection and try again.</string>
   <string name="welcome_help_no_holiday_email_header">Sign up for offers</string>
@@ -828,6 +882,7 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="agree_to_emails_blurb">Please read our Privacy Policy and Data Protection Notice and confirm you agree to our use of your information provided (which may in special situations include sensitive personal data) by ticking the box below.</string>
   <string name="agree_to_emails">I agree</string>
   <string name="welcome_help_no_holiday_email_disclaimer">By clicking 'Submit' you confirm that you have read and understood our Privacy Policy and consent to our use of your information.</string>
+  <!-- text field widget -->
   <string name="are_you_sure">Are you sure?</string>
   <string name="done">Done</string>
   <string name="next">Next</string>
@@ -835,10 +890,12 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="previous">Previous</string>
   <string name="open_in_safari">Open in browser?</string>
   <string name="water">water</string>
+  <!-- 16.0 Push Notifications -->
   <string name="push_notifications">Push Notifications</string>
   <string name="we_would_like_to_send_push">We’d like to you send useful updates about your holiday, like online check-in, Select-your-Seat and exclusive offers.</string>
   <string name="not_now">Not now</string>
   <string name="allow">Allow</string>
+  <!-- 19.0 App Feedback -->
   <string name="feedback_title">From 0-10, how likely are you to recommend this app?</string>
   <string name="feedback_submit_button">Submit your feedback</string>
   <string name="feedback_navbar_title">Feedback</string>
@@ -856,12 +913,14 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="feedback_email_to_address">mobilesupport@thomson.co.uk</string>
   <string name="feedback_home_screen_message_prompt">What do you think of our app? It'd be great to hear your views.</string>
   <string name="feedback_home_screen_button_prompt">Rate the MyThomson app</string>
-  <string name="browser_openExternal">Open in Browser</string>
+  <!-- 20.0 In App Browser -->
+  <string name="browser_openExternal">Open in browser</string>
   <string name="browser_copyUrl">Copy link</string>
   <string name="browser_leaving_title">Are you sure you want to leave this page?</string>
   <string name="browser_leaving_cancel">Stay on page</string>
   <string name="browser_warning">Your changes will be lost when opening in browser</string>
   <string name="browser_leaving_okay">Leave page</string>
+  <!-- 25.0 Booking Extras - Car Hire -->
   <string name="car_hire_title">car_hire_title</string>
   <string name="car_hire_main_text">car_hire_main_text</string>
   <string name="car_hire_bullet_points_title">car_hire_bullet_points_title</string>
@@ -872,5 +931,8 @@ your holiday.\n• In-app feedback: you can rate the app and send your thoughts 
   <string name="car_hire_bullet_point_5">car_hire_bullet_point_5</string>
   <string name="car_hire_web_link_title">car_hire_web_link_title</string>
   <string name="car_hire_footnote">car_hire_footnote</string>
+  <!-- Google Analytics - Brand Name -->
   <string name="ga_brandName">ga_brandName</string>
+  <!-- Generic App Details -->
+  <string name="app_details">\n\nApp version: [version]\nOperating system: [os]\nPhone type: [phone]\nAppcelerator SDK version: [tiversion] \n</string>
 </resources>

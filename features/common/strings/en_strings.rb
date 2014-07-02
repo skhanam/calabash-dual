@@ -63,6 +63,7 @@ module EN_Strings
     @@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
     @@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
     @@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
+    @@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
   end
 
   def login_page_strings

@@ -28,7 +28,7 @@ class ChecklistPageUk < BasePage
 
     query_txt="#{$g_query_txt}marked:'#{@@check_list_check_box_acc}' index:0" if $g_ios
     query_txt= "#{$g_query_txt}contentDescription:'#{@@check_list_check_box_acc}.' index:0" if $g_android
-
+    sleep 2
     touch(query_txt)
     return res
   end
