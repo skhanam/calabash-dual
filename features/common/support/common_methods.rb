@@ -141,9 +141,10 @@ class CommonMethods < BasePage
   end
 
   def get_booking_ref_number
-    $g_current_booking["payload"]["reservationCode"] if $g_german_app
-    $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
-    $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
+    num = $g_current_booking["payload"]["reservationCode"] if $g_german_app
+    num = $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
+    num = $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
+    return num
   end
 
   def find_number_of_flights
