@@ -1,6 +1,17 @@
 @nor @eng
 Feature: English Sanity Tests
 
+  @prelogin1 @ss
+  Scenario: Verify welcome screen
+    Given I am on 'Login' screen
+    Then I verify text content on login screen
+
+  @prelogin2
+  Scenario: Verify help logging link on welcome screen
+    Given I am on 'Login' screen
+    When I select help logging in page
+    Then I verify help logging in page
+
   @offcanvas @failed
   Scenario: Left off canvas Menu listing
     Given I am on Home screen

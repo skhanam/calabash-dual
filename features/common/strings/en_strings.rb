@@ -18,11 +18,35 @@ module EN_Strings
     flights_strings
     flight_details_strings
     excursions_strings
+    help_logging_in
+    retrieve_booking_ref
   end
 
   #All test data for different appication is in here
   def test_data
     $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
+  end
+
+  def retrieve_booking_ref
+    @@welcome_help_retrieve_booking_header = get_localized_string "welcome_help_retrieve_booking_header" # Retrieve my booking reference number
+    @@welcome_help_retrieve_booking_body = get_localized_string "welcome_help_retrieve_booking_body" # We’ll send your booking reference number by email
+
+    @@welcome_help_retrieve_booking_surname = get_localized_string "welcome_help_retrieve_booking_surname" # Surname of lead passenger:
+    @@welcome_help_retrieve_booking_email = get_localized_string "welcome_help_retrieve_booking_email" # Email address used for booking:
+
+    @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
+
+    @@welcome_help_more_issues_body= get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
+    @@welcome_help_more_issues_email_title= get_localized_string "welcome_help_more_issues_email_title" # Send email
+
+    @@welcome_help_retrieve_booking_email_extra = get_localized_string "welcome_help_retrieve_booking_email_extra" # Please use the email address you provided when booking your holiday, as detailed on your invoice.
+    @@welcome_help_retrieve_booking_email_hint = get_localized_string "welcome_help_retrieve_booking_email_hint" # Enter email address
+    @@welcome_help_retrieve_booking_error = get_localized_string "welcome_help_retrieve_booking_error" # Sorry, we didn't recognise your details.
+    @@welcome_help_retrieve_booking_ref_validation = get_localized_string "welcome_help_retrieve_booking_ref_validation" # The first part of your booking reference number must be 4 numbers long. The second set can be between 4 and 8 numbers long.
+    @@welcome_help_retrieve_booking_surname_extra = get_localized_string "welcome_help_retrieve_booking_surname_extra" # Please use the surname of the person that booked your holiday, as detailed on your invoice.
+    @@welcome_help_retrieve_booking_surname_hint = get_localized_string "welcome_help_retrieve_booking_surname_hint" # Enter surname
+
+
   end
 
   def excursions_strings
@@ -53,7 +77,6 @@ module EN_Strings
     @@flights_page_title=get_localized_string "flights" if $g_current_app=="EN_TH"
     @@flights_page_title=get_localized_capitalized_string "flights" if $g_current_app=="EN_FC"
     @@flight_details_flight_number= get_localized_string "flight_number"
-
   end
 
   def welcome_page_strings
@@ -70,16 +93,53 @@ module EN_Strings
     @@login_page_text = get_localized_string "welcome_login_header"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
+    @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
     @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
-    @@welcome_help_cant_login_cta=get_localized_string "welcome_help_cant_login_cta" #"Retrieve a booking reference number"
+    @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
+
+    @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"
 
     @@login_error_text=get_localized_string "welcome_login_credential_error"
     @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra" if $g_current_app=="EN_TH"
     @@login_error_booking_ref='Tip: You should have received this number in an email a few days after you booked your holiday. It looks like this: 1234/567891. The number of digits may vary.' if $g_current_app=="EN_FC"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
+
+    @@login_page_title = get_localized_string "welcome_login_header"
+
+    #Book a visit page
+    @@book_visit_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
+    @@book_visit_holiday_blue_text = get_localized_string "welcome_book_holiday_blue_village_text"
+    @@book_visit_find_holiday_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
+    @@book_visit_no_holiday_header = get_localized_string "welcome_help_no_holiday_header"
+    @@book_visit_no_holiday_body = get_localized_string "welcome_help_no_holiday_body"
+    @@book_visit_no_holiday_take_tour_cta = get_localized_string "welcome_help_no_holiday_take_tour_cta"
+    @@book_visit_no_holiday_call_cta = get_localized_string "welcome_help_no_holiday_call_cta"
+
+    @@help_logging_text=get_localized_string "welcome_help_cant_login_description"
+    @@login_error_text=get_localized_string "welcome_login_credential_error"
+    @@login_error2_text=get_localized_string "welcome_login_error"
+    @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
+    @@login_error_surname=get_localized_string "welcome_login_surname_extra"
+
+  end
+
+  def help_logging_in
+    @@welcome_help_cant_login_header = get_localized_string "welcome_help_cant_login_header" # Help logging in
+    @@welcome_help_cant_login_description = get_localized_string "welcome_help_cant_login_description" # You can log in to the MyThomson app 3-4 days
+
+    @@welcome_help_cant_login_subtitle = get_localized_string "welcome_help_cant_login_subtitle" # To log in you'll need:
+    @@welcome_help_cant_login_cta = get_localized_string "welcome_help_cant_login_cta" # Retrieve a booking reference number
+
+    @@welcome_help_cant_login_iosStore = get_localized_string "welcome_help_cant_login_iosStore" # Download MyFirstChoice app
+    @@welcome_help_cant_use_app_cta1 = get_localized_string "welcome_help_cant_use_app_cta1" # Thomson Cruises – my.thomson.co.uk
+    @@welcome_help_cant_use_app_cta2 = get_localized_string "welcome_help_cant_use_app_cta2" # First Choice – my.firstchoice.co.uk
+
+    @@welcome_help_more_issues_body = get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
+    @@welcome_help_more_issues_email_title = get_localized_string "welcome_help_more_issues_email_title" # Send email
+
   end
 
   def travel_money_strings
