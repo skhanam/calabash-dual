@@ -3,19 +3,18 @@ require_relative '../Default/booking_summary_base_page'
 class BookingSummaryPage < BookingSummaryBasePage
 
   def check_products_in_booking_summary(var)
-    products=CommonMethods.new.find_products_in_booking(var)
+    products=CommonMethods.new.find_de_products(var)
     if var=="flight"
       products.each do |val|
         scroll_page_and_assert_text val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
       end
     elsif var=="hotel"
       products.each do |val|
-        scroll_page_and_assert_text val["name"]
+        scroll_page_and_assert_text val
       end
     else
       fail("wrong argument")
     end
-
   end
 
   def verify_booking_reference_number

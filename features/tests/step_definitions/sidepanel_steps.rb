@@ -31,6 +31,12 @@ end
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
+  #@bookingSummaryPage.verify_booking_summary_details
+end
+
+When(/^I see and verify holiday booking summary page$/) do
+  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
 

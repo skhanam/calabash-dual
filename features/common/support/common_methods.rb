@@ -192,7 +192,7 @@ class CommonMethods < BasePage
     end
   end
 
-  def find_products_in_booking(product)
+  def find_de_products(product)
     products=[]
     all_products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
     all_products.each do |var|
@@ -203,7 +203,7 @@ class CommonMethods < BasePage
 
   def find_hotel_details(num)
     count=0
-    find_products_in_booking("hotel").each do |item|
+    find_de_products("hotel").each do |item|
       count+=1
       return item if count==num.to_i
     end
@@ -211,7 +211,7 @@ class CommonMethods < BasePage
   end
 
   def get_insurance_details
-    puts find_products_in_booking("insurance")
+    puts find_de_products("insurance")
     fail "failed"
   end
 
@@ -268,11 +268,31 @@ class CommonMethods < BasePage
       end
 
     elsif $g_german_app
-      arr=find_products_in_booking("flight")
+      arr=find_de_products("flight")
     end
 
     return arr
+  end
 
+  def get_hotel_details
+    arr=[]
+
+    #eng app
+    if ($g_eng_app)
+      arr.push $g_current_booking["payload"]["products"]["hotel"]["subTitle"]
+      #nor user
+    elsif ($g_nordics_app)
+      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+        arr.push(var["hotel"]["name"]) if var["hotel"]!=nil
+      end
+    elsif $g_german_app
+      prod=find_de_products("hotel")
+      prod.each do |var|
+        arr.push(var["name"])
+      end
+    end
+
+    return arr
   end
 
 

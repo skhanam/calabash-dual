@@ -2,6 +2,22 @@ require_relative '../Default/booking_summary_base_page'
 
 class BookingSummaryPage < BookingSummaryBasePage
 
+  def check_products_in_booking_summary(var)
+    if var=="flight"
+      products=CommonMethods.new.get_flights_details
+      products.each do |val|
+        scroll_page_and_assert_text val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
+      end
+    elsif var=="hotel"
+      products=CommonMethods.new.get_hotel_details
+      products.each do |val|
+        scroll_page_and_assert_text val
+      end
+    else
+      fail("wrong argument")
+    end
+  end
+
   def check_booking_summary_screen
     assert_wait_for_text(@@booking_summary_title)
   end

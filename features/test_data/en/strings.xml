@@ -407,7 +407,7 @@
   <string name="guide_online_biscuit_new_message_plural">new messages,</string>
   <string name="guide_online_biscuit_new_message">new message,</string>
   <string name="guide_online_biscuit_important_messages">You have [amount] unread messages! Please visit MyMessages.</string>
-  <string name="guide_online_biscuit_button_gotoPage">guide_online_biscuit_button_gotoPage</string>
+  <string name="guide_online_biscuit_button_gotoPage">Visit page</string>
   <string name="guide_online_biscuit_transfer_messages">You have [amount] unread messages! Please visit MyMessages. </string>
   <string name="guide_online_biscuit_unread_message">You have [amount] unread messages! Please visit MyMessages. </string>
   <string name="guide_online_biscuit_buttonTitle">MyMessages</string>
