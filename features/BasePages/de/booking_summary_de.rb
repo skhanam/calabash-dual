@@ -10,7 +10,7 @@ class BookingSummaryPage < BookingSummaryBasePage
       end
     elsif var=="hotel"
       products.each do |val|
-        scroll_page_and_assert_text val
+        scroll_page_and_assert_text val["name"]
       end
     else
       fail("wrong argument")
