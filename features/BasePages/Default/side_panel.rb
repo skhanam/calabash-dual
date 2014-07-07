@@ -16,7 +16,6 @@ class SidePanel < BasePage
     if ($g_current_booking["payload"]["excursions"]["numberOfExcursions"].to_i > 0)
       scroll_side_panel_and_assert @@excursions
     end
-
     #verify holiday extras
   end
 

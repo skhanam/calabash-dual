@@ -69,7 +69,7 @@ class LoginPage < LoginBasePage
   end
 
   def check_booking_ref_error
-    assert_wait_for_text @@welcome_help_retrieve_booking_error
+    assert_wait_for_text escape_quotes_smart(@@welcome_help_retrieve_booking_error)
   end
 
   def enter_surname_and_email
