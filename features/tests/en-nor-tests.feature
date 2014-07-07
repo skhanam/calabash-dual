@@ -1,12 +1,12 @@
 @nor @eng
 Feature: English Sanity Tests
 
-  @prelogin1 @ss
+  @prelogin1 @ss @reset
   Scenario: Verify welcome screen
     Given I am on 'Login' screen
     Then I verify text content on login screen
 
-  @prelogin2
+  @prelogin2 @reset
   Scenario: Verify help logging link on welcome screen
     Given I am on 'Login' screen
     When I select help logging in page

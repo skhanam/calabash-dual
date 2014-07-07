@@ -1,7 +1,7 @@
 class SidePanel < BasePage
 
   def navigate_to_contact_us_page
-    scroll_side_panel(@@log_out_text)
+    scroll_side_panel(@@log_out_text) if !$g_german_app
     scroll_side_panel(@@side_panel_contact_us)
     sleep 1
     touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
