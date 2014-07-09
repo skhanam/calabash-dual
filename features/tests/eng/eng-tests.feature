@@ -32,3 +32,10 @@ Feature: English Sanity Tests
     And I navigate to money on card page from travel money page
     Then I verify money on card page
 
+  @contactus3
+  Scenario: Verify CTA links on contact us page
+    Given I am on Home screen
+    And I navigate to contact us page using side menu
+    Then I see contact us page
+    And I verify cta links on contact us page
+

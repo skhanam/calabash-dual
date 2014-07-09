@@ -233,6 +233,7 @@ module EN_Strings
     @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
     @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
     @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
+
   end
 
 

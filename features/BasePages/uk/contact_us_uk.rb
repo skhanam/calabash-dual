@@ -9,6 +9,10 @@ class ContactUsUK < ContactUsBasePage
     scroll_page_and_assert_text(@@contactus_subtitle) #"Get in touch"
     #scroll_page_and_assert_text(@@contact_us_travel_shop)
                                                     #scroll_page_and_assert_text(@@postholiday_emailus) #"Email us"
+  end
+
+  def verify_contact_us_cta
+    verify_contact_us_page
     scroll_page_and_assert_text(@@contact_us_shop_opening_times)
     wait_for_partial_text_shown @@contactus_call_us #"Call us on [number]"
     scroll_page_and_assert_text(@@contactus_termsAndConditions)

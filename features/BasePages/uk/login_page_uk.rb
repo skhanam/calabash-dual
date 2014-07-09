@@ -40,7 +40,7 @@ class LoginPage < LoginBasePage
 
     scroll_page_and_assert_text @@welcome_help_cant_login_iosStore
     scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1
-    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta2
+    #scroll_page_and_assert_text @@welcome_help_cant_use_app_cta2
 
     scroll_page_and_assert_text @@welcome_help_more_issues_body
     scroll_page_and_assert_text @@welcome_help_more_issues_email_title

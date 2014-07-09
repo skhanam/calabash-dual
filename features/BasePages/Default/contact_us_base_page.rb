@@ -11,6 +11,7 @@ class ContactUsBasePage < BasePage
   end
   def check_contact_us_page
     assert_wait_for_text @@contact_us_contact_title
+    assert_wait_for_text @@contactus_subtitle
   end
 
   def contact_us_embed_page
