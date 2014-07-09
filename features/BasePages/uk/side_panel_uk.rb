@@ -15,7 +15,7 @@ class SidePanelEng < SidePanel
     begin
       scroll_side_panel_and_assert @@side_panel_flight
     rescue
-      scroll_side_panel_and_assert @@side_panel_flights
+      scroll_page_and_assert_text(@@side_panel_flights,"up")
     end
     scroll_side_panel_and_assert @@side_panel_hotel
     scroll_side_panel_and_assert @@destination
