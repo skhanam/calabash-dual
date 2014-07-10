@@ -1,6 +1,19 @@
  @eng @sanity-eng
 Feature: English Sanity Tests
 
+  @verify-package_check_list1
+  Scenario: Verify check list item selection
+    Given I am on packaging list page
+    Then I verify items to pack are 0
+
+  @verify-package_check_list2
+  Scenario: Delete packaging list item
+    Given I am on packaging list page
+    When I add a new item with a title
+    Then I see item listed under Items to pack
+    And I check edit and delete options
+    When I delete item added from packaging list
+
   @first-check_list  @sanity-eng
   Scenario: Verify check list item selection
     Given I am check list page

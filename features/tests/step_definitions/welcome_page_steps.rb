@@ -2,19 +2,15 @@ When(/^I am on Home screen$/) do
 
   @welcomePage.close_whats_new_dialog
   if @homePage.check_home_screen(2)==true
-    #if @welcomePage.check_welcome_screen #If check if user is not logged in
-    #  step "I log into Application"
-    #  sleep 5
-    #  step "I must be logged and on Home page"
-    #else
-    #@homePage.check_home_screen(5)
-    #end
-    @homePage.wait_for_home_page_to_load
-    @homePage.wait_for_acc_label("welcome_title")
+    #If acc label welcome_title is already present then no need for checking daisy wheel messages
+    if @homePage.check_acc_label("welcome_title")
+      puts "Already on home page"
+    else
+      @homePage.wait_for_home_page_to_load
+      @homePage.wait_for_acc_label("welcome_title")
+    end
     sleep 2
-  elsif @welcomePage.check_welcome_screen #If check if user is not logged in
-    #puts "Not logged in"
-
+  elsif @welcomePage.check_welcome_screen
     step "I log into Application"
     sleep 5
     step "I must be logged and on Home page"

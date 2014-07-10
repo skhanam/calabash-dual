@@ -238,11 +238,17 @@ module EN_Strings
 
 
   def checklist_strings
+    @@packaging_item_title = "pack 1 item"
+    @@delete_item =get_localized_string "delete_item"
+    @@delete =get_localized_string "delete"
+    @@are_you_sure= get_localized_string "are_you_sure"
+    @@cancel = get_localized_string "cancel"
+
     @@check_list_item_text_acc = "to_text"
     @@check_list_check_box_acc = "checkBox"
     @@check_list_selected_items_acc = "completedItems"
     @@check_list_email_items=get_localized_string "email_items"
-    @@my_packaging_list=get_localized_string "my_packing_list"
+    @@my_packaging_list=(get_localized_string "my_packing_list").strip.gsub(/\n/,' ')
     @@my_do_list=get_localized_string "my_todo_list"
     @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])', '') #"View completed items ([REPLACE])"
     @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])', '') #"Hide completed items ([REPLACE])"

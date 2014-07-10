@@ -110,7 +110,6 @@ module AppStrings
   end
 
   def home_page_strings
-    @@home_page_loading=get_localized_string "hold_on_booking"
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_days_to_go= get_localized_string "days_to_go"
     @@to_flight_strings= get_localized_string "to"
@@ -124,6 +123,11 @@ module AppStrings
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
 
     @@weather_coming_soon=get_localized_string "weather_coming_soon"
+
+    @@hold_on_one_moment=get_localized_string "hold_on"
+    @@activity_indicator_ten=get_localized_string "activity_indicator_ten"
+    @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
+    @@activity_indicator_twelve=get_localized_string "activity_indicator_twelve"
   end
 
   def image_icons_acc_label

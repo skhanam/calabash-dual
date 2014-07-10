@@ -13,6 +13,55 @@ class ChecklistPageUk < BasePage
     end
   end
 
+  def check_packaging_items(num)
+    verify_page_title("ITEMS TO PACK (#{num})")
+  end
+
+  def check_options_for_packaging_item
+   assert_wait_for_acc_label "deleteBox"
+   assert_wait_for_acc_label "pencil"
+  end
+
+  def verify_item_deleted
+    @text_delete = "Delete"
+
+    click_accessibility_label "deleteBox"
+    sleep 1
+    touch("view text:'#{@text_delete}'")
+  end
+
+  def packaging_item_not_present
+    fail("packaging_item_not_present: text must have been deleted #{@@packaging_item_title}") if check_text_in_view @@packaging_item_title
+  end
+
+  def delete_packaging_item
+    click_accessibility_label "deleteBox"
+    sleep 1
+    assert_text_present @@delete_item
+    assert_text_present @@are_you_sure
+    assert_text_present @@cancel
+    click_on_text @@delete
+  end
+
+  def select_packaging_item
+    click_on_text @@packaging_item_title
+  end
+
+  def check_packaging_item
+    assert_wait_for_text  @@packaging_item_title
+  end
+
+  def add_new_packaging_item
+    click_accessibility_label "navbarRightButton"
+    sleep 1
+    input_text @@packaging_item_title
+  end
+
+  def open_packaging_list
+    assert_wait_for_acc_label "packingList"
+    click_accessibility_label "packingList"
+  end
+
   def open_to_do_list
     fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
     assert_text_present @@my_do_list

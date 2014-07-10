@@ -86,7 +86,7 @@ module DEMeineTUI
   end
 
   def home_page_strings
-    @@home_page_loading=get_localized_string "hold_on_booking"
+    @@hold_on_one_moment=get_localized_string "hold_on_booking"
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen

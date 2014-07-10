@@ -24,7 +24,7 @@ def meine_tui_login(username, password, country)
 end
 
 
-def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
 
   if $g_ios
     #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
@@ -39,18 +39,14 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("toolbarTextButton index:1")
     sleep 1
 
-    #step 'I enter "'+visionShopNumber+'" into input field number 3'
     touch("view marked:'bookingReference1'")
-    keyboard_enter_text visionShopNumber
+    @page.input_text visionShopNumber
     sleep 2
 
     touch("view marked:'bookingReference2'")
-    keyboard_enter_text visionBookingRef
+    @page.input_text visionBookingRef
     sleep 2
 
-    #touch("toolbarTextButton index:1")
-    #sleep 1
-    #step 'I enter "'+visionBookingRef+'" into input field number 4'
     touch("toolbarTextButton index:1")
     sleep(2)
 
@@ -60,7 +56,7 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
     performAction('clear_numbered_field', 8)
 
     touch("* marked:'surname.'")
-    @page.enter_text_android(surname)
+    @page.input_text(surname)
 
     touch("* marked:'departureDate.'")
     sleep 2
@@ -75,12 +71,12 @@ def thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
 
     touch("* marked:'bookingReference1.'")
     sleep 1
-    @page.enter_text_android(visionShopNumber)
+    @page.input_text(visionShopNumber)
     sleep 1
 
     touch("* marked:'bookingReference2.'")
     sleep 1
-    @page.enter_text_android(visionBookingRef)
+    @page.input_text(visionBookingRef)
 
     @loginPage.scroll_to_end_of_page
 
@@ -93,7 +89,6 @@ def nordics_login(bookingNum, email, telephone)
     step "I clear input field number 1"
     step "I clear input field number 2"
     step "I clear input field number 3"
-
 
     step 'I enter "'+bookingNum+'" into input field number 1'
     sleep 1
@@ -114,12 +109,12 @@ def nordics_login(bookingNum, email, telephone)
     performAction('clear_numbered_field', 6)
 
     touch("* marked:'bookingReference.'")
-    @page.enter_text_android(bookingNum)
+    @page.input_text(bookingNum)
 
     #touch("* marked:'emailid.'")
     #@page.enter_text_android(email)
     touch("* marked:'telephone.'")
-    @page.enter_text_android(telephone)
+    @page.input_text(telephone)
 
     touch("* marked:'bookingReference.'")
 
@@ -152,7 +147,7 @@ Given(/^I log into first choice application$/) do
   visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
   visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
 
-  thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
   #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
 
 end
@@ -162,9 +157,7 @@ Given(/^I log into thomson application$/) do
   visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
   visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
 
-  thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
-  #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
-
+  uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
 end
 
 Given(/^I log into nordics application$/) do
@@ -207,10 +200,6 @@ When(/^I enter "(.*?)" and "(.*?)" in login page$/) do |username, password|
   @loginPage.enter_credentials(username, password)
 end
 
-When(/^I enter default username and password in login page$/) do
-  @loginPage.enter_default_username_password
-end
-
 Then(/^I see login Page/) do
   @loginPage.verify_login_page
 end
@@ -219,7 +208,6 @@ Then(/^I see login screen$/) do
 end
 
 When(/^I fill (valid|invalid) username in login screen$/) do |condition|
-  #@valid_username=@loginPage.enter_valid_user_name if condition.eql? 'valid'
   if condition.eql? 'valid'
     @valid_username = $g_valid_user_details[:username]
     if $g_ios
@@ -266,7 +254,7 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
     step "I press the enter button" if $g_android
     sleep 1
   end
-  #@forgotPasswordPage.enter_wrong_username_or_email if condition.eql? 'invalid'
+
   fail 'TODO' if condition.eql? 'valid'
   @forgotPasswordPage.submit_change_password
 end
@@ -317,7 +305,7 @@ Given(/^I submit wrong login details$/) do
     departureDate=$g_current_user_details[:invalid][:departuredate]
     visionShopNumber=$g_current_user_details[:invalid][:VisionShopNumber]
     visionBookingRef=$g_current_user_details[:invalid][:VisionBookingRef]
-    thomson_login(surname, departureDate, visionShopNumber, visionBookingRef)
+    uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
     step "I select the Login button"
   elsif ($g_current_app=='DE_MT')

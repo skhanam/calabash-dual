@@ -11,6 +11,13 @@ module ReusableMethods
   def embed(a, b, c)
   end
 
+  def input_text var
+    sleep 1
+    enter_text_android var if $g_android
+    keyboard_enter_text var if $g_ios
+    sleep 1
+  end
+
   # TODO not used
   #read from  brand-ntc-ios/features/strings/languagefolder/file
   def read_copy_from_user_details(arg1)

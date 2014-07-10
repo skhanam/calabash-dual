@@ -58,9 +58,6 @@ class LoginPage < LoginBasePage
 
   def verify_retrieve_my_booking_page
     assert_wait_for_text @@welcome_help_retrieve_booking_header
-    res= (escape_quotes_smart(@@welcome_help_retrieve_booking_body.strip))
-    #scroll_page_and_assert_text res
-
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_surname
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_email
 

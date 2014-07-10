@@ -9,15 +9,15 @@ class HomeBasePage < BasePage
   end
 
   def trait
-    $g_query_txt+"text:'#{@@home_page_loading}'"
+    $g_query_txt+"text:'#{@@hold_on_one_moment}'"
   end
 
   def await(opts={})
-    text=$g_query_txt+"text:'#{@@home_page_loading}'"
+    text=$g_query_txt+"text:'#{@@hold_on_one_moment}'"
     if (query(text))
       sleep 5
     end
-    wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@home_page_loading}'"])
+    wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@hold_on_one_moment}'"])
     sleep(5)
     self
   end
@@ -71,6 +71,8 @@ class HomeBasePage < BasePage
   end
 
   def wait_for_home_page_to_load
+    puts "wait_for_home_page_to_load -> check_progress_messages"
+    check_progress_messages
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 

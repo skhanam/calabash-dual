@@ -102,8 +102,7 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged and on Home page$/) do
-  @homePage.wait_login_progress_to_disappear
-  @homePage.wait_for_home_page_to_load
+  #@homePage.wait_for_home_page_to_load
   @homePage.assert_wait_for_acc_label("background_normal", 20)
   sleep 5
   screenshot(options={:name => "home"})  if ENV['TAKE_SS']=="yes"
@@ -166,8 +165,14 @@ Given(/^I am check list page$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
   @homePage.navigate_to_check_list
-
 end
+
+Given(/^I am on packaging list page$/) do
+  step "I am on Home screen"
+  step "I am check list page"
+  step "I open my packaging list"
+end
+
 Given(/^I am on weather page$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
