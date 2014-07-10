@@ -7,12 +7,6 @@ class ForgotPasswordBasePage < BasePage
 
   end
 
-  def enter_wrong_username_or_email
-    fail("unused")
-    enter_username_or_email($g_current_user_details[:invalid][:email])
-  end
-
-
   def submit_change_password
     click_on_text @@forgot_password_send_button
   end
@@ -34,20 +28,6 @@ class ForgotPasswordBasePage < BasePage
     fail "username field is not empty" if txt !=""
   end
 
-  def enter_username_or_email(text)
-    fail("unused")
-    if $g_ios
-      enter_text(text, 1, "enter")
-      #set_text "textField index:0", text
-      #sleep 1
-      #touch("view marked:'#{text}'")
-      #sleep 1
-      #tap_keyboard_action_key
-      #sleep 1
-    elsif $g_android
-      ti_enter_details(text, 1)
-    end
-  end
 end
 
 
