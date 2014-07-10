@@ -17,11 +17,13 @@ Given(/^I am booking reference page$/) do
 end
 
 When(/^I submit wrong booking details in booking ref page$/) do
-  step 'I enter "'+"Martin"+'" into input field number 1'
+  step 'I enter "'+"Martin"+'" into input field number 1' if $g_ios
+  step 'I enter "'+"Martin"+'" into input field number 2' if $g_android
   step 'I touch done' if $g_ios
   step 'I press the enter button' if $g_android
   sleep 2
-  step 'I enter "'+"a@b.com"+'" into input field number 2'
+  step 'I enter "'+"a@b.com"+'" into input field number 2' if $g_ios
+  step 'I enter "'+"a@b.com"+'" into input field number 3' if $g_android
   step 'I touch done' if $g_ios
   step 'I press the enter button' if $g_android
   sleep 1

@@ -47,6 +47,7 @@ class LoginPage < LoginBasePage
   end
 
   def select_retrieve_booking_ref
+    scroll_page_and_assert_text @@welcome_help_link2
     click_on_text @@welcome_help_link2
     sleep 2
   end

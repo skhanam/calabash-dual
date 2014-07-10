@@ -53,7 +53,7 @@ class BookingSummaryPage < BookingSummaryBasePage
 
     str=res1.strftime("%e#{suffix_days} %B %Y")
     puts "Departure date :#{str}:"
-    assert_wait_for_text str.to_s
+    scroll_page_and_assert_text str.to_s
   end
 
 
