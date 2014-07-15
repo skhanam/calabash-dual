@@ -98,17 +98,7 @@ module NordicsStrings
 
   def welcome_page_strings
     @@welcome_page_text=get_localized_string "welcome_login_header"
-    #@@welcome_help_no_holiday_body=get_localized_string "welcome_help_no_holiday_body" #"The MyThomson app is for people who have booked a holiday directly with Thomson. To discover all of the great benefits of the MyThomson app, take a tour, then choose the perfect holiday for you."
-    #@@welcome_refuse=get_localized_string "welcome_refuse" #"Sorry, you can’t use the app if:"
-    #@@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
-    #@@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
-    #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-
   end
-  #
-  #def destination_info_strings
-  # @@destination_title
-  #end
 
   def hotel_strings
     @@hotel_page_title=get_localized_string "hotel"

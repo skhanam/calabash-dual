@@ -11,7 +11,6 @@ class LoginPage < LoginBasePage
     assert_wait_for_text @@login_forgot_password
     assert_wait_for_text @@login_button
     wait_for_partial_text_shown @@password_reset
-    #TODO verify I need help & privacy policy text
   end
 
   def enter_valid_user_name
@@ -62,8 +61,6 @@ class LoginPage < LoginBasePage
     sleep 1
     index=picker[0].index(country)
     sleep 1
-    # query("view:'UIPickerView'",[{:selectRow =>index},{:inComponent => 0}, {:animated => 0}])
-    #sleep 1
     touch("view:'UIPickerView' label text:'"+country+"'")
     sleep 2
     touch "view marked:'Fertig'"

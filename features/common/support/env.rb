@@ -38,7 +38,6 @@ end
 
 $g_verified_strings="features/z_dump/verified_strings.txt"
 $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_%H_%M")}.txt"
-#puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_file}  &&&&&&&&&&&&& \n"
 
 $g_user_details=$g_current_user_details[:valid]
 $g_valid_user_details=$g_current_user_details[:valid]

@@ -1,6 +1,6 @@
 module TestModule
   def initialize_all
-    puts $g_current_app
+    puts "\n\n CURRENT APP BEING TESTED #{$g_current_app}"
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new

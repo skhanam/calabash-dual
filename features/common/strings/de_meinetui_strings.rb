@@ -276,7 +276,7 @@ module DEMeineTUI
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help="Ich benötige Hilfe"
-    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden." #TODO CHECK THIS
+    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
   end
 
   def contact_us_strings
