@@ -21,7 +21,7 @@ module TestModule
 
       @countDownPage ||=CountDownDE.new
 
-      @myAccountPage ||= MyAccountPage.new
+      @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
       @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
