@@ -18,7 +18,6 @@ module ReusableMethods
     sleep 1
   end
 
-
   def get_localized_capitalized_string(id)
     UnicodeUtils.upcase(get_localized_string(id))
   end
