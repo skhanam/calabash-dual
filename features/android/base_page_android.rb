@@ -23,24 +23,24 @@ class BasePage < Calabash::ABase
   end
 
 
-  def close_whats_new_dialog
-    if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
-      arr=@@app_update_popup_body.split(/\n/)
-      arr.each do |var1|
-        res=var1.match(/(\w+)/)
-        assert_partial_text(res[0])
-      end
-      click_on_text @@ok
-    end
-  end
-
-  def close_push_notifications
-    if element_exists("#{$g_query_txt}text:'#{@@push_notifications}'")
-      assert_wait_for_text @@we_would_like_to_send_push
-      assert_wait_for_text @@push_not_now
-      touch ("#{$g_query_txt}text:'#{@@push_not_now}'")
-      sleep 2
-    end
-  end
+  #def close_whats_new_dialog
+  #  if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
+  #    arr=@@app_update_popup_body.split(/\n/)
+  #    arr.each do |var1|
+  #      res=var1.match(/(\w+)/)
+  #      assert_partial_text(res[0])
+  #    end
+  #    click_on_text @@ok
+  #  end
+  #end
+  #
+  #def close_push_notifications
+  #  if element_exists("#{$g_query_txt}text:'#{@@push_notifications}'")
+  #    assert_wait_for_text @@we_would_like_to_send_push
+  #    assert_wait_for_text @@push_not_now
+  #    touch ("#{$g_query_txt}text:'#{@@push_not_now}'")
+  #    sleep 2
+  #  end
+  #end
 
 end

@@ -176,7 +176,7 @@ Given(/^I have entered an invalid email and a valid password$/) do
 end
 
 Given(/^I am on '(.+)' screen/) do |page_name|
- @welcomePage.close_whats_new_dialog
+  @commonMethods.close_whats_new_dialog
   case page_name
     when 'Login' then
       @welcomePage.navigate_to_login
