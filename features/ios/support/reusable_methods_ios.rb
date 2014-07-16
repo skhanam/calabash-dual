@@ -2,7 +2,7 @@
 require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
-require_relative '../../common/support/Z_view_functions'
+require_relative '../../common/support/view_functions'
 
 module IosReusableMethods
   include AppStrings

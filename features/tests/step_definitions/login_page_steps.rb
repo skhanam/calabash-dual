@@ -297,8 +297,8 @@ end
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
-  @page.close_whats_new_dialog
-  @page.close_push_notifications
+  @commonMethods.close_whats_new_dialog
+  @commonMethods.close_push_notifications
 
   if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
     surname=$g_current_user_details[:invalid][:surname]

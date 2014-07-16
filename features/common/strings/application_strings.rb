@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
+require_relative 'de_strings' if (ENV['TESTENV']=='DE_MT')
 require_relative 'en_strings' if (ENV['TESTENV']=='EN_TH' || ENV['TESTENV']=='EN_FC')
 require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
@@ -61,7 +61,7 @@ module AppStrings
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
-      # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app
+      # strings from de_strings.rb file are being used for DE Meine TUI app
       puts "settings german strings for Meine TUI"
       set_meine_tui_de_mt_strings
     elsif ($g_current_app=='EN_TH')

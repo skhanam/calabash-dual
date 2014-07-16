@@ -3,7 +3,7 @@ require 'calabash-android/abase'
 require_relative '../common/support/reusable_methods'
 require_relative '../common/strings/application_strings'
 require_relative 'support/reusable_methods_android'
-require_relative '../common/support/Z_view_functions'
+require_relative '../common/support/view_functions'
 require 'differ'
 
 $g_strings_set=false
