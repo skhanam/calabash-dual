@@ -6,21 +6,22 @@ class TravelMoneyBasePage < BasePage
     assert_text_present @@currency_title2
     assert_text_present @@currency_subTitle2
     assert_text_present @@currency_title3
-    subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
-    assert_wait_for_text subtitle3
+    #subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} = #{@@currency_hash["tovalue"]} #{@@currency_hash["tocode"]}"
+    subtitle3= "#{@@currency_hash["fromvalue"]} #{@@currency_hash["fromcode"]} ="
+    assert_partial_text subtitle3
   end
 
   def verify_travel_money_currency_page
-    assert_text_present @@foreigncurrency_detail_nav_title
+    verify_page_title @@foreigncurrency_detail_nav_title
 
     assert_text_present @@foreigncurrency_detail_title
     assert_text_present @@foreigncurrency_detail_intro
 
     @@foreigncurrency_detail_reasons.split('::').each do |var|
-      assert_text_present var
+      assert_text_present escape_quotes(var)
     end
 
-    assert_text_present @@foreigncurrency_detail_rate_title
+    scroll_page_and_assert_text @@foreigncurrency_detail_rate_title
     scroll_page_till_partial_text @@foreigncurrency_detail_rate_date
 
     scroll_page_and_assert_text @@foreigncurrency_detail_book_online
@@ -41,7 +42,7 @@ class TravelMoneyBasePage < BasePage
     assert_text_present @@travel_money_card_benefits2
     assert_text_present @@travel_money_card_benefits3
 
-    assert_text_present @@foreigncurrency_detail_rate_title
+    scroll_page_and_assert_text @@foreigncurrency_detail_rate_title
     scroll_page_till_partial_text @@foreigncurrency_detail_rate_date
 
     scroll_page_and_assert_text @@foreigncurrency_detail_book_online

@@ -73,17 +73,18 @@ end
 Given(/^I have switched to (.*?) booking$/) do |booking_type|
   case booking_type
     when "typical"
-      $g_current_booking=TYPICAL_BOOKING
+      $g_current_booking=$g_typical_booking_data
     when "insurance"
-      $g_current_booking=TYPICAL_BOOKING
+      $g_current_booking=$g_typical_booking_data
     when "flight"
-      $g_current_booking=FLIGHT_BOOKING
+      $g_current_booking=$g_flight_booking_data
     when "single"
-      $g_current_booking=FLIGHT_BOOKING
+      $g_current_booking=$g_flight_booking_data
     when "non eu"
-      $g_current_booking=NON_EU_BOOKING
+      $g_current_booking=$g_non_eu_booking_data
+    when "one way"
+      $g_current_booking=$single_journey_multi_leg
   end
-
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
@@ -101,10 +102,10 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged and on Home page$/) do
-  @homePage.wait_login_progress_to_disappear
-  @homePage.wait_for_home_page_to_load
+  #@homePage.wait_for_home_page_to_load
   @homePage.assert_wait_for_acc_label("background_normal", 20)
-
+  sleep 5
+  screenshot(options={:name => "home"})  if ENV['TAKE_SS']=="yes"
 end
 
 Given(/^I have opened side menu$/) do
@@ -135,7 +136,9 @@ When(/^I navigate to destination using home page biscuit$/) do
 end
 
 Then(/^I see destination information page$/) do
-  @destInfoPage.check_dest_info_screen_title
+  @destinationInfo.check_dest_info_screen_title
+  @countries= @commonMethods.get_desination_countries
+  @dest_country=@countries[0]
   @page.assert_wait_for_text @dest_country
 end
 
@@ -162,8 +165,14 @@ Given(/^I am check list page$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
   @homePage.navigate_to_check_list
-
 end
+
+Given(/^I am on packaging list page$/) do
+  step "I am on Home screen"
+  step "I am check list page"
+  step "I open my packaging list"
+end
+
 Given(/^I am on weather page$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
@@ -171,6 +180,11 @@ end
 
 Given(/^I am on default booking$/) do
   step "I have switched to typical booking" if $g_german_app
+end
+
+Given(/^I am on home screen with one way booking$/) do
+  step "I am on Home screen"
+  step "I have switched to one way booking" if $g_german_app
 end
 
 Given(/^I am on home screen with default booking$/) do
@@ -186,4 +200,30 @@ end
 Given(/^I am on home screen with single booking$/) do
   step "I am on Home screen"
   step "I have switched to single booking" if $g_german_app
+end
+
+Then(/^I verify taxfree biscuit on home page$/) do
+  @homePage.check_taxfree_biscuit
+end
+
+When(/^I select booking summary biscuit on home page$/) do
+  @homePage.select_booking_summary_biscuit
+end
+
+When(/^I select guide online biscuit on home page$/) do
+  @homePage.select_guide_online
+end
+
+Then(/^I see guide online page$/) do
+  @guideOnlinePage.verify_guide_online_screen
+end
+
+When(/^I select destination biscuit$/) do
+  @homePage.select_destination_biscuit
+end
+
+Then(/^I verify booking summary page$/) do
+  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.verify_booking_summary_details
 end

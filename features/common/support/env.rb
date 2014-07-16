@@ -8,7 +8,7 @@ require_relative '../support/users'
 
 require File.join(File.dirname(__FILE__), 'page_world')
 
-`defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina)"'`
+`defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina 4-inch)"'`
 
 if ENV['PLATFORM'] == 'ios'
   require 'calabash-cucumber/cucumber'
@@ -36,8 +36,8 @@ elsif (ENV['TESTENV']=='NOR')
   $g_current_user_details=NOR_USER
 end
 
+$g_verified_strings="features/z_dump/verified_strings.txt"
 $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_%H_%M")}.txt"
-#puts "\n before all scenarios &&&&&&&&&&& messages are in file #{$g_messages_file}  &&&&&&&&&&&&& \n"
 
 $g_user_details=$g_current_user_details[:valid]
 $g_valid_user_details=$g_current_user_details[:valid]

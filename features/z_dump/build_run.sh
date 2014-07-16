@@ -10,7 +10,6 @@ sleep 5
 calabash-ios setup
 
 
-
 cd /Users/tejasvi.manmatha/projects/meine.tui.ui-automation
 sh build.sh clean
 sleep 2

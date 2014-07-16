@@ -1,7 +1,8 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/script/1035
 
-@ios_test @android_test  @auto2
+@ios_test @android_test  @auto2   @de
 Feature: Verify booking information for Typical Booking
+
 
   @failure
   Scenario: Verify welcome screen

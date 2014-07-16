@@ -11,26 +11,19 @@ module ReusableMethods
   def embed(a, b, c)
   end
 
-  # TODO not used
-  #read from  brand-ntc-ios/features/strings/languagefolder/file
-  def read_copy_from_user_details(arg1)
-    filename =$g_user_details
-#    my_log(arg1 +" " +filename, 5)
-    properties = {}
-    File.open(filename, 'r') do |properties_file|
-      properties_file.read.each_line do |line|
-        line.strip!
-        if (line[0] != ?# and line[0] != ?=)
-          i = line.index('=')
-          if (i)
-            properties[line[0..i - 1].strip] = line[i + 1..-1].strip
-          else
-            properties[line] = ''
-          end
-        end
-      end
-      return properties[arg1]
+  def input_text var
+    sleep 1
+    enter_text_android var if $g_android
+    keyboard_enter_text var if $g_ios
+    sleep 1
+  end
+
+  # escape if there are + symbols in text
+  def escape_plus(str)
+    if str.include? '+'
+      str.gsub('+', '\\\\+')
     end
+    return str
   end
 
   def get_localized_capitalized_string(id)
@@ -50,10 +43,7 @@ module ReusableMethods
     puts file_path
     workbook = RubyXL::Parser.parse(file_path)
     hash_arr=workbook[1].get_table(["Surname", "Today", "Pre-In-Post", "DepartureDate", "DepartureTime", "ReturnDate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel", "ProductName", "DurationNightsInHotel", "Return-Dep Date"])
-    # "Surname", "Today", "Pre-In-Post", "departuredate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel"])
     return hash_arr[:table]
-
-    #res[:table][0]["resource_id"]
   end
 
   def convert_excel_date_to_str(date_int)
@@ -74,18 +64,19 @@ module ReusableMethods
     end
   end
 
-
-  def assert_element_exists(element)
-    res = element_exists($g_query_txt+"text:'#{element}'")
-    if not res
-      screenshot_and_raise "No element found with mark or text: #{element}"
+  def write_verified_text_to_file(txt)
+    if (ENV['LOG_VERIFIED_TXT']=="yes")
+      begin
+        filename = File.open($g_verified_strings, "a")
+        filename.write("#{txt}\n")
+      rescue IOError => e
+        fail("Write to file failed")
+      ensure
+        filename.close unless filename == nil
+      end
     end
-    return res
   end
 
-  def wait_for_seconds(timetowait)
-    sleep(timetowait)
-  end
 
   #Create result hash for data matching criteria  @@welcome_msg_hash[criteria]
   def create_result_hash(criteria)
@@ -125,18 +116,6 @@ module ReusableMethods
     return all_strings_hash
   end
 
-  def read_string_from_excel
-    #string_locale="DE"
-    #if $g_localized_strings == nil
-    #  puts "readings strings for first time"
-    #  file_path=$g_strings
-    #  workbook ||= RubyXL::Parser.parse(file_path)
-    #  $g_localized_strings||=workbook[0].get_table[:table]
-    #end
-    #$g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
-  end
-
-
   def split_to_digits(arg)
     div=10
     digit=0
@@ -148,6 +127,18 @@ module ReusableMethods
     end
     arr.push arg
     return arr.reverse
+  end
+
+   #unused
+  def read_string_from_excel
+    #string_locale="DE"
+    #if $g_localized_strings == nil
+    #  puts "readings strings for first time"
+    #  file_path=$g_strings
+    #  workbook ||= RubyXL::Parser.parse(file_path)
+    #  $g_localized_strings||=workbook[0].get_table[:table]
+    #end
+    #$g_localized_strings.find { |a| return a[string_locale] if a["resource_id"]==id }
   end
 
 end

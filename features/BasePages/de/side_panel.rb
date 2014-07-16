@@ -22,6 +22,7 @@ class SidePanelDe < SidePanel
   end
 
   def validate_typical_booking_menu_items(var)
+    puts "validate_typical_booking_menu_items (#{var})"
     case var
       when "Countdown"
         scroll_page_and_assert_text @@side_panel_countdown
@@ -36,9 +37,7 @@ class SidePanelDe < SidePanel
       when "Insurance"
         check_side_panel("insurance", 1) # 1 insurance
       when "Extra"
-        check_side_panel("extra", 2) # 2 extras
-      when "Destination information"
-        scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_destination_info)
+        check_side_panel("extra", 1) # 2 extras
       when "Weather"
         scroll_page_and_assert_text @@side_panel_weather
       when "Destination guide"
@@ -49,8 +48,6 @@ class SidePanelDe < SidePanel
         scroll_page_and_assert_text @@side_panel_good_to_know
       when "Kontakt heading"
         scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_contact_heading)
-      when "My travel agent"
-        scroll_page_and_assert_text @@side_panel_my_tour_guide
       when "Kontakt"
         scroll_page_and_assert_text @@side_panel_contact_us
       when "My travel agent"
@@ -60,7 +57,6 @@ class SidePanelDe < SidePanel
 
     end
   end
-
 
 
   def tui_service_onsite_from_sidepanel
@@ -90,7 +86,7 @@ class SidePanelDe < SidePanel
 
   def verify_elements_for_flight_single_booking
     fail("unused")
-    #$g_current_booking=FLIGHT_BOOKING
+    #$g_current_booking=$g_flight_booking_data
     assert_wait_for_text @@side_panel_booking_summary
     res=CommonMethods.new.get_all_products_for_booking
     res.uniq.each do |var|
@@ -126,8 +122,11 @@ class SidePanelDe < SidePanel
         assert_wait_for_text @@side_panel_flight if count==1
         assert_wait_for_text @@side_panel_flights if count>1
       when "extra"
-        assert_wait_for_text @@side_panel_extra if count==1
-        assert_wait_for_text @@side_panel_extras if count>1
+        if (check_text_in_view @@side_panel_extra) != true
+          assert_wait_for_text @@side_panel_extras
+        end
+        #assert_wait_for_text @@side_panel_extra if count==1
+        #assert_wait_for_text @@side_panel_extras if count>1
       when "hotel"
         assert_wait_for_text @@side_panel_hotel if count==1
         assert_wait_for_text @@side_panel_hotels if count>1

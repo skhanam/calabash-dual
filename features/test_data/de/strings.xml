@@ -65,6 +65,8 @@
   <string name="welcome_help_more_issues_email_body">welcome_help_more_issues_email_body</string>
   <string name="welcome_help_more_issues_email_subject">welcome_help_more_issues_email_subject</string>
   <string name="welcome_help_more_issues_email_title">welcome_help_more_issues_email_title</string>
+  <!-- 0.2.4 OK -->
+  <string name="ok">OK</string>
   <!-- Error Screen -->
   <string name="error_default_body">Es tut uns leid, diese Seite konnte nicht geladen werden. Bitte versuchen Sie eine andere Seite zu öffnen oder schließen Sie die App und versuchen Sie es später erneut.</string>
   <string name="error_default_header">Es ist etwas schief gelaufen</string>
@@ -194,8 +196,13 @@
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
   <!-- 1.0 home -->
-  <string name="all_you_need_to_know_about_your_boat">Alles Wichtige über Ihr Boot</string>
-  <string name="bookingSummary_daysToGo">Ihr Urlaub startet in wenigen Tagen:</string>
+  <string name="newsletter_signup_title">erhalten Sie persönliche Topangebote, tolle Hoteltipps und Reisetrends mit unserem Newsletter</string>
+  <string name="newsletter_signup_success">vielen Dank für Ihre Anmeldung zum Newsletter. Sie können sich jederzeit in den Kontoeinstellungen abmelden.</string>
+  <string name="newsletter_try_again_cta">Bitte versuchen Sie es erneut</string>
+  <string name="newsletter_success_cta">Fertig</string>
+  <string name="newsletter_signup_cta"> Jetzt abonnieren</string>
+  <string name="all_you_need_to_know_about_your_boat">Topangebote, tolle Hoteltipps und</string>
+  <string name="bookingSummary_daysToGo">Reisetrends mit unserem Newsletter</string>
   <string name="departing_on">departing_on</string>
   <string name="discover">Entdecken Sie</string>
   <string name="explore">explore</string>
@@ -229,10 +236,19 @@
   <string name="w_msg_welcome_to">w_msg_welcome_to</string>
   <string name="your_camper_is_ready">Ihr Camper steht für Sie bereit</string>
   <string name="your_flight">Ihr Flug</string>
+  <string name="w_msg_about_your_hotel">Über Ihr Hotel</string>
+  <string name="w_msg_about_your_destination">Über Ihr Reiseland</string>
+  <string name="countdown_biscuit_title_almost">Ihr Urlaub ist ganz nah!</string>
+  <string name="countdown_biscuit_title_complete">Endlich Urlaub!</string>
+  <string name="newsletter_biscuit_message">newsletter_biscuit_message</string>
+  <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
+  <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
+  <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
   <!-- 1.0 off canvas -->
   <string name="accomodation">Unterkunft</string>
   <string name="boat">Boot</string>
-  <string name="booking_summary">Ihr Reiseplan</string>
+  <string name="booking_summary">Mein Reiseplan</string>
+  <string name="booking_extras">Extras hinzubuchen</string>
   <string name="camper">Camper</string>
   <string name="car_hire">Mein Mietwagen</string>
   <string name="contact">Kontakt</string>
@@ -276,6 +292,8 @@
   <string name="duty_free">duty_free</string>
   <string name="guide_online">guide_online</string>
   <string name="app_feedback">Feedback</string>
+  <!-- 7,1 Seleted Hotel -->
+  <string name="hotel_to_destinations">hotel_to_destinations</string>
   <!-- 11.0 extras -->
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
@@ -381,6 +399,7 @@
   <string name="guide_online_sent_mins_ago">guide_online_sent_mins_ago</string>
   <string name="guide_online_sent_today">guide_online_sent_today</string>
   <string name="guide_online_sent_on_day">guide_online_sent_on_day</string>
+  <string name="guide_online_dateformat">guide_online_dateformat</string>
   <string name="guide_online_currently_offline">guide_online_currently_offline</string>
   <string name="guide_online_offline_warning">guide_online_offline_warning</string>
   <string name="guide_online_send_text">guide_online_send_text</string>
@@ -388,6 +407,7 @@
   <string name="guide_online_biscuit_new_message_plural">guide_online_biscuit_new_message_plural</string>
   <string name="guide_online_biscuit_new_message">guide_online_biscuit_new_message</string>
   <string name="guide_online_biscuit_important_messages">guide_online_biscuit_important_messages</string>
+  <string name="guide_online_biscuit_button_gotoPage">guide_online_biscuit_button_gotoPage</string>
   <string name="guide_online_biscuit_transfer_messages">guide_online_biscuit_transfer_messages</string>
   <string name="guide_online_biscuit_unread_message">guide_online_biscuit_unread_message</string>
   <string name="guide_online_biscuit_buttonTitle">guide_online_biscuit_buttonTitle</string>
@@ -408,10 +428,8 @@
   <string name="mymessages_important">mymessages_important</string>
   <string name="mymessages_extras">mymessages_extras</string>
   <string name="mymessages_booking">mymessages_booking</string>
-  <string name=""></string>
-  <string name=""></string>
-  <!-- 17.0 Duty Free -->
-  <string name="dutyfree_cta">dutyfree_cta</string>
+  <string name="mymessages_cta_label">mymessages_cta_label</string>
+  <string name="mymessages_virgin_message">mymessages_virgin_message</string>
   <!-- 18.0 social share -->
   <string name="boat_share_during_fb">Ich bin gerade auf meinem Boot [boat] in [region], [location] in meinem #TUI #Urlaub</string>
   <string name="boat_share_during_tw">Ich bin gerade auf meinem Boot [boat] in [region], [location] mit #TUI</string>
@@ -474,6 +492,8 @@
   <string name="product_share_my_accommodation">Meine Unterkunft teilen</string>
   <!-- 2.0 holiday summary -->
   <string name="bookingSummary_bookingReference">Vorgang/Buchungsnummer:</string>
+  <string name="holiday_summary_pdf">Zum Reiseplan</string>
+  <string name="holiday_summary_filename">reiseplan.pdf</string>
   <string name="bookingSummary_emailDescription">Sie können Ihre Buchungsübersicht auch bequem per E-Mail versenden.</string>
   <string name="bookingSummary_emailTitle">Meine Buchung senden</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>
@@ -491,6 +511,8 @@
   <string name="current_bookings">Aktuelle Buchungen</string>
   <string name="my_booking">Meine Buchung</string>
   <string name="past_bookings">Vergangene Buchungen</string>
+  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
+  <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
   <!-- 2.1 booking selector -->
   <string name="booking_details">Ihre Buchungsdetails</string>
   <string name="booking_details_blurb">Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen.</string>
@@ -573,6 +595,8 @@
   <string name="weather_forecast">Vorhersage für [location]</string>
   <string name="weather_header">Reisewetter</string>
   <string name="weather_share">Reisewetter teilen</string>
+  <string name="climate_rain_free_days">climate_rain_free_days</string>
+  <string name="weather_coming_soon">Wetter folgt.</string>
   <!-- 5.1 product -->
   <string name="booked_for">Gebucht für:</string>
   <string name="category">Kategorie</string>
@@ -580,7 +604,6 @@
   <string name="overview">Überblick</string>
   <string name="checkin_title">checkin_title</string>
   <string name="checkout_title">checkout_title</string>
-  <string name="period_of_travel">Reisezeitraum:</string>
   <string name="rooms">Zimmertyp</string>
   <string name="share_my_accomodation">Meine Unterkunft teilen</string>
   <!-- 5.1 product pages -->
@@ -764,8 +787,10 @@
   <string name="please_reauthenticate">Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an</string>
   <string name="url_dialog_buttons_to_split_by_colon">Abbrechen:Ja</string>
   <string name="url_dialog_title">Im Browser öffnen?</string>
+  <string name="app_update_popup_title">Neue Funktionen</string>
+  <string name="app_update_popup_body">• Autovermietung - Buchen Sie Ihren Mietwagen über die App, es ist noch nie einfacher gewesen.\n• Feedback - Bewerten Sie die Meine TUI App\n• Kleine Fehlerkorrekturen.</string>
   <!-- Loading screen Daisy Wheel -->
-  <string name="activity_indicator_one">Einen Moment bitte, wir suchen gerade Ihren Urlaub</string>
+  <string name="activity_indicator_one">Einen Moment bitte...</string>
   <string name="activity_indicator_two">Wir haben Ihre Buchung gefunden...</string>
   <string name="activity_indicator_three">Wir haben Ihr Reiseland entdeckt..</string>
   <string name="activity_indicator_four">Wir lokalisieren Ihr Resort...</string>
@@ -774,6 +799,9 @@
   <string name="activity_indicator_seven">Wir suchen nach Ausflügen...</string>
   <string name="activity_indicator_eight">Nun noch die Extras finden...</string>
   <string name="activity_indicator_nine">Wir geben den letzten Schliff...</string>
+  <string name="activity_indicator_ten">Wir prüfen nur noch die Details...</string>
+  <string name="activity_indicator_eleven">Wir passen die Seite an...</string>
+  <string name="activity_indicator_twelve">Fast fertig...</string>
   <!-- meet the rep -->
   <string name="meet_the_rep_help">Falls Sie Fragen oder Wünsche haben, können Sie mich telefonisch, per SMS oder per E-Mail über den TUI Service 24 Stunden am Tag erreichen. Falls ich nicht zu sprechen bin, ist einer meiner Kollegen gerne für Sie da.</string>
   <string name="meet_the_rep_information_sessions">InfoStunde:</string>
@@ -862,11 +890,16 @@
   <string name="previous">Zurück</string>
   <string name="open_in_safari">In browser öffnen</string>
   <string name="water">Wasser</string>
+  <!-- 16.0 Push Notifications -->
+  <string name="push_notifications">push_notifications</string>
+  <string name="we_would_like_to_send_push">we_would_like_to_send_push</string>
+  <string name="not_now">not_now</string>
+  <string name="allow">allow</string>
   <!-- 19.0 App Feedback -->
   <string name="feedback_title">Wie würden Sie uns auf einer Skala von 0 - 10 bewerten?</string>
   <string name="feedback_submit_button">Feedback absenden</string>
   <string name="feedback_navbar_title">Feedback</string>
-  <string name="feedback_message_title_positive">Das freut uns!</string>
+  <string name="feedback_message_title_positive">Danke!</string>
   <string name="feedback_message_title_negative">Das ist schade.</string>
   <string name="feedback_message_you_rated_the_app">Sie haben der App [grade] von [total] Punkten gegeben.</string>
   <string name="feedback_message_positive">Wir freuen uns, dass Ihnen die meine TUI App gefällt. Vielen Dank für Ihr Feedback!</string>
@@ -880,4 +913,26 @@
   <string name="feedback_email_to_address">info@crm.de</string>
   <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
   <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
+  <!-- 20.0 In App Browser -->
+  <string name="browser_openExternal">Im Browser öffnen</string>
+  <string name="browser_copyUrl">Link kopieren</string>
+  <string name="browser_leaving_title">Sind Sie sicher, dass Sie diese Seite verlassen möchten?</string>
+  <string name="browser_leaving_cancel">Hier bleiben</string>
+  <string name="browser_warning">Beim Öffnen des Browsers gehen Änderungen verloren.</string>
+  <string name="browser_leaving_okay">Seite verlassen</string>
+  <!-- 25.0 Booking Extras - Car Hire -->
+  <string name="car_hire_title">TUI Cars</string>
+  <string name="car_hire_main_text">Sie haben noch keinen Mietwagen für Ihre Reise? Hier finden Sie die passenden Angebote.</string>
+  <string name="car_hire_bullet_points_title">Ihre Vorteile*</string>
+  <string name="car_hire_bullet_point_1">Unbegrenzte Kilometer</string>
+  <string name="car_hire_bullet_point_2">Keine Kosten im Schadensfall</string>
+  <string name="car_hire_bullet_point_3">Diebstahlschutz</string>
+  <string name="car_hire_bullet_point_4">Haftpflichtversicherung (mind. 7,5 Mio. €)</string>
+  <string name="car_hire_bullet_point_5">Kostenlose Stornierung</string>
+  <string name="car_hire_web_link_title">Hier geht es zur Buchung</string>
+  <string name="car_hire_footnote">* Ausnahmen siehe Mietbedingungen</string>
+  <!-- Google Analytics - Brand Name -->
+  <string name="ga_brandName">ga_brandName</string>
+  <!-- Generic App Details -->
+  <string name="app_details">app_details</string>
 </resources>

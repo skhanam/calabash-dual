@@ -2,7 +2,7 @@
 require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
-require_relative '../../common/support/Z_view_functions'
+require_relative '../../common/support/view_functions'
 
 module IosReusableMethods
   include AppStrings
@@ -48,7 +48,8 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-    puts "click_on_text:#{text}:"
+    puts "click_on_text (#{escape_quotes_smart(text)})"
+    write_verified_text_to_file "click_on_text (#{text})"
     touch("view text:'#{escape_quotes_smart(text)}'")
     sleep 1
   end
@@ -78,7 +79,8 @@ module IosReusableMethods
   end
 
   def check_text_in_view(text_to_check)
-    puts "check_text_in_view #{text_to_check}"
+    write_verified_text_to_file "check_text_in_view (#{text_to_check})"
+    puts "check_text_in_view (#{text_to_check})"
     text_check=escape_quotes_smart(text_to_check)
     res=element_exists("view text:'#{text_check}'")
     if res
@@ -135,43 +137,45 @@ module IosReusableMethods
     sleep(2)
     res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
 
-    if ($g_testlang=="ru_RU") #Handle switching russian to english
-      keyboard_enter_char "International"
-      sleep(4)
-      if (element_exists("view:'UIAlertView' descendant button"))
-        touch("view:'UIAlertView' descendant button")
-      end
-    elsif (res!=true) #Handle all other locale (except russian)
-      keyboard_enter_char "International"
-      sleep(4)
-      if element_exists("view text:'好'")
-        touch("view text:'好'")
-      elsif (element_exists("view text:'OK'"))
-        touch("view text:'OK'")
-      end
-
-      res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
-      count=0
-      while res!=true && count <5
-        keyboard_enter_char "International"
-        res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
-        sleep(1)
-        count+=1
-      end
-    end
+    #if ($g_testlang=="ru_RU") #Handle switching russian to english
+    #  keyboard_enter_char "International"
+    #  sleep(4)
+    #  if (element_exists("view:'UIAlertView' descendant button"))
+    #    touch("view:'UIAlertView' descendant button")
+    #  end
+    #elsif (res!=true) #Handle all other locale (except russian)
+    #  keyboard_enter_char "International"
+    #  sleep(4)
+    #  if element_exists("view text:'好'")
+    #    touch("view text:'好'")
+    #  elsif (element_exists("view text:'OK'"))
+    #    touch("view text:'OK'")
+    #  end
+    #
+    #  res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
+    #  count=0
+    #  while res!=true && count <5
+    #    keyboard_enter_char "International"
+    #    res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
+    #    sleep(1)
+    #    count+=1
+    #  end
+    #end
     sleep(3)
   end
 
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
+    write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
+    puts "scroll_page_and_assert_text (#{id})"
     id=escape_quotes_smart(id)
     repeat_count=0
 
       flash("view text:'#{id}'") if (element_exists("view text:'#{id}'") && $g_flash)
 
     if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-      puts "scrolled to text:#{id}:"
+      puts "scrolled to text (#{id})"
       return
     end
 
@@ -190,7 +194,7 @@ module IosReusableMethods
       end
       sleep 0.5
     end
-    fail "id/text :#{id}: not present on screen" if repeat_count==10
+    fail "id/text :#{id}: not present on screen" if repeat_count==count
     sleep 1
   end
 
@@ -201,6 +205,7 @@ module IosReusableMethods
   end
 
   def scroll_table_to_text(text)
+    puts "scroll_table_to_text #{text}"
     wait_poll({:until_exists => "view marked:'#{text}'",
                :timeout => 2}) do
       scroll("tableView", :down)

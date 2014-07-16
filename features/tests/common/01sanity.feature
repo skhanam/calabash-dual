@@ -1,25 +1,24 @@
-@android_test @ios_test @auto1 @nor @sanity-all @common-tests
+@android_test @ios_test @auto1 @sanity-all @common-tests
 Feature: Login and Home page features
   Login into application
-
 
   @reset  @wrong-login  @basic-sanity
   Scenario: Verify error message for wrong login
     Given I submit wrong login details
     Then I see correct error messages on login screen
 
-  @login1 @reset
+  @login1 @reset @ss
   Scenario: Login and verify home screen
     Given I log into Application
     Then I must be logged and on Home page
 
-  @sanity @logout @reset @basic-sanity
+  @logout @reset @basic-sanity
   Scenario: Logout
     Given I am on Home screen
     When I log out from application
     Then I see welcome screen
 
-  @basic-sanity @check1
+  @basic-sanity @check1 @ss
   Scenario: Check Navigation menus
     Given I am on default booking
     Given I am on Home screen
@@ -30,9 +29,4 @@ Feature: Login and Home page features
       | Flight          |
       | Hotel           |
       | Contact us      |
-
-#      | Destination     |
-#      | Duty Free       |
-#      | Guide Online    |
-#      | App Feedback    |
-#      | Log out         |
+      | App Feedback    |

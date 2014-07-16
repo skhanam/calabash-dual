@@ -1,5 +1,5 @@
 #testcases - https://akqa-lon3.ontestpad.com/script/1036
-@ios_test @android_test @auto3
+@ios_test @android_test @auto3  @de @weather
 Feature: Weather
   As a TUI client with a TUI booking
   I should be able to access the destination weather screens
@@ -11,7 +11,8 @@ Feature: Weather
     Then I see holiday weather page
     And I should weather forecast for five sequential days
 
+  @weather2
   Scenario: Social Share
     Given I have switched to single booking
     Given I navigate to weather page using weather biscuit
-    Then I verify facebook and twitter share icons are visible
+    Then I verify share icons on weather page

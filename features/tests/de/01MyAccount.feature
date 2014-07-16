@@ -1,4 +1,4 @@
-@android_test @ios_test @myaccount_tests @auto1
+@android_test @ios_test @myaccount_tests @auto1 @de
 Feature: Verify My account page and sub pages
   Verify my account page
   Verify change password page
@@ -20,7 +20,6 @@ Feature: Verify My account page and sub pages
   Scenario: Verify change password page
     Given I choose to change password from my account page
     Then I see change password page
-
 
   Scenario: Verify update email page
     Given I select update email from my account page

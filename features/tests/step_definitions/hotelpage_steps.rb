@@ -35,5 +35,4 @@ end
 
 Then(/^I should see an overlay box to call or cancel$/) do
   @commonMethods.verify_call_button_overlay
-  puts "Defect - https://rally1.rallydev.com/#/14311509545d/detail/defect/17609021314"
 end

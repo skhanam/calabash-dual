@@ -22,7 +22,16 @@ end
 Then(/^I verify details of all flights$/) do
   count=CommonMethods.new.find_number_of_flights
   @flightsPage.check_flights_listing
-  if count>1
+  if count==1
+    # TODO this must be changed once bug for @single-journey is fixed
+    @flightsPage.check_details_of_flight
+  else
     @flightsPage.check_details_of_flight
   end
+end
+
+Then(/^I should not see flights list$/) do
+  count=CommonMethods.new.find_number_of_flights
+  puts "count #{count}"
+  @flightsPage.check_flights_list_is_not_shown
 end

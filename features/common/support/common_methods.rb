@@ -109,9 +109,16 @@ class CommonMethods < BasePage
   def get_desination_countries(booking=$g_current_booking)
     countries=[]
     #puts booking
-    booking["payload"]["destinationGuide"]["data"].each do |var|
-      countries<< var[1]["destinationName"]
+    if $g_nordics_app
+      booking["payload"]["destinationGuide"]["data"].each do |var|
+        countries<< var["destinationName"]
+      end
+    else
+      booking["payload"]["destinationGuide"]["data"].each do |var|
+        countries<< var[1]["destinationName"]
+      end
     end
+
     return countries
   end
 
@@ -134,9 +141,10 @@ class CommonMethods < BasePage
   end
 
   def get_booking_ref_number
-    $g_current_booking["payload"]["reservationCode"] if $g_german_app
-    $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
-    $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
+    num = $g_current_booking["payload"]["reservationCode"] if $g_german_app
+    num = $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
+    num = $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
+    return num
   end
 
   def find_number_of_flights
@@ -165,18 +173,26 @@ class CommonMethods < BasePage
   end
 
   def get_countdown_days(val=$g_current_booking)
-    puts $g_current_app
-    if $g_current_app=="DE_MT" || $g_nordics_app
-      return (val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i
+    if $g_nordics_app
+      return ((val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
+    elsif $g_german_app
+      countdown=0
+      val["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+        countdown=var["value"] if var["title"]=="Countdown"
+      end
+      puts countdown.to_s
+      return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
     else
-      date_string = $g_current_user_details[:valid][:departuredate]
-      days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
+      date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
+      days_left=(DateTime.strptime(date_string, '%d-%m-%Y %H:%M') - DateTime.now).to_i
+      #date_string = $g_current_user_details[:valid][:departuredate]
+      #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
       puts "days_left #{days_left}"
       return days_left
     end
   end
 
-  def find_products_in_booking(product)
+  def find_de_products(product)
     products=[]
     all_products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
     all_products.each do |var|
@@ -187,7 +203,7 @@ class CommonMethods < BasePage
 
   def find_hotel_details(num)
     count=0
-    find_products_in_booking("hotel").each do |item|
+    find_de_products("hotel").each do |item|
       count+=1
       return item if count==num.to_i
     end
@@ -195,7 +211,7 @@ class CommonMethods < BasePage
   end
 
   def get_insurance_details
-    puts find_products_in_booking("insurance")
+    puts find_de_products("insurance")
     fail "failed"
   end
 
@@ -219,10 +235,12 @@ class CommonMethods < BasePage
 
   def check_sharing
     scroll_page_till_acc @@share_button_closed_img
+    scroll_view("down")
+    sleep 2
     click_accessibility_label @@share_button_closed_img
-    wait_for_acc_label @@facebook_share_img
-    wait_for_acc_label @@twitter_share_img
-    wait_for_acc_label @@share_button_open_img
+    assert_wait_for_acc_label @@facebook_share_img
+    assert_wait_for_acc_label @@twitter_share_img
+    assert_wait_for_acc_label @@share_button_open_img
     sleep 1
   end
 
@@ -250,11 +268,31 @@ class CommonMethods < BasePage
       end
 
     elsif $g_german_app
-      arr=find_products_in_booking("flight")
+      arr=find_de_products("flight")
     end
 
     return arr
+  end
 
+  def get_hotel_details
+    arr=[]
+
+    #eng app
+    if ($g_eng_app)
+      arr.push $g_current_booking["payload"]["products"]["hotel"]["subTitle"]
+      #nor user
+    elsif ($g_nordics_app)
+      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+        arr.push(var["hotel"]["name"]) if var["hotel"]!=nil
+      end
+    elsif $g_german_app
+      prod=find_de_products("hotel")
+      prod.each do |var|
+        arr.push(var["name"])
+      end
+    end
+
+    return arr
   end
 
 
@@ -268,6 +306,27 @@ class CommonMethods < BasePage
     data=YAML.load(File.open($g_locale))
     locale=ENV['LANG']
     data["#{locale}"]["months"]["#{month}"]
+  end
+
+  def close_whats_new_dialog
+    if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
+      arr=@@app_update_popup_body.split(/\n/)
+      arr.each do |var1|
+        res=var1.match(/(\w+)/)
+        assert_partial_text(res[0])
+      end
+      click_on_text @@ok
+    end
+  end
+
+  def close_push_notifications
+    sleep 2
+    if element_exists("#{$g_query_txt}text:'#{@@push_notifications}'")
+      assert_wait_for_text @@we_would_like_to_send_push
+      assert_wait_for_text @@push_not_now
+      touch ("#{$g_query_txt}text:'#{@@push_not_now}'")
+      sleep 2
+    end
   end
 
 end

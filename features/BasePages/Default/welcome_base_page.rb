@@ -1,7 +1,7 @@
 class WelcomeBasePage < BasePage
 
   def check_welcome_screen
-    return wait_for_text(@@already_customer_title,5)
+    return wait_for_text(@@already_customer_title, 5)
   end
 
   def verify_welcome_screen
@@ -27,6 +27,9 @@ class WelcomeBasePage < BasePage
   end
 
   def navigate_to_login
+    sleep 2
+    CommonMethods.new.close_whats_new_dialog
+    CommonMethods.new.close_push_notifications
     check_welcome_screen
     sleep 1
     click_on_text(@@login_with_existing_credentials)
@@ -41,6 +44,9 @@ class WelcomeBasePage < BasePage
   end
 
   def click_already_registered
+    CommonMethods.new.close_whats_new_dialog
+    CommonMethods.new.close_push_notifications
+
     click_on_text @@login_with_existing_credentials
     assert_wait_for_text @@login_page_text
   end
@@ -50,11 +56,14 @@ class WelcomeBasePage < BasePage
   end
 
   def click_not_yet_registered_with_tui
-    click_on_text @@not_yet_registered
+    sleep 2
+    CommonMethods.new.close_whats_new_dialog
+    CommonMethods.new.close_push_notifications
+
+    click_on_text @@register_with_booking_code
     assert_wait_for_text @@new_user_registration_create_account_text1
     return NewUserRegistrationBasePage.new
   end
-
 
   def check_already_registered
     assert_wait_for_text @@already_registered
@@ -65,6 +74,5 @@ class WelcomeBasePage < BasePage
     assert_wait_for_text @@not_yet_registered
     assert_wait_for_text @@register_with_booking_code
   end
-
 
 end

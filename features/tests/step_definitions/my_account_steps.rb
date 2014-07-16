@@ -37,7 +37,7 @@ And(/^verify my details on account page$/) do
 end
 
 When(/^I log out from application$/) do
-  puts "LANGUAGE SPECIFIED #{$g_current_app}"
+  #puts "LANGUAGE SPECIFIED #{$g_current_app}"
   if ($g_current_app=='DE_MT')
     step "I am on my account page"
     @myAccountPage.logout_from_app

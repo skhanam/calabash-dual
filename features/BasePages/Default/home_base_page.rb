@@ -9,19 +9,50 @@ class HomeBasePage < BasePage
   end
 
   def trait
-    $g_query_txt+"text:'#{@@home_page_loading}'"
+    $g_query_txt+"text:'#{@@hold_on_one_moment}'"
   end
 
   def await(opts={})
-    text=$g_query_txt+"text:'#{@@home_page_loading}'"
+    text=$g_query_txt+"text:'#{@@hold_on_one_moment}'"
     if (query(text))
       sleep 5
     end
-    wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@home_page_loading}'"])
+    wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@hold_on_one_moment}'"])
     sleep(5)
     self
   end
 
+  def select_destination_biscuit
+    scroll_page_till_partial_text @@home_destination_string
+    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
+    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{@@home_destination_string}' }") if $g_android
+    assert_element(query)
+    touch query
+
+  end
+
+  def select_guide_online
+    scroll_page_and_assert_text @@guide_online
+    #query=("* contentDescription:'booking_summary.' text:'#{@@guide_online}'") if $g_android
+    #query=("view marked:'booking_summary' text:'#{@@guide_online}'") if $g_ios
+    #assert_element(query)
+    click_on_text @@guide_online
+  end
+
+  def check_taxfree_biscuit
+    query=("* contentDescription:'booking_summary.' text:'#{@@duty_free}'") if $g_android
+    query=("view marked:'booking_summary' text:'#{@@duty_free}'") if $g_ios
+    scroll_page_and_assert_text("#{@@duty_free}")
+    assert_element(query)
+  end
+
+  def select_booking_summary_biscuit
+    query=("* contentDescription:'booking_summary.' text:'#{@@side_panel_booking_summary}'") if $g_android
+    query=("view marked:'booking_summary' text:'#{@@side_panel_booking_summary}'") if $g_ios
+    scroll_page_and_assert_text("#{@@side_panel_booking_summary}")
+    assert_element(query)
+    touch query
+  end
 
   def check_welcome_messages
     msg=get_welcome_message
@@ -30,7 +61,9 @@ class HomeBasePage < BasePage
 
   #Check one element on home screen to confirm page is loaded
   def check_home_screen(timeout=20)
-    return wait_for_acc_label(@@home_page_acc_label, timeout)
+    res= wait_for_acc_label(@@home_page_acc_label, timeout)
+    puts "check_home_screen: #{res}"
+    return res
   end
 
   def wait_login_progress_to_disappear
@@ -38,6 +71,8 @@ class HomeBasePage < BasePage
   end
 
   def wait_for_home_page_to_load
+    puts "wait_for_home_page_to_load -> check_progress_messages"
+    check_progress_messages
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 
@@ -48,6 +83,7 @@ class HomeBasePage < BasePage
 
   def navigate_to_currency_conv_page
     CommonMethods.new.scroll_page_till_acc "tovalue"
+    scroll_view("down")
     sleep 1
     get_currency_details
     click_accessibility_label "coins"

@@ -1,6 +1,6 @@
 module TestModule
   def initialize_all
-    puts $g_current_app
+    puts "\n\n CURRENT APP BEING TESTED #{$g_current_app}"
     @page=BasePage.new
     @welcomePage ||= WelcomePage.new
     @loginPage ||= LoginPage.new
@@ -11,7 +11,9 @@ module TestModule
     @travelMoneyPage=TravelMoneyBasePage.new
     @appFeedbackPage=AppFeedbackBasePage.new
     @flightsPage ||=FlightsBasePage.new
-
+    @destinationInfo ||= DestinationInfoBasePage.new
+    @excursionsPage ||= ExcursionsPage.new
+    @guideOnlinePage ||= GuideOnlineBasePage.new
 
     if ($g_current_app=='DE_MT')
       @homePage ||= HomePage.new
@@ -19,8 +21,7 @@ module TestModule
 
       @countDownPage ||=CountDownDE.new
 
-      @myAccountPage ||= MyAccountPage.new
-      @destInfoPage||=DestinationInfoBasePage.new
+      @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
       @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
@@ -46,6 +47,7 @@ module TestModule
       @sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @countDownPage ||=CountDownNOR.new
+      @dutyFreePage ||= DutyFreePage.new
 
     end
   end

@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require_relative 'de_meinetui_strings' if (ENV['TESTENV']=='DE_MT')
+require_relative 'de_strings' if (ENV['TESTENV']=='DE_MT')
 require_relative 'en_strings' if (ENV['TESTENV']=='EN_TH' || ENV['TESTENV']=='EN_FC')
 require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
@@ -11,7 +11,7 @@ module AppStrings
   $g_nordics_app=false
   $g_german_app=false
   $g_eng_app=false
-  puts ENV['TESTENV']
+  #puts ENV['TESTENV']
   if (ENV['TESTENV']=='DE_MT')
     include DEMeineTUI
     $g_german_app=true
@@ -53,11 +53,15 @@ module AppStrings
     countdown_page_strings
     home_page_strings
     app_feedback_strings
+    destination_info_strings
+    check_open_url_in_browser_cta
+    whats_new_strings
+    push_notification_dialog
 
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
-      # strings from de_meinetui_strings.rb file are being used for DE Meine TUI app
+      # strings from de_strings.rb file are being used for DE Meine TUI app
       puts "settings german strings for Meine TUI"
       set_meine_tui_de_mt_strings
     elsif ($g_current_app=='EN_TH')
@@ -76,8 +80,36 @@ module AppStrings
     @@currency_hash={}
   end
 
+  def whats_new_strings
+    @@app_update_popup_title= escape_quotes(get_localized_string "app_update_popup_title")
+    @@app_update_popup_body= get_localized_string "app_update_popup_body"
+    @@ok= get_localized_string "ok"
+  end
+
+  def push_notification_dialog
+    @@push_notifications=get_localized_string "push_notifications"
+    @@we_would_like_to_send_push=get_localized_string "we_would_like_to_send_push"
+    @@push_not_now=get_localized_string "not_now"
+    @@push_allow=get_localized_string "allow"
+  end
+
+  def check_open_url_in_browser_cta
+    @@url_dialog_title=get_localized_string "url_dialog_title" #"Open in browser?"
+    @@url_dialog_cancel=get_localized_string "call_dialog_cancel" #"Cancel"
+    @@url_dialog_yes=get_localized_string "call_dialog_yes" #"Yes"
+  end
+
+  def destination_info_strings
+    @@destination_page_gen_info = get_localized_string "general_information"
+    @@destination_page_location = get_localized_string "location"
+    @@destination_share_facebook = get_localized_string "share_destination"
+
+    @@destination_title=get_localized_capitalized_string "destination_guide" if $g_current_app=="EN_FC"
+    @@destination_title=get_localized_string "destination_guide" if $g_current_app=="EN_TH" || $g_nordics_app
+    @@destination_title=get_localized_string "destination_info" if $g_german_app
+  end
+
   def home_page_strings
-    @@home_page_loading=get_localized_string "hold_on_booking"
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_days_to_go= get_localized_string "days_to_go"
     @@to_flight_strings= get_localized_string "to"
@@ -85,10 +117,17 @@ module AppStrings
 
   def common_strings
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
-    @@call_us_dialog_no = get_localized_string "cancel"
-    @@call_us_dialog_yes = get_localized_string "call_dialog_yes"
+    @@call_us_dialog_no = get_localized_string "call_dialog_cancel"
+    @@call_us_dialog_yes = get_localized_string "call_dialog_call"
     @@currency_converter_title= get_localized_string "currency_converter" #Währungsrechner
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
+
+    @@weather_coming_soon=get_localized_string "weather_coming_soon"
+
+    @@hold_on_one_moment=get_localized_string "hold_on"
+    @@activity_indicator_ten=get_localized_string "activity_indicator_ten"
+    @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
+    @@activity_indicator_twelve=get_localized_string "activity_indicator_twelve"
   end
 
   def image_icons_acc_label
@@ -136,6 +175,8 @@ module AppStrings
     @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
     @@app_feed_back_submit= get_localized_string "feedback_submit_button"
     @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
+    @@app_feed_back_email_us = get_localized_string "feedback_email_us_button" # Send us more feedback
+
   end
 
   # setting global vars to make queries reusable

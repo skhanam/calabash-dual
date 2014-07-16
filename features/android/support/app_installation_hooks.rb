@@ -16,6 +16,7 @@ Before do |scenario|
   scenario_tags = scenario.source_tag_names
   if scenario_tags.include?('@reset')
     clear_app_data
+    $selected_booking="NA"
   else
     feature_name = scenario.feature.title
     if FeatureNameMemory.feature_name != feature_name \
@@ -36,7 +37,7 @@ Before do |scenario|
     end
   end
 
-  puts "Launching app"
+  #puts "Launching app"
   start_test_server_in_background(:Timeout=>30)
   sleep 3
 end

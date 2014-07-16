@@ -1,6 +1,4 @@
 
-
-
 Install Appcelerator
 ===============
 Open - http://developer.appcelerator.com and log on to appcelerator.com
@@ -17,7 +15,7 @@ Folder structure
 
 <br /> Gemfile   - gems required for running calabash test suite
 <br /> README.md - Help file
-<br /> runmeinetui.sh - Shell script required to run IOS tests
+<br /> run_ios.sh - Shell script required to run IOS tests
 <br /> ios-report.html - IOS test report
 <br /> android-report.html - android test report
 <br /> app.apk - application file for android
@@ -33,13 +31,36 @@ Folder structure
 Test data is stored in file users.rb
 <br /> to use simple input data use users.rb
 
+Folder structure
+---TDA (base folder for project)
+ ------- TDA.ui.automation  (Automation source code)
+ ------- Application_source_code  (Application source code)
+
+
+Environment variables which can be configured
+===============
+ENV['LOG_VERIFIED_TXT']=="yes" # for writing verified text onto a file
+ENV['TAKE_SS']=="yes" # for taking screenshots
+ENV['ENDPOINT']=="dev" or "preprod"  # for testing dev or pre prod environments
+
+Taking screenshot to compare(for raf)
+===============
+
+calabash-ios sim locale en
+TAKE_SS="yes" sh run_ios.sh NA @ss sv ../meine.tui
+calabash-ios sim locale da
+TAKE_SS="yes" sh run_ios.sh NA @ss da ../meine.tui
+calabash-ios sim locale nb
+TAKE_SS="yes" sh run_ios.sh NA @ss nb ../meine.tui
+calabash-ios sim locale fi
+TAKE_SS="yes" sh run_ios.sh NA @ss fi ../meine.tui
 
 Execute tests
 ===============
 
-####Clean and run project
-	 sh runmeinetui.sh clean @sanity
-	 sh runandroid.sh clean @sanity
+####Clean and run project (run below command from folder where Automation code is present)
+	 sh run_ios.sh clean @basic-sanity sv ../meine.tui
+	 sh runandroid.sh clean @basic-sanity sv ../meine.tui
 
 ####Clean and run regression project
 	 sh runmeinetui.sh clean @android_test

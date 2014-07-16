@@ -1,4 +1,4 @@
-@ios_test @android_test @auto3 @tour-guide
+@ios_test @android_test @auto3 @tour-guide  @de
 Feature: Verify my travel agent
 
   @travel_agent

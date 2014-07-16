@@ -2,6 +2,21 @@ require_relative '../Default/booking_summary_base_page'
 
 class BookingSummaryPage < BookingSummaryBasePage
 
+  def check_products_in_booking_summary(var)
+    products=CommonMethods.new.find_de_products(var)
+    if var=="flight"
+      products.each do |val|
+        txt_to_check=val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
+        scroll_page_and_assert_text(txt_to_check,"down",nil,20)
+      end
+    elsif var=="hotel"
+      products.each do |val|
+        scroll_page_and_assert_text val["name"]
+      end
+    else
+      fail("wrong argument")
+    end
+  end
 
   def verify_booking_reference_number
     get_booking_ref_number=CommonMethods.new.get_booking_ref_number

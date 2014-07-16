@@ -31,6 +31,12 @@ end
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
+  #@bookingSummaryPage.verify_booking_summary_details
+end
+
+When(/^I see and verify holiday booking summary page$/) do
+  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -71,16 +77,51 @@ Then(/^I should see a list of products in booking$/) do
   @sidePanel.verify_side_panel_strings
 end
 
-Then(/^I navigate to each item and navigate back to home screen$/)  do |table|
+Then(/^I navigate to each item and navigate back to home screen$/) do |table|
   values=table.raw
   values.each do |var|
+
+    #skip the iteration if weather is not retrieved
+    if (var[0]=="Weather" && @page.check_text_in_view(@page.get_localized_string("weather_coming_soon"))) == true
+      puts "weather info not available coming soon"
+      next
+    end
+
     @homePage.open_side_panel
     sleep 2
     @sidePanel.navigate_from_side_menu(var[0])
     sleep 2
+
+    if ENV['TAKE_SS']=="yes"
+      sleep 5
+      screenshot(options={:name => "#{var[0]}"})
+    end
+
     @page.navigate_back
     sleep 2
     @homePage.check_home_screen
     sleep 2
   end
+end
+
+
+When(/^I navigate to destination using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("destination")
+end
+
+When(/^I navigate to Taxfree page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Duty Free")
+end
+
+
+When(/^I navigate to excursion page from side panel$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Excursions")
+end
+
+When(/^I navigate to contact us page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Contact us")
 end

@@ -7,16 +7,9 @@ set timeout 10
 spawn /usr/local/bin/ti clean 
 expect "Project cleaned successfully"
 spawn echo "cleaned project"
-spawn open -a Xcode
 set timeout 60
-spawn ti build args
-expect "or platform name"
-send "3\r"
-expect "Alloy compiler completed successfully"
-expect "Application booted in"
-send \004
-spawn killall Xcode
-spawn sleep 5
+spawn ti build args -b -p ios
+expect "Project built successfully"
 set timeout 20
 spawn calabash-ios setup build/iphone/
 expect "Please answer yes (y) or no (n)"  { send "n\r" }
