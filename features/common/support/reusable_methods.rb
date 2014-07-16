@@ -18,6 +18,14 @@ module ReusableMethods
     sleep 1
   end
 
+  # escape if there are + symbols in text
+  def escape_plus(str)
+    if str.include? '+'
+      str.gsub('+', '\\\\+')
+    end
+    return str
+  end
+
   def get_localized_capitalized_string(id)
     UnicodeUtils.upcase(get_localized_string(id))
   end
@@ -69,30 +77,6 @@ module ReusableMethods
     end
   end
 
-
-  def click_element(query)
-    touch(query)
-  end
-
-  def assert_element(query)
-    res = element_exists(query)
-    if not res
-      screenshot_and_raise "No element found for query: #{query}"
-    end
-    return res
-  end
-
-  def assert_element_exists(element)
-    res = element_exists($g_query_txt+"text:'#{element}'")
-    if not res
-      screenshot_and_raise "No element found with mark or text: #{element}"
-    end
-    return res
-  end
-
-  def wait_for_seconds(timetowait)
-    sleep(timetowait)
-  end
 
   #Create result hash for data matching criteria  @@welcome_msg_hash[criteria]
   def create_result_hash(criteria)

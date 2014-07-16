@@ -14,14 +14,6 @@ module ViewModule
   def embed(a, b, c)
   end
 
-  # escape if there are + symbols in text
-  def escape_plus(str)
-    if str.include? '+'
-      str.gsub('+', '\\\\+')
-    end
-    return str
-  end
-
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
     return query($g_query_txt+"contentDescription:'#{id}.'", :text).first if $g_android
@@ -66,7 +58,6 @@ module ViewModule
   def assert_partial_text text
     fail("text not shown #{text}") if check_partial_text_shown(text) ==false
   end
-
 
   ## Specify text to check and time to wait for
   def wait_for_text(text, time_out=10)
@@ -123,7 +114,6 @@ module ViewModule
     touch("view marked:'#{text}'")
     sleep(1)
   end
-
 
   def check_acc_label(id)
     puts "check_acc_label (#{id})"
@@ -234,6 +224,27 @@ module ViewModule
 
   def navigate_back
     click_accessibility_label "navbarLeftButton"
+  end
+
+
+  def click_element(query)
+    touch(query)
+  end
+
+  def assert_element(query)
+    res = element_exists(query)
+    if not res
+      screenshot_and_raise "No element found for query: #{query}"
+    end
+    return res
+  end
+
+  def assert_element_exists(element)
+    res = element_exists($g_query_txt+"text:'#{element}'")
+    if not res
+      screenshot_and_raise "No element found with mark or text: #{element}"
+    end
+    return res
   end
 
 end
