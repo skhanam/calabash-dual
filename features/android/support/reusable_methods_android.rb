@@ -174,33 +174,6 @@ module AndroidReusableMethods
     scroll_page_and_assert_text(text)
   end
 
-#Read and Enter data from excel sheet
-  def enter_credentials_from_excel(test_data)
-    await
-    surname=test_data["Surname"]
-    touch("all TiEditText index:1")
-
-    enter_details(surname, 1)
-
-    if `adb shell getprop ro.build.version.release`.strip.match(/2.3/)
-      $g_ginger_bread=true
-    end
-
-    enter_date(test_data["DepartureDate"])
-    touch("all TiEditText index:5")
-    ti_enter_details(test_data["VisionShopNumber"], 5)
-    touch("all TiEditText index:7")
-    ti_enter_details(test_data["VisionBookingRef"], 7)
-    sleep(1)
-    performAction('send_key_enter')
-    sleep(1)
-    performAction("go_back")
-
-    if ($g_ginger_bread==true)
-      sleep(1)
-      performAction("scroll_up") #Scroll up for small screen devices
-    end
-  end
 
 
   def get_nav_bar_title
