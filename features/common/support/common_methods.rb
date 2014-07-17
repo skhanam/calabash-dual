@@ -1,6 +1,5 @@
 require 'rubyXL'
-require_relative '../../ios/base_page_ios' if $g_ios
-require_relative '../../android/base_page_android' if $g_android
+require_relative '../../BasePages/base_page'
 require 'yaml'
 
 #Methods common across android and ios are added here
