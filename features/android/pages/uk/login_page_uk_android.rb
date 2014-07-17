@@ -4,6 +4,7 @@ require_relative '../../../BasePages/Default/login_base_page'
 class LoginPage < LoginBasePage
 
   def login_thomson(departureDate)
+    fail("unused")
     enter_date_android(departureDate)
   end
 

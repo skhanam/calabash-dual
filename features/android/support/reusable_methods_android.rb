@@ -174,8 +174,6 @@ module AndroidReusableMethods
     scroll_page_and_assert_text(text)
   end
 
-
-
   def get_nav_bar_title
     query("* marked:'navbarTitle.'", :text).first
   end
