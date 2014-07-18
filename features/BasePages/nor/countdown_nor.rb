@@ -19,7 +19,6 @@ class CountDownNOR < CountDownBasePage
     sleep 2
     @@countdown_message_from_screen=get_acc_label_text("slogan_text")
     res=@@countdown_message_from_screen.match(@@countdown_countdown_message2)
-    puts "countdown message is wrong #{@@countdown_message_from_screen}  #{@@countdown_countdown_message2}"
     fail("countdown message is wrong #{@@countdown_message_from_screen}  #{@@countdown_countdown_message2} ") if res==nil
   end
 
