@@ -9,8 +9,7 @@ class WelcomeBasePage < BasePage
   end
 
   def verify_welcome_page
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@already_customer_title}'"],
-                            :timeout => 5)
+    assert_wait_for_text @@already_customer_title
     check_welcome_screen
     assert_text_elements([@@already_customer_title,
                           @@already_registered,
