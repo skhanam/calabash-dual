@@ -16,7 +16,7 @@ Feature: Verify booking summary page
     Then I see holiday booking summary page
     And list of my flights in booking summary
 
-  @booking_summary2 @basic-sanity
+  @booking_summary2
   Scenario: navigate to booking summary page
     Given I am on home screen with default booking
     When I navigate to booking summary page using side menu
