@@ -203,6 +203,7 @@ end
 Then(/^I see login Page/) do
   @loginPage.verify_login_page
 end
+
 Then(/^I see login screen$/) do
   @loginPage.check_login_screen
 end

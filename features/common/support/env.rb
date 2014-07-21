@@ -10,13 +10,18 @@ require File.join(File.dirname(__FILE__), 'page_world')
 
 `defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina 4-inch)"'`
 
+$g_ios=false
+$g_android=false
+
 if ENV['PLATFORM'] == 'ios'
+  $g_ios=true
   require 'calabash-cucumber/cucumber'
-  require_relative '../../ios/base_page_ios'
 elsif ENV['PLATFORM'] == 'android'
+  $g_android=true
   require 'calabash-android/cucumber'
-  require_relative '../../android/base_page_android'
 end
+
+require_relative '../../BasePages/base_page'
 
 $g_locale="./config/locale.yml"
 $g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
@@ -42,6 +47,7 @@ $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_
 $g_user_details=$g_current_user_details[:valid]
 $g_valid_user_details=$g_current_user_details[:valid]
 $g_invalid_user_details=$g_current_user_details[:invalid]
+
 
 World(TestModule)
 World(AppStrings)

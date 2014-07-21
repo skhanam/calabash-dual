@@ -33,7 +33,6 @@ class BookingSummaryPage < BookingSummaryBasePage
     assert_wait_for_text(@@bookingSummary_leadPassenger) # "Lead Passenger:"
     scroll_page_and_assert_text(@@bookingSummary_emailDescription) # "Send your full holiday summary to yourself or other passengers."
     scroll_page_and_assert_text(@@bookingSummary_emailTitle) # "Email my booking details"
-
   end
 
   def verify_booking_reference_number
@@ -55,8 +54,6 @@ class BookingSummaryPage < BookingSummaryBasePage
     puts "Departure date :#{str}:"
     scroll_page_and_assert_text str.to_s
   end
-
-
 
 end
 
