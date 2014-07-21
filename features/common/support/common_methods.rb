@@ -329,4 +329,13 @@ class CommonMethods < BasePage
     end
   end
 
+
+  def check_progress_messages
+    puts "\n\ncheck_progress_messages.... #{caller.first}"
+    wait_for_progress_to_disappear @@hold_on_one_moment
+    wait_for_progress_to_disappear @@activity_indicator_ten
+    wait_for_progress_to_disappear @@activity_indicator_eleven
+    wait_for_progress_to_disappear(@@activity_indicator_twelve,20)
+  end
+
 end
