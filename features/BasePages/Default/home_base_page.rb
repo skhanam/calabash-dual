@@ -72,7 +72,7 @@ class HomeBasePage < BasePage
 
   def wait_for_home_page_to_load
     puts "wait_for_home_page_to_load -> check_progress_messages"
-    check_progress_messages
+    CommonMethods.new.check_progress_messages
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 
