@@ -6,7 +6,7 @@ class BookingSummaryPage < BookingSummaryBasePage
     if var=="flight"
       products=CommonMethods.new.get_flights_details
       products.each do |val|
-        scroll_page_and_assert_text val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
+        scroll_page_till_partial_text val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
       end
     elsif var=="hotel"
       products=CommonMethods.new.get_hotel_details
