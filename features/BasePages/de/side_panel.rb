@@ -84,38 +84,6 @@ class SidePanelDe < SidePanel
     touch_txt_and_verify_title(@@side_panel_good_to_know, @@good_to_know_page_title)
   end
 
-  def verify_elements_for_flight_single_booking
-    fail("unused")
-    #$g_current_booking=$g_flight_booking_data
-    assert_wait_for_text @@side_panel_booking_summary
-    res=CommonMethods.new.get_all_products_for_booking
-    res.uniq.each do |var|
-      count=res.count(var)
-      check_side_panel(var)
-    end
-  end
-
-
-  def side_panel_elements
-    fail("unused")
-    scroll_page_and_assert_text @@side_panel_countdown
-
-    scroll_page_and_assert_text @@side_panel_my_booking #heading
-    scroll_page_and_assert_text @@side_panel_booking_summary
-
-    scroll_page_and_assert_text @@side_panel_destination_info # heading
-    scroll_page_and_assert_text @@side_panel_weather
-    scroll_page_and_assert_text @@side_panel_destination_guide
-    scroll_page_and_assert_text @@side_panel_excursions
-    scroll_page_and_assert_text @@side_panel_good_to_know
-
-    scroll_page_and_assert_text @@side_panel_contact_heading
-    scroll_page_and_assert_text @@side_panel_travel_agent
-    scroll_page_and_assert_text @@side_panel_tui_service_on_site
-    scroll_side_panel(@@side_panel_contact_us, 2)
-  end
-
-
   def check_side_panel(var, count=1)
     case var
       when "flight"

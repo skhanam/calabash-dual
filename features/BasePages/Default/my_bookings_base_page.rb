@@ -1,5 +1,5 @@
 class MyBookingsBasePage < BasePage
-
+  include MyBookingsModule
   #def initialize
   #end
   def switch_to_particular_booking
