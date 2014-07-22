@@ -18,10 +18,12 @@ module AppStrings
     $g_current_app="DE_MT"
   elsif (ENV['TESTENV']=='EN_TH')
     $g_current_app="EN_TH"
+    $g_thomson_app=true
     include EN_Strings
     $g_eng_app=true
   elsif (ENV['TESTENV']=='EN_FC')
     $g_current_app="EN_FC"
+    $g_firstchoice_app=true
     include EN_Strings
     $g_eng_app=true
   elsif (ENV['TESTENV']=='NOR')

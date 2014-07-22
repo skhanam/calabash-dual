@@ -1,6 +1,9 @@
 # encoding: utf-8
 
 class HomeBasePage < BasePage
+  include HomeModule
+  include HomeModule::Phone if $g_phone
+  include HomeModule::Tablet if $g_tablet
 
   def open_side_panel
     sleep 1

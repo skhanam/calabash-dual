@@ -6,6 +6,9 @@ require_relative '../ios/support/reusable_methods_ios' if $g_ios
 require 'calabash-android/abase' if $g_android
 require_relative '../android/support/reusable_methods_android' if $g_android
 
+require_all "features/common/modules/*.rb"
+#require_all "features/#{$g_os}/modules/*.rb"
+
 require_relative '../common/support/reusable_methods'
 require_relative '../../features/common/strings/application_strings'
 require_relative '../common/support/view_functions'

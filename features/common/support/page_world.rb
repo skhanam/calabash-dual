@@ -14,9 +14,9 @@ module TestModule
     @destinationInfo ||= DestinationInfoBasePage.new
     @excursionsPage ||= ExcursionsPage.new
     @guideOnlinePage ||= GuideOnlineBasePage.new
+    @homePage ||= HomePage.new
 
     if ($g_current_app=='DE_MT')
-      @homePage ||= HomePage.new
       @sidePanel ||=SidePanelDe.new
 
       @countDownPage ||=CountDownDE.new
@@ -36,14 +36,12 @@ module TestModule
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
-      @homePage ||= HomePage.new
       @sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
       @countDownPage ||=CountDownEN.new
 
     elsif ($g_nordics_app)
-      @homePage ||= HomePageNOR.new
       @sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @countDownPage ||=CountDownNOR.new
