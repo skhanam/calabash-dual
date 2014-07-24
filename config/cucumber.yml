@@ -5,20 +5,20 @@
 <% common_settings_ios = " -f 'Slowhandcuke::Formatter'  DEVICE_TARGET=simulator OS=ios7 PLATFORM=ios -f json -o features/report/report.json" %>
 <% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android -f json -o features/report/report.json " %>
 
-<% ios_specific_path = " -r features/ios/support -r features/ios/helpers " %>
-<% android_specific_path = "-r features/android/support -r features/android/helpers" %>
+<% ios_specific_path = " -r features/ios/support -r features/ios/modules " %>
+<% android_specific_path = "-r features/android/support -r features/android/modules" %>
 
-<% de_mt_ios_specific_path = " -r features/ios/pages/de -r features/BasePages/de" %>
-<% de_mt_android_specific_path = " -r features/android/pages/de -r features/BasePages/de" %>
+<% de_mt_ios_specific_path = " -r features/BasePages/de" %>
+<% de_mt_android_specific_path = " -r features/BasePages/de" %>
 
-<% en_fc_ios_specific_path = " -r features/ios/pages/uk -r features/BasePages/uk" %>
-<% en_fc_android_specific_path = " -r features/android/pages/uk -r features/BasePages/uk" %>
+<% en_fc_ios_specific_path = " -r features/ios/modules-r features/BasePages/uk" %>
+<% en_fc_android_specific_path = " -r features/BasePages/uk" %>
 
-<% en_tm_ios_specific_path = " -r features/ios/pages/uk -r features/BasePages/uk" %>
-<% en_tm_android_specific_path = " -r features/android/pages/uk -r features/BasePages/uk" %>
+<% en_tm_ios_specific_path = " -r features/BasePages/uk" %>
+<% en_tm_android_specific_path = "  -r features/BasePages/uk" %>
 
-<% nor_ios_specific_path = " -r features/ios/pages/nor -r features/BasePages/nor" %>
-<% nor_android_specific_path = " -r features/android/pages/nor -r features/BasePages/nor" %>
+<% nor_ios_specific_path = " -r features/ios/modules/nor -r features/BasePages/nor" %>
+<% nor_android_specific_path = " -r features/android/modules/nor -r features/BasePages/nor" %>
 
 
 #DEBUG=1 CALABASH_FULL_CONSOLE_OUTPUT=1

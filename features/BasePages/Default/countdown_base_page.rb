@@ -1,5 +1,5 @@
 class CountDownBasePage < BasePage
-
+  include CountdownModule
   #def initialize
   #end
   def check_countdown_screen_title

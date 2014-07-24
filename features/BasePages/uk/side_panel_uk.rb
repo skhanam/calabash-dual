@@ -30,7 +30,4 @@ class SidePanelEng < SidePanel
     scroll_side_panel_and_assert @@log_out_text
   end
 
-
-
-
 end

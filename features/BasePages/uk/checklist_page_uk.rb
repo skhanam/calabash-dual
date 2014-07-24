@@ -5,11 +5,7 @@ class ChecklistPageUk < BasePage
     $g_engChecklist.each do |var|
       txt=escape_quotes(var["message"])
       scroll_page_till_partial_text (txt[0..20])
-      #click_on_partial_text (txt[0..30])
-      #sleep 1
-      #scroll_page_and_assert_text txt
-      #click_on_text txt
-      #puts %Q(verified #{txt})
+      #
     end
   end
 

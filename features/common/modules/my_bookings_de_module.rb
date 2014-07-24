@@ -1,8 +1,9 @@
 require_relative 'base_module'
 module MyBookingsModule
-  include BaseModule
 
   module Ios
+    include BaseModule
+
     def click_booking_in_past
       scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
       id="booking_detail_past"
@@ -67,6 +68,8 @@ module MyBookingsModule
 
   module Android
     def click_booking_in_past
+      include BaseModule
+
       scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
       id="booking_detail_past."
       CommonMethods.new.scroll_page_till_acc id

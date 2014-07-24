@@ -26,9 +26,6 @@ elsif ENV['HW']=="tablet"
   $g_module="Tablet"
 end
 
-
-
-
   if ENV['PLATFORM'] == 'ios'
   $g_ios=true
   require 'calabash-cucumber/cucumber'

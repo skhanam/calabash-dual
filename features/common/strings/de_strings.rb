@@ -294,19 +294,8 @@ module DEMeineTUI
     @@contact_us_t_and_c= get_localized_string "terms_title"
     @@contact_us_disclaimer= get_localized_string "disclaimer"
     @@contact_us_contact_copy= ["TUI Deutschland GmbH",
-                                "Karl-Wiechert-Allee 23",
-                                "30625 Hannover",
                                 "Telefon 05 11 / 5 67-0",
-                                "Telefax 05 11 / 5 67-13 01",
-                                "Handelsregister",
-                                "Amtsgericht Hannover",
-                                "HRB 56512",
-                                "Ust-Ident.-Nr. DE 812777076",
-                                "Vorsitzender des Aufsichtsrates:",
-                                "Dr. Michael Frenzel",
-                                "Geschäftsführung: Christian Clemens (Vorsitzender)",
-                                "Dr. Oliver Dörschuck",
-                                "Henrik Homann"]
+                                "Telefax 05 11 / 5 67-13 01"]
 
     @@contact_us_terms_conditions_page_title=get_localized_string "terms_title"
     @@contact_us_tui_service_title="Im Urlaub für Sie da"

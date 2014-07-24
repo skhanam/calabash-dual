@@ -308,7 +308,7 @@ class CommonMethods < BasePage
   end
 
   def close_whats_new_dialog
-    if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
+     if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
       arr=@@app_update_popup_body.split(/\n/)
       arr.each do |var1|
         res=var1.match(/(\w+)/)

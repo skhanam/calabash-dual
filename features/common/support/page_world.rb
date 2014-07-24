@@ -14,7 +14,7 @@ module TestModule
     @excursionsPage ||= ExcursionsPage.new
     @guideOnlinePage ||= GuideOnlineBasePage.new
     @homePage ||= HomePage.new
-    @countDownPage ||=CountDown.new
+    @countDownPage ||=CountDownBasePage.new
 
     if ($g_current_app=='DE_MT')
       @sidePanel ||=SidePanelDe.new

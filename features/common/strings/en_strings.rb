@@ -229,7 +229,7 @@ module EN_Strings
     @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
     @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
     @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
-    @@contact_us_shop_opening_times="Shop opening times: "
+    @@contact_us_shop_opening_times="Call centre opening times:"
     @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
     @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
     @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"

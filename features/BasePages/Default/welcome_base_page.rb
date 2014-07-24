@@ -9,6 +9,7 @@ class WelcomeBasePage < BasePage
   end
 
   def verify_welcome_page
+    get_all_elements
     assert_wait_for_text @@already_customer_title
     check_welcome_screen
     assert_text_elements([@@already_customer_title,

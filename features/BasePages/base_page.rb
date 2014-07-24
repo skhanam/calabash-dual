@@ -7,6 +7,8 @@ require 'calabash-android/abase' if $g_android
 require_relative '../android/support/reusable_methods_android' if $g_android
 
 require_all "features/common/modules/*.rb"
+require_all "features/ios/modules/*.rb"
+require_all "features/android/modules/*.rb"
 #require_all "features/#{$g_os}/modules/*.rb"
 
 require_relative '../common/support/reusable_methods'
@@ -14,6 +16,8 @@ require_relative '../../features/common/strings/application_strings'
 require_relative '../common/support/view_functions'
 require 'differ'
 
+#require 'calabash_shared'
+require_relative '../../calabash_shared/lib/calabash_shared'
 
 $g_strings_set=false
 
@@ -36,8 +40,10 @@ class BasePage < BaseClass
   include ViewModule
   include ReusableMethods
   include AppStrings
+  include CalabashShared
 
   def initialize
+
   end
 
   def write_hash_to_file(count)
