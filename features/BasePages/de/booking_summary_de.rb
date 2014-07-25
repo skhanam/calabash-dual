@@ -7,7 +7,7 @@ class BookingSummaryPage < BookingSummaryBasePage
     if var=="flight"
       products.each do |val|
         txt_to_check=val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
-        scroll_page_and_assert_text(txt_to_check,"down",nil,20)
+        scroll_page_and_assert_text(txt_to_check,"down",nil,25)
       end
     elsif var=="hotel"
       products.each do |val|
