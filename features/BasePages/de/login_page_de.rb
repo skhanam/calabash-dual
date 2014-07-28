@@ -27,8 +27,8 @@ class LoginPage < LoginBasePage
     scroll_page_and_assert_text @@login_forgot_password
     assert_text_present @@submit_button
     assert_text_present @@login_forgot_password
-    assert_text_present @@new_user_registration_register
-    assert_text_present @@new_user_registration_need_help
-    assert_text_present @@contact_us_t_and_c
+    scroll_page_and_assert_text @@new_user_registration_register
+    scroll_page_and_assert_text @@new_user_registration_need_help
+    scroll_page_and_assert_text @@contact_us_t_and_c
   end
 end

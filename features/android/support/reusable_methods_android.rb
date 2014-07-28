@@ -104,9 +104,9 @@ module AndroidReusableMethods
 
   def scroll_view(dir)
     if (dir=="up")
-      performAction('drag', 50, 50, 70, 90, 10)
+      perform_action('drag', 50, 50, 70, 90, 10)
     elsif (dir=="down")
-      performAction('drag', 50, 50, 90, 70, 10)
+      perform_action('drag', 50, 50, 90, 70, 10)
     end
   end
 
