@@ -73,7 +73,7 @@ module DEMeineTUI
     @@login_default_country="Deutschland"
     @@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
-    @@email_hint_text=get_localized_string "Benutzername / E-Mail eingeben"
+    @@email_hint_text= "Benutzername / E-Mail eingeben"
     @@email_tooltip_text=get_localized_string "login_email_tooltip"
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
@@ -254,9 +254,11 @@ module DEMeineTUI
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
-    @@new_user_registration_register = "Registrieren"
+    @@new_user_registration_register = get_localized_string "signup_signup_cta"
     @@new_user_registration_privacy_policy = "Datenschutz"
-    @@new_user_registration_need_help = "Ich benötige Hilfe"
+    @@new_user_registration_need_help = get_localized_string "i_need_help"
+    @@submit_button= get_localized_string "submit"
+
 
 
   end
@@ -268,7 +270,7 @@ module DEMeineTUI
     @@update_email_new_password="Ihr Passwort:"
     @@update_email_new_password_hint="Passwort eingeben"
     @@update_email__text2="Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen."
-    @@update_email_submit="Speichern"
+    @@update_email_submit= get_localized_string "submit"
     @@update_email_forgot_password="Passwort vergessen?"
   end
 
@@ -276,7 +278,7 @@ module DEMeineTUI
     @@forgot_password_title="Neues Passwort anlegen"
     @@forgot_password_let_us_know_email="Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen. Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden."
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
-    @@forgot_password_send_button="Speichern"
+    @@forgot_password_send_button=get_localized_string "submit"
     @@forgot_password_need_help="Ich benötige Hilfe"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
   end

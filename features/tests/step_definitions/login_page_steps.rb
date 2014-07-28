@@ -181,6 +181,7 @@ end
 Given(/^I am on 'Login' screen/) do
   @commonMethods.close_whats_new_dialog
   @welcomePage.navigate_to_login if $g_german_app && $g_phone
+  @loginPage.check_login_screen
 end
 
 Given(/^I am on 'Welcome' screen/) do
@@ -368,5 +369,5 @@ Then(/^I verify input elements on login page$/) do
 end
 
 When(/^I verify button elements on login page$/) do
-  pending
+  @loginPage.check_buttons
 end

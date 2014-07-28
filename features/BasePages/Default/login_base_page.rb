@@ -43,7 +43,7 @@ class LoginBasePage < BasePage
     click_accessibility_label(@@login_button_acc)
   end
 
-  def check_login_screen
+  def   check_login_screen
     assert_wait_for_text(@@login_page_text)
   end
 
