@@ -16,4 +16,10 @@ class LoginPage < LoginBasePage
   def check_login_error_messages
     assert_wait_for_text @@username_email_error
   end
+
+  def check_input_elements
+    assert_text_present @@email_hint_text
+    assert_text_present @@login_password_hint
+    assert_text_present @@login_default_country
+  end
 end

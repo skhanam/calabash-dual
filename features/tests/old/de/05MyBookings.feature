@@ -3,6 +3,7 @@ Feature: Read Bookings Details and Verify
   Verify welcome text for bookings in past
   Verify Add booking page
 
+  @myaccount_tests1
   Scenario: Verify welcome text for bookings in past
     Given I am on my bookings page
     When I switch to a booking in past

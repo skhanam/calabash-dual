@@ -55,29 +55,51 @@ fi
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
-SCHEME_XC="${APPNAME}-cal"
+SCHEME_XC="${APPNAME}-iPad-cal"
 PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
+
+
+#	BRAND=meinetui
+#    grunt
+#    ti clean
+#    grunt execute:$BRAND
+#    node tda $BRAND -l
+#    titanium build --platform ios -S 7.1 --retina -Y ipad
 
 if [ "$1" == "clean" ] ; then
 	echo "project name:"${PROJ_FOLDER}
-	cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME;/usr/local/bin/node build.js $TI_SCHEME -l;cd -
+	echo "******** ####  Updating All Projects"
+	cd ${PROJ_FOLDER}/
+
+	/usr/local/bin/grunt
+	ti clean
+	/usr/local/bin/grunt execute:$TI_SCHEME
+	node tda $TI_SCHEME -l
+	cd -
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
 	fi
+    cd -
+    titanium build --platform ios -S 7.1 -Y ipad -b
+    cd -
+
 
 	killall Xcode
 	cp ./expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 	echo /usr/bin/expect ./expect.exp $APPNAME
-	/usr/bin/expect ./expect.exp $APPNAME
+	/usr/bin/expect ./expect.exp meineTUI
 	cd -
 	open -a Xcode
 	sleep  5
 	echo ${PROJ_LOC}
 	open ${PROJ_LOC}
 	sleep 20
-	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator build
+
+	echo xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
+	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
+	#xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
 #	${PROJ_FOLDER}/app/themes/${TI_SCHEME}/i18n/
 	sleep 1
@@ -99,8 +121,8 @@ echo $BUILT_PRODUCTS_DIR
 APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
 echo $APP_BUNDLE_PATH_VAR
 
-echo =ios HW=phone TESTENV=$TESTENV SCREENSHOT_PATH=ios$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-OS=ios HW=phone TESTENV=$TESTENV SCREENSHOT_PATH=ios$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+echo DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=ios$3 LANG=$3 BUNDLE_ID=$BUNDLE APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+DEVICE_TARGET="iPad - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=ios$3 LANG=$3 BUNDLE_ID=$BUNDLE APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 
 #echo DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 #DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3

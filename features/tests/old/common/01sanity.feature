@@ -12,7 +12,7 @@ Feature: Login and Home page features
     Given I log into Application
     Then I must be logged and on Home page
 
-  @logout @reset @basic-sanity
+  @logout @reset @basic-sanity  @home1
   Scenario: Logout
     Given I am on Home screen
     When I log out from application

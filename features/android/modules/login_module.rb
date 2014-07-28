@@ -15,12 +15,14 @@ module LoginModule
       end
 
       def setCountry(country)
+       fail("here")
         sleep 1
         touch "* text:'Deutschland'"
-        sleep 1
+        sleep 10
         res=query("CheckedTextView", :text)
         puts "setCountry #{res}"
         index=res.index(country)
+        puts "index #{index}"
         touch "CheckedTextView index:#{index}"
         sleep 1
       end

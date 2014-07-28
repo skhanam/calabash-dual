@@ -3,16 +3,9 @@
 
 set arg1 [lindex $argv 0]
 
-set timeout 10
-spawn /usr/local/bin/ti clean 
-expect "Project cleaned successfully"
-spawn echo "cleaned project"
-set timeout 60
-spawn ti build args -b -p ios
-expect "Project built successfully"
 set timeout 20
 spawn calabash-ios setup build/iphone/
 expect "Please answer yes (y) or no (n)"  { send "n\r" }
-expect "Default target: ${arg1}"  {  send "\r" }
+expect "Default target: ${arg1}"  {  send "${arg1}-iPad\r" }
 expect "Setup done"
 

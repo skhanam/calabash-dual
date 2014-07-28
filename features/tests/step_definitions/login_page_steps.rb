@@ -51,16 +51,18 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep(2)
 
   elsif $g_android
-    performAction('clear_numbered_field', 2)
-    performAction('clear_numbered_field', 6)
-    performAction('clear_numbered_field', 8)
+    clear_text
+    #performAction('clear_numbered_field', 2)
+    #performAction('clear_numbered_field', 6)
+    #performAction('clear_numbered_field', 8)
 
     touch("* marked:'surname.'")
     @page.input_text(surname)
 
     touch("* marked:'departureDate.'")
     sleep 2
-    performAction('set_date_with_index', departureDate, 1)
+    set_date("android.widget.DatePicker index:0", departureDate)
+    #performAction('set_date_with_index', departureDate, 1)
     sleep 2
     if element_exists "* text:'Set'"
       touch("* text:'Set'")
@@ -104,9 +106,10 @@ def nordics_login(bookingNum, email, telephone)
     sleep 1
 
   elsif $g_android
-    performAction('clear_numbered_field', 2)
-    performAction('clear_numbered_field', 4)
-    performAction('clear_numbered_field', 6)
+    clear_text
+    #performAction('clear_numbered_field', 2)
+    #performAction('clear_numbered_field', 4)
+    #performAction('clear_numbered_field', 6)
 
     touch("* marked:'bookingReference.'")
     @page.input_text(bookingNum)
@@ -175,17 +178,16 @@ Given(/^I have entered an invalid email and a valid password$/) do
   step "I log into the App using #{uname}, #{pwd} and #{country}"
 end
 
-Given(/^I am on '(.+)' screen/) do |page_name|
+Given(/^I am on 'Login' screen/) do
   @commonMethods.close_whats_new_dialog
-  case page_name
-    when 'Login' then
-      @welcomePage.navigate_to_login
-    when 'Welcome' then
-      @welcomePage.verify_welcome_screen
-    else
-      fail("page not found")
-  end
+  @welcomePage.navigate_to_login if $g_german_app && $g_phone
 end
+
+Given(/^I am on 'Welcome' screen/) do
+  @commonMethods.close_whats_new_dialog
+  @welcomePage.verify_welcome_screen
+end
+
 
 Given(/I am on welcome page$/) do
   step 'I see welcome page'
@@ -358,4 +360,13 @@ end
 
 Then(/^I verify book visit page$/) do
   @loginPage.verify_book_visit
+end
+
+
+Then(/^I verify input elements on login page$/) do
+  @loginPage.check_input_elements
+end
+
+When(/^I verify button elements on login page$/) do
+  pending
 end

@@ -70,18 +70,20 @@ module DEMeineTUI
   end
 
   def login_page_strings
+    @@login_default_country="Deutschland"
     @@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
-    @@email_hint_text=get_localized_string "login_email_hint"
+    @@email_hint_text=get_localized_string "Benutzername / E-Mail eingeben"
+    @@email_tooltip_text=get_localized_string "login_email_tooltip"
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
     @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "email_help_subject"
     @@privacy_terms_of_use=get_localized_string "terms_title"
-    @@login_password_tooltip= get_localized_string "login_password_hint"
-    @@login_password_hint = get_localized_string "login_password_tooltip"
-
+    @@login_password_tooltip= get_localized_string "login_password_tooltip"
+    @@login_password_hint = get_localized_string "login_password_hint"
+    @@country_selector_tool_tip = get_localized_string "login_country_tooltip"
     @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
   end
 

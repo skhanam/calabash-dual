@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'calabash-android', '0.4.20'
+gem 'calabash-android', '0.5.0'
 #gem 'calabash-cucumber', '0.9.169'
 #gem "calabash-android", "0.5.1"
 gem "calabash-cucumber", "0.10.0.pre1"
@@ -13,3 +13,4 @@ gem 'xml-simple'
 gem 'unicode_utils'
 gem 'rickshaw'
 gem 'require_all'
+gem 'calabash_shared'
