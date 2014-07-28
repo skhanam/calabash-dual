@@ -60,15 +60,15 @@ Execute tests
 
 ####Clean and run project (run below command from folder where Automation code is present)
 	 sh run_ios.sh clean @basic-sanity sv ../meine.tui
-	 sh runandroid.sh clean @basic-sanity sv ../meine.tui
+	 sh run_android.sh clean @basic-sanity sv ../meine.tui
 
 ####Clean and run regression project
 	 sh runmeinetui.sh clean @android_test
-	 sh runandroid.sh clean @ios_test
+	 sh run_android.sh clean @ios_test
 
 ####Run tests without cleaning
 	 sh runmeinetui.sh NA @sanity
-	 sh runandroid.sh NA @sanity
+	 sh run_android.sh NA @sanity
 
 Getting Started
 ===============

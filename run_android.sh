@@ -19,8 +19,8 @@ if [ "$#" -le "3" ]; then
     echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb"
     echo "4) relative folder path where source code is located"
 
-	echo "\nsample command: sh runandroid.sh clean @sanity de ../meine.tui\n"
-	echo "or\nsample command: sh runandroid.sh NA  @sanity-eng en_th ../meine.tui\n"
+	echo "\nsample command: sh run_android.sh clean @sanity de ../meine.tui\n"
+	echo "or\nsample command: sh run_android.sh NA  @sanity-eng en_th ../meine.tui\n"
 	exit
 fi
 
@@ -82,10 +82,14 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
-   		cd ${PROJ_FOLDER}/;/usr/local/bin/node build.js $TI_SCHEME;/usr/local/bin/node build.js $TI_SCHEME -l
-    	ti clean
-		ti build --platform android -b
-		cd -
+   		cd ${PROJ_FOLDER}/;
+   		/usr/local/bin/grunt
+        ti clean
+        /usr/local/bin/grunt execute:$TI_SCHEME
+        node tda $TI_SCHEME -l
+        titanium build --platform android -S 7.1 -Y ipad -b
+         cd -
+
 		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  "$3"app.apk
 		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
 

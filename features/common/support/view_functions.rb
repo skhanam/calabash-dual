@@ -141,7 +141,6 @@ module ViewModule
     rescue
       return false
     end
-
   end
 
   ## Assert if text to check is not shown before timeout

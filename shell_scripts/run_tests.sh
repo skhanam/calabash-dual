@@ -23,12 +23,12 @@ if [ "$1" == "ios" ] ; then
 	sh run_ios.sh $2 $3 $4 $5
 
 elif [ "$1" == "android" ] ; then
-	echo sh runandroid.sh $2 $3 $4 $5 "ci"
-	sh runandroid.sh $2 $3 $4 $5 "ci"
+	echo sh run_android.sh $2 $3 $4 $5 "ci"
+	sh run_android.sh $2 $3 $4 $5 "ci"
 else
-	echo sh runandroid.sh $2 NA $4 $5 "ci" #just compile and generate apk test are NA
-	sh runandroid.sh $2 NA $4 $5 "ci"
-	sh runandroid.sh install $3 $4 $5 "ci" & #Install apk and run test in background
+	echo sh run_android.sh $2 NA $4 $5 "ci" #just compile and generate apk test are NA
+	sh run_android.sh $2 NA $4 $5 "ci"
+	sh run_android.sh install $3 $4 $5 "ci" & #Install apk and run test in background
 
 	calabash-ios sim reset # reset simulator
 	echo sh run_ios.sh $2 $3 $4 $5 # run test for ios

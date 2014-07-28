@@ -46,7 +46,7 @@ else
 	if [ $6 == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
-	echo sh runandroid.sh $2 $3 $4 $5 "ci"
-	sh runandroid.sh $2 $3 $4 $5 "ci"
+	echo sh run_android.sh $2 $3 $4 $5 "ci"
+	sh run_android.sh $2 $3 $4 $5 "ci"
 fi
 
