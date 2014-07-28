@@ -7,8 +7,9 @@ Complete installation
 
 Check out code
 ===============
-Download application source code from stash - https://stash.akqa.net/scm/lontui/tda.git
-Download calabash test source code from stash - https://stash.akqa.net/scm/lontui/tda.ui-automation.git
+* Phone: Download application source code from stash - https://stash.akqa.net/scm/lontui/tda.git
+* Tablet: Download application source code from stash - https://@stash.akqa.net/scm/lontui/tda.tablet.git
+* Download calabash test source code from stash - https://stash.akqa.net/scm/lontui/tda.ui-automation.git
 
 Folder structure
 ===============
@@ -63,8 +64,9 @@ Execute tests
 	 sh run_android.sh clean @basic-sanity sv ../meine.tui
 
 ####Clean and run regression project
-	 sh runmeinetui.sh clean @android_test
-	 sh run_android.sh clean @ios_test
+	 sh run_ios.sh clean @basic-sanity de ../tda.tablet
+	 sh run_android.sh clean @basic-sanity de ../tda.tablet
+
 
 ####Run tests without cleaning
 	 sh runmeinetui.sh NA @sanity
@@ -87,10 +89,6 @@ if bundler  is not installed install it
 Run below command to install all gems needed
 
     bundle install
-
-#Install calabash
-	gem install calabash-cucumber
-	gem install calabash-android
 
 # Download and Build: Android
 
