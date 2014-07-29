@@ -1,60 +1,79 @@
 
 Install Appcelerator
 ===============
-Open - http://developer.appcelerator.com and log on to appcelerator.com
-On top right corner find download appcelerator studio link and download appcelerator studio
-Complete installation
+
+> Open - http://developer.appcelerator.com and log on to
+> appcelerator.com On top right corner find download appcelerator studio
+> link, download appcelerator studio and Complete installation
 
 Check out code
 ===============
-* Phone: Download application source code from stash - https://stash.akqa.net/scm/lontui/tda.git
-* Tablet: Download application source code from stash - https://@stash.akqa.net/scm/lontui/tda.tablet.git
-* Download calabash test source code from stash - https://stash.akqa.net/scm/lontui/tda.ui-automation.git
+
+> Phone: Download application source code from stash -
+> https://stash.akqa.net/scm/lontui/tda.git Tablet: Download application
+> source code from stash -
+> https://@stash.akqa.net/scm/lontui/tda.tablet.git Download calabash
+> test source code from stash -
+> https://stash.akqa.net/scm/lontui/tda.ui-automation.git (tablet branch
 
 Folder structure
 ===============
+```` 
+Gemfile   - gems required for running calabash test suite
+README.md - Help file
+run_ios.sh - Shell script required to run IOS tests
 
-<br /> Gemfile   - gems required for running calabash test suite
-<br /> README.md - Help file
-<br /> run_ios.sh - Shell script required to run IOS tests
-<br /> ios-report.html - IOS test report
-<br /> android-report.html - android test report
-<br /> app.apk - application file for android
-<br /> features - tests
+ios-report.html - IOS test report
+android-report.html - android test report
+app.apk - application file for android
+features - tests
 
-<br /> features/android - android specific test code
-<br /> features/common	 - common testcode for IOS and android
-<br /> features/ios	 - IOS specific test code
-<br /> features/tests	 - feature files
-<br /> features/z_dump	 - extra folder for dumping useful stuff and test data
+features/android - android specific test code
+features/common	 - common testcode for IOS and android
+features/ios	 - IOS specific test code
+features/tests	 - feature files
+features/z_dump	 - extra folder for dumping useful stuff and test data
+````
 
 ####Test data
+
+````
 Test data is stored in file users.rb
-<br /> to use simple input data use users.rb
+to use simple input data use users.rb
+
+````
 
 Folder structure
+
+```` 
 ---TDA (base folder for project)
  ------- TDA.ui.automation  (Automation source code)
  ------- Application_source_code  (Application source code)
+````
 
 
 Environment variables which can be configured
 ===============
+
+```` 
 ENV['LOG_VERIFIED_TXT']=="yes" # for writing verified text onto a file
 ENV['TAKE_SS']=="yes" # for taking screenshots
 ENV['ENDPOINT']=="dev" or "preprod"  # for testing dev or pre prod environments
+ENV['HW']=="tablet" or "phone"  # select tablet or phone
+ENV['OS']=="ios" or "android"
+```` 
 
 Taking screenshot to compare(for raf)
 ===============
 
-calabash-ios sim locale en
-TAKE_SS="yes" sh run_ios.sh NA @ss sv ../meine.tui
-calabash-ios sim locale da
-TAKE_SS="yes" sh run_ios.sh NA @ss da ../meine.tui
-calabash-ios sim locale nb
-TAKE_SS="yes" sh run_ios.sh NA @ss nb ../meine.tui
-calabash-ios sim locale fi
-TAKE_SS="yes" sh run_ios.sh NA @ss fi ../meine.tui
+    calabash-ios sim locale en
+    TAKE_SS="yes" sh run_ios.sh NA @ss sv ../meine.tui
+    calabash-ios sim locale da
+    TAKE_SS="yes" sh run_ios.sh NA @ss da ../meine.tui
+    calabash-ios sim locale nb
+    TAKE_SS="yes" sh run_ios.sh NA @ss nb ../meine.tui
+    calabash-ios sim locale fi
+    TAKE_SS="yes" sh run_ios.sh NA @ss fi ../meine.tui
 
 Execute tests
 ===============
@@ -75,10 +94,10 @@ Execute tests
 Getting Started
 ===============
 #Install RUBY
-<br />use ruby version >= 2.0.0
-<br />Install source tree & clone 2 projects
-<br />1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
-<br />2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git
+* use ruby version >= 2.0.0
+* Install source tree & clone 2 projects
+* 1) application source code  - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.git
+* 2) Automation tests   - https://tejasvi.manmatha@stash.akqa.net/scm/LONTUI/meine.tui.ui-automation.git
 
 #To install gems needed for this project
 Gems needed for this project are present in Gemfile (located under meine.tui.ui-automation folder)
