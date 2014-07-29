@@ -17,7 +17,7 @@ require_relative '../common/support/view_functions'
 require 'differ'
 
 #require 'calabash_shared'
-require_relative '../../calabash_shared/lib/calabash_shared'
+#require_relative '../../calabash_shared/lib/calabash_shared'
 
 $g_strings_set=false
 
