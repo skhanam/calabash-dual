@@ -40,7 +40,7 @@ class BasePage < BaseClass
   include ViewModule
   include ReusableMethods
   include AppStrings
-  include CalabashShared
+ # include CalabashShared
 
   def initialize
 
