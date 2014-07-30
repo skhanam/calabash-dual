@@ -13,7 +13,7 @@ class ContactUsUK < ContactUsBasePage
 
   def verify_contact_us_cta
     verify_contact_us_page
-    scroll_page_and_assert_text @@contactus_call_us #"Call us on [number]"
+    scroll_page_till_partial_text @@contactus_call_us #"Call us on [number]"
     scroll_page_and_assert_text(@@contactus_termsAndConditions)
     click_on_text @@contactus_termsAndConditions
     verify_external_links
