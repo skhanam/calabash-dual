@@ -1,7 +1,7 @@
 @common-tests
 Feature: English Sanity Tests
 
-  @prelogin11
+  @prelogin11 @tab-sanity
   Scenario: Verify welcome screen
     Given I am on 'Login' screen
     Then I verify input elements on login page
