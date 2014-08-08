@@ -194,7 +194,8 @@ module ViewModule
       scroll_view(dir)
     end
     sleep 2
-    fail("text is not shown") if flag==0
+    #puts "\nDEBUG:\n #{text}" if flag==0
+    fail("Searched for the text: #{text} - but the text is not shown") if flag==0
   end
 
   # scroll in specified direction till partial id is found

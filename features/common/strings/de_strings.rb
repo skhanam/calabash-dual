@@ -300,13 +300,13 @@ module DEMeineTUI
                                 "Telefax 05 11 / 5 67-13 01",
                                 "Handelsregister",
                                 "Amtsgericht Hannover",
-                                "HRB 56512",
-                                "Ust-Ident.-Nr. DE 812777076",
+                                "HRB 62522",
+                                "Ust-Ident.-Nr. DE 242380569",
                                 "Vorsitzender des Aufsichtsrates:",
-                                "Dr. Michael Frenzel",
+                                "Peter Long",
                                 "Geschäftsführung: Christian Clemens (Vorsitzender)",
                                 "Dr. Oliver Dörschuck",
-                                "Henrik Homann"]
+                                "Ralf Horter"]
 
     @@contact_us_terms_conditions_page_title=get_localized_string "terms_title"
     @@contact_us_tui_service_title="Im Urlaub für Sie da"
