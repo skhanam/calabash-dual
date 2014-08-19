@@ -70,20 +70,18 @@ module DEMeineTUI
   end
 
   def login_page_strings
-    @@login_default_country="Deutschland"
     @@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
-    @@email_hint_text= "Benutzername / E-Mail eingeben"
-    @@email_tooltip_text=get_localized_string "login_email_tooltip"
+    @@email_hint_text=get_localized_string "login_email_hint"
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
     @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "email_help_subject"
     @@privacy_terms_of_use=get_localized_string "terms_title"
-    @@login_password_tooltip= get_localized_string "login_password_tooltip"
-    @@login_password_hint = get_localized_string "login_password_hint"
-    @@country_selector_tool_tip = get_localized_string "login_country_tooltip"
+    @@login_password_tooltip= get_localized_string "login_password_hint"
+    @@login_password_hint = get_localized_string "login_password_tooltip"
+
     @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
   end
 
@@ -254,11 +252,9 @@ module DEMeineTUI
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
-    @@new_user_registration_register = get_localized_string "signup_signup_cta"
+    @@new_user_registration_register = "Registrieren"
     @@new_user_registration_privacy_policy = "Datenschutz"
-    @@new_user_registration_need_help = get_localized_string "i_need_help"
-    @@submit_button= get_localized_string "submit"
-
+    @@new_user_registration_need_help = "Ich benötige Hilfe"
 
 
   end
@@ -270,7 +266,7 @@ module DEMeineTUI
     @@update_email_new_password="Ihr Passwort:"
     @@update_email_new_password_hint="Passwort eingeben"
     @@update_email__text2="Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen."
-    @@update_email_submit= get_localized_string "submit"
+    @@update_email_submit="Speichern"
     @@update_email_forgot_password="Passwort vergessen?"
   end
 
@@ -278,7 +274,7 @@ module DEMeineTUI
     @@forgot_password_title="Neues Passwort anlegen"
     @@forgot_password_let_us_know_email="Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen. Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden."
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
-    @@forgot_password_send_button=get_localized_string "submit"
+    @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help="Ich benötige Hilfe"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
   end
@@ -298,8 +294,19 @@ module DEMeineTUI
     @@contact_us_t_and_c= get_localized_string "terms_title"
     @@contact_us_disclaimer= get_localized_string "disclaimer"
     @@contact_us_contact_copy= ["TUI Deutschland GmbH",
+                                "Karl-Wiechert-Allee 23",
+                                "30625 Hannover",
                                 "Telefon 05 11 / 5 67-0",
-                                "Telefax 05 11 / 5 67-13 01"]
+                                "Telefax 05 11 / 5 67-13 01",
+                                "Handelsregister",
+                                "Amtsgericht Hannover",
+                                "HRB 62522",
+                                "Ust-Ident.-Nr. DE 242380569",
+                                "Vorsitzender des Aufsichtsrates:",
+                                "Peter Long",
+                                "Geschäftsführung: Christian Clemens (Vorsitzender)",
+                                "Dr. Oliver Dörschuck",
+                                "Ralf Horter"]
 
     @@contact_us_terms_conditions_page_title=get_localized_string "terms_title"
     @@contact_us_tui_service_title="Im Urlaub für Sie da"

@@ -144,7 +144,7 @@ module ViewModule
   end
 
   ## Assert if text to check is not shown before timeout
-  def assert_wait_for_text(text, time_out=10)
+  def assert_wait_for_text(text, time_out=15)
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
     fail("text:#{text}: not present") if wait_for_text(text, time_out)==false
@@ -193,7 +193,8 @@ module ViewModule
       scroll_view(dir)
     end
     sleep 2
-    fail("text is not shown") if flag==0
+    #puts "\nDEBUG:\n #{text}" if flag==0
+    fail("Searched for the text: #{text} - but the text is not shown") if flag==0
   end
 
   # scroll in specified direction till partial id is found
