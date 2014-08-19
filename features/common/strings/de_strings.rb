@@ -79,8 +79,8 @@ module DEMeineTUI
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "email_help_subject"
     @@privacy_terms_of_use=get_localized_string "terms_title"
-    @@login_password_tooltip= get_localized_string "login_password_hint"
-    @@login_password_hint = get_localized_string "login_password_tooltip"
+    @@login_password_tooltip= get_localized_string "login_password_tooltip"
+    @@login_password_hint = get_localized_string "login_password_hint"
 
     @@submit_button= get_localized_string "submit" #Speichern
 
