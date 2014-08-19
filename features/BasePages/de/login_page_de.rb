@@ -18,7 +18,7 @@ class LoginPage < LoginBasePage
   end
 
   def check_input_elements
-    assert_text_present @@email_hint_text
+    assert_text_present "Benutzername / E-Mail eingeben" #@@email_hint_text
     assert_text_present @@login_password_hint
     assert_text_present @@login_default_country
   end

@@ -82,6 +82,9 @@ module DEMeineTUI
     @@login_password_tooltip= get_localized_string "login_password_hint"
     @@login_password_hint = get_localized_string "login_password_tooltip"
 
+    @@submit_button= get_localized_string "submit" #Speichern
+
+    @@login_default_country="Deutschland"
     @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
   end
 

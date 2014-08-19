@@ -115,9 +115,10 @@ module AndroidReusableMethods
     repeat_count=0
     sleep 1
     write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
-    puts "scroll_page_and_assert_text (#{id})"
     puts element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'")
     return if (element_exists("* contentDescription:'#{id}.'") || element_exists("* text:'#{id}'"))
+
+    puts "scroll_page_and_assert_text (#{id})"
 
     while (repeat_count < count)
       repeat_count+=1
