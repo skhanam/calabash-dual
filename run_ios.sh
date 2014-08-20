@@ -86,23 +86,25 @@ if [ "$1" == "clean" ] ; then
     titanium build --platform ios -S 7.1 -Y ipad -b
     cd -
 
-
 	killall Xcode
 	cp ./expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 	echo /usr/bin/expect ./expect.exp $APPNAME
 	/usr/bin/expect ./expect.exp meineTUI
 	cd -
+fi
+
+
+#Compile
+
+if [ "$1" == "clean" ] || [ "$1" == "compile" ] ; then
+
 	open -a Xcode
-	sleep  5
+	sleep  10
 	echo ${PROJ_LOC}
 	open ${PROJ_LOC}
 	sleep 20
 
-fi
-
-#Compile
-if [ "$1" == "clean" ] || [ "$1" == "compile" ] ; then
 	echo "Compiling code .."
 	echo xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
 	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
