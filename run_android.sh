@@ -94,6 +94,14 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
 
 		cp -r $PROJ_FOLDER/i18n/* features/test_data/
+
+	fi
+
+	# Copy the required apk files
+	if [ "$5" == "ci" ]; then
+	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  "$3"app.apk
+	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  app.apk
+	cp -r $PROJ_FOLDER/i18n/* features/test_data/
 	fi
 
 	#Do not perform below steps when there are no tests selected to run
