@@ -71,7 +71,14 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 if [ "$5" == "ci" ]; then
-	echo "Grunt not required as its already handled during packaging"
+	cd ${PROJ_FOLDER}/
+
+	/usr/local/bin/grunt
+	ti clean
+	/usr/local/bin/grunt execute:$TI_SCHEME
+	node tda $TI_SCHEME -l
+	cd -
+
 else
 	cd ${PROJ_FOLDER}/
 
