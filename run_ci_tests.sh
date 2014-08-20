@@ -43,7 +43,7 @@ if [ "$1" == "ios" ] ; then
 	echo sh run_ios.sh $2 $3 $4 $5 "ci"
 	sh run_ios.sh $2 $3 $4 $5 "ci"
 else
-	if [ $6 == "emulator" ] ; then
+	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
 	echo sh run_android.sh $2 $3 $4 $5 "ci"
