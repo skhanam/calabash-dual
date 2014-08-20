@@ -71,14 +71,7 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 if [ "$5" == "ci" ]; then
-	cd ${PROJ_FOLDER}/
-
-	/usr/local/bin/grunt
-	ti clean
-	/usr/local/bin/grunt execute:$TI_SCHEME
-	node tda $TI_SCHEME -l
-	cd -
-
+    echo "*** IOS Skipping double compilation ***"
 else
 	cd ${PROJ_FOLDER}/
 
@@ -87,7 +80,6 @@ else
 	/usr/local/bin/grunt execute:$TI_SCHEME
 	node tda $TI_SCHEME -l
 	cd -
-fi
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
@@ -109,6 +101,7 @@ fi
 	echo ${PROJ_LOC}
 	open ${PROJ_LOC}
 	sleep 20
+fi
 
 	echo xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
 	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
