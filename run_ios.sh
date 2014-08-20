@@ -71,7 +71,7 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 if [ "$5" == "ci" ]; then
-	puts "Grunt not required as its already handled during packaging"
+	echo "Grunt not required as its already handled during packaging"
 else
 	cd ${PROJ_FOLDER}/
 
@@ -118,7 +118,7 @@ fi
 if [ "$2" != "NA" ] ; then
 
 BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
-if [ "$BUILT_PRODUCTS_DIR" == "" ] ; then
+if [ "$BUILT_PRODUCTS_DIR" == "" ] && [ $5 != "ci" ] ; then
  BUILT_PRODUCTS_DIR=/usr/local/xcode/Build/Products
 fi
 
