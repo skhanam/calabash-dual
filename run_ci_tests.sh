@@ -40,8 +40,8 @@ bundle install
 
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
-	echo sh run_ios.sh $2 $3 $4 $5
-	sh run_ios.sh $2 $3 $4 $5
+	echo sh run_ios.sh $2 $3 $4 $5 "ci"
+	sh run_ios.sh $2 $3 $4 $5 "ci"
 else
 	if [ $6 == "emulator" ] ; then
 		sh shell_scripts/start_device.sh

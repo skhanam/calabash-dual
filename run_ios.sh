@@ -69,6 +69,10 @@ PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 if [ "$1" == "clean" ] ; then
 	echo "project name:"${PROJ_FOLDER}
 	echo "******** ####  Updating All Projects"
+
+if [ "$5" == "ci" ]; then
+	puts "Grunt not required as its already handled during packaging"
+else
 	cd ${PROJ_FOLDER}/
 
 	/usr/local/bin/grunt
@@ -76,11 +80,13 @@ if [ "$1" == "clean" ] ; then
 	/usr/local/bin/grunt execute:$TI_SCHEME
 	node tda $TI_SCHEME -l
 	cd -
+fi
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
 	fi
-    cd -
+
+    cd ${PROJ_FOLDER}/
     titanium build --platform ios -S 7.1 -Y ipad -b
     cd -
 
