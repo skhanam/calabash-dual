@@ -124,18 +124,18 @@ fi
 
 #Do not perform below steps when there are no tests selected to run
 if [ "$2" != "NA" ] ; then
-	BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
+	if [ "$5" != "ci" ] ; then
+		BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 
-	if [ "$BUILT_PRODUCTS_DIR" == "" ] && [ "$5" != "ci" ] ; then
-		BUILT_PRODUCTS_DIR=/usr/local/xcode/Build/Products
-	fi
+		if [ "$BUILT_PRODUCTS_DIR" == "" ] ; then
+			BUILT_PRODUCTS_DIR=/usr/local/xcode/Build/Products
+		fi
 
-	if [ "$5" == "ci" ] ; then
-		APP_BUNDLE_PATH_VAR=../Debug-iphonesimulator/meineTUI.app
-	else
 		echo $BUILT_PRODUCTS_DIR
-		APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
-		echo $APP_BUNDLE_PATH_VAR
+    	APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
+    	echo $APP_BUNDLE_PATH_VAR
+	else
+		APP_BUNDLE_PATH_VAR=../Debug-iphonesimulator/meineTUI.app
 	fi
 
 	echo DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$3 LANG=$3 BUNDLE_ID=$BUNDLE APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o features/report/ios-$3-report.html  -f junit -o features/report/junit/$3
