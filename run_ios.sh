@@ -71,15 +71,10 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 	cd ${PROJ_FOLDER}/
-	if [ "$5" != "ci" ] ; then
 		/usr/local/bin/grunt
 		ti clean
-		/usr/local/bin/grunt execute:$TI_SCHEME
+		node tda $TI_SCHEME
 		node tda $TI_SCHEME -l
-	else
-		ti clean
-		node tda --brand $TI_SCHEME
-	fi
 	cd -
 
 
