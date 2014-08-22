@@ -71,10 +71,12 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 	cd ${PROJ_FOLDER}/
-		/usr/local/bin/grunt
-		ti clean
-		node tda $TI_SCHEME
-		node tda $TI_SCHEME -l
+	ti clean
+	/usr/local/bin/grunt
+echo node tda $TI_SCHEME
+	node tda $TI_SCHEME
+	node tda $TI_SCHEME -l
+echo node tda $TI_SCHEME -l
 	cd -
 
 
