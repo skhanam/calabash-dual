@@ -71,12 +71,17 @@ if [ "$1" == "clean" ] ; then
 	echo "******** ####  Updating All Projects"
 
 	cd ${PROJ_FOLDER}/
-
-	/usr/local/bin/grunt
-	ti clean
-	/usr/local/bin/grunt execute:$TI_SCHEME
-	node tda $TI_SCHEME -l
+	if [ "$5" != "ci" ] ; then
+		/usr/local/bin/grunt
+		ti clean
+		/usr/local/bin/grunt execute:$TI_SCHEME
+		node tda $TI_SCHEME -l
+	else
+		ti clean
+		node tda --brand $TI_SCHEME
+	fi
 	cd -
+
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
