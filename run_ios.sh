@@ -72,13 +72,14 @@ if [ "$1" == "clean" ] ; then
 
 	cd ${PROJ_FOLDER}/
 	ti clean
-	/usr/local/bin/grunt
-echo node tda $TI_SCHEME
-	node tda $TI_SCHEME
-	node tda $TI_SCHEME -l
-echo node tda $TI_SCHEME -l
+#	/usr/local/bin/grunt
+echo node releaseScripts/build.js --brand $TI_SCHEME
+	node releaseScripts/build.js --brand $TI_SCHEME
+	node releaseScripts/build.js --brand $TI_SCHEME -l
+	#node tda $TI_SCHEME
+	#node tda $TI_SCHEME -l
+echo node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
-
 
 	if [ $TI_SCHEME == "meinetui" ] ; then
 		ruby update_tiapp.rb $PROJ_FOLDER
