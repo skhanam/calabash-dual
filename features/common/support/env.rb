@@ -18,10 +18,12 @@ $g_hw=ENV['HW']
 $g_ios=false
 $g_android=false
 
-if ENV['HW']=="phone"
+puts "$g_hw #{$g_hw} $g_os #{$g_os}"
+
+if $g_hw=="phone"
   $g_phone=true
   $g_module="Phone"
-elsif ENV['HW']=="tablet"
+elsif $g_hw=="tablet"
   $g_tablet=true
   $g_module="Tablet"
 end

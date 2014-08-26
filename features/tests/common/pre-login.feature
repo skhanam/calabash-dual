@@ -12,5 +12,3 @@ Feature: English Sanity Tests
     Given I am on 'Login' screen
     When I select tooltip icon for each input field
     Then I see correct tool tip message
-
-

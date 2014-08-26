@@ -269,8 +269,10 @@ end
 
 
 When(/^I select the Login text$/) do
-  @loginPage.scroll_page_and_assert_text("Anmelden")
-  @loginPage.click_on_text("Anmelden")
+  text="Anmelden"  if $g_phone
+  text="SPEICHERN"  if $g_tablet
+  @loginPage.scroll_page_and_assert_text(text)
+  @loginPage.click_on_text(text)
 end
 
 

@@ -15,19 +15,6 @@ class ForgotPasswordBasePage < BasePage
     assert_wait_for_text @@forgot_password_email_help
   end
 
-  def check_email_populated(username)
-    assert_wait_for_text(username)
-  end
-
-  def check_email_field_empty
-    if $g_android
-      txt=query("all TiEditText index:1", :text).first
-    elsif $g_ios
-      txt=query("textField index:0", :text).first
-    end
-    fail "username field is not empty" if txt !=""
-  end
-
 end
 
 

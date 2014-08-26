@@ -90,9 +90,13 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
 
 		cd ${PROJ_FOLDER}/
-			ti clean
-			node releaseScripts/build.js --brand $TI_SCHEME
-           	node releaseScripts/build.js --brand $TI_SCHEME -l
+		ti clean
+		node releaseScripts/build.js --brand $TI_SCHEME
+		echo node releaseScripts/build.js --brand $TI_SCHEME
+        node releaseScripts/build.js --brand $TI_SCHEME -l
+        echo node releaseScripts/build.js --brand $TI_SCHEME -l
+        titanium build --platform android -S 7.1 -Y ipad -b
+
 		cd -
 
 		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  "$3"app.apk
@@ -121,8 +125,8 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 fi
 
 if [ "$2" != "NA" ] ; then
-echo SCREENSHOT_PATH=features/report/android_$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
-SCREENSHOT_PATH=features/report/android_$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+echo SCREENSHOT_PATH=features/report/android_$3 HW=tablet TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+SCREENSHOT_PATH=features/report/android_$3 HW=tablet TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 #echo SCREENSHOT_PATH=features/report/androidscreenshots/$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 #SCREENSHOT_PATH=features/report/androidscreenshots/$3 TESTENV=$TESTENV LANG=$3 bundle exec calabash-android run "$3"app.apk -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 fi

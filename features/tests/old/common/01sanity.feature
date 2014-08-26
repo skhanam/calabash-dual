@@ -2,11 +2,6 @@
 Feature: Login and Home page features
   Login into application
 
-  @reset  @wrong-login  @basic-sanity
-  Scenario: Verify error message for wrong login
-    Given I submit wrong login details
-    Then I see correct error messages on login screen
-
   @login1 @reset @ss
   Scenario: Login and verify home screen
     Given I log into Application

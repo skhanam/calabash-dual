@@ -9,7 +9,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     blankslate (2.1.2.4)
     builder (3.2.2)
-    calabash-android (0.4.20)
+    calabash-android (0.5.0)
       awesome_print
       cucumber
       escape (~> 0.0.4)
@@ -21,20 +21,20 @@ GEM
       xamarin-test-cloud (>= 0.9.23)
     calabash-common (0.0.1)
       cucumber (~> 1.3.0)
-    calabash-cucumber (0.10.0.pre1)
-      CFPropertyList (~> 2.2.8)
+    calabash-cucumber (0.9.169)
+      CFPropertyList
       awesome_print
       bundler (~> 1.1)
       calabash-common (~> 0.0.1)
       cucumber (~> 1.3.0)
-      edn (= 1.0.3)
+      edn
       geocoder (~> 1.1.8)
       httpclient (~> 2.3.3)
       json
       run_loop (~> 0.2.1)
       sim_launcher (~> 0.4.11)
       slowhandcuke
-      xamarin-test-cloud (~> 0.9.33)
+      xamarin-test-cloud (~> 0.9.27)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     cucumber (1.3.15)
@@ -70,6 +70,7 @@ GEM
       rack
     rdoc (4.1.1)
       json (~> 1.4)
+    require_all (1.3.2)
     rest-client (1.6.8)
       mime-types (~> 1.16)
       rdoc (>= 2.4.2)
@@ -112,11 +113,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  calabash-android (= 0.4.20)
-  calabash-cucumber (= 0.10.0.pre1)
+  calabash-android (= 0.5.0)
+  calabash-cucumber (= 0.9.169)
   differ
   multi_json (= 1.7.9)
   nokogiri
+  require_all
   rickshaw
   rspec (= 1.3.0)
   rubyXL
