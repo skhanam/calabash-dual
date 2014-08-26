@@ -73,14 +73,17 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 	adb uninstall com.firstchoice.myfirstchoice.test
     adb uninstall com.firstchoice.myfirstchoice
 
-	adb uninstall com.tuitravelplc.myholiday
-    adb uninstall com.tuitravelplc.myholiday.test
-
     adb uninstall com.tuitravel.minferie.test
     adb uninstall com.tuitravel.minferie
 
 	adb uninstall de.tui.meinetui.tablet.test
 	adb uninstall de.tui.meinetui.tablet
+
+	adb uninstall com.firstchoice.myfirstchoice.tablet.test
+	adb uninstall com.firstchoice.myfirstchoice.tablet
+
+	adb uninstall com.thomson.thomson.tablet.test
+	adb uninstall com.thomson.thomson.tablet
 
 
 	if [ "$1" == "clean" ] ; then
