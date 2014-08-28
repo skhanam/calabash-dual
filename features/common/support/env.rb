@@ -30,9 +30,11 @@ end
 
   if ENV['PLATFORM'] == 'ios'
   $g_ios=true
+  $g_platform="Ios"
   require 'calabash-cucumber/cucumber'
 elsif ENV['PLATFORM'] == 'android'
   $g_android=true
+  $g_platform="Android"
   require 'calabash-android/cucumber'
 end
 

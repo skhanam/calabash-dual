@@ -72,7 +72,7 @@ module DEMeineTUI
   def login_page_strings
     @@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
-    @@email_hint_text=get_localized_string "login_email_hint"
+    @@email_hint_text= "Benutzername / E-Mail eingeben" #get_localized_string "login_email_hint"
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
     @@login_button=get_localized_string "login_login"

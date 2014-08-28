@@ -11,7 +11,7 @@ if [ "$#" -le "3" ]; then
     echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb "
     echo "4) relative folder path where source code is located"
 
-	echo "\nsample command: \n 1) sh run_ios.sh clean @sanity en_th ../meine.tui"
+	echo "\nsample command: \n 1) sh run_ios.sh clean @tab-sanity de ../tda.tablet"
 	echo " 2) sh run_ios.sh NA @sanity da ../meine.tui\n"
 	exit
 fi

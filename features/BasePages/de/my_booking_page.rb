@@ -6,7 +6,5 @@
 
 class MyBookingsPage < MyBookingsBasePage
  include MyBookingsModule
- include MyBookingsModule::Ios  if $g_ios
- include MyBookingsModule::Android if $g_android
-
+ include Module.const_get "MyBookingsModule::"+$g_platform
 end
