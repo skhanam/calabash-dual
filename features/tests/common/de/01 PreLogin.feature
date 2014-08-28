@@ -23,10 +23,10 @@ Feature: Verify screens shown before logging into App
     When I navigate to forgot password screen
     Then I see my username is empty
 
-
+  @tab4
   Scenario: Login with Non Matching Records  - invalid email
     Given I have entered an invalid email and a valid password
-    When I select the Login button
+    When I submit Login details
     Then I see appropriate username error message
 
   @terms123

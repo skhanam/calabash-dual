@@ -275,6 +275,10 @@ When(/^I select the Login text$/) do
   @loginPage.click_on_text(text)
 end
 
+When(/^I submit Login details$/) do
+  step "I select the Login button" if !$g_german_app
+  step "I select the Login text"   if $g_german_app
+end
 
 When(/^I select the Login button$/) do
   @loginPage.submit_login_button
