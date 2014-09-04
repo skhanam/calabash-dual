@@ -7,7 +7,7 @@ Feature: English Sanity Tests
     Then I verify input elements on login page
     And I verify button elements on login page
 
-  @register1
+  @register1 @prelogin12
   Scenario: I want to see new user registration page
     Given I am on 'Login' screen
     When I select register option from welcome screen

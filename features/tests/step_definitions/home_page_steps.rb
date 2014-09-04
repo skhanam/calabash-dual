@@ -2,7 +2,6 @@ Then (/^I must be on Home page$/) do
   @homePage.wait_for_home_page_to_load
   @homePage.check_i_am_on_home_page
 end
-
 # ----------------------------------------------------------------------------------------------------------------------
 # Weather page step definitions
 
@@ -23,7 +22,6 @@ When(/^I navigate to hotel (\d+) page using side menu$/) do |num|
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
-
 #Count down step definitions
 
 Then (/^I navigate to countdown page using side menu$/) do
@@ -35,8 +33,6 @@ When (/^I navigate to countdown page using countdown biscuit$/) do
   @homePage.check_home_screen
   @homePage.click_countdown_biscuit
 end
-
-
 # ----------------------------------------------------------------------------------------------------------------------
 
 #booking summary page down step definitions
@@ -101,9 +97,11 @@ Then(/^I verify appropriate welcome message for booking$/) do
   @homePage.check_welcome_messages
 end
 
-Then(/^I must be logged and on Home page$/) do
-  #@homePage.wait_for_home_page_to_load
-  @homePage.assert_wait_for_acc_label("background_normal", 20)
+Then(/^I must be logged in and on Home page$/) do
+  acc_label="background_normal" if $g_phone
+  acc_label="countdown_Biscuit" if $g_tablet
+  
+  @homePage.assert_wait_for_acc_label("#{acc_label}", 20)
   sleep 5
   screenshot(options={:name => "home"})  if ENV['TAKE_SS']=="yes"
 end

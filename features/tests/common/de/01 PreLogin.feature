@@ -24,10 +24,11 @@ Feature: Verify screens shown before logging into App
     Then I see my username is empty
 
   @tab4
-  Scenario: Login with Non Matching Records  - invalid email
-    Given I have entered an invalid email and a valid password
-    When I submit Login details
-    Then I see appropriate username error message
+  Scenario: US13474 Failed login - wrong credentials
+    Given I submit wrong login credentials
+    Then I see appropriate error message
+    And I should see the error message tip to side of oops message
+    And should observe that values entered are retained
 
   @terms12
   Scenario: Verify Terms and conditions page from login screen
@@ -48,3 +49,4 @@ Feature: Verify screens shown before logging into App
     Then I see alternative country options for submitted credentials
     When I select correct country and resubmit details
     Then I am on Home screen
+

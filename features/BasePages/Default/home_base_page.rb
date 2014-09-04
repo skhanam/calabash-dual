@@ -79,10 +79,7 @@ class HomeBasePage < BasePage
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 40)
   end
 
-  def check_i_am_on_home_page
-    check_home_screen
-    #check_welcome_messages
-  end
+
 
   def navigate_to_currency_conv_page
     CommonMethods.new.scroll_page_till_acc "tovalue"
@@ -124,19 +121,7 @@ class HomeBasePage < BasePage
   end
 
 
-  def click_on_account_button
-    wait_for_acc_label @@home_page_account_acc_label
-    sleep 2
-    wait_for_acc_label @@home_page_account_acc_label
-    click_accessibility_label @@home_page_account_acc_label
-    wait_for_account_page_to_load
-    verify_page_title @@my_bookings_title
-  end
 
-  def wait_for_account_page_to_load
-    sleep 5
-    wait_for_progress_to_disappear(@@loading_hold_on)
-  end
 
   def check_booking_in_past_message(txt)
     sleep 5

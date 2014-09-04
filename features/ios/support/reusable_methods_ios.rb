@@ -141,31 +141,6 @@ module IosReusableMethods
   def change_keyboard_to_english
     sleep(2)
     res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
-
-    #if ($g_testlang=="ru_RU") #Handle switching russian to english
-    #  keyboard_enter_char "International"
-    #  sleep(4)
-    #  if (element_exists("view:'UIAlertView' descendant button"))
-    #    touch("view:'UIAlertView' descendant button")
-    #  end
-    #elsif (res!=true) #Handle all other locale (except russian)
-    #  keyboard_enter_char "International"
-    #  sleep(4)
-    #  if element_exists("view text:'好'")
-    #    touch("view text:'好'")
-    #  elsif (element_exists("view text:'OK'"))
-    #    touch("view text:'OK'")
-    #  end
-    #
-    #  res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
-    #  count=0
-    #  while res!=true && count <5
-    #    keyboard_enter_char "International"
-    #    res=query("view:'UIKBKeyplaneView'", "keyplane")[0].include? ("iPhone-Alphabetic-Keyboard_Small-Letters/Keyplane: 8 properties + 4 subtrees")
-    #    sleep(1)
-    #    count+=1
-    #  end
-    #end
     sleep(3)
   end
 

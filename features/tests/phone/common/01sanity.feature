@@ -4,8 +4,9 @@ Feature: Login and Home page features
 
   @login1 @reset @ss
   Scenario: Login and verify home screen
-    Given I log into Application
-    Then I must be logged and on Home page
+    Given I am on 'Login' screen
+    When I submit correct login credentials
+    Then I must be logged in and on Home page
 
   @logout @reset @basic-sanity  @home1
   Scenario: Logout

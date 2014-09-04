@@ -3,17 +3,17 @@ When(/^I am on Home screen$/) do
   @commonMethods.close_whats_new_dialog
   if @homePage.check_home_screen(2)==true
     #If acc label welcome_title is already present then no need for checking daisy wheel messages
-    if @homePage.check_acc_label("welcome_title")
+    if @homePage.check_home_elements
       puts "Already on home page"
     else
       @homePage.wait_for_home_page_to_load
-      @homePage.wait_for_acc_label("welcome_title")
+      @homePage.wait_for_home_elements
     end
     sleep 2
   elsif @welcomePage.check_welcome_screen
     step "I log into Application"
     sleep 5
-    step "I must be logged and on Home page"
+    step "I must be logged in and on Home page"
   else
     fail("Application is in unknown state")
   end

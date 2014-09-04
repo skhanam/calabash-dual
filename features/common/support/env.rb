@@ -6,11 +6,7 @@ require 'xmlsimple'
 require 'unicode_utils'
 require_relative '../support/users'
 require 'require_all'
-
-
 require File.join(File.dirname(__FILE__), 'page_world')
-
-#`defaults write com.apple.iphonesimulator "SimulateDevice" '"iPhone (Retina 4-inch)"'`
 
 $g_os=ENV['PLATFORM']
 $g_hw=ENV['HW']

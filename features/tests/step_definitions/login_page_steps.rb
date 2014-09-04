@@ -4,6 +4,7 @@ end
 
 def meine_tui_login(username, password, country)
   #puts "#{username}, #{password}, #{country}"
+
   if $g_ios
     step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
@@ -126,12 +127,11 @@ def nordics_login(bookingNum, email, telephone)
   end
 end
 
-Given(/^I log into Application/) do
+Given(/^I submit correct login credentials/) do
   uname=$g_user_details[:username]
   pwd=$g_user_details[:password]
   country=$g_user_details[:country]
 
-  step "I am on 'Login' screen"
   step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
   step "I log into thomson application" if ($g_current_app=='EN_TH')
   step "I log into first choice application" if ($g_current_app=='EN_FC')
@@ -139,8 +139,13 @@ Given(/^I log into Application/) do
 
   sleep 2
   step "I select the Login button" if !$g_german_app
-  step "I select the Login text"   if $g_german_app
-  step "I must be logged and on Home page"
+  step "I select the Login text" if $g_german_app
+  step "I must be logged in and on Home page"
+end
+
+Given(/^I log into Application/) do
+  step "I am on 'Login' screen"
+  step "I submit correct login credentials"
 end
 
 Given(/^I submit credentials with wrong country selected/) do
@@ -183,14 +188,26 @@ end
 
 Given(/^I have entered an invalid email and a valid password$/) do
   step "I am on 'Login' screen"
-  uname=$g_invalid_user_details[:email]
-  pwd=$g_valid_user_details[:password]
-  country=$g_valid_user_details[:country]
-  step "I log into the App using #{uname}, #{pwd} and #{country}"
+  @uname=$g_invalid_user_details[:email]
+  @pwd=$g_valid_user_details[:password]
+  @country=$g_valid_user_details[:country]
+  step "I log into the App using #{@uname}, #{@pwd} and #{@country}"
 end
 
 Given(/^I am on 'Login' screen/) do
+
+  #TODO hack for login screen
+  if $g_german_app && $g_tablet && $g_ios
+    sleep 5
+    touch "view text:'HAVE A BOOKING, LETS LOGIN'"
+    sleep 2
+    touch "view text:'HAVE A BOOKING, LETS LOGIN'" if element_exists "view text:'HAVE A BOOKING, LETS LOGIN'"
+    sleep 2
+  end
+
   @commonMethods.close_whats_new_dialog
+
+
   @welcomePage.navigate_to_login if $g_german_app && $g_phone
   @loginPage.check_login_screen
 end
@@ -280,15 +297,15 @@ end
 
 
 When(/^I select the Login text$/) do
-  text="Anmelden"  if $g_phone
-  text="SPEICHERN"  if $g_tablet
+  text="Anmelden" if $g_phone
+  text="SPEICHERN" if $g_tablet
   @loginPage.scroll_page_and_assert_text(text)
   @loginPage.click_on_text(text)
 end
 
 When(/^I submit Login details$/) do
   step "I select the Login button" if !$g_german_app
-  step "I select the Login text"   if $g_german_app
+  step "I select the Login text" if $g_german_app
 end
 
 When(/^I select the Login button$/) do
@@ -358,7 +375,7 @@ end
 
 
 Then(/^I verify text content on login screen$/) do
-  screenshot(options={:name => "Login"})  if ENV['TAKE_SS']=="yes"
+  screenshot(options={:name => "Login"}) if ENV['TAKE_SS']=="yes"
   @loginPage.verify_login_page
 end
 
@@ -404,4 +421,14 @@ end
 When(/^I select correct country and resubmit details$/) do
   @loginPage.setCountry($g_user_details[:country])
   @wrongCountryPage.submit_country_details
+end
+When(/^I submit wrong login credentials$/) do
+  step 'I have entered an invalid email and a valid password'
+  step 'I submit Login details'
+end
+Then(/^I should see the error message tip to side of oops message$/) do
+  step "I see appropriate username error message"
+end
+When(/^should observe that values entered are retained$/) do
+  #{@uname}, #{@pwd} and #{@country}"
 end

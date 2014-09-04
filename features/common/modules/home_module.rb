@@ -20,8 +20,63 @@ module HomeModule
   end
 
   module Phone
+    def check_home_elements
+      check_acc_label @@home_page_title_acc
+    end
+
+    def wait_for_home_elements
+      wait_for_acc_label @@home_page_title_acc
+    end
+
+    def check_i_am_on_home_page
+      check_home_screen
+    end
+
+    def click_on_account_button
+      wait_for_acc_label @@home_page_account_acc_label
+      sleep 2
+      wait_for_acc_label @@home_page_account_acc_label
+      click_accessibility_label @@home_page_account_acc_label
+      wait_for_account_page_to_load
+      verify_page_title @@my_bookings_title
+    end
+
+    def wait_for_account_page_to_load
+      sleep 5
+      wait_for_progress_to_disappear(@@loading_hold_on)
+    end
+
   end
 
   module Tablet
+    include BaseModule
+
+    def check_home_elements
+      check_acc_label @@home_page_title_acc
+    end
+
+    def wait_for_home_elements
+      wait_for_acc_label @@home_page_title_acc
+    end
+
+    def check_i_am_on_home_page
+      check_home_screen
+    end
+
+    def click_on_account_button
+      wait_for_acc_label @@home_page_account_acc_label
+      sleep 2
+      click_accessibility_label @@home_page_sidepanel_acc_label
+      click_on_text "Peter Pan"
+      wait_for_account_page_to_load
+      verify_page_title @@my_bookings_title
+    end
+
+
+    def wait_for_account_page_to_load
+      sleep 5
+      wait_for_progress_to_disappear(@@loading_hold_on)
+    end
+
   end
 end
