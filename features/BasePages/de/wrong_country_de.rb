@@ -40,7 +40,7 @@ module WrongCountryModule
 end
 
 class WrongCountryPage < BasePage
-  include Module.const_get "WrongCountryModule::"+$g_module
+  include Module.const_get "WrongCountryModule::"+$g_hw_module
 
 end
 

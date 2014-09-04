@@ -24,7 +24,7 @@ module TermsConditionsModule
 
 class TermsAndConditionsBasePage < BasePage
   include TermsConditionsModule
-  include Module.const_get "TermsConditionsModule::"+$g_module
+  include Module.const_get "TermsConditionsModule::"+$g_hw_module
 
 end
 

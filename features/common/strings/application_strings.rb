@@ -135,13 +135,14 @@ module AppStrings
   def image_icons_acc_label
     @@login_button_acc = "loginButton"
 
-    @@home_page_acc_label="background_normal" if $g_phone
-    @@home_page_acc_label="offcanvasCTA" if $g_tablet   # TODO to be changed
+    @@home_page_acc="background_normal" if $g_phone
+    @@home_page_acc="offcanvasCTA" if $g_tablet   # TODO to be changed
     @@home_page_title_acc="welcome_title"  if $g_phone
     @@home_page_title_acc="offcanvasCTA"if $g_tablet   # TODO to be changed
-    @@home_page_account_acc_label="navbarRightButton"
+    @@home_page_account_acc="navbarRightButton"
     @@home_page_sidepanel_acc_label="navbarLeftButton" if $g_phone
     @@home_page_sidepanel_acc_label="offcanvasCTA" if $g_tablet
+
 
 
     @@share_button_closed_img ="share_button"

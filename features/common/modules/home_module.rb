@@ -33,10 +33,10 @@ module HomeModule
     end
 
     def click_on_account_button
-      wait_for_acc_label @@home_page_account_acc_label
+      wait_for_acc_label @@home_page_account_acc
       sleep 2
-      wait_for_acc_label @@home_page_account_acc_label
-      click_accessibility_label @@home_page_account_acc_label
+      wait_for_acc_label @@home_page_account_acc
+      click_accessibility_label @@home_page_account_acc
       wait_for_account_page_to_load
       verify_page_title @@my_bookings_title
     end
@@ -64,7 +64,6 @@ module HomeModule
     end
 
     def click_on_account_button
-      wait_for_acc_label @@home_page_account_acc_label
       sleep 2
       click_accessibility_label @@home_page_sidepanel_acc_label
       click_on_text "Peter Pan"

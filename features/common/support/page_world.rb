@@ -16,11 +16,10 @@ module TestModule
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
     @wrongCountryPage ||=WrongCountryPage.new
+    @sidePanel ||=SidePanel.new
 
     if ($g_current_app=='DE_MT')
-      @sidePanel ||=SidePanelDe.new
-
-
+      #@sidePanel ||=SidePanelDe.new
       @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
@@ -36,11 +35,11 @@ module TestModule
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
-      @sidePanel ||=SidePanelEng.new
+      #@sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
     elsif ($g_nordics_app)
-      @sidePanel ||=SidePanelNor.new
+      #@sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @dutyFreePage ||= DutyFreePage.new
 

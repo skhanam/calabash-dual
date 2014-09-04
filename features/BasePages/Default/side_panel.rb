@@ -1,6 +1,25 @@
 class SidePanel < BasePage
+   include SidePanelModule
+   include Module.const_get "SidePanelModule::"+$g_hw_module
+   include Module.const_get "SidePanelModule::"+$g_lang_mod
 
-  def navigate_to_contact_us_page
+
+   def check_forgot_password_page
+     assert_wait_for_text @@forgot_password_title
+     assert_text_elements [@@forgot_password_username_or_email, @@forgot_password_send_button,
+                           @@forgot_password_let_us_know_email, @@forgot_password_need_help]
+
+   end
+
+   def submit_change_password
+     click_on_text @@forgot_password_send_button
+   end
+
+   def check_wrong_username_email
+     assert_wait_for_text @@forgot_password_email_help
+   end
+
+   def navigate_to_contact_us_page
     scroll_side_panel(@@log_out_text) if !$g_german_app
     scroll_side_panel(@@side_panel_contact_us)
     sleep 1

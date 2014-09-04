@@ -18,10 +18,10 @@ puts "$g_hw #{$g_hw} $g_os #{$g_os}"
 
 if $g_hw=="phone"
   $g_phone=true
-  $g_module="Phone"
+  $g_hw_module="Phone"
 elsif $g_hw=="tablet"
   $g_tablet=true
-  $g_module="Tablet"
+  $g_hw_module="Tablet"
 end
 
   if ENV['PLATFORM'] == 'ios'
@@ -42,6 +42,7 @@ $g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
  if (ENV['LANG']=='en_th' || ENV['LANG']=='en_fc')
    $g_lang_strings_file="features/test_data/en/strings.xml"
    $g_lang="uk"
+   $g_lang_mod="Eng"
  end
 $g_lang_strings_file="features/test_data/sv/strings.xml" if ENV['LANG']=='sv'
 $g_lang_strings_file="features/test_data/da/strings.xml" if ENV['LANG']=='da'
@@ -53,12 +54,16 @@ require_relative '../../BasePages/base_page'
 
 if (ENV['TESTENV']=='DE_MT')
   $g_current_user_details=DE_USER
+  $g_lang_mod="Deu"
 elsif (ENV['TESTENV']=='EN_TH')
   $g_current_user_details=THOMSON_USER
+  $g_lang_mod="Eng"
 elsif (ENV['TESTENV']=='EN_FC')
   $g_current_user_details=FIRSTCHOICE_USER
+  $g_lang_mod="Eng"
 elsif (ENV['TESTENV']=='NOR')
   $g_current_user_details=NOR_USER
+  $g_lang_mod="Nor"
 end
 
 $g_verified_strings="features/z_dump/verified_strings.txt"
