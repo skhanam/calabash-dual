@@ -15,6 +15,7 @@ module TestModule
     @guideOnlinePage ||= GuideOnlineBasePage.new
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
+    @wrongCountryPage ||=WrongCountryPage.new
 
     if ($g_current_app=='DE_MT')
       @sidePanel ||=SidePanelDe.new

@@ -17,7 +17,7 @@ Feature: Verify screens shown before logging into App
     And submit an invalid email id in forgot password screen
     Then I see appropriate error message
 
-   @tab3
+  @tab3
   Scenario: Forgot password - Blank email field
     Given I am on 'Login' screen
     When I navigate to forgot password screen
@@ -29,7 +29,22 @@ Feature: Verify screens shown before logging into App
     When I submit Login details
     Then I see appropriate username error message
 
-  @terms123
+  @terms12
   Scenario: Verify Terms and conditions page from login screen
     Given I navigate to terms page from login screen
     Then I see terms page is displayed correctly
+
+  @wrong-login11 @reset
+  Scenario: US13474 Failed login - wrong country
+    Given I am on 'Login' screen
+    When I submit credentials with wrong country selected
+    Then I see alternative country options for submitted credentials
+    And I see new user registration section
+
+  @wrong-login12 @reset
+  Scenario: US13474 Failed login - wrong country
+    Given I am on 'Login' screen
+    When I submit credentials with wrong country selected
+    Then I see alternative country options for submitted credentials
+    When I select correct country and resubmit details
+    Then I am on Home screen

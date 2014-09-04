@@ -1,6 +1,7 @@
 require_relative '../Default/login_base_page'
 
 class LoginPage < LoginBasePage
+  include LoginModule
   include LoginModule::Deu
 
   def verify_login_page
@@ -14,7 +15,7 @@ class LoginPage < LoginBasePage
   end
 
   def check_login_error_messages
-    assert_wait_for_text @@username_email_error
+    assert_wait_for_text @@general_login_error
   end
 
   def check_input_elements
@@ -25,10 +26,17 @@ class LoginPage < LoginBasePage
 
   def check_buttons
     scroll_page_and_assert_text @@login_forgot_password
-    #assert_text_present @@submit_button
     assert_text_present @@login_forgot_password
     scroll_page_and_assert_text UnicodeUtils.upcase(@@new_user_registration_register)
     scroll_page_and_assert_text @@new_user_registration_need_help
-    #scroll_page_and_assert_text @@contact_us_t_and_c
   end
+
+  def click_register_button
+    click_on_text UnicodeUtils.upcase @@new_user_registration_register
+  end
+
+  def check_alternate_country
+
+  end
+
 end

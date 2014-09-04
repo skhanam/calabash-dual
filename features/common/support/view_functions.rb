@@ -14,6 +14,7 @@ module ViewModule
   def embed(a, b, c)
   end
 
+
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
     return query($g_query_txt+"contentDescription:'#{id}.'", :text).first if $g_android

@@ -1,5 +1,7 @@
 require_relative 'base_module'
+
 module ForgotPwdModule
+  include BaseModule
 
   def check_forgot_password_page
     assert_wait_for_text @@forgot_password_title

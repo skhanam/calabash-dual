@@ -22,6 +22,11 @@ module IosReusableMethods
   end
 
 
+  def check_tab_input_field(text, index=1)
+    puts "check_tab_input_field #{text}"
+    fail("element not present") if !element_exists("TiUIWindow index:#{index} view text:'#{text}'")
+  end
+
   #This method avoids calabash from crashing while using single quotes
   def escape_quotes_smart(str)
     #If escape quotes are used dont use again

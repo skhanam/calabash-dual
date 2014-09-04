@@ -33,6 +33,7 @@ module DEMeineTUI
     countdown_strings
     flight_details_strings
     excursions_strings
+    wrong_country_strings
   end
 
   #All test data for different appication is in here
@@ -47,6 +48,13 @@ module DEMeineTUI
     @@excursions_title= get_localized_string "excursions" #"Utflykter"
     @@side_panel_link=get_localized_string "excursions" #"Utflykter"
     @@experience_the_country= get_localized_string "experience_the_country" #Land und Leute hautnah erleben
+
+  end
+
+  def wrong_country_strings
+    @@wrong_country_selected_text="Haben Sie vielleicht bei TUI Deutschland oder TUI Österreich gebucht?"
+    @@wrong_country_switch= get_localized_string "cantFindBooking_ctaSwitch"
+    @@wrong_country_add_booking= get_localized_string "cantFindBooking_addBookingTitle"
 
   end
 
@@ -85,7 +93,7 @@ module DEMeineTUI
     @@submit_button= get_localized_string "submit" #Speichern
 
     @@login_default_country="Deutschland"
-    @@username_email_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
+    @@general_login_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
   end
 
   def home_page_strings
@@ -166,9 +174,13 @@ module DEMeineTUI
     @@my_account_newsletter_text= get_localized_string "signup_to_emails_blurb"
     @@log_out_text=get_localized_string "logout"
 
-    @@my_account_logout_title=get_localized_string "logout_confirm_two"
-    @@my_account_logout_yes="Bestätigen"
-    @@my_account_logout_no="Abbrechen"
+    @@my_account_logout_title= get_localized_string "logout_confirm_two"
+    @@my_account_logout_yes= get_localized_string "confirm"
+    @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
+
+
+    @@signup_signup_cta= get_localized_string "signup_signup_cta" #Registrieren
+
   end
 
   def change_password_strings
@@ -195,57 +207,58 @@ module DEMeineTUI
     @@share_weather=get_localized_string "share_weather"
   end
 
-  #def loading_strings
-  #  @@loading_hold_on=get_localized_string "hold_on"
-  #  @@loading_finding_your_holiday=get_localized_string "hold_on_booking"
-  #end
-
   def add_booking_page_strings
     @@add_a_booking_page_title =get_localized_string "find_booking"
     @@add_a_booking_page_text1 =get_localized_string "booking_details"
-    @@add_a_booking_page_text2 ="Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen."
+    @@add_a_booking_page_text2 =get_localized_string "booking_details_blurb"
 
     @@add_a_booking_page_salutation =get_localized_string "signup_salutation"
     @@add_a_booking_page_salutation_hint =get_localized_string "signup_selector"
 
+    @@signup_your_booking= get_localized_string "signup_your_booking" #Ihre Buchung
+
     @@add_a_booking_page_firstname =get_localized_string "forename"
-    @@add_a_booking_page_firstname_hint ="Vorname eingeben"
+    @@add_a_booking_page_firstname_hint =get_localized_string "signup_first_name_hint"
 
     @@add_a_booking_page_last_name =get_localized_string "surname"
-    @@add_a_booking_page_last_name_hint ="Nachname eingeben"
+    @@add_a_booking_page_last_name_hint =get_localized_string "signup_lastName_hint"
 
     @@add_a_booking_page_booking_code ="Vorgang/Buchungscode:"
-    @@add_a_booking_page_booking_code_hint ="123456789"
+    @@add_a_booking_page_booking_code_hint =get_localized_string "signup_process_booking_code_hint"
 
-    @@add_a_booking_page_arrival_date ="Anreisedatum:"
-    @@add_a_booking_page_arrival_date_hint ="Datum eingeben"
+    @@add_a_booking_page_arrival_date = get_localized_string "signup_departure_start_date"
+    @@add_a_booking_page_arrival_date_hint = get_localized_string "signup_departure_start_date_hint"
 
     @@add_a_booking_page_find_booking_button ="Buchung hinzufügen"
     @@add_a_booking_page_need_help ="Ich benötige Hilfe"
   end
 
   def new_user_registration
-    @@new_user_registration_create_account_text1 = "Konto erstellen"
+    @@signup_create_account = get_localized_string "signup_create_account"
 
     @@new_user_registration_salutation ="Anrede:"
     @@new_user_registration_salutation_hint ="Bitte auswählen"
 
     @@new_user_registration_title ="Titel:"
-    @@new_user_registration_firstname_hint ="Bitte auswählen"
 
     @@new_user_registration_firstname =get_localized_string "forename"
     @@new_user_registration_firstname_hint ="Vorname eingeben"
+    #@@signup_first_name_hint= get_localized_string "signup_first_name_hint" #Vorname eingeben
+    @@signup_first_name= get_localized_string "signup_first_name" #Vorname:
 
     #screen 2
     @@new_user_registration_last_name =get_localized_string "surname"
-    @@new_user_registration_last_name_hint ="Nachname eingeben"
+    #@@new_user_registration_last_name_hint ="Nachname eingeben"
+    @@new_user_registration_last_name_hint= get_localized_string "signup_lastName_hint" #Nachname eingeben
+
 
     @@new_user_registration_booking_code ="Vorgang/Buchungscode:"
     @@new_user_registration_booking_code_hint ="123456789"
 
     @@new_user_registration_arrival_date ="Anreisedatum:"
     @@new_user_registration_arrival_date_hint ="Datum eingeben"
-    @@new_user_registration_create_account_text2 = "Konto erstellen"
+
+    @@signup_create_account= get_localized_string "signup_create_account"
 
     #screen 3
     @@new_user_registration_email = get_localized_string "email" #E-Mail:
@@ -258,7 +271,6 @@ module DEMeineTUI
     @@new_user_registration_register = "Registrieren"
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = "Ich benötige Hilfe"
-
 
   end
 

@@ -31,5 +31,6 @@ module LoginModule
   end
 
   module Tablet
+
   end
 end

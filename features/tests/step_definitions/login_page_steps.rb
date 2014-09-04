@@ -143,6 +143,17 @@ Given(/^I log into Application/) do
   step "I must be logged and on Home page"
 end
 
+Given(/^I submit credentials with wrong country selected/) do
+  uname=$g_user_details[:username]
+  pwd=$g_user_details[:password]
+  country="Schweiz"
+
+  step "I am on 'Login' screen"
+  step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
+
+  sleep 2
+  step "I select the Login text"
+end
 
 Given(/^I log into first choice application$/) do
   surname=$g_current_user_details[:valid][:surname]
@@ -376,4 +387,21 @@ end
 
 When(/^I verify button elements on login page$/) do
   @loginPage.check_buttons
+end
+
+When(/^I select register option from welcome screen$/) do
+  @loginPage.click_register_button
+end
+
+Then(/^I see alternative country options for submitted credentials$/) do
+  @wrongCountryPage.check_wrong_country_screen
+end
+
+When(/^I see new user registration section$/) do
+  @wrongCountryPage.new_user_reg_screen
+end
+
+When(/^I select correct country and resubmit details$/) do
+  @loginPage.setCountry($g_user_details[:country])
+  @wrongCountryPage.submit_country_details
 end

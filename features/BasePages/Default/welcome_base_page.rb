@@ -60,7 +60,7 @@ class WelcomeBasePage < BasePage
     CommonMethods.new.close_push_notifications
 
     click_on_text @@register_with_booking_code
-    assert_wait_for_text @@new_user_registration_create_account_text1
+    assert_wait_for_text @@signup_create_account
     return NewUserRegistrationBasePage.new
   end
 
