@@ -198,12 +198,24 @@ Given(/^I am on 'Login' screen/) do
 
   #TODO hack for login screen
   if $g_german_app && $g_tablet && $g_ios
-    sleep 5
-    touch "view text:'HAVE A BOOKING, LETS LOGIN'"
+    @page.assert_wait_for_acc_label "swipeDown"
+    scroll("scrollView index:2",:up)
     sleep 2
-    touch "view text:'HAVE A BOOKING, LETS LOGIN'" if element_exists "view text:'HAVE A BOOKING, LETS LOGIN'"
+    scroll("scrollView index:2",:up)
+    sleep 2
+
+    @page.click_accessibility_label "swipeDown"
     sleep 2
   end
+  #
+  ##TODO hack for login screen
+  #if $g_german_app && $g_tablet && $g_ios
+  #  sleep 10
+  #  scroll("scrollView index:2",:up)
+  #  sleep 2
+  #  scroll("scrollView index:2",:up)
+  #  sleep 10
+  #end
 
   @commonMethods.close_whats_new_dialog
 
@@ -219,7 +231,7 @@ end
 
 
 Given(/I am on welcome page$/) do
-  step 'I see welcome page'
+  @welcomePage.verify_welcome_page
 end
 
 When(/^I set country (\w+) in login screen$/) do |var|

@@ -80,16 +80,19 @@ module EN_Strings
   end
 
   def welcome_page_strings
-    @@welcome_page_text=get_localized_string "welcome_header"
-    @@welcome_help_no_holiday_body=get_localized_string "welcome_help_no_holiday_body" #"The MyThomson app is for people who have booked a holiday directly with Thomson. To discover all of the great benefits of the MyThomson app, take a tour, then choose the perfect holiday for you."
-    @@welcome_refuse=get_localized_string "welcome_refuse" #"Sorry, you can’t use the app if:"
-    @@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
-    @@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
-    @@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-    @@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
+
   end
 
   def login_page_strings
+
+    #@@welcome_page_text=get_localized_string "welcome_header"
+    #@@welcome_help_no_holiday_body=get_localized_string "welcome_help_no_holiday_body" #"The MyThomson app is for people who have booked a holiday directly with Thomson. To discover all of the great benefits of the MyThomson app, take a tour, then choose the perfect holiday for you."
+    #@@welcome_refuse=get_localized_string "welcome_refuse" #"Sorry, you can’t use the app if:"
+    #@@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
+    #@@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
+    #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
+    #@@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
+
     @@login_page_text = get_localized_string "welcome_login_header"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"

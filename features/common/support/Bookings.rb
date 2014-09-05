@@ -118,7 +118,7 @@ end
 
 
 if $g_current_app== "DE_MT"
-  check_de_api
+  #check_de_api
 
   if ENV['ENDPOINT']=="preprod"
   else

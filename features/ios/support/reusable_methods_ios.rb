@@ -4,10 +4,45 @@ require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 require_relative '../../common/support/view_functions'
 
+
+module Phone
+  #Scroll to text in side panel
+  def scroll_side_panel(text, index=1)
+    scroll_page_and_assert_text(text)
+
+    #section=0
+    #count=0
+    #scroll_to_cell(:row => 0, :section => 0)
+    #sleep 1
+    #each_cell(:animate => false, :post_scroll => 0.2) do |row, sec|
+    #  #puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
+    #  if query("tableViewCell indexPath:#{row},#{sec} label", :text).first==text
+    #    count+=1
+    #    break if index==count
+    #  end
+    #  section=section+1
+    #end
+    #puts "scroll_side_panel:element number:#{section}  text:#{text} index:#{index}"
+  end
+end
+
+module Tablet
+  def scroll_side_panel(text,dir="down")
+    puts "scroll_side_panel #{text}"
+    while (!element_exists("view text:'#{text}'"))
+      sleep 0.5
+      scroll("scrollView index:1", dir)
+    end
+  end
+
+end
+
 module IosReusableMethods
   include AppStrings
   include ReusableMethods
   include ViewModule
+  include Phone if $g_phone
+  include Tablet if $g_tablet
 
   #Use this method for text
   def wait_for_page_to_load(text, time_out)
@@ -107,22 +142,7 @@ module IosReusableMethods
     assert_text_present text
   end
 
-  #Scroll to text in side panel
-  def scroll_side_panel(text, index=1)
-    section=0
-    count=0
-    scroll_to_cell(:row => 0, :section => 0)
-    sleep 1
-    each_cell(:animate => false, :post_scroll => 0.2) do |row, sec|
-      #puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
-      if query("tableViewCell indexPath:#{row},#{sec} label", :text).first==text
-        count+=1
-        break if index==count
-      end
-      section=section+1
-    end
-    puts "scroll_side_panel:element number:#{section}  text:#{text} index:#{index}"
-  end
+
 
   #touch text and verify result
   def touch_txt_and_verify_title(txt_touch, text)

@@ -20,6 +20,8 @@ module HomeModule
   end
 
   module Phone
+    include BaseModule
+
     def check_home_elements
       check_acc_label @@home_page_title_acc
     end

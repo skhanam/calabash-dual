@@ -3,7 +3,6 @@ require_relative 'base_module'
 module SidePanelModule
   include BaseModule
 
-
   module Phone
     include BaseModule
 
@@ -16,6 +15,7 @@ module SidePanelModule
       txt=query("textField index:0", :text).first if $g_ios
       fail "username field is not empty" if txt !=""
     end
+
   end
 
   module Tablet

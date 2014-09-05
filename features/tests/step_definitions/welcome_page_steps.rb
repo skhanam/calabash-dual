@@ -24,10 +24,6 @@ Then(/^I see welcome screen/) do
   @welcomePage.verify_welcome_screen
 end
 
-Then(/^I see welcome page/) do
-  @welcomePage.verify_welcome_page
-end
-
 
 When(/^I choose haven't booked through TUI$/) do
   @welcomePage.click_new_here

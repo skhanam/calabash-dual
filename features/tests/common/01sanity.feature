@@ -12,9 +12,3 @@ Feature: Login and Home page features
     Given I am on 'Login' screen
     When I submit correct login credentials
     Then I must be logged in and on Home page
-
-  @reset @successful-login
-  Scenario:  Successful login
-    Given I must be logged in and on Home page
-    When I submit correct login credentials
-    Then I must be logged in and on Home page

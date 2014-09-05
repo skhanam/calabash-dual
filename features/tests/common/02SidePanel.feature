@@ -6,14 +6,16 @@ Feature: Verify product pages by navigating through side panel
 
   @countdown32
   Scenario: navigate to countdown page
-    Given I am on home screen with default booking
+    Given I am on Home screen
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
 
-#  Scenario: navigate to weather page
-#    Given I am on home screen with single booking
-#    When I navigate to weather page using side menu
-#    Then I see holiday weather page
+#TODO  Given I am on home screen with default booking must be used throughout this file
+  @countdown321
+  Scenario: navigate to weather page
+    Given I am on Home screen
+    When I navigate to weather page using side menu
+    Then I see holiday weather page
 #
 #  @booking-summary
 #  Scenario: navigate to booking summary page

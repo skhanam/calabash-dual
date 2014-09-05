@@ -10,6 +10,12 @@ class LoginPage < LoginBasePage
     assert_text_present @@login_error_surname
   end
 
+  assert_wait_for_text @@welcome_help_no_holiday_body
+  assert_wait_for_text @@welcome_refuse
+  assert_wait_for_text @@welcome_reasons
+  assert_wait_for_text @@login_with_existing_credentials
+  assert_wait_for_text @@welcome_help_link3
+
   def verify_login_page
     puts "verify_login_page"
     assert_wait_for_text @@login_page_title

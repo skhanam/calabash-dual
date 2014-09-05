@@ -1,4 +1,6 @@
 class WeatherBasePage < BasePage
+  include WeatherModule
+  include Module.const_get "WeatherModule::"+$g_hw_module
 
   #this method checks weather the page is shown by verifying one element
   def check_weather_screen_title
@@ -36,12 +38,6 @@ class WeatherBasePage < BasePage
 
     scroll_page_and_assert_text(@@share_weather, "down")
 
-  end
-
-  #this method checks weather the page is shown by verifying one element
-  def check_weather_page
-    check_weather_screen_title
-    sleep 1
   end
 
   def check_weather_sharing_text

@@ -7,7 +7,7 @@ end
 
 Then (/^I navigate to weather page using side menu$/) do
   @homePage.open_side_panel
-  @sidePanel.navigate_to_weather_page
+  @sidePanel.navigate_from_side_menu "Weather"
 end
 
 When (/^I navigate to weather page using weather biscuit$/) do
@@ -192,7 +192,7 @@ end
 
 When(/^I navigate to App feedback page$/) do
   @homePage.open_side_panel
-  @sidePanel.navigate_to_app_feedback
+  @sidePanel.navigate_from_side_menu "App Feedback"
 end
 
 Given(/^I am on home screen with single booking$/) do
