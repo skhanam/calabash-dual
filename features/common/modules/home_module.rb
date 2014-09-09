@@ -2,6 +2,14 @@ require_relative 'base_module'
 module HomeModule
   include BaseModule
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+  #
+  #include HomeModule::Phone if $g_phone
+  #include HomeModule::Tablet if $g_tablet
+
   def logout_from_home_screen
     click_accessibility_label @@home_page_sidepanel_acc_label
     sleep 2
@@ -48,6 +56,14 @@ module HomeModule
       wait_for_progress_to_disappear(@@loading_hold_on)
     end
 
+    def click_weather_biscuit
+      sleep 2
+      assert_wait_for_acc_label "destination_temperature"
+      click_accessibility_label "destination_temperature"
+      sleep 2
+      verify_page_title @@weather_page_title
+    end
+
   end
 
   module Tablet
@@ -77,6 +93,15 @@ module HomeModule
     def wait_for_account_page_to_load
       sleep 5
       wait_for_progress_to_disappear(@@loading_hold_on)
+    end
+
+
+    def click_weather_biscuit
+      sleep 2
+      assert_wait_for_acc_label "weather_Biscuit"
+      click_accessibility_label "weather_Biscuit"
+      sleep 2
+      verify_page_title @@weather_page_title
     end
 
   end

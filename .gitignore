@@ -20,3 +20,5 @@ features/test_data/sv/Default.png
 features/test_data/sv/Default@2x.png
 features/test_data/sv/app.xml
 features/test_data/sv/Default-568h@2x.png
+node_modules/node-monitor/node_modules
+node_modules

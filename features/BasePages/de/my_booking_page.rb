@@ -9,7 +9,6 @@ class MyBookingsPage < BasePage
  #include Module.const_get "MyBookingsModule::"+$g_platform
 
 
-
  def check_my_bookings_screen
    assert_wait_for_text(@@my_bookings_title)
  end

@@ -82,18 +82,23 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
       $g_current_booking=$single_journey_multi_leg
   end
 
- $g_booking.set_payload($g_current_booking["payload"])
+  $g_booking.set_payload($g_current_booking["payload"])
 
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
-  if booking_type!=$selected_booking
-    $selected_booking=booking_type
-    @homePage.navigate_to_account
-    @myBookingsPage.switch_to_particular_booking
-  else
-    puts "already switched to #{booking_type} "
+  #TODO remove if false
+  p "********************** this code must be removed later **********************"
+  if false
+    if booking_type!=$selected_booking
+      $selected_booking=booking_type
+      @homePage.navigate_to_account
+      @myBookingsPage.switch_to_particular_booking
+    else
+      puts "already switched to #{booking_type} "
+    end
   end
+
 end
 
 Then(/^I verify appropriate welcome message for booking$/) do
@@ -103,10 +108,10 @@ end
 Then(/^I must be logged in and on Home page$/) do
   acc_label="background_normal" if $g_phone
   acc_label="countdown_Biscuit" if $g_tablet
-  
+
   @homePage.assert_wait_for_acc_label("#{acc_label}", 20)
   sleep 5
-  screenshot(options={:name => "home"})  if ENV['TAKE_SS']=="yes"
+  screenshot(options={:name => "home"}) if ENV['TAKE_SS']=="yes"
 end
 
 Given(/^I have opened side menu$/) do
@@ -132,7 +137,7 @@ end
 When(/^I navigate to destination using home page biscuit$/) do
   @countries= $g_booking.get_destination_countries
   @dest_country=@countries[0]
-  @page.scroll_page_and_assert_text(@dest_country)
+  @page.scroll_home_biscuits(@dest_country)
   @page.click_on_text(@dest_country)
 end
 

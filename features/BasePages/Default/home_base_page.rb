@@ -2,8 +2,7 @@
 
 class HomeBasePage < BasePage
   include HomeModule
-  include HomeModule::Phone if $g_phone
-  include HomeModule::Tablet if $g_tablet
+
 
   def open_side_panel
     sleep 1
@@ -105,14 +104,6 @@ class HomeBasePage < BasePage
     puts "#{@@currency_hash}"
   end
 
-  def click_weather_biscuit
-    sleep 2
-    assert_wait_for_acc_label "destination_temperature"
-    click_accessibility_label "destination_temperature"
-    sleep 2
-    verify_page_title @@weather_page_title
-  end
-
 
   def click_countdown_biscuit
     scroll_page_and_assert_text("countdown_biscuit")
@@ -131,26 +122,25 @@ class HomeBasePage < BasePage
     end
   end
 
-
-  def get_welcome_message
+    def get_welcome_message
     no_of_days_to_go=-1*$g_booking.get_countdown_days #Hard coded for now until test data is available
     puts "no_of_days_to_go #{no_of_days_to_go}"
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
-      msg="bald geht's in den Urlaub!"
+      msg= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!"
     elsif (no_of_days_to_go < -3 && no_of_days_to_go >= -14)
-      msg="nur noch dreimal schlafen, dann geht 's endlich los!"
+      msg=get_localized_string "holiday_message_minus_14" #"nur noch dreimal schlafen, dann geht 's endlich los!"
     elsif (no_of_days_to_go == -3)
-      msg="Ihre Reise steht vor der Tür.Sind Sie schon urlaubsreif?"
+      msg=get_localized_string "holiday_message_minus_3" # "Ihre Reise steht vor der Tür.Sind Sie schon urlaubsreif?"
     elsif (no_of_days_to_go == -2)
-      msg="schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!"
+      msg= get_localized_string "holiday_message_minus_2" #"schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!"
     elsif (no_of_days_to_go == -1)
-      msg="morgen geht' s los! Haben Sie an alles gedacht?"
+      msg=get_localized_string "holiday_message_plus_1" #"morgen geht' s los! Haben Sie an alles gedacht?"
     elsif (no_of_days_to_go == 0)
-      msg="wir wünschen Ihnen einen schönen Urlaub!"
+      msg=get_localized_string "holiday_message_zero" #"wir wünschen Ihnen einen schönen Urlaub!"
     elsif (no_of_days_to_go > 1 && no_of_days_to_go <= 7)
-      msg="willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub."
+      msg=get_localized_string "holiday_message_plus_1" #"willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub."
     elsif (no_of_days_to_go > 7)
-      msg="sind Sie schon wieder reif für die Insel?"
+      msg=get_localized_string "holiday_message_plus_7" #"sind Sie schon wieder reif für die Insel?"
     else
       fail("Days are incorrect")
     end

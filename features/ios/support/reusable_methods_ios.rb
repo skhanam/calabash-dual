@@ -9,32 +9,44 @@ module Phone
   #Scroll to text in side panel
   def scroll_side_panel(text, index=1)
     scroll_page_and_assert_text(text)
-
-    #section=0
-    #count=0
-    #scroll_to_cell(:row => 0, :section => 0)
-    #sleep 1
-    #each_cell(:animate => false, :post_scroll => 0.2) do |row, sec|
-    #  #puts "#{query("tableViewCell indexPath:#{row},#{sec} label", :text)}  #{text}"
-    #  if query("tableViewCell indexPath:#{row},#{sec} label", :text).first==text
-    #    count+=1
-    #    break if index==count
-    #  end
-    #  section=section+1
-    #end
-    #puts "scroll_side_panel:element number:#{section}  text:#{text} index:#{index}"
   end
+
+  def scroll_home_biscuits(txt)
+    scroll_page_and_assert_text txt
+  end
+
+  def scroll_view(dir, index=0)
+    scroll("scrollView", "down") if dir=="down"
+    scroll("scrollView", "up") if dir=="up"
+    sleep 0.5
+  end
+
 end
 
 module Tablet
-  def scroll_side_panel(text,dir="down")
+  def scroll_side_panel(text, dir="down")
     count=5
     puts "scroll_side_panel #{text}"
     while (!element_exists("view text:'#{text}'") && count >0)
       sleep 0.5
-      scroll("scrollView index:1", dir)
+      scroll_view(dir, 1)
       count-=1
     end
+  end
+
+  def scroll_home_biscuits(txt)
+    count=3
+    puts "scroll_side_panel #{txt}"
+    while (!element_exists("view text:'#{txt}'") && count >0)
+      sleep 0.5
+      scroll_view("right", 0)
+      count-=1
+    end
+  end
+
+  def scroll_view(dir, index=0)
+    scroll("scrollView index:#{index}", dir)
+    sleep 0.5
   end
 
 end
@@ -43,8 +55,10 @@ module IosReusableMethods
   include AppStrings
   include ReusableMethods
   include ViewModule
-  include Phone if $g_phone
-  include Tablet if $g_tablet
+
+  def self.included(receiver)
+    receiver.send :include, Module.const_get("#{$g_hw_module}")
+  end
 
   #Use this method for text
   def wait_for_page_to_load(text, time_out)
@@ -145,7 +159,6 @@ module IosReusableMethods
   end
 
 
-
   #touch text and verify result
   def touch_txt_and_verify_title(txt_touch, text)
     click_on_text txt_touch
@@ -174,7 +187,7 @@ module IosReusableMethods
     id=escape_quotes_smart(id)
     repeat_count=0
 
-      flash("view text:'#{id}'") if (element_exists("view text:'#{id}'") && $g_flash)
+    flash("view text:'#{id}'") if (element_exists("view text:'#{id}'") && $g_flash)
 
     if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
       puts "scrolled to text (#{id})"
@@ -198,12 +211,6 @@ module IosReusableMethods
     end
     fail "id/text :#{id}: not present on screen" if repeat_count==count
     sleep 1
-  end
-
-  def scroll_view(dir)
-    scroll("scrollView", "down") if dir=="down"
-    scroll("scrollView", "up") if dir=="up"
-    sleep 0.5
   end
 
   def scroll_table_to_text(text)

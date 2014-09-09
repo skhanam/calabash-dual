@@ -22,7 +22,6 @@ class Bookings
 
   def get_destination_countries
     countries=[]
-
     @destinations["data"].each do |var|
       countries<< var["destinationName"] if $g_nordics_app
       countries<< var[1]["destinationName"] if !$g_nordics_app

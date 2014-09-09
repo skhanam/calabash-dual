@@ -3,10 +3,42 @@ require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 
+module Phone
+  #Scroll to text in side panel
+  def scroll_side_panel(text, index=1)
+    scroll_page_and_assert_text(text)
+  end
+
+  def scroll_home_biscuits(txt)
+    scroll_page_and_assert_text txt
+  end
+
+end
+
+module Tablet
+  def scroll_side_panel(text,dir="down")
+    count=5
+    puts "scroll_side_panel #{text}"
+    while (!element_exists("view text:'#{text}'") && count >0)
+      sleep 0.5
+      scroll("scrollView index:1", dir)
+      count-=1
+    end
+  end
+
+  def scroll_home_biscuits(txt)
+    scroll_page_and_assert_text txt
+  end
+end
+
 #Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 module AndroidReusableMethods
   include AppStrings
   include ReusableMethods
+
+  def self.included(receiver)
+    receiver.send :include, Module.const_get("#{$g_hw_module}")
+  end
 
   def ti_enter_details(text, index)
     sleep 1

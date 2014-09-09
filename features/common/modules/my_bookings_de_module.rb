@@ -3,7 +3,6 @@ module MyBookingsModule
   include BaseModule
 
   def self.included(receiver)
-    puts self.name+"::#{$g_hw_module}::#{$g_platform}"
     receiver.send :include, Module.const_get(self.name+"::#{$g_platform}::#{$g_hw_module}")
   end
 
