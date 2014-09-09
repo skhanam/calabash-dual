@@ -19,7 +19,7 @@ class BookingSummaryPage < BookingSummaryBasePage
   end
 
   def verify_booking_reference_number
-    get_booking_ref_number=CommonMethods.new.get_booking_ref_number
+    get_booking_ref_number=$g_booking.get_booking_ref_number
     wait_for_text get_booking_ref_number
   end
 

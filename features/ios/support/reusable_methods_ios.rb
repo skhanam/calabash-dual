@@ -28,10 +28,12 @@ end
 
 module Tablet
   def scroll_side_panel(text,dir="down")
+    count=5
     puts "scroll_side_panel #{text}"
-    while (!element_exists("view text:'#{text}'"))
+    while (!element_exists("view text:'#{text}'") && count >0)
       sleep 0.5
       scroll("scrollView index:1", dir)
+      count-=1
     end
   end
 
@@ -241,5 +243,6 @@ module IosReusableMethods
     touch "view marked:'deleteButton'"
     sleep 1
   end
+
 
 end

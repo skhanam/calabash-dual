@@ -15,6 +15,7 @@ require_relative '../common/support/reusable_methods'
 require_relative '../../features/common/strings/application_strings'
 require_relative '../common/support/view_functions'
 require 'differ'
+require_relative '../common/support/Booking_data'
 
 #require 'calabash_shared'
 #require_relative '../../calabash_shared/lib/calabash_shared'
@@ -37,13 +38,13 @@ elsif $g_android
 end
 
 class BasePage < BaseClass
+
   include ViewModule
   include ReusableMethods
   include AppStrings
  # include CalabashShared
 
   def initialize
-
   end
 
   def write_hash_to_file(count)

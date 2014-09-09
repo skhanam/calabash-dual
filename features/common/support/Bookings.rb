@@ -134,7 +134,10 @@ elsif $g_nordics_app
   $g_NOR_user=set_nor_dev_booking_data
   $g_current_booking=$g_NOR_user
 
+
 elsif $g_current_app== "EN_FC"
   check_firstchoice_api
   set_fc_dev_bookings
+
+
 end

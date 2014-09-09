@@ -80,6 +80,7 @@ module AppStrings
 
   def set_test_data
     @@currency_hash={}
+    $g_booking = Bookings.new
   end
 
   def whats_new_strings

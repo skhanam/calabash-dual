@@ -38,7 +38,7 @@ module DEMeineTUI
 
   #All test data for different appication is in here
   def test_data
-    $g_booking_data= 'features/z_dump/test_data/Bookings.xlsx'
+    $g_booking_data_file= 'features/z_dump/test_data/Bookings.xlsx'
     $g_strings= 'features/z_dump/test_data/Language_Strings.xlsx'
     $g_localized_strings=nil
     @@user_details=nil

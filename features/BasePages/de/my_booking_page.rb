@@ -6,16 +6,9 @@
 
 class MyBookingsPage < BasePage
  include MyBookingsModule
- include Module.const_get "MyBookingsModule::"+$g_platform
+ #include Module.const_get "MyBookingsModule::"+$g_platform
 
- def switch_to_particular_booking
-   txt= $g_current_booking["payload"]["destination"] #get_typical_booking_name
-   scroll_page_and_assert_text txt
-   click_on_text txt
-   sleep 3
-   wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
-   sleep 1
- end
+
 
  def check_my_bookings_screen
    assert_wait_for_text(@@my_bookings_title)

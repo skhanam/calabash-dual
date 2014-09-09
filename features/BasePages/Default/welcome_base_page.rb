@@ -5,13 +5,10 @@ class WelcomeBasePage < BasePage
     self
   end
 
-  #def navigate_to_login
-  #  CommonMethods.new.close_whats_new_dialog
-  #  CommonMethods.new.close_push_notifications
-  #  assert_wait_for_text(@@welcome_page_text,10)
-  #end
-
-
+  def verify_welcome_screen
+    txt=$g_german_app ? @@welcome_page_text : @@login_page_text
+    assert_wait_for_text txt
+  end
 
   def navigate_to_login
     sleep 2

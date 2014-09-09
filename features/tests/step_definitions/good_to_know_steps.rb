@@ -4,7 +4,7 @@ When(/^I navigate to good to know page using side menu$/) do
 end
 
 Then(/^I see good to know page$/) do
-  @countries= @commonMethods.get_desination_countries
+  @countries= $g_booking.get_destination_countries
   #@countries.each do |var|
   #  @page.assert_wait_for_text(var[0])
   #end

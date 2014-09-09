@@ -15,7 +15,7 @@ class DestinationInfoBasePage < BasePage
   end
 
   def verify_list_of_destinations
-    @countries= CommonMethods.new.get_desination_countries
+    @countries= $g_booking.get_destination_countries
     screenshot(options={:name => "destinations"}) if ENV['TAKE_SS']=="yes"
     @countries.each do |var|
       puts "checking destination name #{var}"
@@ -24,7 +24,7 @@ class DestinationInfoBasePage < BasePage
   end
 
   def check_each_destination
-    @countries= CommonMethods.new.get_desination_countries
+    @countries= $g_booking.get_destination_countries
     @countries.each do |var|
       puts "checking destination name #{var}"
       click_on_text var

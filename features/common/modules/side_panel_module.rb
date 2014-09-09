@@ -16,6 +16,18 @@ module SidePanelModule
       fail "username field is not empty" if txt !=""
     end
 
+    def navigate_to_contact_us_page
+      scroll_side_panel(@@log_out_text) if !$g_german_app
+      scroll_side_panel(@@side_panel_contact_us)
+      sleep 1
+      touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
+    end
+
+    def navigate_to_booking_summary_page
+      scroll_side_panel(@@side_panel_booking_summary)
+      touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
+    end
+
   end
 
   module Tablet
@@ -27,6 +39,22 @@ module SidePanelModule
       elsif $g_ios
         fail("Email not populated") if !element_exists("fieldEditor text:'#{username}'")
       end
+    end
+
+    def navigate_to_booking_summary_page
+      @@side_panel_booking_summary="Holiday Summary"
+      scroll_side_panel(@@side_panel_booking_summary)
+      click_on_text @@side_panel_booking_summary
+      #TODO verify booking summary page
+    end
+
+    def navigate_to_contact_us_page
+      scroll_side_panel(@@log_out_text) if !$g_german_app
+      scroll_side_panel("Contact")
+      #scroll_side_panel(@@side_panel_contact_us)
+      sleep 1
+      click_on_text "Contact" #TODO to change  click_on_text @@side_panel_contact_us
+      #TODO verify contact us page
     end
 
     def check_email_field_empty
@@ -140,7 +168,8 @@ module SidePanelModule
 
     def verify_elements_for_typical_booking
       assert_wait_for_text @@side_panel_booking_summary
-      res=CommonMethods.new.get_all_products_for_booking
+      res=$g_booking.get_all_products_for_booking
+
       res.uniq.each do |var|
         count=res.count(var)
         check_side_panel(var)

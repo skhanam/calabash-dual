@@ -59,7 +59,7 @@ class HomeBasePage < BasePage
 
   def check_welcome_messages
     msg=get_welcome_message
-    wait_for_label(msg, 20)
+    assert_wait_for_acc_label(msg, 20)
   end
 
   #Check one element on home screen to confirm page is loaded
@@ -107,7 +107,7 @@ class HomeBasePage < BasePage
 
   def click_weather_biscuit
     sleep 2
-    scroll_page_till_acc "destination_temperature"
+    assert_wait_for_acc_label "destination_temperature"
     click_accessibility_label "destination_temperature"
     sleep 2
     verify_page_title @@weather_page_title
@@ -119,8 +119,6 @@ class HomeBasePage < BasePage
     click_accessibility_label "countdown_biscuit"
     verify_page_title @@countdown_page_title
   end
-
-
 
 
   def check_booking_in_past_message(txt)
@@ -135,7 +133,8 @@ class HomeBasePage < BasePage
 
 
   def get_welcome_message
-    no_of_days_to_go=-1*CommonMethods.new.get_countdown_days #Hard coded for now until test data is available
+    no_of_days_to_go=-1*$g_booking.get_countdown_days #Hard coded for now until test data is available
+    puts "no_of_days_to_go #{no_of_days_to_go}"
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
       msg="bald geht's in den Urlaub!"
     elsif (no_of_days_to_go < -3 && no_of_days_to_go >= -14)

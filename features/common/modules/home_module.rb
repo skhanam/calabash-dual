@@ -34,7 +34,7 @@ module HomeModule
       check_home_screen
     end
 
-    def click_on_account_button
+    def navigate_to_account
       wait_for_acc_label @@home_page_account_acc
       sleep 2
       wait_for_acc_label @@home_page_account_acc
@@ -65,12 +65,12 @@ module HomeModule
       check_home_screen
     end
 
-    def click_on_account_button
+    def navigate_to_account
       sleep 2
       click_accessibility_label @@home_page_sidepanel_acc_label
       click_on_text "Peter Pan"
       wait_for_account_page_to_load
-      verify_page_title @@my_bookings_title
+      assert_wait_for_text @@personal_details
     end
 
 

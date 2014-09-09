@@ -196,6 +196,7 @@ end
 
 Given(/^I am on 'Login' screen/) do
 
+
   #TODO hack for login screen
   if $g_german_app && $g_tablet && $g_ios
     @page.assert_wait_for_acc_label "swipeDown"

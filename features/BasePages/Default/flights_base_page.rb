@@ -12,7 +12,7 @@ class FlightsBasePage < BasePage
   end
 
   def check_flights_listing
-    arr= CommonMethods.new.get_flights_details
+    arr= $g_booking.get_flights_details
     arr.each do |var|
       assert_text_present "#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
     end
@@ -20,7 +20,7 @@ class FlightsBasePage < BasePage
   end
 
   def check_details_of_flight
-    arr= CommonMethods.new.get_flights_details
+    arr= $g_booking.get_flights_details
     arr.each do |var|
       txt="#{var["departureAirportName"]} #{@@to_flight_strings} #{var["arrivalAirportName"]}"
       assert_partial_text var["departureAirportName"]

@@ -38,7 +38,7 @@ end
 #booking summary page down step definitions
 When (/^I navigate to booking summary page using side menu$/) do
   @homePage.open_side_panel
-  @sidePanel.navigate_to_booking_summary_page
+  @sidePanel.navigate_from_side_menu "Holiday summary"
 end
 
 
@@ -48,7 +48,7 @@ When (/^I navigate to booking summary page using booking summary biscuit$/) do
 end
 
 When(/^I navigate to my bookings page$/) do
-  @homePage.click_on_account_button
+  @homePage.navigate_to_account
   sleep 5
 end
 
@@ -56,7 +56,7 @@ end
 Given(/^I am on contact us screen$/) do
   step "I am on Home screen"
   @homePage.open_side_panel
-  @sidePanel.navigate_to_contact_us_page
+  @sidePanel.navigate_from_side_menu "Contact us"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -81,12 +81,15 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
     when "one way"
       $g_current_booking=$single_journey_multi_leg
   end
+
+ $g_booking.set_payload($g_current_booking["payload"])
+
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
   if booking_type!=$selected_booking
     $selected_booking=booking_type
-    @homePage.click_on_account_button
+    @homePage.navigate_to_account
     @myBookingsPage.switch_to_particular_booking
   else
     puts "already switched to #{booking_type} "
@@ -120,14 +123,14 @@ Given(/^I navigate to travel money page from home screen$/) do
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
-  hotel_details=CommonMethods.new.find_hotel_details(arg)
+  hotel_details=$g_booking.find_hotel_details(arg)
   hotel_name=hotel_details["name"]
   @page.scroll_page_and_assert_text(hotel_name)
   @page.click_on_text(hotel_name)
 end
 
 When(/^I navigate to destination using home page biscuit$/) do
-  @countries= @commonMethods.get_desination_countries
+  @countries= $g_booking.get_destination_countries
   @dest_country=@countries[0]
   @page.scroll_page_and_assert_text(@dest_country)
   @page.click_on_text(@dest_country)
@@ -135,7 +138,7 @@ end
 
 Then(/^I see destination information page$/) do
   @destinationInfo.check_dest_info_screen_title
-  @countries= @commonMethods.get_desination_countries
+  @countries= $g_booking.get_destination_countries
   @dest_country=@countries[0]
   @page.assert_wait_for_text @dest_country
 end

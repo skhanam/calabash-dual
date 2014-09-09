@@ -4,12 +4,12 @@ class BookingSummaryPage < BookingSummaryBasePage
 
   def check_products_in_booking_summary(var)
     if var=="flight"
-      products=CommonMethods.new.get_flights_details
+      products=$g_booking.get_flights_details
       products.each do |val|
         scroll_page_and_assert_text val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]
       end
     elsif var=="hotel"
-      products=CommonMethods.new.get_hotel_details
+      products=$g_booking.get_hotel_details
       products.each do |val|
         scroll_page_and_assert_text val
       end

@@ -8,15 +8,16 @@ Before do |scenario|
 
   scenario_tags = scenario.source_tag_names
 
+  unless @calabash_launcher.calabash_no_launch?
+    @calabash_launcher.relaunch(:timeout => 60) if !scenario_tags.include?('@reset')
+    @calabash_launcher.relaunch(:timeout => 60,:reset=>true) if scenario_tags.include?('@reset')
+    @calabash_launcher.calabash_notify(self)
+  end
+
   if scenario_tags.include?('@reset')
-    @calabash_launcher.reset_app_jail
     $selected_booking="NA"
   end
 
-  unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch(:timeout => 60)
-    @calabash_launcher.calabash_notify(self)
-  end
 
   #start_test_server_in_background(:timeout=>30)
 end

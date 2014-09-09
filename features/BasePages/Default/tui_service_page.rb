@@ -35,7 +35,7 @@ def check_tui_service_screen
   end
 
   def tui_service_select_hotel
-    hotel_details=CommonMethods.new.find_hotel_details(1)
+    hotel_details=$g_booking.find_hotel_details(1)
     assert_wait_for_text hotel_details["name"]
     click_on_text hotel_details["name"]
   end

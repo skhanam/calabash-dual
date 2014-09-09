@@ -3,13 +3,11 @@ class SidePanel < BasePage
   include Module.const_get "SidePanelModule::"+$g_hw_module
   include Module.const_get "SidePanelModule::"+$g_lang_mod
 
-
-  def check_forgot_password_page
-    assert_wait_for_text @@forgot_password_title
-    assert_text_elements [@@forgot_password_username_or_email, @@forgot_password_send_button,
-                          @@forgot_password_let_us_know_email, @@forgot_password_need_help]
-
-  end
+  #def check_forgot_password_page
+  #  assert_wait_for_text @@forgot_password_title
+  #  assert_text_elements [@@forgot_password_username_or_email, @@forgot_password_send_button,
+  #                        @@forgot_password_let_us_know_email, @@forgot_password_need_help]
+  #end
 
   def submit_change_password
     click_on_text @@forgot_password_send_button
@@ -19,17 +17,7 @@ class SidePanel < BasePage
     assert_wait_for_text @@forgot_password_email_help
   end
 
-  def navigate_to_contact_us_page
-    scroll_side_panel(@@log_out_text) if !$g_german_app
-    scroll_side_panel(@@side_panel_contact_us)
-    sleep 1
-    touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
-  end
 
-  def navigate_to_booking_summary_page
-    scroll_side_panel(@@side_panel_booking_summary)
-    touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
-  end
 
   def check_sidepanel_based_on_bookings
     if ($g_current_booking["payload"]["excursions"]["numberOfExcursions"].to_i > 0)
@@ -84,8 +72,7 @@ class SidePanel < BasePage
     sleep 2
     case var
       when "Holiday summary"
-        scroll_side_panel(@@side_panel_booking_summary)
-        touch_txt_and_verify_title(@@side_panel_booking_summary, @@booking_summary_title)
+        navigate_to_booking_summary_page
       when "Excursions"
         scroll_side_panel(@@side_panel_excursions)
         touch_txt_and_verify_title(@@side_panel_excursions, @@excursions_title)
@@ -109,9 +96,7 @@ class SidePanel < BasePage
       when "App Feedback"
         navigate_to_app_feedback
       when "Contact us"
-        scroll_side_panel(@@side_panel_contact_us)
-        scroll_side_panel(@@log_out_text) if ($g_nordics_app || $g_eng_app)
-        touch_txt_and_verify_title(@@side_panel_contact_us, @@contact_us_contact_title)
+        navigate_to_contact_us_page
       when "destination"
         scroll_side_panel(@@side_panel_destination)
         touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)
@@ -122,5 +107,3 @@ class SidePanel < BasePage
 
   end
 end
-
-

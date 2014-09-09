@@ -46,7 +46,7 @@ class CommonMethods < BasePage
 
   #Avoid calling this method directly
   def get_user_details(url)
-
+      fail("NOT used")
     if ENV['LANG']=='de'
       username=$g_current_user_details[:valid][:username]
       password=$g_current_user_details[:valid][:password]
@@ -64,23 +64,23 @@ class CommonMethods < BasePage
   end
 
 
-  #specify the booking type and this method will return hash of booking details
-  def get_booking_details(booking_type)
-    case
-      when booking_type=="typical_booking"
-        booking_id=80522687
-      when booking_type=="flight_booking"
-        booking_id=75511407
-      when booking_type=="insurance_booking"
-        booking_id=38072949
-      when booking_type=="car_rental_booking"
-        booking_id=36739063
-      when booking_type =="non_eu_booking"
-        booking_id=80522737
-    end
-    query_url='http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home'
-    res= get_user_details(query_url)
-  end
+  ##specify the booking type and this method will return hash of booking details
+  #def get_booking_details(booking_type)
+  #  case
+  #    when booking_type=="typical_booking"
+  #      booking_id=80522687
+  #    when booking_type=="flight_booking"
+  #      booking_id=75511407
+  #    when booking_type=="insurance_booking"
+  #      booking_id=38072949
+  #    when booking_type=="car_rental_booking"
+  #      booking_id=36739063
+  #    when booking_type =="non_eu_booking"
+  #      booking_id=80522737
+  #  end
+  #  query_url='http://37.46.24.155:3000/reservation/'+booking_id.to_s+'/home'
+  #  res= get_user_details(query_url)
+  #end
 
   # get suffix of day based on number of days
   def getDayNumberSuffix(day)
@@ -101,118 +101,112 @@ class CommonMethods < BasePage
     end
   end
 
-  def get_booking_name
-    $g_current_booking["payload"]["destination"]
-  end
+  #def
+  #  $g_current_booking["payload"]["destination"]
+  #end
 
-  def get_desination_countries(booking=$g_current_booking)
-    countries=[]
-    #puts booking
-    if $g_nordics_app
-      booking["payload"]["destinationGuide"]["data"].each do |var|
-        countries<< var["destinationName"]
-      end
-    else
-      booking["payload"]["destinationGuide"]["data"].each do |var|
-        countries<< var[1]["destinationName"]
-      end
-    end
+  #def get_destination_countries(booking=$g_current_booking)
+  #  countries=[]
+  #  #puts booking
+  #  if $g_nordics_app
+  #    booking["payload"]["destinationGuide"]["data"].each do |var|
+  #      countries<< var["destinationName"]
+  #    end
+  #  else
+  #    booking["payload"]["destinationGuide"]["data"].each do |var|
+  #      countries<< var[1]["destinationName"]
+  #    end
+  #  end
+  #
+  #  return countries
+  #end
+  #
+  #def get_all_products_for_booking
+  #  arr=[]
+  #  products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
+  #  products.each do |var|
+  #    arr<<var["productType"]
+  #  end
+  #  return arr
+  #end
+  #
+  #def get_booking_summary(key_val)
+  #  #key_val=["leadPassenger","otherPassengers","bookingCode"]
+  #  $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+  #    if var["key"]==key_val
+  #      return var["title"], var["value"]
+  #    end
+  #  end
+  #end
 
-    return countries
-  end
 
-  def get_all_products_for_booking
-    arr=[]
-    products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
-    products.each do |var|
-      arr<<var["productType"]
-    end
-    return arr
-  end
-
-  def get_booking_summary(key_val)
-    #key_val=["leadPassenger","otherPassengers","bookingCode"]
-    $g_current_booking["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
-      if var["key"]==key_val
-        return var["title"], var["value"]
-      end
-    end
-  end
-
-  def get_booking_ref_number
-    num = $g_current_booking["payload"]["reservationCode"] if $g_german_app
-    num = $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
-    num = $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
-    return num
-  end
-
-  def find_number_of_flights
-    if $g_eng_app
-      return $g_current_booking["payload"]["products"]["flight"].count
-    elsif $g_nordics_app
-      count=0
-      $g_current_booking["payload"]["products"].each do |var|
-        var["flights"].each do
-          count+=1
-        end
-        return count
-      end
-    else
-      res=get_all_products_for_booking
-      return res.count "flight"
-    end
-  end
-
-  def find_flight_details_for_booking(num)
-    count=0
-    $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
-      count+=1 if var["productType"]=="flight"
-      return var if count==num
-    end
-  end
-
-  def get_countdown_days(val=$g_current_booking)
-    if $g_nordics_app
-      return ((val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
-    elsif $g_german_app
-      countdown=0
-      val["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
-        countdown=var["value"] if var["title"]=="Countdown"
-      end
-      puts countdown.to_s
-      return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
-    else
-      date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
-      days_left=(DateTime.strptime(date_string, '%d-%m-%Y %H:%M') - DateTime.now).to_i
-      #date_string = $g_current_user_details[:valid][:departuredate]
-      #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
-      puts "days_left #{days_left}"
-      return days_left
-    end
-  end
-
-  def find_de_products(product)
-    products=[]
-    all_products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
-    all_products.each do |var|
-      products<<var if var["productType"]==product
-    end
-    return products
-  end
-
-  def find_hotel_details(num)
-    count=0
-    find_de_products("hotel").each do |item|
-      count+=1
-      return item if count==num.to_i
-    end
-    return nil
-  end
-
-  def get_insurance_details
-    puts find_de_products("insurance")
-    fail "failed"
-  end
+  #def find_number_of_flights
+  #  if $g_eng_app
+  #    return $g_current_booking["payload"]["products"]["flight"].count
+  #  elsif $g_nordics_app
+  #    count=0
+  #    $g_current_booking["payload"]["products"].each do |var|
+  #      var["flights"].each do
+  #        count+=1
+  #      end
+  #      return count
+  #    end
+  #  else
+  #    res=get_all_products_for_booking
+  #    return res.count "flight"
+  #  end
+  #end
+  #
+  #def find_flight_details_for_booking(num)
+  #  count=0
+  #  $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+  #    count+=1 if var["productType"]=="flight"
+  #    return var if count==num
+  #  end
+  #end
+  #
+  #def get_countdown_days(val=$g_current_booking)
+  #  if $g_nordics_app
+  #    return ((val["payload"]["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
+  #  elsif $g_german_app
+  #    countdown=0
+  #    val["payload"]["bookingSummary"]["overview"]["infoList"].each do |var|
+  #      countdown=var["value"] if var["title"]=="Countdown"
+  #    end
+  #    puts countdown.to_s
+  #    return (countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i
+  #  else
+  #    date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
+  #    days_left=(DateTime.strptime(date_string, '%d-%m-%Y %H:%M') - DateTime.now).to_i
+  #    #date_string = $g_current_user_details[:valid][:departuredate]
+  #    #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
+  #    puts "days_left #{days_left}"
+  #    return days_left
+  #  end
+  #end
+  #
+  #def find_de_products(product)
+  #  products=[]
+  #  all_products=$g_current_booking["payload"]["bookingSummary"]["productDetails"]
+  #  all_products.each do |var|
+  #    products<<var if var["productType"]==product
+  #  end
+  #  return products
+  #end
+  #
+  #def find_hotel_details(num)
+  #  count=0
+  #  find_de_products("hotel").each do |item|
+  #    count+=1
+  #    return item if count==num.to_i
+  #  end
+  #  return nil
+  #end
+  #
+  #def get_insurance_details
+  #  puts find_de_products("insurance")
+  #  fail "failed"
+  #end
 
   def check_call_us_link
     click_call_button
@@ -244,55 +238,55 @@ class CommonMethods < BasePage
   end
 
 
-  def get_flights_details
-    arr=[]
-    temp={}
-
-    #eng app
-    if ($g_eng_app)
-      $g_current_booking["payload"]["flight"].each do |var|
-        puts var["DepartureAirportCode"]
-        temp["departureAirportCode"]=var["DepartureAirportCode"]
-        temp["departureAirportName"]=var["DepartureAirportName"]
-        temp["arrivalAirportCode"]=var["ArrivalAirportCode"]
-        temp["arrivalAirportName"]=var["ArrivalAirportName"]
-        arr.push(temp)
-        #puts "temp #{temp}"
-      end
-
-      #nor user
-    elsif ($g_nordics_app)
-      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
-        arr.push(val["flight"]) if val.keys.include? "flight"
-      end
-
-    elsif $g_german_app
-      arr=find_de_products("flight")
-    end
-
-    return arr
-  end
-
-  def get_hotel_details
-    arr=[]
-
-    #eng app
-    if ($g_eng_app)
-      arr.push $g_current_booking["payload"]["products"]["hotel"]["subTitle"]
-      #nor user
-    elsif ($g_nordics_app)
-      $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
-        arr.push(var["hotel"]["name"]) if var["hotel"]!=nil
-      end
-    elsif $g_german_app
-      prod=find_de_products("hotel")
-      prod.each do |var|
-        arr.push(var["name"])
-      end
-    end
-
-    return arr
-  end
+  #def get_flights_details
+  #  arr=[]
+  #  temp={}
+  #
+  #  #eng app
+  #  if ($g_eng_app)
+  #    $g_current_booking["payload"]["flight"].each do |var|
+  #      puts var["DepartureAirportCode"]
+  #      temp["departureAirportCode"]=var["DepartureAirportCode"]
+  #      temp["departureAirportName"]=var["DepartureAirportName"]
+  #      temp["arrivalAirportCode"]=var["ArrivalAirportCode"]
+  #      temp["arrivalAirportName"]=var["ArrivalAirportName"]
+  #      arr.push(temp)
+  #      #puts "temp #{temp}"
+  #    end
+  #
+  #    #nor user
+  #  elsif ($g_nordics_app)
+  #    $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |val|
+  #      arr.push(val["flight"]) if val.keys.include? "flight"
+  #    end
+  #
+  #  elsif $g_german_app
+  #    arr=find_de_products("flight")
+  #  end
+  #
+  #  return arr
+  #end
+  #
+  #def get_hotel_details
+  #  arr=[]
+  #
+  #  #eng app
+  #  if ($g_eng_app)
+  #    arr.push $g_current_booking["payload"]["products"]["hotel"]["subTitle"]
+  #    #nor user
+  #  elsif ($g_nordics_app)
+  #    $g_current_booking["payload"]["bookingSummary"]["productDetails"].each do |var|
+  #      arr.push(var["hotel"]["name"]) if var["hotel"]!=nil
+  #    end
+  #  elsif $g_german_app
+  #    prod=find_de_products("hotel")
+  #    prod.each do |var|
+  #      arr.push(var["name"])
+  #    end
+  #  end
+  #
+  #  return arr
+  #end
 
 
   def get_weekday_translated(weekday)
