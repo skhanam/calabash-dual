@@ -124,10 +124,14 @@ class Bookings
   end
 
   def find_hotel_details(num)
+    puts caller.first
     count=0
+
     find_de_products("hotel").each do |item|
       count+=1
+      return item if count==num.to_i
     end
+
     return nil
   end
 
@@ -181,7 +185,6 @@ class Bookings
 
     return arr
   end
-
 
 
   #specify the booking type and this method will return hash of booking details
