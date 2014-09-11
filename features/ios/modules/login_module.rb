@@ -31,6 +31,13 @@ module LoginModule
   end
 
   module Eng
+    def check_input_elements
+      assert_text_present "Enter surname" #@@email_hint_text
+      assert_text_present "Departure date"
+      assert_text_present "1234"
+      assert_text_present "12345678"
+    end
+
     def enter_date_ios(date)
       #day, month, year=convert_date_to_str(date).split(/-/)
       day, month, year=date.split(/-/)
