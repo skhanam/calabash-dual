@@ -39,7 +39,7 @@ class LoginBasePage < BasePage
 
   def submit_login_button
     sleep 1
-    scroll_page_till_acc @@login_button_acc
+    scroll_page_till_acc @@login_button_acc if $g_phone
     click_accessibility_label(@@login_button_acc)
   end
 

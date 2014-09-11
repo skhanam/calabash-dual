@@ -1,12 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
-require_relative 'page_world'
-require_relative '../strings/application_strings'
-require 'xmlsimple'
-require 'unicode_utils'
-require_relative '../support/users'
-require 'require_all'
-require File.join(File.dirname(__FILE__), 'page_world')
+
 
 $g_os=ENV['PLATFORM']
 $g_hw=ENV['HW']
@@ -23,6 +17,15 @@ elsif $g_hw=="tablet"
   $g_tablet=true
   $g_hw_module="Tablet"
 end
+
+require_relative 'page_world'
+require_relative '../strings/application_strings'
+require 'xmlsimple'
+require 'unicode_utils'
+require_relative '../support/users'
+require 'require_all'
+require File.join(File.dirname(__FILE__), 'page_world')
+
 
   if ENV['PLATFORM'] == 'ios'
   $g_ios=true

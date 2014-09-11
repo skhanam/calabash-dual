@@ -48,11 +48,8 @@ module LoginModule
       query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
       sleep(2)
     end
+
   end
 
-  module Phone
-  end
 
-  module Tablet
-  end
 end

@@ -126,7 +126,8 @@ if $g_current_app== "DE_MT"
   end
 
 elsif $g_current_app== "EN_TH"
-  check_thomson_api
+  puts "uncomment it check_thomson_api **********"
+  # check_thomson_api #TODO uncomment it later
   set_th_dev_bookings
 
 elsif $g_nordics_app

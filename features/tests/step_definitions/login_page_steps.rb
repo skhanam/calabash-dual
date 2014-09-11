@@ -40,13 +40,18 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("toolbarTextButton index:1")
     sleep 1
 
-    touch("view marked:'bookingReference1'")
+    touch("view marked:'#{@page.get_val("visionShopNumber_acc")}'")
+    puts "view marked:'#{@page.get_val("visionShopNumber_acc")}'"
+    puts "visionShopNumber #{visionShopNumber}"
     @page.input_text visionShopNumber
     sleep 2
 
-    touch("view marked:'bookingReference2'")
+    touch("view marked:'#{@page.get_val("visionBookingRef_acc")}'")
+    puts "view marked:'#{@page.get_val("visionBookingRef_acc")}'"
+    puts "visionBookingRef #{visionBookingRef}"
     @page.input_text visionBookingRef
     sleep 2
+
 
     touch("toolbarTextButton index:1")
     sleep(2)

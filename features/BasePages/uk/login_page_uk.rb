@@ -2,14 +2,10 @@ require_relative '../Default/login_base_page'
 
 class LoginPage < LoginBasePage
   include BaseModule
-  include LoginModule::Eng  if $g_ios
+  include LoginModule::Eng if $g_ios
+  include Phone if $g_phone
+  include Tablet if $g_tablet
 
-  def check_login_error_messages
-    assert_wait_for_text @@login_error_text
-    assert_text_present @@welcome_login_surname_extra
-    assert_text_present @@login_error_departure_date
-    assert_text_present @@login_error_surname
-  end
   #
   #assert_wait_for_text @@book_visit_no_holiday_body
   #assert_wait_for_text @@welcome_refuse
@@ -17,63 +13,63 @@ class LoginPage < LoginBasePage
   #assert_wait_for_text @@login_with_existing_credentials
   #assert_wait_for_text @@welcome_help_link3
 
-  def login
-    if $g_ios
-
-      #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
-      step "I clear input field number 1"
-      step "I clear input field number 3"
-      step "I clear input field number 4"
-
-      step 'I enter "'+surname+'" into input field number 1'
-      touch("toolbarTextButton index:1")
-      sleep 1
-      @loginPage.enter_date_ios(departureDate)
-      touch("toolbarTextButton index:1")
-      sleep 1
-
-      touch("view marked:'bookingReference1'")
-      @page.input_text visionShopNumber
-      sleep 2
-
-      touch("view marked:'bookingReference2'")
-      @page.input_text visionBookingRef
-      sleep 2
-
-      touch("toolbarTextButton index:1")
-      sleep(2)
-
-    elsif $g_android
-      clear_text
-      #performAction('clear_numbered_field', 2)
-      touch("* marked:'surname.'")
-      @page.input_text(surname)
-
-      touch("* marked:'departureDate.'")
-      sleep 2
-      set_date("android.widget.DatePicker index:0", departureDate)
-      #performAction('set_date_with_index', departureDate, 1)
-      sleep 2
-      if element_exists "* text:'Set'"
-        touch("* text:'Set'")
-      elsif element_exists "* text:'Done'"
-        touch("* text:'Done'")
-      end
-      sleep 2
-
-      touch("* marked:'bookingReference1.'")
-      sleep 1
-      @page.input_text(visionShopNumber)
-      sleep 1
-
-      touch("* marked:'bookingReference2.'")
-      sleep 1
-      @page.input_text(visionBookingRef)
-
-      @loginPage.scroll_to_end_of_page
-
-    end
-  end
+  #def login
+  #  if $g_ios
+  #
+  #    #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
+  #    step "I clear input field number 1"
+  #    step "I clear input field number 3"
+  #    step "I clear input field number 4"
+  #
+  #    step 'I enter "'+surname+'" into input field number 1'
+  #    touch("toolbarTextButton index:1")
+  #    sleep 1
+  #    @loginPage.enter_date_ios(departureDate)
+  #    touch("toolbarTextButton index:1")
+  #    sleep 1
+  #
+  #    touch("view marked:'bookingReference1'")
+  #    @page.input_text visionShopNumber
+  #    sleep 2
+  #
+  #    touch("view marked:'bookingReference2'")
+  #    @page.input_text visionBookingRef
+  #    sleep 2
+  #
+  #    touch("toolbarTextButton index:1")
+  #    sleep(2)
+  #
+  #  elsif $g_android
+  #    clear_text
+  #    #performAction('clear_numbered_field', 2)
+  #    touch("* marked:'surname.'")
+  #    @page.input_text(surname)
+  #
+  #    touch("* marked:'departureDate.'")
+  #    sleep 2
+  #    set_date("android.widget.DatePicker index:0", departureDate)
+  #    #performAction('set_date_with_index', departureDate, 1)
+  #    sleep 2
+  #    if element_exists "* text:'Set'"
+  #      touch("* text:'Set'")
+  #    elsif element_exists "* text:'Done'"
+  #      touch("* text:'Done'")
+  #    end
+  #    sleep 2
+  #
+  #    touch("* marked:'bookingReference1.'")
+  #    sleep 1
+  #    @page.input_text(visionShopNumber)
+  #    sleep 1
+  #
+  #    touch("* marked:'bookingReference2.'")
+  #    sleep 1
+  #    @page.input_text(visionBookingRef)
+  #
+  #    @loginPage.scroll_to_end_of_page
+  #
+  #  end
+  #end
 
   def verify_login_page
     puts "verify_login_page"
@@ -147,5 +143,27 @@ class LoginPage < LoginBasePage
     sleep 1
 
     click_accessibility_label "submitButton"
+  end
+
+
+end
+
+module Phone
+  include BaseModule
+
+  def check_login_error_messages
+    assert_wait_for_text @@login_error_text
+    assert_text_present @@welcome_login_surname_extra
+    assert_text_present @@login_error_departure_date
+    assert_text_present @@login_error_surname
+  end
+end
+
+module Tablet
+  include BaseModule
+
+  def check_login_error_messages
+    assert_wait_for_text @@login_error_text
+    assert_text_present @@login_error_banner
   end
 end

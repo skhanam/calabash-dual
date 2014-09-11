@@ -8,6 +8,24 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 # en_first_choice_strings.rb or
 # en_thomson_strings.rb
 module AppStrings
+
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
+  def get_val(txt)
+    eval("@@#{txt}")
+  end
+
+  module Phone
+    @@login_button_acc = "loginButton"
+  end
+
+  module Tablet
+    @@login_button_acc = "SUBMIT"
+  end
+
   $g_nordics_app=false
   $g_german_app=false
   $g_eng_app=false
@@ -134,18 +152,11 @@ module AppStrings
   end
 
   def image_icons_acc_label
-    @@login_button_acc = "loginButton"
+    @@home_page_acc = $g_phone ? "background_normal" : "offcanvasCTA"
+    @@home_page_title_acc = $g_phone ? "welcome_title" : "offcanvasCTA"
+    @@home_page_sidepanel_acc_label = $g_phone ? "navbarLeftButton" : "offcanvasCTA"
 
-    @@home_page_acc="background_normal" if $g_phone
-    @@home_page_acc="offcanvasCTA" if $g_tablet   # TODO to be changed
-    @@home_page_title_acc="welcome_title"  if $g_phone
-    @@home_page_title_acc="offcanvasCTA"if $g_tablet   # TODO to be changed
     @@home_page_account_acc="navbarRightButton"
-    @@home_page_sidepanel_acc_label="navbarLeftButton" if $g_phone
-    @@home_page_sidepanel_acc_label="offcanvasCTA" if $g_tablet
-
-
-
     @@share_button_closed_img ="share_button"
     @@facebook_share_img="facebook_share"
     @@twitter_share_img ="twitter_share"

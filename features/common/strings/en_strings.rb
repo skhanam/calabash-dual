@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 module EN_Strings
-
   def set_en_strings
     puts "*******  setting #{ENV['TESTENV']} strings ********"
     welcome_page_strings
@@ -20,6 +19,24 @@ module EN_Strings
     excursions_strings
     help_logging_in
     retrieve_booking_ref
+  end
+
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
+  module Phone
+    @@visionShopNumber_acc = "bookingReference1"
+    @@visionBookingRef_acc = "bookingReference2"
+
+  end
+
+  module Tablet
+    @@visionShopNumber_acc = "visionShopNumber"
+    @@visionBookingRef_acc = "visionBookingRef"
+
+    @@login_error_banner = "Sorry"
   end
 
   #All test data for different appication is in here
@@ -93,7 +110,7 @@ module EN_Strings
     #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
     #@@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
 
-    @@login_page_text = $g_phone ? get_localized_string("welcome_login_header"):"HAVE A BOOKING, LETS LOGIN"
+    @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
     @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
@@ -251,7 +268,7 @@ module EN_Strings
     @@check_list_check_box_acc = "checkBox"
     @@check_list_selected_items_acc = "completedItems"
     @@check_list_email_items=get_localized_string "email_items"
-    @@my_packaging_list=(get_localized_string "my_packing_list").strip.gsub(/\n/,' ')
+    @@my_packaging_list=(get_localized_string "my_packing_list").strip.gsub(/\n/, ' ')
     @@my_do_list=get_localized_string "my_todo_list"
     @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])', '') #"View completed items ([REPLACE])"
     @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])', '') #"Hide completed items ([REPLACE])"
