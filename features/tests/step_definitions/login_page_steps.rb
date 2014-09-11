@@ -196,14 +196,13 @@ end
 
 Given(/^I am on 'Login' screen/) do
 
-
   #TODO hack for login screen
-  if $g_german_app && $g_tablet && $g_ios
+  if $g_tablet && $g_ios
     @page.assert_wait_for_acc_label "swipeDown"
-    scroll("scrollView index:2",:up)
-    sleep 2
-    scroll("scrollView index:2",:up)
-    sleep 2
+    #scroll("scrollView index:2",:up)
+    #sleep 2
+    #scroll("scrollView index:2",:up)
+    #sleep 2
 
     @page.click_accessibility_label "swipeDown"
     sleep 2
@@ -219,7 +218,6 @@ Given(/^I am on 'Login' screen/) do
   #end
 
   @commonMethods.close_whats_new_dialog
-
 
   @welcomePage.navigate_to_login if $g_german_app && $g_phone
   @loginPage.check_login_screen
@@ -361,10 +359,6 @@ Given(/^I submit wrong login details$/) do
     step "I select the Login button"
   elsif ($g_current_app=='DE_MT')
     step "I enter valid email and invalid password"
-    #uname=$g_user_details[:username]
-    #pwd="NANA"
-    #country=$g_user_details[:country]
-    #step "I log into the App using #{uname}, #{pwd} and #{country}"
     sleep 2
     step "I select the Login text"
   elsif ($g_nordics_app)

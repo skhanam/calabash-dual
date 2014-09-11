@@ -1,6 +1,7 @@
 require_relative '../Default/login_base_page'
 
 class LoginPage < LoginBasePage
+  include BaseModule
 
   def check_login_error_messages
     assert_wait_for_text @@login_error_text

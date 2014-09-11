@@ -55,7 +55,8 @@ fi
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
-SCHEME_XC="${APPNAME}-iPad-cal"
+SCHEME="${APPNAME}-iPad"
+SCHEME_CAL="${APPNAME}-iPad-cal"
 PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
 
 
@@ -92,8 +93,8 @@ echo node releaseScripts/build.js --brand $TI_SCHEME -l
    	killall Xcode
    	cp ./expect.exp ${PROJ_FOLDER}
    	cd ${PROJ_FOLDER}/
-   	echo /usr/bin/expect ./expect.exp $APPNAME
-   	/usr/bin/expect ./expect.exp meineTUI
+   	echo /usr/bin/expect ./expect.exp $APPNAME $SCHEME
+   	/usr/bin/expect ./expect.exp $APPNAME $SCHEME
    	cd -
 
    	open -a Xcode
@@ -114,9 +115,9 @@ fi
 if [ "$1" == "clean" ] || [ "$1" == "compile" ] ; then
 
 	echo "Compiling code .."
-	echo xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
-	xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
-	#xcodebuild  -scheme "${SCHEME_XC}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
+	echo xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
+	xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
+	#xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
 	#	${PROJ_FOLDER}/app/themes/${TI_SCHEME}/i18n/
 	sleep 1

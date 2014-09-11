@@ -15,7 +15,6 @@ module LoginModule
       end
 
       def setCountry(country)
-
         sleep 2
         touch "* text:'Deutschland'" if $g_phone # this is not needed for tablet
         sleep 5

@@ -54,13 +54,13 @@ def check_thomson_api
   visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
 
   begin
-    cmd=%Q(curl 'http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: fbe37b64-9a09-4bbd-ae59-d3433ba74af0' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-thomson' -H 'Accept-Language: en-US,en;q=0.8' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryBFMoUGekbBDoloDt' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: ffa667411e1e44908aa3b66e18b84a7ea3eec658' --data-binary $'------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="surname"\r\n\r\n#{surname}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n#{departureDate}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n#{visionShopNumber}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n#{visionBookingRef}\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundaryBFMoUGekbBDoloDt--\r\n' --compressed)
+    cmd=%Q(curl 'http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login'  -H 'tui-public-key: a5196f2f-d925-4430-b412-f748efdec0cf' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-thomson' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryKBWCrFAInXGoLguS' -H 'Accept: */*'  -H 'Accept-Encoding: gzip,deflate' -H 'tui-auth-key: 2e114630-1b54-4e65-9b9e-1ab7a8a82a8e' -H 'Connection: keep-alive' -H 'tui-handshake: 0fb7a5d344817fc6f01f4fac534eea7afafdcdd0' --data-binary $'------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="surname"\r\n\r\nMartin\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n2015-06-30\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n9999\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n12347077\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundaryKBWCrFAInXGoLguS--\r\n' --compressed)
     res=JSON.parse(`#{cmd}`)
     if (res["payload"]["message"] == "Login Successful")
       puts "THOMSON CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 end
 
@@ -80,7 +80,7 @@ def check_nor_api
       puts "NORDICS CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 
 end
@@ -105,13 +105,13 @@ def check_firstchoice_api
   visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
 
   begin
-    cmd=%Q(curl 'https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: 913840aa-9455-42a6-a4aa-8c8c4ccf7255' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-first-choice' -H 'Accept-Language: en-US,en;q=0.8' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryNDWgNkMgQSeSvoqm' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: 4ff213e9f194922fbb74d8e299f66f7daf7c286e' --data-binary $'------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="surname"\r\n\r\nMartin\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n2015-04-20\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n9999\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n12346474\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundaryNDWgNkMgQSeSvoqm--\r\n' --compressed)
+    cmd=%Q(curl 'http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: b2e03f3f-faa1-4f65-87dd-91dada496884'  -H 'tui-brand: uk-first-choice' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryMkqTyukWABiIqApb' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate' -H 'Connection: keep-alive' -H 'tui-handshake: 718fcb8b347c617bdb425d3c9c4e0158456d3a79' --data-binary $'------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="surname"\r\n\r\nMartin\r\n------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n2015-05-09\r\n------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n9999\r\n------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n12346467\r\n------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryMkqTyukWABiIqApb\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12346374\r\n------WebKitFormBoundaryMkqTyukWABiIqApb--\r\n' --compressed)
     res=JSON.parse(`#{cmd}`)
     if (res["payload"]["message"] == "Login Successful")
       puts "First choice CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 end
 

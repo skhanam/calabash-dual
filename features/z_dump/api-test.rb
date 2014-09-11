@@ -91,7 +91,7 @@ def check_en_th_api
       puts "THOMSON CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 end
 
@@ -106,7 +106,7 @@ def check_nordics_api
       puts "NORDICS CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 end
 
@@ -123,7 +123,7 @@ def check_en_fc_api
       puts "First choice CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "Not Server not responding"
+    fail "Server not responding"
   end
 
 end

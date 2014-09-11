@@ -9,7 +9,7 @@ def check_de_api
   auth=res["payload"]["auth"].match(/PHPSESSID=(.*?);/)
   puts "DE MEINE CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
   rescue
-    fail "German Not Server not responding"
+    fail "German Server not responding"
   end
 end
 
@@ -21,7 +21,7 @@ def check_nordics_api
       puts "NORDICS CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "NORDICS Not Server not responding"
+    fail "NORDICS Server not responding"
   end
 end
 
@@ -35,7 +35,7 @@ def check_thomson_api
       puts "THOMSON CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "THOMSON Not Server not responding"
+    fail "THOMSON Server not responding"
   end
 end
 
@@ -47,7 +47,7 @@ def check_firstchoice_api
       puts "First choice CURL SUCCESSFUL: DETAILS FETCHED FROM SERVER"
     end
   rescue
-    fail "First choice Not Server not responding"
+    fail "First choice Server not responding"
   end
 end
 

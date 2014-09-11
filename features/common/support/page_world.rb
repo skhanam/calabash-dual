@@ -15,7 +15,6 @@ module TestModule
     @guideOnlinePage ||= GuideOnlineBasePage.new
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
-    @wrongCountryPage ||=WrongCountryPage.new
     @sidePanel ||=SidePanel.new
 
     if ($g_current_app=='DE_MT')
@@ -34,6 +33,7 @@ module TestModule
       @hotelPage ||=HotelBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
+      @wrongCountryPage ||=WrongCountryPage.new
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
       #@sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new

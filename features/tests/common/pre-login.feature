@@ -1,4 +1,4 @@
-@common-tests
+@common-tests @tab
 Feature: English Sanity Tests
 
   @prelogin11 @tab-sanity @reset

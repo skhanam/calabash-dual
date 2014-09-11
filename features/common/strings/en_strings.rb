@@ -93,7 +93,7 @@ module EN_Strings
     #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
     #@@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
 
-    @@login_page_text = get_localized_string "welcome_login_header"
+    @@login_page_text = $g_phone ? get_localized_string("welcome_login_header"):"HAVE A BOOKING, LETS LOGIN"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
     @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"

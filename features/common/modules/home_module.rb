@@ -18,7 +18,6 @@ module HomeModule
     sleep(2)
     touch($g_query_txt+"text:'#{@@logout_confirm}'")
     sleep(5)
-    return WelcomePage.new
   end
 
   def click_booking_summary_biscuit
