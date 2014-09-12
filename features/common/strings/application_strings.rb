@@ -9,11 +9,6 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 # en_thomson_strings.rb
 module AppStrings
 
-  def get_val(txt)
-    eval("@@#{txt}")
-  end
-
-
   $g_nordics_app=false
   $g_german_app=false
   $g_eng_app=false
@@ -44,6 +39,10 @@ module AppStrings
     elsif (ENV['LANG']=='nb')
       $g_current_app="NOR_nb"
     end
+  end
+
+  def get_val(txt)
+    eval("@@#{txt}")
   end
 
   def set_strings
@@ -217,5 +216,7 @@ module AppStrings
     @@countdown_biscuit_acc="countdown_Biscuit"
 
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
+    @@days_to_go= get_localized_string "days_to_go"
+
   end
 end

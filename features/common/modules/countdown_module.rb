@@ -52,6 +52,7 @@ module CountdownModule
         next if var==nil
         flag=true if var.match(/#{@@countdown_countdown_message2}/)!=nil
       end
+
       fail "#{@@countdown_countdown_message2} text found" if flag!=true
       assert_element "view text:'#{$g_booking.get_countdown_days}'"
     end
