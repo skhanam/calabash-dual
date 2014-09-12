@@ -21,6 +21,15 @@ module WelcomeModule
 
 
     module Deu
+      include BaseModule
+
+      def self.included(receiver)
+        puts self.name+"::#{$g_lang_mod}"
+        receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+      end
+
+      puts "check_welcome_screen"
+
       def check_welcome_screen
         return wait_for_text(@@already_customer_title)
       end
@@ -87,6 +96,11 @@ module WelcomeModule
     end
 
     module Eng
+
+      def check_welcome_screen
+        return check_text_in_view("HAVE A BOOKING, LETS LOGIN")
+      end
+
       def navigate_to_login
         fail "TODO"
       end
@@ -101,9 +115,15 @@ module WelcomeModule
   end
 
   module Tablet
+    include BaseModule
+
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+    end
+
+    def check_welcome_screen
+      return wait_for_text(@@already_customer_title)
     end
 
     module Deu

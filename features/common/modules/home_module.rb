@@ -29,6 +29,12 @@ module HomeModule
   module Phone
     include BaseModule
 
+    def click_countdown_biscuit
+      scroll_page_and_assert_text(@@countdown_biscuit_acc) if $g_phone
+      click_accessibility_label @@countdown_biscuit_acc
+      verify_page_title @@countdown_page_title
+    end
+
     def check_home_elements
       check_acc_label @@home_page_title_acc
     end
@@ -88,6 +94,10 @@ module HomeModule
       assert_wait_for_text @@personal_details
     end
 
+    def click_countdown_biscuit
+      click_accessibility_label @@countdown_biscuit_acc
+      sleep 2
+    end
 
     def wait_for_account_page_to_load
       sleep 5
