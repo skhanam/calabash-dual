@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class HomeBasePage < BasePage
+class HomePage < BasePage
   include HomeModule
 
 
