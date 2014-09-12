@@ -444,3 +444,29 @@ end
 When(/^should observe that values entered are retained$/) do
   #{@uname}, #{@pwd} and #{@country}"
 end
+
+Given(/^I login with post holiday data$/) do
+
+  if $g_tablet
+    @page.assert_wait_for_acc_label "swipeDown"
+    @page.click_accessibility_label "swipeDown"
+    sleep 2
+  else
+    fail "TBD for phone"
+  end
+
+  if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
+    surname=$g_current_user_details[:post][:surname]
+    departureDate=$g_current_user_details[:post][:departuredate]
+    visionShopNumber=$g_current_user_details[:post][:VisionShopNumber]
+    visionBookingRef=$g_current_user_details[:post][:VisionBookingRef]
+
+    uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
+    sleep 2
+    step "I select the Login button"
+    sleep 3
+  else
+    fail "TODO"
+  end
+
+end
