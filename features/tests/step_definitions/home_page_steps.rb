@@ -233,3 +233,13 @@ Then(/^I verify booking summary page$/) do
   @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
+
+Then(/^I see the Welcome back pop-over$/) do
+@homePage.check_post_holiday_popup_window
+end
+
+Then(/^I should see relevant content on post holiday$/) do
+ @homePage.check_post_holiday_popup_window_content
+end
+
+

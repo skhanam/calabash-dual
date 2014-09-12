@@ -19,6 +19,7 @@ module EN_Strings
     excursions_strings
     help_logging_in
     retrieve_booking_ref
+    post_holiday_strings
   end
 
   def self.included(receiver)
@@ -272,6 +273,11 @@ module EN_Strings
     @@my_do_list=get_localized_string "my_todo_list"
     @@checklist_completed_title=get_localized_string("checklist_completed_title").gsub('([REPLACE])', '') #"View completed items ([REPLACE])"
     @@checklist_hidden_title=get_localized_string("checklist_hidden_title").gsub('([REPLACE])', '') #"Hide completed items ([REPLACE])"
+  end
+
+  def post_holiday_strings
+    @@home_page_post_holiday_popup_title=get_localized_string "postholiday_alert_title"
+    @@home_page_post_holiday_popup_alert_content=get_localized_string "postholiday_alert"
   end
 
 end
