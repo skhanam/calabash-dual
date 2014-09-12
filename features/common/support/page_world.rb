@@ -16,6 +16,7 @@ module TestModule
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
     @sidePanel ||=SidePanel.new
+    @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
 
     if ($g_current_app=='DE_MT')
       #@sidePanel ||=SidePanelDe.new
