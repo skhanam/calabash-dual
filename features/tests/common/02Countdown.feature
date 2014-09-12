@@ -2,12 +2,12 @@
 @ios_test @android_test  @countdown @common-tests
 Feature: Verify Countdown details for bookings
 
-#  @countdown2
-#  Scenario: Verify days left to travel on countdown page
-#    Given I am on home screen with default booking
-#    When I navigate to countdown page using countdown biscuit
-#    Then I see holiday countdown page
-#    And I verify number of days left to travel
+  @countdown2232
+  Scenario: Verify days left to travel on countdown page
+    Given I am on home screen with default booking
+    When I navigate to countdown page using countdown biscuit
+    Then I see holiday countdown page
+    And I verify number of days left to travel
 #
 #  @countdown4 @common-tests
 #  Scenario:Verify days left to travel on home page biscuit

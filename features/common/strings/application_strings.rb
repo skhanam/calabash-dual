@@ -9,22 +9,10 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 # en_thomson_strings.rb
 module AppStrings
 
-  def self.included(receiver)
-    puts self.name+"::#{$g_hw_module}"
-    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
-  end
-
   def get_val(txt)
     eval("@@#{txt}")
   end
 
-  module Phone
-    @@login_button_acc = "loginButton"
-  end
-
-  module Tablet
-    @@login_button_acc = "SUBMIT"
-  end
 
   $g_nordics_app=false
   $g_german_app=false
@@ -77,6 +65,8 @@ module AppStrings
     check_open_url_in_browser_cta
     whats_new_strings
     push_notification_dialog
+    phone_only_strings if $g_phone
+    tablet_only_strings if $g_tablet
 
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
@@ -174,10 +164,7 @@ module AppStrings
     @@countdown_hours_text=get_localized_string "countdown_hours"
     @@countdown_minutes_text=get_localized_string "countdown_minutes"
     @@countdown_seconds_text=get_localized_string "countdown_seconds"
-    @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
-    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
-    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_nordics_app
-    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_eng_app
+
   end
 
   def app_feedback_strings
@@ -214,4 +201,21 @@ module AppStrings
     end
   end
 
+
+  def phone_only_strings
+    @@login_button_acc = "loginButton"
+    @@countdown_biscuit_acc="countdown_Biscuit"
+
+    @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
+    @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_nordics_app
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*') if $g_eng_app
+  end
+
+  def tablet_only_strings
+    @@login_button_acc = "SUBMIT"
+    @@countdown_biscuit_acc="countdown_Biscuit"
+
+    @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
+  end
 end

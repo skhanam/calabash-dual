@@ -105,13 +105,6 @@ class HomeBasePage < BasePage
   end
 
 
-  def click_countdown_biscuit
-    scroll_page_and_assert_text("countdown_biscuit")
-    click_accessibility_label "countdown_biscuit"
-    verify_page_title @@countdown_page_title
-  end
-
-
   def check_booking_in_past_message(txt)
     sleep 5
     welcome_message_from_screen=get_welcome_msg_from_screen
