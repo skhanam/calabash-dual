@@ -9,10 +9,11 @@ if [ "$#" -le "3" ]; then
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
     echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb "
-    echo "4) relative folder path where source code is located"
+    echo "4) Harware on which tests are run tablet/ phone"
+    echo "5) relative folder path where source code is located"
 
-	echo "\nsample command: \n 1) sh run_ios.sh clean @tab-sanity de ../tda.tablet"
-	echo " 2) sh run_ios.sh NA @sanity da ../meine.tui\n"
+	echo "\nsample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
+	echo " 2) sh run_ios.sh NA @sanity da tablet ../meine.tui\n"
 	exit
 fi
 
