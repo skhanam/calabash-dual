@@ -27,3 +27,18 @@ Then(/^I verify number of days to go on home page$/) do
   #fail("Remaining days wrong exp:#{expected_count}") if (res!=true)
 
 end
+Then(/^I should see Im off to destination in message$/) do
+  @countDownPage.check_i_am_off_message
+end
+
+When(/^I should see the number of days left to travel$/) do
+  @countDownPage.check_days_left
+end
+
+When(/^I should see the text Hours, Minutes, Seconds with appropriate values$/) do
+  @countDownPage.check_text_elements
+end
+
+When(/^I should see a share icon allowing me to share my countdown$/) do
+  @countDownPage.check_sharing_options
+end

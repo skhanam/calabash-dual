@@ -13,6 +13,10 @@ class Bookings
     #@products=@payload["products"]
   end
 
+  def get_countdown_destination
+    $g_current_booking["payload"]["destination"]
+  end
+
   def set_payload(payload=$g_current_booking["payload"])
     @payload=payload
     @destinations=@payload["destinationGuide"]

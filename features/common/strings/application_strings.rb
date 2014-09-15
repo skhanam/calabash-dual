@@ -215,8 +215,10 @@ module AppStrings
     @@login_button_acc = "SUBMIT"
     @@countdown_biscuit_acc="countdown_Biscuit"
 
+    @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@days_to_go= get_localized_string "days_to_go"
-
+    @@countdown_fb_share  = get_localized_string "share_on_twitter"
+    @@countdown_twitter_share = get_localized_string "share_on_facebook"
   end
 end

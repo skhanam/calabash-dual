@@ -6,6 +6,12 @@ module SidePanelModule
   module Phone
     include BaseModule
 
+
+    def navigate_to_countdown_page
+      scroll_side_panel(@@side_panel_countdown, "down")
+      touch_txt_and_verify_title(@@side_panel_countdown, @@countdown_page_title)
+    end
+
     def check_email_populated(username)
       assert_wait_for_text(username)
     end
@@ -33,6 +39,13 @@ module SidePanelModule
   module Tablet
     include BaseModule
 
+    def navigate_to_countdown_page
+      scroll_side_panel(@@side_panel_countdown, "down")
+      click_on_text @@side_panel_countdown
+      assert_wait_for_text @@countdown_days_text
+      assert_wait_for_text @@countdown_share_button_text
+    end
+
     def check_email_populated(username)
       if $g_android
         fail("Email not populated") if !element_exists("ti.modules.titanium.ui.widget.TiUIText$TiEditText text:'#{username}'")
@@ -54,7 +67,7 @@ module SidePanelModule
       #scroll_side_panel(@@side_panel_contact_us)
       sleep 1
       click_on_text "Contact" #TODO to change  click_on_text @@side_panel_contact_us
-      #TODO verify contact us page
+                              #TODO verify contact us page
     end
 
     def check_email_field_empty
@@ -83,7 +96,7 @@ module SidePanelModule
       begin
         scroll_side_panel_and_assert @@side_panel_flight
       rescue
-        scroll_page_and_assert_text(@@side_panel_flights,"up")
+        scroll_page_and_assert_text(@@side_panel_flights, "up")
       end
       scroll_side_panel_and_assert @@side_panel_hotel
       scroll_side_panel_and_assert @@destination
@@ -163,7 +176,7 @@ module SidePanelModule
 
     def tui_service_onsite_from_sidepanel
       scroll_side_panel @@contact_us_contact_tui_service
-      touch_txt_and_verify_title(@@contact_us_contact_tui_service,@@tui_service_title)
+      touch_txt_and_verify_title(@@contact_us_contact_tui_service, @@tui_service_title)
     end
 
     def verify_elements_for_typical_booking
@@ -179,7 +192,7 @@ module SidePanelModule
 
     def navigate_to_travel_agent_page
       scroll_side_panel(@@side_panel_travel_agent)
-      touch_txt_and_verify_title(@@side_panel_travel_agent,@@my_travel_agent_title)
+      touch_txt_and_verify_title(@@side_panel_travel_agent, @@my_travel_agent_title)
     end
 
     def navigate_to_good_to_know_page

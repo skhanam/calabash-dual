@@ -26,7 +26,7 @@ end
 
 Then (/^I navigate to countdown page using side menu$/) do
   @homePage.open_side_panel
-  @sidePanel.navigate_to_countdown_page
+  @sidePanel.navigate_from_side_menu "Countdown"
 end
 
 When (/^I navigate to countdown page using countdown biscuit$/) do
@@ -249,4 +249,23 @@ end
 
 Then(/^I should navigated to Post Holiday page and see "([^"]*)" message$/) do |text|
   @postLoginHomeBasePage.check_post_login_screen text
+end
+
+Then(/^I should see a Countdown biscuit with a count of days left$/) do
+  @page.assert_wait_for_text @countdown.to_s
+  @homePage.check_countdown_biscuit
+end
+
+Given(/^I have more than one day left for my holiday$/) do
+  step 'I am on home screen with default booking'
+  @countdown=$g_booking.get_countdown_days
+end
+
+When(/^I select countdown biscuit$/) do
+  step "I navigate to countdown page using countdown biscuit"
+end
+
+
+When(/^I access the Holiday Countdown page$/) do
+  step "I navigate to countdown page using side menu"
 end
