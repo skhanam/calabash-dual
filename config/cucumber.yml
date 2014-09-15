@@ -11,7 +11,7 @@
 <% de_mt_ios_specific_path = " -r features/BasePages/de" %>
 <% de_mt_android_specific_path = " -r features/BasePages/de" %>
 
-<% en_fc_ios_specific_path = " -r features/ios/modules-r features/BasePages/uk" %>
+<% en_fc_ios_specific_path = " -r features/ios/modules -r features/BasePages/uk" %>
 <% en_fc_android_specific_path = " -r features/BasePages/uk" %>
 
 <% en_tm_ios_specific_path = " -r features/BasePages/uk" %>
