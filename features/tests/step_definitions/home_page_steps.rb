@@ -26,7 +26,7 @@ end
 
 Then (/^I navigate to countdown page using side menu$/) do
   @homePage.open_side_panel
-  @sidePanel.navigate_from_side_menu "Countdown"
+  @sidePanel.navigate_to_countdown_page
 end
 
 When (/^I navigate to countdown page using countdown biscuit$/) do
@@ -239,33 +239,24 @@ Then(/^I see the Welcome back pop-over$/) do
 @homePage.check_post_holiday_popup_window
 end
 
-Then(/^I should see relevant content on post holiday$/) do
+Then(/^I should see relevant content on post holiday popup$/) do
  @homePage.check_post_holiday_popup_window_content
 end
 
-When(/^I tap on Post Holiday "([^"]*)" button$/) do |text|
-  @page.click_on_text text
+When(/^I tap on Post Holiday OK button$/) do
+  @postLoginHomeBasePage.click_ok_on_popup
 end
 
-Then(/^I should navigated to Post Holiday page and see "([^"]*)" message$/) do |text|
-  @postLoginHomeBasePage.check_post_login_screen text
+Then(/^I should be navigated to Post Holiday page$/) do
+  @postLoginHomeBasePage.check_post_login_page
 end
 
-Then(/^I should see a Countdown biscuit with a count of days left$/) do
-  @page.assert_wait_for_text @countdown.to_s
-  @homePage.check_countdown_biscuit
+Then(/^I must see welcome back message$/) do
+  @postLoginHomeBasePage.check_post_login_screen
 end
 
-Given(/^I have more than one day left for my holiday$/) do
-  step 'I am on home screen with default booking'
-  @countdown=$g_booking.get_countdown_days
+And(/^Then I should navigated to Post Holiday page and see all information$/) do
+    step "I tap on Post Holiday OK button"
+  @postLoginHomeBasePage.check_post_login_page
 end
 
-When(/^I select countdown biscuit$/) do
-  step "I navigate to countdown page using countdown biscuit"
-end
-
-
-When(/^I access the Holiday Countdown page$/) do
-  step "I navigate to countdown page using side menu"
-end

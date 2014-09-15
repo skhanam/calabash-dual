@@ -276,8 +276,15 @@ module EN_Strings
   end
 
   def post_holiday_strings
-    @@home_page_post_holiday_popup_title=get_localized_string "postholiday_alert_title"
+
+    @@home_page_post_holiday_title=get_localized_string "postholiday_title"
     @@home_page_post_holiday_popup_alert_content=get_localized_string "postholiday_alert"
+    @@home_page_post_holiday_popup_alert_ok=get_localized_string "ok"
+    @@log_out_acc="logout"
+    #@@home_page_post_holiday_number_text=get_localized_string "postholiday_telephone_no"
+    @@home_page_post_holiday_need_help_text=get_localized_string "postholiday_needhelp"
+    @@home_page_post_holiday_need_help_content_text=get_localized_string "postholiday_needhelp_sub"
+    @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
   end
 
 end

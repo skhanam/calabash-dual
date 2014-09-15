@@ -40,7 +40,7 @@ module TestModule
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
       @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
-      
+
     elsif ($g_nordics_app)
       #@sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
