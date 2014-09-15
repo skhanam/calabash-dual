@@ -27,8 +27,7 @@ PROJ_FOLDER=$5
 
 if [ $3 == "de" ] ; then
 	TI_SCHEME="meinetui"
-	ruby update_tiapp.rb $PROJ_FOLDER $APPNAME
-	APPNAME="meineTUI"
+	APPNAME="meineTui"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 	calabash-ios sim locale en
@@ -81,8 +80,8 @@ echo node releaseScripts/build.js --brand $TI_SCHEME
 echo node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
 
-	ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
   	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+	ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
     cd ${PROJ_FOLDER}/
     titanium build --platform ios -S 7.1 -Y ipad -b
