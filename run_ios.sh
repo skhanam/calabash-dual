@@ -23,11 +23,11 @@ else
 tagged_test=$2
 fi
 
-PROJ_FOLDER=$4
+PROJ_FOLDER=$5
 
 if [ $3 == "de" ] ; then
 	TI_SCHEME="meinetui"
-	ruby update_tiapp.rb $PROJ_FOLDER
+	ruby update_tiapp.rb $PROJ_FOLDER $APPNAME
 	APPNAME="meineTUI"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
@@ -52,20 +52,19 @@ elif [ $3 == "sv" ] || [ $3 == "da" ] || [ $3 == "fi" ] || [ $3 == "nb" ] ; then
 	TESTENV='NOR'
 fi
 
+SCHEME="${APPNAME}"
+
+if [ $4 == "tablet" ] ; then
+	APPNAME=$APPNAME"Tablet"
+	SCHEME=$SCHEME"Tablet"
+fi
+
 BUILD_CONFIG="Debug"
 PROJECT_PATH="features"
 ARCHITECTURE_SELECTED=i386
-SCHEME="${APPNAME}-iPad"
-SCHEME_CAL="${APPNAME}-iPad-cal"
+SCHEME="${SCHEME}-iPad"
+SCHEME_CAL="${SCHEME}-cal"
 PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
-
-
-#	BRAND=meinetui
-#    grunt
-#    ti clean
-#    grunt execute:$BRAND
-#    node tda $BRAND -l
-#    titanium build --platform ios -S 7.1 --retina -Y ipad
 
 if [ "$1" == "clean" ] ; then
 	echo "project name:"${PROJ_FOLDER}
@@ -75,16 +74,15 @@ if [ "$1" == "clean" ] ; then
 	ti clean
 #	/usr/local/bin/grunt
 echo node releaseScripts/build.js --brand $TI_SCHEME
-	node releaseScripts/build.js --brand $TI_SCHEME
+#	node releaseScripts/build.js --brand $TI_SCHEME
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	#node tda $TI_SCHEME
 	#node tda $TI_SCHEME -l
 echo node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
 
-	if [ $TI_SCHEME == "meinetui" ] ; then
-		ruby update_tiapp.rb $PROJ_FOLDER
-	fi
+	ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+  	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
     cd ${PROJ_FOLDER}/
     titanium build --platform ios -S 7.1 -Y ipad -b
@@ -145,7 +143,7 @@ if [ "$2" != "NA" ] ; then
 	echo DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$3 LANG=$3 BUNDLE_ID=$BUNDLE APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 	DEVICE_TARGET="iPad - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$3 LANG=$3 APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 
-	#echo DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	#DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=iphone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+	#echo DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=phone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+	#DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=phone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 
 fi
