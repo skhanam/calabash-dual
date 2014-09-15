@@ -6,9 +6,17 @@ module HomeModule
     puts self.name+"::#{$g_hw_module}"
     receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
-  #
-  #include HomeModule::Phone if $g_phone
-  #include HomeModule::Tablet if $g_tablet
+
+  def navigate_to_check_list
+    begin
+      scroll_side_panel_and_assert @@holiday_checklist
+      click_on_text @@holiday_checklist
+    rescue
+      scroll_side_panel_and_assert @@holiday_checklists
+      click_on_text @@holiday_checklists
+    end
+    verify_page_title @@holiday_checklists
+  end
 
   def logout_from_home_screen
     click_accessibility_label @@home_page_sidepanel_acc_label
@@ -112,6 +120,6 @@ module HomeModule
       sleep 2
       verify_page_title @@weather_page_title
     end
-
   end
+
 end

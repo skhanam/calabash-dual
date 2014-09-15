@@ -1,3 +1,3 @@
-class HomePage < HomeBasePage
-
-end
+#class HomePage < HomeBasePage
+#
+#end
