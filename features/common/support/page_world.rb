@@ -16,7 +16,7 @@ module TestModule
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
     @sidePanel ||=SidePanel.new
-    @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
+
 
     if ($g_current_app=='DE_MT')
       #@sidePanel ||=SidePanelDe.new
@@ -39,6 +39,8 @@ module TestModule
       #@sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
+      @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
+      
     elsif ($g_nordics_app)
       #@sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
