@@ -4,12 +4,12 @@
 Feature: Verify post Holiday Biscuit
 
 
-  @post-holiday1 @common-tests
+  @reset @post-holiday1 @common-tests
   Scenario:Verify Post Holiday page pop-up
-    Given I log into Application
+    Given I login with post holiday data
     Then I see the Welcome back pop-over
-    When I tap on the OK button
-    Then I should be navigated to Post Holiday page
+    When I tap on Post Holiday "OK" button
+    Then I should navigated to Post Holiday page and see "Welcome back" message
 
 
   @reset @post-holiday2 @common-tests

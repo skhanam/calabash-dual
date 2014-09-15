@@ -106,6 +106,7 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged in and on Home page$/) do
+  #TODO optimize below code
   acc_label="background_normal" if $g_phone
   acc_label="countdown_Biscuit" if $g_tablet
 
@@ -242,4 +243,10 @@ Then(/^I should see relevant content on post holiday$/) do
  @homePage.check_post_holiday_popup_window_content
 end
 
+When(/^I tap on Post Holiday "([^"]*)" button$/) do |text|
+  @page.click_on_text text
+end
 
+Then(/^I should navigated to Post Holiday page and see "([^"]*)" message$/) do |text|
+  @postLoginHomeBasePage.check_post_login_screen text
+end
