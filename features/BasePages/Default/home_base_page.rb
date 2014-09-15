@@ -157,7 +157,7 @@ class HomePage < BasePage
   end
 
   def check_post_holiday_popup_window
-    assert_wait_for_text(@@home_page_post_holiday_popup_title)
+    assert_wait_for_text(@@home_page_post_holiday_title)
   end
 
   def check_post_holiday_popup_window_content

@@ -239,14 +239,24 @@ Then(/^I see the Welcome back pop-over$/) do
 @homePage.check_post_holiday_popup_window
 end
 
-Then(/^I should see relevant content on post holiday$/) do
+Then(/^I should see relevant content on post holiday popup$/) do
  @homePage.check_post_holiday_popup_window_content
 end
 
-When(/^I tap on Post Holiday "([^"]*)" button$/) do |text|
-  @page.click_on_text text
+When(/^I tap on Post Holiday OK button$/) do
+  @postLoginHomeBasePage.click_ok_on_popup
 end
 
-Then(/^I should navigated to Post Holiday page and see "([^"]*)" message$/) do |text|
-  @postLoginHomeBasePage.check_post_login_screen text
+Then(/^I should be navigated to Post Holiday page$/) do
+  @postLoginHomeBasePage.check_post_login_page
 end
+
+Then(/^I must see welcome back message$/) do
+  @postLoginHomeBasePage.check_post_login_screen
+end
+
+And(/^Then I should navigated to Post Holiday page and see all information$/) do
+    step "I tap on Post Holiday OK button"
+  @postLoginHomeBasePage.check_post_login_page
+end
+
