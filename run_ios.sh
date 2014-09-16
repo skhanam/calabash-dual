@@ -126,7 +126,7 @@ fi
 
 #Do not perform below steps when there are no tests selected to run
 if [ "$2" != "NA" ] ; then
-	if [ "$5" != "ci" ] ; then
+	if [ "$6" != "ci" ] ; then
 		BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 
 		if [ "$BUILT_PRODUCTS_DIR" == "" ] ; then
