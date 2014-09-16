@@ -72,9 +72,9 @@ if [ "$1" == "clean" ] ; then
 
 	cd ${PROJ_FOLDER}/
 	ti clean
-#	/usr/local/bin/grunt
-echo node releaseScripts/build.js --brand $TI_SCHEME
-#	node releaseScripts/build.js --brand $TI_SCHEME
+	/usr/local/bin/grunt
+	echo node releaseScripts/build.js --brand $TI_SCHEME
+	node releaseScripts/build.js --brand $TI_SCHEME
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	#node tda $TI_SCHEME
 	#node tda $TI_SCHEME -l

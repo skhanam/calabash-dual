@@ -64,7 +64,7 @@ class HomePage < BasePage
   #Check one element on home screen to confirm page is loaded
   def check_home_screen(timeout=20)
     res= wait_for_acc_label(@@home_page_acc, timeout)
-    puts "check_home_screen: #{res}"
+    puts "check_home_screen: #{res} @@home_page_acc #{@@home_page_acc}"
     return res
   end
 

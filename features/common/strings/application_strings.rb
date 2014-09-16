@@ -141,10 +141,6 @@ module AppStrings
   end
 
   def image_icons_acc_label
-    @@home_page_acc = $g_phone ? "background_normal" : "offcanvasCTA"
-    @@home_page_title_acc = $g_phone ? "welcome_title" : "offcanvasCTA"
-    @@home_page_sidepanel_acc_label = $g_phone ? "navbarLeftButton" : "offcanvasCTA"
-
     @@home_page_account_acc="navbarRightButton"
     @@share_button_closed_img ="share_button"
     @@facebook_share_img="facebook_share"
@@ -202,8 +198,13 @@ module AppStrings
 
 
   def phone_only_strings
+    @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@login_button_acc = "loginButton"
     @@countdown_biscuit_acc="countdown_Biscuit"
+
+    @@home_page_acc ="background_normal"
+    @@home_page_title_acc ="welcome_title"
+    @@home_page_sidepanel_acc_label ="navbarLeftButton"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
@@ -212,13 +213,18 @@ module AppStrings
   end
 
   def tablet_only_strings
+    @@home_page_acc ="offcanvasCTA"
+    @@home_page_title_acc ="offcanvasCTA"
+    @@home_page_sidepanel_acc_label ="offcanvasCTA"
+
+    @@already_customer_title="HAVE A BOOKING, LETS LOGIN"
     @@login_button_acc = "SUBMIT"
     @@countdown_biscuit_acc="countdown_Biscuit"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@days_to_go= get_localized_string "days_to_go"
-    @@countdown_fb_share  = get_localized_string "share_on_twitter"
+    @@countdown_fb_share = get_localized_string "share_on_twitter"
     @@countdown_twitter_share = get_localized_string "share_on_facebook"
   end
 end
