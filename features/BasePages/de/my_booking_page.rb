@@ -9,20 +9,6 @@ class MyBookingsPage < BasePage
  #include Module.const_get "MyBookingsModule::"+$g_platform
 
 
- def check_my_bookings_screen
-   assert_wait_for_text(@@my_bookings_title)
- end
-
- def check_my_bookings_page
-   check_my_bookings_screen
- end
-
- def navigate_to_account_details
-   scroll_page_and_assert_text(@@my_bookings_edit_account, "down", nil, 20)
-   click_on_text(@@my_bookings_edit_account)
-   assert_wait_for_text(@@my_account_title)
- end
-
 
  #def fill_user_details # read my bookings page and fill that data into user_details
  #  hash_arr=get_reservations("current")

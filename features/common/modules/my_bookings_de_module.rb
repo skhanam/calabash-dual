@@ -6,10 +6,26 @@ module MyBookingsModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_platform}::#{$g_hw_module}")
   end
 
+
+  def check_my_bookings_screen
+    assert_wait_for_text(@@my_bookings_title)
+  end
+
+  def check_my_bookings_page
+    check_my_bookings_screen
+  end
+
+  def navigate_to_account_details
+    scroll_page_and_assert_text(@@my_bookings_edit_account, "down", nil, 20)
+    click_on_text(@@my_bookings_edit_account)
+    assert_wait_for_text(@@my_account_title)
+  end
+
+
   def switch_to_particular_booking
     txt= $g_current_booking["payload"]["destination"] #get_typical_booking_name
-    scroll_page_and_assert_text txt  if $g_phone
-    scroll_to_booking txt  if $g_tablet
+    scroll_page_and_assert_text txt if $g_phone
+    scroll_to_booking txt if $g_tablet
     click_on_text txt
     sleep 3
     wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
@@ -33,7 +49,7 @@ module MyBookingsModule
 
         while repeat_count < count
           repeat_count+=1
-          scroll("scrollView index:2",:right)
+          scroll("scrollView index:2", :right)
 
           if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
             flash("view text:'#{id}'") if element_exists("view text:'#{id}'") if ($g_flash)
@@ -136,6 +152,13 @@ module MyBookingsModule
       return name_of_last_dest
     end
 
+    module Phone
+
+    end
+
+    module Tablet
+
+    end
     #def get_reservations(text)
     #  reservations= {}
     #  item_count=0

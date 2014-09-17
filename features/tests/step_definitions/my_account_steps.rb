@@ -16,20 +16,23 @@ Then(/^I see update email page$/) do
 end
 
 Given(/^I am on my account page$/) do
-  step "I am on my bookings page"
-  step "I click on edit account button from my bookings page"
-  step "I see my account screen"
-
+   step "I am on my bookings page"
+   step "I click on edit account button from my bookings page" if $g_phone
+   step "I see my account screen"
 end
 
-When(/^I select change password from my account page$/) do
-  @myAccountPage.click_change_password_button
+Given(/^I choose to change password from my account page$/) do
+  step "I am on my account page"
+  step "I select change password from my account page"
 end
 
 Then(/^I see change password page$/) do
   @myAccountPage.check_change_password_page
 end
 
+When(/^I select change password from my account page$/) do
+  @myAccountPage.click_change_password_button
+end
 
 And(/^verify my details on account page$/) do
   step "I see my account page"
@@ -48,13 +51,6 @@ When(/^I log out from application$/) do
   fail("LANGUAGE HAS TO BE SPECIFIED #{$g_current_app}")
   end
 end
-
-
-Given(/^I choose to change password from my account page$/) do
-  step "I am on my account page"
-  step "I select change password from my account page"
-end
-
 
 Then(/^I verify below details on account page:$/) do |table|
   values=table.raw

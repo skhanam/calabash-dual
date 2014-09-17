@@ -446,7 +446,6 @@ When(/^should observe that values entered are retained$/) do
 end
 
 Given(/^I login with post holiday data$/) do
-
   if $g_tablet
     @page.assert_wait_for_acc "swipeDown"
     @page.click_accessibility_label "swipeDown"
