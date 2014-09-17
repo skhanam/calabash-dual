@@ -22,6 +22,7 @@ class Bookings
     @destinations=@payload["destinationGuide"]
     @booking_summary= @payload["bookingSummary"]
     @products=@payload["products"]
+    @weather=@payload["weather"]
   end
 
   def get_destination_countries
@@ -45,6 +46,16 @@ class Bookings
     #
     #return countries
   end
+
+
+  def get_country_names_for_weather
+    arr=[]
+    @weather["data"].each do |var|
+      arr << var["name"]
+    end
+    return arr
+  end
+
 
   def get_all_products_for_booking
     arr=[]

@@ -203,7 +203,7 @@ Given(/^I am on 'Login' screen/) do
 
   #TODO hack for login screen
   if $g_tablet && $g_ios
-    @page.assert_wait_for_acc_label "swipeDown"
+    @page.assert_wait_for_acc "swipeDown"
     #scroll("scrollView index:2",:up)
     #sleep 2
     #scroll("scrollView index:2",:up)
@@ -448,7 +448,7 @@ end
 Given(/^I login with post holiday data$/) do
 
   if $g_tablet
-    @page.assert_wait_for_acc_label "swipeDown"
+    @page.assert_wait_for_acc "swipeDown"
     @page.click_accessibility_label "swipeDown"
     sleep 2
   else

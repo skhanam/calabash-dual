@@ -110,7 +110,7 @@ Then(/^I must be logged in and on Home page$/) do
   acc_label="background_normal" if $g_phone
   acc_label="countdown_Biscuit" if $g_tablet
 
-  @homePage.assert_wait_for_acc_label("#{acc_label}", 20)
+  @homePage.assert_wait_for_acc("#{acc_label}", 20)
   sleep 5
   screenshot(options={:name => "home"}) if ENV['TAKE_SS']=="yes"
 end
@@ -279,4 +279,29 @@ end
 When(/^I should see relevant content on post holiday popup$/) do
   @homePage.check_post_holiday_popup_window_content
 
+end
+Given(/^I am on Home screen with pre holiday booking$/) do
+  step "I am on home screen with default booking"
+end
+
+Then(/^I should see a Weather Biscuit appear$/) do
+  @homePage.weather_biscuit_present?
+end
+
+When(/^I should see Weather type icon$/) do
+  @homePage.assert_wait_for_text "°c"
+end
+
+When(/^I should see country name$/) do
+  @homePage.country_name_shown_weather_biscuit?
+end
+
+Given(/^I am on Home screen with multi destination booking$/) do
+  step "I am on Home screen"
+  step "I am on default booking"
+end
+
+When(/^I should see Weather Biscuit display weather for each destination in a loop of 5s$/) do
+ fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
+  @homePage.country_name_shown_weather_biscuit?
 end

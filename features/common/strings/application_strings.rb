@@ -201,6 +201,7 @@ module AppStrings
     @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@login_button_acc = "loginButton"
     @@countdown_biscuit_acc="countdown_Biscuit"
+    @@weather_biscuit_acc="destination_temperature"
 
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
@@ -220,6 +221,7 @@ module AppStrings
     @@already_customer_title="HAVE A BOOKING, LETS LOGIN"
     @@login_button_acc = "SUBMIT"
     @@countdown_biscuit_acc="countdown_Biscuit"
+    @@weather_biscuit_acc="weather_Biscuit"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')

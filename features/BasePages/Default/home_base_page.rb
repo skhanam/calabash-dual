@@ -58,7 +58,7 @@ class HomePage < BasePage
 
   def check_welcome_messages
     msg=get_welcome_message
-    assert_wait_for_acc_label(msg, 20)
+    assert_wait_for_acc(msg, 20)
   end
 
   #Check one element on home screen to confirm page is loaded
@@ -162,6 +162,19 @@ class HomePage < BasePage
 
   def check_post_holiday_popup_window_content
     assert_wait_for_text(@@home_page_post_holiday_popup_alert_content)
+  end
+
+  def weather_biscuit_present?
+    assert_wait_for_acc @@weather_biscuit_acc
+  end
+
+  def country_name_shown_weather_biscuit?
+    res=$g_booking.get_country_names_for_weather
+    if res.count<1
+      fail "No weather present"
+    else
+      res.each {|var| assert_wait_for_text(var,6)}
+    end
   end
 
 end

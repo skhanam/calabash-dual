@@ -153,10 +153,10 @@ module ViewModule
   end
 
   #Wait to check if acc label appears on screen
-  def assert_wait_for_acc_label(text, timeout=10)
-    puts "assert_wait_for_acc_label (#{text})"
-    write_verified_text_to_file "assert_wait_for_acc_label (#{text})"
-    fail("assert_wait_for_acc_label text failed to find acc label:#{text}:") if (wait_for_acc_label(text, timeout)==false)
+  def assert_wait_for_acc(text, timeout=10)
+    puts "assert_wait_for_acc (#{text})"
+    write_verified_text_to_file "assert_wait_for_acc (#{text})"
+    fail("assert_wait_for_acc text failed to find acc label:#{text}:") if (wait_for_acc_label(text, timeout)==false)
     return true
   end
 

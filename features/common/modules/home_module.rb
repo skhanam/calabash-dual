@@ -75,7 +75,7 @@ module HomeModule
 
     def click_weather_biscuit
       sleep 2
-      assert_wait_for_acc_label "destination_temperature"
+      assert_wait_for_acc "destination_temperature"
       click_accessibility_label "destination_temperature"
       sleep 2
       verify_page_title @@weather_page_title
@@ -94,7 +94,7 @@ module HomeModule
     include BaseModule
 
     def check_countdown_biscuit
-      assert_wait_for_acc_label @@countdown_biscuit_acc
+      assert_wait_for_acc @@countdown_biscuit_acc
       assert_wait_for_text @@days_to_go
       assert_wait_for_text $g_booking.get_countdown_days.to_s
     end
@@ -132,7 +132,7 @@ module HomeModule
 
     def click_weather_biscuit
       sleep 2
-      assert_wait_for_acc_label "weather_Biscuit"
+      assert_wait_for_acc "weather_Biscuit"
       click_accessibility_label "weather_Biscuit"
       sleep 2
       verify_page_title @@weather_page_title
