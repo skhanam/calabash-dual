@@ -7,8 +7,8 @@
 class MyAccountBasePage < BasePage
 
   def check_my_account_screen_title
-    verify_page_title @@my_account_title
-    #assert_wait_for_text(@@personal_details)
+    verify_page_title @@my_account_title if $g_phone
+    assert_wait_for_text(@@my_bookings_title) if $g_tablet
   end
 
   def verify_my_details
@@ -48,12 +48,13 @@ class MyAccountBasePage < BasePage
   end
 
   def click_change_password_button
-    touch_txt_and_verify_title(@@my_account_change_password, @@change_password_title)
+    touch_txt_and_verify_title(@@my_account_change_password, @@change_password_title) if $g_phone
+    touch_txt_and_verify_text(@@my_account_change_password, @@change_password_title) if $g_tablet
   end
 
-
   def click_update_email_button
-    touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text)
+    touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text)if $g_phone
+    touch_txt_and_verify_text(@@my_account_update_email, @@update_email_text) if $g_tablet
   end
 
   def check_update_email_screen

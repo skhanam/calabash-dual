@@ -156,7 +156,10 @@ module DEMeineTUI
 
 
   def my_bookings_strings
-    @@my_bookings_title=get_localized_string "my_bookings"
+
+   # @@my_bookings_title ==  $g_phone ? get_localized_string "my_bookings" : get_localized_string "current_bookings"
+    @@my_bookings_title=get_localized_string "my_bookings" if $g_phone
+    @@my_bookings_title=get_localized_string "current_bookings" if $g_tablet
     @@my_bookings_edit_account=get_localized_string "edit_my_account"
     @@my_bookings_past_bookings=get_localized_string "past_bookings"
     @@my_bookings_current_bookings=get_localized_string "current_bookings"
@@ -167,7 +170,6 @@ module DEMeineTUI
     @@personal_details=get_localized_string "personal_details"
     @@my_account_username=get_localized_string "username"
     @@my_account_first_name=get_localized_string "forename"
-
     @@my_account_surname=get_localized_string "surname"
     @@my_account_email=get_localized_string "email"
     @@my_account_update_email=get_localized_string "update_email"
@@ -180,13 +182,13 @@ module DEMeineTUI
     @@my_account_logout_yes= get_localized_string "confirm"
     @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
 
-
     @@signup_signup_cta= get_localized_string "signup_signup_cta" #Registrieren
 
   end
 
   def change_password_strings
-    @@change_password_title=get_localized_string "forgot_password_header"
+    @@change_password_title=get_localized_string "forgot_password_header" if $g_phone
+    @@change_password_title=get_localized_string "forgot_password_reset_pwd" if $g_tablet
     @@change_password_create_new_password=get_localized_string "forgot_password_reset_pwd"
     @@change_password_info=get_localized_string "new_password_body"
     @@change_password_text2=get_localized_string "forgot_password_email_label"
@@ -278,13 +280,14 @@ module DEMeineTUI
 
   def update_email_strings
     @@update_email_text=get_localized_string "update_email" #E-Mail ändern
-    @@update_email_new_email="Neue E-Mail:"
-    @@update_email_new_email_hint="Neue E-Mail Adresse eingeben"
-    @@update_email_new_password="Ihr Passwort:"
-    @@update_email_new_password_hint="Passwort eingeben"
-    @@update_email__text2="Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen."
-    @@update_email_submit="Speichern"
-    @@update_email_forgot_password="Passwort vergessen?"
+    @@update_email_new_email=get_localized_string "new_email"
+    @@update_email_new_password= get_localized_string "your_password" if $g_phone
+    @@update_email_new_password= get_localized_string "login_forgot_password" if $g_tablet
+    @@update_email__text2= get_localized_string "update_reminder"
+    @@update_email_submit= get_localized_string "submit"
+    @@update_email_new_email_hint= get_localized_string "new_email_hint_text"
+    @@update_email_new_password_hint= get_localized_string "signup_password_hint"
+    @@update_email_forgot_password=get_localized_string "login_forgot_password"
   end
 
   def forgot_password_strings

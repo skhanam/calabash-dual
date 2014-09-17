@@ -158,12 +158,19 @@ module IosReusableMethods
     assert_text_present text
   end
 
-
-  #touch text and verify result
+  #touch text and verify page title
   def touch_txt_and_verify_title(txt_touch, text)
     click_on_text txt_touch
     sleep 2
     verify_page_title text
+  end
+
+  #touch text and verify text
+  def touch_txt_and_verify_text(txt_touch, text)
+    click_on_text txt_touch
+    sleep 2
+    assert_wait_for_text text
+
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)
