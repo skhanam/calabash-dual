@@ -1,4 +1,4 @@
-@ios_test @android_test  @countdown @common-tests
+@ios_test @android_test  @countdown @common-tests @tab
 Feature: Verify post Holiday Biscuit
 
 

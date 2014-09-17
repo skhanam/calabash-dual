@@ -4,7 +4,7 @@ When(/^I am on Home screen$/) do
   if @homePage.check_home_screen(2)==true
     #If acc label welcome_title is already present then no need for checking daisy wheel messages
     if @homePage.check_home_elements
-      puts "Already on home page"
+      #puts "Already on home page"
     else
       @homePage.wait_for_home_page_to_load
       @homePage.wait_for_home_elements

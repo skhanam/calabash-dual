@@ -33,7 +33,7 @@ module ReusableMethods
   #Send resource id for string and get localized value
   def get_localized_string(id)
     $g_localized_strings||=read_xml($g_lang_strings_file)
-    fail("string not found") if $g_localized_strings[id]==nil
+    fail("id #{id} string not found") if $g_localized_strings[id]==nil
     return $g_localized_strings[id]
   end
 

@@ -9,10 +9,11 @@ if [ "$#" -le "3" ]; then
 	echo "1) clean(clean project) or NA (for running project without cleaning"
 	echo "2) Tags selected for test run ex: @sanity or @reg"
     echo "3) App to test ex: en_th / de / en_fc /sv / fi/ da /nb "
-    echo "4) relative folder path where source code is located"
+    echo "4) Harware on which tests are run tablet/ phone"
+    echo "5) relative folder path where source code is located"
 
-	echo "\nsample command: \n 1) sh run_ios.sh clean @tab-sanity de ../tda.tablet"
-	echo " 2) sh run_ios.sh NA @sanity da ../meine.tui\n"
+	echo "\nsample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
+	echo " 2) sh run_ios.sh NA @sanity da tablet ../meine.tui\n"
 	exit
 fi
 
@@ -71,9 +72,9 @@ if [ "$1" == "clean" ] ; then
 
 	cd ${PROJ_FOLDER}/
 	ti clean
-#	/usr/local/bin/grunt
-echo node releaseScripts/build.js --brand $TI_SCHEME
-#	node releaseScripts/build.js --brand $TI_SCHEME
+	/usr/local/bin/grunt
+	echo node releaseScripts/build.js --brand $TI_SCHEME
+	node releaseScripts/build.js --brand $TI_SCHEME
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	#node tda $TI_SCHEME
 	#node tda $TI_SCHEME -l
@@ -125,7 +126,7 @@ fi
 
 #Do not perform below steps when there are no tests selected to run
 if [ "$2" != "NA" ] ; then
-	if [ "$5" != "ci" ] ; then
+	if [ "$6" != "ci" ] ; then
 		BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
 
 		if [ "$BUILT_PRODUCTS_DIR" == "" ] ; then

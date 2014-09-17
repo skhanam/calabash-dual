@@ -14,8 +14,8 @@ class ChecklistPageUk < BasePage
   end
 
   def check_options_for_packaging_item
-   assert_wait_for_acc_label "deleteBox"
-   assert_wait_for_acc_label "pencil"
+   assert_wait_for_acc "deleteBox"
+   assert_wait_for_acc "pencil"
   end
 
   def verify_item_deleted
@@ -54,7 +54,7 @@ class ChecklistPageUk < BasePage
   end
 
   def open_packaging_list
-    assert_wait_for_acc_label "packingList"
+    assert_wait_for_acc "packingList"
     click_accessibility_label "packingList"
   end
 

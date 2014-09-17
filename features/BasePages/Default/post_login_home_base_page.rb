@@ -12,7 +12,7 @@ def click_ok_on_popup
 end
 
   def check_post_login_page
-    assert_wait_for_acc_label(@@log_out_acc)
+    assert_wait_for_acc(@@log_out_acc)
     #assert_wait_for_text(@@home_page_post_holiday_number_text)
     assert_wait_for_text(@@home_page_post_holiday_need_help_text)
     assert_wait_for_text(@@home_page_post_holiday_need_help_content_text)

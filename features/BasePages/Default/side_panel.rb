@@ -63,10 +63,6 @@ class SidePanel < BasePage
     wait_for_progress_to_disappear @@loading_hold_on
   end
 
-  def navigate_to_countdown_page
-    scroll_side_panel(@@side_panel_countdown, "down")
-    touch_txt_and_verify_title(@@side_panel_countdown, @@countdown_page_title)
-  end
 
   def navigate_from_side_menu(var)
     sleep 2
@@ -106,4 +102,6 @@ class SidePanel < BasePage
     end
 
   end
+
+  private :navigate_to_countdown_page ,:navigate_to_hotel,:navigate_to_app_feedback ,:navigate_to_weather_page
 end

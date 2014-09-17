@@ -59,8 +59,6 @@ module DEMeineTUI
   end
 
   def welcome_page_strings
-    @@already_customer_title=get_localized_string "have_you_used_tui_header" if $g_phone
-    @@already_customer_title="HAVE A BOOKING, LETS LOGIN" if $g_tablet
     @@already_registered=get_localized_string "have_you_used_tui_cta_logged_title"
     @@login_with_existing_credentials= get_localized_string "have_you_used_tui_cta_logged_body"
     @@not_yet_registered=get_localized_string "have_you_used_tui_cta_not_logged_title"
