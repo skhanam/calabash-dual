@@ -4,17 +4,6 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
-
-LANG=$3
-PROJ_FOLDER=$5
-
-if [ -z "$2" ] ; then
-echo "Tags not specified using @failed"
-exit
-else
-tagged_test=$2
-fi
-
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
@@ -28,7 +17,11 @@ if [ "$#" -le "4" ]; then
 	exit
 fi
 
+LANG=$3
+PROJ_FOLDER=$5
+tagged_test=$2
 LANG_STR=$LANG
+echo "*** ** * Command entered: sh run_ios.sh $1 $2 $3 $4 $5 $6 * ** ***"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
@@ -62,8 +55,10 @@ if [ $4 == "tablet" ] ; then
 	APPNAME=$APPNAME"Tablet"
 fi
 
+
 if [ "$1" == "clean" ] ; then
-	echo "project name:"${PROJ_FOLDER}
+	echo ""
+	echo "Cleaning and rebuilding project name:"${PROJ_FOLDER}
 	echo "******** ####  Updating All Projects"
 
 	cp expect.exp ${PROJ_FOLDER}
@@ -74,6 +69,8 @@ if [ "$1" == "clean" ] ; then
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
 
+  	echo "******** ####  Updating App name for calabash"
+
   	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 	ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
@@ -82,8 +79,10 @@ if [ "$1" == "clean" ] ; then
 	expect expect.exp ${APPNAME}
     cd -
 
-
+  	echo "******** ####  copying .app file and language strings"
+  	echo cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
 	cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
+    echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
     cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
 
 fi
@@ -95,5 +94,5 @@ if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
 	sleep 1
 fi
 
-echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
-DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
+echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test
+DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test
