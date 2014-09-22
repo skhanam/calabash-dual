@@ -21,7 +21,7 @@ LANG=$3
 PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
-echo "*** ** * Command entered: sh run_ios.sh $1 $2 $3 $4 $5 $6 * ** ***"
+echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
