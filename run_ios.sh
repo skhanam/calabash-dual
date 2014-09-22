@@ -28,6 +28,7 @@ if [ "$#" -le "4" ]; then
 	exit
 fi
 
+LANG_STR=$LANG
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
@@ -41,12 +42,14 @@ elif [ $LANG == "en_th" ] ; then
 	TESTENV='EN_TH'
 	CUCUMBER_PROFILE=en_th_ios
 	calabash-ios sim locale en
+	LANG_STR=en
 elif [ $LANG == "en_fc" ] ; then
 	TI_SCHEME="firstchoice"
 	APPNAME="MyFirstChoice"
 	CUCUMBER_PROFILE=en_fc_ios
 	TESTENV='EN_FC'
 	calabash-ios sim locale en
+	LANG_STR=en
 elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "nb" ] ; then
 	calabash-ios sim locale $LANG
 	TI_SCHEME="nordics"
@@ -63,7 +66,7 @@ if [ "$1" == "clean" ] ; then
 	echo "project name:"${PROJ_FOLDER}
 	echo "******** ####  Updating All Projects"
 
-	cp expect.exp ../${PROJ_FOLDER}/
+	cp expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 	ti clean
 	/usr/local/bin/grunt
@@ -78,6 +81,11 @@ if [ "$1" == "clean" ] ; then
     ti build -p ios -Y ipad -b --retina
 	expect expect.exp ${APPNAME}
     cd -
+
+
+cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
+    cp -r ../tda.tablet/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
+
 fi
 
 if [ "$1" == "clean" ] || [ "$1" != "ci" ] ; then
@@ -87,16 +95,6 @@ if [ "$1" == "clean" ] || [ "$1" != "ci" ] ; then
 	sleep 1
 fi
 
-#cp expect.exp ../tda.tablet/
-#cd ../tda.tablet
-#ti clean
-#ti build -p ios -Y ipad -b --retina
-#expect expect.exp
-#cd -
-
-exit
-
-cp -r ../tda.tablet/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
 echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
 DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
 exit
