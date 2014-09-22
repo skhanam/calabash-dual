@@ -74,6 +74,7 @@ module IosReusableMethods
 
 
   def check_tab_input_field(text, index=1)
+    sleep 0.5
     puts "check_tab_input_field #{text}"
     fail("element not present") if !element_exists("TiUIWindow index:#{index} view text:'#{text}'")
   end
