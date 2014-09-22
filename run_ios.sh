@@ -83,12 +83,12 @@ if [ "$1" == "clean" ] ; then
     cd -
 
 
-cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
-    cp -r ../tda.tablet/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
+	cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
+    cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
 
 fi
 
-if [ "$1" == "clean" ] || [ "$1" != "ci" ] ; then
+if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
 	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
 	killall "iPhone Simulator"
 	killall Xcode
@@ -97,61 +97,3 @@ fi
 
 echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
 DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag @sanity312
-exit
-
----------------------------------
-
-
-BUILD_CONFIG="Debug"
-PROJECT_PATH="features"
-ARCHITECTURE_SELECTED=i386
-SCHEME="${SCHEME}-iPad"
-SCHEME_CAL="${SCHEME}-cal"
-PROJ_LOC="${PROJ_FOLDER}/build/iphone/${APPNAME}.xcodeproj"
-
-
-#Do this below step only when compile option is selected -  used for CI
-if [ "$1" == "compile" ] ; then
-   cd ${PROJ_FOLDER}/
-    titanium build --platform ios -S 7.1 -Y ipad -b
-   cd -
-fi
-
-if [ "$1" == "clean" ] || [ "$1" == "compile" ] ; then
-
-	echo "Compiling code .."
-	echo xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
-	xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
-	#xcodebuild  -scheme "${SCHEME_CAL}" -project "${PROJ_LOC}" -configuration Debug ONLY_ACTIVE_ARCH=NO build -sdk iphonesimulator7.1
-	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
-	#	${PROJ_FOLDER}/app/themes/${TI_SCHEME}/i18n/
-	sleep 1
-	killall "iPhone Simulator"
-	killall Xcode
-	sleep 1
-fi
-
-#Do not perform below steps when there are no tests selected to run
-if [ "$2" != "NA" ] ; then
-	if [ "$6" != "ci" ] ; then
-		BUILT_PRODUCTS_DIR=$(xcodebuild -project "${PROJ_LOC}" ARCHS="${ARCHITECTURE_SELECTED}" ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator  -configuration "${BUILD_CONFIG}" -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*" | xargs -L1 dirname)
-
-		if [ "$BUILT_PRODUCTS_DIR" == "" ] ; then
-			BUILT_PRODUCTS_DIR=/usr/local/xcode/Build/Products
-		fi
-
-		echo $BUILT_PRODUCTS_DIR
-    	APP_BUNDLE_PATH_VAR="${BUILT_PRODUCTS_DIR}"/"${BUILD_CONFIG}"-iphonesimulator/"${APPNAME}".app
-    	echo $APP_BUNDLE_PATH_VAR
-	else
-		APP_BUNDLE_PATH_VAR=../Debug-iphonesimulator/"${APPNAME}".app
-	fi
-
-tda.tablet/build/iphone/build/Debug-iphonesimulator/meineTuiTablet.app
-	echo DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$3 LANG=$3 BUNDLE_ID=$BUNDLE APP_BUNDLE_PATH=../tda.tablet/build/iphone/build/Debug-iphonesimulator/meineTuiTablet.app bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	DEVICE_TARGET="iPad - Simulator - iOS 7.1" OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$3 LANG=$3 APP_BUNDLE_PATH=../tda.tablet/build/iphone/build/Debug-iphonesimulator/meineTuiTablet.app bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-
-	#echo DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=phone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	#DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1' TESTENV=$TESTENV SCREENSHOT_PATH=features/report/iosscreenshots/$3 LANG=$3 BUNDLE_ID=$BUNDLE DEVICE=phone APP_BUNDLE_PATH="${APP_BUNDLE_PATH_VAR}" bundle exec cucumber -p $CUCUMBER_PROFILE features/  --tag $tagged_test  -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-
-fi
