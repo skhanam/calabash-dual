@@ -7,6 +7,7 @@ set timeout 20
 spawn calabash-ios setup build/iphone/
 expect "Please answer yes (y) or no (n)"  { send "n\r" }
 expect "Default target: ${arg1}"  {  send "\r" }
+spawn echo "******** #### calabash target selected"
 expect "Setup done"
 
 spawn sleep 5
