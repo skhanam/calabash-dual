@@ -1,4 +1,4 @@
-@reset @auto1 @de @1prelogin @tab-de12
+@reset @auto1 @de @1prelogin  @tab-de
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
@@ -10,14 +10,14 @@ Feature: Verify screens shown before logging into App
     And I navigate to forgot password screen
     Then I see my username is already populated
 
-  @sanity312 @tab2 @working
+  @sanity312 @tab2 @reg-de
   Scenario: Reset password  - invalid user name or email
     Given I am on 'Login' screen
     When I navigate to forgot password screen
     And submit an invalid email id in forgot password screen
     Then I see appropriate error message
 
-  @tab3 @tab-de-sanity @working
+  @tab3 @tab-de-sanity @reg-de
   Scenario: Forgot password - Blank email field
     Given I am on 'Login' screen
     When I navigate to forgot password screen
@@ -35,14 +35,14 @@ Feature: Verify screens shown before logging into App
     Given I navigate to terms page from login screen
     Then I see terms page is displayed correctly
 
-  @wrong-country @reset @working
+  @wrong-country @reset @reg-de
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
     Then I see alternative country options for submitted credentials
     And I see new user registration section
 
-  @wrong-country @reset @working
+  @wrong-country @reset @reg-de
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
