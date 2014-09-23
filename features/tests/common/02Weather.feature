@@ -1,15 +1,15 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @common-tests @tab-weather
+@weather @common-tests @tab-weather @tab
 Feature: Verify Weather details for bookings
 
-  @home-weather1 @tab-sanity
+  @home-weather1 @tab-sanity @reg
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear
     And I should see Weather type icon
     And I should see country name
 
-  @home-weather2
+  @home-weather2 @reg
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with multi destination booking
     Then I should see a Weather Biscuit appear

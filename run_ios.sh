@@ -63,6 +63,7 @@ if [ "$1" == "clean" ] ; then
 
 	cp expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
+	rm -rf build/ Resources/
 	ti clean
 	/usr/local/bin/grunt
 	node releaseScripts/build.js --brand $TI_SCHEME

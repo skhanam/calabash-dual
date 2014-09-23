@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <!-- 0.0.1 post holiday -->
   <string name="postholiday_alert">postholiday_alert</string>
   <string name="postholiday_alert_title">postholiday_alert_title</string>
   <string name="postholiday_callcentre">postholiday_callcentre</string>
@@ -23,21 +22,27 @@
   <string name="friday">friday</string>
   <string name="saturday">saturday</string>
   <string name="sunday">sunday</string>
-  <!-- 0.2 have a tui booking -->
+  <string name="rate_the_app">rate_the_app</string>
+  <string name="postholiday_call_us">postholiday_call_us</string>
+  <string name="postholiday_bar_title">postholiday_bar_title</string>
+  <string name="postholiday_bar_subtitle">postholiday_bar_subtitle</string>
+  <string name="postholiday_brand_name">postholiday_brand_name</string>
   <string name="tell_us_cta_new_tui_body">Ich habe noch nie über TUI gebucht.</string>
   <string name="tell_us_cta_new_tui_title">Ich bin neu hier</string>
   <string name="tell_us_cta_with_tui_body">Ich habe schon einmal über TUI gebucht.</string>
   <string name="tell_us_cta_with_tui_title">Ich bin bereits Kunde</string>
   <string name="tell_us_header">Kennen wir uns?</string>
-  <!-- 0.2.1 help logging in -->
   <string name="help_email_address">help_email_address</string>
   <string name="welcome_help_cant_login_cta">welcome_help_cant_login_cta</string>
   <string name="welcome_help_cant_use_app_body">welcome_help_cant_use_app_body</string>
+  <string name="welcome_help_cant_use_app_body_1">welcome_help_cant_use_app_body_1</string>
+  <string name="welcome_help_cant_use_app_body_2">welcome_help_cant_use_app_body_2</string>
+  <string name="welcome_help_cant_use_app_body_3">welcome_help_cant_use_app_body_3</string>
+  <string name="welcome_help_cant_use_app_body_4">welcome_help_cant_use_app_body_4</string>
   <string name="welcome_help_cant_use_app_header">welcome_help_cant_use_app_header</string>
   <string name="welcome_help_link1">welcome_help_link1</string>
   <string name="welcome_help_link2">welcome_help_link2</string>
   <string name="welcome_help_link3">welcome_help_link3</string>
-  <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">welcome_help_retrieve_booking_body</string>
   <string name="welcome_help_retrieve_booking_cta">welcome_help_retrieve_booking_cta</string>
   <string name="welcome_help_retrieve_booking_email">welcome_help_retrieve_booking_email</string>
@@ -50,41 +55,42 @@
   <string name="welcome_help_retrieve_booking_surname">welcome_help_retrieve_booking_surname</string>
   <string name="welcome_help_retrieve_booking_surname_extra">welcome_help_retrieve_booking_surname_extra</string>
   <string name="welcome_help_retrieve_booking_surname_hint">welcome_help_retrieve_booking_surname_hint</string>
-  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_cant_login_androidStore">welcome_help_cant_login_androidStore</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">welcome_help_cant_login_androidStoreCTA_website</string>
+  <string name="welcome_help_cant_login_androidStoreCTA_website_tablet">welcome_help_cant_login_androidStoreCTA_website_tablet</string>
   <string name="welcome_help_cant_login_body">welcome_help_cant_login_body</string>
+  <string name="welcome_help_cant_login_body_1">welcome_help_cant_login_body_1</string>
+  <string name="welcome_help_cant_login_body_2">welcome_help_cant_login_body_2</string>
+  <string name="welcome_help_cant_login_body_3">welcome_help_cant_login_body_3</string>
   <string name="welcome_help_cant_login_cruise">welcome_help_cant_login_cruise</string>
   <string name="welcome_help_cant_login_cruise_website">welcome_help_cant_login_cruise_website</string>
   <string name="welcome_help_cant_login_description">welcome_help_cant_login_description</string>
   <string name="welcome_help_cant_login_header">welcome_help_cant_login_header</string>
   <string name="welcome_help_cant_login_iosStore">welcome_help_cant_login_iosStore</string>
   <string name="welcome_help_cant_login_iosStoreCTA_website">welcome_help_cant_login_iosStoreCTA_website</string>
+  <string name="welcome_help_cant_login_iosStoreCTA_website_tablet">welcome_help_cant_login_iosStoreCTA_website_tablet</string>
   <string name="welcome_help_cant_login_subtitle">welcome_help_cant_login_subtitle</string>
   <string name="welcome_help_more_issues_body">welcome_help_more_issues_body</string>
   <string name="welcome_help_more_issues_email_body">welcome_help_more_issues_email_body</string>
   <string name="welcome_help_more_issues_email_subject">welcome_help_more_issues_email_subject</string>
   <string name="welcome_help_more_issues_email_title">welcome_help_more_issues_email_title</string>
-  <!-- 0.2.4 OK -->
   <string name="ok">OK</string>
-  <!-- Error Screen -->
   <string name="error_default_body">Es tut uns leid, diese Seite konnte nicht geladen werden. Bitte versuchen Sie eine andere Seite zu öffnen oder schließen Sie die App und versuchen Sie es später erneut.</string>
   <string name="error_default_header">Es ist etwas schief gelaufen</string>
   <string name="error_no_internet_body">Sie benötigen eine Internetverbindung, um diese Seite zu öffnen. Bitte laden Sie die Seite neu.</string>
   <string name="error_no_internet_header">Verbindung erforderlich</string>
   <string name="error_no_internet_refresh">Neu laden</string>
   <string name="try_again">try_again</string>
-  <!-- 0.3 login (nodics) -->
+  <string name="error_box_failed_title">Oje...</string>
+  <string name="error_box_success_title">Hurra!</string>
   <string name="welcome_book_holiday">welcome_book_holiday</string>
   <string name="welcome_help_no_holiday_call_cta">welcome_help_no_holiday_call_cta</string>
   <string name="welcome_help_no_holiday_call_number">welcome_help_no_holiday_call_number</string>
-  <!-- 0.2.3 i can't log in -->
   <string name="welcome_help_more_issues_phone_title">welcome_help_more_issues_phone_title</string>
   <string name="welcome_help_more_issues_privacy_title">welcome_help_more_issues_privacy_title</string>
   <string name="welcome_help_more_issues_phone_url">welcome_help_more_issues_phone_url</string>
   <string name="welcome_help_more_issues_privacy_link">welcome_help_more_issues_privacy_link</string>
   <string name="welcome_help_more_issues_header">welcome_help_more_issues_header</string>
-  <!-- 0.2.4 book a holiday -->
   <string name="explore_tui_beach_hotel_body">Macht jeden Sommer noch schöner: Sonne, Sand und Meer. Finden Sie Ihren Platz an der Sonne!</string>
   <string name="explore_tui_beach_hotel_button">TUI Beach Hotel entdecken</string>
   <string name="explore_tui_body">Willkommen in Ihrer mobilen Reisewelt! Finden Sie heraus, welche Traumziele auf Sie warten – und welche Services diese App für Sie bereit hält.</string>
@@ -133,26 +139,28 @@
   <string name="welcome_book_holiday_sensatori_title">welcome_book_holiday_sensatori_title</string>
   <string name="welcome_book_holiday_sensatori_text">welcome_book_holiday_sensatori_text</string>
   <string name="welcome_book_holiday_sensatori_link">welcome_book_holiday_sensatori_link</string>
-  <!-- 0.3 login -->
+  <string name="welcome_book_holiday_benefits_title">welcome_book_holiday_benefits_title</string>
   <string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
-  <string name="forgot_password_email_help">Per e-mail hilfe anforden</string>
+  <string name="forgot_password_email_help">Per E-mail hilfe anforden</string>
   <string name="forgot_password_email_hint">Benutzername \// E-Mail eingeben</string>
   <string name="forgot_password_email_label">Benutzername oder E-Mail:</string>
   <string name="forgot_password_header">Passwort vergessen</string>
   <string name="forgot_password_reset_pwd">Neues Passwort anlegen</string>
-  <string name="login_email_hint">Benutzername \// E-Mail eingeben</string>
+  <string name="login_email_hint">Benutzername \// E-Mail</string>
   <string name="login_email_tooltip">Tipp: Das sollte die E-Mail Adresse oder der Benutzername sein mit dem Sie sich bei meine TUI registriert haben.</string>
   <string name="login_telephone">login_telephone</string>
-  <!-- 0.3 login -->
+  <string name="or">oder</string>
   <string name="login_country">Anmelden in:</string>
   <string name="login_country_extra">welcome login country extra</string>
   <string name="login_country_tooltip">Tipp: Dies ist das Land, in dem sie Ihre Reise gebucht haben</string>
   <string name="login_did_not_book">Ich habe noch nie über TUI gebucht.</string>
+  <string name="login_tablet_top_bar">Bereits gebucht? Einfach hier einloggen oder registrieren</string>
+  <string name="login_tablet_bottom_bar">Noch nicht gebucht? Lassen Sie sich inspirieren.</string>
   <string name="login_forgot_password">Passwort vergessen?</string>
   <string name="login_invalid_email">Fehler beim Prüfen der E-Mail-Adresse</string>
   <string name="login_login">Anmelden</string>
   <string name="login_password">Passwort:</string>
-  <string name="login_password_hint">Passwort eingeben</string>
+  <string name="login_password_hint">Passwort</string>
   <string name="login_password_tooltip">Tipp: Dieses Passwort passt eventuell nicht zu Ihrem Benutzernamen/E-Mail Adresse. Bitte versuchen Sie es noch einmal.</string>
   <string name="login_user_email">Benutzername oder E-Mail:</string>
   <string name="login_welcome">Willkommen</string>
@@ -195,18 +203,17 @@
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
-  <!-- 1.0 home -->
   <string name="newsletter_signup_title">erhalten Sie persönliche Topangebote, tolle Hoteltipps und Reisetrends mit unserem Newsletter</string>
   <string name="newsletter_signup_success">vielen Dank für Ihre Anmeldung zum Newsletter. Sie können sich jederzeit in den Kontoeinstellungen abmelden.</string>
   <string name="newsletter_try_again_cta">Bitte versuchen Sie es erneut</string>
   <string name="newsletter_success_cta">Fertig</string>
   <string name="newsletter_signup_cta"> Jetzt abonnieren</string>
   <string name="all_you_need_to_know_about_your_boat">Topangebote, tolle Hoteltipps und</string>
-  <string name="bookingSummary_daysToGo">Reisetrends mit unserem Newsletter</string>
-  <string name="departing_on">departing_on</string>
+  <string name="bookingSummary_daysToGo">Tage bis zum Urlaub:</string>
+  <string name="departing_on">Abflug am</string>
   <string name="discover">Entdecken Sie</string>
   <string name="explore">explore</string>
-  <string name="home">home</string>
+  <string name="home">Startseite</string>
   <string name="leaving">leaving</string>
   <string name="meet_your_travel_agent">Lernen Sie Ihre Reiseleitung kennen</string>
   <string name="pick_your_car_up_from">Holen Sie Ihren Mietwagen ab</string>
@@ -234,6 +241,7 @@
   <string name="w_msg_welcome_personal">w_msg_welcome_personal</string>
   <string name="w_msg_welcome_question">w_msg_welcome_question</string>
   <string name="w_msg_welcome_to">w_msg_welcome_to</string>
+  <string name="w_msg_welcome_default">w_msg_welcome_default</string>
   <string name="your_camper_is_ready">Ihr Camper steht für Sie bereit</string>
   <string name="your_flight">Ihr Flug</string>
   <string name="w_msg_about_your_hotel">Über Ihr Hotel</string>
@@ -244,13 +252,12 @@
   <string name="newsletter_biscuit_cta">newsletter_biscuit_cta</string>
   <string name="newsletter_biscuit_success_message">newsletter_biscuit_success_message</string>
   <string name="newsletter_biscuit_success_cta">newsletter_biscuit_success_cta</string>
-  <!-- 1.0 off canvas -->
   <string name="accomodation">Unterkunft</string>
   <string name="boat">Boot</string>
   <string name="booking_summary">Mein Reiseplan</string>
   <string name="booking_extras">Extras hinzubuchen</string>
   <string name="camper">Camper</string>
-  <string name="car_hire">Mein Mietwagen</string>
+  <string name="car_hire">TUI Cars</string>
   <string name="contact">Kontakt</string>
   <string name="contact_us">Kontakt</string>
   <string name="countdown">Urlaubscountdown</string>
@@ -258,6 +265,7 @@
   <string name="destination_guide">Infos über Ihr Reiseland</string>
   <string name="destination_info">Infos über Ihr Reiseland</string>
   <string name="excursions">Ausflüge vor Ort</string>
+  <string name="excursions_in_destination">Ausflüge [destination]</string>
   <string name="extra">Extras</string>
   <string name="extras">Extras</string>
   <string name="flight">Flug</string>
@@ -273,7 +281,7 @@
   <string name="hotel">Hotel</string>
   <string name="hotel_and_resort">hotel_and_resort</string>
   <string name="hotels">Hotel</string>
-  <string name="important_information">important_information</string>
+  <string name="important_information">Gut zu wissen</string>
   <string name="insurance">Versicherung</string>
   <string name="insurances">Versicherungen</string>
   <string name="meet_the_rep">Meine Reiseleitung</string>
@@ -291,10 +299,10 @@
   <string name="weather">Reisewetter</string>
   <string name="duty_free">duty_free</string>
   <string name="guide_online">guide_online</string>
-  <string name="app_feedback">Feedback</string>
-  <!-- 7,1 Seleted Hotel -->
+  <string name="app_feedback">Feedback zur App</string>
+  <string name="currency_offcanvas">currency_offcanvas</string>
+  <string name="browse_banner">ENTDECKEN SIE DIE TUI REISEWELTEN</string>
   <string name="hotel_to_destinations">hotel_to_destinations</string>
-  <!-- 11.0 extras -->
   <string name="book_holiday_extras">book_holiday_extras</string>
   <string name="extras_book_online">extras_book_online</string>
   <string name="extras_call">extras_call</string>
@@ -303,10 +311,8 @@
   <string name="extras_title">extras_title</string>
   <string name="holiday_extra">Ihre Extra</string>
   <string name="holiday_extras">Ihre Extras</string>
-  <!-- 12.0 travel money -->
   <string name="money_on_card">money_on_card</string>
   <string name="travel_money_card">travel_money_card</string>
-  <!-- 12.3 currency -->
   <string name="currency_converter">Währungsrechner</string>
   <string name="currency_converter_tool">Währungsrechner</string>
   <string name="find_a_shop_url">find_a_shop_url</string>
@@ -323,7 +329,6 @@
   <string name="guide_rate_only">guide_rate_only</string>
   <string name="select_currency">Währung auswählen</string>
   <string name="updated_at">Aktualisiert um [time] am [date]</string>
-  <!-- 13.0 important information -->
   <string name="good_to_know">Gut zu wissen</string>
   <string name="good_to_know_null">good_to_know_null</string>
   <string name="goodtoknow_blurb">Nützliches Wissen für Ihr Reiseziel:</string>
@@ -336,12 +341,11 @@
   <string name="leaving">Abflug am</string>
   <string name="resort_blurb">Nützliches Wissen für Ihr Reiseziel:</string>
   <string name="resort_blurb_null">resort_blurb_null</string>
-  <!-- 14.0 contact -->
   <string name="contact_message">Nachricht:</string>
   <string name="contact_messageHint">Nachricht eingeben</string>
   <string name="contact_phone">Telefon (optional):</string>
   <string name="contact_phoneHint">Telefonnummer eingeben</string>
-  <string name="contact_query_sent">Ihre Anfrage wurde erfolgreich versendet. Wir werden uns innerhalb von zwei Werktagen telefonisch oder per E-Mail bei Ihnen melden.</string>
+  <string name="contact_query_sent">Ihre Anfrage wurde erfolgreich versendet. Wir werden uns schnellstmöglich telefonisch oder per E-Mail bei Ihnen melden.</string>
   <string name="contact_questions">Sie möchten mehr über Ihr Reiseziel erfahren oder einen Ausflug buchen? Wir helfen Ihnen gerne weiter!</string>
   <string name="contact_reiseletung">Meine Reiseleitung</string>
   <string name="contact_sendEmail">E-Mail senden</string>
@@ -381,7 +385,6 @@
   <string name="contactus_cta_guideonline">contactus_cta_guideonline</string>
   <string name="send_sms">send_sms</string>
   <string name="we_are_here_for_you">So erreichen Sie uns</string>
-  <!-- 16.0 Guide Online -->
   <string name="guide_online">guide_online</string>
   <string name="tap_to_type_message">tap_to_type_message</string>
   <string name="tap_to_reply">tap_to_reply</string>
@@ -422,7 +425,6 @@
   <string name="guide_online_copy">guide_online_copy</string>
   <string name="guide_online_message_failed_to_send">guide_online_message_failed_to_send</string>
   <string name="guide_online_message_failed_to_send_body">guide_online_message_failed_to_send_body</string>
-  <!-- 16.0 My Messages -->
   <string name="mymessages">mymessages</string>
   <string name="mymessages_all">mymessages_all</string>
   <string name="mymessages_important">mymessages_important</string>
@@ -430,7 +432,6 @@
   <string name="mymessages_booking">mymessages_booking</string>
   <string name="mymessages_cta_label">mymessages_cta_label</string>
   <string name="mymessages_virgin_message">mymessages_virgin_message</string>
-  <!-- 18.0 social share -->
   <string name="boat_share_during_fb">Ich bin gerade auf meinem Boot [boat] in [region], [location] in meinem #TUI #Urlaub</string>
   <string name="boat_share_during_tw">Ich bin gerade auf meinem Boot [boat] in [region], [location] mit #TUI</string>
   <string name="boat_share_pre_fb">In [days] Tagen bin ich an Deck des Boots [boat] in [region], [location] in meinem #TUI #Urlaub!</string>
@@ -488,12 +489,11 @@
   <string name="weather_share_pre_tw">Noch [days] Tage bis zu meinem Urlaub mit #TUI und es sind heute [temperature] Grad in [location]!</string>
   <string name="weather_share_today_fb">Ich mache gerade #TUI #Urlaub in [location] und es sind heute [temperature] Grad</string>
   <string name="weather_share_today_tw">Ich bin dann mal weg mit #TUI! Heute hat es [temperature] Grad in [location]</string>
-  <!-- 18.0 social sharing -->
   <string name="product_share_my_accommodation">Meine Unterkunft teilen</string>
-  <!-- 2.0 holiday summary -->
+  <string name="weather_share_title">Reisewetter teilen</string>
   <string name="bookingSummary_bookingReference">Vorgang/Buchungsnummer:</string>
   <string name="holiday_summary_pdf">Zum Reiseplan</string>
-  <string name="holiday_summary_filename">reiseplan.pdf</string>
+  <string name="holiday_summary_filename">reiseplan</string>
   <string name="bookingSummary_emailDescription">Sie können Ihre Buchungsübersicht auch bequem per E-Mail versenden.</string>
   <string name="bookingSummary_emailTitle">Meine Buchung senden</string>
   <string name="bookingSummary_flighthotelRefNumber">bookingSummary_flighthotelRefNumber</string>
@@ -511,13 +511,9 @@
   <string name="current_bookings">Aktuelle Buchungen</string>
   <string name="my_booking">Meine Buchung</string>
   <string name="past_bookings">Vergangene Buchungen</string>
-  <string name="holiday_summary_pdf">holiday_summary_pdf</string>
-  <string name="holiday_summary_pdf_filname">holiday_summary_pdf_filname</string>
-  <!-- 2.1 booking selector -->
   <string name="booking_details">Ihre Buchungsdetails</string>
   <string name="booking_details_blurb">Haben Sie Ihre Reiseunterlagen zur Hand? Bitte geben Sie hier Ihre Daten ein, um eine Buchung hinzuzufügen.</string>
   <string name="i_need_help">Ich benötige Hilfe</string>
-  <!-- 3.0 countdown -->
   <string name="car_message_minus_548">Ihr Auto steht für Sie bereit. Wir freuen uns auf Sie!</string>
   <string name="car_message_plus_1">Hatten Sie eine gute Fahrt?</string>
   <string name="car_message_zero">Ihr Auto wartet schon auf Sie. Bis gleich!</string>
@@ -535,9 +531,7 @@
   <string name="insurance_message_minus_548">Gut versichert ist der halbe Urlaub. Bis bald bei TUI!</string>
   <string name="insurance_message_plus_1">Hatten Sie eine gute Reise?</string>
   <string name="insurance_message_zero">Ihr Urlaub kann nun sicher beginnen.</string>
-  <!-- 3.0 find a booking -->
   <string name="find_booking">Buchung hinzufügen</string>
-  <!-- 3.0 holiday countdown -->
   <string name="countdown_active">Ich bin im Urlaub!</string>
   <string name="countdown_day">Tag</string>
   <string name="countdown_days">Tagen</string>
@@ -551,7 +545,7 @@
   <string name="countdown_waiting">Ich fliege nach [location] in</string>
   <string name="day_to_go">Tag noch</string>
   <string name="days_to_go">Tage noch</string>
-  <!-- 4.0 checklist -->
+  <string name="hours_to_go">hours_to_go</string>
   <string name="add_an_item">add_an_item</string>
   <string name="biscuit_checklist_plural">biscuit_checklist_plural</string>
   <string name="biscuit_checklist_reminderSet">biscuit_checklist_reminderSet</string>
@@ -577,7 +571,6 @@
   <string name="things_todo">things_todo</string>
   <string name="you_are_packed">you_are_packed</string>
   <string name="your_todolist_is_done">your_todolist_is_done</string>
-  <!-- 5.0 / 5.1 weather -->
   <string name="average">average</string>
   <string name="climate">climate</string>
   <string name="cloudy">Bewölkt</string>
@@ -596,8 +589,9 @@
   <string name="weather_header">Reisewetter</string>
   <string name="weather_share">Reisewetter teilen</string>
   <string name="climate_rain_free_days">climate_rain_free_days</string>
+  <string name="weather_average_title">weather_average_title</string>
+  <string name="weather_average_sunshine">weather_average_sunshine</string>
   <string name="weather_coming_soon">Wetter folgt.</string>
-  <!-- 5.1 product -->
   <string name="booked_for">Gebucht für:</string>
   <string name="category">Kategorie</string>
   <string name="my_accomodation">Meine Unterkunft</string>
@@ -606,7 +600,6 @@
   <string name="checkout_title">checkout_title</string>
   <string name="rooms">Zimmertyp</string>
   <string name="share_my_accomodation">Meine Unterkunft teilen</string>
-  <!-- 5.1 product pages -->
   <string name="address">Adresse</string>
   <string name="availability_from">availability_from</string>
   <string name="awards">Auszeichnungen</string>
@@ -651,12 +644,12 @@
   <string name="titles_to_split_by_colon">Ohne:Dr.:Prof.:Prof. Dr.</string>
   <string name="transfer">Transfer</string>
   <string name="transfers">Transfer</string>
-  <!-- 6.1 flights -->
   <string name="airline">Airline:</string>
   <string name="approximate">Voraussichtliche</string>
   <string name="approximate_arrival">Voraussichtliche Ankunft</string>
   <string name="approximate_departure">Voraussichtlicher Abflug</string>
   <string name="cabin_class">Kabinenklasse:</string>
+  <string name="luggage_allowance">Freigepäck:</string>
   <string name="checkin_area">checkin_area</string>
   <string name="checkin_closes">checkin_closes</string>
   <string name="checkin_opens">checkin_opens</string>
@@ -683,11 +676,9 @@
   <string name="flight_details_extras_meals">flight_details_extras_meals</string>
   <string name="flight_details_extras_luggage_allowance">flight_details_extras_luggage_allowance</string>
   <string name="flight_details_extras_duty_free">flight_details_extras_duty_free</string>
-  <!-- 8.0 destination -->
   <string name="destinations_goexploring">destinations_goexploring</string>
   <string name="destinations_goexploring_sub_title">destinations_goexploring_sub_title</string>
   <string name="destinations_goexploring_title">destinations_goexploring_title</string>
-  <!-- 9.0 excursions -->
   <string name="book_with_tui_service">Beim TUI Service vor Ort anfragen</string>
   <string name="excursion_email">Beim TUI Service vor Ort anfragen</string>
   <string name="excursions_here_available">Diese Ausflüge warten auf Sie:</string>
@@ -696,7 +687,12 @@
   <string name="experience_the_country_subtitle">experience_the_country_subtitle</string>
   <string name="plan_your_excursions">plan_your_excursions</string>
   <string name="share_my_excursion">Diesen Ausflug teilen</string>
-  <!-- 9.0 travel agent -->
+  <string name="excursion_price_adult">excursion_price_adult</string>
+  <string name="excursion_price_child">excursion_price_child</string>
+  <string name="excursions_title">excursions_title</string>
+  <string name="excursion_price_from">excursion_price_from</string>
+  <string name="excursion_ages">excursion_ages</string>
+  <string name="excursion_all_ages">excursion_all_ages</string>
   <string name="contact_tui_services">TUI Service vor Ort kontaktieren</string>
   <string name="service_on_site">TUI Service vor Ort</string>
   <string name="services_email">Schreiben Sie uns eine E-Mail</string>
@@ -710,19 +706,15 @@
   <string name="travelAgent_phone">Mein Reisebüro anrufen</string>
   <string name="travelAgent_title">Mein Reisebüro</string>
   <string name="travelAgent_website">Website besuchen</string>
-  <!-- activity indicator -->
   <string name="hold_holiday_found">hold_holiday_found</string>
   <string name="hold_on">Einen Moment bitte …</string>
   <string name="hold_on_booking">Einen Moment bitte, wir suchen gerade Ihren Urlaub …</string>
-  <!-- already registered -->
   <string name="have_you_used_tui_cta_logged_body">Perfekt! Melden Sie sich einfach mit Ihren bestehenden Anmeldedaten an, um diese App zu nutzen.</string>
   <string name="have_you_used_tui_cta_logged_title">Ich bin bereits registriert</string>
   <string name="have_you_used_tui_cta_not_logged_body">Registrieren Sie sich jetzt mit Ihrem Buchungscode und Anreisedatum.</string>
   <string name="have_you_used_tui_cta_not_logged_title">Ich bin noch nicht registriert</string>
   <string name="have_you_used_tui_header">Haben Sie meine TUI online bereits genutzt?</string>
-  <!-- Booking Details -->
   <string name="my_bookings">Meine Buchungen</string>
-  <!-- Cant Find Booking -->
   <string name="cantFindBooking_errorMsg">Wir können keine aktuelle Buchung von Ihnen finden</string>
   <string name="cantFindBooking_switchTo">Anmelden in</string>
   <string name="cantFindBooking_de">Deutschland</string>
@@ -732,7 +724,6 @@
   <string name="cantFindBooking_addBookingTitle">Möchten Sie eine Buchung hinzufügen?</string>
   <string name="cantFindBooking_ctaAddBooking">Buchung hinzufügen</string>
   <string name="cantFindBooking_tryThese">Haben Sie vielleicht bei TUI [partner] oder TUI [partner1] gebucht?</string>
-  <!-- Dates -->
   <string name="april">April</string>
   <string name="august">August</string>
   <string name="datetime">DD.MM YYYY HH:mm</string>
@@ -754,21 +745,15 @@
   <string name="timeformat">HH:mm</string>
   <string name="today">Heute</string>
   <string name="tomorrow">Morgen</string>
-  <!-- Don't forget -->
   <string name="dont_forget_to">dont_forget_to</string>
-  <!-- Email Help -->
   <string name="email_impressum">TUI Deutschland GmbH, Karl-Wiechert-Allee 23, 30625 Hannover \n \n Telefon 05 11 / 5 67-0 \n Telefax 05 11 / 5 67-13 01 \n E-Mail: info@tui.de \n Handelsregister, Amtsgericht Hannover, HRB 56512 \n \n Ust-Ident.-Nr. DE 812777076 \n \n Vorsitzender des Aufsichtsrates: Dr. Michael Frenzel \n Geschäftsführung: Christian Clemens (Vorsitzender), \n Dr. Oliver Dörschuck, Henrik Homann \n \n</string>
-  <!-- General -->
   <string name="delete">delete</string>
-  <!-- Email -->
   <string name="email_items">email_items</string>
-  <!-- Email Help -->
   <string name="email_help_body">Bitte füllen Sie folgende Felder aus oder prüfen Sie die nachstehenden Daten, damit wir Ihnen weiterhelfen können.\n\nVorname: \nNachname: \nE-Mail Adresse: \nTelefonnummer: \nStraße u. Hausnummer: \nPostleitzahl (optional): \nVorgang/Buchungscode: \nAnreisedatum: \nReiseziel: \n\nBitte geben Sie hier mögliche Fragen oder Anregungen ein: \n</string>
   <string name="email_help_subject">Ich benötige Hilfe bei der Anmeldung</string>
   <string name="email_help_subject_booking">Ich benötige Hilfe bei einer Buchung</string>
   <string name="email_help_subject_hotel">TUI Guest Request / TUI Gast Anfrage</string>
   <string name="email_help_subject_registration">Ich benötige Hilfe bei der Registrierung</string>
-  <!-- General -->
   <string name="view">view</string>
   <string name="notification_no_internet_connection">KEINE VERBINDUNG</string>
   <string name="notification_page_last_updated">Seite zuletzt aktualisiert: [date] um [time]</string>
@@ -776,7 +761,6 @@
   <string name="services_description">Contact Reiseleitung by email</string>
   <string name="services_numbers">Übrigens: Sie wählen eine deutsche Telefonnummer, sprechen aber mit unseren Experten vor Ort.</string>
   <string name="services_questions">Questions or requests regarding your holiday or destination? Book an excursion?</string>
-  <!-- Generic -->
   <string name="car">Mietwagen</string>
   <string name="email_noemail_message">Sie haben auf Ihrem Smartphone kein E-Mail-Postfach eingerichtet. Bitte besuchen Sie dazu Ihre Einstellungen.</string>
   <string name="email_noemail_title">Mobile E-Mail einrichten</string>
@@ -789,7 +773,6 @@
   <string name="url_dialog_title">Im Browser öffnen?</string>
   <string name="app_update_popup_title">Neue Funktionen</string>
   <string name="app_update_popup_body">• Autovermietung - Buchen Sie Ihren Mietwagen über die App, es ist noch nie einfacher gewesen.\n• Feedback - Bewerten Sie die Meine TUI App\n• Kleine Fehlerkorrekturen.</string>
-  <!-- Loading screen Daisy Wheel -->
   <string name="activity_indicator_one">Einen Moment bitte...</string>
   <string name="activity_indicator_two">Wir haben Ihre Buchung gefunden...</string>
   <string name="activity_indicator_three">Wir haben Ihr Reiseland entdeckt..</string>
@@ -802,11 +785,9 @@
   <string name="activity_indicator_ten">Wir prüfen nur noch die Details...</string>
   <string name="activity_indicator_eleven">Wir passen die Seite an...</string>
   <string name="activity_indicator_twelve">Fast fertig...</string>
-  <!-- meet the rep -->
   <string name="meet_the_rep_help">Falls Sie Fragen oder Wünsche haben, können Sie mich telefonisch, per SMS oder per E-Mail über den TUI Service 24 Stunden am Tag erreichen. Falls ich nicht zu sprechen bin, ist einer meiner Kollegen gerne für Sie da.</string>
   <string name="meet_the_rep_information_sessions">InfoStunde:</string>
   <string name="meet_the_rep_tui_welcome">Welcome:</string>
-  <!-- my account -->
   <string name="cancel">Abbrechen</string>
   <string name="change_password">Passwort ändern</string>
   <string name="confirm">Bestätigen</string>
@@ -832,9 +813,8 @@
   <string name="update_reminder">Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen.</string>
   <string name="username">Benutzername:</string>
   <string name="your_password">Ihr Passwort:</string>
-  <!-- Privacy Policy -->
+  <string name="profile_browser_collection">ENTDECKEN SIE DIE TUI REISEWELTEN</string>
   <string name="privacy_policy_header">Datenschutz</string>
-  <!-- registration -->
   <string name="is_this_you">Sind Sie das?</string>
   <string name="is_this_you_introduction">Wir möchten sicherstellen, dass Sie der Kontoinhaber sind. Bitte geben Sie Ihre Postleitzahl ein, um Ihre Identität zu bestätigen und die Registrierung abzuschließen</string>
   <string name="salutations_to_split_by_colon">Herr:Frau</string>
@@ -868,7 +848,6 @@
   <string name="signup_your_booking">Ihre Buchung</string>
   <string name="time">HH:mm</string>
   <string name="your_postcode">Ihre Postleitzahl:</string>
-  <!-- Sign up -->
   <string name="email_signup_successful">email_signup_successful</string>
   <string name="email_signup_failed">email_signup_failed</string>
   <string name="welcome_help_no_holiday_email_header">welcome_help_no_holiday_email_header</string>
@@ -882,7 +861,6 @@
   <string name="agree_to_emails_blurb">agree_to_emails_blurb</string>
   <string name="agree_to_emails">agree_to_emails</string>
   <string name="welcome_help_no_holiday_email_disclaimer">welcome_help_no_holiday_email_disclaimer</string>
-  <!-- text field widget -->
   <string name="are_you_sure">Sind Sie sicher?</string>
   <string name="done">Fertig</string>
   <string name="next">Weiter</string>
@@ -890,15 +868,13 @@
   <string name="previous">Zurück</string>
   <string name="open_in_safari">In browser öffnen</string>
   <string name="water">Wasser</string>
-  <!-- 16.0 Push Notifications -->
   <string name="push_notifications">push_notifications</string>
   <string name="we_would_like_to_send_push">we_would_like_to_send_push</string>
   <string name="not_now">not_now</string>
   <string name="allow">allow</string>
-  <!-- 19.0 App Feedback -->
   <string name="feedback_title">Wie würden Sie uns auf einer Skala von 0 - 10 bewerten?</string>
   <string name="feedback_submit_button">Feedback absenden</string>
-  <string name="feedback_navbar_title">Feedback</string>
+  <string name="feedback_navbar_title">Feedback zur App</string>
   <string name="feedback_message_title_positive">Danke!</string>
   <string name="feedback_message_title_negative">Das ist schade.</string>
   <string name="feedback_message_you_rated_the_app">Sie haben der App [grade] von [total] Punkten gegeben.</string>
@@ -913,14 +889,12 @@
   <string name="feedback_email_to_address">info@crm.de</string>
   <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
   <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
-  <!-- 20.0 In App Browser -->
   <string name="browser_openExternal">Im Browser öffnen</string>
   <string name="browser_copyUrl">Link kopieren</string>
   <string name="browser_leaving_title">Sind Sie sicher, dass Sie diese Seite verlassen möchten?</string>
   <string name="browser_leaving_cancel">Hier bleiben</string>
   <string name="browser_warning">Beim Öffnen des Browsers gehen Änderungen verloren.</string>
   <string name="browser_leaving_okay">Seite verlassen</string>
-  <!-- 25.0 Booking Extras - Car Hire -->
   <string name="car_hire_title">TUI Cars</string>
   <string name="car_hire_main_text">Sie haben noch keinen Mietwagen für Ihre Reise? Hier finden Sie die passenden Angebote.</string>
   <string name="car_hire_bullet_points_title">Ihre Vorteile*</string>
@@ -931,8 +905,10 @@
   <string name="car_hire_bullet_point_5">Kostenlose Stornierung</string>
   <string name="car_hire_web_link_title">Hier geht es zur Buchung</string>
   <string name="car_hire_footnote">* Ausnahmen siehe Mietbedingungen</string>
-  <!-- Google Analytics - Brand Name -->
+  <string name="share_countdown">Meinen Urlaubscountdown teilen</string>
+  <string name="share_on_twitter">Auf Twitter teilen</string>
+  <string name="share_on_facebook">Auf Facebook teilen</string>
+  <string name="share_by_email">Per E-Mail teilen</string>
   <string name="ga_brandName">ga_brandName</string>
-  <!-- Generic App Details -->
   <string name="app_details">app_details</string>
 </resources>
