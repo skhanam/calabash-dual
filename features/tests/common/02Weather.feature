@@ -2,7 +2,7 @@
 @weather @common-tests @tab-weather @tab
 Feature: Verify Weather details for bookings
 
-  @home-weather1 @tab-sanity @reg
+  @home-weather1 @tab-sanity
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear
