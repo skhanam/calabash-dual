@@ -21,6 +21,8 @@ LANG=$3
 PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
+
+
 echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
@@ -51,6 +53,8 @@ elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "
 	TESTENV='NOR'
 fi
 
+STRINGS_FOLDER=features/test_data/$LANG_STR/
+
 if [ $4 == "tablet" ] ; then
 	APPNAME=$APPNAME"Tablet"
 fi
@@ -80,20 +84,22 @@ if [ "$1" == "clean" ] ; then
 	expect expect.exp ${APPNAME}
     cd -
 
-  	echo "******** ####  copying .app file and language strings"
-  	echo cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
-	cp -r ${PROJ_FOLDER}/i18n/ features/test_data/$LANG_STR
+  	echo "******** ####  copying .app file"
     echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
     cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
 
 fi
 
 if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
-	cp -r ${PROJ_FOLDER}/i18n/* features/test_data/
+  	echo "******** ####  copying language strings"
+	echo cp -r ${PROJ_FOLDER}/i18n/$LANG_STR/ $STRINGS_FOLDER
+	cp -r ${PROJ_FOLDER}/i18n/$LANG_STR/ $STRINGS_FOLDER
+
 	killall "iPhone Simulator"
 	killall Xcode
 	sleep 1
 fi
+
 
 if [ "$2" != "NA" ] ; then
 	echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3

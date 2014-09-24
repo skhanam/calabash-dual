@@ -10,20 +10,22 @@ Feature: Verify screens shown before logging into App
     And I navigate to forgot password screen
     Then I see my username is already populated
 
-  @sanity312 @tab2 @reg-de
+  @sanity312 @tab2
+  @reg-de
   Scenario: Reset password  - invalid user name or email
     Given I am on 'Login' screen
     When I navigate to forgot password screen
     And submit an invalid email id in forgot password screen
     Then I see appropriate error message
 
-  @tab3 @tab-de-sanity @reg-de
+  @tab3 @tab-de-sanity
+  @reg-de
   Scenario: Forgot password - Blank email field
     Given I am on 'Login' screen
     When I navigate to forgot password screen
     Then I see my username is empty
 
-  @tab4
+  @tab4 @reg-de
   Scenario: US13474 Failed login - wrong credentials
     Given I submit wrong login credentials
     Then I see appropriate error message
@@ -35,7 +37,8 @@ Feature: Verify screens shown before logging into App
     Given I navigate to terms page from login screen
     Then I see terms page is displayed correctly
 
-  @wrong-country @reset @reg-de
+  @wrong-country @reset
+  @reg-de
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
@@ -49,4 +52,11 @@ Feature: Verify screens shown before logging into App
     Then I see alternative country options for submitted credentials
     When I select correct country and resubmit details
     Then I am on Home screen
+
+
+  @home-weather2 @reg-de
+  Scenario: US16737 Verify Weather Biscuit
+    Given I am on Home screen with multi destination booking
+    Then I should see a Weather Biscuit appear
+    And  I should see Weather Biscuit display weather for each destination in a loop of 5s
 

@@ -14,9 +14,6 @@ module ForgotPwdModule
     click_on_text @@forgot_password_send_button
   end
 
-  def check_wrong_username_email
-    assert_wait_for_text @@forgot_password_email_help
-  end
 
   module Phone
     include BaseModule
@@ -29,6 +26,10 @@ module ForgotPwdModule
       txt=query("all TiEditText index:1", :text).first if $g_android
       txt=query("textField index:0", :text).first if $g_ios
       fail "username field is not empty" if txt !=""
+    end
+
+    def check_wrong_username_email
+      assert_wait_for_text @@forgot_password_email_help
     end
   end
 
@@ -49,6 +50,10 @@ module ForgotPwdModule
       elsif $g_ios
         fail("Email not empty") if !element_exists("label text:'#{@@email_hint_text}'")
       end
+    end
+
+    def check_wrong_username_email
+      assert_wait_for_text @@login_credentials_error
     end
   end
 end
