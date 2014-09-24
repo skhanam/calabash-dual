@@ -114,18 +114,6 @@ module ViewModule
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
   end
 
-=begin
-  def assert_partial_accessibility_label_text(label_text)
-    array=label "view"
-    array.each do |val|
-      if val!=nil && val.match(/#{label_text}/)
-        return true
-      else
-        return false
-      end
-    end
-  end
-=end
 
   def assert_partial_accessibility_label_text(label_text)
     array=label "view"
