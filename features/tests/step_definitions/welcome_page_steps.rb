@@ -1,7 +1,7 @@
 When(/^I am on Home screen$/) do
 
   @commonMethods.close_whats_new_dialog
-  if @homePage.check_home_screen(2)==true
+  if @homePage.check_home_screen(4)==true
     #If acc label welcome_title is already present then no need for checking daisy wheel messages
     if @homePage.check_home_elements
       #puts "Already on home page"
