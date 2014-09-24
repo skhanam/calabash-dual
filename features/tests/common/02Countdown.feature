@@ -1,14 +1,14 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@countdown @common-tests @tab-countdown
+@countdown @common-tests @tab-countdown @tab
 Feature: Verify Countdown details for bookings
 
-  @countdown2231
+  @countdown2231 @reg
   Scenario: US16736 Countdown Biscuit More than one day
     Given I am on Home screen
     And I have more than one day left for my holiday
     Then I should see a Countdown biscuit with a count of days left
 
-  @countdown2232
+  @countdown2232 @reg
   Scenario: US16736 OnTap link
     Given I am on Home screen
     When I select countdown biscuit

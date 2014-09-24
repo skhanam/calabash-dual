@@ -441,8 +441,10 @@ end
 Then(/^I should see the error message tip to side of oops message$/) do
   step "I see appropriate username error message"
 end
+
 When(/^should observe that values entered are retained$/) do
-  #{@uname}, #{@pwd} and #{@country}"
+  @page.assert_wait_for_text @uname
+  @page.assert_wait_for_text @country
 end
 
 Given(/^I login with post holiday data$/) do

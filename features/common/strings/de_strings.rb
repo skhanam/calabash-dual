@@ -90,6 +90,8 @@ module DEMeineTUI
     @@login_password_tooltip= get_localized_string "login_password_tooltip"
     @@login_password_hint = get_localized_string "login_password_hint"
 
+    @@login_credentials_error = get_localized_string "error_box_failed_title" if $g_tablet
+
     @@submit_button= get_localized_string "submit" #Speichern
 
     @@login_default_country="Deutschland"
@@ -298,6 +300,7 @@ module DEMeineTUI
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help="Ich benötige Hilfe"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
+
   end
 
   def contact_us_strings

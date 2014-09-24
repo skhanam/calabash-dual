@@ -1,4 +1,4 @@
-@auto1 @sanity-all @common-tests @tab-sanity @tab
+@auto1 @sanity-all @common-tests   @tab
 Feature: Login and Home page features
   Login into application
 
@@ -7,7 +7,7 @@ Feature: Login and Home page features
     Given I submit wrong login details
     Then I see correct error messages on login screen
 
-  @reset @successful-login
+  @reset @successful-login312 @tab-sanity
   Scenario:  Successful login
     Given I am on 'Login' screen
     When I submit correct login credentials

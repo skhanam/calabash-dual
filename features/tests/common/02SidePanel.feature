@@ -4,7 +4,7 @@ Feature: Verify product pages by navigating through side panel
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-  @countdown32
+  @countdown32 @countdown32
   Scenario: navigate to countdown page
     Given I am on Home screen
     When I navigate to countdown page using side menu

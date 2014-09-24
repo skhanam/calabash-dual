@@ -103,14 +103,6 @@ module EN_Strings
 
   def login_page_strings
 
-    #@@welcome_page_text=get_localized_string "welcome_header"
-    #@@welcome_help_no_holiday_body=get_localized_string "welcome_help_no_holiday_body" #"The MyThomson app is for people who have booked a holiday directly with Thomson. To discover all of the great benefits of the MyThomson app, take a tour, then choose the perfect holiday for you."
-    #@@welcome_refuse=get_localized_string "welcome_refuse" #"Sorry, you can’t use the app if:"
-    #@@welcome_reasons=get_localized_string "welcome_reasons" #"You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson."
-    #@@login_with_existing_credentials=get_localized_string "welcome_login_header" #"Log in"
-    #@@welcome_help_link3=get_localized_string "welcome_help_link3" #"I haven’t booked a Thomson holiday"
-    #@@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
-
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
     @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
@@ -122,7 +114,10 @@ module EN_Strings
 
     @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"
 
+    @@help_logging_text=get_localized_string "welcome_help_cant_login_description"
     @@login_error_text=get_localized_string "welcome_login_credential_error"
+    @@login_error2_text=get_localized_string "welcome_login_error"
+
     @@login_error_booking_ref=get_localized_string "welcome_login_booking_reference_extra" if $g_current_app=="EN_TH"
     @@login_error_booking_ref='Tip: You should have received this number in an email a few days after you booked your holiday. It looks like this: 1234/567891. The number of digits may vary.' if $g_current_app=="EN_FC"
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
@@ -139,11 +134,7 @@ module EN_Strings
     @@book_visit_no_holiday_take_tour_cta = get_localized_string "welcome_help_no_holiday_take_tour_cta"
     @@book_visit_no_holiday_call_cta = get_localized_string "welcome_help_no_holiday_call_cta"
 
-    @@help_logging_text=get_localized_string "welcome_help_cant_login_description"
-    @@login_error_text=get_localized_string "welcome_login_credential_error"
-    @@login_error2_text=get_localized_string "welcome_login_error"
-    @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
-    @@login_error_surname=get_localized_string "welcome_login_surname_extra"
+
 
   end
 

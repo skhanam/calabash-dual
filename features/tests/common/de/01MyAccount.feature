@@ -1,4 +1,4 @@
-@android_test @ios_test @myaccount_tests @auto1 @de
+@android_test @ios_test @myaccount_tests @auto1 @de  @tab-de
 Feature: Verify My account page and sub pages
   Verify my personal detail  page and other elements
   Verify change password page

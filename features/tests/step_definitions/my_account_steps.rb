@@ -64,5 +64,3 @@ end
 When(/^I see add booking biscuit$/) do
   @myBookingsPage.check_add_booking_screen
 end
-
-
