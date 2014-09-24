@@ -210,6 +210,9 @@ module DEMeineTUI
   end
 
   def add_booking_page_strings
+
+    @@browse_holiday_banner_text =get_localized_string "browse_banner"
+
     @@add_a_booking_page_title =get_localized_string "find_booking"
     @@add_a_booking_page_text1 =get_localized_string "booking_details"
     @@add_a_booking_page_text2 =get_localized_string "booking_details_blurb"

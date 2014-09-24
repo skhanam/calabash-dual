@@ -14,7 +14,6 @@ module ViewModule
   def embed(a, b, c)
   end
 
-
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
     return query($g_query_txt+"contentDescription:'#{id}.'", :text).first if $g_android
@@ -113,6 +112,27 @@ module ViewModule
     puts "check_acc_label (#{id})"
     #write_verified_text_to_file "check_acc_label (#{id})"
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
+  end
+
+=begin
+  def assert_partial_accessibility_label_text(label_text)
+    array=label "view"
+    array.each do |val|
+      if val!=nil && val.match(/#{label_text}/)
+        return true
+      else
+        return false
+      end
+    end
+  end
+=end
+
+  def assert_partial_accessibility_label_text(label_text)
+    array=label "view"
+    array.each do |val|
+      return true if val!=nil && val.match(/#{label_text}/)
+    end
+    fail "#{label_text} text not found"
   end
 
   #Check if text present or assert
