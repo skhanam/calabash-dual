@@ -4,7 +4,7 @@ end
 
 And(/^read my bookings into user details$/) do
   @myBookingsPage.fill_user_details
-end
+ end
 
 When(/^I click on edit account button from my bookings page$/) do
   @myBookingsPage.navigate_to_account_details
@@ -33,4 +33,16 @@ end
 
 Then(/^I see add a booking page$/) do
   @myBookingsPage.check_add_booking_page
+end
+
+And(/^I should see all future booking image biscuits$/) do
+@myBookingsPage.check_all_future_booking_biscuits
+end
+
+And(/^I should see all past booking image biscuits$/) do
+  @myBookingsPage.check_all_past_booking_biscuits
+end
+
+Then(/^I should see Browse Holiday collection biscuit$/) do
+@myBookingsPage.check_browse_holiday_biscuit
 end

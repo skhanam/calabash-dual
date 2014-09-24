@@ -7,12 +7,15 @@ Then(/^I see my account screen/) do
 end
 
 When(/^I select update email from my account page$/) do
-  step "I am on my account page"
-  @myAccountPage.click_update_email_button
+   @myAccountPage.click_update_email_button
 end
 
 Then(/^I see update email page$/) do
   @myAccountPage.check_update_email_page
+end
+
+Given(/^I have accessed my Personal Details page$/) do
+  step "I am on my account page"
 end
 
 Given(/^I am on my account page$/) do
@@ -22,8 +25,7 @@ Given(/^I am on my account page$/) do
 end
 
 Given(/^I choose to change password from my account page$/) do
-  step "I am on my account page"
-  step "I select change password from my account page"
+   step "I select change password from my account page"
 end
 
 Then(/^I see change password page$/) do
@@ -57,4 +59,8 @@ Then(/^I verify below details on account page:$/) do |table|
   values.each do |var|
     @myAccountPage.validate_menu_items(var[0])
   end
+end
+
+When(/^I see add booking biscuit$/) do
+  @myBookingsPage.check_add_booking_screen
 end
