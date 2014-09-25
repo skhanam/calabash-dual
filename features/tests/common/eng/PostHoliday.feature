@@ -1,7 +1,6 @@
 @ios_test @android_test  @countdown @common-tests @tab @reg-en
 Feature: Verify post Holiday Biscuit
 
-
   @reset @post-holiday1 @common-tests
   Scenario:Verify Post Holiday page pop-up
     Given I login with post holiday data

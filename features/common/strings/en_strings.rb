@@ -185,7 +185,8 @@ module EN_Strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
     @@side_panel_booking_summary=get_localized_string "holiday_summary" #"Holiday summary"
-    @@side_panel_countdown=get_localized_string "holiday_countdown" #"Holiday countdown"
+    @@side_panel_countdown=get_localized_string "holiday_countdown" if $g_phone #"Holiday countdown"
+    @@side_panel_countdown=get_localized_string "countdown" if $g_tablet #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
     @@side_panel_weather=get_localized_string "weather" #"Weather"
@@ -199,16 +200,23 @@ module EN_Strings
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
+    @@side_panel_contact=get_localized_string "contact" #"Contact"
 
     @@guide_online = get_localized_string "guide_online_biscuit_title"
 
     @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
     @@side_panel_destination=get_localized_string "destination"
 
+    @@side_panel_currency= get_localized_string "currency_offcanvas"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
 
     @@excursions=get_localized_string "excursions"
+    @@browse_banner = get_localized_string "browse_banner"
+
+    @@side_panel_extra=get_localized_string "extra"
+    @@side_panel_extras=get_localized_string "extras"
+
   end
 
   def booking_summary_strings
@@ -271,11 +279,12 @@ module EN_Strings
     @@home_page_post_holiday_title=get_localized_string "postholiday_title"
     @@home_page_post_holiday_popup_alert_content=get_localized_string "postholiday_alert"
     @@home_page_post_holiday_popup_alert_ok=get_localized_string "ok"
-    @@log_out_acc="logout"
     #@@home_page_post_holiday_number_text=get_localized_string "postholiday_telephone_no"
     @@home_page_post_holiday_need_help_text=get_localized_string "postholiday_needhelp"
     @@home_page_post_holiday_need_help_content_text=get_localized_string "postholiday_needhelp_sub"
     @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
+    @@log_out_acc="logout"
+
   end
 
 end

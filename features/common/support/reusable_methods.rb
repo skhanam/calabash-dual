@@ -37,6 +37,9 @@ module ReusableMethods
     return $g_localized_strings[id]
   end
 
+  def capitalize_first_letter_of_each_word txt
+    txt.split.each{|i| i.capitalize!}.join(' ')
+  end
 
   def read_test_data()
     file_path=$g_booking_data

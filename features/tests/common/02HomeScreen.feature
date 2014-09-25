@@ -28,3 +28,4 @@ Feature: Verify product pages by navigating through biscuits
     Given I am on home screen with default booking
     When I navigate to destination using home page biscuit
     Then I see destination information page
+

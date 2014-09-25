@@ -8,7 +8,7 @@ Feature: Login and Home page features
     Then I see correct error messages on login screen
 
   @reset @successful-login312 @tab-sanity
-  Scenario:  Successful login
+  Scenario: US13575 Successful login
     Given I am on 'Login' screen
     When I submit correct login credentials
     Then I must be logged in and on Home page

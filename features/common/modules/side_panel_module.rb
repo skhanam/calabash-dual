@@ -83,6 +83,83 @@ module SidePanelModule
   module Eng
     include BaseModule
 
+    #|           |
+    #| Contact Us                     |
+    #| App Feedback                   |
+    #| Logout                         |
+    #| Browse our holiday collections |
+
+    def validate_typical_booking_menu_items(var)
+      puts "validate_typical_booking_menu_items (#{var})"
+      case var
+        when "Home"
+          assert_wait_for_text @@home
+        when "Countdown"
+          assert_wait_for_text @@side_panel_countdown
+        when "Holiday summary"
+          assert_wait_for_text capitalize_first_letter_of_each_word @@side_panel_booking_summary
+        when "Extras"
+          check_side_panel("extra", 2) # 2 extras
+        when "Weather"
+          assert_wait_for_text @@side_panel_weather
+        when "Destination"
+          assert_wait_for_text "Destinations"
+          puts "######## TODO this must be updated based on number of destinations"
+        when "Excursions"
+          assert_wait_for_text @@excursions
+        when "Currency Converter"
+          scroll_page_and_assert_text @@side_panel_currency
+        when "Kontakt heading"
+          scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_contact_heading)
+        when "Holiday checklist"
+          #scroll_page_and_assert_text @@
+          assert_wait_for_text capitalize_first_letter_of_each_word @@holiday_checklist
+        when "Contact Us"
+          scroll_side_panel capitalize_first_letter_of_each_word @@side_panel_contact
+          assert_wait_for_text @@side_panel_contact
+        when "Important Information"
+          scroll_side_panel capitalize_first_letter_of_each_word(@@important_information)
+          assert_wait_for_text capitalize_first_letter_of_each_word(@@important_information)
+        when "App Feedback"
+          scroll_side_panel capitalize_first_letter_of_each_word(@@app_feedback)
+          assert_wait_for_text capitalize_first_letter_of_each_word(@@app_feedback)
+        when "Logout"
+          scroll_side_panel @@log_out_text
+          scroll_page_and_assert_text @@log_out_text
+        when "Browse our holiday collections"
+          scroll_side_panel @@browse_banner
+          assert_wait_for_text @@browse_banner
+        else
+          fail "product type not verified:#{var}:"
+      end
+    end
+
+    def check_side_panel(var, count=1)
+      case var
+        when "flight"
+          assert_wait_for_text @@side_panel_flight if count==1
+          assert_wait_for_text @@side_panel_flights if count>1
+        when "extra"
+          if (check_text_in_view @@side_panel_extra) != true
+            assert_wait_for_text @@side_panel_extras
+          end
+        #assert_wait_for_text @@side_panel_extra if count==1
+        #assert_wait_for_text @@side_panel_extras if count>1
+        when "hotel"
+          assert_wait_for_text(count>1 ? @@side_panel_hotels : @@side_panel_hotel)
+        when "insurance"
+          assert_wait_for_text @@side_panel_insurance if count==1
+          assert_wait_for_text @@side_panel_insurances if count>1
+        when "transfer"
+          assert_wait_for_text @@side_panel_transfer
+        when "Destination"
+          assert_wait_for_text @@side_panel_destination if count==1
+          assert_wait_for_text @@side_panel_destination if count>1
+        else
+          fail "product type not verified:#{var}:"
+      end
+    end
+
     def verify_side_panel_strings
       scroll_side_panel_and_assert @@home
       scroll_side_panel_and_assert @@side_panel_booking_summary
@@ -143,7 +220,7 @@ module SidePanelModule
           scroll_page_and_assert_text @@side_panel_countdown
         when "My Booking"
           scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_my_booking)
-        when "Booking summary"
+        when "Holiday summary"
           scroll_page_and_assert_text @@side_panel_booking_summary
         when "Flights"
           check_side_panel("flight", 2) # 2 flights
@@ -219,6 +296,8 @@ module SidePanelModule
           assert_wait_for_text @@side_panel_insurances if count>1
         when "transfer"
           assert_wait_for_text @@side_panel_transfer
+        when "Destination"
+          assert_wait_for_text @@side_panel_destination
         else
           fail "product type not verified:#{var}:"
       end
