@@ -93,6 +93,12 @@ module HomeModule
   module Tablet
     include BaseModule
 
+
+    def check_temp_present
+      res=query("view marked:'weather_Biscuit' view marked:'temp'",:text)[0]
+      fail("temperature is empty") if res.match(/\d+/)==nil
+    end
+
     def check_countdown_biscuit
       assert_wait_for_acc @@countdown_biscuit_acc
       assert_wait_for_text @@days_to_go

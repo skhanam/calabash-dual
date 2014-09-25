@@ -290,6 +290,9 @@ end
 
 When(/^I should see Weather type icon$/) do
   @homePage.assert_wait_for_text "°c"
+  #check weather is a number
+  @homePage.check_temp_present
+
 end
 
 When(/^I should see country name$/) do
