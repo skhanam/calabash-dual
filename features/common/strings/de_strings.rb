@@ -77,7 +77,7 @@ module DEMeineTUI
   end
 
   def login_page_strings
-    @@login_page_text = $g_phone ? get_localized_string("login_welcome"):"HAVE A BOOKING, LETS LOGIN"
+    @@login_welcome= get_localized_string "login_welcome" #Willkommen
     #@@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
     @@email_hint_text= "Benutzername / E-Mail eingeben" #get_localized_string "login_email_hint"

@@ -44,7 +44,7 @@ class LoginBasePage < BasePage
   end
 
   def check_login_screen
-    assert_wait_for_text(@@login_page_text)
+    assert_wait_for_text(@@login_welcome)
   end
 
   def navigate_to_terms

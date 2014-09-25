@@ -42,6 +42,8 @@ module NordicsStrings
   end
 
   def login_page_strings
+    @@login_welcome= get_localized_string "login_welcome" #Willkommen
+
     @@login_page_title = get_localized_string "login_welcome"
     @@login_page_text = get_localized_string "welcome_login_paragraph" # Appen Min semester vänder
 
@@ -127,6 +129,7 @@ module NordicsStrings
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
+    @@side_panel_contact=get_localized_string "contact" #"Contact"
     @@side_panel_destination=get_localized_string "destination"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
