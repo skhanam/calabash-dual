@@ -64,3 +64,28 @@ end
 When(/^I see add booking biscuit$/) do
   @myBookingsPage.check_add_booking_screen
 end
+
+When(/^I tap on Logout$/) do
+  @myAccountPage.click_on_logout_button
+end
+
+Then(/^I should see logout OS dialogue displayed$/) do
+  @myAccountPage.verify_logout_popup
+end
+
+When(/^I tap on Add Booking biscuit$/) do
+  @myBookingsPage.click_add_booking_biscuit
+end
+
+Then(/^I should see Add Booking form displayed$/) do
+  @myBookingsPage.check_add_booking_page_tablet
+end
+
+When(/^I tap on any booking biscuit$/) do
+@myAccountPage.click_booking_biscuit
+end
+
+Then(/^I should observe that the app homepage view has the selected booking loaded$/) do
+   @homePage.click_weather_biscuit
+   @myAccountPage.verify_booking_biscuit_loaded
+end

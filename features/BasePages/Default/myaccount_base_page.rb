@@ -5,6 +5,7 @@
 =end
 
 class MyAccountBasePage < BasePage
+  include BaseModule
 
   def check_my_account_screen_title
     verify_page_title @@my_account_title if $g_phone
@@ -87,6 +88,16 @@ class MyAccountBasePage < BasePage
   end
 
 
+  def click_on_logout_button
+    scroll_page_and_assert_text(@@log_out_text)
+    touch($g_query_txt+"marked:'#{@@log_out_text}'")
+    assert_wait_for_text(@@my_account_logout_title)
+  end
+
+  def verify_logout_popup
+     assert_wait_for_text(@@my_account_logout_title)
+  end
+
   def validate_menu_items(var)
     case var
       when "username"
@@ -106,6 +117,18 @@ class MyAccountBasePage < BasePage
       when "logout"
         scroll_page_and_assert_text(@@log_out_text)
     end
+  end
+
+  def click_booking_biscuit
+    touch($g_query_txt+"marked:'#{@@booking_active_biscuit}'")
+  end
+
+  def check_booking_biscuit_loaded
+    assert_wait_for_acc(@@holiday_message_minus_548)
+  end
+
+  def verify_booking_biscuit_loaded
+    assert_wait_for_acc(@@weather_country)
   end
 
 end

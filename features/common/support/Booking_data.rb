@@ -6,6 +6,11 @@ class Bookings
   #attr_accessor :user, :products, :destination
 
   def initialize
+    #(payload=$g_current_booking["payload"])
+    #@payload=payload
+    #@destinations=@payload["destinationGuide"]
+    #@booking_summary= @payload["bookingSummary"]
+    #@products=@payload["products"]
   end
 
   def get_countdown_destination
@@ -28,6 +33,18 @@ class Bookings
     end
 
     return countries
+    #
+    #if $g_nordics_app
+    #  @destinations["data"].each do |var|
+    #    countries<< var["destinationName"]
+    #  end
+    #else
+    #  @destinations["data"].each do |var|
+    #    countries<< var[1]["destinationName"]
+    #  end
+    #end
+    #
+    #return countries
   end
 
 
@@ -104,6 +121,8 @@ class Bookings
     else
       date_string = $g_current_user_details[:valid][:departuredate]+" "+$g_current_user_details[:valid][:DepartureTime]
       days_left=(DateTime.strptime(date_string, '%d-%m-%Y %H:%M') - DateTime.now).to_i
+      #date_string = $g_current_user_details[:valid][:departuredate]
+      #days_left=(DateTime.strptime(date_string, '%d-%m-%Y') - DateTime.now).to_i
       puts "days_left #{days_left}"
       return days_left
     end

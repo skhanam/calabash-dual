@@ -103,6 +103,7 @@ module DEMeineTUI
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_insurance_acc=get_localized_string "insurance"
     @@home_page_meet_your_travel_agent= get_localized_string "meet_your_travel_agent" #Lernen Sie Ihre Reiseleitung kennen
+    @@holiday_message_minus_548= get_localized_string "holiday_message_minus_548"
   end
 
   def meet_rep_strings
@@ -163,6 +164,7 @@ module DEMeineTUI
     @@my_bookings_edit_account=get_localized_string "edit_my_account"
     @@my_bookings_past_bookings=get_localized_string "past_bookings"
     @@my_bookings_current_bookings=get_localized_string "current_bookings"
+    @@booking_active_biscuit= "reservation_test0012 active_booking"
   end
 
   def my_account_strings
@@ -209,7 +211,10 @@ module DEMeineTUI
   def weather_page_strings
     @@weather_page_title=get_localized_string "weather_header"
     @@share_weather=get_localized_string "share_weather"
+    @@weather_country="Dubai"
   end
+
+
 
   def add_booking_page_strings
 
@@ -224,10 +229,13 @@ module DEMeineTUI
 
     @@signup_your_booking= get_localized_string "signup_your_booking" #Ihre Buchung
 
-    @@add_a_booking_page_firstname =get_localized_string "forename"
+    @@add_a_booking_page_firstname =get_localized_string "forename" if $g_phone
+    @@add_a_booking_page_firstname =get_localized_string "signup_first_name" if $g_tablet
     @@add_a_booking_page_firstname_hint =get_localized_string "signup_first_name_hint"
 
-    @@add_a_booking_page_last_name =get_localized_string "surname"
+    @@add_a_booking_page_last_name =get_localized_string "surname" if $g_phone
+    @@add_a_booking_page_last_name =get_localized_string "signup_lastName_hint" if $g_tablet
+
     @@add_a_booking_page_last_name_hint =get_localized_string "signup_lastName_hint"
 
     @@add_a_booking_page_booking_code ="Vorgang/Buchungscode:"
@@ -237,7 +245,7 @@ module DEMeineTUI
     @@add_a_booking_page_arrival_date_hint = get_localized_string "signup_departure_start_date_hint"
 
     @@add_a_booking_page_find_booking_button ="Buchung hinzufügen"
-    @@add_a_booking_page_need_help ="Ich benötige Hilfe"
+    @@add_a_booking_page_need_help = get_localized_string "i_need_help" #"Ich benötige Hilfe"
   end
 
   def new_user_registration
@@ -413,6 +421,7 @@ module DEMeineTUI
     @@good_to_know_page_text=get_localized_string "goodtoknow_blurb"
   end
 
+  #Not Initialized this below method > please use below strings as required
   def extra_strings
     @@car_message_minus_548= get_localized_string "car_message_minus_548" #Ihr Auto steht für Sie bereit. Wir freuen uns auf Sie!
     @@explore_tui_beach_hotel_body= get_localized_string "explore_tui_beach_hotel_body" #Macht jeden Sommer noch schöner: Sonne, Sand und Meer. Finden Sie Ihren Platz an der Sonne!
@@ -599,7 +608,7 @@ module DEMeineTUI
     @@holiday_message_minus_14= get_localized_string "holiday_message_minus_14" #Ihre Reise steht vor der Tür. Sind Sie schon urlaubsreif?
     @@holiday_message_minus_2= get_localized_string "holiday_message_minus_2" #schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!
     @@holiday_message_minus_3= get_localized_string "holiday_message_minus_3" #nur noch [days] mal schlafen, dann geht's endlich los!
-    @@holiday_message_minus_548= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!
+    #@@holiday_message_minus_548= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!
     @@holiday_message_plus_1= get_localized_string "holiday_message_plus_1" #willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub
     @@holiday_message_plus_7= get_localized_string "holiday_message_plus_7" #sind Sie schon wieder reif für [location]?
     @@holiday_message_zero= get_localized_string "holiday_message_zero" #wir wünschen Ihnen einen schönen Urlaub!

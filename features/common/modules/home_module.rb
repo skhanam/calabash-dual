@@ -137,11 +137,8 @@ module HomeModule
 
 
     def click_weather_biscuit
-      sleep 2
       assert_wait_for_acc "weather_Biscuit"
       click_accessibility_label "weather_Biscuit"
-      sleep 2
-      verify_page_title @@weather_page_title
     end
 
     #check number of days left on countdown biscuit in home screen
