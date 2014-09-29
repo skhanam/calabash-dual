@@ -178,8 +178,4 @@ class HomePage < BasePage
     end
   end
 
-  def check_login_title
-    assert_wait_for_text @@login_welcome
-  end
-
 end

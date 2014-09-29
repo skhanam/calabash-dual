@@ -49,6 +49,10 @@ class MyBookingsPage < BasePage
    assert_wait_for_text(@@add_a_booking_page_title)
  end
 
+ def click_add_booking_biscuit
+   click_on_text(@@add_a_booking_page_title)
+ end
+
  def check_add_booking_page
    check_add_booking_screen
    assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
@@ -59,6 +63,15 @@ class MyBookingsPage < BasePage
    assert_text_present(@@add_a_booking_page_booking_code_hint)  if $g_ios
    assert_text_present(@@add_a_booking_page_arrival_date_hint) if $g_ios
  end
+
+ def check_add_booking_page_tablet
+   check_add_booking_screen
+   assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
+   assert_text_elements([@@add_a_booking_page_firstname, @@add_a_booking_page_last_name])
+   assert_text_present(@@add_a_booking_page_need_help)
+   assert_text_present(@@add_a_booking_page_booking_code_hint)  if $g_ios
+   assert_text_present(@@add_a_booking_page_arrival_date_hint) if $g_ios
+end
 
 def check_all_future_booking_biscuits
   assert_partial_accessibility_label_text "active_booking" # Active biscuits are future ones present in the page

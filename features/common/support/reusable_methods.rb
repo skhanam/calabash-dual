@@ -110,7 +110,12 @@ module ReusableMethods
     config['string'].each do |var|
       all_strings_hash[var["name"]]=var["content"]
     end
-
+    #
+    #doc = REXML::Document.new(File.new(filename))
+    #all_strings_hash={}
+    #doc.elements.each("resources/string") do |ele|
+    #  all_strings_hash[ele.attributes["name"]]=ele.text
+    #end
     return all_strings_hash
   end
 

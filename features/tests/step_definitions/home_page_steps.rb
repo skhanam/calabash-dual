@@ -129,10 +129,13 @@ Given(/^I navigate to travel money page from home screen$/) do
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
+
   hotel_details=$g_booking.find_hotel_details(arg)
   hotel_name=hotel_details["name"]
   @page.scroll_page_and_assert_text(hotel_name)
   @page.click_on_text(hotel_name)
+
+
 end
 
 When(/^I navigate to destination using home page biscuit$/) do
@@ -307,8 +310,4 @@ end
 When(/^I should see Weather Biscuit display weather for each destination in a loop of 5s$/) do
  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
-end
-
-When(/^I should see Heading - Login$/) do
-@homePage.check_login_title
 end
