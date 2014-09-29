@@ -223,16 +223,6 @@ module AppStrings
     @@countdown_biscuit_acc="countdown_Biscuit"
     @@weather_biscuit_acc="weather_Biscuit"
 
-    @@welcome_login_surname_hint = get_localized_string "welcome_login_surname_hint"
-    @@welcome_login_surname_extra = get_localized_string "welcome_login_surname_extra"
-    @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date"
-    @@welcome_login_departure_date_extra = get_localized_string "welcome_login_departure_date_extra"
-
-    @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint"
-    @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint"
-    @@welcome_login_booking_ref_hint_msg = get_localized_string "welcome_help_retrieve_booking_ref_validation"
-
-
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@days_to_go= get_localized_string "days_to_go"

@@ -102,8 +102,6 @@ module EN_Strings
   end
 
   def login_page_strings
-    @@submit_button= get_localized_capitalized_string "submit" #Speichern
-
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
