@@ -308,3 +308,7 @@ When(/^I should see Weather Biscuit display weather for each destination in a lo
  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
 end
+
+When(/^I should see Heading - Login$/) do
+@homePage.check_login_title
+end

@@ -117,6 +117,33 @@ module WelcomeModule
   module Tablet
     include BaseModule
 
+    def check_surname_hint_text
+      assert_text_present @@welcome_login_surname_hint
+    end
+
+    def check_surname_hint_message
+      touch "view marked:'hintIcon' index:0"
+      sleep 1
+      assert_text_present @@welcome_login_surname_extra
+    end
+
+    def check_dep_date_hint_text
+      assert_text_present @@welcome_login_departure_date
+    end
+
+    def check_booking_ref_hints
+      touch "view marked:'hintIcon' index:2"
+      assert_text_present @@welcome_login_booking_reference1_hint # 1234
+      assert_text_present @@welcome_login_booking_reference2_hint # 12345678
+      assert_text_present @@welcome_login_booking_ref_hint_msg
+    end
+
+    def check_dep_date_hint_message
+      touch "view marked:'hintIcon' index:1"
+      sleep 1
+      assert_text_present @@welcome_login_departure_date_extra
+    end
+
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
@@ -124,6 +151,13 @@ module WelcomeModule
 
     def check_welcome_screen
       return wait_for_text(@@already_customer_title)
+    end
+
+    def check_hint_texts_are_missing
+     fail "welcome_login_surname_hint still present" if check_text_in_view @@welcome_login_surname_hint
+     fail "welcome_login_departure_date_extra still present" if check_text_in_view @@welcome_login_departure_date
+     fail "welcome_login_booking_reference1_hint still present" if check_text_in_view @@welcome_login_booking_reference1_hint
+     fail "welcome_login_booking_reference2_hint still present" if check_text_in_view @@welcome_login_booking_reference2_hint
     end
 
     module Deu

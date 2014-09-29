@@ -200,27 +200,12 @@ Given(/^I have entered an invalid email and a valid password$/) do
 end
 
 Given(/^I am on 'Login' screen/) do
-
   #TODO hack for login screen
   if $g_tablet && $g_ios
-    @page.assert_wait_for_acc "swipeDown"
-    #scroll("scrollView index:2",:up)
-    #sleep 2
-    #scroll("scrollView index:2",:up)
-    #sleep 2
-
-    @page.click_accessibility_label "swipeDown"
+    sleep 2
+    @page.click_accessibility_label "swipeDown" if (@page.check_acc_label "swipeDown")
     sleep 2
   end
-  #
-  ##TODO hack for login screen
-  #if $g_german_app && $g_tablet && $g_ios
-  #  sleep 10
-  #  scroll("scrollView index:2",:up)
-  #  sleep 2
-  #  scroll("scrollView index:2",:up)
-  #  sleep 10
-  #end
 
   @commonMethods.close_whats_new_dialog
 
@@ -348,6 +333,10 @@ Then(/^I see appropriate password error message$/) do
   @loginPage.check_login_error_messages
 end
 
+When(/^I enter the first character in a pre-filled field$/) do
+  uk_login('s', $g_current_user_details[:invalid][:departuredate], '1', '2') if $g_eng_app
+end
+
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
@@ -434,10 +423,12 @@ When(/^I select correct country and resubmit details$/) do
   @loginPage.setCountry($g_user_details[:country])
   @wrongCountryPage.submit_country_details
 end
+
 When(/^I submit wrong login credentials$/) do
   step 'I have entered an invalid email and a valid password'
   step 'I submit Login details'
 end
+
 Then(/^I should see the error message tip to side of oops message$/) do
   step "I see appropriate username error message"
 end

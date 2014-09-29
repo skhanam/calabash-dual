@@ -55,3 +55,45 @@ When(/^I select 'I have logged in before'$/) do
   @welcomePage.click_already_registered
 end
 
+When(/^I should see Surname field Pre populated with 'Enter surname' with info button$/) do
+  @welcomePage.check_surname_hint_text
+  @welcomePage.check_surname_hint_message
+end
+
+When(/^I should see Date field Pre populated with 'Departure date' with info button$/) do
+  @welcomePage.check_dep_date_hint_text
+  @welcomePage.check_dep_date_hint_message
+end
+
+When(/^I should see Booking reference number pre-filled with 1234 12345678$/) do
+  @welcomePage.check_booking_ref_hints
+end
+
+When(/^I should see Large Disabled Login button$/) do
+  @welcomePage.assert_text_present @page.get_val("submit_button")
+end
+
+When(/^I should see Arrow CTA Retrieve my booking$/) do
+  @welcomePage.assert_text_present @page.get_val("welcome_help_link2")
+end
+
+When(/^I tap the 'i' icons in the form fields$/) do
+end
+
+Then(/^I should see a relevant tool tip for each i icon$/) do
+  step "I should see Surname field Pre populated with 'Enter surname' with info button"
+  step "I should see Date field Pre populated with 'Departure date' with info button"
+  step "I should see Booking reference number pre-filled with 1234 12345678"
+end
+
+When(/^I have populated the form completely$/) do
+  step 'I submit wrong login credentials'
+end
+
+Then(/^the login button should be enabled$/) do
+  step 'I see appropriate error message'
+end
+
+Then(/^I should see the pre-filled text  disappear$/) do
+  @welcomePage.check_hint_texts_are_missing
+end
