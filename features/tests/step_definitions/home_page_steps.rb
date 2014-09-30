@@ -110,7 +110,7 @@ Then(/^I must be logged in and on Home page$/) do
   acc_label="background_normal" if $g_phone
   acc_label="countdown_Biscuit" if $g_tablet
 
-  @homePage.assert_wait_for_acc("#{acc_label}", 20)
+  @homePage.assert_wait_for_acc("#{acc_label}",20)
   sleep 5
   screenshot(options={:name => "home"}) if ENV['TAKE_SS']=="yes"
 end
