@@ -80,7 +80,6 @@ class HomePage < BasePage
   end
 
 
-
   def navigate_to_currency_conv_page
     CommonMethods.new.scroll_page_till_acc "tovalue"
     scroll_view("down")
@@ -116,7 +115,7 @@ class HomePage < BasePage
     end
   end
 
-    def get_welcome_message
+  def get_welcome_message
     no_of_days_to_go=-1*$g_booking.get_countdown_days #Hard coded for now until test data is available
     puts "no_of_days_to_go #{no_of_days_to_go}"
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
@@ -174,8 +173,9 @@ class HomePage < BasePage
     if res.count<1
       fail "No weather present"
     else
-      res.each {|var| assert_wait_for_text(var,6)}
+      res.each { |var| assert_wait_for_text(var, 6) }
     end
   end
 
 end
+

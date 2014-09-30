@@ -308,6 +308,19 @@ Given(/^I am on Home screen with multi destination booking$/) do
 end
 
 When(/^I should see Weather Biscuit display weather for each destination in a loop of 5s$/) do
- fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
+  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
+end
+
+Then(/^I should see a "([^"]*)" biscuit on home page$/) do |arg|
+  @homePage.scroll_to_biscuit arg
+
+end
+When(/^I tap on the checklist biscuit on home page$/) do
+  step "I should see a \"checklist\" biscuit on home page"
+  @homePage.click_accessibility_label "checklist_Biscuit"
+end
+
+Then(/^I should be navigated to Checklist page$/) do
+  @checklistPage.verify_checklist_page
 end

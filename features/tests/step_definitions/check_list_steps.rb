@@ -24,7 +24,7 @@ Then(/^I see the item at bottom of check list$/) do
 end
 
 Then(/^I verify all check list items are shown$/) do
-  @checklistPage.verify_checklist_page
+  @checklistPage.verify_checklist_items
 end
 
 Then(/^I verify items to pack are (\d+)$/) do |var|

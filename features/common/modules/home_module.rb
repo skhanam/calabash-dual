@@ -7,16 +7,7 @@ module HomeModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
 
-  def navigate_to_check_list
-    begin
-      scroll_side_panel_and_assert @@holiday_checklist
-      click_on_text @@holiday_checklist
-    rescue
-      scroll_side_panel_and_assert @@holiday_checklists
-      click_on_text @@holiday_checklists
-    end
-    verify_page_title @@holiday_checklists
-  end
+
 
   def logout_from_home_screen
     click_accessibility_label @@home_page_sidepanel_acc_label
@@ -36,6 +27,17 @@ module HomeModule
 
   module Phone
     include BaseModule
+
+    def navigate_to_check_list
+      begin
+        scroll_side_panel_and_assert @@holiday_checklist
+        click_on_text @@holiday_checklist
+      rescue
+        scroll_side_panel_and_assert @@holiday_checklists
+        click_on_text @@holiday_checklists
+      end
+      verify_page_title @@holiday_checklists
+    end
 
     def check_countdown_biscuit
       fail "TODO "
@@ -93,6 +95,25 @@ module HomeModule
   module Tablet
     include BaseModule
 
+    def navigate_to_check_list
+      begin
+
+        scroll_side_panel_and_assert capitalize_first_letter_of_each_word @@holiday_checklist
+        click_on_text capitalize_first_letter_of_each_word @@holiday_checklist
+      rescue
+        scroll_side_panel_and_assert @@holiday_checklists
+        click_on_text @@holiday_checklists
+      end
+      verify_page_title @@holiday_checklists
+    end
+
+    def scroll_to_biscuit var
+      case var
+        when "checklist"
+          scroll_view "right"
+          wait_for_acc_label "checklist_Biscuit"
+      end
+    end
 
     def check_temp_present
       res=query("view marked:'weather_Biscuit' view marked:'temp'",:text)[0]
