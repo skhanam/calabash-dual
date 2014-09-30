@@ -12,4 +12,3 @@ Then(/^I see good to know page$/) do
   @page.assert_wait_for_text @dest_country
   @goodToKnowPage.verify_good_to_know_page
 end
-

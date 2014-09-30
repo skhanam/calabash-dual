@@ -145,7 +145,7 @@ module ViewModule
     begin
       wait_poll({:until_exists => query, :timeout => time_out.to_i}) do
         sleep 1
-        puts "assert_wait_for_element: waiting for webview element"
+        puts "assert_wait_for_element: waiting for element"
       end
     rescue
       return false

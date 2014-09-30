@@ -110,7 +110,7 @@ Then(/^I must be logged in and on Home page$/) do
   acc_label="background_normal" if $g_phone
   acc_label="countdown_Biscuit" if $g_tablet
 
-  @homePage.assert_wait_for_acc("#{acc_label}",20)
+  @homePage.assert_wait_for_acc("#{acc_label}", 20)
   sleep 5
   screenshot(options={:name => "home"}) if ENV['TAKE_SS']=="yes"
 end
@@ -308,19 +308,54 @@ Given(/^I am on Home screen with multi destination booking$/) do
 end
 
 When(/^I should see Weather Biscuit display weather for each destination in a loop of 5s$/) do
-  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
+ fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
 end
 
-Then(/^I should see a "([^"]*)" biscuit on home page$/) do |arg|
-  @homePage.scroll_to_biscuit arg
-
-end
-When(/^I tap on the checklist biscuit on home page$/) do
-  step "I should see a \"checklist\" biscuit on home page"
-  @homePage.click_accessibility_label "checklist_Biscuit"
+Given(/^I have a pre-holiday booking$/) do
+  step "I am on home screen with default booking"
 end
 
-Then(/^I should be navigated to Checklist page$/) do
-  @checklistPage.verify_checklist_page
+When(/^I swipe to the right of the screen$/) do
+   @page.scroll_view("right",0)
 end
+
+Then(/^I should see a destination image biscuit appear$/) do
+  @homePage.check_destination_biscuit
+end
+
+Then(/^I should see a  destination text label name$/) do
+  @destinationInfo.verify_list_of_destinations
+end
+
+When(/^I tap on the destination Biscuit$/) do
+  @homePage.click_destination_biscuit
+end
+
+Then(/^I should be navigated to destination page$/) do
+  @homePage.verify_destination_page
+end
+
+And(/^I swipe twice to the left of the screen$/) do
+  @homePage.find_currency_converter_biscuit
+ # @page.scroll_page_till_acc(@@home_page_currency_Biscuit_acc,"right")
+end
+
+Then(/^I should see a Currency Converter Biscuit appear$/) do
+  @homePage.verify_currency_converter_biscuit
+end
+
+Then(/^I should see the home currency of 1 = destination currency symbol equal value$/) do
+  @homePage.verify_currency_converter_exchange_names
+end
+
+Then(/^I should see the Currency abbreviations appear below each symbol$/) do
+
+end
+
+
+
+
+
+
+

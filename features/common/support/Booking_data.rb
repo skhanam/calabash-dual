@@ -57,6 +57,22 @@ class Bookings
     return arr
   end
 
+  def get_currency_details
+    @fromCurrency
+    @ToCurrency1=nil
+    @ToCurrency2=nil
+    @fromCurrency=nil
+
+    if $g_german_app
+      @fromCurrency=@payload["currency"]["fromCurrency"]
+      @ToCurrency1=@payload["currency"].keys[1]
+      @ToCurrency2=@payload["currency"].keys[2]
+    elsif $g_eng_app
+      @fromCurrency=@payload["currency"]["fromCurrency"]
+      @ToCurrency1=@payload["currencyCode"]
+    end
+    return @fromCurrency,@ToCurrency1,@ToCurrency2
+  end
 
   def get_all_products_for_booking
     arr=[]

@@ -36,3 +36,4 @@ end
 Then(/^I should see an overlay box to call or cancel$/) do
   @commonMethods.verify_call_button_overlay
 end
+

@@ -33,6 +33,37 @@ class HomePage < BasePage
 
   end
 
+  def check_destination_biscuit
+    assert_wait_for_acc(@@destination_biscuit_acc)
+  end
+
+  def click_destination_biscuit
+    scroll_page_till_acc(@@destination_biscuit_acc, "right")
+    #scroll_view("right",0)
+    click_accessibility_label(@@destination_biscuit_acc)
+  end
+
+  def verify_destination_page
+    assert_wait_for_acc(@@destination_page_title_acc)
+  end
+
+  def find_currency_converter_biscuit
+    scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
+    #click_accessibility_label(@@home_page_currency_Biscuit_acc)
+  end
+
+  def verify_currency_converter_biscuit
+    assert_wait_for_acc(@@home_page_currency_Biscuit_acc)
+  end
+
+  def verify_currency_converter_exchange_names
+    arr= $g_booking.get_currency_details
+    arr.each do |var|
+      query_txt=$g_query_txt+"marked:'currency_Biscuit' label text:'#{var}'"
+      assert_wait_for_element(query_txt,5)
+    end
+  end
+
   def select_guide_online
     scroll_page_and_assert_text @@guide_online
     #query=("* contentDescription:'booking_summary.' text:'#{@@guide_online}'") if $g_android
