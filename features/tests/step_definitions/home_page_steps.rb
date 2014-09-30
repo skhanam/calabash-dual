@@ -311,3 +311,51 @@ When(/^I should see Weather Biscuit display weather for each destination in a lo
  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
 end
+
+Given(/^I have a pre-holiday booking$/) do
+  step "I am on home screen with default booking"
+end
+
+When(/^I swipe to the right of the screen$/) do
+   @page.scroll_view("right",0)
+end
+
+Then(/^I should see a destination image biscuit appear$/) do
+  @homePage.check_destination_biscuit
+end
+
+Then(/^I should see a  destination text label name$/) do
+  @destinationInfo.verify_list_of_destinations
+end
+
+When(/^I tap on the destination Biscuit$/) do
+  @homePage.click_destination_biscuit
+end
+
+Then(/^I should be navigated to destination page$/) do
+  @homePage.verify_destination_page
+end
+
+And(/^I swipe twice to the left of the screen$/) do
+  @homePage.find_currency_converter_biscuit
+ # @page.scroll_page_till_acc(@@home_page_currency_Biscuit_acc,"right")
+end
+
+Then(/^I should see a Currency Converter Biscuit appear$/) do
+  @homePage.verify_currency_converter_biscuit
+end
+
+Then(/^I should see the home currency of 1 = destination currency symbol equal value$/) do
+  @homePage.verify_currency_converter_exchange_names
+end
+
+Then(/^I should see the Currency abbreviations appear below each symbol$/) do
+
+end
+
+
+
+
+
+
+
