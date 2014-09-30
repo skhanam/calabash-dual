@@ -1,6 +1,35 @@
 class ChecklistPageUk < BasePage
+  include BaseModule
+
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
+  module Phone
+
+    def open_to_do_list
+      fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
+      assert_text_present @@my_do_list
+      click_on_text @@to_do_lists
+    end
+  end
+
+  module Tablet
+
+    def open_to_do_list
+      assert_text_present "To Do list"
+      click_on_text "To Do list"
+    end
+  end
 
   def verify_checklist_page
+   assert_wait_for_text "Add item"
+   assert_partial_text "Packing list"
+   assert_partial_text "To Do list"
+  end
+
+  def verify_checklist_items
     sleep 2
     $g_engChecklist.each do |var|
       txt=escape_quotes(var["message"])
@@ -58,11 +87,6 @@ class ChecklistPageUk < BasePage
     click_accessibility_label "packingList"
   end
 
-  def open_to_do_list
-    fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
-    assert_text_present @@my_do_list
-    click_on_text @@to_do_lists
-  end
 
   def select_first_check_list_item
     query_txt="#{$g_query_txt}marked:'#{@@check_list_item_text_acc}' index:0" if $g_ios

@@ -37,9 +37,7 @@ module MyBookingsModule
     module Tablet
 
       def scroll_to_booking(id, dir=":right", till_id=nil, count=10)
-        #write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
         puts "scroll_page_and_assert_text (#{id})"
-        #id=escape_quotes_smart(id)
         repeat_count=0
 
         if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")

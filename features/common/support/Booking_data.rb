@@ -17,12 +17,13 @@ class Bookings
     $g_current_booking["payload"]["destination"]
   end
 
-  def set_payload(payload=$g_current_booking["payload"])
+  def set_payload(payload=$g_current_booking["payload"],eng_checkList=$g_engChecklist)
     @payload=payload
     @destinations=@payload["destinationGuide"]
     @booking_summary= @payload["bookingSummary"]
     @products=@payload["products"]
     @weather=@payload["weather"]
+    @eng_checkList=eng_checkList if $g_eng_app
   end
 
   def get_destination_countries
@@ -239,6 +240,14 @@ class Bookings
   def get_insurance_details
     puts find_de_products("insurance")
     fail "failed"
+  end
+
+  def get_checklist_count
+    @eng_checkList["payload"]["itemList"].count
+  end
+
+  def get_checklist_items
+    @eng_checkList["payload"]["itemList"].count
   end
 
 end

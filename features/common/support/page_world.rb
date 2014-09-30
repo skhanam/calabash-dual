@@ -19,7 +19,6 @@ module TestModule
 
 
     if ($g_current_app=='DE_MT')
-      #@sidePanel ||=SidePanelDe.new
       @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
@@ -36,13 +35,11 @@ module TestModule
       @myBookingsPage ||= MyBookingsPage.new
       @wrongCountryPage ||=WrongCountryPage.new
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
-      #@sidePanel ||=SidePanelEng.new
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
       @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
 
     elsif ($g_nordics_app)
-      #@sidePanel ||=SidePanelNor.new
       @contactPage=ContactUsNOR.new
       @dutyFreePage ||= DutyFreePage.new
 
