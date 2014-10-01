@@ -200,12 +200,17 @@ Given(/^I have entered an invalid email and a valid password$/) do
 end
 
 Given(/^I am on 'Login' screen/) do
-  if $g_tablet && $g_ios
-    @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
-    @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
-    sleep 2
-  end
   @commonMethods.close_whats_new_dialog
+
+  if $g_tablet && $g_ios
+    if @welcomePage.check_welcome_screen
+      @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
+    elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
+      puts "On login screen"
+    else
+      fail "Not on login screen"
+    end
+  end
   @welcomePage.navigate_to_login if $g_german_app && $g_phone
   @loginPage.check_login_screen
 end

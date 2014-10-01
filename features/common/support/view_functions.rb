@@ -19,12 +19,6 @@ module ViewModule
     return query($g_query_txt+"contentDescription:'#{id}.'", :text).first if $g_android
   end
 
-  def click_accessibility_label(id)
-    touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
-    touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
-    sleep 1
-  end
-
   def click_on_partial_text(text)
     touch("#{$g_query_txt}{text CONTAINS '#{text}'}")
   end
@@ -110,10 +104,15 @@ module ViewModule
 
   def check_acc_label(id)
     puts "check_acc_label (#{id})"
-    #write_verified_text_to_file "check_acc_label (#{id})"
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
   end
 
+
+  def click_accessibility_label(id)
+    touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
+    touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
+    sleep 1
+  end
 
   def assert_partial_accessibility_label_text(label_text)
     array=label "view"

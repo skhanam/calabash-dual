@@ -45,14 +45,13 @@ Feature: Verify screens shown before logging into App
     Then I see alternative country options for submitted credentials
     And I see new user registration section
 
-  @wrong-country @reset @reg-de
+  @wrong-country1 @reset @reg-de
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
     Then I see alternative country options for submitted credentials
     When I select correct country and resubmit details
     Then I am on Home screen
-
 
   @home-weather2 @reg-de
   Scenario: US16737 Verify Weather Biscuit
