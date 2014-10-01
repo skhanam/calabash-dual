@@ -200,6 +200,8 @@ Given(/^I have entered an invalid email and a valid password$/) do
 end
 
 Given(/^I am on 'Login' screen/) do
+  puts "#TODO sleep must be removed"
+  sleep 5
   @commonMethods.close_whats_new_dialog
 
   if $g_tablet && $g_ios
