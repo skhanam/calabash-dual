@@ -61,10 +61,14 @@ fi
 
 
 if [ "$1" == "clean" ] ; then
-	echo ""
-	echo "Cleaning and rebuilding project name:"${PROJ_FOLDER}
-	echo "******** ####  Updating All Projects"
 
+	FILENAME="ios$LANG.app"
+	echo ""
+	echo "******** ####  Deleting old "$FILENAME
+	[ -d "$FILENAME" ] && rm -rf "$FILENAME"
+
+	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
+	echo "******** ####  Updating All Projects"
 	cp expect.exp ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 	rm -rf build/ Resources/
