@@ -56,11 +56,23 @@ class HomePage < BasePage
     assert_wait_for_acc(@@home_page_currency_Biscuit_acc)
   end
 
+  def verify_currency_converter_page
+    assert_wait_for_acc(@@currency_banner_acc)
+  end
+
+  def click_currency_converter_biscuit
+    click_accessibility_label(@@home_page_currency_Biscuit_acc)
+  end
+
+  def find_excursions_biscuit
+    scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
+    #click_accessibility_label(@@home_page_currency_Biscuit_acc)
+  end
   def verify_currency_converter_exchange_names
     arr= $g_booking.get_currency_details
     arr.each do |var|
       query_txt=$g_query_txt+"marked:'currency_Biscuit' label text:'#{var}'"
-      assert_wait_for_element(query_txt,5)
+      assert_wait_for_element(query_txt, 5)
     end
   end
 

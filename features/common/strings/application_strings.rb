@@ -52,7 +52,6 @@ module AppStrings
     else
       $g_strings_set=true
     end
-
     common_strings
     set_test_data
     image_icons_acc_label
@@ -64,9 +63,9 @@ module AppStrings
     check_open_url_in_browser_cta
     whats_new_strings
     push_notification_dialog
+    currency_converter_page_strings
     phone_only_strings if $g_phone
     tablet_only_strings if $g_tablet
-
     puts "settings strings from file #{$g_lang_strings_file} app:#{$g_current_app}"
 
     if ($g_current_app=='DE_MT')
@@ -162,6 +161,10 @@ module AppStrings
 
   end
 
+  def currency_converter_page_strings
+    @@currency_banner_acc="Currency"
+  end
+
   def app_feedback_strings
     @@side_panel_app_feedback = get_localized_string "app_feedback"
 
@@ -221,7 +224,7 @@ module AppStrings
 
     @@already_customer_title="HAVE A BOOKING, LETS LOGIN"
     @@login_button_acc = "SUBMIT"
-    @@countdown_biscuit_acc="countdown_Biscuit"
+    @@countdown_biscuit_acc="homeBiscuit_countdown"
     @@weather_biscuit_acc="weather_Biscuit"
     @@destination_biscuit_acc="destination_Biscuit"
     @@destination_page_title_acc="Destination"
