@@ -108,7 +108,7 @@ end
 Then(/^I must be logged in and on Home page$/) do
   #TODO optimize below code
   acc_label="background_normal" if $g_phone
-  acc_label="countdown_Biscuit" if $g_tablet
+  acc_label= @page.get_val("countdown_biscuit_acc") if $g_tablet
 
   @homePage.assert_wait_for_acc("#{acc_label}", 20)
   sleep 5
@@ -308,7 +308,7 @@ Given(/^I am on Home screen with multi destination booking$/) do
 end
 
 When(/^I should see Weather Biscuit display weather for each destination in a loop of 5s$/) do
- fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
+  fail("This isnt multi destination booking") if $g_booking.get_country_names_for_weather.count <=1
   @homePage.country_name_shown_weather_biscuit?
 end
 
@@ -317,7 +317,7 @@ Given(/^I have a pre-holiday booking$/) do
 end
 
 When(/^I swipe to the right of the screen$/) do
-   @page.scroll_view("right",0)
+  @page.scroll_view("right", 0)
 end
 
 Then(/^I should see a destination image biscuit appear$/) do
@@ -338,7 +338,7 @@ end
 
 And(/^I swipe twice to the left of the screen$/) do
   @homePage.find_currency_converter_biscuit
- # @page.scroll_page_till_acc(@@home_page_currency_Biscuit_acc,"right")
+  # @page.scroll_page_till_acc(@@home_page_currency_Biscuit_acc,"right")
 end
 
 Then(/^I should see a Currency Converter Biscuit appear$/) do
@@ -349,13 +349,21 @@ Then(/^I should see the home currency of 1 = destination currency symbol equal v
   @homePage.verify_currency_converter_exchange_names
 end
 
-Then(/^I should see the Currency abbreviations appear below each symbol$/) do
-
+Given(/^I can see the Currency Converter Biscuit$/) do
+  step "I have a pre-holiday booking"
+  step "I swipe twice to the left of the screen"
+  step "I should see a Currency Converter Biscuit appear"
 end
 
+When(/^I tap on the Currency Converter Biscuit$/) do
+  @homePage.click_currency_converter_biscuit
+end
 
+Then(/^I should be navigated to Currency Converter page$/) do
+  @homePage.verify_currency_converter_page
+end
 
-
-
-
-
+Given(/^I can see the Excursions Biscuit$/) do
+  step "I have a pre-holiday booking"
+  step "I swipe twice to the left of the screen"
+end

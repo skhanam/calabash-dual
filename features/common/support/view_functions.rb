@@ -141,7 +141,7 @@ module ViewModule
     end
   end
 
-  def assert_wait_for_element(query,time_out=10)
+  def assert_wait_for_element(query, time_out=10)
     begin
       wait_poll({:until_exists => query, :timeout => time_out.to_i}) do
         sleep 1

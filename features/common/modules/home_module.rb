@@ -165,7 +165,7 @@ module HomeModule
     #check number of days left on countdown biscuit in home screen
     def check_days_left_to_travel
       res1=$g_booking.get_countdown_days.to_s.to_i
-      res2=label("view marked:'countdown_Biscuit' label index:0")[0]
+      res2=label("view marked:'#{@@countdown_biscuit_acc}' label index:0")[0]
       write_verified_text_to_file("#{res2} days to go")
       puts "#{res1} != #{res2}"
       fail("Number of days are wrong") if (res1 != res2)

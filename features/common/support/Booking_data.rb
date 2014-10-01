@@ -58,7 +58,7 @@ class Bookings
   end
 
   def get_currency_details
-    @fromCurrency
+    @fromCurrency=nil
     @ToCurrency1=nil
     @ToCurrency2=nil
     @fromCurrency=nil
