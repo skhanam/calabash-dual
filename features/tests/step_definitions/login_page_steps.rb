@@ -203,27 +203,11 @@ Given(/^I am on 'Login' screen/) do
 
   #TODO hack for login screen
   if $g_tablet && $g_ios
-    @page.assert_wait_for_acc "swipeDown"
-    #scroll("scrollView index:2",:up)
-    #sleep 2
-    #scroll("scrollView index:2",:up)
-    #sleep 2
-
-    @page.click_accessibility_label "swipeDown"
+    @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
+    @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
     sleep 2
   end
-  #
-  ##TODO hack for login screen
-  #if $g_german_app && $g_tablet && $g_ios
-  #  sleep 10
-  #  scroll("scrollView index:2",:up)
-  #  sleep 2
-  #  scroll("scrollView index:2",:up)
-  #  sleep 10
-  #end
-
   @commonMethods.close_whats_new_dialog
-
   @welcomePage.navigate_to_login if $g_german_app && $g_phone
   @loginPage.check_login_screen
 end
@@ -449,8 +433,8 @@ end
 
 Given(/^I login with post holiday data$/) do
   if $g_tablet
-    @page.assert_wait_for_acc "swipeDown"
-    @page.click_accessibility_label "swipeDown"
+    @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
+    @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
     sleep 2
   else
     fail "TBD for phone"
