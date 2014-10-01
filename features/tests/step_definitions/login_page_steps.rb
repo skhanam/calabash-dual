@@ -200,8 +200,6 @@ Given(/^I have entered an invalid email and a valid password$/) do
 end
 
 Given(/^I am on 'Login' screen/) do
-
-  #TODO hack for login screen
   if $g_tablet && $g_ios
     @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
     @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")

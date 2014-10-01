@@ -123,7 +123,7 @@ module WelcomeModule
     end
 
     def check_welcome_screen
-      return wait_for_text(@@already_customer_title)
+      return wait_for_text(@@already_customer_title,2)
     end
 
     module Deu
