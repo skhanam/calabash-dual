@@ -8,7 +8,6 @@ module HomeModule
   end
 
 
-
   def logout_from_home_screen
     click_acc_label @@home_page_sidepanel_acc_label
     sleep 2
@@ -112,11 +111,15 @@ module HomeModule
         when "checklist"
           scroll_view "right"
           wait_for_acc_label "checklist_Biscuit"
+        when "Currency Biscuit"
+          scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
+        when "extras Biscuit"
+          scroll_page_till_acc(@@home_page_holiday_extra_Biscuit_acc, "right")
       end
     end
 
     def check_temp_present
-      res=query("view marked:'weather_Biscuit' view marked:'temp'",:text)[0]
+      res=query("view marked:'weather_Biscuit' view marked:'temp'", :text)[0]
       fail("temperature is empty") if res.match(/\d+/)==nil
     end
 
@@ -156,10 +159,21 @@ module HomeModule
       wait_for_progress_to_disappear(@@loading_hold_on)
     end
 
-
     def click_weather_biscuit
       assert_wait_for_acc "weather_Biscuit"
       click_acc_label "weather_Biscuit"
+    end
+
+    def check_hotel_biscuit
+      assert_wait_for_acc @@home_page_hotel_Biscuit_acc
+      #click_accessibility_label "hotels_Biscuit"
+    end
+
+    def verify_hotel_biscuit
+      products=$g_booking.get_hotel_details
+      products.each do |val|
+        assert_wait_for_text val
+      end
     end
 
     #check number of days left on countdown biscuit in home screen
