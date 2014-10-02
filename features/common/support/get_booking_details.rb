@@ -75,16 +75,23 @@ end
 
 def de_user_details
   $g_endpoint ="http://37.46.24.155:3001"
+  @typical_booking_code="test0012"
   username="userdea@gmail.com"
   password="testtest"
   handshake=get_handshake("/login")
   cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
   res_login=JSON.parse(`#{cmd}`)
 
-  handshake=get_handshake("/reservation/test0012/home")
-  cmd=%Q{curl 'http://37.46.24.155:3001/reservation/test0012/home' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=oraea27uakde0khq0atnadnm73; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/home")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/home' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=oraea27uakde0khq0atnadnm73; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res_typ_home=JSON.parse(`#{cmd}`)
-  $g_user_info, $g_typical_booking_data= res_login, res_typ_home
+
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/excursions")
+  cmd= %Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=ugqb6vgb1h6tf43ln296ubahu6; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  res_typ_excursions=JSON.parse(`#{cmd}`)
+
+  $g_user_info, $g_typical_booking_data, $g_excursions= res_login, res_typ_home, res_typ_excursions
+
 end
 
 if $g_current_app== "DE_MT"

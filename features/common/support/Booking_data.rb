@@ -27,10 +27,8 @@ class Bookings
       countries<< var["destinationName"] if $g_nordics_app
       countries<< var[1]["destinationName"] if !$g_nordics_app
     end
-
     return countries
   end
-
 
   def get_country_names_for_weather
     arr=[]
@@ -234,4 +232,19 @@ class Bookings
     @eng_checkList["payload"]["itemList"].count
   end
 
+end
+
+def get_excursions
+  cmd=%Q{curl 'http://37.46.24.155:3001/reservation/test0012/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=ugqb6vgb1h6tf43ln296ubahu6; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: 00935223ec4873d8d8bcc73ec964079b44bf846e' --compressed}
+  res=JSON.parse(`#{cmd}`)
+  @payload=res["payload"]
+
+  arr=@payload["destinationAreaExcursions"]
+  arr.each do |var|
+    puts var["destinationName"]
+    var["excursions"].each do |arg|
+      puts arg["reservationCode"]
+      puts arg["infoList"][0]["value"]
+    end
+  end
 end
