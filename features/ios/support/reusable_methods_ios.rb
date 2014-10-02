@@ -259,5 +259,14 @@ module IosReusableMethods
     sleep 1
   end
 
+  def check_txt_in_webview txt
+     if (query("webView", :stringByEvaluatingJavaScriptFromString => 'document.body.innerHTML')[0].match(/#{txt}/))!=nil
+       return true
+     end
+    return false
+  end
 
+  def assert_txt_in_webview txt
+    fail "text not found" if !(check_txt_in_webView txt)
+  end
 end
