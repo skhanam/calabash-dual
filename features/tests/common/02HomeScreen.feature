@@ -45,7 +45,7 @@ Feature: Verify product pages by navigating through biscuits
   @hm5
   Scenario: Currency Converter Biscuit
     Given I have a pre-holiday booking
-    And I swipe twice to the left of the screen
+    Then I swipe to see "Currency Biscuit"
     And I should see a Currency Converter Biscuit appear
     Then I should see the home currency of 1 = destination currency symbol equal value
 
@@ -58,3 +58,19 @@ Feature: Verify product pages by navigating through biscuits
   Scenario: OnTap Excursions
     Given I can see the Excursions Biscuit
     Then I should be navigated to Excursions Mosaic page
+
+  @hm7
+  Scenario: Hotel Biscuit verification
+    Given I have a pre-holiday booking
+    When I access  the application home page
+    Then I should see a Hotel Biscuit appear
+    And I should see the text label Step inside hotel name in two lines
+
+  @hm8
+  Scenario: Holiday extras Biscuit
+    Given I have a pre-holiday booking
+    When I access  the application home page
+    Then I swipe to see "extras Biscuit"
+    Then I should see an Holiday extras Biscuit appear
+
+

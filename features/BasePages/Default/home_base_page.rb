@@ -34,6 +34,7 @@ class HomePage < BasePage
   end
 
   def check_destination_biscuit
+    scroll_page_till_acc(@@destination_biscuit_acc, "right")
     assert_wait_for_acc(@@destination_biscuit_acc)
   end
 
@@ -45,11 +46,6 @@ class HomePage < BasePage
 
   def verify_destination_page
     assert_wait_for_acc(@@destination_page_title_acc)
-  end
-
-  def find_currency_converter_biscuit
-    scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
-    #click_accessibility_label(@@home_page_currency_Biscuit_acc)
   end
 
   def verify_currency_converter_biscuit
@@ -68,6 +64,11 @@ class HomePage < BasePage
     scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
     #click_accessibility_label(@@home_page_currency_Biscuit_acc)
   end
+
+  def verify_extra_biscuit
+    assert_wait_for_acc(@@home_page_holiday_extra_Biscuit_acc)
+  end
+
   def verify_currency_converter_exchange_names
     arr= $g_booking.get_currency_details
     arr.each do |var|

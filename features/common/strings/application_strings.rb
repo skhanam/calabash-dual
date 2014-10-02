@@ -221,6 +221,9 @@ module AppStrings
     @@home_page_title_acc ="offcanvasCTA"
     @@home_page_sidepanel_acc_label ="offcanvasCTA"
     @@home_page_currency_Biscuit_acc="currency_Biscuit"
+    @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
+    @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
+
 
     @@already_customer_title="HAVE A BOOKING, LETS LOGIN"
     @@login_button_acc = "SUBMIT"

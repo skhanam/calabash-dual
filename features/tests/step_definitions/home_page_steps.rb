@@ -336,11 +336,6 @@ Then(/^I should be navigated to destination page$/) do
   @homePage.verify_destination_page
 end
 
-And(/^I swipe twice to the left of the screen$/) do
-  @homePage.find_currency_converter_biscuit
-  # @page.scroll_page_till_acc(@@home_page_currency_Biscuit_acc,"right")
-end
-
 Then(/^I should see a Currency Converter Biscuit appear$/) do
   @homePage.verify_currency_converter_biscuit
 end
@@ -351,7 +346,7 @@ end
 
 Given(/^I can see the Currency Converter Biscuit$/) do
   step "I have a pre-holiday booking"
-  step "I swipe twice to the left of the screen"
+  step "I swipe to see \"Currency Biscuit\""
   step "I should see a Currency Converter Biscuit appear"
 end
 
@@ -363,7 +358,22 @@ Then(/^I should be navigated to Currency Converter page$/) do
   @homePage.verify_currency_converter_page
 end
 
-Given(/^I can see the Excursions Biscuit$/) do
-  step "I have a pre-holiday booking"
-  step "I swipe twice to the left of the screen"
+When(/^I access  the application home page$/) do
+  @homePage.check_home_screen
+end
+
+Then(/^I should see a Hotel Biscuit appear$/) do
+@homePage.check_hotel_biscuit
+end
+
+And(/^I should see the text label Step inside hotel name in two lines$/) do
+ @homePage.verify_hotel_biscuit
+end
+
+Then(/^I swipe to see "([^"]*)"$/) do |arg|
+  @homePage.scroll_to_biscuit arg
+end
+
+Then(/^I should see an Holiday extras Biscuit appear$/) do
+@homePage.verify_extra_biscuit
 end
