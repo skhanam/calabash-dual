@@ -45,7 +45,7 @@ class CurrencyConverterBasePage < BasePage
 
     @xchange_rate=@from_cur_val_from_screen.to_f/@to_cur_val_from_screen.to_f
     sleep 2
-    click_accessibility_label "currencySwap"
+    click_acc_label "currencySwap"
     sleep 2
   end
 

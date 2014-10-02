@@ -5,7 +5,7 @@ class DutyFreePage < BasePage
   end
 
   def click_tax_free_link
-    click_accessibility_label "dutyfree_link"
+    click_acc_label "dutyfree_link"
     click_on_text @@duty_free_webview_link
   end
 

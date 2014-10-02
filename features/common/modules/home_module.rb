@@ -10,7 +10,7 @@ module HomeModule
 
 
   def logout_from_home_screen
-    click_accessibility_label @@home_page_sidepanel_acc_label
+    click_acc_label @@home_page_sidepanel_acc_label
     sleep 2
     scroll_side_panel(@@log_out_text)
     touch($g_query_txt+"text:'#{@@log_out_text}'")
@@ -21,7 +21,7 @@ module HomeModule
 
   def click_booking_summary_biscuit
     scroll_page_and_assert_text("booking_summary", "down")
-    click_accessibility_label "booking_summary"
+    click_acc_label "booking_summary"
     verify_page_title @@booking_summary_title
   end
 
@@ -45,7 +45,7 @@ module HomeModule
 
     def click_countdown_biscuit
       scroll_page_and_assert_text(@@countdown_biscuit_acc) if $g_phone
-      click_accessibility_label @@countdown_biscuit_acc
+      click_acc_label @@countdown_biscuit_acc
       verify_page_title @@countdown_page_title
     end
 
@@ -65,7 +65,7 @@ module HomeModule
       wait_for_acc_label @@home_page_account_acc
       sleep 2
       wait_for_acc_label @@home_page_account_acc
-      click_accessibility_label @@home_page_account_acc
+      click_acc_label @@home_page_account_acc
       wait_for_account_page_to_load
       verify_page_title @@my_bookings_title
     end
@@ -78,7 +78,7 @@ module HomeModule
     def click_weather_biscuit
       sleep 2
       assert_wait_for_acc "destination_temperature"
-      click_accessibility_label "destination_temperature"
+      click_acc_label "destination_temperature"
       sleep 2
       verify_page_title @@weather_page_title
     end
@@ -140,14 +140,14 @@ module HomeModule
 
     def navigate_to_account
       sleep 2
-      click_accessibility_label @@home_page_sidepanel_acc_label
+      click_acc_label @@home_page_sidepanel_acc_label
       click_on_text "Peter Pan"
       wait_for_account_page_to_load
       assert_wait_for_text @@personal_details
     end
 
     def click_countdown_biscuit
-      click_accessibility_label @@countdown_biscuit_acc
+      click_acc_label @@countdown_biscuit_acc
       sleep 2
     end
 
@@ -159,7 +159,7 @@ module HomeModule
 
     def click_weather_biscuit
       assert_wait_for_acc "weather_Biscuit"
-      click_accessibility_label "weather_Biscuit"
+      click_acc_label "weather_Biscuit"
     end
 
     #check number of days left on countdown biscuit in home screen

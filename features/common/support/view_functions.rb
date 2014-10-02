@@ -107,8 +107,8 @@ module ViewModule
     return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
   end
 
-
-  def click_accessibility_label(id)
+#click on accessibility labels
+  def click_acc_label(id)
     touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
     touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
     sleep 1
@@ -224,7 +224,7 @@ module ViewModule
   end
 
   def navigate_back
-    click_accessibility_label "navbarLeftButton"
+    click_acc_label "navbarLeftButton"
   end
 
 

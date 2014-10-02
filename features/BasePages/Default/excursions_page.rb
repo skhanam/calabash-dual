@@ -1,7 +1,7 @@
 class ExcursionsPage < BasePage
 
   def click_excursions_link
-    click_accessibility_label "Excurions_button"
+    click_acc_label "Excurions_button"
   end
 
   def check_excursions_webview

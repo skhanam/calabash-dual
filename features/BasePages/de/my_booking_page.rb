@@ -41,7 +41,7 @@ class MyBookingsPage < BasePage
  end
 
  def click_add_a_booking_button
-   click_accessibility_label "navbarRightButton"
+   click_acc_label "navbarRightButton"
    verify_page_title @@add_a_booking_page_title
  end
 
