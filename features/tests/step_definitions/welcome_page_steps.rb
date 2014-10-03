@@ -1,7 +1,6 @@
 When(/^I am on Home screen$/) do
   $first_run+=1
-
-  if $first_run !=1
+  puts "Run count #{$first_run}"
     @commonMethods.close_whats_new_dialog
     sleep 2
 
@@ -11,7 +10,6 @@ When(/^I am on Home screen$/) do
       step "I must be logged in and on Home page"
     end
     step "I see verify I am on home screen"
-  end
 
 end
 
