@@ -38,6 +38,8 @@ Feature: Verify My account page and sub pages
     Given I have accessed my Personal Details page
     When I tap on Logout
     Then I should see logout OS dialogue displayed
+    When I confirm Logout
+    Then I should navigate to welcome screen
 
   Scenario: Add Booking
     Given I have accessed my Personal Details page

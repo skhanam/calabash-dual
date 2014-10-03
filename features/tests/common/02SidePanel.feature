@@ -39,3 +39,11 @@ Feature: Verify product pages by navigating through side panel
   Scenario: Verify contact us page and external links present
     Given I am on contact us screen
     Then I verify contact us page
+
+  Scenario: Logout verification on my account page
+    Given I have accessed my Personal Details page
+    When I tap on Logout
+    Then I should see logout OS dialogue displayed
+    When I confirm Logout
+    Then I should navigate to welcome screen
+

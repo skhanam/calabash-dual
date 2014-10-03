@@ -16,8 +16,8 @@ module TestModule
     @homePage ||= HomePage.new
     @countDownPage ||=CountDownBasePage.new
     @sidePanel ||=SidePanel.new
+    @holidayExtrasPage ||=HolidayExtrasBasePage.new
     @hotelPage ||=HotelBasePage.new
-
 
     if ($g_current_app=='DE_MT')
       @myAccountPage ||= MyAccountBasePage.new

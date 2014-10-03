@@ -360,11 +360,11 @@ When(/^I access  the application home page$/) do
 end
 
 Then(/^I should see a Hotel Biscuit appear$/) do
-@homePage.check_hotel_biscuit
+  @homePage.check_hotel_biscuit
 end
 
 And(/^I should see the text label Step inside hotel name in two lines$/) do
- @homePage.verify_hotel_biscuit
+  @homePage.verify_hotel_biscuit
 end
 
 Then(/^I swipe to see "([^"]*)"$/) do |arg|
@@ -372,5 +372,18 @@ Then(/^I swipe to see "([^"]*)"$/) do |arg|
 end
 
 Then(/^I should see an Holiday extras Biscuit appear$/) do
-@homePage.verify_extra_biscuit
+  @holidayExtrasPage.verify_extra_biscuit
+end
+
+Given(/^I can see the Holiday extras Biscuit$/) do
+  step "I have a pre-holiday booking"
+  step "I swipe to see \"extras Biscuit\""
+end
+
+When(/^I tap on the Holiday extras Biscuit$/) do
+  @holidayExtrasPage.click_extra_biscuit
+end
+
+Then(/^I should be navigated to Holiday extras$/) do
+  @holidayExtrasPage.verify_extra_biscuit_page
 end
