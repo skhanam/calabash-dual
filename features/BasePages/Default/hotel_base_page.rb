@@ -1,10 +1,8 @@
 class HotelBasePage < BasePage
 
   #Find hotels for typical booking and verify if that is shown
-  def verify_hotel_text(num)
-    hotel_details=$g_booking.find_hotel_details(num)
-    assert_wait_for_text hotel_details["name"]
-    return hotel_details
+  def verify_hotel_text(name)
+    assert_wait_for_text name
   end
 
   def validate_hotel_details(var, hotel_details)

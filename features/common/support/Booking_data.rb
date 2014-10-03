@@ -27,10 +27,8 @@ class Bookings
       countries<< var["destinationName"] if $g_nordics_app
       countries<< var[1]["destinationName"] if !$g_nordics_app
     end
-
     return countries
   end
-
 
   def get_country_names_for_weather
     arr=[]
@@ -141,19 +139,16 @@ class Bookings
   def find_hotel_details(num)
     puts caller.first
     count=0
-
     find_de_products("hotel").each do |item|
       count+=1
       return item if count==num.to_i
     end
-
     return nil
   end
 
 
   def get_hotel_details
     arr=[]
-
     #eng app
     if ($g_eng_app)
       arr.push @payload["products"]["hotel"]["subTitle"]
@@ -234,4 +229,19 @@ class Bookings
     @eng_checkList["payload"]["itemList"].count
   end
 
+end
+
+def get_excursions
+  cmd=%Q{curl 'http://37.46.24.155:3001/reservation/test0012/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=ugqb6vgb1h6tf43ln296ubahu6; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: 00935223ec4873d8d8bcc73ec964079b44bf846e' --compressed}
+  res=JSON.parse(`#{cmd}`)
+  @payload=res["payload"]
+
+  arr=@payload["destinationAreaExcursions"]
+  arr.each do |var|
+    puts var["destinationName"]
+    var["excursions"].each do |arg|
+      puts arg["reservationCode"]
+      puts arg["infoList"][0]["value"]
+    end
+  end
 end

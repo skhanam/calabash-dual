@@ -1,7 +1,6 @@
-Then(/^I see hotel (\d+) page$/) do |arg|
-  @hotel_details=@hotelPage.verify_hotel_text(arg.to_i)
+Then(/^I see correct hotel page$/) do
+  @hotel_details=@hotelPage.verify_hotel_text(@hotel_name)
 end
-
 
 And(/^I verify below links on hotel page:$/) do |table|
   values=table.raw

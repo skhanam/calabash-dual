@@ -206,7 +206,7 @@ Given(/^I am on 'Login' screen/) do
 
   if $g_tablet && $g_ios
     if @welcomePage.check_welcome_screen
-      @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
+      @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
     elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
       puts "On login screen"
     else
@@ -439,7 +439,7 @@ end
 Given(/^I login with post holiday data$/) do
   if $g_tablet
     @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
-    @page.click_accessibility_label @page.get_val("welcome_page_swipe_down_acc")
+    @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
     sleep 2
   else
     fail "TBD for phone"

@@ -50,7 +50,7 @@ class ChecklistPageUk < BasePage
   def verify_item_deleted
     @text_delete = "Delete"
 
-    click_accessibility_label "deleteBox"
+    click_acc_label "deleteBox"
     sleep 1
     touch("view text:'#{@text_delete}'")
   end
@@ -60,7 +60,7 @@ class ChecklistPageUk < BasePage
   end
 
   def delete_packaging_item
-    click_accessibility_label "deleteBox"
+    click_acc_label "deleteBox"
     sleep 1
     assert_text_present @@delete_item
     assert_text_present @@are_you_sure
@@ -77,14 +77,14 @@ class ChecklistPageUk < BasePage
   end
 
   def add_new_packaging_item
-    click_accessibility_label "navbarRightButton"
+    click_acc_label "navbarRightButton"
     sleep 1
     input_text @@packaging_item_title
   end
 
   def open_packaging_list
     assert_wait_for_acc "packingList"
-    click_accessibility_label "packingList"
+    click_acc_label "packingList"
   end
 
 

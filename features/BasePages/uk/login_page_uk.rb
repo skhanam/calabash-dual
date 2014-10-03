@@ -134,15 +134,15 @@ class LoginPage < LoginBasePage
 
   def enter_surname_and_email
     sleep 1
-    click_accessibility_label "Enter surname"
+    click_acc_label "Enter surname"
     keyboard_enter_text "martin"
     sleep 1
 
-    click_accessibility_label "Enter email address"
+    click_acc_label "Enter email address"
     keyboard_enter_text "a@b.com"
     sleep 1
 
-    click_accessibility_label "submitButton"
+    click_acc_label "submitButton"
   end
 
 

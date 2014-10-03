@@ -6,7 +6,7 @@ class HomePage < BasePage
 
   def open_side_panel
     sleep 1
-    click_accessibility_label @@home_page_sidepanel_acc_label
+    click_acc_label @@home_page_sidepanel_acc_label
     sleep 1
   end
 
@@ -41,11 +41,15 @@ class HomePage < BasePage
   def click_destination_biscuit
     scroll_page_till_acc(@@destination_biscuit_acc, "right")
     #scroll_view("right",0)
-    click_accessibility_label(@@destination_biscuit_acc)
+    click_acc_label(@@destination_biscuit_acc)
   end
 
   def verify_destination_page
     assert_wait_for_acc(@@destination_page_title_acc)
+  end
+
+  def find_currency_converter_biscuit
+    scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
   end
 
   def verify_currency_converter_biscuit
@@ -57,7 +61,7 @@ class HomePage < BasePage
   end
 
   def click_currency_converter_biscuit
-    click_accessibility_label(@@home_page_currency_Biscuit_acc)
+    click_acc_label(@@home_page_currency_Biscuit_acc)
   end
 
   def find_excursions_biscuit
@@ -125,7 +129,7 @@ class HomePage < BasePage
     scroll_view("down")
     sleep 1
     get_currency_details
-    click_accessibility_label "coins"
+    click_acc_label "coins"
     if ($g_current_app=="DE_MT")
       verify_page_title @@currency_converter_title
     else
@@ -188,7 +192,7 @@ class HomePage < BasePage
 
   def navigate_my_tour_guide
     CommonMethods.new.side "representative"
-    click_accessibility_label "representative"
+    click_acc_label "representative"
     sleep 2
   end
 

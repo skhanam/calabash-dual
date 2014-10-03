@@ -39,6 +39,13 @@ module CountdownModule
         fail ("expected:#{@@countdown_countdown_message}: actual text:#{@@countdown_message_from_screen}")
       end
     end
+
+
+    def check_sharing_options
+      click_on_text @@countdown_share_button_text
+      assert_wait_for_text @@countdown_fb_share
+      assert_wait_for_text @@countdown_twitter_share
+    end
   end
 
   module Tablet
@@ -71,9 +78,10 @@ module CountdownModule
     end
 
     def check_sharing_options
-      click_on_text @@countdown_share_button_text
-      assert_wait_for_text @@countdown_fb_share
-      assert_wait_for_text @@countdown_twitter_share
+      click_acc_label @@share_button_closed_img
+      assert_wait_for_acc @@share_button_open_img
+      assert_wait_for_acc @@facebook_share_img
+      assert_wait_for_acc @@twitter_share_img
     end
 
     module Ios

@@ -17,7 +17,7 @@ module TestModule
     @countDownPage ||=CountDownBasePage.new
     @sidePanel ||=SidePanel.new
     @holidayExtrasPage ||=HolidayExtrasBasePage.new
-
+    @hotelPage ||=HotelBasePage.new
 
     if ($g_current_app=='DE_MT')
       @myAccountPage ||= MyAccountBasePage.new
@@ -31,7 +31,6 @@ module TestModule
       @new_to_tui_page ||=NewTOTUIBasePage.new
       @mytouristGuidePage ||=MyTouristGuideBasePage.new
       @mytravelAgentPage ||=MyTravelAgentBasePage.new
-      @hotelPage ||=HotelBasePage.new
       @currencyConvPage ||=CurrencyConverterBasePage.new
       @myBookingsPage ||= MyBookingsPage.new
       @wrongCountryPage ||=WrongCountryPage.new

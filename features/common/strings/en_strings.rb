@@ -135,7 +135,6 @@ module EN_Strings
     @@book_visit_no_holiday_call_cta = get_localized_string "welcome_help_no_holiday_call_cta"
 
 
-
   end
 
   def help_logging_in
@@ -241,19 +240,34 @@ module EN_Strings
   end
 
   def contact_us_strings
-    @@contact_us_contact_title=get_localized_string "contactus_navbar" if $g_current_app=="EN_TH" #"Contact us"
-    @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" if $g_current_app=="EN_FC" #"Contact us"
-    @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
     @@contact_us_title=get_localized_string "contactus_title" #"Need some help?"
     @@contactus_subtitle=get_localized_string "contactus_subtitle" #"Get in touch"
-    @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
-    @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
-    @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
+
     @@contact_us_shop_opening_times="Call centre opening times:"
-    @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions"
+    @@contactus_termsAndConditions=get_localized_string "contactus_termsAndConditions" # Terms and conditions
     @@contactus_privacyPolicy=get_localized_string "contactus_privacyPolicy" #"Privacy policy"
     @@contactus_support=get_localized_string "contactus_support" #"MyThomson support"
 
+    @@contactus_manageBookingsCTA=get_localized_string("contactus_manageBookingsCTA") # Manage my Booking
+    @@contactus_manageBookingsTitle=get_localized_string("contactus_manageBookingsTitle") # Manage my Booking
+
+    @@contactus_specialEnquiriesCTA=get_localized_string("contactus_specialEnquiriesCTA") # Find out more
+    @@contactus_specialEnquiriesTitle=get_localized_string("contactus_specialEnquiriesTitle") # Special enquiries
+
+    if $g_phone
+      @@contact_us_contact_title=get_localized_string "contactus_navbar" if $g_current_app=="EN_TH" #"Contact us"
+      @@contact_us_contact_title=get_localized_capitalized_string "contactus_navbar" if $g_current_app=="EN_FC" #"Contact us"
+      @@contact_us_address="17 Market Walk Chorley Lancashire PR7 1 DE"
+      @@contact_us_travel_shop="If you have any questions about your booking, just contact your local Thomson travel shop."
+      @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
+      @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
+    elsif $g_tablet
+      @@contact_us_email_us_webview= "Have you booked your holiday"
+      @@contact_us_manage_booking_webview= "Manage My Booking"
+      @@contact_us_findout_more_webview= "Find out more"
+      @@contact_us_terms_webview= "Terms and Conditions"
+      @@contact_us_privacy_webview= "Privacy Policy"
+    end
   end
 
 

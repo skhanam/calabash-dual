@@ -129,13 +129,10 @@ Given(/^I navigate to travel money page from home screen$/) do
 end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
-
-  hotel_details=$g_booking.find_hotel_details(arg)
-  hotel_name=hotel_details["name"]
-  @page.scroll_page_and_assert_text(hotel_name)
-  @page.click_on_text(hotel_name)
-
-
+  arr=$g_booking.get_hotel_details
+  @hotel_name=arr[arg.to_i-1]
+  @page.scroll_page_and_assert_text(@hotel_name)
+  @page.click_on_text(@hotel_name)
 end
 
 When(/^I navigate to destination using home page biscuit$/) do

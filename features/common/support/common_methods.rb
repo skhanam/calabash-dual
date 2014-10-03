@@ -230,7 +230,7 @@ class CommonMethods < BasePage
     scroll_page_till_acc @@share_button_closed_img
     scroll_view("down")
     sleep 2
-    click_accessibility_label @@share_button_closed_img
+    click_acc_label @@share_button_closed_img
     assert_wait_for_acc @@facebook_share_img  if $g_ios
     assert_wait_for_acc @@twitter_share_img
     assert_wait_for_acc @@share_button_open_img

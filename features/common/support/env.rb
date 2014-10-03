@@ -5,6 +5,7 @@
 $g_os=ENV['PLATFORM']
 $g_hw=ENV['HW']
 
+$first_run=0
 $g_ios=false
 $g_android=false
 
