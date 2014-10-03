@@ -56,7 +56,7 @@ fi
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
 if [ $4 == "tablet" ] ; then
-	APPNAME=$APPNAME"Tablet"
+	APPNAME=$APPNAME" Tablet"
 fi
 
 
@@ -81,7 +81,7 @@ if [ "$1" == "clean" ] ; then
   	echo "******** ####  Updating App name for calabash"
 
   	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
-	ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+#ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
     cd ${PROJ_FOLDER}/
     ti build -p ios -Y ipad -b --retina
