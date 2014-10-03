@@ -73,4 +73,8 @@ Feature: Verify product pages by navigating through biscuits
     Then I swipe to see "extras Biscuit"
     Then I should see an Holiday extras Biscuit appear
 
-
+  @hm9
+  Scenario: OnTap extras
+    Given I can see the Holiday extras Biscuit
+    When I tap on the Holiday extras Biscuit
+    Then I should be navigated to Holiday extras

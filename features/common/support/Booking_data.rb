@@ -12,7 +12,7 @@ class Bookings
     $g_current_booking["payload"]["destination"]
   end
 
-  def set_payload(payload=$g_current_booking["payload"],eng_checkList=$g_engChecklist)
+  def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_engChecklist)
     @payload=payload
     @destinations=@payload["destinationGuide"]
     @booking_summary= @payload["bookingSummary"]
@@ -54,7 +54,7 @@ class Bookings
       @fromCurrency=@payload["currency"]["fromCurrency"]
       @ToCurrency1=@payload["currencyCode"]
     end
-    return @fromCurrency,@ToCurrency1,@ToCurrency2
+    return @fromCurrency, @ToCurrency1, @ToCurrency2
   end
 
   def get_all_products_for_booking

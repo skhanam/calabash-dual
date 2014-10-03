@@ -62,12 +62,8 @@ class HomePage < BasePage
 
   def find_excursions_biscuit
     scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
-    #click_accessibility_label(@@home_page_currency_Biscuit_acc)
   end
 
-  def verify_extra_biscuit
-    assert_wait_for_acc(@@home_page_holiday_extra_Biscuit_acc)
-  end
 
   def verify_currency_converter_exchange_names
     arr= $g_booking.get_currency_details
