@@ -4,22 +4,11 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-
-#
-#    And I navigate to weather page using weather biscuit
-#    Then I see holiday weather page
-
-
-#  Scenario: navigate to booking summary page
-#    Given I am on home screen with default booking
-#    When I navigate to booking summary page using booking summary biscuit
-#    Then I see holiday booking summary page
-
-  @reg
+  @reg @failing
   Scenario: Navigate to hotel booking from home page biscuit
     Given I am on home screen with default booking
     When I navigate to hotel 1 from home page
-    Then I see hotel 1 page
+    Then I see correct hotel page
     And I verify below details on hotel page:
       | Hotel Name      |
       | Hotel location  |
@@ -56,10 +45,6 @@ Feature: Verify product pages by navigating through biscuits
     Given I can see the Currency Converter Biscuit
     When I tap on the Currency Converter Biscuit
     Then I should be navigated to Currency Converter page
-
-  Scenario: OnTap Excursions
-    Given I can see the Excursions Biscuit
-    Then I should be navigated to Excursions Mosaic page
 
   @hm7
   Scenario: Hotel Biscuit verification

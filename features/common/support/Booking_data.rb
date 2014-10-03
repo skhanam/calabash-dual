@@ -139,19 +139,16 @@ class Bookings
   def find_hotel_details(num)
     puts caller.first
     count=0
-
     find_de_products("hotel").each do |item|
       count+=1
       return item if count==num.to_i
     end
-
     return nil
   end
 
 
   def get_hotel_details
     arr=[]
-
     #eng app
     if ($g_eng_app)
       arr.push @payload["products"]["hotel"]["subTitle"]
