@@ -143,7 +143,7 @@ module AndroidReusableMethods
   end
 
   # scroll in specified direction till id is found
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10,index=0)
     repeat_count=0
     sleep 1
     write_verified_text_to_file "scroll_page_and_assert_text (#{id})"

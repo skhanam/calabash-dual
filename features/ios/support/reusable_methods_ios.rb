@@ -171,7 +171,6 @@ module IosReusableMethods
     click_on_text txt_touch
     sleep 2
     assert_wait_for_text text
-
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)
@@ -189,7 +188,7 @@ module IosReusableMethods
 
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10,index=0)
     write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
     puts "scroll_page_and_assert_text (#{id})"
     id=escape_quotes_smart(id)
@@ -204,7 +203,7 @@ module IosReusableMethods
 
     while repeat_count < count
       repeat_count+=1
-      scroll_view(dir)
+      scroll_view(dir,index)
 
       if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
         flash("view text:'#{id}'") if element_exists("view text:'#{id}'") if ($g_flash)

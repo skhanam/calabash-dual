@@ -6,8 +6,6 @@ class CountDownBasePage < BasePage
     verify_page_title(@@countdown_page_title)
   end
 
-
-
   def check_sharing_text
     scroll_page_and_assert_text @@countdown_share_button_text
   end

@@ -23,7 +23,7 @@ module TestModule
       @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
       @goodToKnowPage||=GoodToKnowBasePage.new
-      @newUserRegistrationPage ||= NewUserRegistrationBasePage.new
+      @registrationPage ||= NewUserRegistrationBasePage.new
       @forgotPasswordPage ||= ForgotPasswordBasePage.new
       @contactPage ||= ContactUsDe.new
       @tuiServicePage ||= TuiServiceOnsitePage.new

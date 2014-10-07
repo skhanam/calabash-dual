@@ -30,7 +30,7 @@ class MyAccountBasePage < BasePage
 
     scroll_page_and_assert_text(@@log_out_text)
     assert_text_present(@@my_account_newsletter_text)
-    assert_text_present(@@my_account_signup_newsletter)
+    assert_text_present(@@signup_newsletter)
     assert_text_present(@@log_out_text)
   end
 

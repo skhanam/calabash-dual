@@ -102,12 +102,20 @@ module EN_Strings
   end
 
   def login_page_strings
+    if $g_tablet
+      @@welcome_login_surname_hint = get_localized_string "welcome_login_surname_hint" # Enter surname
+      @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
+      @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint" # 12345678
+      @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
+    elsif $g_phone
+      @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
+      @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
+      @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
+      @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
+    end
+
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
-    @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
-    @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
-    @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
-    @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
     @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
@@ -133,8 +141,6 @@ module EN_Strings
     @@book_visit_no_holiday_body = get_localized_string "welcome_help_no_holiday_body"
     @@book_visit_no_holiday_take_tour_cta = get_localized_string "welcome_help_no_holiday_take_tour_cta"
     @@book_visit_no_holiday_call_cta = get_localized_string "welcome_help_no_holiday_call_cta"
-
-
   end
 
   def help_logging_in
