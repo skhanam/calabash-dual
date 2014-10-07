@@ -69,7 +69,6 @@ module MyBookingsModule
     module Phone
       include BaseModule
 
-
       def click_booking_in_past
         scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
         id="booking_detail_past"

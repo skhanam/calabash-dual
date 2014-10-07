@@ -17,6 +17,25 @@ Feature: Verify My account page and sub pages
       | newsletter             |
       | logout                 |
 
+
+  @myBookingsPage.check
+  Scenario: US13492 DE Profile section - add a booking  READY
+    Given I have accessed my Personal Details page
+    When I select add Booking biscuit
+    Then I see add a booking page
+#
+#    And I should see title and subtitle on add booking page
+#    And I should input fields for booking details on add booking page
+#    And I should see add-booking CTA {large button} "Buchung hinzufügen"
+#    And I should see Help email CTA on add booking page
+#
+  Scenario: Error messages
+    Given I have entered invalid information on the form
+    When I submit the form details
+    Then I should see an Error messages displayed in a red 'sorry' box at top of modal window;
+    And I should see any inline error messages displayeded to side of respective form field
+
+
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
     When I see add booking biscuit

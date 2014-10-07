@@ -29,15 +29,6 @@ class MyBookingsPage < BasePage
     check_add_booking_screen
     assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
 
-    puts "-----------"
-    puts @@add_a_booking_page_salutation, @@add_a_booking_page_firstname, @@add_a_booking_page_last_name
-    puts "-----------"
-    puts @@add_a_booking_page_booking_code, @@add_a_booking_page_arrival_date, @@add_a_booking_page_find_booking_button, @@add_a_booking_page_need_help
-    puts "-----------"
-    puts @@add_a_booking_page_booking_code_hint
-    puts "-----------"
-    puts @@add_a_booking_page_arrival_date_hint
-    puts "-----------"
     if $g_phone
       scroll_page_and_assert_text(@@add_a_booking_page_salutation, "down")
       assert_text_elements([@@add_a_booking_page_salutation, @@add_a_booking_page_firstname, @@add_a_booking_page_last_name])
@@ -46,11 +37,11 @@ class MyBookingsPage < BasePage
       assert_text_present(@@add_a_booking_page_booking_code_hint) if $g_ios
       assert_text_present(@@add_a_booking_page_arrival_date_hint) if $g_ios
     elsif $g_tablet
-     assert_text_present "Vorname eingeben"
+     assert_text_present @@add_a_booking_page_firstname_hint
      assert_text_present @@add_a_booking_page_last_name #"Nachname eingeben"
      assert_text_present @@add_a_booking_page_booking_code_hint #"12345678"
      assert_text_present @@add_a_booking_page_arrival_date_hint # Datum eingeben
-
+     assert_text_present @@add_a_booking_page_find_booking_button
     end
   end
 
