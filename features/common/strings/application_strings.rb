@@ -5,8 +5,8 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
 #based on App, Application strings are loaded from
 # en_thomson_strings.rb or
-# en_first_choice_strings.rb or
-# en_thomson_strings.rb
+# en_strings.rb or
+
 module AppStrings
 
   $g_nordics_app=false

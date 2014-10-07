@@ -76,8 +76,8 @@ if [ "$1" == "clean" ] ; then
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
 
-  	echo "******** ####  Updating App name for calabash"
-  	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+  	#echo "******** ####  Updating App name for calabash"
+  	#echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 	#ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
     cd ${PROJ_FOLDER}/
