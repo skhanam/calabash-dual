@@ -59,9 +59,6 @@ def eng_user_details
   $g_current_booking=get_payload_for_type(visionBookingRef, "home", auth)
   $g_engChecklist=get_payload_for_type(visionBookingRef, "checklist", auth)
 
-  #puts "$g_current_booking #{$g_current_booking}"
-  #puts "$g_engChecklist #{$g_engChecklist}"
-
 end
 
 def nor_user_details
