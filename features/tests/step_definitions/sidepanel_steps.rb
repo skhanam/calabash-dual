@@ -125,3 +125,17 @@ When(/^I navigate to contact us page using side menu$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_from_side_menu("Contact us")
 end
+
+When(/^I click on Logout using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("Log out")
+end
+
+When(/^I confirm Logout$/) do
+  @sidePanel.confirm_logout
+end
+
+Then(/^I should navigate to welcome screen$/) do
+  step "I am on 'Login' screen"
+end
+

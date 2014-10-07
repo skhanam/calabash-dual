@@ -55,7 +55,6 @@ class SidePanel < BasePage
     wait_for_progress_to_disappear @@loading_hold_on
   end
 
-
   def navigate_from_side_menu(var)
     sleep 2
     case var
@@ -89,10 +88,20 @@ class SidePanel < BasePage
         scroll_side_panel(@@side_panel_destination)
         touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)
       when "Log out"
+        sleep 2
+        scroll_view("down", 1)
         scroll_side_panel(@@log_out_text)
+        scroll_view("down", 1)
         touch_txt_and_verify_title(@@log_out_text, nil)
+
+
+
     end
 
+  end
+
+  def confirm_logout
+    click_on_text(@@logout_confirm_button_text)
   end
 
   private :navigate_to_countdown_page ,:navigate_to_hotel,:navigate_to_app_feedback ,:navigate_to_weather_page

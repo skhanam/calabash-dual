@@ -117,6 +117,7 @@ module EN_Strings
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
+    @@welcome_help_link1=get_localized_string "welcome_help_link1"
     @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
