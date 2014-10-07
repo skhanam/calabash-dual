@@ -171,7 +171,6 @@ module IosReusableMethods
     click_on_text txt_touch
     sleep 2
     assert_wait_for_text text
-
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)

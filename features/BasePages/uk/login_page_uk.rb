@@ -108,6 +108,11 @@ class LoginPage < LoginBasePage
     scroll_page_and_assert_text @@welcome_help_more_issues_email_title
   end
 
+  def click_help_logging_in_tablet
+    wait_for_acc_label(escape_quotes(@@welcome_help_link1))
+    click_acc_label(escape_quotes(@@welcome_help_link1))
+  end
+
   def select_retrieve_booking_ref
     scroll_page_and_assert_text @@welcome_help_link2
     click_on_text @@welcome_help_link2

@@ -17,6 +17,7 @@ module TestModule
     @countDownPage ||=CountDownBasePage.new
     @sidePanel ||=SidePanel.new
     @holidayExtrasPage ||=HolidayExtrasBasePage.new
+    @holidayMosaicPage ||=HolidayMosaicBasePage.new
     @hotelPage ||=HotelBasePage.new
 
     if ($g_current_app=='DE_MT')

@@ -166,7 +166,6 @@ module HomeModule
 
     def check_hotel_biscuit
       assert_wait_for_acc @@home_page_hotel_Biscuit_acc
-      #click_accessibility_label "hotels_Biscuit"
     end
 
     def verify_hotel_biscuit

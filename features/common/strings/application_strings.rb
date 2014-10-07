@@ -240,5 +240,7 @@ module AppStrings
     @@days_to_go= get_localized_string "days_to_go"
     @@countdown_fb_share = get_localized_string "share_on_twitter"
     @@countdown_twitter_share = get_localized_string "share_on_facebook"
+
+    @@logout_confirm_button_text = get_localized_string "confirm"
   end
 end

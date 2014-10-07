@@ -460,3 +460,11 @@ Given(/^I login with post holiday data$/) do
   end
 
 end
+
+When(/^I tap 'Retrieve my booking' button$/) do
+  step "I select retrieve my booking reference number"
+ end
+
+When(/^I tap 'I can't login in' button$/) do
+  @loginPage.click_help_logging_in_tablet
+end
