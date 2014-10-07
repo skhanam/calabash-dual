@@ -23,12 +23,11 @@ Feature: Verify My account page and sub pages
     Given I have accessed my Personal Details page
     When I select add Booking biscuit
     Then I see add a booking page
-#
-#    And I should see title and subtitle on add booking page
-#    And I should input fields for booking details on add booking page
-#    And I should see add-booking CTA {large button} "Buchung hinzufügen"
-#    And I should see Help email CTA on add booking page
-#
+    And I should see title and subtitle on add booking page
+    And I should input fields for booking details on add booking page
+    And I should see find booking text on add booking page
+    And I should see Help email on add booking page
+
   Scenario: Error messages
     Given I have entered invalid information on the form
     When I submit the form details

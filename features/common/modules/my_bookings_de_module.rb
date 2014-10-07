@@ -6,7 +6,6 @@ module MyBookingsModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_platform}::#{$g_hw_module}")
   end
 
-
   def check_my_bookings_screen
     assert_wait_for_text(@@my_bookings_title)
   end

@@ -25,9 +25,27 @@ class MyBookingsPage < BasePage
     click_on_text(@@add_a_booking_page_title)
   end
 
+  def verify_add_booking_title_subtitle
+    assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
+  end
+
+  def add_booking_find_booking
+    assert_text_present @@add_a_booking_page_find_booking_button
+  end
+
+  def add_booking_input_fields
+    assert_text_present @@add_a_booking_page_firstname_hint
+    assert_text_present @@add_a_booking_page_last_name #"Nachname eingeben"
+    assert_text_present @@add_a_booking_page_booking_code_hint #"12345678"
+    assert_text_present @@add_a_booking_page_arrival_date_hint # Datum eingeben
+  end
+
+  def check_add_booking_help
+    assert_text_present @@add_a_booking_page_need_help
+  end
   def check_add_booking_page
     check_add_booking_screen
-    assert_text_elements([@@add_a_booking_page_title, @@add_a_booking_page_text1, @@add_a_booking_page_text2])
+    verify_add_booking_title_subtitle
 
     if $g_phone
       scroll_page_and_assert_text(@@add_a_booking_page_salutation, "down")
@@ -37,11 +55,8 @@ class MyBookingsPage < BasePage
       assert_text_present(@@add_a_booking_page_booking_code_hint) if $g_ios
       assert_text_present(@@add_a_booking_page_arrival_date_hint) if $g_ios
     elsif $g_tablet
-     assert_text_present @@add_a_booking_page_firstname_hint
-     assert_text_present @@add_a_booking_page_last_name #"Nachname eingeben"
-     assert_text_present @@add_a_booking_page_booking_code_hint #"12345678"
-     assert_text_present @@add_a_booking_page_arrival_date_hint # Datum eingeben
-     assert_text_present @@add_a_booking_page_find_booking_button
+      add_booking_input_fields
+      add_booking_find_booking
     end
   end
 

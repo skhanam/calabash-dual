@@ -46,3 +46,19 @@ end
 Then(/^I should see Browse Holiday collection biscuit$/) do
 @myBookingsPage.check_browse_holiday_biscuit
 end
+
+When(/^I should see title and subtitle on add booking page$/) do
+  @myBookingsPage.verify_add_booking_title_subtitle
+end
+
+When(/^I should see find booking text on add booking page$/) do
+  @myBookingsPage.add_booking_find_booking
+end
+
+When(/^I should see Help email on add booking page$/) do
+  @myBookingsPage.check_add_booking_help
+end
+
+When(/^I should input fields for booking details on add booking page$/) do
+  @myBookingsPage.add_booking_input_fields
+end
