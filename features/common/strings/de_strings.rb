@@ -289,7 +289,7 @@ module DEMeineTUI
     @@signup_email_hint= get_localized_string "signup_email_hint" #E-Mail Adresse eingeben
 
     @@new_user_registration_password = "Passwort:"
-    @@new_user_registration_password_hint = "Passwort eingeben"
+    @@new_user_registration_password_hint = get_localized_string "signup_password_hint"
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"

@@ -3,11 +3,12 @@ require_relative '../../common/modules/base_module'
 module LoginModule
   include BaseModule
 
+
   module Deu
     include BaseModule
 
     def select_register_button
-    touch_txt_and_verify_text @@signup_signup_cta,@@signup_signup
+    touch_txt_and_verify_text @@signup_signup_cta,@@signup_create_account
     end
 
     def enter_valid_user_name
