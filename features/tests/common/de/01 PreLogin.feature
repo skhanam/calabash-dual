@@ -3,7 +3,7 @@ Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
 
-  @forgot-password2
+  @forgot-password2 @reg-de
   Scenario: Forgot password - Populated email field
     Given I am on 'Login' screen
     When I fill valid username in login screen
@@ -56,7 +56,7 @@ Feature: Verify screens shown before logging into App
     Then I should see a Weather Biscuit appear
     And  I should see Weather Biscuit display weather for each destination in a loop of 5s
 
-  @reset @prelog1n
+  @reset @prelog1n @reg-de
   Scenario: US13474 DE Login: Check Page elements
     Given I am on 'Login' screen
     And I should see Heading - Login
@@ -67,7 +67,7 @@ Feature: Verify screens shown before logging into App
     And I should see Register CTA
     And I should see I need help CTA
 
-  @reset @prelog1n2
+  @reset @prelog1n2 @reg-de
   Scenario: US14332 Verify Page elements
     Given I accessed the Register page modal
     And I should sub-title and sub title for register page
@@ -78,3 +78,4 @@ Feature: Verify screens shown before logging into App
       | Newsletter opt-in            |
       | E-Mail newsletter disclaimer |
       | Tick box                     |
+

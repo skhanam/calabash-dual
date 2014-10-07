@@ -77,15 +77,15 @@ Given(/^I accessed the Register page modal$/) do
 end
 
 When(/^I should sub-title and sub title for register page$/) do
-  @registrationPage.check_booking_details
+  @registrationPage.check_title_subtitle
 end
 
 When(/^I should see input fields for booking details$/) do
-  @registrationPage.check_login_details
+  @registrationPage.check_booking_details
 end
 
 When(/^I should see input fields for account details$/) do
-  pending
+  @registrationPage.check_login_details
 end
 
 Then(/^I see below items on Register page$/) do |table|
