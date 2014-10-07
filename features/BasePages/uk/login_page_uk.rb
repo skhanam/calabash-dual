@@ -93,20 +93,6 @@ class LoginPage < LoginBasePage
     click_on_text @@login_page_help_logging_in
   end
 
-  def verify_help_logging_in
-    assert_wait_for_text @@welcome_help_cant_login_header
-    scroll_page_and_assert_text @@welcome_help_cant_login_description
-
-    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
-    scroll_page_and_assert_text @@welcome_help_cant_login_cta
-
-    scroll_page_and_assert_text @@welcome_help_cant_login_iosStore
-    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1
-    #scroll_page_and_assert_text @@welcome_help_cant_use_app_cta2
-
-    scroll_page_and_assert_text @@welcome_help_more_issues_body
-    scroll_page_and_assert_text @@welcome_help_more_issues_email_title
-  end
 
   def click_help_logging_in_tablet
     wait_for_acc_label(escape_quotes(@@welcome_help_link1))
@@ -153,6 +139,8 @@ class LoginPage < LoginBasePage
 
 end
 
+#TODO : Move module to seperate page
+
 module Phone
   include BaseModule
 
@@ -162,6 +150,23 @@ module Phone
     assert_text_present @@login_error_departure_date
     assert_text_present @@login_error_surname
   end
+
+  def verify_help_logging_in
+    assert_wait_for_text @@welcome_help_cant_login_header
+
+    scroll_page_and_assert_text @@welcome_help_cant_login_description
+
+    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
+    scroll_page_and_assert_text @@welcome_help_cant_login_cta
+
+    scroll_page_and_assert_text @@welcome_help_cant_login_iosStore
+    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1
+    #scroll_page_and_assert_text @@welcome_help_cant_use_app_cta2
+
+    scroll_page_and_assert_text @@welcome_help_more_issues_body
+    scroll_page_and_assert_text @@welcome_help_more_issues_email_title
+  end
+
 end
 
 module Tablet
@@ -171,4 +176,19 @@ module Tablet
     assert_wait_for_text @@login_error_text
     assert_text_present @@login_error_banner
   end
+
+  def verify_help_logging_in
+    assert_wait_for_text @@welcome_help_cant_login_header
+
+    scroll_page_and_assert_text @@welcome_help_cant_login_description,"down",nil,3,3
+
+    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle),"down",nil,3,3
+    scroll_page_and_assert_text @@welcome_help_cant_login_cta,"down",nil,3,3
+
+    scroll_page_and_assert_text @@welcome_help_cant_login_iosStore,"down",nil,3,3
+    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1,"down",nil,3,3
+
+    scroll_page_and_assert_text @@welcome_help_more_issues_body,"down",nil,2,3
+  end
+
 end
