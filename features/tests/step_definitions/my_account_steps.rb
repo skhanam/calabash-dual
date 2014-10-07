@@ -89,3 +89,6 @@ Then(/^I should observe that the app homepage view has the selected booking load
    @homePage.click_weather_biscuit
    @myAccountPage.verify_booking_biscuit_loaded
 end
+When(/^I select add Booking biscuit$/) do
+  @myAccountPage.select_add_booking
+end

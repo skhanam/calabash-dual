@@ -240,11 +240,15 @@ module DEMeineTUI
 
     @@signup_your_booking= get_localized_string "signup_your_booking" #Ihre Buchung
 
-    @@add_a_booking_page_firstname =get_localized_string "forename" if $g_phone
+    if $g_phone
+      @@add_a_booking_page_firstname =get_localized_string "forename"
+      @@add_a_booking_page_last_name =get_localized_string "surname"
+      elsif $g_tablet
+    end
+
     @@add_a_booking_page_firstname =get_localized_string "signup_first_name" if $g_tablet
     @@add_a_booking_page_firstname_hint =get_localized_string "signup_first_name_hint"
 
-    @@add_a_booking_page_last_name =get_localized_string "surname" if $g_phone
     @@add_a_booking_page_last_name =get_localized_string "signup_lastName_hint" if $g_tablet
 
     @@add_a_booking_page_last_name_hint =get_localized_string "signup_lastName_hint"
