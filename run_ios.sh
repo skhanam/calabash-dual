@@ -27,7 +27,7 @@ echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
-	APPNAME="meineTui"
+	APPNAME="meine Tui"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 	calabash-ios sim locale en
@@ -63,9 +63,7 @@ fi
 if [ "$1" == "clean" ] ; then
 
 	FILENAME="ios$LANG.app"
-	echo ""
-	echo "******** ####  Deleting old "$FILENAME
-	[ -d "$FILENAME" ] && rm -rf "$FILENAME"
+
 
 	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
@@ -73,20 +71,23 @@ if [ "$1" == "clean" ] ; then
 	cd ${PROJ_FOLDER}/
 	rm -rf build/ Resources/
 	ti clean
-	/usr/local/bin/grunt
-	node releaseScripts/build.js --brand $TI_SCHEME
+#	/usr/local/bin/grunt
+#	node releaseScripts/build.js --brand $TI_SCHEME
 	node releaseScripts/build.js --brand $TI_SCHEME -l
 	cd -
 
-  	echo "******** ####  Updating App name for calabash"
-
-  	echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
-#ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+  	#echo "******** ####  Updating App name for calabash"
+  	#echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+	#ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
 
     cd ${PROJ_FOLDER}/
     ti build -p ios -Y ipad -b --retina
+	echo "******** #### " expect expect.exp ${APPNAME}
 	expect expect.exp ${APPNAME}
     cd -
+
+    echo "******** ####  Deleting old App file "$FILENAME
+    [ -d "$FILENAME" ] && rm -rf "$FILENAME"
 
   	echo "******** ####  copying .app file"
     echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
@@ -107,5 +108,5 @@ fi
 
 if [ "$2" != "NA" ] ; then
 	echo DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+	DEBUG=1 DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

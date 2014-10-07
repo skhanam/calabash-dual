@@ -59,9 +59,6 @@ def eng_user_details
   $g_current_booking=get_payload_for_type(visionBookingRef, "home", auth)
   $g_engChecklist=get_payload_for_type(visionBookingRef, "checklist", auth)
 
-  #puts "$g_current_booking #{$g_current_booking}"
-  #puts "$g_engChecklist #{$g_engChecklist}"
-
 end
 
 def nor_user_details
@@ -81,15 +78,20 @@ def de_user_details
   handshake=get_handshake("/login")
   cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
   res_login=JSON.parse(`#{cmd}`)
+  auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
+  puts "auth #{auth}"
 
   handshake=get_handshake("/reservation/#{@typical_booking_code}/home")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/home' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=oraea27uakde0khq0atnadnm73; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/home' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res_typ_home=JSON.parse(`#{cmd}`)
+  #puts "res_typ_home #{res_typ_home}"
 
   handshake=get_handshake("/reservation/#{@typical_booking_code}/excursions")
-  cmd= %Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=ugqb6vgb1h6tf43ln296ubahu6; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  cmd= %Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res_typ_excursions=JSON.parse(`#{cmd}`)
+  #puts "res_typ_excursions #{res_typ_excursions}"
 
+  puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions= res_login, res_typ_home, res_typ_excursions
 
 end

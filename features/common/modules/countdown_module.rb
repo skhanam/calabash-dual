@@ -43,8 +43,8 @@ module CountdownModule
 
     def check_sharing_options
       click_on_text @@countdown_share_button_text
-      assert_wait_for_text @@countdown_fb_share
-      assert_wait_for_text @@countdown_twitter_share
+      assert_wait_for_text @@facebook_share
+      assert_wait_for_text @@twitter_share
     end
   end
 

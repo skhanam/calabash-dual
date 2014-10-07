@@ -18,8 +18,6 @@ Before do |scenario|
     $selected_booking="NA"
   end
 
-
-  #start_test_server_in_background(:timeout=>30)
 end
 
 After do |scenario|

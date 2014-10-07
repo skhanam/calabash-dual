@@ -64,10 +64,11 @@ module DEMeineTUI
     @@not_yet_registered=get_localized_string "have_you_used_tui_cta_not_logged_title"
     @@register_with_booking_code=get_localized_string "have_you_used_tui_cta_not_logged_body"
 
+
     @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end
 
-  def new_to_tui_strings
+   def new_to_tui_strings
     @@new_to_tui_discover_tui="TUI entdecken"
     @@new_to_tui_havent_booked="Sie haben bisher noch keinen Urlaub bei uns gebucht? Wir zeigen Ihnen gerne, was Sie bei uns erwartet. Tauchen Sie ein in unsere Reisewelten oder erleben Sie eine Tour durch meine TUI mit unserem Video."
     @@new_to_tui_video ="Hier geht's zum Meine TUI Video"
@@ -77,15 +78,34 @@ module DEMeineTUI
   end
 
   def login_page_strings
+    if $g_tablet
+      @@welcome_login_surname_hint = get_localized_string "welcome_login_surname_hint" # Enter surname
+      @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
+      @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint" # 12345678
+      @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
+
+    elsif $g_phone
+      @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
+      @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
+      @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
+      @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
+
+    end
+
+    @@signup_signup_cta= get_localized_capitalized_string "signup_signup_cta" #Registrieren
+
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
     #@@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
-    @@email_hint_text= "Benutzername / E-Mail eingeben" #get_localized_string "login_email_hint"
+
+    @@email_hint_text= "Benutzername / E-Mail eingeben" if $g_phone #get_localized_string "login_email_hint"
+    @@email_hint_text =  "Benutzername / E-Mail" if $g_tablet
+
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
     @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
-    @@i_need_help=get_localized_string "email_help_subject"
+    @@i_need_help=get_localized_string "i_need_help"
     @@privacy_terms_of_use=get_localized_string "terms_title"
     @@login_password_tooltip= get_localized_string "login_password_tooltip"
     @@login_password_hint = get_localized_string "login_password_hint"
@@ -176,15 +196,13 @@ module DEMeineTUI
     @@my_account_email=get_localized_string "email"
     @@my_account_update_email=get_localized_string "update_email"
     @@my_account_change_password= get_localized_string "change_password"
-    @@my_account_signup_newsletter=get_localized_string "signup_to_emails"
+    @@signup_newsletter=get_localized_string "signup_to_emails"
     @@my_account_newsletter_text= get_localized_string "signup_to_emails_blurb"
     @@log_out_text=get_localized_string "logout"
 
     @@my_account_logout_title= get_localized_string "logout_confirm_two"
     @@my_account_logout_yes= get_localized_string "confirm"
     @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
-
-    @@signup_signup_cta= get_localized_string "signup_signup_cta" #Registrieren
 
   end
 
@@ -197,11 +215,6 @@ module DEMeineTUI
     @@change_password_send_button=get_localized_string "submit"
   end
 
-  #
-  #<string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
-  #<string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
-  #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <string name="new_password_body">Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen.Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden.</string>
-
   def booking_summary_strings
     @@booking_summary_title=get_localized_string "booking_summary"
     @@booking_summary_booking_code="Vorgang/Buchungsnummer:"
@@ -213,8 +226,6 @@ module DEMeineTUI
     @@share_weather=get_localized_string "share_weather"
     @@weather_country="Dubai"
   end
-
-
 
   def add_booking_page_strings
 
@@ -258,12 +269,10 @@ module DEMeineTUI
 
     @@new_user_registration_firstname =get_localized_string "forename"
     @@new_user_registration_firstname_hint ="Vorname eingeben"
-    #@@signup_first_name_hint= get_localized_string "signup_first_name_hint" #Vorname eingeben
     @@signup_first_name= get_localized_string "signup_first_name" #Vorname:
 
     #screen 2
     @@new_user_registration_last_name =get_localized_string "surname"
-    #@@new_user_registration_last_name_hint ="Nachname eingeben"
     @@new_user_registration_last_name_hint= get_localized_string "signup_lastName_hint" #Nachname eingeben
 
 
@@ -271,13 +280,14 @@ module DEMeineTUI
     @@new_user_registration_booking_code_hint ="123456789"
 
     @@new_user_registration_arrival_date ="Anreisedatum:"
-    @@new_user_registration_arrival_date_hint ="Datum eingeben"
+    @@new_user_registration_arrival_date_hint =get_localized_string "signup_departure_start_date_hint"
 
     @@signup_create_account= get_localized_string "signup_create_account"
 
     #screen 3
     @@new_user_registration_email = get_localized_string "email" #E-Mail:
-    @@new_user_registration_email_hint = "E-Mail Adresse eingeben"
+    @@signup_email_hint= get_localized_string "signup_email_hint" #E-Mail Adresse eingeben
+
     @@new_user_registration_password = "Passwort:"
     @@new_user_registration_password_hint = "Passwort eingeben"
     #screen 4
@@ -285,7 +295,13 @@ module DEMeineTUI
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
     @@new_user_registration_register = "Registrieren"
     @@new_user_registration_privacy_policy = "Datenschutz"
-    @@new_user_registration_need_help = "Ich benötige Hilfe"
+    @@new_user_registration_need_help = get_localized_string "i_need_help"
+
+
+
+    @@signup_salutation= get_localized_string "signup_salutation" #Anrede:
+    @@signup_selector= get_localized_string "signup_selector" #Bitte auswählen
+    @@signup_preamble= get_localized_string "signup_preamble" #Bitte geben Sie Ihren Vor- und Nachnamen exakt wie auf Ihren Reiseunterlagen an, sowie den dazugehörigen Vorgang/Buchungscode und Ihr Anreisedatum.
 
   end
 
@@ -306,7 +322,7 @@ module DEMeineTUI
     @@forgot_password_let_us_know_email="Bitte teilen Sie uns Ihre E-Mail Adresse mit, um ein neues Passwort anzulegen. Folgen Sie danach den Anweisungen in der E-Mail, die wir Ihnen senden."
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
     @@forgot_password_send_button="Speichern"
-    @@forgot_password_need_help="Ich benötige Hilfe"
+    @@forgot_password_need_help= get_localized_string "i_need_help"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
 
   end

@@ -1,8 +1,24 @@
 require_relative '../Default/login_base_page'
+require_relative '../../ios/modules/login_module' if $g_ios
+require_relative '../../android/modules/login_module'  if $g_android
+
+module Tablet
+
+end
+
+
+module Phone
+end
 
 class LoginPage < LoginBasePage
   include LoginModule
   include LoginModule::Deu
+  include Module.const_get "#{$g_hw_module}"
+
+  def check_login_title
+    assert_wait_for_text @@login_welcome
+  end
+
 
   def verify_login_page
     assert_wait_for_text @@login_page_text
@@ -17,7 +33,6 @@ class LoginPage < LoginBasePage
   def check_login_error_messages
     assert_wait_for_text @@general_login_error
   end
-
 
 
   def check_buttons

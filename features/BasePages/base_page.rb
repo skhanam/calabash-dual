@@ -17,9 +17,6 @@ require_relative '../common/support/view_functions'
 require 'differ'
 require_relative '../common/support/Booking_data'
 
-#require 'calabash_shared'
-#require_relative '../../calabash_shared/lib/calabash_shared'
-
 $g_strings_set=false
 
 puts $g_ios
