@@ -168,7 +168,7 @@ module ViewModule
   end
 
   def verify_page_title(txt, time_out=10)
-    txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC"
+    txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC" && $g_phone
     puts "verify_page_title (#{txt})"
     write_verified_text_to_file "verify_page_title (#{txt})"
     actual_title= get_nav_bar_title

@@ -46,8 +46,4 @@ class LoginPage < LoginBasePage
     click_on_text UnicodeUtils.upcase @@new_user_registration_register
   end
 
-  def check_alternate_country
-
-  end
-
 end

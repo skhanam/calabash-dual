@@ -5,11 +5,10 @@ class HolidayExtrasBasePage  < BasePage
   end
 
   def click_extra_biscuit
-    click_accessibility_label(@@home_page_holiday_extra_Biscuit_acc)
+    click_acc_label(@@home_page_holiday_extra_Biscuit_acc)
   end
 
   def verify_extra_biscuit_page
     assert_wait_for_acc(@@extras_page_title_acc)
   end
-
 end

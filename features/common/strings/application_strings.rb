@@ -5,8 +5,8 @@ require_relative 'nordics_strings' if (ENV['TESTENV']=='NOR')
 
 #based on App, Application strings are loaded from
 # en_thomson_strings.rb or
-# en_strings.rb or
-
+# en_first_choice_strings.rb or
+# en_thomson_strings.rb
 module AppStrings
 
   $g_nordics_app=false
@@ -154,11 +154,12 @@ module AppStrings
   end
 
   def countdown_page_strings
-    @@countdown_share_button_text=get_localized_string "weather_share"
+    @@countdown_share_button_text=get_localized_string "countdown_share"
     @@countdown_days_text=get_localized_string "countdown_days"
     @@countdown_hours_text=get_localized_string "countdown_hours"
     @@countdown_minutes_text=get_localized_string "countdown_minutes"
     @@countdown_seconds_text=get_localized_string "countdown_seconds"
+
   end
 
   def currency_converter_page_strings
@@ -225,7 +226,6 @@ module AppStrings
     @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
 
-
     @@already_customer_title="HAVE A BOOKING, LETS LOGIN"
     @@login_button_acc = "SUBMIT"
     @@countdown_biscuit_acc="countdown_Biscuit"
@@ -235,12 +235,13 @@ module AppStrings
 
     @@welcome_page_swipe_down_acc = "swipeDown"
     @@welcome_page_swipe_up_acc = "swipeUp"
-    @@welcome_page_hint_icon = "hintIcon"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@days_to_go= get_localized_string "days_to_go"
-    @@facebook_share = get_localized_string "share_on_twitter"
-    @@twitter_share = get_localized_string "share_on_facebook"
+    @@countdown_fb_share = get_localized_string "share_on_twitter"
+    @@countdown_twitter_share = get_localized_string "share_on_facebook"
+
+    @@logout_confirm_button_text = get_localized_string "confirm"
   end
 end

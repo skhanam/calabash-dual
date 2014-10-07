@@ -40,10 +40,9 @@ Feature: Verify product pages by navigating through side panel
     Given I am on contact us screen
     Then I verify contact us page
 
+  @logout1
   Scenario: Logout verification on my account page
-    Given I have accessed my Personal Details page
-    When I tap on Logout
-    Then I should see logout OS dialogue displayed
+    Given I am on Home screen
+    When I click on Logout using side menu
     When I confirm Logout
     Then I should navigate to welcome screen
-
