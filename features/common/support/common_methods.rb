@@ -123,8 +123,15 @@ class CommonMethods < BasePage
     data["#{locale}"]["months"]["#{month}"]
   end
 
-  def close_whats_new_dialog
+  def close_popup_dialog
+
+    #Handle push notifications
+    if check_text_in_view @@push_notifications
+      click_on_text @@push_not_now
+    end
+
      puts ("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
+     #handle whats new dialog
      if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
       arr=@@app_update_popup_body.split(/\n/)
       arr.each do |var1|

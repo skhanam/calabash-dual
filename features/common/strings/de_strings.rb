@@ -297,8 +297,6 @@ module DEMeineTUI
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = get_localized_string "i_need_help"
 
-
-
     @@signup_salutation= get_localized_string "signup_salutation" #Anrede:
     @@signup_selector= get_localized_string "signup_selector" #Bitte auswählen
     @@signup_preamble= get_localized_string "signup_preamble" #Bitte geben Sie Ihren Vor- und Nachnamen exakt wie auf Ihren Reiseunterlagen an, sowie den dazugehörigen Vorgang/Buchungscode und Ihr Anreisedatum.

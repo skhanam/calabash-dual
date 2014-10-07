@@ -36,7 +36,7 @@ module WelcomeModule
 
       def navigate_to_login
         sleep 2
-        CommonMethods.new.close_whats_new_dialog
+        CommonMethods.new.close_popup_dialog
         CommonMethods.new.close_push_notifications
         check_welcome_screen
         sleep 1
@@ -62,7 +62,7 @@ module WelcomeModule
 
       def click_not_yet_registered_with_tui
         sleep 2
-        CommonMethods.new.close_whats_new_dialog
+        CommonMethods.new.close_popup_dialog
         CommonMethods.new.close_push_notifications
 
         click_on_text @@register_with_booking_code
@@ -87,7 +87,7 @@ module WelcomeModule
       end
 
       def click_already_registered
-        CommonMethods.new.close_whats_new_dialog
+        CommonMethods.new.close_popup_dialog
         CommonMethods.new.close_push_notifications
 
         click_on_text @@login_with_existing_credentials

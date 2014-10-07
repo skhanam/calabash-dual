@@ -137,6 +137,7 @@ module AppStrings
     @@activity_indicator_ten=get_localized_string "activity_indicator_ten"
     @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
     @@activity_indicator_twelve=get_localized_string "activity_indicator_twelve"
+
   end
 
   def image_icons_acc_label
