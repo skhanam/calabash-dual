@@ -179,7 +179,7 @@ end
 Given(/^I am on 'Login' screen/) do
   puts "#TODO sleep must be removed"
   sleep 5
-  @commonMethods.close_whats_new_dialog
+  @commonMethods.close_popup_dialog
 
   if $g_tablet && $g_ios
     if @welcomePage.check_welcome_screen
@@ -195,7 +195,7 @@ Given(/^I am on 'Login' screen/) do
 end
 
 Given(/^I am on 'Welcome' screen/) do
-  @commonMethods.close_whats_new_dialog
+  @commonMethods.close_popup_dialog
   @welcomePage.verify_welcome_screen
 end
 
@@ -317,7 +317,7 @@ end
 Given(/^I submit wrong login details$/) do
   step "I am on 'Login' screen"
 
-  @commonMethods.close_whats_new_dialog
+  @commonMethods.close_popup_dialog
   @commonMethods.close_push_notifications
 
   if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')

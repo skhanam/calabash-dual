@@ -68,7 +68,7 @@ module DEMeineTUI
     @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end
 
-   def new_to_tui_strings
+  def new_to_tui_strings
     @@new_to_tui_discover_tui="TUI entdecken"
     @@new_to_tui_havent_booked="Sie haben bisher noch keinen Urlaub bei uns gebucht? Wir zeigen Ihnen gerne, was Sie bei uns erwartet. Tauchen Sie ein in unsere Reisewelten oder erleben Sie eine Tour durch meine TUI mit unserem Video."
     @@new_to_tui_video ="Hier geht's zum Meine TUI Video"
@@ -95,11 +95,11 @@ module DEMeineTUI
     @@signup_signup_cta= get_localized_capitalized_string "signup_signup_cta" #Registrieren
 
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
-    #@@login_page_text=get_localized_string "login_welcome"
+                                                                              #@@login_page_text=get_localized_string "login_welcome"
     @@email_text=get_localized_string "forgot_password_email_label"
 
     @@email_hint_text= "Benutzername / E-Mail eingeben" if $g_phone #get_localized_string "login_email_hint"
-    @@email_hint_text =  "Benutzername / E-Mail" if $g_tablet
+    @@email_hint_text = "Benutzername / E-Mail" if $g_tablet
 
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
@@ -178,7 +178,7 @@ module DEMeineTUI
 
   def my_bookings_strings
 
-   # @@my_bookings_title ==  $g_phone ? get_localized_string "my_bookings" : get_localized_string "current_bookings"
+    # @@my_bookings_title ==  $g_phone ? get_localized_string "my_bookings" : get_localized_string "current_bookings"
     @@my_bookings_title=get_localized_string "my_bookings" if $g_phone
     @@my_bookings_title=get_localized_string "current_bookings" if $g_tablet
     @@my_bookings_edit_account=get_localized_string "edit_my_account"
@@ -240,12 +240,14 @@ module DEMeineTUI
 
     @@signup_your_booking= get_localized_string "signup_your_booking" #Ihre Buchung
 
-    @@add_a_booking_page_firstname =get_localized_string "forename" if $g_phone
-    @@add_a_booking_page_firstname =get_localized_string "signup_first_name" if $g_tablet
-    @@add_a_booking_page_firstname_hint =get_localized_string "signup_first_name_hint"
-
-    @@add_a_booking_page_last_name =get_localized_string "surname" if $g_phone
-    @@add_a_booking_page_last_name =get_localized_string "signup_lastName_hint" if $g_tablet
+    if $g_phone
+      @@add_a_booking_page_firstname =get_localized_string "forename"
+      @@add_a_booking_page_last_name =get_localized_string "surname"
+    elsif $g_tablet
+      @@add_a_booking_page_firstname =get_localized_string "signup_first_name"
+      @@add_a_booking_page_firstname_hint =get_localized_string "signup_first_name_hint" # Vorname eingeben
+      @@add_a_booking_page_last_name =get_localized_string "signup_lastName_hint"
+    end
 
     @@add_a_booking_page_last_name_hint =get_localized_string "signup_lastName_hint"
 
@@ -296,8 +298,6 @@ module DEMeineTUI
     @@new_user_registration_register = "Registrieren"
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = get_localized_string "i_need_help"
-
-
 
     @@signup_salutation= get_localized_string "signup_salutation" #Anrede:
     @@signup_selector= get_localized_string "signup_selector" #Bitte auswählen
@@ -624,7 +624,7 @@ module DEMeineTUI
     @@holiday_message_minus_14= get_localized_string "holiday_message_minus_14" #Ihre Reise steht vor der Tür. Sind Sie schon urlaubsreif?
     @@holiday_message_minus_2= get_localized_string "holiday_message_minus_2" #schon aufgeregt? Wir freuen uns, Sie bald begrüßen zu dürfen!
     @@holiday_message_minus_3= get_localized_string "holiday_message_minus_3" #nur noch [days] mal schlafen, dann geht's endlich los!
-    #@@holiday_message_minus_548= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!
+                                                                          #@@holiday_message_minus_548= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!
     @@holiday_message_plus_1= get_localized_string "holiday_message_plus_1" #willkommen zurück! Wir hoffen, Sie hatten einen schönen Urlaub
     @@holiday_message_plus_7= get_localized_string "holiday_message_plus_7" #sind Sie schon wieder reif für [location]?
     @@holiday_message_zero= get_localized_string "holiday_message_zero" #wir wünschen Ihnen einen schönen Urlaub!

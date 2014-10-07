@@ -131,5 +131,8 @@ class MyAccountBasePage < BasePage
     assert_wait_for_acc(@@weather_country)
   end
 
+  def select_add_booking
+    click_on_text @@add_a_booking_page_find_booking_button
+  end
 end
 

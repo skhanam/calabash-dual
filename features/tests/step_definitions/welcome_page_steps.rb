@@ -1,7 +1,7 @@
 When(/^I am on Home screen$/) do
   $first_run+=1
   puts "Run count #{$first_run}"
-    @commonMethods.close_whats_new_dialog
+    @commonMethods.close_popup_dialog
     sleep 2
 
     if @welcomePage.check_welcome_screen
