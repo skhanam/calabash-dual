@@ -430,7 +430,6 @@ Given(/^I am a First Choice customers attempting to log into MyThomson$/) do
 end
 
 When(/^I submit First Choice login credentials$/) do
-
     surname=FIRSTCHOICE_USER[:valid][:surname]
     departureDate=FIRSTCHOICE_USER[:valid][:departuredate]
     visionShopNumber=FIRSTCHOICE_USER[:valid][:VisionShopNumber]
@@ -439,6 +438,29 @@ When(/^I submit First Choice login credentials$/) do
     uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
     step "I select the Login button"
-
 end
 
+Given(/^I have entered (correct|wrong) email address$/) do |condition|
+
+  step "I am on 'Login' screen"
+  step "I tap 'Retrieve my booking' button"
+  step "I see retrieve my booking page"
+
+  if condition.eql? 'wrong'
+     step"I submit wrong booking details in booking ref page"
+  elsif condition.eql? 'correct'
+     step"I submit correct booking details in booking ref page"
+   end
+end
+
+When(/^I the Tap 'submit' button$/) do
+  @page.click_on_text "Submit"
+end
+
+Then(/^I should be navigated to Help logging in modal page$/) do
+  step "I verify help logging in page"
+end
+
+Then(/^I should see 'Help logging in' and other page elements$/) do
+  @loginPage.verify_help_logging_in_page
+end

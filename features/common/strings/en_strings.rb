@@ -57,9 +57,12 @@ module EN_Strings
     @@welcome_help_more_issues_body= get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
     @@welcome_help_more_issues_email_title= get_localized_string "welcome_help_more_issues_email_title" # Send email
 
+    @@welcome_help_i_need_help= get_localized_string "i_need_help"
+
     @@welcome_help_retrieve_booking_email_extra = get_localized_string "welcome_help_retrieve_booking_email_extra" # Please use the email address you provided when booking your holiday, as detailed on your invoice.
     @@welcome_help_retrieve_booking_email_hint = get_localized_string "welcome_help_retrieve_booking_email_hint" # Enter email address
     @@welcome_help_retrieve_booking_error = get_localized_string "welcome_help_retrieve_booking_error" # Sorry, we didn't recognise your details.
+    @@welcome_help_retrieve_booking_success = get_localized_string "welcome_help_retrieve_booking_success"
     @@welcome_help_retrieve_booking_ref_validation = get_localized_string "welcome_help_retrieve_booking_ref_validation" # The first part of your booking reference number must be 4 numbers long. The second set can be between 4 and 8 numbers long.
     @@welcome_help_retrieve_booking_surname_extra = get_localized_string "welcome_help_retrieve_booking_surname_extra" # Please use the surname of the person that booked your holiday, as detailed on your invoice.
     @@welcome_help_retrieve_booking_surname_hint = get_localized_string "welcome_help_retrieve_booking_surname_hint" # Enter surname

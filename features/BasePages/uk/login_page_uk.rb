@@ -44,18 +44,12 @@ class LoginPage < LoginBasePage
     assert_wait_for_text @@welcome_help_retrieve_booking_header
   end
 
-  def verify_retrieve_my_booking_page
-    assert_wait_for_text @@welcome_help_retrieve_booking_header
-    scroll_page_and_assert_text @@welcome_help_retrieve_booking_surname
-    scroll_page_and_assert_text @@welcome_help_retrieve_booking_email
-
-    scroll_page_and_assert_text @@welcome_help_retrieve_booking_cta
-    scroll_page_and_assert_text @@welcome_help_more_issues_body
-    scroll_page_and_assert_text @@welcome_help_more_issues_email_title
-  end
-
   def check_booking_ref_error
     assert_wait_for_text escape_quotes_smart(@@welcome_help_retrieve_booking_error)
+  end
+
+  def check_booking_ref_success
+    assert_wait_for_text escape_quotes_smart(@@welcome_help_retrieve_booking_success)
   end
 
   def enter_surname_and_email
@@ -88,16 +82,22 @@ module Phone
 
   def verify_help_logging_in
     assert_wait_for_text @@welcome_help_cant_login_header
-
     scroll_page_and_assert_text @@welcome_help_cant_login_description
-
     scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
     scroll_page_and_assert_text @@welcome_help_cant_login_cta
-
     scroll_page_and_assert_text @@welcome_help_cant_login_iosStore
     scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1
     #scroll_page_and_assert_text @@welcome_help_cant_use_app_cta2
+    scroll_page_and_assert_text @@welcome_help_more_issues_body
+    scroll_page_and_assert_text @@welcome_help_more_issues_email_title
+  end
 
+  def verify_retrieve_my_booking_page
+    assert_wait_for_text @@welcome_help_retrieve_booking_header
+    scroll_page_and_assert_text @@welcome_help_retrieve_booking_surname
+    scroll_page_and_assert_text @@welcome_help_retrieve_booking_email
+
+    scroll_page_and_assert_text @@welcome_help_retrieve_booking_cta
     scroll_page_and_assert_text @@welcome_help_more_issues_body
     scroll_page_and_assert_text @@welcome_help_more_issues_email_title
   end
@@ -114,16 +114,27 @@ module Tablet
 
   def verify_help_logging_in
     assert_wait_for_text @@welcome_help_cant_login_header
-
-    scroll_page_and_assert_text @@welcome_help_cant_login_description,"down",nil,3,3
-
-    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle),"down",nil,3,3
-    scroll_page_and_assert_text @@welcome_help_cant_login_cta,"down",nil,3,3
-
-    scroll_page_and_assert_text @@welcome_help_cant_login_iosStore,"down",nil,3,3
-    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1,"down",nil,3,3
-
-    scroll_page_and_assert_text @@welcome_help_more_issues_body,"down",nil,2,3
   end
+
+  def verify_help_logging_in_page
+    scroll_page_and_assert_text @@welcome_help_cant_login_description,"down",nil,3,2
+    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_subtitle),"down",nil,3,2
+    scroll_page_and_assert_text @@welcome_help_cant_login_cta,"down",nil,3,2
+    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_login_iosStore),"down",nil,3,2
+    scroll_page_and_assert_text @@welcome_help_cant_use_app_cta1,"down",nil,3,2
+    scroll_page_and_assert_text escape_quotes_smart(@@welcome_help_cant_use_app_cta2),"down",nil,3,2
+    scroll_page_and_assert_text @@welcome_help_more_issues_body,"down",nil,2,2
+    scroll_page_and_assert_text @@welcome_help_i_need_help,"down",nil,2,2
+  end
+
+  def verify_retrieve_my_booking_page
+    assert_wait_for_text @@welcome_help_retrieve_booking_header
+    assert_wait_for_text @@welcome_help_retrieve_booking_surname
+    assert_wait_for_text @@welcome_help_retrieve_booking_email
+    assert_wait_for_text @@welcome_help_retrieve_booking_cta
+    assert_wait_for_text @@welcome_help_more_issues_body
+    assert_wait_for_text @@welcome_help_more_issues_email_title
+  end
+
 
 end
