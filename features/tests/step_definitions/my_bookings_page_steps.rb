@@ -101,5 +101,21 @@ When(/^I should see any inline error messages on add booking page$/) do
 end
 
 Then(/^I see close button on change email page$/) do
-  @@click_change_email_button
+  @page.assert_wait_for_acc @page.get_val "close_button_acc"
+end
+
+Then(/^I verify elements on change email page$/) do
+  @myAccountPage.verify_change_email_page
+end
+
+Given(/^I am on change email page$/) do
+  step "I have accessed my Personal Details page"
+  step "I select change email from my personal details page"
+end
+
+When(/^I select change password CTA on change email page$/) do
+  @page.click_on_text @page.get_val "update_email_forgot_password"
+end
+When(/^I see username or email prefilled on change email page$/) do
+  @myAccountPage.change_password_prefilled_username
 end

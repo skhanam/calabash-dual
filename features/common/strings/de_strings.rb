@@ -307,14 +307,17 @@ module DEMeineTUI
 
   def update_email_strings
     @@update_email_text=get_localized_string "update_email" #E-Mail ändern
-    @@update_email_new_email=get_localized_string "new_email"
-    @@update_email_new_password= get_localized_string "your_password" if $g_phone
-    @@update_email_new_password= get_localized_string "login_forgot_password" if $g_tablet
-    @@update_email__text2= get_localized_string "update_reminder"
-    @@update_email_submit= get_localized_string "submit"
     @@update_email_new_email_hint= get_localized_string "new_email_hint_text"
     @@update_email_new_password_hint= get_localized_string "signup_password_hint"
+    @@update_reminder= get_localized_string "update_reminder" #Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen.
+    @@update_email_submit= get_localized_string "submit"
     @@update_email_forgot_password=get_localized_string "login_forgot_password"
+
+    if $g_phone
+      @@update_email_new_email=get_localized_string "new_email"
+      @@update_email_new_password= get_localized_string "your_password"
+    elsif $g_tablet
+    end
   end
 
   def forgot_password_strings

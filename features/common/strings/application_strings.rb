@@ -226,6 +226,8 @@ module AppStrings
     @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
 
+    @@close_button_acc = "closeButton"
+
     @@login_lets_get_inspired = get_localized_capitalized_string "login_have_a_booking" #Bereits gebucht? Einfach hier einloggen oder registrieren
     @@login_lets_get_inspired = get_localized_capitalized_string "login_lets_get_inspired" #Noch nicht gebucht? Lassen Sie sich inspirieren.
 

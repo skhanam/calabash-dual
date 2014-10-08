@@ -10,10 +10,6 @@ When(/^I select change email from my personal details page$/) do
    @myAccountPage.click_change_email_button
 end
 
-Then(/^I see change email page$/) do
-  @myAccountPage.check_change_email_page
-end
-
 Given(/^I have accessed my Personal Details page$/) do
   step "I am on my account page"
 end

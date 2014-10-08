@@ -23,4 +23,4 @@ Feature: Verify My account page and sub pages
 
   Scenario: Verify update email page
     Given I select change email from my personal details page
-    Then I see change email page
+    Then I verify elements on change email page

@@ -29,22 +29,27 @@ Feature: Verify My account page and sub pages
     And I should see Help email on add booking page
 
   @myBookingsPage2
-  Scenario: Error messages
+  Scenario: US13645 Error messages
     Given I have accessed my Personal Details page
     When I have entered invalid information on add booking page
     When I submit wrong form details on add booking page
     Then I should see an Error messages displayed on add booking page
     And I should see any inline error messages on add booking page
 
-  Scenario: Change email
+  @myBookingsPage3
+  Scenario: US13645 Change email
     Given I have accessed my Personal Details page
     When I select change email from my personal details page
     Then I see close button on change email page
-    Then I see change email page
-    And I see email title and information text on change email page
-    And email and password fields on change email page
-    And I should see the Submit button on change email page
-    And I should see Forgot Password Link CTA on change email page
+    Then I verify elements on change email page
+
+  @myBookingsPage4
+  Scenario: US13645 Check Forgot password CTA
+    Given I am on change email page
+    When I select change password CTA on change email page
+    Then I see change password page
+    And I see username or email prefilled on change email page
+
 
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
@@ -56,7 +61,7 @@ Feature: Verify My account page and sub pages
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
     And I select change email from my personal details page
-    Then I see change email page
+    Then I verify elements on change email page
 
   Scenario: Verify change password page
     Given I have accessed my Personal Details page
