@@ -4,7 +4,7 @@ end
 
 And(/^read my bookings into user details$/) do
   @myBookingsPage.fill_user_details
- end
+end
 
 When(/^I click on edit account button from my bookings page$/) do
   @myBookingsPage.navigate_to_account_details
@@ -31,12 +31,16 @@ When(/^I navigate to add a booking page$/) do
   @myBookingsPage.click_add_a_booking_button
 end
 
+Then(/^I see add a booking screen/) do
+  @myBookingsPage.check_add_booking_screen
+end
+
 Then(/^I see add a booking page$/) do
   @myBookingsPage.check_add_booking_page
 end
 
 And(/^I should see all future booking image biscuits$/) do
-@myBookingsPage.check_all_future_booking_biscuits
+  @myBookingsPage.check_all_future_booking_biscuits
 end
 
 And(/^I should see all past booking image biscuits$/) do
@@ -44,7 +48,7 @@ And(/^I should see all past booking image biscuits$/) do
 end
 
 Then(/^I should see Browse Holiday collection biscuit$/) do
-@myBookingsPage.check_browse_holiday_biscuit
+  @myBookingsPage.check_browse_holiday_biscuit
 end
 
 When(/^I should see title and subtitle on add booking page$/) do
@@ -61,4 +65,41 @@ end
 
 When(/^I should input fields for booking details on add booking page$/) do
   @myBookingsPage.add_booking_input_fields
+end
+
+When(/^I have entered invalid information on add booking page$/) do
+  step "I select add Booking biscuit"
+  step "I see add a booking screen"
+end
+
+When(/^I submit wrong form details on add booking page$/) do
+  sleep 2
+  @firstname="firstname"
+  @lastname="lastname"
+  @bookingref="12345678"
+
+  if $g_ios
+    step 'I enter "'+@firstname+'" into input field number 1'
+    step 'I enter "'+@lastname+'" into input field number 2'
+    step 'I enter "'+@bookingref+'" into input field number 3'
+    touch "toolbarTextButton index:1"
+    sleep 1
+    touch "toolbarTextButton index:3"
+    sleep 2
+  else
+    fail "TODO"
+  end
+  @page.click_on_text @page.get_val "new_user_registration_register"
+end
+
+Then(/^I should see an Error messages displayed on add booking page$/) do
+  @myBookingsPage.add_booking_failed
+end
+
+When(/^I should see any inline error messages on add booking page$/) do
+  @page.assert_text_present "Der von Ihnen eingegebene Vorgang/Buchungscode konnte nicht gefunden werden. Bitte \u00FCberpr\u00FCfen Sie Ihre Eingaben."
+end
+
+Then(/^I see close button on change email page$/) do
+  @@click_change_email_button
 end

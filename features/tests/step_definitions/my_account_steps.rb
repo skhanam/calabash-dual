@@ -6,12 +6,12 @@ Then(/^I see my account screen/) do
   @myAccountPage.check_my_account_screen_title
 end
 
-When(/^I select update email from my account page$/) do
-   @myAccountPage.click_update_email_button
+When(/^I select change email from my personal details page$/) do
+   @myAccountPage.click_change_email_button
 end
 
-Then(/^I see update email page$/) do
-  @myAccountPage.check_update_email_page
+Then(/^I see change email page$/) do
+  @myAccountPage.check_change_email_page
 end
 
 Given(/^I have accessed my Personal Details page$/) do

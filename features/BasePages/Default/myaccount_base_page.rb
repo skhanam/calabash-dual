@@ -53,7 +53,7 @@ class MyAccountBasePage < BasePage
     touch_txt_and_verify_text(@@my_account_change_password, @@change_password_title) if $g_tablet
   end
 
-  def click_update_email_button
+  def click_change_email_button
     touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text)if $g_phone
     touch_txt_and_verify_text(@@my_account_update_email, @@update_email_text) if $g_tablet
   end
@@ -62,7 +62,7 @@ class MyAccountBasePage < BasePage
     assert_wait_for_text(@@update_email__text2)
   end
 
-  def check_update_email_page
+  def check_change_email_page
     assert_text_elements([@@update_email_text,
                           @@update_email_new_email,
                           @@update_email_new_password,

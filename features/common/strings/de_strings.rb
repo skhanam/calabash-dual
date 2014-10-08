@@ -295,7 +295,7 @@ module DEMeineTUI
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
-    @@new_user_registration_register = "Registrieren"
+    @@new_user_registration_register = get_localized_string "signup_signup_cta"
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = get_localized_string "i_need_help"
 

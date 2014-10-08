@@ -40,6 +40,10 @@ class MyBookingsPage < BasePage
     assert_text_present @@add_a_booking_page_arrival_date_hint # Datum eingeben
   end
 
+  def add_booking_failed
+  assert_wait_for_text @@login_credentials_error
+  end
+
   def check_add_booking_help
     assert_text_present @@add_a_booking_page_need_help
   end

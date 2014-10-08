@@ -18,7 +18,7 @@ Feature: Verify My account page and sub pages
       | logout                 |
 
 
-  @myBookingsPage.check
+  @myBookingsPage
   Scenario: US13492 DE Profile section - add a booking  READY
     Given I have accessed my Personal Details page
     When I select add Booking biscuit
@@ -28,12 +28,23 @@ Feature: Verify My account page and sub pages
     And I should see find booking text on add booking page
     And I should see Help email on add booking page
 
+  @myBookingsPage2
   Scenario: Error messages
-    Given I have entered invalid information on the form
-    When I submit the form details
-    Then I should see an Error messages displayed in a red 'sorry' box at top of modal window;
-    And I should see any inline error messages displayeded to side of respective form field
+    Given I have accessed my Personal Details page
+    When I have entered invalid information on add booking page
+    When I submit wrong form details on add booking page
+    Then I should see an Error messages displayed on add booking page
+    And I should see any inline error messages on add booking page
 
+  Scenario: Change email
+    Given I have accessed my Personal Details page
+    When I select change email from my personal details page
+    Then I see close button on change email page
+    Then I see change email page
+    And I see email title and information text on change email page
+    And email and password fields on change email page
+    And I should see the Submit button on change email page
+    And I should see Forgot Password Link CTA on change email page
 
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
@@ -44,8 +55,8 @@ Feature: Verify My account page and sub pages
 
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
-    And I select update email from my account page
-    Then I see update email page
+    And I select change email from my personal details page
+    Then I see change email page
 
   Scenario: Verify change password page
     Given I have accessed my Personal Details page
