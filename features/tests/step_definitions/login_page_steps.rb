@@ -4,7 +4,6 @@ end
 
 def meine_tui_login(username, password, country)
   #puts "#{username}, #{password}, #{country}"
-
   if $g_ios
     step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
@@ -26,7 +25,6 @@ end
 
 
 def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
-
   if $g_ios
     #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
     step "I clear input field number 1"
@@ -51,11 +49,8 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     puts "visionBookingRef #{visionBookingRef}"
     @page.input_text visionBookingRef
     sleep 2
-
-
     touch("toolbarTextButton index:1")
     sleep(2)
-
   elsif $g_android
     clear_text
     #performAction('clear_numbered_field', 2)
@@ -428,4 +423,44 @@ end
 
 When(/^I tap 'I can't login in' button$/) do
   @loginPage.click_help_logging_in_tablet
+end
+
+Given(/^I am a First Choice customers attempting to log into MyThomson$/) do
+  step "I am on 'Login' screen"
+end
+
+When(/^I submit First Choice login credentials$/) do
+    surname=FIRSTCHOICE_USER[:valid][:surname]
+    departureDate=FIRSTCHOICE_USER[:valid][:departuredate]
+    visionShopNumber=FIRSTCHOICE_USER[:valid][:VisionShopNumber]
+    visionBookingRef=FIRSTCHOICE_USER[:valid][:VisionBookingRef]
+
+    uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
+    sleep 2
+    step "I select the Login button"
+end
+
+Given(/^I have entered (correct|wrong) email address$/) do |condition|
+
+  step "I am on 'Login' screen"
+  step "I tap 'Retrieve my booking' button"
+  step "I see retrieve my booking page"
+
+  if condition.eql? 'wrong'
+     step"I submit wrong booking details in booking ref page"
+  elsif condition.eql? 'correct'
+     step"I submit correct booking details in booking ref page"
+   end
+end
+
+When(/^I the Tap 'submit' button$/) do
+  @page.click_on_text "Submit"
+end
+
+Then(/^I should be navigated to Help logging in modal page$/) do
+  step "I verify help logging in page"
+end
+
+Then(/^I should see 'Help logging in' and other page elements$/) do
+  @loginPage.verify_help_logging_in_page
 end
