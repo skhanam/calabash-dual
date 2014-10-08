@@ -124,7 +124,6 @@ class CommonMethods < BasePage
   end
 
   def close_popup_dialog
-
     #Handle push notifications
     if check_text_in_view @@push_notifications
       click_on_text @@push_not_now
