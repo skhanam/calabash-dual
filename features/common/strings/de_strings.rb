@@ -135,6 +135,7 @@ module DEMeineTUI
   end
 
   def side_panel_strings
+    @@home=get_localized_string "home"
     @@side_panel_countdown=get_localized_string "countdown"
     @@side_panel_my_booking= get_localized_string "my_booking" #Meine Buchung
 
@@ -147,6 +148,10 @@ module DEMeineTUI
     @@side_panel_hotel=get_localized_string "hotel"
     @@side_panel_hotels=get_localized_string "hotels"
     @@side_panel_transfer=get_localized_string "transfer"
+
+    @@currency_converter= get_localized_string "currency_converter"
+    @@important_information=get_localized_string "important_information"
+
 
     @@side_panel_insurance=get_localized_string "insurance"
     @@side_panel_insurances=get_localized_string "insurances"
@@ -172,6 +177,8 @@ module DEMeineTUI
     @@side_panel_travel_agent=get_localized_string "travel_agent" #Mein Reisebüro
     @@side_panel_tui_service_on_site=get_localized_string "tui_service_on_site"
     @@side_panel_contact_heading=get_localized_string "contact"
+
+    @@app_feedback=get_localized_string "app_feedback"
 
   end
 
@@ -530,7 +537,6 @@ module DEMeineTUI
     @@weather= get_localized_string "weather" #Reisewetter
     @@holiday_extra= get_localized_string "holiday_extra" #Ihre Extra
     @@holiday_extras= get_localized_string "holiday_extras" #Ihre Extras
-    @@currency_converter= get_localized_string "currency_converter" #Währungsrechner
     @@currency_converter_tool= get_localized_string "currency_converter_tool" #Währungsrechner
     @@select_currency= get_localized_string "select_currency" #Währung auswählen
     @@good_to_know= get_localized_string "good_to_know" #Gut zu wissen

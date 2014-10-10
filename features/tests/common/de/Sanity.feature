@@ -10,16 +10,11 @@ Feature: US14552 Off canvas Menu Items
       | Holiday summary                |
       | Countdown                      |
       | Weather                        |
-      | Extras                         |
       | Destination                    |
-      | Excursions                     |
-      | Holiday checklist              |
+#      | Excursions                     |
       | Currency Converter             |
       | Important Information          |
       | Contact Us                     |
       | App Feedback                   |
       | Logout                         |
       | Browse our holiday collections |
-
-
-
