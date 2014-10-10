@@ -147,5 +147,14 @@ class MyAccountBasePage < BasePage
   def select_add_booking
     click_on_text @@add_a_booking_page_find_booking_button
   end
+
+  def click_browse_holidays
+    click_on_text @@browse_banner
+  end
+
+  def verify_browse_holidays
+    assert_wait_for_text @@login_tablet_bottom_bar
+    @@tui_holidays_arr.each {|var| assert_wait_for_text var}
+  end
 end
 

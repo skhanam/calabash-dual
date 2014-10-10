@@ -93,8 +93,16 @@ def de_user_details
   res_typ_excursions=JSON.parse(`#{cmd}`)
   #puts "res_typ_excursions #{res_typ_excursions}"
 
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/destination")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/destination' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  res_destinations=JSON.parse(`#{cmd}`)
+
+
   puts "$g_typical_booking_data #{$g_typical_booking_data}"
-  $g_user_info, $g_typical_booking_data, $g_excursions= res_login, res_typ_home, res_typ_excursions
+  $g_user_info, $g_typical_booking_data, $g_excursions,$g_destinations= res_login, res_typ_home, res_typ_excursions,res_destinations
+
+  puts "$g_destinations #{res_destinations}"
+  puts "res_typ_excursions #{res_typ_excursions}"
 
 end
 

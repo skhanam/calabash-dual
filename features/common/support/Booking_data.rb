@@ -23,6 +23,7 @@ class Bookings
 
   def get_destination_countries
     countries=[]
+    puts "@destinations #{@destinations}"
     @destinations["data"].each do |var|
       countries<< var["destinationName"] if $g_nordics_app
       countries<< var[1]["destinationName"] if !$g_nordics_app
@@ -48,6 +49,8 @@ class Bookings
       @fromCurrency=@payload["currency"]["fromCurrency"]
       @ToCurrency1=@payload["currency"].keys[1]
       @ToCurrency2=@payload["currency"].keys[2]
+      @dest_payload = $g_destinations["payload"]
+      @excursions_payload=$g_excursions["payload"]
     elsif $g_eng_app
       @fromCurrency=@payload["currency"]["fromCurrency"]
       @ToCurrency1=@payload["currencyCode"]
@@ -79,6 +82,18 @@ class Bookings
     num = $g_current_booking[:valid][:VisionBookingRef] if $g_eng_app
     num = $g_current_booking[:valid][:bookingnumber] if $g_nordics_app
     return num
+  end
+
+  def de_destinations
+    arr=[]
+    @dest_payload["destinationInfoObjects"].each do |var|
+    arr.push(var["destinationName"])
+    end
+    return arr
+  end
+
+  def de_destination_details(index=0)
+    @dest_payload["destinationInfoObjects"][index]["destinationName"]
   end
 
   def find_number_of_flights
@@ -232,11 +247,7 @@ class Bookings
 end
 
 def get_excursions
-  cmd=%Q{curl 'http://37.46.24.155:3001/reservation/test0012/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=ugqb6vgb1h6tf43ln296ubahu6; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: 00935223ec4873d8d8bcc73ec964079b44bf846e' --compressed}
-  res=JSON.parse(`#{cmd}`)
-  @payload=res["payload"]
-
-  arr=@payload["destinationAreaExcursions"]
+  arr=@excursions_payload["destinationAreaExcursions"]
   arr.each do |var|
     puts var["destinationName"]
     var["excursions"].each do |arg|

@@ -244,9 +244,14 @@ module AppStrings
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@days_to_go= get_localized_string "days_to_go"
-    @@countdown_fb_share = get_localized_string "share_on_twitter"
-    @@countdown_twitter_share = get_localized_string "share_on_facebook"
+    @@facebook_share = get_localized_string "share_on_twitter"
+    @@twitter_share = get_localized_string "share_on_facebook"
 
     @@logout_confirm_button_text = get_localized_string "confirm"
+
+    @@browse_banner = get_localized_string "browse_banner" # ENTDECKEN SIE DIE TUI REISEWELTEN
+    @@login_tablet_bottom_bar = get_localized_string "login_tablet_bottom_bar" # Die TUI Reisewelten bieten Ihnen das p
+
+    @@tui_holidays_arr=["TUI CLASSIC", "TUI PREMIUM", "TUI BEACH", "TUI LIFESTYLE", "TUI NATURE", "TUI SCENE"]
   end
 end

@@ -197,7 +197,6 @@ ensure Android API 18 installed.:
 
 DEVICE=device DEBUG=1 DEVICE_ENDPOINT=http://192.168.2.12:37265 BUNDLE_ID=de.tui.meinetui.dev.tablet DEVICE_TARGET=757d34b46f85cee1c2388d31f88dc04eb9a21e74 HW=tablet TESTENV=DE_MT SCREENSHOT_PATH=features/report/iosde LANG=de  bundle exec cucumber -p de_mt_ios features/ --tag @1prelogin
 
-
 TI_SCHEME=meinetui
 cd ../tda.tablet
 ti clean

@@ -331,6 +331,7 @@ end
 
 Then(/^I should be navigated to destination page$/) do
   @homePage.verify_destination_page
+  fail("Verify text on destination page")
 end
 
 Then(/^I should see a Currency Converter Biscuit appear$/) do
@@ -386,4 +387,9 @@ end
 
 Then(/^I should be navigated to Holiday extras$/) do
   @holidayExtrasPage.verify_extra_biscuit_page
+end
+
+When(/^I have multiple destinations in my booking$/) do
+  @bookings=$g_booking.get_destination_countries
+ fail ("This is not multi destination booking") if @bookings.count <=1
 end
