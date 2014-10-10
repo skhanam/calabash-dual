@@ -53,25 +53,38 @@ class MyAccountBasePage < BasePage
     touch_txt_and_verify_text(@@my_account_change_password, @@change_password_title) if $g_tablet
   end
 
-  def click_update_email_button
-    touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text)if $g_phone
+  def click_change_email_button
+    touch_txt_and_verify_title(@@my_account_update_email, @@update_email_text) if $g_phone
     touch_txt_and_verify_text(@@my_account_update_email, @@update_email_text) if $g_tablet
   end
 
   def check_update_email_screen
-    assert_wait_for_text(@@update_email__text2)
+    assert_wait_for_text(@@update_reminder)
   end
 
-  def check_update_email_page
-    assert_text_elements([@@update_email_text,
-                          @@update_email_new_email,
-                          @@update_email_new_password,
-                          @@update_email__text2,
-                          @@update_email_submit
-                         ])
+  def verify_change_email_page
+    if $g_phone
+      assert_text_elements([@@update_email_text,
+                            @@update_email_new_email,
+                            @@update_email_new_password,
+                            @@update_reminder,
+                            @@update_email_submit
+                           ])
+    elsif $g_tablet
+      assert_text_elements([@@update_email_text,
+                            @@update_email_new_email_hint,
+                            @@update_email_new_password_hint,
+                            @@update_reminder,
+                            @@update_email_submit
+                           ])
+    end
     scroll_page_and_assert_text @@update_email_forgot_password
   end
 
+  def change_password_prefilled_username
+    res=query("TiTextField",:text).first
+    assert_equal($g_current_user_details[:valid][:username],query("TiTextField",:text).first,"Username is not prefilled")
+  end
 
   def logout_from_app
     scroll_page_and_assert_text(@@log_out_text)
@@ -95,7 +108,7 @@ class MyAccountBasePage < BasePage
   end
 
   def verify_logout_popup
-     assert_wait_for_text(@@my_account_logout_title)
+    assert_wait_for_text(@@my_account_logout_title)
   end
 
   def validate_menu_items(var)

@@ -53,9 +53,6 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep(2)
   elsif $g_android
     clear_text
-    #performAction('clear_numbered_field', 2)
-    #performAction('clear_numbered_field', 6)
-    #performAction('clear_numbered_field', 8)
 
     touch("* marked:'surname.'")
     @page.input_text(surname)

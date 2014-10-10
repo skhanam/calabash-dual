@@ -295,7 +295,7 @@ module DEMeineTUI
     #screen 4
     @@new_user_registration_newsletter = "TUI Newsletter bestellen"
     @@new_user_registration_newsletter_text = get_localized_string "signup_to_emails_blurb"
-    @@new_user_registration_register = "Registrieren"
+    @@new_user_registration_register = get_localized_string "signup_signup_cta"
     @@new_user_registration_privacy_policy = "Datenschutz"
     @@new_user_registration_need_help = get_localized_string "i_need_help"
 
@@ -307,14 +307,17 @@ module DEMeineTUI
 
   def update_email_strings
     @@update_email_text=get_localized_string "update_email" #E-Mail ändern
-    @@update_email_new_email=get_localized_string "new_email"
-    @@update_email_new_password= get_localized_string "your_password" if $g_phone
-    @@update_email_new_password= get_localized_string "login_forgot_password" if $g_tablet
-    @@update_email__text2= get_localized_string "update_reminder"
-    @@update_email_submit= get_localized_string "submit"
     @@update_email_new_email_hint= get_localized_string "new_email_hint_text"
     @@update_email_new_password_hint= get_localized_string "signup_password_hint"
+    @@update_reminder= get_localized_string "update_reminder" #Bitte beachten Sie, dass Sie diese E-Mail Adresse zukünftig auch auf meine-tui.de verwenden müssen.
+    @@update_email_submit= get_localized_string "submit"
     @@update_email_forgot_password=get_localized_string "login_forgot_password"
+
+    if $g_phone
+      @@update_email_new_email=get_localized_string "new_email"
+      @@update_email_new_password= get_localized_string "your_password"
+    elsif $g_tablet
+    end
   end
 
   def forgot_password_strings

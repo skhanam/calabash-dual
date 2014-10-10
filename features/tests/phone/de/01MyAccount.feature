@@ -22,5 +22,5 @@ Feature: Verify My account page and sub pages
     Then I see change password page
 
   Scenario: Verify update email page
-    Given I select update email from my account page
-    Then I see update email page
+    Given I select change email from my personal details page
+    Then I verify elements on change email page

@@ -18,22 +18,37 @@ Feature: Verify My account page and sub pages
       | logout                 |
 
 
-  @myBookingsPage.check
+  @myBookingsPage
   Scenario: US13492 DE Profile section - add a booking  READY
     Given I have accessed my Personal Details page
     When I select add Booking biscuit
     Then I see add a booking page
-#
-#    And I should see title and subtitle on add booking page
-#    And I should input fields for booking details on add booking page
-#    And I should see add-booking CTA {large button} "Buchung hinzufügen"
-#    And I should see Help email CTA on add booking page
-#
-  Scenario: Error messages
-    Given I have entered invalid information on the form
-    When I submit the form details
-    Then I should see an Error messages displayed in a red 'sorry' box at top of modal window;
-    And I should see any inline error messages displayeded to side of respective form field
+    And I should see title and subtitle on add booking page
+    And I should input fields for booking details on add booking page
+    And I should see find booking text on add booking page
+    And I should see Help email on add booking page
+
+  @myBookingsPage2
+  Scenario: US13645 Error messages
+    Given I have accessed my Personal Details page
+    When I have entered invalid information on add booking page
+    When I submit wrong form details on add booking page
+    Then I should see an Error messages displayed on add booking page
+    And I should see any inline error messages on add booking page
+
+  @myBookingsPage3
+  Scenario: US13645 Change email
+    Given I have accessed my Personal Details page
+    When I select change email from my personal details page
+    Then I see close button on change email page
+    Then I verify elements on change email page
+
+  @myBookingsPage4
+  Scenario: US13645 Check Forgot password CTA
+    Given I am on change email page
+    When I select change password CTA on change email page
+    Then I see change password page
+    And I see username or email prefilled on change email page
 
 
   Scenario: Verify Detail section page
@@ -45,8 +60,8 @@ Feature: Verify My account page and sub pages
 
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
-    And I select update email from my account page
-    Then I see update email page
+    And I select change email from my personal details page
+    Then I verify elements on change email page
 
   Scenario: Verify change password page
     Given I have accessed my Personal Details page
