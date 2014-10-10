@@ -44,7 +44,7 @@ Feature: Verify My account page and sub pages
     Then I verify elements on change email page
 
   @myBookingsPage4
-  Scenario: US13645 Check Forgot password CTA
+  Scenario: US13645 verify change password page is prefilled
     Given I am on change email page
     When I select change password CTA on change email page
     Then I see change password page
@@ -62,6 +62,7 @@ Feature: Verify My account page and sub pages
     And I select change email from my personal details page
     Then I verify elements on change email page
 
+  @profile-change-password
   Scenario: US13646 Verify change password page
     Given I have accessed my Personal Details page
     And I choose to change password from my account page

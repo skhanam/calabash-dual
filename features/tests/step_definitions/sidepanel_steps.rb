@@ -144,5 +144,5 @@ Then(/^I should see one menu entry per destination$/) do
 end
 
 When(/^I should see the destination name on the menu$/) do
-  @sidePanel.check_destination_name_on_sidepanel(@bookings)
+  @sidePanel.check_destinations(@bookings)
 end
