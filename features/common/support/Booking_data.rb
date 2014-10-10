@@ -178,8 +178,11 @@ class Bookings
         arr.push(var["name"])
       end
     end
-
     return arr
+  end
+
+  def find_number_of_hotels
+   return get_hotel_details.count
   end
 
   def get_flights_details

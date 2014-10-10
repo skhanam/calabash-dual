@@ -67,7 +67,7 @@ module SidePanelModule
       #scroll_side_panel(@@side_panel_contact_us)
       sleep 1
       click_on_text "Contact" #TODO to change  click_on_text @@side_panel_contact_us
-                              #TODO verify contact us page
+      #TODO verify contact us page
     end
 
     def check_email_field_empty
@@ -213,29 +213,54 @@ module SidePanelModule
       touch_txt_and_verify_title @@side_panel_my_tour_guide, @@my_tour_guide_text
     end
 
+
     def validate_typical_booking_menu_items(var)
       puts "validate_typical_booking_menu_items (#{var})"
       case var
+        when "Home"
+          assert_wait_for_text @@home
         when "Countdown"
-          scroll_page_and_assert_text @@side_panel_countdown
+          scroll_page_and_assert_text @@side_panel_countdown if $g_phone
+          scroll_side_panel @@side_panel_countdown if $g_tablet
         when "My Booking"
           scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_my_booking)
         when "Holiday summary"
-          scroll_page_and_assert_text @@side_panel_booking_summary
+          scroll_page_and_assert_text @@side_panel_booking_summary if $g_phone
+          scroll_side_panel @@side_panel_booking_summary if $g_tablet
         when "Flights"
-          check_side_panel("flight", 2) # 2 flights
+          check_side_panel("flight", $g_booking.find_number_of_flights) # 2 flights
         when "Hotel"
-          check_side_panel("hotel", 2) # 2 hotels
+          check_side_panel("hotel", $g_booking.find_number_of_hotels) # 2 hotels
         when "Insurance"
           check_side_panel("insurance", 1) # 1 insurance
-        when "Extra"
+        when "Extra", "Extras"
           check_side_panel("extra", 1) # 2 extras
         when "Weather"
-          scroll_page_and_assert_text @@side_panel_weather
-        when "Destination guide"
-          scroll_page_and_assert_text @@side_panel_destination_guide
-        when "excursions"
-          scroll_page_and_assert_text @@side_panel_excursions
+          scroll_page_and_assert_text @@side_panel_weather if $g_phone
+          scroll_side_panel @@side_panel_weather if $g_tablet
+        when "Destination guide", "Destination"
+          scroll_page_and_assert_text @@side_panel_destination_guide if $g_phone
+          scroll_side_panel @@side_panel_destination_guide if $g_tablet
+        when "excursions", "Excursions"
+          scroll_page_and_assert_text @@side_panel_excursions if $g_phone
+          scroll_side_panel @@side_panel_excursions if $g_tablet
+        when "Currency Converter"
+          scroll_side_panel @@currency_converter if $g_tablet
+        when "Important Information"
+          scroll_side_panel (@@important_information)
+          assert_wait_for_text (@@important_information)
+        when "Contact Us"
+          scroll_side_panel @@side_panel_contact_heading
+          assert_wait_for_text @@side_panel_contact_heading
+        when "App Feedback"
+          scroll_side_panel (@@app_feedback)
+          assert_wait_for_text (@@app_feedback)
+        when "Logout"
+          scroll_side_panel @@log_out_text
+          scroll_page_and_assert_text @@log_out_text
+        when "Browse our holiday collections"
+          scroll_side_panel @@browse_holiday_banner_text
+          assert_wait_for_text @@browse_holiday_banner_text
         when "Good to know"
           scroll_page_and_assert_text @@side_panel_good_to_know
         when "Kontakt heading"
@@ -246,10 +271,10 @@ module SidePanelModule
           scroll_page_and_assert_text @@side_panel_travel_agent
         when "TUI onsite service"
           scroll_page_and_assert_text @@side_panel_tui_service_on_site
-
+        else
+          fail "Argument not present #{var}"
       end
     end
-
 
     def tui_service_onsite_from_sidepanel
       scroll_side_panel @@contact_us_contact_tui_service
