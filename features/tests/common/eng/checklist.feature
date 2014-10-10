@@ -34,3 +34,24 @@ Feature: English Sanity Tests
     When I tap on the checklist biscuit on home page
     Then I should be navigated to Checklist page
 
+
+  Scenario: US16739 uncompleted checklist items
+    Given I have a pre-holiday booking with uncompleted checklist items
+    When I access  the application homepage
+    Then I should see a checklist biscuit with title 'Holiday Checklist'
+    And I should see the number of items left to do
+
+
+  Scenario: US16739 completed checklist items
+    Given I have a pre-holiday booking with completed checklist items
+    When I access  the application homepage
+    Then I should see a checklist biscuit with title 'Checklist complete'
+    And I should see a 'tick' icon
+
+
+
+
+
+
+
+
