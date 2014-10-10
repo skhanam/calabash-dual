@@ -22,7 +22,6 @@ PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
 
-
 echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
@@ -106,6 +105,7 @@ if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
 fi
 
 if [ "$2" != "NA" ] ; then
+	export LC_CTYPE=en_US.UTF-8
 	echo DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 	DEBUG=1 DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

@@ -8,16 +8,23 @@ Before do |scenario|
 
   scenario_tags = scenario.source_tag_names
 
-  unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch(:timeout => 60) if !scenario_tags.include?('@reset')
-    @calabash_launcher.relaunch(:timeout => 60,:reset=>true) if scenario_tags.include?('@reset')
-    @calabash_launcher.calabash_notify(self)
+  if ENV['DEVICE'] == "device"
+    $g_device=true
+  else
+    unless @calabash_launcher.calabash_no_launch?
+      @calabash_launcher.relaunch(:timeout => 60) if !scenario_tags.include?('@reset')
+      @calabash_launcher.relaunch(:timeout => 60, :reset => true) if scenario_tags.include?('@reset')
+      @calabash_launcher.calabash_notify(self)
+    end
+
+    if scenario_tags.include?('@reset')
+      $selected_booking="NA"
+    end
+
   end
 
-  if scenario_tags.include?('@reset')
-    $selected_booking="NA"
-  end
-
+  #start_test_server_in_background(:timeout => 30)
+  start_test_server_in_background()
 end
 
 After do |scenario|

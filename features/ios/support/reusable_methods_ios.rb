@@ -189,7 +189,7 @@ module IosReusableMethods
 #Scroll to particular page on text and assert if its not present
 #default scrolling direction is down unless specified
   def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10,index=0)
-    write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
+   # write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
     puts "scroll_page_and_assert_text (#{id})"
     id=escape_quotes_smart(id)
     repeat_count=0

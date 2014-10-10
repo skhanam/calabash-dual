@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+gem 'run_loop', '~> 0.2.1'
 gem 'calabash-android', '0.5.0'
 gem 'calabash-cucumber', '0.9.169'
 #gem "calabash-android", "0.5.1"

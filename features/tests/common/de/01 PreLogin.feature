@@ -43,7 +43,7 @@ Feature: Verify screens shown before logging into App
     And I see new user registration section
 
   @wrong-country1 @reset @reg-de
-  Scenario: US13474 Failed login - wrong country
+  Scenario: US13474 submit wrong country and change to correct country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
     Then I see alternative country options for submitted credentials
