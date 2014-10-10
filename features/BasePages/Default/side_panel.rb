@@ -40,7 +40,7 @@ class SidePanel < BasePage
     @@side_panel_weather="Weather" #TODO update later
     scroll_side_panel(@@side_panel_weather)
     touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title if $g_phone
-    click_on_text @@side_panel_weather  if $g_tablet
+    click_on_text @@side_panel_weather if $g_tablet
   end
 
   def navigate_to_app_feedback
@@ -95,14 +95,23 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@log_out_text, nil)
 
 
-
     end
-
   end
 
   def confirm_logout
     click_on_text(@@logout_confirm_button_text)
   end
 
-  private :navigate_to_countdown_page ,:navigate_to_hotel,:navigate_to_app_feedback ,:navigate_to_weather_page
+  def check_destination_name_on_sidepanel(bookings)
+    @dest_name= query("view marked:'currentHoliday'", :text).first
+    puts "@dest_name #{@dest_name}"
+    puts "#{bookings}.include? #{@dest_name}"
+    fail "wrong destination" if (bookings.include? @dest_name)!= true
+  end
+
+  def check_destinations(bookings)
+    bookings.each { |var| assert_wait_for_text var }
+  end
+
+  private :navigate_to_countdown_page, :navigate_to_hotel, :navigate_to_app_feedback, :navigate_to_weather_page
 end
