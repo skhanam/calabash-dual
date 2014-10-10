@@ -193,6 +193,25 @@ ensure Android API 18 installed.:
 	sh runmeinetui.sh
 
 -------------------------------------------------------------------------------
+#Running tests on devices
+
+DEVICE=device DEBUG=1 DEVICE_ENDPOINT=http://192.168.2.12:37265 BUNDLE_ID=de.tui.meinetui.dev.tablet DEVICE_TARGET=757d34b46f85cee1c2388d31f88dc04eb9a21e74 HW=tablet TESTENV=DE_MT SCREENSHOT_PATH=features/report/iosde LANG=de  bundle exec cucumber -p de_mt_ios features/ --tag @1prelogin
+
+TI_SCHEME=meinetui
+cd ../tda.tablet
+ti clean
+rm -rf build/ Resources
+node releaseScripts/build.js --brand $TI_SCHEME
+node releaseScripts/build.js --brand $TI_SCHEME -l
+ti build -p ios --target device -b # select provisioning profile
+calabash-ios setup build/iphone # select build
+open xcode project build
+select -cal target and change device orientation to ipad
+build it on to device using xcode
+
+-------------------------------------------------------------------------------
+
+
 #how to share calabash commands between IOS and Android
 ===============
 This example suits well for calabash x platform example (where code is shared between IOS and android)

@@ -40,7 +40,7 @@ module ForgotPwdModule
       if $g_android
         fail("Email not populated") if !element_exists("ti.modules.titanium.ui.widget.TiUIText$TiEditText text:'#{username}'")
       elsif $g_ios
-        fail("Email not populated") if !element_exists("fieldEditor text:'#{username}'")
+        fail("Email is not  prepopulated") if !element_exists("fieldEditor text:'#{username}'")
       end
     end
 
@@ -48,7 +48,8 @@ module ForgotPwdModule
       if $g_android
         fail("Email not populated") if !element_exists("ti.modules.titanium.ui.widget.TiUIText$TiEditText text:'#{@@email_hint_text}'")
       elsif $g_ios
-        fail("Email not empty") if !element_exists("label text:'#{@@email_hint_text}'")
+        sleep 2
+        fail("Email not empty") if !element_exists("textFieldLabel text:'#{@@email_hint_text}'")
       end
     end
 

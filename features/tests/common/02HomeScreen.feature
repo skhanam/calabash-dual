@@ -27,7 +27,7 @@ Feature: Verify product pages by navigating through biscuits
     Then I should see a destination image biscuit appear
     And I should see a  destination text label name
 
-  @hm4 @reg
+  @hm4 @reg @failed
   Scenario: OnTap link of destination biscuit
     Given I am on home screen with default booking
     When I tap on the destination Biscuit

@@ -8,7 +8,7 @@ module LoginModule
     include BaseModule
 
     def select_register_button
-    touch_txt_and_verify_text @@signup_signup_cta,@@signup_create_account
+      touch_txt_and_verify_text @@signup_signup_cta, @@signup_create_account
     end
 
     def enter_valid_user_name
@@ -53,11 +53,12 @@ module LoginModule
     end
 
     def check_login_button
-        assert_text_present @@login_button
+      assert_text_present @@login_button if $g_phone
+      assert_text_present UnicodeUtils.upcase @@submit_button if $g_tablet
     end
 
     def check_register_link
-        assert_text_present @@signup_signup_cta
+      assert_text_present @@signup_signup_cta
     end
 
     def check_need_help_link

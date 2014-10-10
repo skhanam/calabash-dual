@@ -1,4 +1,4 @@
-@android_test @ios_test @myaccount_tests @auto1 @de  @tab-de
+@android_test @ios_test @myaccount_tests @auto1 @de  @tab-de @reg-de
 Feature: Verify My account page and sub pages
   Verify my personal detail  page and other elements
   Verify change password page
@@ -50,7 +50,6 @@ Feature: Verify My account page and sub pages
     Then I see change password page
     And I see username or email prefilled on change email page
 
-
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
     When I see add booking biscuit
@@ -63,11 +62,12 @@ Feature: Verify My account page and sub pages
     And I select change email from my personal details page
     Then I verify elements on change email page
 
-  Scenario: Verify change password page
+  Scenario: US13646 Verify change password page
     Given I have accessed my Personal Details page
     And I choose to change password from my account page
     Then I see change password page
 
+  @logout-de @failed
   Scenario: Logout verification on my account page
     Given I have accessed my Personal Details page
     When I tap on Logout
@@ -80,7 +80,15 @@ Feature: Verify My account page and sub pages
     When I tap on Add Booking biscuit
     Then I should see Add Booking form displayed
 
+  @viewbooking @failed
   Scenario: view Bookings
     Given I have accessed my Personal Details page
     When I tap on any booking biscuit
     Then I should observe that the app homepage view has the selected booking loaded
+
+  @browse_holidays @failed
+  Scenario: view Bookings
+    Given I have accessed my Personal Details page
+    When I tap on Browse holidays banner
+    Then I should see Browse holidays page displayed
+

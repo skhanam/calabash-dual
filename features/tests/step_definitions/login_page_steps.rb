@@ -177,6 +177,15 @@ Given(/^I am on 'Login' screen/) do
   puts "#TODO sleep must be removed"
   sleep 5
   @commonMethods.close_popup_dialog
+  if $g_device
+   sleep 2
+   if element_exists "view text:'Abmelden'"
+      touch "view text:'Abmelden'"
+      sleep 2
+      touch "view text:'Bestätigen'"
+      sleep 2
+    end
+  end
 
   if $g_tablet && $g_ios
     if @welcomePage.check_welcome_screen
@@ -427,14 +436,14 @@ Given(/^I am a First Choice customers attempting to log into MyThomson$/) do
 end
 
 When(/^I submit First Choice login credentials$/) do
-    surname=FIRSTCHOICE_USER[:valid][:surname]
-    departureDate=FIRSTCHOICE_USER[:valid][:departuredate]
-    visionShopNumber=FIRSTCHOICE_USER[:valid][:VisionShopNumber]
-    visionBookingRef=FIRSTCHOICE_USER[:valid][:VisionBookingRef]
+  surname=FIRSTCHOICE_USER[:valid][:surname]
+  departureDate=FIRSTCHOICE_USER[:valid][:departuredate]
+  visionShopNumber=FIRSTCHOICE_USER[:valid][:VisionShopNumber]
+  visionBookingRef=FIRSTCHOICE_USER[:valid][:VisionBookingRef]
 
-    uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
-    sleep 2
-    step "I select the Login button"
+  uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
+  sleep 2
+  step "I select the Login button"
 end
 
 Given(/^I have entered (correct|wrong) email address$/) do |condition|
@@ -444,10 +453,10 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
   step "I see retrieve my booking page"
 
   if condition.eql? 'wrong'
-     step"I submit wrong booking details in booking ref page"
+    step "I submit wrong booking details in booking ref page"
   elsif condition.eql? 'correct'
-     step"I submit correct booking details in booking ref page"
-   end
+    step "I submit correct booking details in booking ref page"
+  end
 end
 
 When(/^I the Tap 'submit' button$/) do

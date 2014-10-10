@@ -116,6 +116,15 @@ end
 When(/^I select change password CTA on change email page$/) do
   @page.click_on_text @page.get_val "update_email_forgot_password"
 end
+
 When(/^I see username or email prefilled on change email page$/) do
   @myAccountPage.change_password_prefilled_username
+end
+
+When(/^I tap on Browse holidays banner$/) do
+  @myAccountPage.click_browse_holidays
+end
+
+Then(/^I should see Browse holidays page displayed$/) do
+  @myAccountPage.verify_browse_holidays
 end

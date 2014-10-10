@@ -139,3 +139,10 @@ Then(/^I should navigate to welcome screen$/) do
   step "I am on 'Login' screen"
 end
 
+Then(/^I should see one menu entry per destination$/) do
+  @bookings.each {|var| @page.assert_wait_for_text var}
+end
+
+When(/^I should see the destination name on the menu$/) do
+
+end
