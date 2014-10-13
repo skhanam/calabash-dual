@@ -110,12 +110,17 @@ module HomeModule
       case var
         when "checklist"
           scroll_view "right"
-          wait_for_acc_label "checklist_Biscuit"
+          scroll_page_till_acc(@@home_page_checklist_Biscuit_acc, "right")
         when "Currency Biscuit"
           scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
         when "extras Biscuit"
           scroll_page_till_acc(@@home_page_holiday_extra_Biscuit_acc, "right")
+        when "Excursions Biscuit"
+          scroll_page_till_acc(@@home_page_excursions_Biscuit_acc, "right")
+        when "flights Biscuit"
+          scroll_page_till_acc(@@home_page_flights_Biscuit_acc, "right")
       end
+      sleep 1
     end
 
     def check_temp_present

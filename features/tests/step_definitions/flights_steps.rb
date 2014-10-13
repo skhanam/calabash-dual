@@ -35,3 +35,7 @@ Then(/^I should not see flights list$/) do
   puts "count #{count}"
   @flightsPage.check_flights_list_is_not_shown
 end
+
+Then(/^I should see the nearest upcoming flights$/) do
+  @flightsPage.check_flight_biscuit
+end

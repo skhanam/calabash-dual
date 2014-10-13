@@ -1,16 +1,20 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @common-tests @tab-weather @tab @reg
-Feature: US16740	Holiday Extras Biscuit
+@weather @common-tests @flight-biscuits @tab @reg
+Feature: US16741 Flights Biscui
 
-  @hm8
-  Scenario: US16740 Holiday extras Biscuit
-    Given I have a pre-holiday booking
-    When I access  the application home page
-    Then I swipe to see "extras Biscuit"
-    Then I should see an Holiday extras Biscuit appear
 
-  @hm9
-  Scenario: US16740 OnTap extras
-    Given I can see the Holiday extras Biscuit
-    When I tap on the Holiday extras Biscuit
-    Then I should be navigated to Holiday extras page
+  @flight-biscuits1
+  Scenario: US16741 Flights Biscuit pre-departure flight
+    Given I am on Home screen with pre holiday booking
+    Then I swipe to see "flights Biscuit"
+    Then I should see the nearest upcoming flights
+#
+#    And I should see departure airport abbreviation and destination airport abbreviation
+#    And I should see airport nicknames below airport abbreviations
+#    And I should see the information "Departing on <departure date>"
+
+  Scenario: US16741 Flights Biscui OnTap link
+    Given I am on the application homepage
+    When I tap on the Flights Biscuit
+    Then I should be navigated to T2.0 Holiday Summary page
+    And I should see currently displayed flight highlighted

@@ -87,7 +87,7 @@ class Bookings
   def de_destinations
     arr=[]
     @dest_payload["destinationInfoObjects"].each do |var|
-    arr.push(var["destinationName"])
+      arr.push(var["destinationName"])
     end
     return arr
   end
@@ -182,7 +182,7 @@ class Bookings
   end
 
   def find_number_of_hotels
-   return get_hotel_details.count
+    return get_hotel_details.count
   end
 
   def get_flights_details
@@ -247,15 +247,34 @@ class Bookings
     @eng_checkList["payload"]["itemList"].count
   end
 
+  def get_excursions
+    arr=@excursions_payload["destinationAreaExcursions"]
+    hash_arr={}
+    arr.each do |var|
+      arr1=[]
+      @reservation_code=nil
+      puts var["destinationName"]
+      var["excursions"].each do |arg|
+        @reservation_code = arg["reservationCode"]
+        arr1.push(arg["infoList"][0]["value"])
+      end
+      hash_arr["#{var["destinationName"]}"]= arr1
+    end
+    return hash_arr
+  end
+
+  def get_home_biscuits(name, num=1)
+    fail if num <= 0
+    count=0
+    @payload["biscuits"].each do |var|
+      if var["name"]==name
+        count+=1
+      end
+      return var if count==num
+    end
+    fail "Mentioned biscuit is not found in home response"
+  end
+
 end
 
-def get_excursions
-  arr=@excursions_payload["destinationAreaExcursions"]
-  arr.each do |var|
-    puts var["destinationName"]
-    var["excursions"].each do |arg|
-      puts arg["reservationCode"]
-      puts arg["infoList"][0]["value"]
-    end
-  end
-end
+

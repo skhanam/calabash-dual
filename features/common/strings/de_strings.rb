@@ -45,7 +45,11 @@ module DEMeineTUI
   end
 
   def excursions_strings
+    if $g_phone
     @@excursions_title= get_localized_string "excursions" #"Utflykter"
+    elsif $g_tablet
+    @@excursions_title= get_localized_string "excursions_title"
+    end
     @@side_panel_link=get_localized_string "excursions" #"Utflykter"
     @@experience_the_country= get_localized_string "experience_the_country" #Land und Leute hautnah erleben
 

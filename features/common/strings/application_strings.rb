@@ -122,6 +122,9 @@ module AppStrings
     @@home_page_booking_summary=get_localized_string "booking_summary"
     @@home_page_days_to_go= get_localized_string "days_to_go"
     @@to_flight_strings= get_localized_string "to"
+
+    @@holiday_extra= get_localized_string "holiday_extra" #Ihre Extra
+    @@holiday_extras= get_localized_string "holiday_extras" #Ihre Extras
   end
 
   def common_strings
@@ -221,9 +224,13 @@ module AppStrings
     @@home_page_acc ="offcanvasCTA"
     @@home_page_title_acc ="offcanvasCTA"
     @@home_page_sidepanel_acc_label ="offcanvasCTA"
+
+    @@home_page_checklist_Biscuit_acc = "checklist_Biscuit"
     @@home_page_currency_Biscuit_acc="currency_Biscuit"
     @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
     @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
+    @@home_page_excursions_Biscuit_acc="excursions_Biscuit"
+    @@home_page_flights_Biscuit_acc="flight_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
 
     @@welcome_page_hint_icon="hintIcon"

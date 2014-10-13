@@ -385,11 +385,16 @@ When(/^I tap on the Holiday extras Biscuit$/) do
   @holidayExtrasPage.click_extra_biscuit
 end
 
-Then(/^I should be navigated to Holiday extras$/) do
-  @holidayExtrasPage.verify_extra_biscuit_page
+Then(/^I should be navigated to Holiday extras page$/) do
+  @holidayExtrasPage.verify_extras_page
 end
 
 When(/^I have multiple destinations in my booking$/) do
   @bookings=$g_booking.get_destination_countries
  fail ("This is not multi destination booking") if @bookings.count <=1
+end
+
+When(/^I select Excursions Biscuit on home page$/) do
+  step "I swipe to see \"Excursions Biscuit\""
+  @page.click_acc_label @page.get_val "home_page_excursions_Biscuit_acc"
 end

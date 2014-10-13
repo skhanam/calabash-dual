@@ -52,16 +52,3 @@ Feature: Verify product pages by navigating through biscuits
     When I access  the application home page
     Then I should see a Hotel Biscuit appear
     And I should see the text label Step inside hotel name in two lines
-
-  @hm8
-  Scenario: Holiday extras Biscuit
-    Given I have a pre-holiday booking
-    When I access  the application home page
-    Then I swipe to see "extras Biscuit"
-    Then I should see an Holiday extras Biscuit appear
-
-  @hm9
-  Scenario: OnTap extras
-    Given I can see the Holiday extras Biscuit
-    When I tap on the Holiday extras Biscuit
-    Then I should be navigated to Holiday extras

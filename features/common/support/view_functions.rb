@@ -41,6 +41,7 @@ module ViewModule
 
   #Check if part of text is shown
   def check_partial_text_shown text
+    puts "check_partial_text_shown #{text}"
     if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}") == true
       flash("#{$g_query_txt}{text CONTAINS '#{text}'}") if ($g_flash)
       return true

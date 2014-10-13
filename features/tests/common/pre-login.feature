@@ -18,3 +18,8 @@ Feature: English Sanity Tests
     Given I am on 'Login' screen
     When I select tooltip icon for each input field
     Then I see correct tool tip message
+
+  @reset  @wrong-login33  @basic-sanity
+Scenario: Verify error message for wrong login
+  Given I submit wrong login details
+  Then I see correct error messages on login screen

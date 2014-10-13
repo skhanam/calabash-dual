@@ -101,8 +101,9 @@ def de_user_details
   puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions,$g_destinations= res_login, res_typ_home, res_typ_excursions,res_destinations
 
-  puts "$g_destinations #{res_destinations}"
-  puts "res_typ_excursions #{res_typ_excursions}"
+ # puts "$g_typical_booking_data #{$g_typical_booking_data}"
+  #puts "$g_destinations #{res_destinations}"
+  #puts "res_typ_excursions #{res_typ_excursions}"
 
 end
 

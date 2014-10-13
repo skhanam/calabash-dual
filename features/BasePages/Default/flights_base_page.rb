@@ -1,5 +1,17 @@
 class FlightsBasePage < BasePage
 
+  def check_flight_biscuit
+    var=$g_booking.get_home_biscuits("flight")
+    flight_data=var["data"][0]
+    sleep 1
+    assert_wait_for_text flight_data["departureAirportCode"]
+    assert_text_present flight_data["departureAirportName"]
+    assert_text_present flight_data["arrivalAirportCode"]
+    assert_text_present flight_data["arrivalAirportName"]
+    @travel_date = DateTime.parse(flight_data["departureDateTime"]).strftime "%A, %d. %B %Y"
+    assert_partial_text @travel_date
+  end
+
   #this method checks flights the page is shown by verifying one element
   def check_flights_screen_title
     verify_page_title @@flights_page_title
