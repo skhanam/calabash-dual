@@ -13,7 +13,8 @@ if [ "$#" -le "4" ]; then
     echo "5) relative folder path where source code is located"
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
-	echo " 2) sh run_ios.sh NA @sanity da tablet ../meine.tui\n"
+	echo " 2)sh run_ios.sh NA @tab-sanity de tablet ../tda.tablet"
+	echo " 3)sh run_ios.sh NA @testnow en_fc tablet ../tda.tablet\n"
 	exit
 fi
 
@@ -107,5 +108,5 @@ fi
 if [ "$2" != "NA" ] ; then
 	export LC_CTYPE=en_US.UTF-8
 	echo DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	DEBUG=1 DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+	DEVICE_TARGET='iPad Retina - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

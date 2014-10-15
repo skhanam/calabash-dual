@@ -181,6 +181,7 @@ Given(/^I am on packaging list page$/) do
 end
 
 Given(/^I am on weather page$/) do
+  step "I am on home screen with default booking"
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
 end
@@ -397,4 +398,10 @@ end
 When(/^I select Excursions Biscuit on home page$/) do
   step "I swipe to see \"Excursions Biscuit\""
   @page.click_acc_label @page.get_val "home_page_excursions_Biscuit_acc"
+end
+
+
+When(/^I tap on the checklist biscuit on home page$/) do
+  step "I swipe to see \"checklist Biscuit\""
+  @page.click_acc_label @page.get_val "home_page_checklist_Biscuit_acc"
 end

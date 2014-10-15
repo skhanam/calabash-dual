@@ -14,6 +14,13 @@ Feature: US13695 DE Excursions - Detail Page
     When I select Excursions Biscuit on home page
     Then I should be navigated to Excursions Mosaic page
 
+  @tab-excursions @testnow
+  Scenario: OnTap Excursions
+    Given I am on Home screen with pre holiday booking
+    When I select Excursions Biscuit on home page
+    Then I should be navigated to Excursions Mosaic page
+    And I see excursions - Mosaic landing page
+
 
 #    Scenario: Verify page elements
 #    Given that I have navigated to DE excursions - Mosaic landing page

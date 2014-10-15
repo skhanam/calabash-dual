@@ -244,8 +244,8 @@ module EN_Strings
   end
 
   def weather_page_strings
-    @@weather_page_title=get_localized_capitalized_string "weather_header" if $g_current_app=="EN_FC" #"Weather"
-    @@weather_page_title=get_localized_string "weather_header" if $g_current_app=="EN_TH" #"Weather"
+    @@weather_page_title=get_localized_string "weather_header" #"Weather"
+    @@weather_page_title=get_localized_capitalized_string "weather_header" if $g_current_app=="EN_FC" && $g_phone #"Weather"
     @@share_weather=get_localized_string "weather_share" #"Share the weather"
   end
 
@@ -288,6 +288,7 @@ module EN_Strings
     @@are_you_sure= get_localized_string "are_you_sure"
     @@cancel = get_localized_string "cancel"
 
+    @@holiday_checklist_start_packing_list = get_localized_string "holiday_checklist_start_packing_list"
     @@check_list_item_text_acc = "to_text"
     @@check_list_check_box_acc = "checkBox"
     @@check_list_selected_items_acc = "completedItems"

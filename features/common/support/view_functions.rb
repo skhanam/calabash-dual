@@ -11,8 +11,14 @@ module ViewModule
     include Calabash::Cucumber::Operations
   end
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
   def embed(a, b, c)
   end
+
 
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
@@ -168,21 +174,6 @@ module ViewModule
     return true
   end
 
-  def verify_page_title(txt, time_out=10)
-    txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC" && $g_phone
-    puts "verify_page_title (#{txt})"
-    write_verified_text_to_file "verify_page_title (#{txt})"
-    actual_title= get_nav_bar_title
-    count=0
-    while (actual_title!=txt && count<time_out)
-      count+=1
-      actual_title= get_nav_bar_title
-      actual_title.strip if actual_title !=nil
-      fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
-      sleep 1
-    end
-    flash("view text:'#{txt}'") if $g_flash
-  end
 
   # scroll in specified direction till partial id is found
   def scroll_page_till_partial_text(text, dir="down", count=10)
@@ -249,4 +240,28 @@ module ViewModule
     return res
   end
 
+
+  module Phone
+    def verify_page_title(txt, time_out=10)
+      txt=UnicodeUtils.upcase(txt) if ENV['TESTENV']=="EN_FC" && $g_phone
+      puts "verify_page_title (#{txt})"
+      write_verified_text_to_file "verify_page_title (#{txt})"
+      actual_title= get_nav_bar_title
+      count=0
+      while (actual_title!=txt && count<time_out)
+        count+=1
+        actual_title= get_nav_bar_title
+        actual_title.strip if actual_title !=nil
+        fail("act:#{actual_title} doesnt match exp:#{txt}") if count==10
+        sleep 1
+      end
+      flash("view text:'#{txt}'") if $g_flash
+    end
+  end
+
+  module Tablet
+    def verify_page_title(txt, time_out=10)
+      assert_wait_for_text txt
+    end
+  end
 end

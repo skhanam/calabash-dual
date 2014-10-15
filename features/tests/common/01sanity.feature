@@ -16,8 +16,8 @@ Feature: Login and Home page features
     And I should see country name
 
   @logout1
-  Scenario: Logout verification on my account page
-    Given I am on Home screen
+  Scenario: Logout from Side menu
+    Given I am on Home screen with pre holiday booking
     When I click on Logout using side menu
     When I confirm Logout
     Then I should navigate to welcome screen

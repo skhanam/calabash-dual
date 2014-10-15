@@ -179,10 +179,10 @@ Given(/^I am on 'Login' screen/) do
   @commonMethods.close_popup_dialog
   if $g_device
    sleep 2
-   if element_exists "view text:'Abmelden'"
-      touch "view text:'Abmelden'"
+   if element_exists "view text:'#{@page.get_val "log_out_text"}'"
+      touch "view text:'#{@page.get_val "log_out_text"}'"
       sleep 2
-      touch "view text:'Bestätigen'"
+      touch "view text:'#{@page.get_val "my_account_logout_yes"}'"
       sleep 2
     end
   end

@@ -36,6 +36,6 @@ Then(/^I should not see flights list$/) do
   @flightsPage.check_flights_list_is_not_shown
 end
 
-Then(/^I should see the nearest upcoming flights$/) do
+Then(/^I should flight information on flight biscuit$/) do
   @flightsPage.check_flight_biscuit
 end

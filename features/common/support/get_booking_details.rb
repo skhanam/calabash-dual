@@ -1,4 +1,5 @@
 require 'json'
+require 'date'
 require 'rickshaw'
 require_relative '../support/users'
 $g_secret_key="hf5GGmLb9EtzNYFNXyYQ2ial9COEg8VGawuAjIKvGsNuzGF1hhVyKVkTMEqrjOC"
@@ -20,8 +21,13 @@ end
 def eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
   #login
   handshake=get_handshake("/login")
+
+  puts surname, departureDate, visionShopNumber, visionBookingRef
+
   cmd=%Q{curl '#{$g_endpoint}/login'  -H 'tui-public-key: abcd' -H 'tui-brand: uk-#{$brand}' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryIYAw2yoQMahpsmdv' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'tui-auth-key: dfbb707a-b928-479f-a69d-317c4fe10e38' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="surname"\r\n\r\n#{surname}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n#{departureDate}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n#{visionShopNumber}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n#{visionBookingRef}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12347813\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv--\r\n' --compressed}
   res=JSON.parse(`#{cmd}`)
+  puts "#{cmd}"
+  puts res
   res["payload"]["auth"] #return auth key
 end
 
@@ -46,19 +52,25 @@ def eng_user_details
   user=FIRSTCHOICE_USER if (ENV['TESTENV']=='EN_FC')
   $brand="thomson" if (ENV['TESTENV']=='EN_TH')
   $brand="first-choice" if (ENV['TESTENV']=='EN_FC')
-  departureDate="2015-06-30" if (ENV['TESTENV']=='EN_TH') # this values must be updated manually
-  departureDate="2015-05-09" if (ENV['TESTENV']=='EN_FC') # this values must be updated manually
 
-  $g_endpoint="http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"
+
+  $g_endpoint="https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"
+  departureDate = DateTime.parse(user[:valid][:departuredate]).strftime("%Y-%m-%d")
   surname=user[:valid][:surname]
   visionShopNumber=user[:valid][:VisionShopNumber].to_i
   visionBookingRef=user[:valid][:VisionBookingRef].to_i
 
   auth = eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
 
+  #get weather
+  handshake=get_handshake("/reservation/undefined/weather")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/undefined/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-#{$brand}' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  res_weather=JSON.parse(`#{cmd}`)
+
+
   $g_current_booking=get_payload_for_type(visionBookingRef, "home", auth)
   $g_engChecklist=get_payload_for_type(visionBookingRef, "checklist", auth)
-
+  $g_weather = res_weather
 end
 
 def nor_user_details
@@ -97,9 +109,14 @@ def de_user_details
   cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/destination' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res_destinations=JSON.parse(`#{cmd}`)
 
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/weather")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
+  res_weather=JSON.parse(`#{cmd}`)
 
   puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions,$g_destinations= res_login, res_typ_home, res_typ_excursions,res_destinations
+  $g_weather = res_weather
+  puts res_weather
 
  # puts "$g_typical_booking_data #{$g_typical_booking_data}"
   #puts "$g_destinations #{res_destinations}"

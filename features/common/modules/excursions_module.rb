@@ -57,5 +57,10 @@ module ExcursionsModule
     def check_excursions_page
       assert_wait_for_text @@excursions_title
     end
+
+    def check_excursion_mosaic
+      puts "$g_booking.get_excursions #{$g_booking.get_excursions}"
+      $g_booking.get_excursions
+    end
   end
 end

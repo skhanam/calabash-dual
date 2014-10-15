@@ -96,19 +96,24 @@ module HomeModule
 
     def navigate_to_check_list
       begin
-
         scroll_side_panel_and_assert capitalize_first_letter_of_each_word @@holiday_checklist
         click_on_text capitalize_first_letter_of_each_word @@holiday_checklist
       rescue
         scroll_side_panel_and_assert @@holiday_checklists
         click_on_text @@holiday_checklists
       end
-      verify_page_title @@holiday_checklists
+      assert_wait_for_text @@holiday_checklist_start_packing_list
+    end
+
+    def verify_checklist_biscuit
+       wait_for_text "items still to-do"
+       assert_element  "view marked:'checklist_Biscuit' label text:'items still to-do'"
+       assert_text_present $g_booking.get_checklist_count.to_s
     end
 
     def scroll_to_biscuit var
       case var
-        when "checklist"
+        when "checklist Biscuit"
           scroll_view "right"
           scroll_page_till_acc(@@home_page_checklist_Biscuit_acc, "right")
         when "Currency Biscuit"

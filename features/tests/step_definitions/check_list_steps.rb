@@ -55,3 +55,14 @@ end
 Then(/^I must not see item under packaging list$/) do
   @checklistPage.packaging_item_not_present
 end
+
+When(/^I should see the number of items left to do on checklist biscuit$/) do
+  @homePage.verify_checklist_biscuit
+end
+
+Then(/^I should be navigated to Checklist page$/) do
+  @checklistPage.verify_checklist_page
+end
+Then(/^I verify are no items to pack$/) do
+  step "I verify items to pack are \0"
+end

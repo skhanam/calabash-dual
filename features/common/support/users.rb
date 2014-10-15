@@ -40,10 +40,11 @@ DE_USER||= {
 THOMSON_USER||={
     :valid => {
         :surname => "martin",
-        :departuredate => "30-06-2015",
+        :departuredate => "03-08-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12347077",
-        :DepartureTime => "07:05"
+        :VisionBookingRef => "12347657",
+        :DepartureTime => "09:45"
+
     },
     :invalid => {
         :surname => "martin",
@@ -63,8 +64,8 @@ FIRSTCHOICE_USER||={
         :surname => "martin",
         :departuredate => "09-05-2015",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12346467",
-        :DepartureTime => "10:55"
+        :VisionBookingRef => "12346678",
+        :DepartureTime => "08:10"
     },
     :invalid => {
         :surname => "martin",

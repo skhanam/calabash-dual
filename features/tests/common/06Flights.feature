@@ -7,11 +7,7 @@ Feature: US16741 Flights Biscui
   Scenario: US16741 Flights Biscuit pre-departure flight
     Given I am on Home screen with pre holiday booking
     Then I swipe to see "flights Biscuit"
-    Then I should see the nearest upcoming flights
-#
-#    And I should see departure airport abbreviation and destination airport abbreviation
-#    And I should see airport nicknames below airport abbreviations
-#    And I should see the information "Departing on <departure date>"
+    Then I should flight information on flight biscuit
 
   Scenario: US16741 Flights Biscui OnTap link
     Given I am on the application homepage

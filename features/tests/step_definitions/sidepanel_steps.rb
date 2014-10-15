@@ -136,7 +136,8 @@ When(/^I confirm Logout$/) do
 end
 
 Then(/^I should navigate to welcome screen$/) do
-  step "I am on 'Login' screen"
+  sleep 5
+  fail("Welcome page not found") if (@welcomePage.check_welcome_screen != true)
 end
 
 Then(/^I should see one menu entry per destination$/) do

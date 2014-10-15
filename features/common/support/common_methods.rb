@@ -44,24 +44,7 @@ class CommonMethods < BasePage
 
   end
 
-  #Avoid calling this method directly
-  def get_user_details(url)
-      fail("NOT used")
-    if ENV['LANG']=='de'
-      username=$g_current_user_details[:valid][:username]
-      password=$g_current_user_details[:valid][:password]
-      query_url=url||'http://37.46.24.155:3000/reservations'
-      server_url="http://37.46.24.155:3000/login"
-      res1=res1||`curl --data "username=#{username}&password=#{password}" '#{server_url}'`
 
-      m=res1.match('(PHP(.*)path=\/)')
-      res=`curl --header 'tui-auth-key:#{m[1]}' #{query_url}`
-      parsed=JSON.parse(res)
-      return parsed
-    else
-      fail("Language not recognized")
-    end
-  end
 
   # get suffix of day based on number of days
   def getDayNumberSuffix(day)

@@ -136,6 +136,8 @@ module AppStrings
 
     @@weather_coming_soon=get_localized_string "weather_coming_soon"
 
+    @@today= get_localized_string "today" #Heute
+
     @@hold_on_one_moment=get_localized_string "hold_on"
     @@activity_indicator_ten=get_localized_string "activity_indicator_ten"
     @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
