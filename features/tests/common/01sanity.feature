@@ -1,14 +1,14 @@
-@common-tests  @tab @reg @tab-sanity
+@common-tests  @tab @reg
 Feature: Login and Home page features
   Login into application
 
-  @reset @successful-login312
+  @reset @successful-login312 @tab-sanity
   Scenario: US13575 Successful login
     Given I am on 'Login' screen
     When I submit correct login credentials
     Then I must be logged in and on Home page
 
-  @home-weather1
+  @home-weather1 @tab-sanity
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear
