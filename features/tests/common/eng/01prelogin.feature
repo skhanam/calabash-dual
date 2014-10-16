@@ -8,7 +8,6 @@ Feature: Verify pre login screen
     Then I see retrieve my booking page
     Then I verify retrieve my booking page
 
-
   @prelogin4 @eng @lg2
   Scenario: US13575 Tap I cant login Help
     Given I am on 'Login' screen
@@ -32,7 +31,7 @@ Feature: Verify pre login screen
   Scenario: US13575 First Choice customers attempting login into MyThomson
     Given I am a First Choice customers attempting to log into MyThomson
     When I submit First Choice login credentials
-    #Then I see correct error messages on login screen
+    Then I see correct error messages on login screen
 
   @prelogin4 @eng @lg5
   Scenario: US16882 Successful retrieval

@@ -110,6 +110,8 @@ module Tablet
   def check_login_error_messages
     assert_wait_for_text @@login_error_text
     assert_text_present @@login_error_banner
+    assert_text_present @@login_error_departure_date
+    assert_text_present @@login_error_surname
   end
 
   def verify_help_logging_in

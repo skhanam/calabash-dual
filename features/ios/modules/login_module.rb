@@ -68,8 +68,19 @@ module LoginModule
   end
 
   module Eng
+    include BaseModule
+
     def check_hint_text
       check_input_elements
+    end
+
+    def verify_tool_tips
+      touch "view marked:'#{@@welcome_page_hint_icon}' index:0"
+      assert_wait_for_text @@login_error_surname
+      touch "view marked:'#{@@welcome_page_hint_icon}' index:1"
+      assert_wait_for_text @@login_error_departure_date
+      touch "view marked:'#{@@welcome_page_hint_icon}' index:2"
+      assert_wait_for_text @@welcome_help_retrieve_booking_ref_validation
     end
 
     def check_input_elements

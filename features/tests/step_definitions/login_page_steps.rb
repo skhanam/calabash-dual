@@ -27,9 +27,15 @@ end
 def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
   if $g_ios
     #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
-    step "I clear input field number 1"
-    step "I clear input field number 3"
-    step "I clear input field number 4"
+    #   step "I clear input field number 1"
+    #   step "I clear input field number 3"
+    #   step "I clear input field number 4"
+
+    #make sure keyboard is shown IOS only
+    while (keyboard_visible? !=true && $g_ios)
+      sleep 2
+      touch "TiTextField index:0"
+    end
 
     step 'I enter "'+surname+'" into input field number 1'
     touch("toolbarTextButton index:1")
@@ -178,8 +184,8 @@ Given(/^I am on 'Login' screen/) do
   sleep 5
   @commonMethods.close_popup_dialog
   if $g_device
-   sleep 2
-   if element_exists "view text:'#{@page.get_val "log_out_text"}'"
+    sleep 2
+    if element_exists "view text:'#{@page.get_val "log_out_text"}'"
       touch "view text:'#{@page.get_val "log_out_text"}'"
       sleep 2
       touch "view text:'#{@page.get_val "my_account_logout_yes"}'"
@@ -469,4 +475,8 @@ end
 
 Then(/^I should see 'Help logging in' and other page elements$/) do
   @loginPage.verify_help_logging_in_page
+end
+
+Then(/^I select and verify tooltip icon for each input field$/) do
+  @loginPage.verify_tool_tips
 end
