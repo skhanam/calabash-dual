@@ -25,12 +25,18 @@ end
 
 module Tablet
   def scroll_side_panel(text, dir="down")
+
     count=5
     puts "scroll_side_panel #{text}"
     while (!element_exists("view text:'#{text}'") && count >0)
-      sleep 0.5
-      scroll_view(dir, 1)
+      sleep 1
+      # scroll_view(dir, 1)
       count-=1
+      # puts "To be Removed"  #TODO
+      scroll  "view marked:'offCanvasItem_home' parent scrollView",dir
+      sleep 1
+      puts element_exists("view text:'#{text}'")
+      puts "scrolling to #{text}"
     end
     fail("text #{text} not found") if count==0
   end
@@ -47,7 +53,7 @@ module Tablet
 
   def scroll_view(dir, index=0)
     scroll("scrollView index:#{index}", dir)
-    sleep 0.5
+    sleep 1
   end
 
 end

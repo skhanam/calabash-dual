@@ -105,11 +105,19 @@ module LoginModule
       puts "day_today#{day_today}, month_today#{month_today}, year_today#{year_today}"
       index=2
       #Set date
-      query("pickerTableView index:4", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
-      sleep(1)
-      query("view text:'#{month_today}' parent pickerTableView", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
-      sleep(1)
-      query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
+      if $g_device
+        query("pickerTableView index:2", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+        sleep(2)
+        query("pickerTableView index:3", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
+        sleep(2)
+        query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
+      else
+        query("pickerTableView index:4", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+        sleep(1)
+        query("view text:'#{month_today}' parent pickerTableView", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
+        sleep(1)
+        query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
+      end
       sleep(2)
     end
 
