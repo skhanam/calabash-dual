@@ -1,7 +1,7 @@
 @reg-en @tab
 Feature: US14552 Off canvas Menu Items
 
-  @tab-sidepanel @reg-en
+  @tab-sidepanel1 @reg-en @device
   Scenario: Homepage assemblage
     Given I am on Home screen
     When I open side panel

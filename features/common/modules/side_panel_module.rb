@@ -115,7 +115,7 @@ module SidePanelModule
           #scroll_page_and_assert_text @@
           assert_wait_for_text capitalize_first_letter_of_each_word @@holiday_checklist
         when "Contact Us"
-          scroll_side_panel capitalize_first_letter_of_each_word @@side_panel_contact
+          scroll_side_panel @@side_panel_contact
           assert_wait_for_text @@side_panel_contact
         when "Important Information"
           scroll_side_panel capitalize_first_letter_of_each_word(@@important_information)

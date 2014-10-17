@@ -21,7 +21,7 @@ Before do |scenario|
   end
 
   $selected_booking="NA" if scenario_tags.include?('@reset')
-  #start_test_server_in_background(:timeout => 30)
+
 end
 
 After do |scenario|
