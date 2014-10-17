@@ -14,10 +14,9 @@ Feature: English Sanity Tests
     Then I see new user registration page
 
   @prelogin112
-  Scenario: Verify welcome screen
+  Scenario: US13575 Information Tooltips
     Given I am on 'Login' screen
-    When I select tooltip icon for each input field
-    Then I see correct tool tip message
+    Then I select and verify tooltip icon for each input field
 
   @reset  @wrong-login33  @basic-sanity
 Scenario: Verify error message for wrong login

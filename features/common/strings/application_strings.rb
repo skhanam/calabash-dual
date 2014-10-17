@@ -238,6 +238,10 @@ module AppStrings
     @@welcome_page_hint_icon="hintIcon"
     @@close_button_acc = "closeButton"
 
+    @@welcome_page_hint_text_field0="hintTextField_0"
+    @@welcome_page_hint_text_field1="hintTextField_1"
+    @@welcome_page_hint_text_field2="hintTextField_2"
+
     @@login_have_a_booking = get_localized_capitalized_string "login_have_a_booking" #Bereits gebucht? Einfach hier einloggen oder registrieren
     @@login_lets_get_inspired = get_localized_capitalized_string "login_lets_get_inspired" #Noch nicht gebucht? Lassen Sie sich inspirieren.
 
