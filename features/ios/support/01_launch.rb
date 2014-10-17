@@ -10,21 +10,18 @@ Before do |scenario|
 
   if ENV['DEVICE'] == "device"
     $g_device=true
+    $g_device_reset=true if scenario_tags.include?('@reset')
+    start_test_server_in_background()
   else
     unless @calabash_launcher.calabash_no_launch?
       @calabash_launcher.relaunch(:timeout => 60) if !scenario_tags.include?('@reset')
       @calabash_launcher.relaunch(:timeout => 60, :reset => true) if scenario_tags.include?('@reset')
       @calabash_launcher.calabash_notify(self)
     end
-
-    if scenario_tags.include?('@reset')
-      $selected_booking="NA"
-    end
-
   end
 
+  $selected_booking="NA" if scenario_tags.include?('@reset')
   #start_test_server_in_background(:timeout => 30)
-  start_test_server_in_background()
 end
 
 After do |scenario|

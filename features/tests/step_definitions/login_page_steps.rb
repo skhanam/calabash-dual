@@ -179,6 +179,11 @@ Given(/^I am on 'Login' screen/) do
   @commonMethods.close_popup_dialog
   if $g_device
    sleep 2
+  if @page.check_acc_label "offcanvasCTA"
+    @homePage.open_side_panel
+    @page.scroll_side_panel @page.get_val "log_out_text"
+  end
+
    if element_exists "view text:'#{@page.get_val "log_out_text"}'"
       touch "view text:'#{@page.get_val "log_out_text"}'"
       sleep 2
@@ -403,6 +408,10 @@ Given(/^I login with post holiday data$/) do
     @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
     @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
     sleep 2
+
+    @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc") if @page.check_acc_label @page.get_val("welcome_page_swipe_down_acc")
+    sleep 2
+
   else
     fail "TBD for phone"
   end
