@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@common-tests @tab @tab-count @reg
+@common-tests @tab @tab-count @reg @device
 Feature: Verify Countdown details for bookings
 
   @tab-count1 @device

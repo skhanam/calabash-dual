@@ -185,10 +185,15 @@ Given(/^I am on 'Login' screen/) do
   @commonMethods.close_popup_dialog
   if $g_device
     sleep 2
+    if @page.check_acc_label "offcanvasCTA"
+      @homePage.open_side_panel
+      @page.scroll_side_panel @page.get_val "log_out_text"
+    end
+
     if element_exists "view text:'#{@page.get_val "log_out_text"}'"
       touch "view text:'#{@page.get_val "log_out_text"}'"
       sleep 2
-      touch "view text:'#{@page.get_val "my_account_logout_yes"}'"
+      touch "view text:'#{@page.get_val "logout_confirm"}'"
       sleep 2
     end
   end
@@ -409,6 +414,10 @@ Given(/^I login with post holiday data$/) do
     @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
     @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
     sleep 2
+
+    @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc") if @page.check_acc_label @page.get_val("welcome_page_swipe_down_acc")
+    sleep 2
+
   else
     fail "TBD for phone"
   end
@@ -479,4 +488,12 @@ end
 
 Then(/^I select and verify tooltip icon for each input field$/) do
   @loginPage.verify_tool_tips
+end
+
+Then(/^I see error messages when first choice user logs into myThomson$/) do
+  @loginPage.verify_fc_user_in_thomson
+end
+
+Then(/^I see error messages when thomson user logs into firstchoice/) do
+  @loginPage.verify_th_user_in_firstchoice
 end

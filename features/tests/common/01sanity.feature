@@ -1,4 +1,4 @@
-@common-tests  @tab @reg
+@common-tests  @tab @reg @testnow
 Feature: Login and Home page features
   Login into application
 

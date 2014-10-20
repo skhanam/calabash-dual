@@ -227,6 +227,20 @@ module IosReusableMethods
     sleep 1
   end
 
+  def scroll_at_acc_label(id,dir="down")
+    scroll_at_element "view text:'#{id}",dir
+  end
+
+
+  def scroll_at_text_element(text,dir="down")
+    scroll_at_element "view text:'#{text}",dir
+  end
+
+
+  def scroll_at_element(query,dir="down")
+   scroll "#{query} parent scrollView",dir
+  end
+
   def scroll_table_to_text(text)
     puts "scroll_table_to_text #{text}"
     wait_poll({:until_exists => "view marked:'#{text}'",

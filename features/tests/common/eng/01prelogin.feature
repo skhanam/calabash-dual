@@ -1,4 +1,4 @@
-@prelogin  @reset
+@prelogin  @reset  @device-en
 Feature: Verify pre login screen
 
   @prelogin4  @eng @lg1
@@ -31,7 +31,7 @@ Feature: Verify pre login screen
   Scenario: US13575 First Choice customers attempting login into MyThomson
     Given I am a First Choice customers attempting to log into MyThomson
     When I submit First Choice login credentials
-    Then I see correct error messages on login screen
+    Then I see error messages when first choice user logs into myThomson
 
   @prelogin4 @eng @lg5 @device
   Scenario: US16882 Successful retrieval

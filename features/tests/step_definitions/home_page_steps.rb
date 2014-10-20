@@ -87,9 +87,6 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
-  #TODO remove if false
-  p "********************** this code must be removed later **********************"
-  if false
     if booking_type!=$selected_booking
       $selected_booking=booking_type
       @homePage.navigate_to_account
@@ -97,7 +94,6 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
     else
       puts "already switched to #{booking_type} "
     end
-  end
 
 end
 

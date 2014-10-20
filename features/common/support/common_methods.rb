@@ -45,7 +45,6 @@ class CommonMethods < BasePage
   end
 
 
-
   # get suffix of day based on number of days
   def getDayNumberSuffix(day)
     day=day.to_i

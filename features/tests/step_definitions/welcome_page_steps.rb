@@ -4,6 +4,9 @@ When(/^I am on Home screen$/) do
     @commonMethods.close_popup_dialog
     sleep 2
 
+  puts "@welcomePage.check_welcome_screen"
+  puts @welcomePage.check_welcome_screen
+
     if @welcomePage.check_welcome_screen
       step "I log into Application"
       sleep 5
