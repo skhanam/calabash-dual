@@ -212,7 +212,7 @@ module DEMeineTUI
     @@log_out_text=get_localized_string "logout"
 
     @@my_account_logout_title= get_localized_string "logout_confirm_two"
-    @@my_account_logout_yes= get_localized_string "confirm"
+    @@logout_confirm= get_localized_string "confirm"
     @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
 
   end

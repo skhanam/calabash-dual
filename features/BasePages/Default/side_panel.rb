@@ -92,9 +92,7 @@ class SidePanel < BasePage
         scroll_view("down", 1)
         scroll_side_panel(@@log_out_text)
         scroll_view("down", 1)
-        touch_txt_and_verify_title(@@log_out_text, nil)
-
-
+        touch_txt_and_verify_title(@@log_out_text, @@logout_confirm)
     end
   end
 

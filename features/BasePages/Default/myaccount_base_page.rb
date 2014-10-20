@@ -93,10 +93,10 @@ class MyAccountBasePage < BasePage
     assert_wait_for_text(@@my_account_logout_title)
 
     assert_text_present(@@my_account_logout_title)
-    assert_text_present(@@my_account_logout_yes)
+    assert_text_present(@@logout_confirm)
     assert_text_present(@@my_account_logout_no)
     sleep 1
-    touch("button marked:'#{@@my_account_logout_yes}'")
+    touch("button marked:'#{@@logout_confirm}'")
     sleep 4
   end
 

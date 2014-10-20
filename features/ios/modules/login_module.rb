@@ -74,6 +74,18 @@ module LoginModule
       check_input_elements
     end
 
+    def verify_th_user_in_firstchoice
+      txt="Sorry, this app isn’t available with your booking, but you can still manage your holiday using the MyThomson app."
+      assert_wait_for_text escape_quotes txt
+      assert_text_present @@welcome_help_cant_login_iosStore
+    end
+
+    def verify_fc_user_in_thomson
+      txt="Sorry, this app isn’t available with your booking, but you can still manage your holiday using the MyFirstChoice app."
+      assert_wait_for_text(escape_quotes(txt))
+      assert_text_present @@welcome_help_cant_login_iosStore
+    end
+
     def verify_tool_tips
       touch "view marked:'#{@@welcome_page_hint_icon}' index:0"
       assert_wait_for_text @@login_error_surname

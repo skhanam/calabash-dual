@@ -193,7 +193,7 @@ Given(/^I am on 'Login' screen/) do
     if element_exists "view text:'#{@page.get_val "log_out_text"}'"
       touch "view text:'#{@page.get_val "log_out_text"}'"
       sleep 2
-      touch "view text:'#{@page.get_val "my_account_logout_yes"}'"
+      touch "view text:'#{@page.get_val "logout_confirm"}'"
       sleep 2
     end
   end
@@ -488,4 +488,12 @@ end
 
 Then(/^I select and verify tooltip icon for each input field$/) do
   @loginPage.verify_tool_tips
+end
+
+Then(/^I see error messages when first choice user logs into myThomson$/) do
+  @loginPage.verify_fc_user_in_thomson
+end
+
+Then(/^I see error messages when thomson user logs into firstchoice/) do
+  @loginPage.verify_th_user_in_firstchoice
 end

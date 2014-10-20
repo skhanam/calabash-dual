@@ -105,6 +105,9 @@ module EN_Strings
   end
 
   def login_page_strings
+
+    @@welcome_help_cant_login_iosStore = get_localized_string "welcome_help_cant_login_iosStore"
+
     if $g_tablet
       @@welcome_login_surname_hint = get_localized_string "welcome_login_surname_hint" # Enter surname
       @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
