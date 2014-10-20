@@ -1,4 +1,4 @@
-@reg-en @tab
+@tab
 Feature: US14552 Off canvas Menu Items
 
   @tab-sidepanel2 @reg-de @5552

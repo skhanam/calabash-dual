@@ -2,19 +2,19 @@
 @common-tests @tab @tab-count @reg
 Feature: Verify Countdown details for bookings
 
-  @tab-count1
+  @tab-count1 @device
   Scenario: US16736 Countdown Biscuit More than one day
     Given I am on Home screen
     And I have more than one day left for my holiday
     Then I should see a Countdown biscuit with a count of days left
 
-  @tab-count2
+  @tab-count2 @device
   Scenario: US16736 OnTap link
     Given I am on Home screen
     When I select countdown biscuit
     Then I see holiday countdown page
 
-  @tab-count3
+  @tab-count3 @device
   Scenario: US16736 Pre departure
     Given I am on Home screen
     And I have more than one day left for my holiday

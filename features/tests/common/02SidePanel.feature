@@ -1,4 +1,4 @@
-@android_test @ios_test @common-tests @tab
+@android_test @ios_test @common-tests @tab @pre-en
 Feature: Verify product pages by navigating through side panel
   Check countdown page is displayed correctly
   Check weather page is displayed correctly

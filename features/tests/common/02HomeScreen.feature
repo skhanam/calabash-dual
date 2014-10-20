@@ -20,7 +20,7 @@ Feature: Verify product pages by navigating through biscuits
     When I navigate to destination using home page biscuit
     Then I see destination information page
 
-  @hm3 @reg
+  @hm3 @reg @device
   Scenario: Destination biscuit verify
     Given I have a pre-holiday booking
     And I swipe to the right of the screen
@@ -33,20 +33,20 @@ Feature: Verify product pages by navigating through biscuits
     When I tap on the destination Biscuit
     Then I should be navigated to destination page
 
-  @hm5 @reg
+  @hm5 @reg @device
   Scenario: Currency Converter Biscuit
     Given I have a pre-holiday booking
     Then I swipe to see "Currency Biscuit"
     And I should see a Currency Converter Biscuit appear
     Then I should see the home currency of 1 = destination currency symbol equal value
 
-  @hm6 @reg
+  @hm6 @reg @device
   Scenario: Converter Biscuit OnTap OK
     Given I can see the Currency Converter Biscuit
     When I tap on the Currency Converter Biscuit
     Then I should be navigated to Currency Converter page
 
-  @hm7
+  @hm7 @device
   Scenario: Hotel Biscuit verification
     Given I have a pre-holiday booking
     When I access  the application home page

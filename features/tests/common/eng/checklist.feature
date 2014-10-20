@@ -1,13 +1,13 @@
 @eng @sanity-eng
 Feature: English Sanity Tests
 
-
+  @device
   Scenario: uncompleted checklist items
     Given I am on Home screen with pre holiday booking
     When I swipe to see "checklist Biscuit"
     And I should see the number of items left to do on checklist biscuit
 
-  @verify-tab-check_list
+  @verify-tab-check_list @device
   Scenario: Verify check list item selection
     Given I am on Home screen with pre holiday booking
     When I tap on the checklist biscuit on home page
