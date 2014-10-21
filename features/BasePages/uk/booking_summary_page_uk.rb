@@ -1,7 +1,40 @@
-require_relative '../Default/booking_summary_base_page'
-
 class BookingSummaryPage < BookingSummaryBasePage
+  include eval($g_hw_module)
+end
 
+module Tablet
+
+  def verify_booking_reference_number
+    visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
+    visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
+    puts "visionBookingRef #{visionBookingRef} vision shop number #{visionShopNumber}"
+    wait_for_partial_text_shown visionShopNumber
+    wait_for_partial_text_shown visionBookingRef
+  end
+
+  #returns elements to verify on booking summary page
+  def verify_booking_summary_details
+    puts "$g_booking.get_passenger_details #{$g_booking.get_passenger_details}"
+    hash_arr= $g_booking.get_passenger_details
+    assert_text_present hash_arr["LeadPassenger"][0]
+    hash_arr["OtherPassenger"].each { |var| assert_text_present var }
+  end
+
+  def verify_flight_summary_details
+    hash_arr= $g_booking.get_flight_details
+    scroll_at_text_element "Your Party"
+    puts " ********** TODO: remove sroll"
+    hash_arr["Departure"].each do |var|
+      assert_wait_for_text var
+    end
+    hash_arr["Arrival"].each do |var|
+      assert_wait_for_text var
+    end
+  end
+
+end
+
+module Phone
   def check_products_in_booking_summary(var)
     if var=="flight"
       products=$g_booking.get_flights_details
@@ -18,9 +51,6 @@ class BookingSummaryPage < BookingSummaryBasePage
     end
   end
 
-  def check_booking_summary_screen
-    assert_wait_for_text(@@booking_summary_title)
-  end
 
   def verify_booking_summary_details
     check_booking_summary_screen
@@ -43,7 +73,6 @@ class BookingSummaryPage < BookingSummaryBasePage
     wait_for_partial_text_shown visionBookingRef
   end
 
-
   def verify_days_to_go
     get_countdown_days= $g_current_user_details[:valid][:departuredate]
     res1=Date.parse(get_countdown_days)
@@ -55,6 +84,9 @@ class BookingSummaryPage < BookingSummaryBasePage
     scroll_page_and_assert_text str.to_s
   end
 
-end
+  def check_booking_summary_screen
+    assert_wait_for_text(@@booking_summary_title)
+  end
 
+end
 

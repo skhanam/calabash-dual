@@ -6,7 +6,6 @@ module SidePanelModule
   module Phone
     include BaseModule
 
-
     def navigate_to_countdown_page
       scroll_side_panel(@@side_panel_countdown, "down")
       touch_txt_and_verify_title(@@side_panel_countdown, @@countdown_page_title)

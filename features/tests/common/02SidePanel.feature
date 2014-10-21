@@ -1,4 +1,4 @@
-@android_test @ios_test @common-tests @tab
+@android_test @ios_test @common-tests @tab @pre-en
 Feature: Verify product pages by navigating through side panel
   Check countdown page is displayed correctly
   Check weather page is displayed correctly
@@ -17,11 +17,11 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to weather page using side menu
     Then I see holiday weather page
 
-  @booking-summary321
+  @booking-summary321 @bs1
   Scenario: navigate to booking summary page
     Given I am on Home screen
     And I navigate to booking summary page using side menu
-    Then I see holiday booking summary page
+    Then I see tablet holiday booking summary page
 
    @dest12 @ss @failed
   Scenario: Navigate to destination guide page and verify list of destinations
