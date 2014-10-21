@@ -67,10 +67,16 @@ def eng_user_details
   cmd=%Q{curl '#{$g_endpoint}/reservation/undefined/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-#{$brand}' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res_weather=JSON.parse(`#{cmd}`)
 
+  #get summary
+  handshake=get_handshake("/reservation/undefined/summary")
+  cmd= %Q{curl '#{$g_endpoint}/reservation/undefined/summary' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-#{$brand}' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  res_summary=JSON.parse(`#{cmd}`)
+
 
   $g_current_booking=get_payload_for_type(visionBookingRef, "home", auth)
   $g_engChecklist=get_payload_for_type(visionBookingRef, "checklist", auth)
   $g_weather = res_weather
+  $g_summary = res_summary
 end
 
 def nor_user_details
@@ -123,5 +129,6 @@ if $g_current_app== "DE_MT"
   de_user_details
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
+  # puts $g_current_booking
   $g_booking.set_payload($g_current_booking["payload"])
 end

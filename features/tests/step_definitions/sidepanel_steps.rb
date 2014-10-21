@@ -28,10 +28,18 @@ When(/^I navigate back to home page from booking summary page$/) do
   @page.click_back_button
 end
 
+When(/^I see tablet holiday booking summary page$/) do
+
+  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_booking_summary_details
+  @bookingSummaryPage.verify_flight_summary_details
+
+end
+
 When(/^I see holiday booking summary page$/) do
+  @bookingSummaryPage.verify_booking_summary_page
   @bookingSummaryPage.verify_booking_reference_number
   @bookingSummaryPage.verify_days_to_go
-  #@bookingSummaryPage.verify_booking_summary_details
 end
 
 When(/^I see and verify holiday booking summary page$/) do
