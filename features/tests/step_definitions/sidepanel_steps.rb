@@ -29,36 +29,31 @@ When(/^I navigate back to home page from booking summary page$/) do
 end
 
 When(/^I see tablet holiday booking summary page$/) do
-
-  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_booking_reference_details
   @bookingSummaryPage.verify_booking_summary_details
   @bookingSummaryPage.verify_flight_summary_details
-
 end
 
 When(/^I see holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_summary_page
-  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_booking_reference_details
   @bookingSummaryPage.verify_days_to_go
 end
 
 When(/^I see and verify holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_booking_reference_details
   @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
-
 
 Then(/^I should see a list of products in my booking$/) do
   @sidePanel.verify_elements_for_typical_booking
 end
 
-
 Given(/^I navigate to flights page from side panel$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_to_flights_page
 end
-
 
 Then(/^I see app feedback page$/) do
   @appFeedbackPage.check_app_feedback_title
@@ -111,7 +106,6 @@ Then(/^I navigate to each item and navigate back to home screen$/) do |table|
     sleep 2
   end
 end
-
 
 When(/^I navigate to destination using side menu$/) do
   @homePage.open_side_panel

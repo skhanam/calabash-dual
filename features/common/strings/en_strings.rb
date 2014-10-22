@@ -163,7 +163,6 @@ module EN_Strings
 
     @@welcome_help_more_issues_body = get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
     @@welcome_help_more_issues_email_title = get_localized_string "welcome_help_more_issues_email_title" # Send email
-
   end
 
   def travel_money_strings
@@ -228,7 +227,6 @@ module EN_Strings
 
     @@side_panel_extra=get_localized_string "extra"
     @@side_panel_extras=get_localized_string "extras"
-
   end
 
   def booking_summary_strings
@@ -243,7 +241,6 @@ module EN_Strings
     @@bookingSummary_flightsNotReadyText=get_localized_string "bookingSummary_flightsNotReadyText" #"Your flights are confirmed six weeks before you depart. When they’re ready, we’ll display your full flight details here."
     @@bookingSummary_emailDescription=get_localized_string "bookingSummary_emailDescription" #"Send your full holiday summary to yourself or other passengers."
     @@bookingSummary_emailTitle=get_localized_string "bookingSummary_emailTitle" #"Email my booking details"
-
   end
 
   def weather_page_strings
@@ -283,7 +280,6 @@ module EN_Strings
     end
   end
 
-
   def checklist_strings
     @@packaging_item_title = "pack 1 item"
     @@delete_item =get_localized_string "delete_item"
@@ -303,7 +299,6 @@ module EN_Strings
   end
 
   def post_holiday_strings
-
     @@home_page_post_holiday_title=get_localized_string "postholiday_title"
     @@home_page_post_holiday_popup_alert_content=get_localized_string "postholiday_alert"
     @@home_page_post_holiday_popup_alert_ok=get_localized_string "ok"
@@ -312,7 +307,6 @@ module EN_Strings
     @@home_page_post_holiday_need_help_content_text=get_localized_string "postholiday_needhelp_sub"
     @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
     @@log_out_acc="logout"
-
   end
 
 end
