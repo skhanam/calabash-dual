@@ -4,7 +4,7 @@ end
 
 module Tablet
 
-  def verify_booking_reference_number
+  def verify_booking_reference_details
     visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
     visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
     puts "visionBookingRef #{visionBookingRef} vision shop number #{visionShopNumber}"

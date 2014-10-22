@@ -266,5 +266,7 @@ module AppStrings
     @@login_tablet_bottom_bar = get_localized_string "login_tablet_bottom_bar" # Die TUI Reisewelten bieten Ihnen das p
 
     @@tui_holidays_arr=["TUI CLASSIC", "TUI PREMIUM", "TUI BEACH", "TUI LIFESTYLE", "TUI NATURE", "TUI SCENE"]
+
+    @@call_us_on_text= get_localized_string "call"
   end
 end

@@ -37,6 +37,8 @@ end
 
 Then(/^I verify contact us page$/) do
   @contactPage.verify_contact_us_page
+  @bookingSummaryPage.verify_booking_reference_details if $g_tablet
+  @bookingSummaryPage.verify_booking_summary_details if $g_tablet
 end
 
 Then(/^I see contact us page$/) do

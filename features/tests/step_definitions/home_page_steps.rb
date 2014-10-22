@@ -227,7 +227,7 @@ When(/^I select destination biscuit$/) do
 end
 
 Then(/^I verify booking summary page$/) do
-  @bookingSummaryPage.verify_booking_reference_number
+  @bookingSummaryPage.verify_booking_reference_details
   @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
