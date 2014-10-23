@@ -89,16 +89,16 @@ def nor_user_details
 end
 
 def de_user_details
- # $g_endpoint="http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"  # DEV ENV
- $g_endpoint="http://37.46.24.155:3001"  # DEV ENV
- # $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"  # TEST ENV
-  @typical_booking_code="test0012"  # DEV ENV
+  # $g_endpoint="http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"  # DEV ENV
+  $g_endpoint="http://37.46.24.155:3001" # DEV ENV
+  # $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"  # TEST ENV
+  @typical_booking_code="test0012" # DEV ENV
   #@typical_booking_code="23555434" # TEST ENV
   username="userdea@gmail.com"
   password="testtest"
   handshake=get_handshake("/login")
   #cmd=%Q{curl 'https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: b6f0c43c-6619-47f4-a9e8-24653b25de16' -H 'Origin: http://37.46.24.155:8001' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryrW4npWUMjAEDoRss' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'X-DevTools-Emulate-Network-Conditions-Client-Id: E2B6F18A-6419-8BD8-AC91-2AAAC18924E2' -H 'tui-tablet: true' -H 'tui-auth-key: PHPSESSID=72bu3blfdncj7il5v5ad7a4bj3; path=/' -H 'tui-brand: tui-de' -H 'tui-screen-width: 1024' -H 'tui-handshake: 8638ae87619555bbca743973cc73b99ac8f46146' --data-binary $'------WebKitFormBoundaryrW4npWUMjAEDoRss\r\nContent-Disposition: form-data; name="username"\r\n\r\nuserdea@gmail.com\r\n------WebKitFormBoundaryrW4npWUMjAEDoRss\r\nContent-Disposition: form-data; name="password"\r\n\r\ntesttest\r\n------WebKitFormBoundaryrW4npWUMjAEDoRss--\r\n' --compressed}
- cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
+  cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
   res_login=JSON.parse(`#{cmd}`)
   auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
   puts "auth #{auth}"
@@ -119,10 +119,16 @@ def de_user_details
   cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
   res_weather=JSON.parse(`#{cmd}`)
 
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/summary")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/summary' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
+  res_summary=JSON.parse(`#{cmd}`)
+
   #puts "$g_typical_booking_data #{$g_typical_booking_data}"
-  $g_user_info, $g_typical_booking_data, $g_excursions,$g_destinations= res_login, res_typ_home, res_typ_excursions,res_destinations
+  $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
   $g_weather = res_weather
+  $g_summary = res_summary
   #puts res_weather
+
 end
 
 if $g_current_app== "DE_MT"

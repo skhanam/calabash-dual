@@ -269,7 +269,7 @@ end
 module Tablet
 
 
-  def get_passenger_details
+  def en_get_passenger_details
     hash_arr={}
     arr1=[]
     arr2=[]
