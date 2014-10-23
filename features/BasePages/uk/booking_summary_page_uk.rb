@@ -14,8 +14,8 @@ module Tablet
 
   #returns elements to verify on booking summary page
   def verify_booking_summary_details
-    puts "$g_booking.get_passenger_details #{$g_booking.get_passenger_details}"
-    hash_arr= $g_booking.get_passenger_details
+    puts "$g_booking.en_get_passenger_details #{$g_booking.en_get_passenger_details}"
+    hash_arr= $g_booking.en_get_passenger_details
     assert_text_present hash_arr["LeadPassenger"][0]
     hash_arr["OtherPassenger"].each { |var| assert_text_present var }
   end
