@@ -141,7 +141,7 @@ class MyAccountBasePage < BasePage
   end
 
   def verify_booking_biscuit_loaded
-    assert_wait_for_acc(@@weather_country)
+    assert_wait_for_text(@@weather_country)
   end
 
   def select_add_booking

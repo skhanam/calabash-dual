@@ -21,13 +21,13 @@ class Bookings
     @products=@payload["products"]
     @weather=@payload["weather"]
     @eng_checkList=eng_checkList if $g_eng_app
-    puts "#{@booking_summary}"
+   # puts "#{@booking_summary}"
 
   end
 
   def get_destination_countries
     countries=[]
-    puts "@destinations #{@destinations}"
+   # puts "@destinations #{@destinations}"
     @destinations["data"].each do |var|
       countries<< var["destinationName"] if $g_nordics_app
       countries<< var[1]["destinationName"] if !$g_nordics_app
@@ -178,10 +178,14 @@ class Bookings
       end
     elsif $g_german_app
       prod=find_de_products("hotel")
+      puts "#{prod}"
       prod.each do |var|
-        arr.push(var["name"])
+        arr.push(var["infoList"][0]["value"])
       end
     end
+
+    puts arr
+    fail "here"
     return arr
   end
 

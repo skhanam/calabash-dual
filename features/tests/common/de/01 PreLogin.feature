@@ -30,12 +30,7 @@ Feature: Verify screens shown before logging into App
     And I should see the error message tip to side of oops message
     And should observe that values entered are retained
 
-  @terms121
-  Scenario: Verify Terms and conditions page from login screen
-    Given I navigate to terms page from login screen
-    Then I see terms page is displayed correctly
-
-  @wrong-country 
+  @wrong-country
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
@@ -79,3 +74,8 @@ Feature: Verify screens shown before logging into App
       | E-Mail newsletter disclaimer |
       | Tick box                     |
 
+#  @terms121
+#  Scenario: Verify Terms and conditions page from login screen
+#    Given I navigate to terms page from login screen
+#    Then I see terms page is displayed correctly
+#

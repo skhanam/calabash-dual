@@ -1,6 +1,5 @@
 Then(/^I see terms page is displayed correctly$/) do
   sleep 2
-  fail("************** This tests is incomplete **************")
   @termsPage.check_t_and_c_title
   @termsPage.check_t_and_c_page
 end

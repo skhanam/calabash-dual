@@ -10,10 +10,6 @@ module ForgotPwdModule
 
   end
 
-  def submit_change_password
-    click_on_text @@forgot_password_send_button
-  end
-
 
   module Phone
     include BaseModule
@@ -31,10 +27,26 @@ module ForgotPwdModule
     def check_wrong_username_email
       assert_wait_for_text @@forgot_password_email_help
     end
+
+    def submit_change_password
+      click_on_text @@forgot_password_send_button
+    end
+
   end
 
   module Tablet
     include BaseModule
+
+    def submit_change_password
+
+      puts ">>>> #{UnicodeUtils.upcase(@@forgot_password_send_button)}"
+      fail() # TODO: NOt able to tocuh
+      sleep 2
+     # click_on_text
+      touch "view text:'#{UnicodeUtils.upcase(@@forgot_password_send_button)}'"
+      sleep 2
+
+    end
 
     def check_email_populated(username)
       if $g_android

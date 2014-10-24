@@ -89,7 +89,7 @@ When(/^I submit wrong form details on add booking page$/) do
   else
     fail "TODO"
   end
-  @page.click_on_text @page.get_val "new_user_registration_register"
+  @page.click_on_text UnicodeUtils.upcase(@page.get_val "new_user_registration_register")
 end
 
 Then(/^I should see an Error messages displayed on add booking page$/) do
