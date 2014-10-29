@@ -126,6 +126,8 @@ end
 
 When(/^I navigate to hotel (\d+) from home page$/) do |arg|
   arr=$g_booking.get_hotel_details
+  puts arr
+  fail
   @hotel_name=arr[arg.to_i-1]
   @page.scroll_page_and_assert_text(@hotel_name)
   @page.click_on_text(@hotel_name)

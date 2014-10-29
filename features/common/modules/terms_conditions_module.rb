@@ -27,6 +27,7 @@ module TermsConditionsModule
     end
 
     def check_t_and_c_page
+        fail("************** This tests is incomplete **************")
     end
 
   end

@@ -9,8 +9,8 @@ Feature: US16741 Flights Biscui
     Then I swipe to see "flights Biscuit"
     Then I should flight information on flight biscuit
 
-  Scenario: US16741 Flights Biscui OnTap link
-    Given I am on the application homepage
-    When I tap on the Flights Biscuit
-    Then I should be navigated to T2.0 Holiday Summary page
-    And I should see currently displayed flight highlighted
+ # Scenario: US16741 Flights Biscuit OnTap link
+ #   Given I am on the application homepage
+ #   When I tap on the Flights Biscuit
+ #   Then I should be navigated to T2.0 Holiday Summary page
+ #   And I should see currently displayed flight highlighted

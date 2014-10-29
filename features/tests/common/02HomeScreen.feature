@@ -4,7 +4,7 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-  @reg @failing
+  @failing123
   Scenario: Navigate to hotel booking from home page biscuit
     Given I am on home screen with default booking
     When I navigate to hotel 1 from home page
@@ -14,7 +14,7 @@ Feature: Verify product pages by navigating through biscuits
       | Hotel location  |
       | Contact buttons |
 
-  @reg
+  @reg @dest1
   Scenario: Navigate to destination country from home page biscuit
     Given I am on home screen with default booking
     When I navigate to destination using home page biscuit

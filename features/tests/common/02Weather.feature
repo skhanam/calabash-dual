@@ -10,7 +10,7 @@ Feature: Verify Weather details for bookings
     And I should see Weather type icon
     And I should see country name
 
-  @home-weather3
+  @home-weather31
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with multi destination booking
     Then I should see a Weather Biscuit appear
