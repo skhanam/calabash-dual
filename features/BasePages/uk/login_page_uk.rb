@@ -122,12 +122,12 @@ module Tablet
     assert_wait_for_text @@welcome_help_cant_login_description
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
     assert_wait_for_text @@welcome_help_cant_login_cta
-    scroll_at_text_element @@welcome_help_cant_login_description   if $g_device
+    scroll_at_text_element @@welcome_help_cant_login_description
 
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_iosStore)
     assert_wait_for_text @@welcome_help_cant_use_app_cta1
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_use_app_cta2)
-    scroll_at_text_element @@welcome_help_cant_login_iosStore   if $g_device
+    scroll_at_text_element @@welcome_help_cant_login_iosStore
 
     assert_wait_for_text @@welcome_help_more_issues_body
     assert_wait_for_text @@welcome_help_i_need_help
@@ -138,7 +138,7 @@ module Tablet
     assert_wait_for_text @@welcome_help_retrieve_booking_surname
     assert_wait_for_text @@welcome_help_retrieve_booking_email
     assert_wait_for_text @@welcome_help_retrieve_booking_cta
-    scroll_at_text_element @@welcome_help_retrieve_booking_cta  if $g_device
+    scroll_at_text_element @@welcome_help_retrieve_booking_cta
 
     assert_wait_for_text @@welcome_help_more_issues_body
     assert_wait_for_text @@welcome_help_more_issues_email_title

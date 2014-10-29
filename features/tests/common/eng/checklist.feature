@@ -13,7 +13,7 @@ Feature: English Sanity Tests
     When I tap on the checklist biscuit on home page
     Then I should be navigated to Checklist page
 
-  @verify-package_check_list1
+  @verify-package_check_list21
   Scenario: Verify check list item selection
     Given I am on packaging list page
     Then I verify are no items to pack

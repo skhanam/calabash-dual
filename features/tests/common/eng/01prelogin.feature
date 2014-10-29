@@ -1,7 +1,7 @@
-@prelogin  @reset  @device-en
+@prelogin  @reset  @device-en-working
 Feature: Verify pre login screen
 
-  @prelogin4  @eng @lg1
+    @eng @lg1
   Scenario: US16882 US13575 Tap Retrieve booking
     Given I am on 'Login' screen
     When  I tap 'Retrieve my booking' button
@@ -14,7 +14,7 @@ Feature: Verify pre login screen
     When  I tap 'I can't login in' button
     Then I verify help logging in page
 
-  @prelogin4 @eng @lg7
+   @eng @lg7
   Scenario: US16884 Check Page elements in I cant login Help page
     Given I am on 'Login' screen
     When  I tap 'I can't login in' button

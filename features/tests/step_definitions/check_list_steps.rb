@@ -63,6 +63,7 @@ end
 Then(/^I should be navigated to Checklist page$/) do
   @checklistPage.verify_checklist_page
 end
+
 Then(/^I verify are no items to pack$/) do
-  step "I verify items to pack are \0"
+  @checklistPage.check_packaging_items(0)
 end
