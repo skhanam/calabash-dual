@@ -102,7 +102,7 @@ module SidePanelModule
         when "Weather"
           assert_wait_for_text @@side_panel_weather
         when "Destination"
-          assert_wait_for_text "Destinations"
+          assert_wait_for_text "Destination Tips"
           puts "######## TODO this must be updated based on number of destinations"
         when "Excursions"
           assert_wait_for_text @@excursions
