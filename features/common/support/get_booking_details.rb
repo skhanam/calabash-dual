@@ -46,13 +46,19 @@ def get_payload_for_type(visionBookingRef, path, auth, reservationCode=0)
   return res
 end
 
+def get_eng_payload(auth,type)
+  #get weather
+  handshake=get_handshake("/reservation/undefined/#{type}")
+  cmd=%Q{curl "#{$g_endpoint}/reservation/undefined/#{type}" -H "tui-public-key: abcd" -H "Origin: http://37.46.24.155:8001" -H "tui-screen-height: 768" -H "Accept-Encoding: gzip,deflate,sdch" -H "Host: e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" -H "Accept-Language: en-US,en;q=0.8"  -H "Accept: */*" -H "tui-brand: uk-#{$brand}" -H "Referer: http://37.46.24.155:8001/index.html" -H "tui-tablet: true" -H "tui-auth-key: #{auth}" -H "Connection: keep-alive" -H "tui-screen-width: 1024" -H "tui-handshake: #{handshake}"}
+  return JSON.parse(`#{cmd}`)
+end
+
 def eng_user_details
   $g_user={}
   user=THOMSON_USER if (ENV['TESTENV']=='EN_TH')
   user=FIRSTCHOICE_USER if (ENV['TESTENV']=='EN_FC')
   $brand="thomson" if (ENV['TESTENV']=='EN_TH')
   $brand="first-choice" if (ENV['TESTENV']=='EN_FC')
-
 
   $g_endpoint="https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"
   departureDate = DateTime.parse(user[:valid][:departuredate]).strftime("%Y-%m-%d")
@@ -62,20 +68,16 @@ def eng_user_details
 
   auth = eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
 
-  #get weather
-  handshake=get_handshake("/reservation/undefined/weather")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/undefined/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-#{$brand}' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
-  res_weather=JSON.parse(`#{cmd}`)
+  res_home=get_eng_payload(auth,"home")
+  res_weather=get_eng_payload(auth,"weather")
+  res_summary=get_eng_payload(auth,"summary")
+  res_checklist=get_eng_payload(auth,"checklist")
 
-  #get summary
-  handshake=get_handshake("/reservation/undefined/summary")
-  cmd= %Q{curl '#{$g_endpoint}/reservation/undefined/summary' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: uk-#{$brand}' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
-  res_summary=JSON.parse(`#{cmd}`)
-
-  $g_current_booking=get_payload_for_type(visionBookingRef, "home", auth)
-  $g_engChecklist=get_payload_for_type(visionBookingRef, "checklist", auth)
+  $g_current_booking=res_home
+  $g_engChecklist=res_checklist
   $g_weather = res_weather
   $g_summary = res_summary
+
 end
 
 def nor_user_details
@@ -84,19 +86,16 @@ def nor_user_details
 
   $g_endpoint="http://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
   auth=nor_auth_key(phone, reservationCode)
-  #puts get_payload_for_type(reservationCode, "home", auth)
 end
 
 def de_user_details
-  # $g_endpoint="http://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"  # DEV ENV
   $g_endpoint="http://37.46.24.155:3001" # DEV ENV
-  # $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"  # TEST ENV
   @typical_booking_code="test0012" # DEV ENV
-  #@typical_booking_code="23555434" # TEST ENV
+
   username="userdea@gmail.com"
   password="testtest"
   handshake=get_handshake("/login")
-  #cmd=%Q{curl 'https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/login' -H 'tui-public-key: b6f0c43c-6619-47f4-a9e8-24653b25de16' -H 'Origin: http://37.46.24.155:8001' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryrW4npWUMjAEDoRss' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'X-DevTools-Emulate-Network-Conditions-Client-Id: E2B6F18A-6419-8BD8-AC91-2AAAC18924E2' -H 'tui-tablet: true' -H 'tui-auth-key: PHPSESSID=72bu3blfdncj7il5v5ad7a4bj3; path=/' -H 'tui-brand: tui-de' -H 'tui-screen-width: 1024' -H 'tui-handshake: 8638ae87619555bbca743973cc73b99ac8f46146' --data-binary $'------WebKitFormBoundaryrW4npWUMjAEDoRss\r\nContent-Disposition: form-data; name="username"\r\n\r\nuserdea@gmail.com\r\n------WebKitFormBoundaryrW4npWUMjAEDoRss\r\nContent-Disposition: form-data; name="password"\r\n\r\ntesttest\r\n------WebKitFormBoundaryrW4npWUMjAEDoRss--\r\n' --compressed}
+
   cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
   res_login=JSON.parse(`#{cmd}`)
   auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
@@ -122,7 +121,9 @@ def de_user_details
   cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/summary' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
   res_summary=JSON.parse(`#{cmd}`)
 
-  #puts "$g_typical_booking_data #{$g_typical_booking_data}"
+  puts res_summary
+  fail
+                                         #puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
   $g_weather = res_weather
   $g_summary = res_summary
@@ -134,6 +135,5 @@ if $g_current_app== "DE_MT"
   de_user_details
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
-  # puts $g_current_booking
   $g_booking.set_payload($g_current_booking["payload"])
 end

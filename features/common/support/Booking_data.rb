@@ -255,6 +255,7 @@ class Bookings
   def get_home_biscuits(name, num=1)
     fail if num <= 0
     count=0
+    puts @payload["biscuits"]
     @payload["biscuits"].each do |var|
       if var["name"]==name
         count+=1
@@ -302,6 +303,13 @@ module Tablet
     return hash_arr
   end
 
+  def get_home_page_hotel(num)
+    arr=get_home_biscuits("hotels",num.to_i)
+    arr1=[]
+    arr["data"].each {|var| arr1.push var["subTitle"]}
+    puts arr1[num.to_i-1]
+    return arr1[num.to_i-1]
+  end
 
 end
 

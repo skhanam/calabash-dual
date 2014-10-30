@@ -4,16 +4,6 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-  @failing123
-  Scenario: Navigate to hotel booking from home page biscuit
-    Given I am on home screen with default booking
-    When I navigate to hotel 1 from home page
-    Then I see correct hotel page
-    And I verify below details on hotel page:
-      | Hotel Name      |
-      | Hotel location  |
-      | Contact buttons |
-
   @reg @dest1
   Scenario: Navigate to destination country from home page biscuit
     Given I am on home screen with default booking
@@ -52,3 +42,14 @@ Feature: Verify product pages by navigating through biscuits
     When I access  the application home page
     Then I should see a Hotel Biscuit appear
     And I should see the text label Step inside hotel name in two lines
+
+#
+#  @failing123
+#  Scenario: Navigate to hotel booking from home page biscuit
+#    Given I am on home screen with default booking
+#    When I navigate to hotel 1 from home page
+#    Then I see correct hotel page
+#    And I verify below details on hotel page:
+#      | Hotel Name      |
+#      | Hotel location  |
+#      | Contact buttons |
