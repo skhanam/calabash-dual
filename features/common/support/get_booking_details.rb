@@ -122,7 +122,6 @@ def de_user_details
   res_summary=JSON.parse(`#{cmd}`)
 
   puts res_summary
-  fail
                                          #puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
   $g_weather = res_weather
