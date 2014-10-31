@@ -7,7 +7,6 @@ module ForgotPwdModule
     assert_wait_for_text @@forgot_password_title
     assert_text_elements [@@forgot_password_username_or_email, @@forgot_password_send_button,
                           @@forgot_password_let_us_know_email, @@forgot_password_need_help]
-
   end
 
 
@@ -38,14 +37,9 @@ module ForgotPwdModule
     include BaseModule
 
     def submit_change_password
-
-      puts ">>>> #{UnicodeUtils.upcase(@@forgot_password_send_button)}"
-      fail() # TODO: NOt able to tocuh
+      sleep 1
+      touch "view marked:'modalView' label text:'#{UnicodeUtils.upcase(@@forgot_password_send_button)}'"
       sleep 2
-     # click_on_text
-      touch "view text:'#{UnicodeUtils.upcase(@@forgot_password_send_button)}'"
-      sleep 2
-
     end
 
     def check_email_populated(username)

@@ -1,4 +1,4 @@
-@common-tests @tab
+@common-tests @tab @reg
 Feature: English Sanity Tests
 
   @prelogin11 @reset
@@ -14,14 +14,7 @@ Feature: English Sanity Tests
     Then I see correct error messages on login screen
 
   @register1 @prelogin12
-
   Scenario: I want to see new user registration page
     Given I am on 'Login' screen
     When I select register option from welcome screen
     Then I see new user registration page
-
-  @prelogin112
-  Scenario: Verify welcome screen
-    Given I am on 'Login' screen
-    When I select tooltip icon for each input field
-    Then I see correct tool tip message

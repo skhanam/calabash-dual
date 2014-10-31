@@ -1,4 +1,4 @@
-@android_test @ios_test @common-tests
+@android_test @ios_test @common-tests @reg
 Feature: Verify contact page
 
   @contact1 @device

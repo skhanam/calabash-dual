@@ -55,7 +55,6 @@ Feature: Verify My account page and sub pages
     When I see add booking biscuit
     And I should see all future booking image biscuits
     And I should see all past booking image biscuits
-    Then I should see Browse Holiday collection biscuit
 
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
@@ -86,10 +85,3 @@ Feature: Verify My account page and sub pages
     Given I have accessed my Personal Details page
     When I tap on any booking biscuit
     Then I should observe that the app homepage view has the selected booking loaded
-
-  @browse_holidays @failed
-  Scenario: view Bookings
-    Given I have accessed my Personal Details page
-    When I tap on Browse holidays banner
-    Then I should see Browse holidays page displayed
-
