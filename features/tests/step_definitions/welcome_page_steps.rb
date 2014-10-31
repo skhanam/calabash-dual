@@ -1,11 +1,9 @@
 When(/^I am on Home screen$/) do
   $first_run+=1
-  puts "Run count #{$first_run}"
+  if @homePage.check_home_screen(1)!=true
+    puts "Run count #{$first_run}"
     @commonMethods.close_popup_dialog
     sleep 2
-
-  puts "@welcomePage.check_welcome_screen"
-  puts @welcomePage.check_welcome_screen
 
     if @welcomePage.check_welcome_screen
       step "I log into Application"
@@ -13,6 +11,8 @@ When(/^I am on Home screen$/) do
       step "I must be logged in and on Home page"
     end
     step "I see verify I am on home screen"
+
+  end
 end
 
 Then(/^I see verify I am on home screen/) do

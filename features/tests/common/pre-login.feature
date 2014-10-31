@@ -1,7 +1,7 @@
 @common-tests @tab @reg
 Feature: English Sanity Tests
 
-  @prelogin11 @reset
+  @prelogin11 @reset @testnow
   Scenario: Verify welcome screen
     Given I am on 'Login' screen
     Then I verify input elements on login page

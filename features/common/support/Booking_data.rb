@@ -112,10 +112,7 @@ class Bookings
     if $g_nordics_app
       return ((@payload["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
     elsif $g_german_app
-      countdown=0
-      @payload["bookingSummary"]["overview"]["infoList"].each do |var|
-        countdown=var["value"] if var["title"]=="Countdown"
-      end
+      countdown = get_home_biscuits("countdown")["data"]["startDateTimeAsUnixTime"]
       days= ((countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i).to_s
       puts "days = #{days}"
       return days
@@ -168,7 +165,6 @@ class Bookings
     end
 
     puts arr
-    fail "here"
     return arr
   end
 
@@ -238,6 +234,7 @@ class Bookings
     fail if num <= 0
     count=0
     @payload["biscuits"].each do |var|
+      puts var["name"]
       if var["name"]==name
         count+=1
       end
