@@ -1,17 +1,5 @@
 class FlightsBasePage < BasePage
-
-  def check_flight_biscuit
-    var=$g_booking.get_home_biscuits("flight")
-    flight_data=var["data"][0]
-    sleep 1
-    assert_wait_for_text flight_data["DepartureAirportCode"]
-    assert_text_present flight_data["DepartureAirportName"]
-    assert_text_present flight_data["ArrivalAirportCode"]
-    assert_text_present flight_data["ArrivalAirportName"]
-    @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%A, %d. %B %Y" if $g_german_app
-    @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%A, %-dth %B %Y" if $g_eng_app
-    assert_partial_text @travel_date
-  end
+   include FlightsModule
 
   #this method checks flights the page is shown by verifying one element
   def check_flights_screen_title
@@ -49,8 +37,8 @@ class FlightsBasePage < BasePage
     puts ":#{@@flight_details_title}:"
     verify_page_title @@flight_details_title
     sleep 3
-    screenshot(options={:name => "flight_details"})  if ENV['TAKE_SS']=="yes"
-    return if $g_eng_app  # just verify title and return for english app
+    screenshot(options={:name => "flight_details"}) if ENV['TAKE_SS']=="yes"
+    return if $g_eng_app # just verify title and return for english app
 
     # check multiple sectors
     var["sectors"].each do |var1|
