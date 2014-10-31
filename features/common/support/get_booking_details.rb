@@ -55,7 +55,9 @@ def eng_user_details
   res_weather=get_eng_payload(auth,"weather")
   res_summary=get_eng_payload(auth,"summary")
   res_checklist=get_eng_payload(auth,"checklist")
+  res_destination=get_eng_payload(auth,"destination")
 
+  $g_destinations=res_destination
   $g_current_booking=res_home
   $g_engChecklist=res_checklist
   $g_weather = res_weather

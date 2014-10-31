@@ -1,4 +1,5 @@
 require_relative 'base_module'
+#require_relative '../../common/support/common_methods'
 
 module FlightsModule
   include BaseModule
@@ -27,12 +28,15 @@ module FlightsModule
         assert_text_present flight_data["DepartureAirportName"]
         assert_text_present flight_data["ArrivalAirportCode"]
         assert_text_present flight_data["ArrivalAirportName"]
-        @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%A, %-dth %B %Y" if $g_eng_app
+        day_num=(DateTime.parse(flight_data["DepartureDate"]).strftime "%-d").to_i
+        day_suffix=CommonMethods.new.getDayNumberSuffix day_num
+        @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%A, %-d#{day_suffix} %B %Y" if $g_eng_app
       elsif $g_german_app
         assert_wait_for_text flight_data["departureAirportCode"]
         assert_text_present flight_data["departureAirportName"]
         assert_text_present flight_data["arrivalAirportCode"]
         assert_text_present flight_data["arrivalAirportName"]
+
         @travel_date = DateTime.parse(flight_data["departureDateTime"]).strftime "%A, %d. %B %Y"
       end
       assert_partial_text @travel_date

@@ -7,10 +7,20 @@ def meine_tui_login(username, password, country)
   if $g_ios
     step "I clear input field number 1"
     step 'I enter "'+username+'" into input field number 1'
+    if !element_exists "TiTextField text:'#{username}'" # making sure correct text is entered into input field
+      step "I clear input field number 1"
+      step 'I enter "'+username+'" into input field number 1'
+    end
+
     step "I touch done"
 
     step "I clear input field number 2"
     step 'I enter "'+password+'" into input field number 2'
+
+    if !element_exists "TiTextField text:'#{password}'" # making sure correct text is entered into input field
+      step "I clear input field number 1"
+      step 'I enter "'+password+'" into input field number 1'
+    end
     step "I touch done"
   elsif $g_android
     step "I clear input field number 2"
@@ -38,6 +48,11 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     end
 
     step 'I enter "'+surname+'" into input field number 1'
+    if !element_exists "TiTextField text:'#{surname}'" # making sure correct text is entered into input field
+      step "I clear input field number 1"
+      step 'I enter "'+surname+'" into input field number 1'
+    end
+
     touch("toolbarTextButton index:1")
     sleep 1
     @loginPage.enter_date_ios(departureDate)
