@@ -130,15 +130,15 @@ When(/^I navigate to hotel (\d+) from home page$/) do |arg|
   @page.click_on_text(@hotel_name)
 end
 
-When(/^I navigate to destination using home page biscuit$/) do
+When(/^I navigate to first destination using home page biscuit$/) do
   @countries= $g_booking.get_destination_countries
   @dest_country=@countries[0]
   @page.scroll_home_biscuits(@dest_country)
   @page.click_on_text(@dest_country)
 end
 
-Then(/^I see destination information page$/) do
-  @destinationInfo.check_dest_info_screen_title
+Then(/^I see first destination information page$/) do
+  @destinationInfo.check_dest_info_screen_title if $g_phone
   @countries= $g_booking.get_destination_countries
   @dest_country=@countries[0]
   @page.assert_wait_for_text @dest_country

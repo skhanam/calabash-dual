@@ -20,7 +20,7 @@ Feature: Verify product pages by navigating through side panel
     And I navigate to booking summary page using side menu
     Then I see holiday booking summary page
 
-  @dest1 @ss
+  @ss
   Scenario: Navigate to destination guide page and verify list of destinations
     Given I am on home screen with default booking
     And I navigate to destination using side menu

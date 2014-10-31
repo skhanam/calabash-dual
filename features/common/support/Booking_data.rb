@@ -3,11 +3,8 @@
 
 # Holds booking data and provides method for accessing data
 class Bookings
+  puts $g_hw_module
   include eval($g_hw_module)
-#attr_accessor :user, :products, :destination
-
-  def initialize
-  end
 
   def get_countdown_destination
     $g_current_booking["payload"]["destination"]
@@ -20,20 +17,13 @@ class Bookings
     @booking_summary= $g_summary["payload"] if $g_tablet
     @products=@payload["products"]
     @weather=@payload["weather"]
+    @dest_payload = $g_destinations["payload"]
+
     @eng_checkList=eng_checkList if $g_eng_app
-   # puts "#{@booking_summary}"
+    # puts "#{@booking_summary}"
 
   end
 
-  def get_destination_countries
-    countries=[]
-   # puts "@destinations #{@destinations}"
-    @destinations["data"].each do |var|
-      countries<< var["destinationName"] if $g_nordics_app
-      countries<< var[1]["destinationName"] if !$g_nordics_app
-    end
-    return countries
-  end
 
   def get_country_names_for_weather
     arr=[]
@@ -88,16 +78,9 @@ class Bookings
     return num
   end
 
-  def de_destinations
-    arr=[]
-    @dest_payload["destinationInfoObjects"].each do |var|
-      arr.push(var["destinationName"])
-    end
-    return arr
-  end
 
   def de_destination_details(index=0)
-    @dest_payload["destinationInfoObjects"][index]["destinationName"]
+    @dest_payload["destinationInfoObjects"][index]
   end
 
   def find_number_of_flights
@@ -206,7 +189,6 @@ class Bookings
         temp["arrivalAirportCode"]=var["ArrivalAirportCode"]
         temp["arrivalAirportName"]=var["ArrivalAirportName"]
         arr.push(temp)
-        #puts "temp #{temp}"
       end
 
       #nor user
@@ -255,7 +237,6 @@ class Bookings
   def get_home_biscuits(name, num=1)
     fail if num <= 0
     count=0
-    puts @payload["biscuits"]
     @payload["biscuits"].each do |var|
       if var["name"]==name
         count+=1
@@ -269,11 +250,39 @@ class Bookings
     return $g_weather["payload"]["weatherStations"]
   end
 
+
+  if $g_lang_mod=="Deu"
+    def get_destination_countries
+      arr=[]
+      @dest_payload["destinationInfoObjects"].each do |var|
+        arr.push(var["destinationName"])
+      end
+      return arr
+    end
+  elsif $g_lang_mod=="Eng"
+    def get_destination_countries
+      countries=[]
+      @destinations["data"].each do |var|
+        countries<< var[1]["destinationName"]
+      end
+      return countries
+    end
+  elsif $g_lang_mod=="Nor"
+    def get_destination_countries
+      countries=[]
+      @destinations["data"].each do |var|
+        countries<< var["destinationName"]
+        countries<< var[1]["destinationName"] if !$g_nordics_app
+      end
+      return countries
+    end
+  end
+
+
 end
 
+
 module Tablet
-
-
   def en_get_passenger_details
     hash_arr={}
     arr1=[]
@@ -289,7 +298,6 @@ module Tablet
   end
 
   def get_flight_details
-    #res["flightCollection"].each {|var| puts var["DepartureAirportName"]+" to "+var["ArrivalAirportName"]}
     hash_arr={}
     arr1=[]
     arr2=[]
@@ -304,17 +312,14 @@ module Tablet
   end
 
   def get_home_page_hotel(num)
-    arr=get_home_biscuits("hotels",num.to_i)
+    arr=get_home_biscuits("hotels", num.to_i)
     arr1=[]
-    arr["data"].each {|var| arr1.push var["subTitle"]}
+    arr["data"].each { |var| arr1.push var["subTitle"] }
     puts arr1[num.to_i-1]
     return arr1[num.to_i-1]
   end
-
 end
 
 
-
 module Phone
-
 end

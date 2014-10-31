@@ -160,6 +160,7 @@ module ViewModule
 
   ## Assert if text to check is not shown before timeout
   def assert_wait_for_text(text, time_out=15)
+    fail "Text is empty" if text==nil
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
     fail("text:#{text}: not present") if wait_for_text(text, time_out)==false

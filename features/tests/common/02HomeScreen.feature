@@ -7,8 +7,8 @@ Feature: Verify product pages by navigating through biscuits
   @reg @dest1
   Scenario: Navigate to destination country from home page biscuit
     Given I am on home screen with default booking
-    When I navigate to destination using home page biscuit
-    Then I see destination information page
+    When I navigate to first destination using home page biscuit
+    Then I see first destination information page
 
   @hm3 @reg @device
   Scenario: Destination biscuit verify
@@ -16,12 +16,6 @@ Feature: Verify product pages by navigating through biscuits
     And I swipe to the right of the screen
     Then I should see a destination image biscuit appear
     And I should see a  destination text label name
-
-  @hm4 @reg @failed
-  Scenario: OnTap link of destination biscuit
-    Given I am on home screen with default booking
-    When I tap on the destination Biscuit
-    Then I should be navigated to destination page
 
   @hm5 @reg @device
   Scenario: Currency Converter Biscuit
@@ -53,3 +47,9 @@ Feature: Verify product pages by navigating through biscuits
 #      | Hotel Name      |
 #      | Hotel location  |
 #      | Contact buttons |
+
+#  @hm4 @reg @failed
+#Scenario: OnTap link of destination biscuit
+#  Given I am on home screen with default booking
+#  When I tap on the destination Biscuit
+#  Then I should be navigated to destination page

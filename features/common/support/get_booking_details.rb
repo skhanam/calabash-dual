@@ -26,24 +26,7 @@ def eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
 
   cmd=%Q{curl '#{$g_endpoint}/login'  -H 'tui-public-key: abcd' -H 'tui-brand: uk-#{$brand}' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryIYAw2yoQMahpsmdv' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'tui-auth-key: dfbb707a-b928-479f-a69d-317c4fe10e38' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="surname"\r\n\r\n#{surname}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="departureDate"\r\n\r\n#{departureDate}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="visionShopNumber"\r\n\r\n#{visionShopNumber}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="visionBookingRef"\r\n\r\n#{visionBookingRef}\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="devicetype"\r\n\r\niphone\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv\r\nContent-Disposition: form-data; name="deviceid"\r\n\r\n12347813\r\n------WebKitFormBoundaryIYAw2yoQMahpsmdv--\r\n' --compressed}
   res=JSON.parse(`#{cmd}`)
-  #puts "#{cmd}"
-  #puts res
   res["payload"]["auth"] #return auth key
-end
-
-def get_payload_for_type(visionBookingRef, path, auth, reservationCode=0)
-  url="/reservation/#{visionBookingRef}/#{path}"
-  handshake=get_handshake(url)
-  if ENV['TESTENV']=='EN_TH' || ENV['TESTENV']=='EN_FC'
-    cmd=%Q{curl '#{$g_endpoint}#{url}' -H 'tui-public-key: abcd' -H 'tui-brand: uk-#{$brand}'  -H 'tui-auth-key: #{auth}' -H 'Accept: */*'  -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --compressed}
-  elsif ENV['TESTENV']=="NOR"
-    #  puts "nordics payload"
-    cmd=%Q{curl '#{$g_endpoint}#{url}' -H 'tui-public-key: abcd' -H 'tui-brand: nordics' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-auth-key: #{auth}' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-app-locale: sv-SE' -H 'tui-handshake: #{handshake}' --compressed}
-  elsif ENV['TESTENV']=="DE"
-  end
-
-  res=JSON.parse(`#{cmd}`)
-  return res
 end
 
 def get_eng_payload(auth,type)
@@ -80,12 +63,13 @@ def eng_user_details
 
 end
 
-def nor_user_details
-  phone=NOR_USER[:valid][:telefon]
-  reservationCode=NOR_USER[:valid][:bookingnumber]
 
-  $g_endpoint="http://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
-  auth=nor_auth_key(phone, reservationCode)
+
+def get_de_payload(booking_code,auth,type)
+  @typical_booking_code=booking_code
+  handshake=get_handshake("/reservation/#{@typical_booking_code}/#{type}")
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+  return JSON.parse(`#{cmd}`)
 end
 
 def de_user_details
@@ -101,33 +85,24 @@ def de_user_details
   auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
   puts "auth #{auth}"
 
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/home")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/home' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
-  res_typ_home=JSON.parse(`#{cmd}`)
+  res_typ_home=get_de_payload(@typical_booking_code,auth,"home")
+  res_typ_excursions=get_de_payload(@typical_booking_code,auth,"excursions")
+  res_destinations=get_de_payload(@typical_booking_code,auth,"destination")
+  res_weather=get_de_payload(@typical_booking_code,auth,"weather")
+  res_summary=get_de_payload(@typical_booking_code,auth,"summary")
 
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/excursions")
-  cmd= %Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/excursions' -H 'tui-public-key: abcd'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
-  res_typ_excursions=JSON.parse(`#{cmd}`)
-
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/destination")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/destination' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
-  res_destinations=JSON.parse(`#{cmd}`)
-
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/weather")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/weather' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
-  res_weather=JSON.parse(`#{cmd}`)
-
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/summary")
-  cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/summary' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake:  #{handshake}' --compressed}
-  res_summary=JSON.parse(`#{cmd}`)
-
-  puts res_summary
-                                         #puts "$g_typical_booking_data #{$g_typical_booking_data}"
   $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
   $g_weather = res_weather
   $g_summary = res_summary
-  #puts res_weather
 
+end
+
+def nor_user_details
+  phone=NOR_USER[:valid][:telefon]
+  reservationCode=NOR_USER[:valid][:bookingnumber]
+
+  $g_endpoint="http://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
+  auth=nor_auth_key(phone, reservationCode)
 end
 
 if $g_current_app== "DE_MT"
@@ -136,3 +111,5 @@ elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
   $g_booking.set_payload($g_current_booking["payload"])
 end
+
+
