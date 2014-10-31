@@ -14,17 +14,6 @@ class HomePage < BasePage
     $g_query_txt+"text:'#{@@hold_on_one_moment}'"
   end
 
-  def await(opts={})
-    fail()
-    #text=$g_query_txt+"text:'#{@@hold_on_one_moment}'"
-    #if (query(text))
-    #  sleep 5
-    #end
-    #wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@hold_on_one_moment}'"])
-    #sleep(5)
-    #self
-  end
-
   def select_destination_biscuit
     scroll_page_till_partial_text @@home_destination_string
     query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
@@ -80,9 +69,6 @@ class HomePage < BasePage
 
   def select_guide_online
     scroll_page_and_assert_text @@guide_online
-    #query=("* contentDescription:'booking_summary.' text:'#{@@guide_online}'") if $g_android
-    #query=("view marked:'booking_summary' text:'#{@@guide_online}'") if $g_ios
-    #assert_element(query)
     click_on_text @@guide_online
   end
 
@@ -108,7 +94,7 @@ class HomePage < BasePage
 
   #Check one element on home screen to confirm page is loaded
   def check_home_screen(timeout=20)
-    puts "TODO time out must be reduced to 5"
+    sleep 1
     res= wait_for_acc_label(@@home_page_acc, timeout)
     puts "check_home_screen: #{res} @@home_page_acc #{@@home_page_acc}"
     return res

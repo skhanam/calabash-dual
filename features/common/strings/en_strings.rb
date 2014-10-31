@@ -195,7 +195,7 @@ module EN_Strings
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
-    @@side_panel_booking_summary=get_localized_string "holiday_summary" #"Holiday summary"
+    @@side_panel_booking_summary=get_localized_string "booking_summary" #"Holiday summary"
     @@side_panel_countdown=get_localized_string "holiday_countdown" if $g_phone #"Holiday countdown"
     @@side_panel_countdown=get_localized_string "countdown" if $g_tablet #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"

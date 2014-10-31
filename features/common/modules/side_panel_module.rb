@@ -54,7 +54,6 @@ module SidePanelModule
     end
 
     def navigate_to_booking_summary_page
-      @@side_panel_booking_summary="Holiday Summary"
       scroll_side_panel(@@side_panel_booking_summary)
       click_on_text @@side_panel_booking_summary
       #TODO verify booking summary page

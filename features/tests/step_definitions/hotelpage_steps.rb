@@ -23,10 +23,6 @@ When(/^I view the Customer satisfaction section$/) do
   pending
 end
 
-Then(/^I should see the customer satisfaction ratings on a scale of (\d+) - 100% for$/) do |arg, table|
-  # table is a table.hashes.keys # => [:Hotel overall]
-
-end
 
 When(/^I select call us button on hotel page$/) do
   @commonMethods.click_call_button
