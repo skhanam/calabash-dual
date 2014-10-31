@@ -166,7 +166,7 @@ module DEMeineTUI
 
     @@side_panel_destination=get_localized_string "destination_guide"
 
-    @@side_panel_weather=get_localized_string "weather"
+    @@side_panel_weather=get_localized_string "weather" #"Weather"
     @@side_panel_contact_us= get_localized_string "contact_us"
     @@side_panel_TandC=get_localized_string "tui_service_on_site"
     @@side_panel_my_tour_guide=get_localized_string "meet_the_rep"

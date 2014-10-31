@@ -217,7 +217,6 @@ module EN_Strings
 
     @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
     @@side_panel_destination=get_localized_string "destination"
-
     @@side_panel_currency= get_localized_string "currency_offcanvas"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes

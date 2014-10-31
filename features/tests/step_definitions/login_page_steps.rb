@@ -195,7 +195,6 @@ end
 
 
 Given(/^I am on 'Login' screen/) do
-  puts "#TODO sleep must be removed"
   sleep 5
   @commonMethods.close_popup_dialog
   if $g_device

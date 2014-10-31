@@ -37,7 +37,6 @@ class SidePanel < BasePage
 
 
   def navigate_to_weather_page
-    @@side_panel_weather="Weather" #TODO update later
     scroll_side_panel(@@side_panel_weather)
     touch_txt_and_verify_title @@side_panel_weather, @@weather_page_title if $g_phone
     click_on_text @@side_panel_weather if $g_tablet
