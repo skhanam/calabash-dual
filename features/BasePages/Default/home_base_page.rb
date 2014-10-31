@@ -15,13 +15,14 @@ class HomePage < BasePage
   end
 
   def await(opts={})
-    text=$g_query_txt+"text:'#{@@hold_on_one_moment}'"
-    if (query(text))
-      sleep 5
-    end
-    wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@hold_on_one_moment}'"])
-    sleep(5)
-    self
+    fail()
+    #text=$g_query_txt+"text:'#{@@hold_on_one_moment}'"
+    #if (query(text))
+    #  sleep 5
+    #end
+    #wait_for_elements_do_not_exist([$g_query_txt+"text:'#{@@hold_on_one_moment}'"])
+    #sleep(5)
+    #self
   end
 
   def select_destination_biscuit

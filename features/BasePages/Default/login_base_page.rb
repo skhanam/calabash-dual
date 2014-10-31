@@ -8,11 +8,6 @@ class LoginBasePage < BasePage
     $g_query_txt+"marked:'#{@@login_page_text}'"
   end
 
-  def await(opts={})
-    wait_for_elements_exist([trait])
-    self
-  end
-
   def click_forgot_password
     click_on_text @@password_reset
     assert_wait_for_text @@forgot_password_title
