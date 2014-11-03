@@ -56,7 +56,6 @@ Feature: Verify My account page and sub pages
     And I should see all future booking image biscuits
     And I should see all past booking image biscuits
 
-  @testnow
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
     And I select change email from my personal details page

@@ -223,7 +223,7 @@ module DEMeineTUI
     @@change_password_create_new_password=get_localized_string "forgot_password_reset_pwd"
     @@change_password_info=get_localized_string "new_password_body"
     @@change_password_text2=get_localized_string "forgot_password_email_label"
-    @@change_password_send_button=get_localized_string "submit"
+    @@change_password_send_button=get_localized_capitalized_string "submit"
   end
 
   def booking_summary_strings
@@ -338,7 +338,7 @@ module DEMeineTUI
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help= get_localized_string "i_need_help"
     @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
-
+    @@forgot_password_email_hint= 'Benutzername / E-Mail eingeben' # "forgot_password_email_hint" #Benutzername \// E-Mail eingeben
   end
 
   def contact_us_strings

@@ -44,8 +44,9 @@ class MyAccountBasePage < BasePage
     assert_text_elements([@@change_password_title,
                           @@change_password_create_new_password,
                           @@change_password_info,
-                          @@change_password_text2,
-                          @@change_password_send_button])
+                          @@forgot_password_email_hint,
+                          @@change_password_send_button
+                          ])
   end
 
   def click_change_password_button
