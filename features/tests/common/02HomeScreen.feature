@@ -17,25 +17,26 @@ Feature: Verify product pages by navigating through biscuits
     Then I should see a destination image biscuit appear
     And I should see a  destination text label name
 
-  @hm5  @device
-  Scenario: Currency Converter Biscuit
-    Given I have a pre-holiday booking
-    Then I swipe to see "Currency Biscuit"
-    And I should see a Currency Converter Biscuit appear
-    Then I should see the home currency of 1 = destination currency symbol equal value
-
-  @hm6  @device
-  Scenario: Converter Biscuit OnTap OK
-    Given I can see the Currency Converter Biscuit
-    When I tap on the Currency Converter Biscuit
-    Then I should be navigated to Currency Converter page
-
   @hm7 @device
   Scenario: Hotel Biscuit verification
     Given I have a pre-holiday booking
     When I access  the application home page
     Then I should see a Hotel Biscuit appear
     And I should see the text label Step inside hotel name in two lines
+
+#  @hm5  @device
+#  Scenario: Currency Converter Biscuit
+#    Given I have a pre-holiday booking
+#    Then I swipe to see "Currency Biscuit"
+#    And I should see a Currency Converter Biscuit appear
+#    Then I should see the home currency of 1 = destination currency symbol equal value
+
+#  @hm6  @device
+#  Scenario: Converter Biscuit OnTap OK
+#    Given I can see the Currency Converter Biscuit
+#    When I tap on the Currency Converter Biscuit
+#    Then I should be navigated to Currency Converter page
+
 
 #
 #  @failing123

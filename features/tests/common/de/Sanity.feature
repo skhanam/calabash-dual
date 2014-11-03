@@ -1,7 +1,7 @@
-@tab
+@tab @reg-de
 Feature: US14552 Off canvas Menu Items
 
-  @tab-sidepanel2 @reg-de @5552
+  @tab-sidepanel2  @5552
   Scenario: Homepage assemblage
     Given I am on Home screen
     When I open side panel
@@ -11,8 +11,7 @@ Feature: US14552 Off canvas Menu Items
       | Countdown                      |
       | Weather                        |
       | Destination                    |
-#      | Excursions                     |
-      | Currency Converter             |
+      | Excursions                     |
       | Important Information          |
       | Contact Us                     |
       | App Feedback                   |

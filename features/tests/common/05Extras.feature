@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @common-tests @tab-weather @tab @reg
+@weather @extras-tests @tab @reg
 Feature: US16740	Holiday Extras Biscuit
 
   @hm8

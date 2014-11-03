@@ -45,4 +45,14 @@ Feature: Verify pre login screen
     When I the Tap 'submit' button
     Then I see error messages on booking ref page
 
+  @prelogin11
+  Scenario: Verify welcome screen
+    Given I am on 'Login' screen
+    Then I verify input elements on login page
+    And I verify button elements on login page
 
+  @register1
+  Scenario: I want to see new user registration page
+    Given I am on 'Login' screen
+    When I select register option from welcome screen
+    Then I see new user registration page

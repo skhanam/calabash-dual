@@ -1,4 +1,4 @@
- @auto1 @de @de-prelogin @reg-de @reset
+@de-prelogin @reg-de @reset
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user

@@ -1,4 +1,4 @@
-@android_test @ios_test @myaccount_tests @auto1 @de  @tab-de @reg-de
+@myaccount_tests @reg-de
 Feature: Verify My account page and sub pages
   Verify my personal detail  page and other elements
   Verify change password page
@@ -56,6 +56,7 @@ Feature: Verify My account page and sub pages
     And I should see all future booking image biscuits
     And I should see all past booking image biscuits
 
+  @testnow
   Scenario: Verify change email page
     Given I have accessed my Personal Details page
     And I select change email from my personal details page
