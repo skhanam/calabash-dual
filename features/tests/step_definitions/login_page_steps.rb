@@ -408,7 +408,8 @@ end
 
 
 Then(/^I verify input elements on login page$/) do
-  @loginPage.check_input_elements
+  @loginPage.verify_login_page
+  #check_input_elements
 end
 
 When(/^I verify button elements on login page$/) do

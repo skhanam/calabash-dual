@@ -119,7 +119,7 @@
 #
 #elsif $g_current_app== "EN_TH"
 #  puts "uncomment it check_thomson_api **********"
-#  # check_thomson_api #TODO uncomment it later
+#  # check_thomson_api
 #  set_th_dev_bookings
 #  $g_booking.set_payload($g_current_booking["payload"])
 #elsif $g_nordics_app

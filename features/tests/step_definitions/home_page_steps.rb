@@ -102,12 +102,9 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged in and on Home page$/) do
-  #TODO optimize below code
   acc_label="background_normal" if $g_phone
   acc_label= @page.get_val("countdown_biscuit_acc") if $g_tablet
-
-  @homePage.assert_wait_for_acc("#{acc_label}", 20)
-  sleep 5
+  @homePage.assert_wait_for_acc("#{acc_label}", 20) if !@page.check_acc_label acc_label
   screenshot(options={:name => "home"}) if ENV['TAKE_SS']=="yes"
 end
 

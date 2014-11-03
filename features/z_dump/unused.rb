@@ -1,4 +1,3 @@
-# TODO not used
 #read from  brand-ntc-ios/features/strings/languagefolder/file
 def read_copy_from_user_details(arg1)
   filename =$g_user_details
