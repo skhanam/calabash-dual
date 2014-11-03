@@ -1,15 +1,13 @@
-
 Given(/^I submit credentials with wrong country selected/) do
-  uname=$g_user_details[:username]
+  uname="nobooking20@anonmails.de" #$g_user_details[:username]
   pwd=$g_user_details[:password]
-  country="Schweiz"
-
+  @selected_country="Schweiz"
   step "I am on 'Login' screen"
-  step "I log into the App using #{uname}, #{pwd} and #{country}" if ($g_current_app=='DE_MT')
+  step "I log into the App using #{uname}, #{pwd} and #{@selected_country}" if ($g_current_app=='DE_MT')
 
   sleep 2
   step "I select the Login text"
-  end
+end
 
 Given(/^I have entered an invalid email and a valid password$/) do
   step "I am on 'Login' screen"
@@ -34,9 +32,13 @@ When(/^I see new user registration section$/) do
 end
 
 When(/^I select correct country and resubmit details$/) do
-  @loginPage.setCountry($g_user_details[:country])
+  sleep 2
+  touch "view marked:'modalView' view TiTextField index:0"
+  sleep 2
+  touch("view:'UIPickerView' label text:'"+$g_valid_user_details[:country]+"'")
+  sleep 2
   @wrongCountryPage.submit_country_details
-  end
+end
 
 When(/^I should see Heading - Login$/) do
   @loginPage.check_login_title
@@ -72,7 +74,7 @@ When(/^I submit wrong login credentials$/) do
 end
 
 Given(/^I accessed the Register page modal$/) do
- step "I am on 'Login' screen"
+  step "I am on 'Login' screen"
   @loginPage.select_register_button
 end
 

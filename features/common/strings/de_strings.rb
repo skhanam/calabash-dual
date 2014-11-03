@@ -57,7 +57,7 @@ module DEMeineTUI
 
   def wrong_country_strings
     @@wrong_country_selected_text="Haben Sie vielleicht bei TUI Deutschland oder TUI Österreich gebucht?"
-    @@wrong_country_switch= get_localized_string "cantFindBooking_ctaSwitch"
+    @@wrong_country_switch= get_localized_capitalized_string "cantFindBooking_ctaSwitch"
     @@wrong_country_add_booking= get_localized_string "cantFindBooking_addBookingTitle"
 
   end

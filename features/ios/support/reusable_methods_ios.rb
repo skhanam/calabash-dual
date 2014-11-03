@@ -78,10 +78,10 @@ module IosReusableMethods
   end
 
 
-  def check_tab_input_field(text, index=1)
+  def check_text_in_modal_view(text, index=1)
     sleep 0.5
     puts "check_tab_input_field #{text}"
-    fail("element not present") if !element_exists("TiUIWindow index:#{index} view text:'#{text}'")
+    fail("element not present") if !element_exists("view marked:'modalView' view text:'#{text}'")
   end
 
   #This method avoids calabash from crashing while using single quotes

@@ -21,11 +21,11 @@ module WrongCountryModule
     def new_user_reg_screen
       scroll("view text:'#{@@add_a_booking_page_firstname}' parent scrollView","down")
       #scroll_page_and_assert_text
-      check_tab_input_field(@@add_a_booking_page_salutation)
-      check_tab_input_field(@@add_a_booking_page_firstname)
-      check_tab_input_field(@@add_a_booking_page_last_name_hint)
-      check_tab_input_field(@@add_a_booking_page_booking_code_hint)
-      check_tab_input_field(@@add_a_booking_page_arrival_date_hint)
+      check_text_in_modal_view(@@add_a_booking_page_salutation)
+      check_text_in_modal_view(@@add_a_booking_page_firstname)
+      check_text_in_modal_view(@@add_a_booking_page_last_name_hint)
+      check_text_in_modal_view(@@add_a_booking_page_booking_code_hint)
+      check_text_in_modal_view(@@add_a_booking_page_arrival_date_hint)
     end
 
     def check_wrong_country_screen
