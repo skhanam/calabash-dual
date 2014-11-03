@@ -72,18 +72,18 @@ class MyAccountBasePage < BasePage
                            ])
     elsif $g_tablet
       assert_text_elements([@@update_email_text,
-                            @@update_email_new_email_hint,
-                            @@update_email_new_password_hint,
                             @@update_reminder,
                             @@update_email_submit
                            ])
+      assert_text_present "Neue E-Mail:" # @@update_email_new_email_hint
+      assert_text_present "Ihr Passwort:" # @@update_email_new_password_hint
     end
     scroll_page_and_assert_text @@update_email_forgot_password
   end
 
   def change_password_prefilled_username
-    res=query("TiTextField",:text).first
-    assert_equal($g_current_user_details[:valid][:username],query("TiTextField",:text).first,"Username is not prefilled")
+    res=query("TiTextField", :text).first
+    assert_equal($g_current_user_details[:valid][:username], query("TiTextField", :text).first, "Username is not prefilled")
   end
 
   def logout_from_app
@@ -154,7 +154,7 @@ class MyAccountBasePage < BasePage
 
   def verify_browse_holidays
     assert_wait_for_text @@login_tablet_bottom_bar
-    @@tui_holidays_arr.each {|var| assert_wait_for_text var}
+    @@tui_holidays_arr.each { |var| assert_wait_for_text var }
   end
 end
 

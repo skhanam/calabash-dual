@@ -1,4 +1,4 @@
-@android_test @ios_test  @de @auto4
+@android_test @ios_test  @reg-de @auto4
 Feature: Verify product pages by navigating through side panel
 
   @multi_dest

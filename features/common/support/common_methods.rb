@@ -23,7 +23,6 @@ class CommonMethods < BasePage
       when "less than 1 day"
         min_days, max_days=0, 1
       when "in resort"
-        #TODO
         fail("TODO")
       when "more than 1 day past"
         min_days, max_days=-99999, -1

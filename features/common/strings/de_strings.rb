@@ -181,7 +181,7 @@ module DEMeineTUI
     @@side_panel_travel_agent=get_localized_string "travel_agent" #Mein Reisebüro
     @@side_panel_tui_service_on_site=get_localized_string "tui_service_on_site"
     @@side_panel_contact_heading=get_localized_string "contact"
-
+    @@side_panel_contact= @@side_panel_contact_heading
     @@app_feedback=get_localized_string "app_feedback"
 
   end

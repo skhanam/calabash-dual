@@ -22,7 +22,7 @@ module DestinationsModule
     screenshot(options={:name => "destinations"}) if ENV['TAKE_SS']=="yes"
     @countries.each do |var|
       puts "checking destination name #{var}"
-      assert_wait_for_text var
+      scroll_home_biscuits var
     end
   end
 

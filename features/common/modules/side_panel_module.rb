@@ -56,16 +56,15 @@ module SidePanelModule
     def navigate_to_booking_summary_page
       scroll_side_panel(@@side_panel_booking_summary)
       click_on_text @@side_panel_booking_summary
-      #TODO verify booking summary page
+      fail "verify booking summary page"
     end
 
     def navigate_to_contact_us_page
       scroll_side_panel(@@log_out_text) if !$g_german_app
-      scroll_side_panel("Contact")
-      #scroll_side_panel(@@side_panel_contact_us)
+      scroll_side_panel(@@side_panel_contact)
       sleep 1
-      click_on_text "Contact" #TODO to change  click_on_text @@side_panel_contact_us
-      #TODO verify contact us page
+      click_on_text @@side_panel_contact
+      fail "TO BE COMPLETED"
     end
 
     def check_email_field_empty

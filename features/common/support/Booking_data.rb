@@ -19,11 +19,29 @@ class Bookings
     @weather=@payload["weather"]
     @dest_payload = $g_destinations["payload"]
 
+    @excursions_payload=$g_excursions["payload"] if $g_german_app
+
     @eng_checkList=eng_checkList if $g_eng_app
     # puts "#{@booking_summary}"
 
   end
 
+  def get_excursions
+    #puts "@excursions_payload #{@excursions_payload}"
+    arr=@excursions_payload["destinationAreaExcursions"]
+    hash_arr={}
+    arr.each do |var|
+      arr1=[]
+      @reservation_code=nil
+      puts var["destinationName"]
+      var["excursions"].each do |arg|
+        @reservation_code = arg["reservationCode"]
+        arr1.push(arg["infoList"][0]["value"])
+      end
+      hash_arr["#{var["destinationName"]}"]= arr1
+    end
+    return hash_arr
+  end
 
   def get_country_names_for_weather
     arr=[]
@@ -44,7 +62,6 @@ class Bookings
       @ToCurrency1=@payload["currency"].keys[1]
       @ToCurrency2=@payload["currency"].keys[2]
       @dest_payload = $g_destinations["payload"]
-      @excursions_payload=$g_excursions["payload"]
     elsif $g_eng_app
       @fromCurrency=@payload["currency"]["fromCurrency"]
       @ToCurrency1=@payload["currencyCode"]
@@ -213,22 +230,7 @@ class Bookings
     @eng_checkList["payload"]["itemList"].count
   end
 
-  def get_excursions
-    puts "@excursions_payload #{@excursions_payload}"
-    arr=@excursions_payload["destinationAreaExcursions"]
-    hash_arr={}
-    arr.each do |var|
-      arr1=[]
-      @reservation_code=nil
-      puts var["destinationName"]
-      var["excursions"].each do |arg|
-        @reservation_code = arg["reservationCode"]
-        arr1.push(arg["infoList"][0]["value"])
-      end
-      hash_arr["#{var["destinationName"]}"]= arr1
-    end
-    return hash_arr
-  end
+
 
   def get_home_biscuits(name, num=1)
     fail if num <= 0
