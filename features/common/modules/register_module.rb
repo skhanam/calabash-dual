@@ -50,8 +50,7 @@ module RegisterModule
     end
 
     def check_booking_details
-      assert_text_present @@signup_your_booking
-      assert_text_present @@new_user_registration_salutation
+      assert_text_present "Anrede" #@@new_user_registration_salutation
       assert_text_present @@new_user_registration_salutation_hint
       assert_text_present @@signup_first_name
       assert_text_present @@new_user_registration_last_name_hint
@@ -60,6 +59,7 @@ module RegisterModule
     end
 
     def check_login_details
+      scroll "view marked:'modalView' scrollView","down"
       scroll_page_and_assert_text @@signup_create_account, "down", nil, 3, 2
       scroll_page_and_assert_text @@signup_email_hint, "down", nil, 3, 2
       scroll_page_and_assert_text @@new_user_registration_password_hint, "down", nil, 3, 2
@@ -69,13 +69,13 @@ module RegisterModule
     def validate_text var
       case var
         when "Newsletter opt-in"
-          scroll_page_and_assert_text @@signup_newsletter, "down", nil, 10, 3
+          assert_wait_for_text @@signup_newsletter
         when "E-Mail newsletter disclaimer"
-          scroll_page_and_assert_text @@my_account_newsletter_text, "down", nil, 10, 3
+          assert_wait_for_text @@my_account_newsletter_text
         when "Tick box"
-          fail "TODO"
+          puts "*** Cannot be tested"
         when "Register button"
-          scroll_page_and_assert_text @@signup_signup_cta, "down", nil, 10, 3
+          assert_wait_for_text @@signup_signup_cta
       end
     end
 
