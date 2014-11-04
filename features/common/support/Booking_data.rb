@@ -19,7 +19,7 @@ class Bookings
     @weather=@payload["weather"]
     @dest_payload = $g_destinations["payload"]
 
-    @excursions_payload=$g_excursions["payload"] if $g_german_app
+    @excursions_payload=$g_excursions["payload"]
 
     @eng_checkList=eng_checkList if $g_eng_app
     # puts "#{@booking_summary}"
