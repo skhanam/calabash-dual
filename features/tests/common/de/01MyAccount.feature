@@ -67,7 +67,7 @@ Feature: Verify My account page and sub pages
     And I choose to change password from my account page
     Then I see change password page
 
-  @logout-de @failed
+  @logout-de
   Scenario: Logout verification on my account page
     Given I have accessed my Personal Details page
     When I tap on Logout
@@ -80,8 +80,8 @@ Feature: Verify My account page and sub pages
     When I tap on Add Booking biscuit
     Then I should see Add Booking form displayed
 
-  @viewbooking @failed
+  @viewbooking
   Scenario: view Bookings
     Given I have accessed my Personal Details page
     When I tap on any booking biscuit
-    Then I should observe that the app homepage view has the selected booking loaded
+    Then I should see country names on weather biscuit

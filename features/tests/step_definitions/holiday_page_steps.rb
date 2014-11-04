@@ -6,7 +6,4 @@ Given(/^I am on the browse\-a\-holiday page$/) do
 end
 
 When(/^I  tap on a mosaic item$/) do
-
-
-
 end

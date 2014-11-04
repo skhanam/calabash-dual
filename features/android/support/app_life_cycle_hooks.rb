@@ -53,7 +53,7 @@ end
 
 
 Before do |scenario|
-  sleep 5
+  sleep 1
 end
 
 After do |scenario|

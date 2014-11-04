@@ -12,7 +12,7 @@ Feature: English Sanity Tests
     When I select help logging in page
     Then I verify help logging in page
 
-  @offcanvas @failed
+  @offcanvas
   Scenario: Left off canvas Menu listing
     Given I am on Home screen
     Given I have opened side menu

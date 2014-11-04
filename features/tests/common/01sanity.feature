@@ -13,7 +13,7 @@ Feature: Login and Home page features
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear
     And I should see Weather type icon
-    And I should see country name
+    And I should see country names on weather biscuit
 
   @logout1
   Scenario: Logout from Side menu

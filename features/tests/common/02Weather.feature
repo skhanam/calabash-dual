@@ -8,7 +8,7 @@ Feature: Verify Weather details for bookings
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear
     And I should see Weather type icon
-    And I should see country name
+    And I should see country names on weather biscuit
 
   @home-weather31
   Scenario: US16737 Verify Weather Biscuit

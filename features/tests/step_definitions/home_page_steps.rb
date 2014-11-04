@@ -288,7 +288,7 @@ When(/^I should see Weather type icon$/) do
 
 end
 
-When(/^I should see country name$/) do
+When(/^I should see country names on weather biscuit$/) do
   @homePage.country_name_shown_weather_biscuit?
 end
 

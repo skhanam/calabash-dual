@@ -180,8 +180,6 @@ class Bookings
         arr.push(var["infoList"][0]["value"])
       end
     end
-
-    puts arr
     return arr
   end
 
