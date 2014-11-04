@@ -237,10 +237,24 @@ module SidePanelModule
           scroll_side_panel @@side_panel_weather if $g_tablet
         when "Destination guide", "Destination"
           scroll_page_and_assert_text @@side_panel_destination_guide if $g_phone
-          scroll_side_panel @@side_panel_destination_guide if $g_tablet
+          if $g_tablet
+            if $g_german_app
+              @bookings=$g_booking.get_destination_countries
+              check_destinations(@bookings)
+            else
+              scroll_side_panel @@side_panel_destination_guide if $g_tablet
+            end
+          end
         when "excursions", "Excursions"
           scroll_page_and_assert_text @@side_panel_excursions if $g_phone
-          scroll_side_panel @@side_panel_excursions if $g_tablet
+          if $g_tablet
+            if $g_german_app
+              @bookings=$g_booking.get_destination_countries
+              @bookings.each { |var| scroll_side_panel "Ausflüge #{var}" }
+            else
+              scroll_side_panel @@side_panel_excursions
+            end
+          end
         when "Currency Converter"
           scroll_side_panel @@currency_converter if $g_tablet
         when "Important Information"

@@ -1,5 +1,5 @@
 @reg
-Feature: English Sanity Tests
+Feature: Prelogin tests
 
   @reset  @wrong-login33
   Scenario: Verify error message for wrong login

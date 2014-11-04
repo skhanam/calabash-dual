@@ -16,4 +16,3 @@ Feature: US14552 Off canvas Menu Items
       | Contact Us                     |
       | App Feedback                   |
       | Logout                         |
-      | Browse our holiday collections |
