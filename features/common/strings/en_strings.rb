@@ -52,7 +52,7 @@ module EN_Strings
     @@welcome_help_retrieve_booking_surname = get_localized_string "welcome_help_retrieve_booking_surname" # Surname of lead passenger:
     @@welcome_help_retrieve_booking_email = get_localized_string "welcome_help_retrieve_booking_email" # Email address used for booking:
 
-    @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
+    @@welcome_help_retrieve_booking_cta = get_localized_capitalized_string "welcome_help_retrieve_booking_cta" # Submit
 
     @@welcome_help_more_issues_body= get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
     @@welcome_help_more_issues_email_title= get_localized_string "welcome_help_more_issues_email_title" # Send email
