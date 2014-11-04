@@ -87,13 +87,13 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
-    if booking_type!=$selected_booking
-      $selected_booking=booking_type
-      @homePage.navigate_to_account
-      @myBookingsPage.switch_to_particular_booking
-    else
-      puts "already switched to #{booking_type} "
-    end
+  if booking_type!=$selected_booking
+    $selected_booking=booking_type
+    @homePage.navigate_to_account
+    @myBookingsPage.switch_to_particular_booking
+  else
+    puts "already switched to #{booking_type} "
+  end
 
 end
 
@@ -361,6 +361,11 @@ And(/^I should see the text label Step inside hotel name in two lines$/) do
   @homePage.verify_hotel_biscuit
 end
 
+Then(/^I swipe to see "([^"]*)" is removed$/) do |arg|
+  @homePage.de_extras_biscuit_removed
+
+end
+
 Then(/^I swipe to see "([^"]*)"$/) do |arg|
   @homePage.scroll_to_biscuit arg
 end
@@ -384,7 +389,7 @@ end
 
 When(/^I have multiple destinations in my booking$/) do
   @bookings=$g_booking.get_destination_countries
- fail ("This is not multi destination booking") if @bookings.count <=1
+  fail ("This is not multi destination booking") if @bookings.count <=1
 end
 
 When(/^I select Excursions Biscuit on home page$/) do

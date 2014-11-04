@@ -111,6 +111,16 @@ module HomeModule
        assert_text_present $g_booking.get_checklist_count.to_s
     end
 
+    def de_extras_biscuit_removed
+      count=5
+      while count >0
+        scroll_view "right"
+        sleep 0.5
+        fail("extras biscuit must not be found") if element_exists("view marked:'extras_Biscuit'")
+        count-=1
+      end
+    end
+
     def scroll_to_biscuit var
       case var
         when "checklist Biscuit"

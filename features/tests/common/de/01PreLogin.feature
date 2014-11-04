@@ -30,14 +30,14 @@ Feature: Verify screens shown before logging into App
     And I should see the error message tip to side of oops message
     And should observe that values entered are retained
 
-  @wrong-country
+  @wrong-country  @notdevice
   Scenario: US13474 Failed login - wrong country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected
     Then I see alternative country options for submitted credentials
     And I see new user registration section
 
-  @wrong-country1  
+  @wrong-country1 @notdevice
   Scenario: US13474 submit wrong country and change to correct country
     Given I am on 'Login' screen
     When I submit credentials with wrong country selected

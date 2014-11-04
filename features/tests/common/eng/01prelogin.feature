@@ -1,4 +1,4 @@
-@prelogin  @reset  @device-en-working
+@prelogin  @reset @reg-en
 Feature: Verify pre login screen
 
     @eng @lg1

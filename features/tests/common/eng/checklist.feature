@@ -1,4 +1,4 @@
-@eng @sanity-eng
+@reg-en
 Feature: English Sanity Tests
 
   @device
