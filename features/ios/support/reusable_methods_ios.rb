@@ -25,6 +25,10 @@ end
 
 module Tablet
 
+  def scroll_modal_view(dir)
+    scroll "view marked:'modalView' scrollView","#{dir}"
+  end
+
   def scroll_side_panel(text, dir="down")
     count=5
     puts "scroll_side_panel #{text}"

@@ -33,11 +33,7 @@ def get_eng_payload(auth, type)
   #get weather
   handshake=get_handshake("/reservation/undefined/#{type}")
   cmd=%Q{curl "#{$g_endpoint}/reservation/undefined/#{type}" -H "tui-public-key: abcd" -H "Origin: http://37.46.24.155:8001" -H "tui-screen-height: 768" -H "Accept-Encoding: gzip,deflate,sdch" -H "Host: e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" -H "Accept-Language: en-US,en;q=0.8"  -H "Accept: */*" -H "tui-brand: uk-#{$brand}" -H "Referer: http://37.46.24.155:8001/index.html" -H "tui-tablet: true" -H "tui-auth-key: #{auth}" -H "Connection: keep-alive" -H "tui-screen-width: 1024" -H "tui-handshake: #{handshake}"}
-  begin
-    res= JSON.parse(`#{cmd}`)
-  rescue
-    fail "#{type} has error response #{res}"
-  end
+  res= JSON.parse(`#{cmd}`)
   return res
 end
 

@@ -223,6 +223,7 @@ module AppStrings
   end
 
   def tablet_only_strings
+    @@modal_view_acc= "modalView"
     @@home_page_acc ="offcanvasCTA"
     @@home_page_title_acc ="offcanvasCTA"
     @@home_page_sidepanel_acc_label ="offcanvasCTA"

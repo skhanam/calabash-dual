@@ -107,7 +107,7 @@ class CommonMethods < BasePage
   def close_popup_dialog
     #Handle push notifications
     if check_text_in_view @@push_notifications
-      click_on_text @@push_not_now
+      click_on_text @@push_allow
     end
 
      puts ("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
@@ -127,7 +127,7 @@ class CommonMethods < BasePage
     if element_exists("#{$g_query_txt}text:'#{@@push_notifications}'")
       assert_wait_for_text @@we_would_like_to_send_push
       assert_wait_for_text @@push_not_now
-      touch ("#{$g_query_txt}text:'#{@@push_not_now}'")
+      touch ("#{$g_query_txt}text:'#{@@push_allow}'")
       sleep 2
     end
   end

@@ -38,7 +38,7 @@ module ForgotPwdModule
 
     def submit_change_password
       sleep 1
-      touch "view marked:'modalView' label text:'#{UnicodeUtils.upcase(@@forgot_password_send_button)}'"
+      touch "view marked:'#{@@modal_view_acc}' label text:'#{UnicodeUtils.upcase(@@forgot_password_send_button)}'"
       sleep 2
     end
 

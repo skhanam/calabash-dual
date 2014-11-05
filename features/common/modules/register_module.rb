@@ -59,7 +59,7 @@ module RegisterModule
     end
 
     def check_login_details
-      scroll "view marked:'modalView' scrollView","down"
+      scroll_modal_view "down"
       scroll_page_and_assert_text @@signup_create_account, "down", nil, 3, 2
       scroll_page_and_assert_text @@signup_email_hint, "down", nil, 3, 2
       scroll_page_and_assert_text @@new_user_registration_password_hint, "down", nil, 3, 2

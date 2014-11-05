@@ -19,13 +19,6 @@ class LoginBasePage < BasePage
     enter_credentials(username, password)
   end
 
-  #TODO for privacy policy terms and conditions
-  #to check html use these queries
-  #js = 'document.body.innerHTML'
-  #query("webView", :stringByEvaluatingJavaScriptFromString => js)
-  #query("webView xpath:'/html/body/text()[4]'")
-  #query("webView xpath:'html/body/strong[3]/p'")
-
   def navigate_to_forgot_password
     scroll_page_and_assert_text @@login_forgot_password
     click_on_text @@login_forgot_password

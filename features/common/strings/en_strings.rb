@@ -52,7 +52,8 @@ module EN_Strings
     @@welcome_help_retrieve_booking_surname = get_localized_string "welcome_help_retrieve_booking_surname" # Surname of lead passenger:
     @@welcome_help_retrieve_booking_email = get_localized_string "welcome_help_retrieve_booking_email" # Email address used for booking:
 
-    @@welcome_help_retrieve_booking_cta = get_localized_capitalized_string "welcome_help_retrieve_booking_cta" # Submit
+    @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
+    @@retrieve_booking_submit = get_localized_capitalized_string "submit" # Submit
 
     @@welcome_help_more_issues_body= get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
     @@welcome_help_more_issues_email_title= get_localized_string "welcome_help_more_issues_email_title" # Send email
@@ -113,19 +114,21 @@ module EN_Strings
       @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
       @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint" # 12345678
       @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
+      @@submit_button= get_localized_capitalized_string "submit" #Submit
+      @@welcome_help_link1=get_localized_string "welcome_help_link1"
+
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
       @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
+      @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
     end
 
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
-    @@welcome_help_link1=get_localized_string "welcome_help_link1"
     @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"
-    @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
 
     @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"
 
@@ -138,7 +141,7 @@ module EN_Strings
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
 
-    @@login_page_title = get_localized_string "welcome_login_header"
+    @@login_page_title = get_localized_string "welcome_header"
 
     #Book a visit page
     @@book_visit_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"

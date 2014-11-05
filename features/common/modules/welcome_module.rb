@@ -122,6 +122,13 @@ module WelcomeModule
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
     end
 
+    def verify_welcome_screen
+    arr="#{@@login_page_text}".split(/\\n\\n/)
+    arr.each do |var|
+      assert_partial_text var
+    end
+    end
+
     def check_welcome_screen
       return wait_for_text(escape_quotes(@@login_lets_get_inspired),2)
     end

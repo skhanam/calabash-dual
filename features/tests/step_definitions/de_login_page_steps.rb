@@ -32,8 +32,9 @@ When(/^I see new user registration section$/) do
 end
 
 When(/^I select correct country and resubmit details$/) do
+  @modal_view_acc=@page.get_val "modal_view_acc"
   sleep 2
-  touch "view marked:'modalView' view TiTextField index:0"
+  touch "view marked:'#{@modal_view_acc}' view TiTextField index:0"
   sleep 2
   touch("view:'UIPickerView' label text:'"+$g_valid_user_details[:country]+"'")
   sleep 2

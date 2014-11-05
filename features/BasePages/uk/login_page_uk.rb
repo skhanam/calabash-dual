@@ -6,23 +6,6 @@ class LoginPage < LoginBasePage
   include Phone if $g_phone
   include Tablet if $g_tablet
 
-  def verify_login_page
-    puts "verify_login_page"
-    assert_wait_for_text @@login_page_title
-
-    arr="#{@@login_page_text}".split(/\\n\\n/)
-    arr.each do |var|
-      assert_partial_text var
-    end
-
-    scroll_page_and_assert_text @@welcome_login_surname
-    scroll_page_and_assert_text @@welcome_login_departure_date
-    scroll_page_and_assert_text @@welcome_login_booking_reference
-    scroll_page_and_assert_text @@login_button
-    scroll_page_and_assert_text @@welcome_help_link2
-    scroll_page_and_assert_text @@welcome_cta_help_login
-  end
-
   def select_help_logging_in
     scroll_page_and_assert_text @@login_page_help_logging_in
     click_on_text @@login_page_help_logging_in
@@ -41,6 +24,9 @@ class LoginPage < LoginBasePage
   end
 
   def see_retrieve_my_booking_page
+    if ENV['LANG']=="en_th"
+      assert_wait_for_text "Due to system changes, we are currently unable to support bookings departing from 1st Nov 2015 on the Thomson app. We are working on this and hope to have the service available soon. Sorry for any inconvenience, the Thomson app team."
+    end
     assert_wait_for_text @@welcome_help_retrieve_booking_header
   end
 
@@ -73,6 +59,19 @@ end
 module Phone
   include BaseModule
 
+
+  def verify_login_page
+    puts "verify_login_page"
+    assert_wait_for_text @@login_page_title
+    scroll_page_and_assert_text @@welcome_login_surname
+    scroll_page_and_assert_text @@welcome_login_departure_date
+    scroll_page_and_assert_text @@welcome_login_booking_reference
+    scroll_page_and_assert_text @@login_button
+    scroll_page_and_assert_text @@welcome_help_link2
+    scroll_page_and_assert_text @@welcome_cta_help_login
+  end
+
+
   def check_login_error_messages
     assert_wait_for_text @@login_error_text
     assert_text_present @@welcome_login_surname_extra
@@ -97,7 +96,7 @@ module Phone
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_surname
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_email
 
-    scroll_page_and_assert_text @@welcome_help_retrieve_booking_cta
+    scroll_page_and_assert_text @@retrieve_booking_submit
     scroll_page_and_assert_text @@welcome_help_more_issues_body
     scroll_page_and_assert_text @@welcome_help_more_issues_email_title
   end
@@ -106,6 +105,19 @@ end
 
 module Tablet
   include BaseModule
+
+  def verify_login_page
+    puts "verify_login_page"
+    assert_wait_for_text @@login_page_title
+    scroll_page_and_assert_text @@welcome_login_surname_hint
+    scroll_page_and_assert_text @@welcome_login_departure_date
+    scroll_page_and_assert_text @@welcome_login_booking_reference1_hint
+    scroll_page_and_assert_text @@welcome_login_booking_reference2_hint
+    scroll_page_and_assert_text @@submit_button
+    scroll_page_and_assert_text @@welcome_help_link1
+    scroll_page_and_assert_text @@welcome_help_link2
+  end
+
 
   def check_login_error_messages
     assert_wait_for_text @@login_error_text
@@ -122,12 +134,12 @@ module Tablet
     assert_wait_for_text @@welcome_help_cant_login_description
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
     assert_wait_for_text @@welcome_help_cant_login_cta
-    scroll_at_text_element @@welcome_help_cant_login_description
+    scroll_modal_view "down"
 
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_iosStore)
     assert_wait_for_text @@welcome_help_cant_use_app_cta1
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_use_app_cta2)
-    scroll_at_text_element @@welcome_help_cant_login_iosStore
+    scroll_modal_view "down"
 
     assert_wait_for_text @@welcome_help_more_issues_body
     assert_wait_for_text @@welcome_help_i_need_help
@@ -137,8 +149,9 @@ module Tablet
     assert_wait_for_text @@welcome_help_retrieve_booking_header
     assert_wait_for_text @@welcome_help_retrieve_booking_surname
     assert_wait_for_text @@welcome_help_retrieve_booking_email
-    assert_wait_for_text @@welcome_help_retrieve_booking_cta
-    scroll_at_text_element @@welcome_help_retrieve_booking_cta
+    assert_wait_for_text @@retrieve_booking_submit
+
+    scroll_at_text_element @@retrieve_booking_submit
 
     assert_wait_for_text @@welcome_help_more_issues_body
     assert_wait_for_text @@welcome_help_more_issues_email_title
