@@ -1,9 +1,0 @@
-#test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @extras-tests @tab
-Feature: US16740	Holiday Extras Biscuit
-
-  @hm8
-  Scenario: US16740 Holiday extras Biscuit
-    Given I have a pre-holiday booking
-    When I access  the application home page
-    Then I swipe to see "extras Biscuit" is removed

@@ -1,4 +1,4 @@
-@de-prelogin @reg-de @reset
+@prelogin-de @reg-de @reset
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
@@ -23,18 +23,12 @@ Feature: Verify screens shown before logging into App
     When I navigate to forgot password screen
     Then I see my username is empty
 
-  @tab4 
+  @plgn4
   Scenario: US13474 Failed login - wrong credentials
     Given I submit wrong login credentials
     Then I see appropriate error message
     And I should see the error message tip to side of oops message
     And should observe that values entered are retained
-
-  @home-weather2 
-  Scenario: US16737 Verify Weather Biscuit
-    Given I am on Home screen with multi destination booking
-    Then I should see a Weather Biscuit appear
-    And  I should see Weather Biscuit display weather for each destination in a loop of 5s
 
    @prelog1n 
   Scenario: US13474 DE Login: Check Page elements

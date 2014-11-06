@@ -52,6 +52,12 @@ THOMSON_USER||={
         :VisionShopNumber => "9999",
         :VisionBookingRef => "12347027"
     },
+    :noexcursion => {
+        :surname => "martin",
+        :departuredate => "03-08-2015",
+        :VisionShopNumber => "9999",
+        :VisionBookingRef => "12347657"
+    },
     :post => {
         :surname => "martin",
         :departuredate => "11-10-2014",

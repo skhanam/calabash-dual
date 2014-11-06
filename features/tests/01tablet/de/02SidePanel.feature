@@ -1,4 +1,4 @@
-@android_test @ios_test  @reg-de @auto4
+@reg-de
 Feature: Verify product pages by navigating through side panel
 
   @multi_dest
@@ -8,6 +8,22 @@ Feature: Verify product pages by navigating through side panel
     When I open side panel
     Then I should see one menu entry per destination
     And I should see the destination name on the menu
+
+  @tab-sidepanel2  @5552
+  Scenario: Homepage assemblage
+    Given I am on Home screen
+    When I open side panel
+    Then I must see below items on sidepanel for booking:
+      | Home                           |
+      | Holiday summary                |
+      | Countdown                      |
+      | Weather                        |
+      | Destination                    |
+      | Excursions                     |
+      | Important Information          |
+      | Contact Us                     |
+      | App Feedback                   |
+      | Logout                         |
 
 #  Scenario: US13503	UK holiday extras  Verify page elements
 #    Given I have a pre-holiday booking

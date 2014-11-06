@@ -1,4 +1,4 @@
-@myaccount_tests @reg-de
+@myaccount_tests-de @reg-de
 Feature: Verify My account page and sub pages
   Verify my personal detail  page and other elements
   Verify change password page
