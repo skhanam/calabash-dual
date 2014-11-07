@@ -280,6 +280,16 @@ module EN_Strings
       @@contact_us_terms_webview= "Terms and Conditions"
       @@contact_us_privacy_webview= "Privacy Policy"
     end
+
+    @@call_center_timings=  ["Call centre opening times:",
+                           "Monday",
+                           "Tuesday",
+                           "Wednesday",
+                           "Thursday",
+                           "Friday",
+                           "Saturday",
+                           "Sunday"]
+
   end
 
   def checklist_strings
@@ -310,6 +320,8 @@ module EN_Strings
     @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
     @@log_out_acc="logout"
   end
+
+
 
 end
 

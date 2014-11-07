@@ -8,10 +8,15 @@ end
 module Tablet
 
   def verify_contact_us_page
+    BookingSummaryPage.new.verify_booking_summary_details
     wait_for_progress_to_disappear(@@loading_hold_on)
+
+    @@call_center_timings.each { |var| assert_text_present var }
     assert_text_present @@contact_us_title
     assert_text_present(@@contactus_subtitle)
-    assert_text_present @@contactus_termsAndConditions
+
+    scroll_at_text_element @@contact_us_title
+    assert_wait_for_text @@contactus_termsAndConditions
     assert_text_present @@contactus_privacyPolicy
     assert_text_present @@contactus_support
   end
@@ -35,5 +40,6 @@ module Phone
     click_on_text @@contactus_privacyPolicy
     verify_external_links
   end
+
 
 end

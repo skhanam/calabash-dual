@@ -15,5 +15,7 @@ Then(/^I should be navigated to Excursions Mosaic page$/) do
 end
 
 When(/^I see excursions - Mosaic landing page$/) do
-  @excursionsPage.check_excursion_mosaic
+  @excursionsPage.check_excursion_mosaic(@excursion_num.to_i-1)
+end
+
 end

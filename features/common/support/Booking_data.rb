@@ -175,7 +175,6 @@ class Bookings
       end
     elsif $g_german_app
       prod=find_de_products("hotel")
-      puts "#{prod}"
       prod.each do |var|
         arr.push(var["infoList"][0]["value"])
       end
