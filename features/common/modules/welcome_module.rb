@@ -119,7 +119,7 @@ module WelcomeModule
 
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
-      receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+    #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
     end
 
     def verify_welcome_screen
@@ -133,22 +133,5 @@ module WelcomeModule
       return wait_for_text(escape_quotes(@@login_lets_get_inspired),2)
     end
 
-    module Deu
-      def navigate_to_login
-        fail "TODO"
-      end
-    end
-
-    module Eng
-      def navigate_to_login
-        fail "TODO"
-      end
-    end
-
-    module Nor
-      def navigate_to_login
-        fail "TODO"
-      end
-    end
   end
 end

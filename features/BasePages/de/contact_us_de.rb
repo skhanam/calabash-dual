@@ -2,7 +2,10 @@ require_relative '../Default/contact_us_base_page'
 
 ## verify contact us page
 class ContactUsDe < ContactUsBasePage
+  include eval($g_hw_module)
+end
 
+module Phone
   def check_contact_us_page
     check_contact_us_screen_title
   end
@@ -34,5 +37,12 @@ class ContactUsDe < ContactUsBasePage
   end
 end
 
+module Tablet
+  def verify_contact_us_page
+    fail "TBD"
+    #TODO
+  end
+
+  end
 
 

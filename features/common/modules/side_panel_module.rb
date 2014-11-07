@@ -64,7 +64,6 @@ module SidePanelModule
       scroll_side_panel(@@side_panel_contact)
       sleep 1
       click_on_text @@side_panel_contact
-      fail "TO BE COMPLETED"
     end
 
     def check_email_field_empty
@@ -79,12 +78,6 @@ module SidePanelModule
 
   module Eng
     include BaseModule
-
-    #|           |
-    #| Contact Us                     |
-    #| App Feedback                   |
-    #| Logout                         |
-    #| Browse our holiday collections |
 
     def validate_typical_booking_menu_items(var)
       puts "validate_typical_booking_menu_items (#{var})"

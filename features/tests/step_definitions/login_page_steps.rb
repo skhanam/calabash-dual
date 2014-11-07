@@ -489,8 +489,10 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
   end
 end
 
-When(/^I the Tap 'submit' button$/) do
-  @page.click_on_text "Submit"
+When(/^I the Tap 'submit' button retrieve booking page$/) do
+  @modal_view_acc=@page.get_val "modal_view_acc"
+  @submit=@page.get_val "retrieve_booking_submit"
+  touch "view marked:'#{@modal_view_acc}' view text:'#{@submit}'"
 end
 
 Then(/^I should be navigated to Help logging in modal page$/) do

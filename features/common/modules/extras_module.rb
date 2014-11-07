@@ -7,7 +7,6 @@ module ExtrasModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
 
-
   def verify_extra_biscuit
     assert_wait_for_acc @@home_page_holiday_extra_Biscuit_acc
     assert_wait_for_text @@holiday_extras
@@ -26,18 +25,6 @@ module ExtrasModule
     def self.included(receiver)
       puts self.name+"::#{$g_platform}"
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
-    end
-
-
-    module Eng
-
-    end
-    module Nor
-
-    end
-
-    module Deu
-
     end
 
   end

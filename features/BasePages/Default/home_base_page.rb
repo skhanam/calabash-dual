@@ -28,14 +28,9 @@ class HomePage < BasePage
     assert_wait_for_acc(@@destination_biscuit_acc)
   end
 
-  def click_destination_biscuit
+  def click_destination_biscuit(num=1)
     scroll_page_till_acc(@@destination_biscuit_acc, "right")
-    #scroll_view("right",0)
-    click_acc_label(@@destination_biscuit_acc)
-  end
-
-  def verify_destination_page
-    assert_wait_for_acc(@@destination_page_title_acc)
+    click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
   end
 
   def find_currency_converter_biscuit

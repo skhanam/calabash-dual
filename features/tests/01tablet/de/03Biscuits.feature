@@ -2,7 +2,7 @@
 @extras-tests
 Feature: US16740	Holiday Extras Biscuit
 
-  @hm8
+  @bis1
   Scenario: US16740 Holiday extras Biscuit
     Given I have a pre-holiday booking
     When I access  the application home page
@@ -13,3 +13,10 @@ Feature: US16740	Holiday Extras Biscuit
     Given I am on Home screen with multi destination booking
     Then I should see a Weather Biscuit appear
     And  I should see Weather Biscuit display weather for each destination in a loop of 5s
+
+  @tab-excursions3
+  Scenario: OnTap Excursions
+    Given I am on Home screen with pre holiday booking
+    When I select Excursions Biscuit for second destination
+    Then I should be navigated to Excursions Mosaic page
+    And I see excursions - Mosaic landing page

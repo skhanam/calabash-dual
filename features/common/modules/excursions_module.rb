@@ -49,20 +49,14 @@ module ExcursionsModule
   module Tablet
     include BaseModule
 
-    def self.included(receiver)
-      puts self.name+"::#{$g_platform}"
-      #receiver.send :include, Module.const_get(self.name+"::#{$g_platform}")
-    end
-
     def check_excursions_page
-      assert_wait_for_text "Excursions"
       assert_wait_for_text @@excursions_title
     end
 
-    def check_excursion_mosaic
+    def check_excursion_mosaic(num=0)
       puts "$g_booking.get_excursions #{$g_booking.get_excursions}"
       hash_arr= $g_booking.get_excursions
-      arr=hash_arr.values[0]
+      arr=hash_arr.values[num.to_i]
       arr.each do |var|
         assert_text_present UnicodeUtils.upcase var
       end

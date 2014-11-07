@@ -19,13 +19,10 @@ module Tablet
 end
 
 module Phone
-
   def verify_contact_us_page
     wait_for_progress_to_disappear(@@loading_hold_on)
     scroll_page_and_assert_text(@@contact_us_contact_title) #"Need some help?"
     scroll_page_and_assert_text(@@contactus_subtitle) #"Get in touch"
-    #scroll_page_and_assert_text(@@contact_us_travel_shop)
-    #scroll_page_and_assert_text(@@postholiday_emailus) #"Email us"
   end
 
   def verify_contact_us_cta

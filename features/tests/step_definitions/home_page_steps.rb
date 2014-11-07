@@ -318,8 +318,18 @@ Then(/^I should see a  destination text label name$/) do
   @destinationInfo.verify_list_of_destinations
 end
 
+When(/^I tap on the first destination Biscuit$/) do
+  @countries= $g_booking.get_destination_countries
+
+  @homePage.click_destination_biscuit(1)
+end
+
 When(/^I tap on the destination Biscuit$/) do
   @homePage.click_destination_biscuit
+end
+
+Then(/^I should be navigated to first destination page$/) do
+  @destinationInfo.verify_destination_screen
 end
 
 Then(/^I should be navigated to destination page$/) do
@@ -393,12 +403,20 @@ When(/^I have multiple destinations in my booking$/) do
 end
 
 When(/^I select Excursions Biscuit on home page$/) do
+  #TODO replace this step with  #  When I select Excursions Biscuit for second destination
   step "I swipe to see \"Excursions Biscuit\""
   @page.click_acc_label @page.get_val "home_page_excursions_Biscuit_acc"
 end
 
-
 When(/^I tap on the checklist biscuit on home page$/) do
   step "I swipe to see \"checklist Biscuit\""
   @page.click_acc_label @page.get_val "home_page_checklist_Biscuit_acc"
+end
+
+When(/^I select Excursions Biscuit for (first|second) destination$/) do |var|
+  @excursion_num=1 if var=="first"
+  @excursion_num=2 if var=="second"
+  step "I swipe to see \"Excursions Biscuit\""
+  acc_label= @page.get_val "home_page_excursions_Biscuit_acc"
+  @page.click_element "view marked:'#{acc_label}' index:'#{@excursion_num.to_i-1}'"
 end

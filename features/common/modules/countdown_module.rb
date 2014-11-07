@@ -7,19 +7,6 @@ module CountdownModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
 
-  def check_days_left
-    assert_wait_for_text $g_booking.get_countdown_days.to_s
-  end
-
-  def check_text_elements
-    assert_text_elements([@@countdown_days_text, @@countdown_hours_text,
-                          @@countdown_minutes_text, @@countdown_seconds_text, @@countdown_share_button_text])
-  end
-
-  module EnNor
-
-  end
-
   module Phone
     def check_countdown_message
       sleep 2
@@ -39,7 +26,6 @@ module CountdownModule
         fail ("expected:#{@@countdown_countdown_message}: actual text:#{@@countdown_message_from_screen}")
       end
     end
-
 
     def check_sharing_options
       click_on_text @@countdown_share_button_text

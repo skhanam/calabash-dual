@@ -4,18 +4,24 @@ Feature: Verify product pages by navigating through biscuits
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
-   @dest1
+  @dest1
   Scenario: Navigate to destination country from home page biscuit
     Given I am on home screen with default booking
     When I navigate to first destination using home page biscuit
     Then I see first destination information page
 
   @hm3  @device
-  Scenario: Destination biscuit verify
+  Scenario: US16743 Destination biscuit verify
     Given I have a pre-holiday booking
     And I swipe to the right of the screen
     Then I should see a destination image biscuit appear
     And I should see a  destination text label name
+
+  @hm8  @device
+  Scenario: US16743 Destination biscuit verify
+    Given I have a pre-holiday booking
+    When I tap on the first destination Biscuit
+    Then I see first destination information page
 
   @hm7 @device
   Scenario: Hotel Biscuit verification
@@ -49,8 +55,3 @@ Feature: Verify product pages by navigating through biscuits
 #      | Hotel location  |
 #      | Contact buttons |
 
-#  @hm4  @failed
-#Scenario: OnTap link of destination biscuit
-#  Given I am on home screen with default booking
-#  When I tap on the destination Biscuit
-#  Then I should be navigated to destination page

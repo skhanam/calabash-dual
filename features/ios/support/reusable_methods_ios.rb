@@ -26,7 +26,7 @@ end
 module Tablet
 
   def scroll_modal_view(dir)
-    scroll "view marked:'modalView' scrollView","#{dir}"
+    scroll "view marked:'modalView' scrollView", "#{dir}"
   end
 
   def scroll_side_panel(text, dir="down")
@@ -35,7 +35,7 @@ module Tablet
     while (!element_exists("view text:'#{text}'") && count >0)
       sleep 1
       count-=1
-      scroll("scrollView marked:'offcanvasView'","down")
+      scroll("scrollView marked:'offcanvasView'", "down")
       sleep 1
       puts element_exists("view text:'#{text}'")
       puts "scrolling to #{text}"
@@ -54,7 +54,11 @@ module Tablet
   end
 
   def scroll_view(dir, index=0)
-    scroll("scrollView index:#{index}", dir)
+    if index!=0
+      scroll("scrollView index:#{index}", dir)
+    elsif index==0
+      scroll("scrollView", dir)
+    end
     sleep 1
   end
 
@@ -229,18 +233,18 @@ module IosReusableMethods
     sleep 1
   end
 
-  def scroll_at_acc_label(id,dir="down")
-    scroll_at_element "view text:'#{id}",dir
+  def scroll_at_acc_label(id, dir="down")
+    scroll_at_element "view text:'#{id}", dir
   end
 
 
-  def scroll_at_text_element(text,dir="down")
-    scroll_at_element "view text:'#{text}",dir
+  def scroll_at_text_element(text, dir="down")
+    scroll_at_element "view text:'#{text}", dir
   end
 
 
-  def scroll_at_element(query,dir="down")
-   scroll "#{query} parent scrollView",dir
+  def scroll_at_element(query, dir="down")
+    scroll "#{query} parent scrollView", dir
   end
 
   def scroll_table_to_text(text)
@@ -288,7 +292,29 @@ module IosReusableMethods
     return false
   end
 
-  def assert_txt_in_webview txt
-    fail "text not found" if !(check_txt_in_webView txt)
+  # scroll in specified direction till partial id is found
+  def scroll_assert_txt_webview(text, dir="down", count=10)
+    puts "scroll_assert_txt_webview (#{text})"
+
+    flag=0
+    repeat_count=0
+    while (repeat_count < count)
+      repeat_count+=1
+      if check_txt_in_webview text
+        flag=1
+        break
+      end
+      sleep 1
+      puts "#{text} is not visible yet"
+      scroll_view(dir)
+    end
+    sleep 2
+    #puts "\nDEBUG:\n #{text}" if flag==0
+    fail("Searched for the text: #{text} - but the text is not shown") if flag==0
   end
+
+  def assert_txt_in_webview txt
+    fail "text not found" if !(check_txt_in_webview txt)
+  end
+
 end
