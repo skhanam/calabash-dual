@@ -319,6 +319,7 @@ module EN_Strings
     @@home_page_post_holiday_need_help_content_text=get_localized_string "postholiday_needhelp_sub"
     @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
     @@log_out_acc="logout"
+    @@logout_confirm_two= get_localized_string "logout_confirm_two" # Are you sure you want to log out?
   end
 
 

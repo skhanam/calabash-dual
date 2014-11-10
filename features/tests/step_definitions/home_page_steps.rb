@@ -234,11 +234,11 @@ end
 
 
 When(/^I tap on Post Holiday OK button$/) do
-  @postLoginHomeBasePage.click_ok_on_popup
+  @postHolidayHomepage.click_ok_on_popup
 end
 
 Then(/^I should be navigated to Post Holiday page$/) do
-  @postLoginHomeBasePage.check_post_login_page
+  @postHolidayHomepage.check_post_login_page
 end
 
 Then(/^I should see a Countdown biscuit with a count of days left$/) do
@@ -248,7 +248,7 @@ end
 
 And(/^Then I should navigated to Post Holiday page and see all information$/) do
   step "I tap on Post Holiday OK button"
-  @postLoginHomeBasePage.check_post_login_page
+  @postHolidayHomepage.check_post_login_page
 end
 
 Given(/^I have more than one day left for my holiday$/) do
@@ -267,7 +267,7 @@ end
 
 
 Then(/^I must see welcome back message$/) do
-  @postLoginHomeBasePage.check_post_login_screen
+  @postHolidayHomepage.check_post_login_screen
 end
 When(/^I should see relevant content on post holiday popup$/) do
   @homePage.check_post_holiday_popup_window_content
@@ -420,4 +420,8 @@ When(/^I select Excursions Biscuit for (first|second) destination$/) do |var|
   step "I swipe to see \"Excursions Biscuit\""
   acc_label= @page.get_val "home_page_excursions_Biscuit_acc"
   @page.click_element "view marked:'#{acc_label}' index:'#{@excursion_num.to_i-1}'"
+end
+
+When(/^I log out from post holiday screen$/) do
+  @postHolidayHomepage.en_post_holiday_logout
 end

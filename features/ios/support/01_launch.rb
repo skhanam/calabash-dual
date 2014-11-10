@@ -10,8 +10,9 @@ Before do |scenario|
 
   if ENV['DEVICE'] == "device"
     $g_device=true
-    $g_device_reset=true if scenario_tags.include?('@reset')
     start_test_server_in_background()
+    $g_device_reset=true if scenario_tags.include?('@reset')
+
   else
     unless @calabash_launcher.calabash_no_launch?
       @calabash_launcher.relaunch(:timeout => 60) if !scenario_tags.include?('@reset')

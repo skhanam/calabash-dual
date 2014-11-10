@@ -38,12 +38,11 @@ module TestModule
     elsif ($g_current_app== 'EN_TH' || $g_current_app== 'EN_FC')
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
-      @postLoginHomeBasePage ||= PostLoginHomeBasePage.new
+      @postHolidayHomepage ||= PostLoginHomeBasePage.new
 
     elsif ($g_nordics_app)
       @contactPage=ContactUsNOR.new
       @dutyFreePage ||= DutyFreePage.new
-
     end
   end
 end

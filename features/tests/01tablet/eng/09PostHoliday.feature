@@ -1,7 +1,7 @@
-@ios_test @android_test @reg-en
+@reg-en @post-holiday @reset
 Feature: Verify post Holiday Biscuit
 
-  @reset @post-holiday1 @common-tests
+  @ph1
   Scenario:Verify Post Holiday page pop-up
     Given I login with post holiday data
     Then I see the Welcome back pop-over
@@ -9,13 +9,14 @@ Feature: Verify post Holiday Biscuit
     Then I should be navigated to Post Holiday page
     And I must see welcome back message
 
-  @reset @post-holiday2 @common-tests
+  @ph2
   Scenario: Verify Post Holiday pop-up content
     Given I login with post holiday data
     Then I see the Welcome back pop-over
     And I should see relevant content on post holiday popup
 
-  @reset @post-holiday3 @common-tests
+  @ph3
   Scenario: Verify Post Holiday pop-up content
     Given I login with post holiday data
     And Then I should navigated to Post Holiday page and see all information
+    And I log out from post holiday screen

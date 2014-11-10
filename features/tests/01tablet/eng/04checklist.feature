@@ -1,5 +1,5 @@
 @reg-en
-Feature: English Sanity Tests
+Feature: Checklist Tests
 
   @device
   Scenario: uncompleted checklist items

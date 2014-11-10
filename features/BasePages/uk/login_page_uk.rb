@@ -113,6 +113,10 @@ module Tablet
     scroll_page_and_assert_text @@welcome_login_departure_date
     scroll_page_and_assert_text @@welcome_login_booking_reference1_hint
     scroll_page_and_assert_text @@welcome_login_booking_reference2_hint
+    check_buttons
+  end
+
+  def check_buttons
     scroll_page_and_assert_text @@submit_button
     scroll_page_and_assert_text @@welcome_help_link1
     scroll_page_and_assert_text @@welcome_help_link2

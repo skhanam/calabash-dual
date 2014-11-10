@@ -1,5 +1,9 @@
 When(/^I am on Home screen$/) do
   $first_run+=1
+  if $g_device_reset
+    @postHolidayHomepage.en_post_holiday_logout if @page.check_acc_label "logout"
+  end
+
   if @homePage.check_home_screen(1)!=true
     puts "Run count #{$first_run}"
     @commonMethods.close_popup_dialog

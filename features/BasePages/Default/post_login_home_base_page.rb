@@ -1,7 +1,5 @@
 class PostLoginHomeBasePage < BasePage
 
-
-
   #this method checks booking_summary_page is shown, by verifying one element
   def check_post_login_screen
         assert_wait_for_text(@@home_page_post_holiday_title)
@@ -17,5 +15,18 @@ end
     assert_wait_for_text(@@home_page_post_holiday_need_help_text)
     assert_wait_for_text(@@home_page_post_holiday_need_help_content_text)
     assert_wait_for_text(@@home_page_post_holiday_email_us_text)
+  end
+
+  def en_post_holiday_logout
+    if element_exists("view text:'#{@@home_page_post_holiday_title}'")
+      touch("view text:'#{@@home_page_post_holiday_popup_alert_ok}'")
+      sleep 1
+      click_acc_label "logout"
+      sleep 1
+      click_on_text @@logout_confirm_two
+      sleep 1
+      click_on_text @@logout_confirm
+      sleep 4
+    end
   end
 end

@@ -195,21 +195,29 @@ end
 
 
 Given(/^I am on 'Login' screen/) do
-  sleep 5
+  sleep 3
   @commonMethods.close_popup_dialog
   if $g_device
     sleep 2
     if @page.check_acc_label "offcanvasCTA"
-      @homePage.open_side_panel
-      @page.scroll_side_panel @page.get_val "log_out_text"
+      @homePage.logout_from_home_screen
+      #@homePage.open_side_panel
+      #@page.scroll_side_panel @page.get_val "log_out_text"
     end
 
-    if element_exists "view text:'#{@page.get_val "log_out_text"}'"
-      touch "view text:'#{@page.get_val "log_out_text"}'"
-      sleep 2
-      touch "view text:'#{@page.get_val "logout_confirm"}'"
-      sleep 2
+    #
+    #if element_exists "view text:'#{@page.get_val "log_out_text"}'"
+    #  touch "view text:'#{@page.get_val "log_out_text"}'"
+    #  sleep 2
+    #  touch "view text:'#{@page.get_val "logout_confirm"}'"
+    #  sleep 2
+    #end
+
+    if $g_device_reset
+      #@homePage.logout_from_home_screen if @page.check_acc_label @@home_page_sidepanel_acc_label
+      @postHolidayHomepage.en_post_holiday_logout if @page.check_acc_label "logout"
     end
+
   end
 
   if $g_tablet && $g_ios
@@ -425,13 +433,15 @@ Then(/^I should see the error message tip to side of oops message$/) do
 end
 
 Given(/^I login with post holiday data$/) do
+  @postHolidayHomepage.en_post_holiday_logout
+  step "I am on 'Login' screen"
   if $g_tablet
-    @page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
-    @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
-    sleep 2
-
-    @page.click_acc_label @page.get_val("welcome_page_swipe_down_acc") if @page.check_acc_label @page.get_val("welcome_page_swipe_down_acc")
-    sleep 2
+    #@page.assert_wait_for_acc @page.get_val("welcome_page_swipe_down_acc")
+    #@page.click_acc_label @page.get_val("welcome_page_swipe_down_acc")
+    #sleep 2
+    #
+    #@page.click_acc_label @page.get_val("welcome_page_swipe_down_acc") if @page.check_acc_label @page.get_val("welcome_page_swipe_down_acc")
+    #sleep 2
 
   else
     fail "TBD for phone"

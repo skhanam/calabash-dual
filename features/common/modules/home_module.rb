@@ -106,10 +106,11 @@ module HomeModule
     end
 
     def verify_checklist_biscuit
-       wait_for_text "items still to-do"
-       assert_element  "view marked:'checklist_Biscuit' label text:'items still to-do'"
-       assert_text_present $g_booking.get_checklist_count.to_s
+      wait_for_text "items still to-do"
+      assert_element "view marked:'checklist_Biscuit' label text:'items still to-do'"
+      assert_text_present $g_booking.get_checklist_count.to_s
     end
+
 
     def de_extras_biscuit_removed
       count=5

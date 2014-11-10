@@ -93,20 +93,23 @@ module SidePanelModule
         when "Weather"
           assert_wait_for_text @@side_panel_weather
         when "Destination"
-          assert_wait_for_text "Destination Tips"
+          assert_wait_for_text "Destination Guide"
           puts "######## TODO this must be updated based on number of destinations"
         when "Excursions"
           assert_wait_for_text @@excursions
         when "Currency Converter"
-          scroll_page_and_assert_text @@side_panel_currency
+          fail("currency conv must not be present") if check_text_in_view @@side_panel_currency
+          #scroll_page_and_assert_text @@side_panel_currency
         when "Kontakt heading"
           scroll_page_and_assert_text UnicodeUtils.upcase(@@side_panel_contact_heading)
         when "Holiday checklist"
-          #scroll_page_and_assert_text @@
           assert_wait_for_text capitalize_first_letter_of_each_word @@holiday_checklist
         when "Contact Us"
           scroll_side_panel @@side_panel_contact
           assert_wait_for_text @@side_panel_contact
+        when "My Messages"
+          scroll_side_panel "My Messages"
+          assert_wait_for_text "My Messages"
         when "Important Information"
           scroll_side_panel capitalize_first_letter_of_each_word(@@important_information)
           assert_wait_for_text capitalize_first_letter_of_each_word(@@important_information)
