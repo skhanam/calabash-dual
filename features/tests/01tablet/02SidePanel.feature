@@ -34,9 +34,3 @@ Feature: Verify product pages by navigating through side panel
 #    Given I am on Home screen
 #    And I navigate to destination using side menu
 #    Then I check destination page for each destination
-#
-#  @contact_us12
-#  Scenario: Verify contact us page and external links present
-#    Given I am on contact us screen
-#    Then I verify contact us page
-

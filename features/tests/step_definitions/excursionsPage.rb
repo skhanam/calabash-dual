@@ -18,4 +18,20 @@ When(/^I see excursions - Mosaic landing page$/) do
   @excursionsPage.check_excursion_mosaic(@excursion_num.to_i-1)
 end
 
+Given(/^I log into App using no excursions booking$/) do
+    step "I am on 'Login' screen"
+    @commonMethods.close_popup_dialog
+    @commonMethods.close_push_notifications
+
+    #TODO
+    fail "TBD not completed"
+    if ($g_current_app=='EN_TH' || $g_current_app=='EN_FC')
+      surname=$g_current_user_details[:noexcursion][:surname]
+      departureDate=$g_current_user_details[:noexcursion][:departuredate]
+      visionShopNumber=$g_current_user_details[:noexcursion][:VisionShopNumber]
+      visionBookingRef=$g_current_user_details[:noexcursion][:VisionBookingRef]
+      uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
+      sleep 2
+      step "I select the Login button"
+    end
 end

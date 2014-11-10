@@ -404,6 +404,7 @@ end
 
 When(/^I select Excursions Biscuit on home page$/) do
   #TODO replace this step with  #  When I select Excursions Biscuit for second destination
+  #@homePage.check_excursions_biscuit
   step "I swipe to see \"Excursions Biscuit\""
   @page.click_acc_label @page.get_val "home_page_excursions_Biscuit_acc"
 end

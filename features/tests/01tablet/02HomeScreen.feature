@@ -43,7 +43,6 @@ Feature: Verify product pages by navigating through biscuits
 #    When I tap on the Currency Converter Biscuit
 #    Then I should be navigated to Currency Converter page
 
-
 #
 #  @failing123
 #  Scenario: Navigate to hotel booking from home page biscuit
