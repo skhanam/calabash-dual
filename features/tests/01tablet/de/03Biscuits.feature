@@ -20,3 +20,10 @@ Feature: US16740	Holiday Extras Biscuit
     When I select Excursions Biscuit for second destination
     Then I should be navigated to Excursions Mosaic page
     And I see excursions - Mosaic landing page
+
+  @tab-excursions2
+  Scenario: OnTap Excursions
+    Given I am on Home screen with pre holiday booking
+    When I select Excursions Biscuit for first destination
+    Then I should be navigated to Excursions Mosaic page
+    And I see excursions - Mosaic landing page

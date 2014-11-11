@@ -30,7 +30,7 @@ def eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
 end
 
 def get_eng_payload(auth, type)
-  #get weather
+  puts "eng payload for #{type}"
   handshake=get_handshake("/reservation/undefined/#{type}")
   cmd=%Q{curl "#{$g_endpoint}/reservation/undefined/#{type}" -H "tui-public-key: abcd" -H "Origin: http://37.46.24.155:8001" -H "tui-screen-height: 768" -H "Accept-Encoding: gzip,deflate,sdch" -H "Host: e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" -H "Accept-Language: en-US,en;q=0.8"  -H "Accept: */*" -H "tui-brand: uk-#{$brand}" -H "Referer: http://37.46.24.155:8001/index.html" -H "tui-tablet: true" -H "tui-auth-key: #{auth}" -H "Connection: keep-alive" -H "tui-screen-width: 1024" -H "tui-handshake: #{handshake}"}
   res= JSON.parse(`#{cmd}`)
@@ -70,6 +70,7 @@ end
 
 
 def get_de_payload(booking_code, auth, type)
+  puts "de payload for #{type}"
   @typical_booking_code=booking_code
   handshake=get_handshake("/reservation/#{@typical_booking_code}/#{type}")
   cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
