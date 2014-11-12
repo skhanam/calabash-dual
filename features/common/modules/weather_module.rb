@@ -15,7 +15,7 @@ module WeatherModule
     include BaseModule
 
     def check_weather_page
-      assert_wait_for_text @@weather_page_title
+      #assert_wait_for_text @@weather_page_title
       assert_text_present @@share_weather
       assert_text_present @@facebook_share
       assert_text_present @@twitter_share

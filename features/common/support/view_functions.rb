@@ -165,7 +165,11 @@ module ViewModule
     fail "Text is empty" if text==nil
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
-    fail("text:#{text}: not present") if wait_for_text(text, time_out)==false
+     if wait_for_text(text, time_out)==false
+       puts "#{query("view",:text)}"
+       fail("text:#{text}: not present")
+     end
+
     return true
   end
 
