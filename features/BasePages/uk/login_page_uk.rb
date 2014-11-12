@@ -24,9 +24,6 @@ class LoginPage < LoginBasePage
   end
 
   def see_retrieve_my_booking_page
-    if ENV['LANG']=="en_th"
-      assert_wait_for_text "Due to system changes, we are currently unable to support bookings departing from 1st Nov 2015 on the Thomson app. We are working on this and hope to have the service available soon. Sorry for any inconvenience, the Thomson app team."
-    end
     assert_wait_for_text @@welcome_help_retrieve_booking_header
   end
 
