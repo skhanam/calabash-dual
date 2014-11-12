@@ -32,7 +32,11 @@ end
 def get_eng_payload(auth, type)
   puts "eng payload for #{type}"
   handshake=get_handshake("/reservation/undefined/#{type}")
-  cmd=%Q{curl "#{$g_endpoint}/reservation/undefined/#{type}" -H "tui-public-key: abcd" -H "Origin: http://37.46.24.155:8001" -H "tui-screen-height: 768" -H "Accept-Encoding: gzip,deflate,sdch" -H "Host: e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" -H "Accept-Language: en-US,en;q=0.8"  -H "Accept: */*" -H "tui-brand: uk-#{$brand}" -H "Referer: http://37.46.24.155:8001/index.html" -H "tui-tablet: true" -H "tui-auth-key: #{auth}" -H "Connection: keep-alive" -H "tui-screen-width: 1024" -H "tui-handshake: #{handshake}"}
+  #DEV
+  # cmd=%Q{curl "#{$g_endpoint}/reservation/undefined/#{type}" -H "tui-public-key: abcd" -H "Origin: http://37.46.24.155:8001" -H "tui-screen-height: 768" -H "Accept-Encoding: gzip,deflate,sdch" -H "Host: e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" -H "Accept-Language: en-US,en;q=0.8"  -H "Accept: */*" -H "tui-brand: uk-#{$brand}" -H "Referer: http://37.46.24.155:8001/index.html" -H "tui-tablet: true" -H "tui-auth-key: #{auth}" -H "Connection: keep-alive" -H "tui-screen-width: 1024" -H "tui-handshake: #{handshake}"}
+
+  #TEST
+  cmd=    %Q{curl '#{$g_endpoint}/reservation/undefined/#{type}' -H 'tui-public-key: abcd' -H 'tui-screen-height: 768' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'Accept: */*' -H 'tui-brand: uk-#{$brand}' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-tablet: true' -H 'tui-auth-key: #{auth}' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   res= JSON.parse(`#{cmd}`)
   return res
 end
@@ -44,7 +48,8 @@ def eng_user_details
   $brand="thomson" if (ENV['TESTENV']=='EN_TH')
   $brand="first-choice" if (ENV['TESTENV']=='EN_FC')
 
-  $g_endpoint="https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"
+  $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
+  #$g_endpoint="https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com"
   departureDate = DateTime.parse(user[:valid][:departuredate]).strftime("%Y-%m-%d")
   surname=user[:valid][:surname]
   visionShopNumber=user[:valid][:VisionShopNumber].to_i

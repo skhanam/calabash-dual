@@ -27,7 +27,7 @@ echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
-	APPNAME="meine Tui"
+	APPNAME="Meine Tui"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 	calabash-ios sim locale en
