@@ -1,7 +1,7 @@
-@reg-en @post-holiday @reset
+@reg-en @post-holiday
 Feature: Verify post Holiday Biscuit
 
-  @ph1
+  @ph1 @reset
   Scenario:Verify Post Holiday page pop-up
     Given I login with post holiday data
     Then I see the Welcome back pop-over
@@ -9,7 +9,7 @@ Feature: Verify post Holiday Biscuit
     Then I should be navigated to Post Holiday page
     And I must see welcome back message
 
-  @ph2
+  @ph2 @reset
   Scenario: Verify Post Holiday pop-up content
     Given I login with post holiday data
     Then I see the Welcome back pop-over

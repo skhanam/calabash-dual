@@ -285,17 +285,16 @@ module EN_Strings
       @@call_center_opening_txt= "Call centre opening times:"
 
     else
-      @@call_center_opening_txt= "Shop opening times:"
+      @@call_center_opening_txt= "Shop opening times: "
     end
 
-      @@call_center_days=  ["Shop opening times:",
-                               "Monday",
-                               "Tuesday",
-                               "Wednesday",
-                               "Thursday",
-                               "Friday",
-                               "Saturday",
-                               "Sunday"]
+    @@call_center_days= ["Monday",
+                         "Tuesday",
+                         "Wednesday",
+                         "Thursday",
+                         "Friday",
+                         "Saturday",
+                         "Sunday"]
 
   end
 
@@ -328,7 +327,6 @@ module EN_Strings
     @@log_out_acc="logout"
     @@logout_confirm_two= get_localized_string "logout_confirm_two" # Are you sure you want to log out?
   end
-
 
 
 end

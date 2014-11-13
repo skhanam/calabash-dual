@@ -81,9 +81,9 @@ FIRSTCHOICE_USER||={
     },
     :post => {
         :surname => "martin",
-        :departuredate => "25-08-2014",
+        :departuredate => "22-10-2014",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12346095"
+        :VisionBookingRef => "12346717"
     }
 }
 

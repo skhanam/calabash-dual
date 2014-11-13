@@ -15,12 +15,12 @@ end
     assert_wait_for_text(@@home_page_post_holiday_need_help_text)
     assert_wait_for_text(@@home_page_post_holiday_need_help_content_text)
     assert_wait_for_text(@@home_page_post_holiday_email_us_text)
-    assert_partial_text "After travel customer support"
+    assert_partial_text "After Travel Customer Support"
   end
 
   def en_post_holiday_logout
     if element_exists("view text:'#{@@home_page_post_holiday_title}'")
-      touch @@home_page_post_holiday_popup_alert_ok if check_text_in_view @@home_page_post_holiday_popup_alert_ok
+      click_on_text @@home_page_post_holiday_popup_alert_ok if check_text_in_view @@home_page_post_holiday_popup_alert_ok
       sleep 1
       click_acc_label "logout"
       sleep 1
