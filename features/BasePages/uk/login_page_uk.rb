@@ -139,7 +139,8 @@ module Tablet
 
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_iosStore)
     assert_wait_for_text @@welcome_help_cant_use_app_cta1
-    assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_use_app_cta2)
+    assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_use_app_cta2) if $g_thomson_app
+    assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_use_app_cta1) if $g_firstchoice_app
     scroll_modal_view "down"
 
     assert_wait_for_text @@welcome_help_more_issues_body

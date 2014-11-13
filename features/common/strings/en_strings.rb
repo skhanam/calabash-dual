@@ -281,14 +281,21 @@ module EN_Strings
       @@contact_us_privacy_webview= "Privacy Policy"
     end
 
-    @@call_center_timings=  ["Call centre opening times:",
-                           "Monday",
-                           "Tuesday",
-                           "Wednesday",
-                           "Thursday",
-                           "Friday",
-                           "Saturday",
-                           "Sunday"]
+    if $g_thomson_app
+      @@call_center_opening_txt= "Call centre opening times:"
+
+    else
+      @@call_center_opening_txt= "Shop opening times:"
+    end
+
+      @@call_center_days=  ["Shop opening times:",
+                               "Monday",
+                               "Tuesday",
+                               "Wednesday",
+                               "Thursday",
+                               "Friday",
+                               "Saturday",
+                               "Sunday"]
 
   end
 

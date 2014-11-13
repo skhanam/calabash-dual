@@ -11,7 +11,8 @@ module Tablet
     BookingSummaryPage.new.verify_booking_summary_details
     wait_for_progress_to_disappear(@@loading_hold_on)
 
-    @@call_center_timings.each { |var| assert_text_present var }
+    assert_wait_for_text @@call_center_opening_txt
+    @@call_center_days.each { |var| assert_text_present var }
     assert_text_present @@contact_us_title
     assert_text_present(@@contactus_subtitle)
 

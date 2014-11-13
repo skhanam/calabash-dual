@@ -133,7 +133,7 @@ module ViewModule
   def assert_text_present(text_to_check)
     res = check_text_in_view(text_to_check)
     if not res
-      val=query("visible label")
+      val=query("visible",:text)
       puts "all show labels #{val}"
       screenshot_and_raise "assert_text_present: No element found with mark or text:#{text_to_check}:"
     else

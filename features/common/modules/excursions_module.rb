@@ -50,7 +50,9 @@ module ExcursionsModule
     include BaseModule
 
     def check_excursions_page
-      assert_wait_for_text @@excursions_title
+      wait_for_progress_to_disappear(@@loading_hold_on,10)
+      sleep 2
+      assert_partial_text @@excursions_title
     end
 
     def check_excursion_mosaic(num=0)
