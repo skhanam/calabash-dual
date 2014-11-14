@@ -50,6 +50,7 @@ Feature: Verify My account page and sub pages
     Then I see change password page
     And I see username or email prefilled on change email page
 
+  @myBookingsPage5
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
     When I see add booking biscuit

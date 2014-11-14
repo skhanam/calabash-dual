@@ -44,18 +44,18 @@ module ForgotPwdModule
 
     def check_email_populated(username)
       if $g_android
-        fail("Email not populated") if !element_exists("ti.modules.titanium.ui.widget.TiUIText$TiEditText text:'#{username}'")
+        fail("Email not populated") if !element_exists("view marked:'modalView' TiTextField  text:'#{username}'")
       elsif $g_ios
-        fail("Email is not  prepopulated") if !element_exists("fieldEditor text:'#{username}'")
+        fail("Email is not  prepopulated") if element_exists("view marked:'modalView' TiTextField text:'#{username}'")
       end
     end
 
     def check_email_field_empty
       if $g_android
-        fail("Email not populated") if !element_exists("ti.modules.titanium.ui.widget.TiUIText$TiEditText text:'#{@@email_hint_text}'")
+        fail("Email not populated") if !element_exists("view marked:'modalView' TiTextField  text:'#{@@email_hint_text}'")
       elsif $g_ios
         sleep 2
-        fail("Email not empty") if !element_exists("textFieldLabel text:'#{@@email_hint_text}'")
+        fail("Email not empty") if !element_exists("view marked:'modalView' TiTextField text:'#{@@email_hint_text}'")
       end
     end
 

@@ -134,6 +134,7 @@ class MyAccountBasePage < BasePage
   end
 
   def click_booking_biscuit
+    scroll_view("right", 2) if !(check_acc_label @@booking_active_biscuit)
     touch($g_query_txt+"marked:'#{@@booking_active_biscuit}'")
   end
 

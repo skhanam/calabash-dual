@@ -78,7 +78,9 @@ class MyBookingsPage < BasePage
   end
 
   def check_all_past_booking_biscuits
-    scroll_view("right", 2)
+    scroll_view("right", 2) if !(check_acc_label "inactive_booking")
+    scroll_view("right", 2) if !(check_acc_label "inactive_booking")
+
     assert_partial_accessibility_label_text "inactive_booking" # Inactive biscuits are past ones present in the page
   end
 
