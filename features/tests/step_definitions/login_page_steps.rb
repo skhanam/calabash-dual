@@ -319,7 +319,7 @@ end
 
 When(/^I select the Login text$/) do
   text="Anmelden" if $g_phone
-  text="SPEICHERN" if $g_tablet
+  text=UnicodeUtils.upcase(@page.get_val "submit_button") if $g_tablet
   @loginPage.scroll_page_and_assert_text(text)
   @loginPage.click_on_text(text)
 end
