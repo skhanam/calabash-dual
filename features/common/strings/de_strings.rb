@@ -117,6 +117,7 @@ module DEMeineTUI
     @@login_credentials_error = get_localized_string "error_box_failed_title" if $g_tablet
 
     @@submit_button= get_localized_string "submit" #Speichern
+    @@login_button= get_localized_string "login" #Login
 
     @@login_default_country="Deutschland"
     @@general_login_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
