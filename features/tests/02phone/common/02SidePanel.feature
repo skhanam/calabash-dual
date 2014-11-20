@@ -24,7 +24,7 @@ Feature: Verify product pages by navigating through side panel
   Scenario: Navigate to destination guide page and verify list of destinations
     Given I am on home screen with default booking
     And I navigate to destination using side menu
-    Then I see list of destinations on destination info page
+    Then I see list of destinations on phone destination info page
 
   @dest2
   Scenario: Navigate to destination guide page and verify each destination page

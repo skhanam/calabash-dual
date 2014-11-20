@@ -20,10 +20,7 @@ class Bookings
     @dest_payload = $g_destinations["payload"]
 
     @excursions_payload=$g_excursions["payload"]
-
     @eng_checkList=eng_checkList if $g_eng_app
-    # puts "#{@booking_summary}"
-
   end
 
   def get_excursions
@@ -227,20 +224,24 @@ class Bookings
     @eng_checkList["payload"]["itemList"].count
   end
 
+  def en_get_booking_summary_info
+    @booking_code=nil
+    @lead_passenger=nil
+    @other_passengers=[]
 
-
-  def get_home_biscuits(name, num=1)
-    fail if num <= 0
-    count=0
-    @payload["biscuits"].each do |var|
-      puts var["name"]
-      if var["name"]==name
-        count+=1
+    @booking_code = @booking_summary["bookingRef"]
+    @booking_summary["passengerCollection"].each do |var|
+      puts var["LeadBookerIndicator"]
+      if var["LeadBookerIndicator"]
+        @lead_passenger = var["Initial"]+" "+var["Surname"]
+      elsif !var["LeadBookerIndicator"]
+        @passenger = var["Initial"]+" "+var["Surname"]
+        @other_passengers << @passenger
       end
-      return var if count==num
     end
-    fail "Mentioned biscuit is not found in home response"
+    return @booking_code, @lead_passenger, @other_passengers
   end
+
 
   def get_weather_data
     return $g_weather["payload"]["weatherStations"]
@@ -314,6 +315,40 @@ module Tablet
     puts arr1[num.to_i-1]
     return arr1[num.to_i-1]
   end
+
+  def get_booking_summary_flight_details
+    arr=[]
+    @booking_summary
+    res["productDetails"].each do |var|
+      arr << var if  var["productType"]=="flight"
+    end
+  end
+
+
+  def de_get_booking_summary_info
+    @booking_summary["overview"]["infoList"].each {
+        |val|
+      @booking_code = val["value"] if val["key"]=="bookingCode"
+      @lead_passengers = val["value"] if val["key"]=="leadPassenger"
+      @other_passengers = val["value"] if val["key"]=="otherPassengers"
+    }
+    return @booking_code, @lead_passengers, @other_passengers
+  end
+
+
+  def get_home_biscuits(name, num=1)
+    fail if num <= 0
+    count=0
+    @payload["biscuits"].each do |var|
+      puts var["name"]
+      if var["name"]==name
+        count+=1
+      end
+      return var if count==num
+    end
+    fail "Mentioned biscuit is not found in home response"
+  end
+
 end
 
 

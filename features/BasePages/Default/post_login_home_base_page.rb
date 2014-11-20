@@ -19,6 +19,7 @@ end
   end
 
   def en_post_holiday_logout
+    sleep 5
     if element_exists("view text:'#{@@home_page_post_holiday_title}'")
       click_on_text @@home_page_post_holiday_popup_alert_ok if check_text_in_view @@home_page_post_holiday_popup_alert_ok
       sleep 1

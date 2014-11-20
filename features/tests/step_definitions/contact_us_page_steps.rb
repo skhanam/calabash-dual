@@ -46,3 +46,7 @@ end
 Then(/^I verify cta links on contact us page$/) do
   @contactPage.verify_contact_us_cta
 end
+
+Then(/^I see tablet contact us page$/) do
+
+end

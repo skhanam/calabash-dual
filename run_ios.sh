@@ -68,6 +68,7 @@ if [ "$1" == "clean" ] ; then
 	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
 	cp expect.exp ${PROJ_FOLDER}
+	cp Gemfile ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 	rm -rf build/ Resources/
 	ti clean

@@ -1,4 +1,4 @@
-Then(/^I see list of destinations on destination info page$/) do
+Then(/^I see list of destinations on phone destination info page$/) do
   @destinationInfo.verify_destination_info_screen
   @destinationInfo.verify_list_of_destinations
 end
@@ -9,4 +9,12 @@ end
 
 When(/^I verify destination information page$/) do
   @destinationInfo.verify_destination_screen
+end
+Then(/^I see list of destinations in sidepanel$/) do
+  $g_booking.get_destination_countries.each {
+    |val|
+    puts val
+    @sidePanel.verify_sidepanel_entries val
+  }
+
 end

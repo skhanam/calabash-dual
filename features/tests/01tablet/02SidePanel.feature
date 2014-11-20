@@ -16,18 +16,23 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to weather page using side menu
     Then I see holiday weather page
 
-#  @booking-summary321 @bs1
-#  Scenario: navigate to booking summary page
-#    Given I am on Home screen
-#    And I navigate to booking summary page using side menu
-#    Then I see tablet holiday booking summary page
+  @booking-summary321 @bs1
+  Scenario: navigate to booking summary page
+    Given I am on home screen with default booking
+    And I navigate to booking summary page using side menu
+    Then I see tablet holiday booking summary page
 
-#
-#   @dest12 @ss @failed
-#  Scenario: Navigate to destination guide page and verify list of destinations
-#    Given I am on Home screen
-#    And I navigate to destination using side menu
-#    Then I see list of destinations on destination info page
+  @booking-summary321 @contact
+  Scenario: navigate to booking summary page
+    Given I am on home screen with default booking
+    And I navigate to contact us page using side menu
+    Then I see tablet contact us page
+
+   @ds1
+  Scenario: Navigate to destination guide page and verify list of destinations
+    Given I am on Home screen
+    And I navigate to destination using side menu
+    Then I see list of destinations in sidepanel
 #
 #  @dest21 @failed
 #  Scenario: Navigate to destination guide page and verify each destination page
