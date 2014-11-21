@@ -198,7 +198,7 @@ module EN_Strings
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
-    @@side_panel_booking_summary=get_localized_string "booking_summary" #"Holiday summary"
+    @@side_panel_booking_summary="Holiday Summary" #get_localized_string "booking_summary" #"Holiday summary"
     @@side_panel_countdown=get_localized_string "holiday_countdown" if $g_phone #"Holiday countdown"
     @@side_panel_countdown=get_localized_string "countdown" if $g_tablet #"Holiday countdown"
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
@@ -275,6 +275,7 @@ module EN_Strings
       @@postholiday_emailus=get_localized_string "postholiday_emailus" #"Email us"
       @@contactus_call_us=(get_localized_string "contactus_flightCTA").gsub('[number]', '') #"Call us on [number]"
     elsif $g_tablet
+      @@contact_us_contact_title = get_localized_string "contact"
       @@contact_us_email_us_webview= "Have you booked your holiday"
       @@contact_us_manage_booking_webview= "Manage My Booking"
       @@contact_us_findout_more_webview= "Find out more"
