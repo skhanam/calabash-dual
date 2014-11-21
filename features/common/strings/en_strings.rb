@@ -211,6 +211,7 @@ module EN_Strings
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@holiday_extras=get_localized_string "extras_title"
     @@app_feedback=get_localized_string "app_feedback"
+    @@side_panel_app_feedback = "App Feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information=get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
@@ -219,7 +220,7 @@ module EN_Strings
     @@guide_online = get_localized_string "guide_online_biscuit_title"
 
     @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
-    @@side_panel_destination=get_localized_string "destination"
+    @@side_panel_destination= "Destination Guide" #get_localized_string "destination"
     @@side_panel_currency= get_localized_string "currency_offcanvas"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes

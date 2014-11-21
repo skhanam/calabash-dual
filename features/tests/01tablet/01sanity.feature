@@ -8,6 +8,7 @@ Feature: Login and Home page features
     When I submit correct login credentials
     Then I must be logged in and on Home page
 
+  @san2
   Scenario: US16737 Verify Weather Biscuit
     Given I am on Home screen with pre holiday booking
     Then I should see a Weather Biscuit appear

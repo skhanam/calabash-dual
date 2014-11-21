@@ -48,5 +48,5 @@ Then(/^I verify cta links on contact us page$/) do
 end
 
 Then(/^I see tablet contact us page$/) do
-
+  step "I see contact us page" #TODO remove if its same as phone
 end

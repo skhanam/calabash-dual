@@ -252,8 +252,8 @@ module AppStrings
     @@destination_biscuit_acc="destination_Biscuit"
     @@destination_page_title_acc="Destination"
 
-    @@welcome_page_swipe_down_acc = "swipeDown"
-    @@welcome_page_swipe_up_acc = "swipeUp"
+    #@@welcome_page_swipe_down_acc = "swipeDown"
+    #@@welcome_page_swipe_up_acc = "swipeUp"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")
     @@countdown_countdown_message2=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')

@@ -22,17 +22,18 @@ Feature: Verify product pages by navigating through side panel
     And I navigate to booking summary page using side menu
     Then I see tablet holiday booking summary page
 
-  @booking-summary321 @contact
+  @contact11 @contact
   Scenario: navigate to booking summary page
     Given I am on home screen with default booking
     And I navigate to contact us page using side menu
     Then I see tablet contact us page
 
-   @ds1
-  Scenario: Navigate to destination guide page and verify list of destinations
-    Given I am on Home screen
-    And I navigate to destination using side menu
-    Then I see list of destinations in sidepanel
+  @fb1
+  Scenario: navigate to App feedback
+    Given I am on home screen with default booking
+    And I navigate to feedback page using side menu
+    Then I see app feedback page
+
 #
 #  @dest21 @failed
 #  Scenario: Navigate to destination guide page and verify each destination page

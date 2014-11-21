@@ -44,7 +44,8 @@ class SidePanel < BasePage
 
   def navigate_to_app_feedback
     scroll_side_panel(@@side_panel_app_feedback)
-    touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1
+    click_on_text @@side_panel_app_feedback if $g_tablet
+    touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1 if $g_phone
   end
 
   def navigate_to_hotel(num=1)
@@ -85,7 +86,7 @@ class SidePanel < BasePage
         navigate_to_contact_us_page
       when "destination"
         scroll_side_panel(@@side_panel_destination)
-        touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)
+        touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)  if $g_phone
       when "Log out"
         sleep 2
         scroll_view("down", 1)

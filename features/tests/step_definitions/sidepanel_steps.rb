@@ -55,7 +55,7 @@ Given(/^I navigate to flights page from side panel$/) do
 end
 
 Then(/^I see app feedback page$/) do
-  @appFeedbackPage.check_app_feedback_title
+  @appFeedbackPage.check_app_feedback_title  if $g_phone # this is not present for tablet
   @appFeedbackPage.verify_app_feedback_page
 end
 
@@ -120,6 +120,11 @@ end
 When(/^I navigate to excursion page from side panel$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_from_side_menu("Excursions")
+end
+
+When(/^I navigate to feedback page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("App Feedback")
 end
 
 When(/^I navigate to contact us page using side menu$/) do

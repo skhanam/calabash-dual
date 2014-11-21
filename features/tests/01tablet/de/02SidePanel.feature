@@ -25,6 +25,12 @@ Feature: Verify product pages by navigating through side panel
       | App Feedback                   |
       | Logout                         |
 
+
+  @de-ds1
+  Scenario: Navigate to destination guide page and verify list of destinations
+    Given I am on Home screen
+    Then I see list of destinations in sidepanel in meine TUI
+
 #  Scenario: US13503	UK holiday extras  Verify page elements
 #    Given I have a pre-holiday booking
 #    Then I have navigated to UK holiday extras - Mosaic landing page

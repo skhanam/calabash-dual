@@ -1,21 +1,9 @@
 class AppFeedbackBasePage < BasePage
-
+ include AppFeedbackModule
   def check_app_feedback_title
     verify_page_title @@app_feed_back_title1
   end
 
-  def verify_app_feedback_page
-    assert_text_present @@app_feed_back_title1
-    assert_text_present @@app_feed_back_title2
-
-    if check_text_in_view(@@app_feed_back_submit)
-      assert_text_present @@app_feed_back_submit
-      puts "feed back to be submitted"
-    elsif check_text_in_view(@@app_feed_back_rate_again)
-      verify_default_submitted_feedback
-      puts "Already rated"
-    end
-  end
 
   def submit_default_feedback
     if check_text_in_view(@@app_feed_back_rate_again)
