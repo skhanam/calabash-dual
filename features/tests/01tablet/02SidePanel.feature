@@ -33,3 +33,9 @@ Feature: Verify product pages by navigating through side panel
     Given I am on home screen with default booking
     And I navigate to feedback page using side menu
     Then I see app feedback page
+
+  @ImpInfo1
+  Scenario: navigate to App feedback
+    Given I am on Home screen
+    And I navigate to important information page using side menu
+    Then I see important information feedback page

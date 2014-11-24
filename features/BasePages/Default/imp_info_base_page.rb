@@ -1,4 +1,4 @@
-class GoodToKnowBasePage < BasePage
+class ImpInfoBasePage < BasePage
 
   def verify_good_to_know_screen
     verify_page_title @@good_to_know_page_title

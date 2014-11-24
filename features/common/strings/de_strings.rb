@@ -377,7 +377,7 @@ module DEMeineTUI
 
     elsif $g_tablet
       @@contact_form_title= get_localized_string "contact_form_title" # Contact
-      @@contact_form_sub_title= get_localized_string "contact_form_sub_title" # Contact us for question regarding your booking, technical issues and other geral queries
+      @@contact_form_sub_title= get_localized_string "contact_questions" # Sie möchten mehr über Ihr Reiseziel erfahren oder einen Ausflug buchen? Wir helfen Ihnen gerne weiter!
       @@contact_form_first_name= get_localized_string "contact_form_first_name" # First name:
       @@contact_form_last_name= get_localized_string "contact_form_last_name" # Surname:
       @@contact_form_email= get_localized_string "contact_form_email" # Email:
@@ -465,7 +465,13 @@ module DEMeineTUI
   end
 
   def good_to_know_strings
+    if $g_phone
     @@good_to_know_page_title=get_localized_string "good_to_know"
+    elsif $g_tablet
+      @@good_to_know_page_title="Alcohol Aware"
+
+    end
+
     @@good_to_know_page_text=get_localized_string "goodtoknow_blurb"
   end
 

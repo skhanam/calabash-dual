@@ -20,6 +20,7 @@ module EN_Strings
     help_logging_in
     retrieve_booking_ref
     post_holiday_strings
+    good_to_know_strings
   end
 
   def self.included(receiver)
@@ -213,7 +214,7 @@ module EN_Strings
     @@app_feedback=get_localized_string "app_feedback"
     @@side_panel_app_feedback = "App Feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
-    @@important_information=get_localized_string "important_information" #"Important information"
+    @@important_information="Important Information" #get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
     @@side_panel_contact=get_localized_string "contact" #"Contact"
 
@@ -328,6 +329,15 @@ module EN_Strings
     @@home_page_post_holiday_email_us_text=get_localized_string "postholiday_emailus"
     @@log_out_acc="logout"
     @@logout_confirm_two= get_localized_string "logout_confirm_two" # Are you sure you want to log out?
+  end
+
+  def good_to_know_strings
+    if $g_phone
+      @@good_to_know_page_title=get_localized_string "good_to_know"
+    elsif $g_tablet
+      @@good_to_know_page_title="Alcohol Aware"
+
+    end
   end
 
 

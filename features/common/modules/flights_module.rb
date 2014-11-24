@@ -47,7 +47,7 @@ module FlightsModule
         assert_text_present flight_data["departureAirportName"]
         assert_text_present flight_data["arrivalAirportCode"]
         assert_text_present flight_data["arrivalAirportName"]
-        @travel_date = DateTime.parse(flight_data["departureDateTime"]).strftime "%A, %-d. %B %Y"
+        @travel_date = DateTime.parse(flight_data["departureDateTime"]).strftime "%A, %0d. %B %Y"
         puts @travel_date
         assert_partial_text @travel_date
       end

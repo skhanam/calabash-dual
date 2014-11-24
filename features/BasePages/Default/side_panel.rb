@@ -42,6 +42,12 @@ class SidePanel < BasePage
     click_on_text @@side_panel_weather if $g_tablet
   end
 
+  def navigate_to_important_information
+    #This called go to know in germany and important information in eng
+    scroll_side_panel(@@important_information)
+    click_on_text @@important_information if $g_tablet
+  end
+
   def navigate_to_app_feedback
     scroll_side_panel(@@side_panel_app_feedback)
     click_on_text @@side_panel_app_feedback if $g_tablet
@@ -82,6 +88,8 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@guide_online, nil)
       when "App Feedback"
         navigate_to_app_feedback
+      when "important information" #     #This called go to know in germany and important information in eng
+        navigate_to_important_information
       when "Contact us"
         navigate_to_contact_us_page
       when "destination"

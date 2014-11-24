@@ -19,11 +19,12 @@ module TestModule
     @holidayExtrasPage ||=HolidayExtrasBasePage.new
     @holidayMosaicPage ||=HolidayMosaicBasePage.new
     @hotelPage ||=HotelBasePage.new
+    @impInfoPage||=ImpInfoBasePage.new
+
 
     if ($g_current_app=='DE_MT')
       @myAccountPage ||= MyAccountBasePage.new
       @insurancePage||=InsuranceBasePage.new
-      @goodToKnowPage||=GoodToKnowBasePage.new
       @registrationPage ||= NewUserRegistrationBasePage.new
       @forgotPasswordPage ||= ForgotPasswordBasePage.new
       @contactPage ||= ContactUsDe.new

@@ -122,6 +122,11 @@ When(/^I navigate to excursion page from side panel$/) do
   @sidePanel.navigate_from_side_menu("Excursions")
 end
 
+When(/^I navigate to important information page using side menu$/) do
+  @homePage.open_side_panel
+  @sidePanel.navigate_from_side_menu("important information")
+end
+
 When(/^I navigate to feedback page using side menu$/) do
   @homePage.open_side_panel
   @sidePanel.navigate_from_side_menu("App Feedback")
