@@ -12,22 +12,28 @@ if [ "$#" -le "4" ]; then
     echo "4) Hardware on which tests are run tablet/ phone"
     echo "5) relative folder path where source code is located"
 
-	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
-	echo " 2)sh run_ios.sh NA @tab-sanity de tablet ../tda.tablet"
-	echo " 3)sh run_ios.sh NA @testnow en_fc tablet ../tda.tablet\n"
+	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de phone ../tda"
+	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda"
+	echo " 3)sh run_ios.sh NA @testnow en_fc phone ../tda\n"
 	exit
 fi
 
 LANG=$3
+HW=$4
 PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
+FILENAME="ios$LANG$HW.app"
 
 echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
-	APPNAME="Meine Tui"
+	if [ $HW == "phone" ] ; then
+		APPNAME="meineTUI"
+	elif [ $HW == "tablet" ] ; then
+		APPNAME="Meine TUI"
+	 fi
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 	calabash-ios sim locale en
@@ -59,30 +65,34 @@ if [ $4 == "tablet" ] ; then
 	APPNAME=$APPNAME" Tablet"
 fi
 
-
 if [ "$1" == "clean" ] ; then
-
-	FILENAME="ios$LANG.app"
-
 
 	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
 	cp expect.exp ${PROJ_FOLDER}
 	cp Gemfile ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
+
 	rm -rf build/ Resources/
 	ti clean
-#	/usr/local/bin/grunt
-#	node releaseScripts/build.js --brand $TI_SCHEME
-	node releaseScripts/build.js --brand $TI_SCHEME -l
-	cd -
 
-  	#echo "******** ####  Updating App name for calabash"
-  	#echo ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
-	#ruby update_tiapp.rb $PROJ_FOLDER "${APPNAME}"
+    if [ $HW == "phone" ]; then
+		#node build.js --brand $TI_SCHEME
+		node build.js --brand $TI_SCHEME -l
+		if [ $LANG == "de" ] ; then
+			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
+		fi
+		    ti build -p ios -b
 
-    cd ${PROJ_FOLDER}/
-    ti build -p ios -Y ipad -b --retina
+    else
+     	/usr/local/bin/grunt
+     	node releaseScripts/build.js --brand $TI_SCHEME
+     	node releaseScripts/build.js --brand $TI_SCHEME -l
+
+     	    ti build -p ios -Y ipad -b --retina
+
+    fi
+
 	echo "******** #### " expect expect.exp ${APPNAME}
 	expect expect.exp ${APPNAME}
     cd -
@@ -91,23 +101,38 @@ if [ "$1" == "clean" ] ; then
     [ -d "$FILENAME" ] && rm -rf "$FILENAME"
 
   	echo "******** ####  copying .app file"
-    echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
-    cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app ios$LANG.app
+    echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
+    cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
 
 fi
 
 if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
-  	echo "******** ####  copying language strings"
-	echo cp -r ${PROJ_FOLDER}/i18n/$LANG_STR/ $STRINGS_FOLDER
-	cp -r ${PROJ_FOLDER}/i18n/$LANG_STR/ $STRINGS_FOLDER
-
 	killall "iPhone Simulator"
-	killall Xcode
+	killall Xcode                                                                 ]
 	sleep 1
+
+	if [ $LANG == "de" ] ; then
+    	SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
+    elif [ $LANG == "en_th" ] ; then
+    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+    elif [ $LANG == "en_fc" ] ; then
+    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+    fi
+
+    DEST_STR=features/test_data/$LANG/
+  	echo "******** ####  copying language strings $SRC_STR $DEST_STR"
+    cp $SRC_STR $DEST_STR
 fi
 
+if [ $HW == "tablet" ] ; then
+	DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1'
+elif [ $HW == "phone" ] ; then
+	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
+fi
+
+
+
 if [ "$2" != "NA" ] ; then
-	export LC_CTYPE=en_US.UTF-8
-	echo DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-	DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1' OS=ios HW=tablet TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./ios$LANG.app bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3 -v
 fi
