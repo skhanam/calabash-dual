@@ -132,7 +132,7 @@ module Tablet
   end
 
   def verify_help_logging_in_page
-    assert_wait_for_text @@welcome_help_cant_login_description
+    assert_wait_for_text escape_quotes_smart @@welcome_help_cant_login_description
     assert_wait_for_text escape_quotes_smart(@@welcome_help_cant_login_subtitle)
     assert_wait_for_text @@welcome_help_cant_login_cta
     scroll_modal_view "down"
