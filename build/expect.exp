@@ -1,0 +1,22 @@
+#!/usr/bin/expect
+#!/bin/sh
+
+set arg1 [lindex $argv 0]
+
+set timeout 20
+spawn calabash-ios setup build/iphone/
+expect "Please answer yes (y) or no (n)"  { send "n\r" }
+expect "Default target: ${arg1}"  {  send "\r" }
+spawn echo "******** #### calabash target selected"
+expect "Setup done"
+
+spawn sleep 5
+spawn ti calabash --platform=ios
+expect "Please answer yes (y) or no (n)"  { send "n\r" }
+expect "Setup done"
+set timeout 60
+
+expect {
+ "** BUILD SUCCEEDED **" {}
+ timeout { puts "failed to find text" }
+}
