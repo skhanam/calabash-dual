@@ -33,12 +33,15 @@ module ReusableMethods
   #Send resource id for string and get localized value
   def get_localized_string(id)
     $g_localized_strings||=read_xml($g_lang_strings_file)
-    fail("id #{id} string not found") if $g_localized_strings[id]==nil
+    if $g_localized_strings[id]==nil
+      puts("id #{id} string not found")
+      fail("id #{id} string not found")
+    end
     return $g_localized_strings[id]
   end
 
   def capitalize_first_letter_of_each_word txt
-    txt.split.each{|i| i.capitalize!}.join(' ')
+    txt.split.each { |i| i.capitalize! }.join(' ')
   end
 
   def read_test_data()
@@ -127,7 +130,7 @@ module ReusableMethods
     return arr.reverse
   end
 
-   #unused
+  #unused
   def read_string_from_excel
     #string_locale="DE"
     #if $g_localized_strings == nil
