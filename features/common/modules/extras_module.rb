@@ -22,20 +22,12 @@ module ExtrasModule
   end
 
   module Phone
-    def self.included(receiver)
-      puts self.name+"::#{$g_platform}"
-      receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
-    end
 
   end
 
   module Tablet
     include BaseModule
 
-    def self.included(receiver)
-      puts self.name+"::#{$g_platform}"
-      #receiver.send :include, Module.const_get(self.name+"::#{$g_platform}")
-    end
 
   end
 end

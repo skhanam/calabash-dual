@@ -16,4 +16,7 @@ expect "Please answer yes (y) or no (n)"  { send "n\r" }
 expect "Setup done"
 set timeout 60
 
-expect "** BUILD SUCCEEDED **"
+expect {
+ "** BUILD SUCCEEDED **" {}
+ timeout { puts "failed to find text" }
+}
