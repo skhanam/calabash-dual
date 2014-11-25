@@ -56,9 +56,6 @@ module EN_Strings
     @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
     @@retrieve_booking_submit = get_localized_capitalized_string "submit" # Submit
 
-    @@welcome_help_more_issues_body= get_localized_string "welcome_help_more_issues_body" # If you’re still having problems logging in
-    @@welcome_help_more_issues_email_title= get_localized_string "welcome_help_more_issues_email_title" # Send email
-
     @@welcome_help_i_need_help= get_localized_string "i_need_help"
 
     @@welcome_help_retrieve_booking_email_extra = get_localized_string "welcome_help_retrieve_booking_email_extra" # Please use the email address you provided when booking your holiday, as detailed on your invoice.

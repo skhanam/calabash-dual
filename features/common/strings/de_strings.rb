@@ -59,7 +59,6 @@ module DEMeineTUI
     @@wrong_country_selected_text="Haben Sie vielleicht bei TUI Deutschland oder TUI Österreich gebucht?"
     @@wrong_country_switch= get_localized_capitalized_string "cantFindBooking_ctaSwitch"
     @@wrong_country_add_booking= get_localized_string "cantFindBooking_addBookingTitle"
-
   end
 
   def welcome_page_strings
@@ -93,13 +92,13 @@ module DEMeineTUI
       @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
-
+      @@login_page_text=get_localized_string "login_welcome"
     end
 
     @@signup_signup_cta= get_localized_capitalized_string "signup_signup_cta" #Registrieren
 
     @@login_welcome= get_localized_string "login_welcome" #Willkommen
-                                                                              #@@login_page_text=get_localized_string "login_welcome"
+                                                                              #
     @@email_text=get_localized_string "forgot_password_email_label"
 
     @@email_hint_text= "Benutzername / E-Mail eingeben" if $g_phone #get_localized_string "login_email_hint"

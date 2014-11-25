@@ -44,7 +44,8 @@ $g_locale="./config/locale.yml"
 $g_lang=ENV['LANG']
 $g_lang_strings_file="features/test_data/de/strings.xml" if ENV['LANG']=='de'
  if (ENV['LANG']=='en_th' || ENV['LANG']=='en_fc')
-   $g_lang_strings_file="features/test_data/en/strings.xml"
+   $g_lang_strings_file="features/test_data/en_th/strings.xml" if ENV['LANG']=='en_th'
+   $g_lang_strings_file="features/test_data/en_fc/strings.xml" if ENV['LANG']=='en_fc'
    $g_lang="uk"
    $g_lang_mod="Eng"
  end
