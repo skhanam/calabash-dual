@@ -23,7 +23,8 @@ HW=$4
 PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
-FILENAME="ios$LANG$HW.app"
+FILENAME="../Appfiles/ios$LANG$HW.app"
+mkdir -p ../Appfiles
 
 echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
 
