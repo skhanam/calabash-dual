@@ -201,23 +201,11 @@ Given(/^I am on 'Login' screen/) do
     sleep 2
     if @page.check_acc_label "offcanvasCTA"
       @homePage.logout_from_home_screen
-      #@homePage.open_side_panel
-      #@page.scroll_side_panel @page.get_val "log_out_text"
     end
-
-    #
-    #if element_exists "view text:'#{@page.get_val "log_out_text"}'"
-    #  touch "view text:'#{@page.get_val "log_out_text"}'"
-    #  sleep 2
-    #  touch "view text:'#{@page.get_val "logout_confirm"}'"
-    #  sleep 2
-    #end
 
     if $g_device_reset
-      #@homePage.logout_from_home_screen if @page.check_acc_label @@home_page_sidepanel_acc_label
       @postHolidayHomepage.en_post_holiday_logout if @page.check_acc_label "logout"
     end
-
   end
 
   if $g_tablet && $g_ios
@@ -229,7 +217,7 @@ Given(/^I am on 'Login' screen/) do
       fail "Not on login screen"
     end
   end
-  @welcomePage.navigate_to_login if $g_german_app && $g_phone
+  @welcomePage.navigate_to_login if $g_phone
   @loginPage.check_login_screen
 end
 

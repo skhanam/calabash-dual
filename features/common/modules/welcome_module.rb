@@ -95,7 +95,7 @@ module WelcomeModule
       end
 
       def navigate_to_login
-        fail "TODO"
+        click_on_text "Log in"
       end
     end
 

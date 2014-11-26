@@ -27,6 +27,12 @@ module HomeModule
   module Phone
     include BaseModule
 
+    def check_temp_present
+      res=query("view marked:'#{@@weather_biscuit_acc}'", :text)[0]
+      fail("temperature is empty") if res.match(/\d+/)==nil
+    end
+
+
     def navigate_to_check_list
       begin
         scroll_side_panel_and_assert @@holiday_checklist
@@ -76,8 +82,8 @@ module HomeModule
 
     def click_weather_biscuit
       sleep 2
-      assert_wait_for_acc "destination_temperature"
-      click_acc_label "destination_temperature"
+      assert_wait_for_acc @@weather_biscuit_acc
+      click_acc_label @@weather_biscuit_acc
       sleep 2
       verify_page_title @@weather_page_title
     end
@@ -93,6 +99,11 @@ module HomeModule
 
   module Tablet
     include BaseModule
+
+    def check_temp_present
+      res=query("view marked:'#{@@weather_biscuit_acc}'' view marked:'temp'", :text)[0]
+      fail("temperature is empty") if res.match(/\d+/)==nil
+    end
 
     def navigate_to_check_list
       begin
@@ -139,10 +150,6 @@ module HomeModule
       sleep 1
     end
 
-    def check_temp_present
-      res=query("view marked:'weather_Biscuit' view marked:'temp'", :text)[0]
-      fail("temperature is empty") if res.match(/\d+/)==nil
-    end
 
     def check_countdown_biscuit
       assert_wait_for_acc @@countdown_biscuit_acc

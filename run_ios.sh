@@ -134,7 +134,6 @@ elif [ $HW == "phone" ] ; then
 fi
 
 
-
 if [ "$2" != "NA" ] ; then
 {
 if [ ! -d $FILENAME ]; then

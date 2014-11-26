@@ -282,7 +282,8 @@ Then(/^I should see a Weather Biscuit appear$/) do
 end
 
 When(/^I should see Weather type icon$/) do
-  @homePage.assert_wait_for_text "°c"
+  @homePage.assert_wait_for_text "°c" if $g_tablet
+  @homePage.assert_wait_for_text "c" if $g_phone
   #check weather is a number
   @homePage.check_temp_present
 

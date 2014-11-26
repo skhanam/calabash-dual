@@ -114,6 +114,7 @@ module EN_Strings
       @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
       @@submit_button= get_localized_capitalized_string "submit" #Submit
       @@welcome_help_link1=get_localized_string "welcome_help_link1"
+      @@login_welcome= get_localized_string "login_welcome" #Willkommen
 
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
@@ -121,9 +122,10 @@ module EN_Strings
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
       @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
+      @@login_welcome= get_localized_string "welcome_cta_login" #Log in
+
     end
 
-    @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
     @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"

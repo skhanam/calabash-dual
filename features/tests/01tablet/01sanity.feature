@@ -2,7 +2,7 @@
 Feature: Login and Home page features
   Login into application
 
-  @reset
+  @reset @san1
   Scenario: US13575 Successful login
     Given I am on 'Login' screen
     When I submit correct login credentials
@@ -15,6 +15,7 @@ Feature: Login and Home page features
     And I should see Weather type icon
     And I should see country names on weather biscuit
 
+  @san3
   Scenario: Logout from Side menu
     Given I am on Home screen with pre holiday booking
     When I click on Logout using side menu
