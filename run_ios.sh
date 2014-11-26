@@ -136,6 +136,12 @@ fi
 
 
 if [ "$2" != "NA" ] ; then
+{
+if [ ! -f $FILENAME ]; then
+    echo "\n\n******************* ${FILENAME} File not found! *******************\n\n"
+    exit 0
+fi
+}
 echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3 -v
 fi
