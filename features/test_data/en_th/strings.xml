@@ -323,6 +323,8 @@
   <string name="duty_free">Duty free</string>
   <string name="guide_online">Guide Online</string>
   <string name="app_feedback">App feedback</string>
+  <string name="browse_holidays_top_text">Browse our</string>
+  <string name="browse_holidays_bottom_text">Holidays collections</string>
   <string name="currency_offcanvas">Currency</string>
   <string name="browse_banner">BROWSE OUR HOLIDAY COLLECTIONS</string>
   <!-- 7,1 Seleted Hotel -->
@@ -954,7 +956,7 @@
   <string name="signup_privacy_cta">Privacy policy</string>
   <string name="signup_process_booking_code">signup_process_booking_code</string>
   <string name="signup_process_booking_code_hint">signup_process_booking_code_hint</string>
-  <string name="signup_salutation">Salutation:</string>
+  <string name="signup_salutation">Title:</string>
   <string name="signup_selector">Mr</string>
   <string name="signup_signup">signup_signup</string>
   <string name="signup_signup_cta">Submit</string>

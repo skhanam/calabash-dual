@@ -69,7 +69,7 @@ if [ "$1" == "clean" ] ; then
 
 	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
-	cp expect.exp ${PROJ_FOLDER}
+	cp build/expect.exp ${PROJ_FOLDER}
 	cp Gemfile ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
 
@@ -77,7 +77,7 @@ if [ "$1" == "clean" ] ; then
 	ti clean
 
     if [ $HW == "phone" ]; then
-		#node build.js --brand $TI_SCHEME
+		node build.js --brand $TI_SCHEME
 		node build.js --brand $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
 			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
