@@ -26,10 +26,14 @@ module WeatherModule
       res=$g_booking.get_weather_data
       res[0]["weatherData"].each do |var|
         day_num =((DateTime.parse(var["date"])).strftime("%d")).to_i
-        day_suffix= CommonMethods.new.getDayNumberSuffix(day_num) if $g_eng_app
-        day_suffix= "." if $g_german_app
+        if $g_eng_app
+          day_suffix= CommonMethods.new.getDayNumberSuffix(day_num)
+          date_text=(DateTime.parse(var["date"])).strftime("%-d#{day_suffix} %B %Y")
+        elsif $g_german_app
+          day_suffix= "."
+          date_text=(DateTime.parse(var["date"])).strftime("%d#{day_suffix} %B %Y")
+        end
 
-        date_text=(DateTime.parse(var["date"])).strftime("%d#{day_suffix} %B %Y")
         day_name=(DateTime.parse(var["date"])).strftime("%A")
         date_text=day_name=@@today if count ==0
 
