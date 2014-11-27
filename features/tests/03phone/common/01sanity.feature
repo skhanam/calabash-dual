@@ -2,18 +2,6 @@
 Feature: Login and Home page features
   Login into application
 
-  @login1 @reset @ss
-  Scenario: Login and verify home screen
-    Given I am on 'Login' screen
-    When I submit correct login credentials
-    Then I must be logged in and on Home page
-
-  @logout @reset @basic-sanity  @home1
-  Scenario: Logout
-    Given I am on Home screen
-    When I log out from application
-    Then I see welcome screen
-
   @basic-sanity @check1 @ss
   Scenario: Check Navigation menus
     Given I am on default booking
