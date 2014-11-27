@@ -128,6 +128,7 @@ module AppStrings
   end
 
   def common_strings
+
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
     @@call_us_dialog_no = get_localized_string "call_dialog_cancel"
     @@call_us_dialog_yes = get_localized_string "call_dialog_call"
@@ -135,7 +136,7 @@ module AppStrings
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
 
     @@weather_coming_soon=get_localized_string "weather_coming_soon"
-
+    @@weather_forecast= get_localized_string "weather_forecast"
     @@today= get_localized_string "today" #Heute
 
     @@hold_on_one_moment=get_localized_string "hold_on"
