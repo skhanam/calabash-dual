@@ -47,7 +47,7 @@ module AppStrings
 
   def set_strings
     set_query_text
-    if ($g_strings_set==true)
+    if $g_strings_set==true
       return
     else
       $g_strings_set=true

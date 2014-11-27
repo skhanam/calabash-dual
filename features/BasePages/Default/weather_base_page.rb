@@ -16,7 +16,7 @@ class WeatherBasePage < BasePage
 
       if ($g_eng_app)
         days=next_day.strftime("%e")
-        suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)
+        suffix_days=CommonMethods.new.get_day_number_suffix(days.to_i)
         next_day_date_text=next_day.strftime("%e#{suffix_days} %B %Y")
         next_day=next_day_text
       elsif ($g_nordics_app)

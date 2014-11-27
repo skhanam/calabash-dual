@@ -32,7 +32,7 @@ module FlightsModule
         assert_text_present flight_data["ArrivalAirportCode"]
         assert_text_present flight_data["ArrivalAirportName"]
         day_num=(DateTime.parse(flight_data["DepartureDate"]).strftime "%-d").to_i
-        day_suffix=CommonMethods.new.getDayNumberSuffix day_num
+        day_suffix=CommonMethods.new.get_day_number_suffix day_num
         @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%A, %-d#{day_suffix} %B %Y" if $g_eng_app
         assert_partial_text @travel_date
       end

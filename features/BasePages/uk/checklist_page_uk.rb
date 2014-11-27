@@ -15,7 +15,7 @@ class ChecklistPageUk < BasePage
   module Phone
 
     def open_to_do_list
-      fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
+      fail if !element_exists("* text:'#{@@to_do_lists}'")
       assert_text_present @@my_do_list
       click_on_text @@to_do_lists
     end

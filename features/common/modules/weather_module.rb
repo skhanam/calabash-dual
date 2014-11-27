@@ -26,7 +26,7 @@ module WeatherModule
       res=$g_booking.get_weather_data
       res[0]["weatherData"].each do |var|
         day_num =((DateTime.parse(var["date"])).strftime("%d")).to_i
-        day_suffix= CommonMethods.new.getDayNumberSuffix(day_num) if $g_eng_app
+        day_suffix= CommonMethods.new.get_day_number_suffix(day_num) if $g_eng_app
         day_suffix= "." if $g_german_app
 
         date_text=(DateTime.parse(var["date"])).strftime("%d#{day_suffix} %B %Y")

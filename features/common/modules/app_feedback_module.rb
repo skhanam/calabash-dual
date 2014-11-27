@@ -17,10 +17,10 @@ module AppFeedbackModule
 
       if check_text_in_view(@@app_feed_back_submit)
         assert_text_present @@app_feed_back_submit
-        puts "feed back to be submitted"
+        puts 'feed back to be submitted'
       elsif check_text_in_view(@@app_feed_back_rate_again)
         verify_default_submitted_feedback
-        puts "Already rated"
+        puts 'Already rated'
       end
     end
   end
@@ -33,10 +33,10 @@ module AppFeedbackModule
 
       if check_text_in_view(@@app_feed_back_submit)
         assert_text_present @@app_feed_back_submit
-        puts "feed back to be submitted"
+        puts 'feed back to be submitted'
       elsif check_text_in_view(@@app_feed_back_rate_again)
         verify_default_submitted_feedback
-        puts "Already rated"
+        puts 'Already rated'
       end
     end
   end
