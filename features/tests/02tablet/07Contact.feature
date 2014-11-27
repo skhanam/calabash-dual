@@ -1,7 +1,7 @@
-@android_test @ios_test @common-tests @reg
+@android_test @ios_test  @reg
 Feature: Verify contact page
 
-  @contact1 @device
+  @contact1
   Scenario: US13501 Verify Tablet contact page
     Given I am on Home screen
     When I navigate to contact us page using side menu

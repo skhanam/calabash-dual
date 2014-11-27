@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @common-tests @tab-excursions @tab @reg
+@weather  @tab-excursions @tab @reg
 Feature: US13695 DE Excursions - Detail Page
 
   @tab-excursions1

@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/script/1035
-@ios_test @android_test  @countdown @common-tests
+@ios_test @android_test  @countdown
 Feature: Verify Countdown details for bookings
 
   @countdown2
@@ -9,7 +9,7 @@ Feature: Verify Countdown details for bookings
     Then I see holiday countdown page
     And I verify number of days left to travel
 
-  @countdown4 @common-tests
+  @countdown4
   Scenario:Verify days left to travel on home page biscuit
     Given I am on home screen with default booking
     Then I verify number of days to go on home page

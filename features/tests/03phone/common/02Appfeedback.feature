@@ -1,7 +1,7 @@
 @ios_test @android_test  @app-feedback
 Feature: Verify App feedback page
 
-  @reset @basic-sanity @common-tests
+  @reset @basic-sanity
   Scenario: Verify App feedback page
     Given I am on home screen with default booking
     When I navigate to App feedback page

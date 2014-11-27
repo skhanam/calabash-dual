@@ -8,7 +8,7 @@ Feature: Verify weather features
     Then I see holiday weather page
     And I should weather forecast for five sequential days
 
-  @weather2 @common-tests
+  @weather2
   Scenario:check share weather
     Given I am on home screen with single booking
     And I am on weather page

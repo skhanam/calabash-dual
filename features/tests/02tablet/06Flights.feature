@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather @common-tests @flight-biscuits @tab @reg
+@weather  @flight-biscuits @tab @reg
 Feature: US16741 Flights Biscuit
 
 
