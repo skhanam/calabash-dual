@@ -116,10 +116,13 @@ if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
 
 	if [ $LANG == "de" ] ; then
     	SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
+    	SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
     elif [ $LANG == "en_th" ] ; then
-    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+    	SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
     elif [ $LANG == "en_fc" ] ; then
-    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+	   	SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
+    elif [ $LANG == "nor" ] ; then
+	   	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
     fi
 
     DEST_STR=features/test_data/$LANG/

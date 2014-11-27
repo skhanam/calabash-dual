@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@weather  @tab-weather @tab @reg
+@weather @tab @reg
 Feature: Verify Weather details for bookings
 
   #Same
