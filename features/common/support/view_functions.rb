@@ -33,7 +33,7 @@ module ViewModule
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)
     puts "wait_for_partial_text_shown (#{text})"
-    query_text=$g_query_txt+"{text CONTAINS '#{text}'}"
+    query_text=escape_quotes_smart($g_query_txt+"{text CONTAINS '#{text}'}")
     begin
       wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
         puts ":#{text}:"

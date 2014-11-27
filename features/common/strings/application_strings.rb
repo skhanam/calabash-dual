@@ -181,8 +181,9 @@ module AppStrings
     end
 
     @@app_feed_back_title2= get_localized_string "feedback_title"
-    @@app_feed_back_message_negative = get_localized_string "feedback_message_negative"
+    @@feedback_message_negative = get_localized_string "feedback_message_negative"
     @@app_feed_back_negative_rating= get_localized_string "feedback_message_title_negative"
+    @@feedback_message_negative = get_localized_string "feedback_message_negative"
     @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
     @@app_feed_back_submit= get_localized_string "feedback_submit_button"
     @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
@@ -255,6 +256,7 @@ module AppStrings
     @@destination_biscuit_acc="destination_Biscuit"
     @@destination_page_title_acc="Destination"
 
+    @@side_panel_app_feedback="App Feedback" #overiding default value as they are not fetched from strings.xml file
     #@@welcome_page_swipe_down_acc = "swipeDown"
     #@@welcome_page_swipe_up_acc = "swipeUp"
 

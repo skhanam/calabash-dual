@@ -213,7 +213,7 @@ module EN_Strings
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@holiday_extras=get_localized_string "extras_title"
     @@app_feedback=get_localized_string "app_feedback"
-    @@side_panel_app_feedback = "App Feedback"
+    #@@side_panel_app_feedback = "App Feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information="Important Information" #get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
