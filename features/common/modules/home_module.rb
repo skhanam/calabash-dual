@@ -45,7 +45,9 @@ module HomeModule
     end
 
     def check_countdown_biscuit
-      fail "TODO "
+      assert_wait_for_acc @@countdown_biscuit_acc
+      assert_wait_for_text @@days_to_go
+      assert_wait_for_text $g_booking.get_countdown_days.to_s
     end
 
     def click_countdown_biscuit

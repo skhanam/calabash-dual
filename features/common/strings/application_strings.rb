@@ -209,13 +209,14 @@ module AppStrings
   def phone_only_strings
     @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@login_button_acc = "loginButton"
-    @@countdown_biscuit_acc="countdown_Biscuit"
+    @@countdown_biscuit_acc="countdown_biscuit"
     @@weather_biscuit_acc="destination_temperature"
 
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
     @@home_page_sidepanel_acc_label ="navbarLeftButton"
     @@logout_confirm_button_text = get_localized_string "confirm"
+    @@days_to_go= get_localized_string "days_to_go"
 
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')

@@ -8,6 +8,14 @@ module CountdownModule
   end
 
   module Phone
+    include BaseModule
+
+    def check_i_am_off_message
+      sleep 1
+      res=query("view marked:'slogan_text'", :text).first.match(@@countdown_countdown_message1)
+      fail("I am off message is not present") if res==nil
+    end
+
     def check_countdown_message
       sleep 2
       @@countdown_message_from_screen=get_acc_label_text("slogan_text")
@@ -29,9 +37,10 @@ module CountdownModule
 
     def check_sharing_options
       click_on_text @@countdown_share_button_text
-      assert_wait_for_text @@facebook_share
-      assert_wait_for_text @@twitter_share
+      assert_wait_for_acc @@facebook_share_img
+      assert_wait_for_acc @@twitter_share_img
     end
+
   end
 
   module Tablet
@@ -71,8 +80,6 @@ module CountdownModule
     end
 
     module Ios
-
-
     end
 
   end
