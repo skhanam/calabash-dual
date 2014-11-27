@@ -21,6 +21,7 @@ module EN_Strings
     retrieve_booking_ref
     post_holiday_strings
     good_to_know_strings
+    phone_welcome_strings
   end
 
   def self.included(receiver)
@@ -340,6 +341,12 @@ module EN_Strings
     end
   end
 
+  def phone_welcome_strings
+  @@welcome_login_title= get_localized_string "welcome_login_title"  # Have a Booking?
+  @@welcome_login_subtitle= get_localized_string "welcome_login_subtitle" # Let's login
+  @@welcome_nobooking_title= get_localized_string "welcome_nobooking_title" # Haven't booked?
+  @@welcome_nobooking_subtitle= get_localized_string "welcome_nobooking_subtitle" # Let's get inspired
+  end
 
 end
 

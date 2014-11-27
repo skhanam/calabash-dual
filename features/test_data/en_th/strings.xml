@@ -1049,4 +1049,9 @@
   <string name="offline_hours">[hours] hours ago</string>
   <string name="offline_minutes">[minutes] minutes ago</string>
   <string name="offline_just_now">Just Now</string>
+  <!-- welcome -->
+  <string name="welcome_login_title">Have a Booking?</string>
+  <string name="welcome_login_subtitle">Let's login</string>
+  <string name="welcome_nobooking_title">Haven't booked?</string>
+  <string name="welcome_nobooking_subtitle">Let's get inspired</string>
 </resources>

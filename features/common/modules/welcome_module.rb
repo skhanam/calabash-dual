@@ -92,11 +92,18 @@ module WelcomeModule
       include BaseModule
 
       def check_welcome_screen
-        return check_text_in_view @@welcome_header
+        return check_text_in_view @@welcome_login_title
       end
 
       def navigate_to_login
-        click_on_text "Log in"
+        click_on_text @@welcome_login_title
+      end
+
+      def verify_welcome_screen
+        assert_wait_for_text @@welcome_login_title
+        assert_text_present @@welcome_login_subtitle
+        assert_text_present @@welcome_nobooking_title
+        assert_text_present @@welcome_nobooking_subtitle
       end
     end
 
@@ -113,18 +120,18 @@ module WelcomeModule
 
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
-    #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+      #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
     end
 
     def verify_welcome_screen
-    arr="#{@@login_page_text}".split(/\\n\\n/)
-    arr.each do |var|
-      assert_partial_text var
-    end
+      arr="#{@@login_page_text}".split(/\\n\\n/)
+      arr.each do |var|
+        assert_partial_text var
+      end
     end
 
     def check_welcome_screen
-      return wait_for_text(escape_quotes(@@login_lets_get_inspired),2)
+      return wait_for_text(escape_quotes(@@login_lets_get_inspired), 2)
     end
 
   end
