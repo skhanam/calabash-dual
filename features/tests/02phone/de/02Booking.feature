@@ -16,7 +16,6 @@ Feature: Verify booking information for Typical Booking
     And I verify number of days left to travel
     And I verify facebook and twitter share icons are visible
 
-  @sanity
   Scenario: Left off canvas Menu listing
     Given I have switched to typical booking
     Given I have opened side menu

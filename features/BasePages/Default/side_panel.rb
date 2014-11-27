@@ -100,11 +100,13 @@ class SidePanel < BasePage
         scroll_view("down", 1)
         scroll_side_panel(@@log_out_text)
         scroll_view("down", 1)
-        touch_txt_and_verify_title(@@log_out_text, @@logout_confirm)
+        touch_txt_and_verify_title(@@log_out_text)  if $g_phone
+        touch_txt_and_verify_title(@@log_out_text, @@logout_confirm)  if $g_tablet
     end
   end
 
   def confirm_logout
+    assert_wait_for_text (@@logout_confirm_two)
     click_on_text(@@logout_confirm_button_text)
   end
 

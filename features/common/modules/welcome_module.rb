@@ -89,9 +89,10 @@ module WelcomeModule
     end
 
     module Eng
+      include BaseModule
 
       def check_welcome_screen
-        return check_text_in_view("HAVE A BOOKING, LETS LOGIN")
+        return check_text_in_view @@welcome_header
       end
 
       def navigate_to_login

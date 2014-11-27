@@ -123,6 +123,7 @@ module EN_Strings
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
       @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
       @@login_welcome= get_localized_string "welcome_cta_login" #Log in
+      @@welcome_header = get_localized_string "welcome_header"
 
     end
 

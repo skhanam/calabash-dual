@@ -1,4 +1,4 @@
-@common-tests  @tab @reg @tab-sanity
+@common-tests  @tab @reg @tab-sanity @sanity
 Feature: Login and Home page features
   Login into application
 

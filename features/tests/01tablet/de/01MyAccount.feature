@@ -4,7 +4,6 @@ Feature: Verify My account page and sub pages
   Verify change password page
   Verify update email page
 
-  @sanity
   Scenario: Verify my account page Off canvas section
     Given I have accessed my Personal Details page
     Then I verify below details on account page:

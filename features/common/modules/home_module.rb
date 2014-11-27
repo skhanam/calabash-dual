@@ -101,7 +101,7 @@ module HomeModule
     include BaseModule
 
     def check_temp_present
-      res=query("view marked:'#{@@weather_biscuit_acc}'' view marked:'temp'", :text)[0]
+      res=query("view marked:'#{@@weather_biscuit_acc}' view marked:'temp'", :text)[0]
       fail("temperature is empty") if res.match(/\d+/)==nil
     end
 

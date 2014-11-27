@@ -23,7 +23,6 @@ Feature: Verify screens shown before logging into App
     When I choose haven't booked through TUI
     Then I should see the Sales screen
 
-  @sanity
   Scenario: Reset password  - invalid user name or email
     Given I am on 'Login' screen
     When I navigate to forgot password screen
@@ -35,7 +34,6 @@ Feature: Verify screens shown before logging into App
     When I navigate to forgot password screen
     Then I see my username is empty
 
-  @sanity
   Scenario: Already customer and I haven't logged in yet
     Given I am on welcome page
     When I select 'I havent logged in before'

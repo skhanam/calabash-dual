@@ -215,6 +215,8 @@ module AppStrings
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
     @@home_page_sidepanel_acc_label ="navbarLeftButton"
+    @@logout_confirm_button_text = get_localized_string "confirm"
+
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app

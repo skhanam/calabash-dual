@@ -6,10 +6,21 @@ require_relative '../../common/support/view_functions'
 
 
 module Phone
-  #Scroll to text in side panel
-  def scroll_side_panel(text, index=1)
-    scroll_page_and_assert_text(text)
+
+  def scroll_side_panel(text, dir="down")
+    count=5
+    puts "scroll_side_panel #{text}"
+    while (!element_exists("view text:'#{text}'") && count >0)
+      sleep 1
+      count-=1
+      scroll( "view marked:'Empty list'", "down")
+      sleep 1
+      puts element_exists("view text:'#{text}'")
+      puts "scrolling to #{text}"
+    end
+    fail("text #{text} not found") if count==0
   end
+
 
   def scroll_home_biscuits(txt)
     scroll_page_and_assert_text txt
@@ -173,10 +184,10 @@ module IosReusableMethods
   end
 
   #touch text and verify page title
-  def touch_txt_and_verify_title(txt_touch, text)
+  def touch_txt_and_verify_title(txt_touch, text=nil)
     click_on_text txt_touch
     sleep 2
-    verify_page_title text
+    verify_page_title text if text!=nil
   end
 
   #touch text and verify text
