@@ -1,4 +1,4 @@
-@android_test @ios_test
+@android_test @ios_test @phone-weather
 Feature: Verify weather features
 
   @week-weather
