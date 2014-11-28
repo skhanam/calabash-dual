@@ -12,20 +12,24 @@ module CountdownModule
 
     def check_i_am_off_message
       sleep 1
-      res=query("view marked:'slogan_text'", :text).first.match(@@countdown_countdown_message1)
+      res=query("view marked:'slogan_text'", :text).first.match(@@countdown_countdown_message2)
+      puts query("view marked:'slogan_text'", :text).first
+      puts "checking for #{@@countdown_countdown_message1}"
       fail("I am off message is not present") if res==nil
     end
 
-    def check_countdown_message
-      sleep 2
-      @@countdown_message_from_screen=get_acc_label_text("slogan_text")
-      res=@@countdown_message_from_screen.match(@@countdown_countdown_message2)
-      fail("countdown message is wrong #{@@countdown_message_from_screen}  #{@@countdown_countdown_message2} ") if res==nil
-    end
+    #def check_countdown_message
+    #  fail "Unused method"
+    # #TODO remove
+    #  sleep 2
+    #  @@countdown_message_from_screen=get_acc_label_text("slogan_text")
+    #  res=@@countdown_message_from_screen.match(@@countdown_countdown_message2)
+    #  fail("countdown message is wrong #{@@countdown_message_from_screen}  #{@@countdown_countdown_message2} ") if res==nil
+    #end
 
     def check_count_down_page
       check_countdown_screen_title
-      check_countdown_message
+      check_i_am_off_message
       sleep 1
       check_text_elements
       assert_text_present @@countdown_share_button_text #TODO check if its only for germany
