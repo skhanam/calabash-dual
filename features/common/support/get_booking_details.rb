@@ -94,14 +94,15 @@ def get_de_payload(booking_code, auth, type)
   if $g_tablet
     cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   elsif $g_phone
-    cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'tui-auth-key: PHPSESSID=prv9f5a7vi0hqk8b90jphjhmr7; path=/; secure; HttpOnly' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --compressed}
+    cmd=%Q{curl "#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}" -H 'tui-public-key: abcd' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'Authorization: Basic ZGV2ZWxvcGVyOnRlc3RUZXN0' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --compressed}
   end
   return JSON.parse(`#{cmd}`)
 end
 
 def de_user_details
   $g_endpoint="http://37.46.24.155:3001" # DEV ENV
-  @typical_booking_code="test0012" # DEV ENV
+  @typical_booking_code="test0012" if $g_tablet # DEV ENV
+  @typical_booking_code="test0012" if $g_phone # DEV ENV
 
   username="userdea@gmail.com"
   password="testtest"
@@ -110,7 +111,7 @@ def de_user_details
   if $g_tablet
     cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
   elsif $g_phone
-    cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryn0xmmTdsGis7DeTp' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryn0xmmTdsGis7DeTp\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryn0xmmTdsGis7DeTp\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryn0xmmTdsGis7DeTp--\r\n' --compressed}
+    cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-auth-key: PHPSESSID=g5qamb5blsuke6lh6kgv5e4643; path=/; secure; HttpOnly' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryOdmlO8xXwqlNplAo' -H 'Referer: http://37.46.24.155:8001/index.html'  -H 'tui-brand: tui-de' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo--\r\n' --compressed}
   end
 
   res_login=JSON.parse(`#{cmd}`)

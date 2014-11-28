@@ -13,6 +13,9 @@ class Bookings
   def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_engChecklist)
     @payload=payload
     @destinations=@payload["destinationGuide"]
+    @weather=@payload["weather"]
+
+    if $g_tablet
     @booking_summary= @payload["bookingSummary"] if $g_phone
     @booking_summary= $g_summary["payload"] if $g_tablet
     @products=@payload["products"]
@@ -21,6 +24,11 @@ class Bookings
 
     @excursions_payload=$g_excursions["payload"]
     @eng_checkList=eng_checkList if $g_eng_app
+    elsif $g_phone
+
+    end
+
+
   end
 
   def get_excursions

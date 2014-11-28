@@ -24,11 +24,7 @@ DE_USER||= {
         :email => "userdea@gmail.com",
         :password => "testtest",
         :country => "Deutschland",
-        :bookings => {
-            :destination => "Palma de Mallorca",
-            :date => "06.09.2014",
-            :products => "Flug"
-        }},
+    },
     :invalid => {
         :username => "invalidusername",
         :password => "nono",
