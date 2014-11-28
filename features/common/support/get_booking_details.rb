@@ -75,7 +75,9 @@ def eng_user_details
   res_checklist=get_eng_payload(auth, "checklist")
   res_destination=get_eng_payload(auth, "destination")
   res_excursions=get_eng_payload(auth, "excursions")
+  res_countdown=get_eng_payload(auth, "countdown")
 
+  $g_countdown=res_countdown
   $g_excursions=res_excursions
   $g_destinations=res_destination
   $g_current_booking=res_home
@@ -123,8 +125,10 @@ def de_user_details
   res_destinations=get_de_payload(@typical_booking_code, auth, "destination")
   res_weather=get_de_payload(@typical_booking_code, auth, "weather")
   res_summary=get_de_payload(@typical_booking_code, auth, "summary")
+  res_countdown=get_de_payload(@typical_booking_code, auth, "countdown")
 
   $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
+  $g_countdown=res_countdown
   $g_weather = res_weather
   $g_summary = res_summary
 end

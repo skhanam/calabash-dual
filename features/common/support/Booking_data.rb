@@ -14,6 +14,7 @@ class Bookings
     @payload=payload
     @destinations=@payload["destinationGuide"]
     @weather=@payload["weather"]
+    @countdown= $g_countdown["payload"]  if $g_german_app && $g_phone
 
     if $g_tablet
     @booking_summary= @payload["bookingSummary"] if $g_phone
@@ -134,7 +135,8 @@ class Bookings
     if $g_nordics_app
       return ((@payload["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
     elsif $g_german_app
-      countdown = get_home_biscuits("countdown")["data"]["startDateTimeAsUnixTime"]
+      countdown = @countdown["startDateTimeAsUnixTime"] if $g_phone
+      countdown = get_home_biscuits("countdown")["data"]["startDateTimeAsUnixTime"] if $g_tablet
       days= ((countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i).to_s
       puts "days = #{days}"
       return days
@@ -361,4 +363,5 @@ end
 
 
 module Phone
+
 end

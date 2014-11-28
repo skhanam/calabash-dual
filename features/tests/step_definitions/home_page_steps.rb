@@ -426,3 +426,12 @@ end
 When(/^I log out from post holiday screen$/) do
   @postHolidayHomepage.en_post_holiday_logout
 end
+When(/^I navigate to logout$/) do
+  if $g_phone && $g_german_app
+    step 'I have accessed my Personal Details page'
+    step 'I tap on Logout'
+    step 'I should see logout OS dialogue displayed'
+  else
+    step 'I click on Logout using side menu'
+  end
+end

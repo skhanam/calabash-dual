@@ -37,10 +37,7 @@ module AppFeedbackModule
       end
 
       scroll_page_and_assert_text @@app_feed_back_rate_again
-      scroll_page_and_assert_text @@app_feed_back_email_us
     end
-
-
   end
 
   module Tablet

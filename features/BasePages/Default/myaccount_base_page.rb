@@ -91,9 +91,7 @@ class MyAccountBasePage < BasePage
     scroll_page_and_assert_text(@@log_out_text)
 
     touch($g_query_txt+"marked:'#{@@log_out_text}'")
-    assert_wait_for_text(@@my_account_logout_title)
-
-    assert_text_present(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
     assert_text_present(@@logout_confirm)
     assert_text_present(@@my_account_logout_no)
     sleep 1
@@ -105,11 +103,11 @@ class MyAccountBasePage < BasePage
   def click_on_logout_button
     scroll_page_and_assert_text(@@log_out_text)
     touch($g_query_txt+"marked:'#{@@log_out_text}'")
-    assert_wait_for_text(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
   end
 
   def verify_logout_popup
-    assert_wait_for_text(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
   end
 
   def validate_menu_items(var)

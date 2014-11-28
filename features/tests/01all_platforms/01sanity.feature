@@ -16,8 +16,8 @@ Feature: Login and Home page features
     And I should see country names on weather biscuit
 
   @san3
-  Scenario: Logout from Side menu
+  Scenario: Logout from App
     Given I am on Home screen with pre holiday booking
-    When I click on Logout using side menu
-    When I confirm Logout
+    When I navigate to logout
+    And I confirm Logout
     Then I should navigate to welcome screen

@@ -211,7 +211,7 @@ module DEMeineTUI
     @@my_account_newsletter_text= get_localized_string "signup_to_emails_blurb"
     @@log_out_text=get_localized_string "logout"
 
-    @@my_account_logout_title= get_localized_string "logout_confirm_two"
+    @@logout_confirm_two= get_localized_string "logout_confirm_two" # Abmelden?
     @@logout_confirm= get_localized_string "confirm"
     @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
 
