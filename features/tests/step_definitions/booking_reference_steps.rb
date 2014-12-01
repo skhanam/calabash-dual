@@ -36,7 +36,7 @@ When(/^I submit (wrong|correct) booking details in booking ref page$/) do |condi
   step 'I touch done' if $g_ios
   step 'I press the enter button' if $g_android
   sleep 1
-  @page.click_on_text "Submit" if $g_phone
+  #@page.click_on_text "Submit" if $g_phone
 end
 
 Then(/^I see error messages on booking ref page$/) do

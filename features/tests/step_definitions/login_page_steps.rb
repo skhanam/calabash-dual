@@ -208,17 +208,21 @@ Given(/^I am on 'Login' screen/) do
     end
   end
 
+  navigate_flag=true
   if $g_tablet && $g_ios
     if @welcomePage.check_welcome_screen
       @page.click_on_text @page.get_val("login_have_a_booking")
     elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
       puts "On login screen"
+      navigate_flag=false
     else
       fail "Not on login screen"
     end
+  elsif $g_phone
+    navigate_flag=false if @loginPage.check_login_screen
   end
-  @welcomePage.navigate_to_login if $g_phone
-  @loginPage.check_login_screen
+  @welcomePage.navigate_to_login if navigate_flag
+  @loginPage.verify_login_screen
 end
 
 Given(/^I am on 'Welcome' screen/) do
@@ -245,7 +249,7 @@ Then(/^I see login Page/) do
 end
 
 Then(/^I see login screen$/) do
-  @loginPage.check_login_screen
+  @loginPage.verify_login_screen
 end
 
 When(/^I fill (valid|invalid) username in login screen$/) do |condition|
@@ -480,7 +484,6 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
   step "I am on 'Login' screen"
   step "I tap 'Retrieve my booking' button"
   step "I see retrieve my booking page"
-
   if condition.eql? 'wrong'
     step "I submit wrong booking details in booking ref page"
   elsif condition.eql? 'correct'
@@ -489,9 +492,13 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
 end
 
 When(/^I the Tap 'submit' button retrieve booking page$/) do
-  @modal_view_acc=@page.get_val "modal_view_acc"
-  @submit=@page.get_val "retrieve_booking_submit"
-  touch "view marked:'#{@modal_view_acc}' view text:'#{@submit}'"
+  if $g_tablet
+    @modal_view_acc=@page.get_val "modal_view_acc"
+    @submit=@page.get_val "submit_button"
+    touch "view marked:'#{@modal_view_acc}' view text:'#{@submit}'"
+  elsif $g_phone
+    @page.click_on_text @page.get_val "submit_button"
+  end
 end
 
 Then(/^I should be navigated to Help logging in modal page$/) do

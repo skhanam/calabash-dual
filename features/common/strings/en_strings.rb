@@ -55,8 +55,6 @@ module EN_Strings
     @@welcome_help_retrieve_booking_email = get_localized_string "welcome_help_retrieve_booking_email" # Email address used for booking:
 
     @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
-    @@retrieve_booking_submit = get_localized_capitalized_string "submit" # Submit
-
     @@welcome_help_i_need_help= get_localized_string "i_need_help"
 
     @@welcome_help_retrieve_booking_email_extra = get_localized_string "welcome_help_retrieve_booking_email_extra" # Please use the email address you provided when booking your holiday, as detailed on your invoice.
@@ -116,7 +114,7 @@ module EN_Strings
       @@submit_button= get_localized_capitalized_string "submit" #Submit
       @@welcome_help_link1=get_localized_string "welcome_help_link1"
       @@login_welcome= get_localized_string "login_welcome" #Willkommen
-
+      @@login_page_title = get_localized_string "welcome_header"
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
       @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
@@ -125,6 +123,8 @@ module EN_Strings
       @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
       @@login_welcome= get_localized_string "welcome_cta_login" #Log in
       @@welcome_header = get_localized_string "welcome_header"
+      @@login_page_title = get_localized_string "welcome_cta_login"
+      @@submit_button= get_localized_string "submit" #Submit
 
     end
 
@@ -143,7 +143,6 @@ module EN_Strings
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
 
-    @@login_page_title = get_localized_string "welcome_header"
 
     #Book a visit page
     @@book_visit_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
@@ -213,7 +212,7 @@ module EN_Strings
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@holiday_extras=get_localized_string "extras_title"
     @@app_feedback=get_localized_string "app_feedback"
-    #@@side_panel_app_feedback = "App Feedback"
+                                       #@@side_panel_app_feedback = "App Feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information="Important Information" #get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
@@ -342,10 +341,10 @@ module EN_Strings
   end
 
   def phone_welcome_strings
-  @@welcome_login_title= get_localized_string "welcome_login_title"  # Have a Booking?
-  @@welcome_login_subtitle= get_localized_string "welcome_login_subtitle" # Let's login
-  @@welcome_nobooking_title= get_localized_string "welcome_nobooking_title" # Haven't booked?
-  @@welcome_nobooking_subtitle= get_localized_string "welcome_nobooking_subtitle" # Let's get inspired
+    @@welcome_login_title= get_localized_string "welcome_login_title" # Have a Booking?
+    @@welcome_login_subtitle= get_localized_string "welcome_login_subtitle" # Let's login
+    @@welcome_nobooking_title= get_localized_string "welcome_nobooking_title" # Haven't booked?
+    @@welcome_nobooking_subtitle= get_localized_string "welcome_nobooking_subtitle" # Let's get inspired
   end
 
 end

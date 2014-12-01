@@ -30,8 +30,12 @@ class LoginBasePage < BasePage
     scroll_page_till_acc @@login_button_acc if $g_phone
     click_acc_label(@@login_button_acc)
   end
-
+  
   def check_login_screen
+  check_text_in_view @@login_welcome
+  end
+  
+  def verify_login_screen
     assert_wait_for_text(@@login_welcome)
   end
 

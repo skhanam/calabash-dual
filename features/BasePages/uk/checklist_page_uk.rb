@@ -13,7 +13,6 @@ class ChecklistPageUk < BasePage
   end
 
   module Phone
-
     def open_to_do_list
       fail if !element_exists("* text:'#{@@to_do_lists}'")
       assert_text_present @@my_do_list
@@ -33,7 +32,6 @@ class ChecklistPageUk < BasePage
   end
 
   module Tablet
-
     def open_to_do_list
       assert_text_present "To Do list"
       click_on_text "To Do list"
