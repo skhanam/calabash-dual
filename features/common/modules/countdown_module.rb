@@ -32,6 +32,7 @@ module CountdownModule
       check_i_am_off_message
       sleep 1
       check_text_elements
+      @@countdown_message_from_screen=get_acc_label_text("slogan_text")
       assert_text_present @@countdown_share_button_text #TODO check if its only for germany
       if @@countdown_message_from_screen.match(/#{@@countdown_countdown_message1}/)==nil &&
           @@countdown_message_from_screen.match(/#{@@countdown_countdown_message2}/)==nil

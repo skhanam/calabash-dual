@@ -16,11 +16,7 @@ Then(/^I verify share icons on weather page$/) do
 end
 
 When(/^I see weather for first city on weather page$/) do
-  if $g_phone && $g_german_app
-    @weatherPage.check_and_click_city_name
-  else
     @weatherPage.check_city_name
-  end
 end
 
 When(/^I see names of next (\d+) days on weather page$/) do |arg|

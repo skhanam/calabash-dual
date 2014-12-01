@@ -8,11 +8,11 @@ module WeatherModule
       check_weather_screen_title
     end
 
-    def check_and_click_city_name
+    def check_city_name
       res=$g_booking.get_weather_data
       city_name=res[0]["city"]
       assert_text_present @@weather_forecast.gsub(/\[.*\]/,city_name)
-      click_on_text @@weather_forecast.gsub(/\[.*\]/,city_name)
+      click_on_text @@weather_forecast.gsub(/\[.*\]/,city_name) if $g_german_app
     end
 
 
