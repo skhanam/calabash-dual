@@ -1,4 +1,4 @@
-@myaccount_tests-de @reg-de
+@myaccount_tests-de @reg-tab-de
 Feature: Verify My account page and sub pages
   Verify my personal detail  page and other elements
   Verify change password page
@@ -30,18 +30,6 @@ Feature: Verify My account page and sub pages
     And I should see all future booking image biscuits
     And I should see all past booking image biscuits
 
-  Scenario: Verify change email page
-    Given I have accessed my Personal Details page
-    And I select change email from my personal details page
-    Then I verify elements on change email page
-
-  @logout-de
-  Scenario: Logout verification on my account page
-    Given I have accessed my Personal Details page
-    When I tap on Logout
-    Then I should see logout OS dialogue displayed
-    When I confirm Logout
-    Then I should navigate to welcome screen
 
   @viewbooking
   Scenario: view Bookings

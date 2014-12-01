@@ -1,4 +1,4 @@
-@home_screen  @de @tab-home @reg
+@home_screen  @de @tab-home @reg-tab
 Feature: Verify product pages by navigating through biscuits
   Check countdown page is displayed correctly
   Check weather page is displayed correctly

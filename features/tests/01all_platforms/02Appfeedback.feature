@@ -1,4 +1,4 @@
-@app-feedback @sanity
+@app-feedback @sanity @reg
 Feature: Verify App feedback page
 
   @reset @app-feedback1

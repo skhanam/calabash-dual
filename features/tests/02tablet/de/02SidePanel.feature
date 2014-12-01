@@ -1,4 +1,4 @@
-@reg-de
+@reg-tab-de
 Feature: Verify product pages by navigating through side panel
 
   @multi_dest

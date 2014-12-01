@@ -1,4 +1,4 @@
-@android_test @ios_test  @tab @reg0001
+@android_test @ios_test @reg-tab
 Feature: Verify product pages by navigating through side panel
   Check countdown page is displayed correctly
   Check weather page is displayed correctly

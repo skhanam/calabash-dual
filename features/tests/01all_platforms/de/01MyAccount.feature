@@ -41,3 +41,11 @@ Feature: Verify My account page and sub pages
     Given I am on my bookings page
     When I navigate to add a booking page
     Then I see add a booking page
+
+  @logout-de
+  Scenario: Logout verification on my account page
+    Given I have accessed my Personal Details page
+    When I tap on Logout
+    Then I should see logout OS dialogue displayed
+    When I confirm Logout
+    Then I should navigate to welcome screen

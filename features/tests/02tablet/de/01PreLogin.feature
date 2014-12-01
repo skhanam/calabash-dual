@@ -1,34 +1,7 @@
-@prelogin-de @reg-de @reset
+@prelogin-de @reg-tab-de @reset
 Feature: Verify screens shown before logging into App
   Verify Welcome Page as registered used
   Verify Welcome Page as unregistered user
-
-  @forgot-password2 
-  Scenario: Forgot password - Populated email field
-    Given I am on 'Login' screen
-    When I fill valid username in login screen
-    And I navigate to forgot password screen
-    Then I see my username is already populated
-
-  @plgn2
-  Scenario: Reset password  - invalid user name or email
-    Given I am on 'Login' screen
-    When I navigate to forgot password screen
-    And submit an invalid email id in forgot password screen
-    Then I see appropriate error message
-
-  @plgn3
-  Scenario: Forgot password - Blank email field
-    Given I am on 'Login' screen
-    When I navigate to forgot password screen
-    Then I see my username is empty
-
-  @plgn4
-  Scenario: US13474 Failed login - wrong credentials
-    Given I submit wrong login credentials
-    Then I see appropriate error message
-    And I should see the error message tip to side of oops message
-    And should observe that values entered are retained
 
    @prelog1n 
   Scenario: US13474 DE Login: Check Page elements
@@ -52,9 +25,3 @@ Feature: Verify screens shown before logging into App
       | Newsletter opt-in            |
       | E-Mail newsletter disclaimer |
       | Tick box                     |
-
-#  @terms121
-#  Scenario: Verify Terms and conditions page from login screen
-#    Given I navigate to terms page from login screen
-#    Then I see terms page is displayed correctly
-#

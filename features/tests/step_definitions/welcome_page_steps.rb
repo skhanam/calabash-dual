@@ -60,6 +60,7 @@ Then(/^I should see the Sales screen$/) do
 end
 
 When(/^I select 'I havent logged in before'$/) do
+  #Phoneonly
   step "I have not yet registered with TUI"
 end
 

@@ -338,7 +338,8 @@ module DEMeineTUI
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help= get_localized_string "i_need_help"
-    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
+    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden." if $g_tablet
+    @@forgot_password_email_help="Ihre Anmeldung war leider nicht erfolgreich." if $g_phone
     @@forgot_password_email_hint= 'Benutzername / E-Mail eingeben' # "forgot_password_email_hint" #Benutzername \// E-Mail eingeben
   end
 
@@ -466,7 +467,7 @@ module DEMeineTUI
 
   def good_to_know_strings
     if $g_phone
-    @@good_to_know_page_title=get_localized_string "good_to_know"
+      @@good_to_know_page_title=get_localized_string "good_to_know"
     elsif $g_tablet
       @@good_to_know_page_title="Alcohol Aware"
 

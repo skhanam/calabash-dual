@@ -417,6 +417,7 @@ When(/^I select register option from welcome screen$/) do
 end
 
 Then(/^I should see the error message tip to side of oops message$/) do
+  step 'I see appropriate error message' if $g_tablet
   step "I see appropriate username error message"
 end
 

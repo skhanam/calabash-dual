@@ -2,6 +2,7 @@
 @ios_test @android_test @auto2  @de @hotel
 Feature: Verify booking information for Typical Booking
 
+  @hotel1
   Scenario: As a TUI client I should be able to access the Hotel page
     Given I have switched to typical booking
     When I navigate to hotel 1 page using side menu
