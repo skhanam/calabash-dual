@@ -223,7 +223,8 @@ module DEMeineTUI
     @@change_password_create_new_password=get_localized_string "forgot_password_reset_pwd"
     @@change_password_info=get_localized_string "new_password_body"
     @@change_password_text2=get_localized_string "forgot_password_email_label"
-    @@change_password_send_button=get_localized_capitalized_string "submit"
+    @@change_password_send_button=get_localized_capitalized_string "submit" if $g_tablet
+    @@change_password_send_button=get_localized_string "submit" if $g_phone
   end
 
   def booking_summary_strings

@@ -43,10 +43,13 @@ class MyAccountBasePage < BasePage
     check_change_password_screen
     assert_text_elements([@@change_password_title,
                           @@change_password_create_new_password,
-                          @@change_password_info,
-                          @@forgot_password_email_hint,
-                          @@change_password_send_button
-                          ])
+                          @@change_password_info])
+    assert_text_present @@forgot_password_username_or_email if $g_phone
+    assert_text_present @@forgot_password_email_hint if $g_tablet
+    assert_text_present @@change_password_send_button
+    assert_text_present @@change_password_info
+
+
   end
 
   def click_change_password_button
@@ -84,7 +87,9 @@ class MyAccountBasePage < BasePage
 
   def change_password_prefilled_username
     res=query("TiTextField", :text).first
-    assert_equal($g_current_user_details[:valid][:username], query("TiTextField", :text).first, "Username is not prefilled")
+    puts "user name" + $g_current_user_details[:valid][:username]
+    puts "user name" +res
+    fail "Username is not prefilled" if $g_current_user_details[:valid][:username] != res
   end
 
   def logout_from_app

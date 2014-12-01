@@ -4,18 +4,6 @@ Feature: Verify My account page and sub pages
   Verify change password page
   Verify update email page
 
-  Scenario: Verify my account page Off canvas section
-    Given I have accessed my Personal Details page
-    Then I verify below details on account page:
-      | username               |
-      | first name             |
-      | surname                |
-      | email                  |
-      | update email button    |
-      | password change button |
-      | newsletter             |
-      | logout                 |
-
 
   @myBookingsPage
   Scenario: US13492 DE Profile section - add a booking  READY
@@ -35,20 +23,6 @@ Feature: Verify My account page and sub pages
     Then I should see an Error messages displayed on add booking page
     And I should see any inline error messages on add booking page
 
-  @myBookingsPage3
-  Scenario: US13645 Change email
-    Given I have accessed my Personal Details page
-    When I select change email from my personal details page
-    Then I see close button on change email page
-    Then I verify elements on change email page
-
-  @myBookingsPage4
-  Scenario: US13645 verify change password page is prefilled
-    Given I am on change email page
-    When I select change password CTA on change email page
-    Then I see change password page
-    And I see username or email prefilled on change email page
-
   @myBookingsPage5
   Scenario: Verify Detail section page
     Given I have accessed my Personal Details page
@@ -61,12 +35,6 @@ Feature: Verify My account page and sub pages
     And I select change email from my personal details page
     Then I verify elements on change email page
 
-  @profile-change-password
-  Scenario: US13646 Verify change password page
-    Given I have accessed my Personal Details page
-    And I choose to change password from my account page
-    Then I see change password page
-
   @logout-de
   Scenario: Logout verification on my account page
     Given I have accessed my Personal Details page
@@ -74,11 +42,6 @@ Feature: Verify My account page and sub pages
     Then I should see logout OS dialogue displayed
     When I confirm Logout
     Then I should navigate to welcome screen
-
-  Scenario: Add Booking
-    Given I have accessed my Personal Details page
-    When I tap on Add Booking biscuit
-    Then I should see Add Booking form displayed
 
   @viewbooking
   Scenario: view Bookings
