@@ -11,20 +11,21 @@ class Bookings
   end
 
   def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_engChecklist)
+
     @payload=payload
     @destinations=@payload["destinationGuide"]
     @weather=@payload["weather"]
-    @countdown= $g_countdown["payload"]  if $g_german_app && $g_phone
+    @countdown= $g_countdown["payload"] if $g_german_app && $g_phone
 
     if $g_tablet
-    @booking_summary= @payload["bookingSummary"] if $g_phone
-    @booking_summary= $g_summary["payload"] if $g_tablet
-    @products=@payload["products"]
-    @weather=@payload["weather"]
-    @dest_payload = $g_destinations["payload"]
+      @booking_summary= @payload["bookingSummary"] if $g_phone
+      @booking_summary= $g_summary["payload"] if $g_tablet
+      @products=@payload["products"]
+      @weather=@payload["weather"]
+      @dest_payload = $g_destinations["payload"]
 
-    @excursions_payload=$g_excursions["payload"]
-    @eng_checkList=eng_checkList if $g_eng_app
+      @excursions_payload=$g_excursions["payload"]
+      @eng_checkList=eng_checkList if $g_eng_app
     elsif $g_phone
 
     end
@@ -363,5 +364,40 @@ end
 
 
 module Phone
+  include BaseModule
+
+  def self.included(receiver)
+    puts self.name+"::#{$g_lang_mod}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+  end
+
+  module Eng
+
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+          return @payload["flight"]
+      end
+    end
+  end
+
+  module Deu
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+          return @payload["products"]["flight"]
+      end
+    end
+  end
+
+  module Nor
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+          return @payload["products"]["flight"]
+      end
+    end
+  end
+
 
 end

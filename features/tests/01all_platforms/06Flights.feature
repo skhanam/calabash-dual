@@ -1,7 +1,6 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@flight-biscuits @tab @reg
+@flight-biscuits @tab @reg @sanity
 Feature: US16741 Flights Biscuit
-
 
   @flight-biscuits1
   Scenario: US16741 Flights Biscuit pre-departure flight

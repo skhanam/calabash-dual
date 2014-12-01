@@ -54,7 +54,6 @@ $g_lang_strings_file="features/test_data/da/strings.xml" if ENV['LANG']=='da'
 $g_lang_strings_file="features/test_data/fi/strings.xml" if ENV['LANG']=='fi'
 $g_lang_strings_file="features/test_data/nb/strings.xml" if ENV['LANG']=='nb'
 
-require_relative '../../BasePages/base_page'
 
 
 if (ENV['TESTENV']=='DE_MT')
@@ -70,6 +69,9 @@ elsif (ENV['TESTENV']=='NOR')
   $g_current_user_details=NOR_USER
   $g_lang_mod="Nor"
 end
+
+require_relative '../../BasePages/base_page'
+
 
 $g_verified_strings="features/z_dump/verified_strings.txt"
 $g_messages_file="features/z_dump/welcome_messages#{Time.now.strftime("%Y-%m-%d_%H_%M")}.txt"

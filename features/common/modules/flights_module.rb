@@ -11,7 +11,48 @@ module FlightsModule
 
 
   module Phone
-    include BaseModule
+
+
+    def self.included(receiver)
+      puts self.name+"::#{$g_lang_mod}"
+      receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+    end
+
+    module Eng
+      include BaseModule
+
+      def check_flight_biscuit
+        var=$g_booking.get_home_biscuits("flight")
+        assert_wait_for_text @@your_flight
+
+        flight_data=var[0]
+        sleep 1
+        assert_wait_for_text flight_data["DepartureAirportCode"]
+        assert_text_present flight_data["DepartureAirportName"]
+        assert_text_present flight_data["ArrivalAirportCode"]
+        assert_text_present flight_data["ArrivalAirportName"]
+        @travel_date = DateTime.parse(flight_data["DepartureDate"]).strftime "%a %0d %B %Y"
+        assert_partial_text @travel_date
+      end
+
+    end
+    module Deu
+      include BaseModule
+
+      def check_flight_biscuit
+        var=$g_booking.get_home_biscuits("flight")
+        assert_wait_for_text @@your_flight
+
+        flight_data=var[0]
+        sleep 1
+        assert_wait_for_text flight_data["departureAirportCode"]
+        assert_text_present flight_data["departureAirportName"]
+        assert_text_present flight_data["arrivalAirportCode"]
+        assert_text_present flight_data["arrivalAirportName"]
+        @travel_date = DateTime.parse(flight_data["departureDateTime"]).strftime "%0d. %B %Y"
+        assert_partial_text @travel_date
+      end
+    end
   end
 
   module Tablet

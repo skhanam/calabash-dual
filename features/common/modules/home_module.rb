@@ -32,6 +32,22 @@ module HomeModule
       fail("temperature is empty") if res.match(/\d+/)==nil
     end
 
+    def scroll_to_biscuit var
+      case var
+        when "checklist Biscuit"
+          fail "TODO"
+        when "Currency Biscuit"
+          fail "TODO"
+        when "extras Biscuit"
+          fail "TODO"
+        when "Excursions Biscuit"
+          fail "TODO"
+        when "flights Biscuit"
+          scroll_page_till_acc(@@home_page_flights_Biscuit_acc, "down")
+      end
+      sleep 1
+    end
+
 
     def navigate_to_check_list
       begin

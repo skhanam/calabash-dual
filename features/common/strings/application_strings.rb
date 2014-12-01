@@ -213,13 +213,14 @@ module AppStrings
     @@login_button_acc = "loginButton"
     @@countdown_biscuit_acc="countdown_biscuit"
     @@weather_biscuit_acc="destination_temperature"
-
+    @@home_page_flights_Biscuit_acc="fromlocation"
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
     @@home_page_sidepanel_acc_label ="navbarLeftButton"
     @@logout_confirm_button_text = get_localized_string "confirm"
     @@days_to_go= get_localized_string "days_to_go"
 
+    @@your_flight = get_localized_string "your_flight"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
@@ -240,6 +241,9 @@ module AppStrings
     @@home_page_excursions_Biscuit_acc="excursions_Biscuit"
     @@home_page_flights_Biscuit_acc="flight_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
+    @@countdown_biscuit_acc="countdown_Biscuit"
+    @@weather_biscuit_acc="weather_Biscuit"
+    @@destination_biscuit_acc="destination_Biscuit"
 
     @@welcome_page_hint_icon="hintIcon"
     @@close_button_acc = "closeButton"
@@ -252,9 +256,6 @@ module AppStrings
     @@login_lets_get_inspired = get_localized_capitalized_string "login_lets_get_inspired" #Noch nicht gebucht? Lassen Sie sich inspirieren.
 
     @@login_button_acc = "SUBMIT"
-    @@countdown_biscuit_acc="countdown_Biscuit"
-    @@weather_biscuit_acc="weather_Biscuit"
-    @@destination_biscuit_acc="destination_Biscuit"
     @@destination_page_title_acc="Destination"
 
     @@side_panel_app_feedback="App Feedback" #overiding default value as they are not fetched from strings.xml file
