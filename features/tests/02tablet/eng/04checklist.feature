@@ -1,4 +1,4 @@
-@reg-en
+@reg-tab-en
 Feature: Checklist Tests
 
 

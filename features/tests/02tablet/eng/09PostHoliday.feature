@@ -1,4 +1,4 @@
-@reg-en @post-holiday
+@reg-tab-en @post-holiday
 Feature: Verify post Holiday Biscuit
 
   @ph1 @reset

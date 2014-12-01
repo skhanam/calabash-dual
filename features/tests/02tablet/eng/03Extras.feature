@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
-@extras-tests @tab @reg-en
+@extras-tests @tab @reg-tab-en
 Feature: US16740	Holiday Extras Biscuit
 
   @extra1
