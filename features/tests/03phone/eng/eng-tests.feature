@@ -1,4 +1,4 @@
- @eng @sanity-eng
+@en-phone @working @verify-package_check_list
 Feature: English Sanity Tests
 
   @verify-package_check_list1
@@ -14,7 +14,7 @@ Feature: English Sanity Tests
     And I check edit and delete options
     When I delete item added from packaging list
 
-  @first-check_list  @sanity-eng
+  @first-check_list
   Scenario: Verify check list item selection
     Given I am check list page
     When I select first item in check list
@@ -22,7 +22,7 @@ Feature: English Sanity Tests
     When I unselect the select item
     Then I see the item at bottom of check list
 
-  @verify-check_list
+  @verify-check_list121
   Scenario: Verify check list item selection
     Given I am check list page
     When I open to do list

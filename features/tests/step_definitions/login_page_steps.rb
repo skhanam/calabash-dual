@@ -109,7 +109,6 @@ def nordics_login(bookingNum, email, telephone)
   if $g_ios
     step "I clear input field number 1"
     step "I clear input field number 2"
-    step "I clear input field number 3"
 
     step 'I enter "'+bookingNum+'" into input field number 1'
     sleep 1
@@ -117,10 +116,10 @@ def nordics_login(bookingNum, email, telephone)
     sleep 1
     step "I clear input field number 2"
     #step 'I enter "'+email+'" into input field number 2' #uncomment this line for email booking
-    sleep 1
-    touch("toolbarTextButton index:2")
-    sleep 2
-    step 'I enter "'+telephone+'" into input field number 3'
+    #sleep 1
+    #touch("toolbarTextButton index:2")
+    #sleep 2
+    step 'I enter "'+telephone+'" into input field number 2'
     touch("toolbarTextButton index:1")
     sleep 1
 
@@ -485,9 +484,9 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
   step "I tap 'Retrieve my booking' button"
   step "I see retrieve my booking page"
   if condition.eql? 'wrong'
-    step "I submit wrong booking details in booking ref page"
+    step "I enter wrong booking details in booking ref page"
   elsif condition.eql? 'correct'
-    step "I submit correct booking details in booking ref page"
+    step "I enter correct booking details in booking ref page"
   end
 end
 

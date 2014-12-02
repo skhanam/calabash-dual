@@ -48,8 +48,10 @@ module NordicsStrings
     @@login_page_text = get_localized_string "welcome_login_paragraph" # Appen Min semester vänder
 
     @@login_page_booking_ref = get_localized_string "welcome_login_booking_reference"
-    @@login_page_email = get_localized_string "login_user_email"
-    @@login_page_telephone = get_localized_string "welcome_login_telephone"
+
+    @@welcome_login_emailTelephone = get_localized_string "welcome_login_emailTelephone"
+    @@welcome_login_emailTelephone_hint = get_localized_string "welcome_login_emailTelephone_hint"
+    #@@welcome_login_emailTelephone_extra = get_localized_string "welcome_login_emailTelephone_extra"
 
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
     @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"

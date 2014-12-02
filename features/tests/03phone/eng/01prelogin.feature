@@ -1,4 +1,4 @@
-@prelogin  @reset
+@prelogin-phone  @reset @en-phone @working
 Feature: Verify pre login screen
 
   @prelogin4 @eng

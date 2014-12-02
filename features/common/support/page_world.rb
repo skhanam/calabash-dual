@@ -40,7 +40,6 @@ module TestModule
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
       @postHolidayHomepage ||= PostLoginHomeBasePage.new
-
     elsif ($g_nordics_app)
       @contactPage=ContactUsNOR.new
       @dutyFreePage ||= DutyFreePage.new

@@ -1,4 +1,4 @@
-@android_test @ios_test @excursions
+@common-phone  @excursions
 Feature: Verify Excursions page
 
   @excursions1

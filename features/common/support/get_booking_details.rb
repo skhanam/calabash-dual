@@ -81,7 +81,7 @@ def eng_user_details
   $g_excursions=res_excursions
   $g_destinations=res_destination
   $g_current_booking=res_home
-  $g_engChecklist=res_checklist
+  $g_eng_checklist=res_checklist
   $g_weather = res_weather
   $g_summary = res_summary
 
@@ -145,8 +145,8 @@ if $g_current_app== "DE_MT"
   de_user_details
   $g_booking.set_payload($g_typical_booking_data["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
-  #eng_user_details
-  #$g_booking.set_payload($g_current_booking["payload"])
+  eng_user_details
+  $g_booking.set_payload($g_current_booking["payload"])
 end
 
 

@@ -16,7 +16,13 @@ Given(/^I am booking reference page$/) do
   step "I see retrieve my booking page"
 end
 
+
 When(/^I submit (wrong|correct) booking details in booking ref page$/) do |condition|
+  step 'I enter wrong booking details in booking ref page'
+  @page.click_on_text "Submit" if $g_phone
+end
+
+When(/^I enter (wrong|correct) booking details in booking ref page$/) do |condition|
 
   if condition.eql? 'wrong'
     @surname="Martin"

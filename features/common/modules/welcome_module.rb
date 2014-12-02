@@ -108,6 +108,12 @@ module WelcomeModule
     end
 
     module Nor
+     include BaseModule
+
+      def check_welcome_screen
+        return check_text_in_view @@login_welcome #Login flow is different for nordics
+      end
+
       def navigate_to_login
         fail "TODO"
       end

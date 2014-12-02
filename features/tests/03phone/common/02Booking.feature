@@ -1,4 +1,4 @@
-@ios_test @android_test
+@common-phone
 
 Feature: Verify booking summary page
 

@@ -126,7 +126,7 @@ if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
     	SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
     elif [ $LANG == "en_fc" ] ; then
 	   	SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
-    elif [ $LANG == "nor" ] ; then
+    elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
 	   	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
     fi
 

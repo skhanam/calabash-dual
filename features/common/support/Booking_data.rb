@@ -10,7 +10,7 @@ class Bookings
     $g_current_booking["payload"]["destination"]
   end
 
-  def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_engChecklist)
+  def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_eng_checklist)
 
     @payload=payload
     @destinations=@payload["destinationGuide"]
