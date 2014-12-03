@@ -34,7 +34,6 @@ When(/^I see tablet holiday booking summary page$/) do
 end
 
 When(/^I see holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_summary_page
   @bookingSummaryPage.verify_booking_reference_details
   @bookingSummaryPage.verify_days_to_go
 end

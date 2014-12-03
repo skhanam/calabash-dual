@@ -4,11 +4,13 @@ Feature: Verify product pages by navigating through side panel
   Check weather page is displayed correctly
   Check booking summary page is displayed correctly
 
+  @working
   Scenario: navigate to countdown page
     Given I am on home screen with default booking
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
 
+  @working
   Scenario: navigate to weather page
     Given I am on home screen with single booking
     When I navigate to weather page using side menu
@@ -32,7 +34,7 @@ Feature: Verify product pages by navigating through side panel
     And I navigate to destination using side menu
     Then I check destination page for each destination
 
-  @contact_us1
+  @contact_us1 @working
   Scenario: Verify contact us page and external links present
     Given I am on contact us screen
     Then I verify contact us page

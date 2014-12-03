@@ -11,6 +11,17 @@ class BookingSummaryBasePage < BasePage
     wait_for_text get_countdown_days.to_s
   end
 
+  def verify_booking_reference_details
+    @booking_code, @lead_passenger, @other_passengers = $g_booking.en_get_booking_summary_info if $g_eng_app
+    @booking_code, @lead_passenger, @other_passengers = $g_booking.de_get_booking_summary_info if $g_german_app
+
+    assert_wait_for_acc "HolidaySummary_menuItems"
+    sleep 2
+    wait_for_partial_text_shown @booking_code
+    wait_for_partial_text_shown @lead_passenger
+    @other_passengers.each {|var| wait_for_partial_text_shown var}
+  end
+
 end
 
 module Tablet

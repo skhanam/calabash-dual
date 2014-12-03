@@ -18,6 +18,14 @@ class Bookings
     @countdown= $g_countdown["payload"] if $g_german_app && $g_phone
 
     if $g_tablet
+      @booking_summary= $g_summary["payload"]
+      @products=@payload["products"]
+      @weather=@payload["weather"]
+      @dest_payload = $g_destinations["payload"]
+
+      @excursions_payload=$g_excursions["payload"]
+      @eng_checkList=eng_checkList if $g_eng_app
+    elsif $g_phone
       @booking_summary= @payload["bookingSummary"] if $g_phone
       @booking_summary= $g_summary["payload"] if $g_tablet
       @products=@payload["products"]
@@ -26,11 +34,11 @@ class Bookings
 
       @excursions_payload=$g_excursions["payload"]
       @eng_checkList=eng_checkList if $g_eng_app
-    elsif $g_phone
-
     end
 
-
+      puts @payload
+      puts @booking_summary
+    fail
   end
 
   def get_excursions
@@ -240,6 +248,8 @@ class Bookings
     @lead_passenger=nil
     @other_passengers=[]
 
+    puts "#{@booking_summary}"
+    fail
     @booking_code = @booking_summary["bookingRef"]
     @booking_summary["passengerCollection"].each do |var|
       puts var["LeadBookerIndicator"]

@@ -2,7 +2,7 @@
 Feature: Login and Home page features
   Login into application
 
-  @basic-sanity @check1 @ss
+  @basic-sanity @check1 @ss @failing
   Scenario: Check Navigation menus
     Given I am on default booking
     Given I am on Home screen
