@@ -1,4 +1,4 @@
-@nor @eng
+@nor-ph @eng
 Feature: English Sanity Tests
 
   @prelogin1 @ss @reset
@@ -12,13 +12,13 @@ Feature: English Sanity Tests
     When I select help logging in page
     Then I verify help logging in page
 
-  @offcanvas
+  @offcanvas  @nor-failing
   Scenario: Left off canvas Menu listing
     Given I am on Home screen
     Given I have opened side menu
     Then I should see a list of products in booking
 
-  @bookingsummary_biscuit
+  @bookingsummary_biscuit @nor-failing
   Scenario: Booking summary biscuit on home page
     Given I am on home screen with default booking
     When I select booking summary biscuit on home page

@@ -1,7 +1,7 @@
-@nor
+@nor-ph
 Feature: Nordics Sanity Tests
 
-  @booking-nor2
+  @booking-nor2 @nor-failing
   Scenario: navigate to booking summary page
     When I navigate to booking summary page using booking summary biscuit
     Then I see holiday booking summary page

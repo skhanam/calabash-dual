@@ -38,7 +38,6 @@ class Bookings
 
       puts @payload
       puts @booking_summary
-    fail
   end
 
   def get_excursions
@@ -249,7 +248,6 @@ class Bookings
     @other_passengers=[]
 
     puts "#{@booking_summary}"
-    fail
     @booking_code = @booking_summary["bookingRef"]
     @booking_summary["passengerCollection"].each do |var|
       puts var["LeadBookerIndicator"]

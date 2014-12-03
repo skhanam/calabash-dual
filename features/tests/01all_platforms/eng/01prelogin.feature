@@ -1,4 +1,4 @@
-@prelogin-en  @reset @reg-tab-en
+@prelogin-en  @reset @reg-en
 Feature: Verify pre login screen
 
   @lg1 @done

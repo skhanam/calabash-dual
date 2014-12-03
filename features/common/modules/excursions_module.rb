@@ -24,6 +24,8 @@ module ExcursionsModule
     end
 
     module Eng
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
         assert_wait_for_text @@experience_the_country
@@ -32,12 +34,16 @@ module ExcursionsModule
       end
     end
     module Nor
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
       end
     end
 
     module Deu
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
         assert_wait_for_text @@experience_the_country
@@ -50,7 +56,7 @@ module ExcursionsModule
     include BaseModule
 
     def check_excursions_page
-      wait_for_progress_to_disappear(@@loading_hold_on,10)
+      wait_for_progress_to_disappear(@@loading_hold_on, 10)
       sleep 2
       assert_partial_text @@excursions_title
     end
