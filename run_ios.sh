@@ -12,7 +12,7 @@ if [ "$#" -le "4" ]; then
     echo "4) Hardware on which tests are run tablet/ phone"
     echo "5) relative folder path where source code is located"
 
-	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de phone ../tda"
+	echo "\nSample command: \n 1) sh run_ios.sh clean @sanity de phone ../tda"
 	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda"
 	echo " 3)sh run_ios.sh NA @testnow en_fc phone ../tda\n"
 
@@ -85,8 +85,6 @@ if [ "$1" == "clean" ] ; then
     if [ $HW == "phone" ]; then
 		node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
-#		node build.js --brand $TI_SCHEME
-#		node build.js --brand $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
 			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
