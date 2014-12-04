@@ -8,6 +8,8 @@ module ExcursionsModule
   end
 
   module Phone
+    include BaseModule
+
     def self.included(receiver)
       puts self.name+"::#{$g_platform}"
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
@@ -21,6 +23,7 @@ module ExcursionsModule
       sleep 10
       query="webView css:'*' {textContent CONTAINS '#{@@side_panel_link}'}"
       assert_wait_for_element(query, 20)
+      check_webview
     end
 
     module Eng

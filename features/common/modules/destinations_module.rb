@@ -15,7 +15,6 @@ module DestinationsModule
       verify_page_title(@@destination_title)
     end
 
-
     def verify_destination_screen
       scroll_page_and_assert_text @@destination_share_facebook
       scroll_page_and_assert_text @@destination_page_location

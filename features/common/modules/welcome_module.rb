@@ -115,7 +115,7 @@ module WelcomeModule
       end
 
       def navigate_to_login
-        fail "TODO"
+        #will be on login screen after launch
       end
 
     end

@@ -321,7 +321,6 @@ end
 
 When(/^I tap on the first destination Biscuit$/) do
   @countries= $g_booking.get_destination_countries
-
   @homePage.click_destination_biscuit(1)
 end
 

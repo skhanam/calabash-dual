@@ -188,7 +188,7 @@
   <string name="reset_password_okay">reset_password_okay</string>
   <string name="welcome_body">welcome_body</string>
   <string name="welcome_cta_help_login">Hjälp med inloggningen </string>
-  <string name="welcome_cta_login">Logga in y</string>
+  <string name="welcome_cta_login">Logga in</string>
   <string name="welcome_header">welcome_header</string>
   <string name="welcome_help_cant_use_app_cta1">welcome_help_cant_use_app_cta1</string>
   <string name="welcome_help_cant_use_app_cta2">welcome_help_cant_use_app_cta2</string>
@@ -216,13 +216,13 @@
   <string name="welcome_login_surname_hint">welcome_login_surname_hint</string>
   <string name="welcome_login_paragraph">Appen Min semester vänder sig till dig som redan har bokat en resa. Om du inte har kommit så långt finns aktuella erbjudanden under ”Boka en resa” längst ner på sidan.\n\nDu loggar in med ditt bokningsnummer plus antingen e-postadress eller telefonnummer. Skriv uppgifterna på samma sätt som när du bokade.</string>
   <string name="welcome_login_email">E-postadress:</string>
-  <string name="welcome_login_emailTelephone">E-postadress:</string>
+  <string name="welcome_login_emailTelephone">E-postadress ELLER telefonnummer:</string>
   <string name="welcome_login_telephone">Telefon: </string>
   <string name="welcome_login_email_hint">Ange e-postadress</string>
-  <string name="welcome_login_emailTelephone_hint">Ange e-postadress</string>
+  <string name="welcome_login_emailTelephone_hint">Ange e-postadress ELLER telefonnummer:</string>
   <string name="welcome_login_telephone_hint">Ange telefonnummer</string>
   <string name="welcome_login_email_extra">Samma adress som i din bokning. Har du inte uppgett e-postadress där, gå vidare till telefonnummer.</string>
-  <string name="">Samma adress som i din bokning. Har du inte uppgett e-postadress där, gå vidare till telefonnummer.</string>
+  <string name="">Samma adress som i din bokning. Har du inte uppgett en e-postadress när du bokade kan du istället skriva det telefonnummer som angavs vid bokningstillfället.</string>
   <string name="welcome_login_telephone_extra">Telefonnummer dagtid (t ex mobil) som du angett i din bokning.</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
@@ -616,7 +616,7 @@
   <string name="countdown_waiting">Kliver på planet till [location] om</string>
   <string name="day_to_go">dag kvar</string>
   <string name="days_to_go">dagar kvar</string>
-  <string name="hours_to_go">hours_to_go</string>
+  <string name="hours_to_go">timmar kvar</string>
   <!-- 4.0 checklist -->
   <string name="add_an_item">add_an_item</string>
   <string name="biscuit_checklist_plural">biscuit_checklist_plural</string>

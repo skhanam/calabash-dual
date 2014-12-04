@@ -127,7 +127,11 @@ if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
     elif [ $LANG == "en_fc" ] ; then
 	   	SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
     elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
-	   	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
+
+    cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
+  	killall "iPhone Simulator"
+   	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
+
     fi
 
     DEST_STR=features/test_data/$LANG/
@@ -141,6 +145,15 @@ elif [ $HW == "phone" ] ; then
 	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
 fi
 
+ if [ $LANG == "sv" ] ; then
+	./build/ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
+ elif [ "$LANG" == "da" ] ; then
+	./build/ios-sim-locale -sdk 7.1  -language da -locale da_DK
+ elif [ "$LANG" == "fi" ] ; then
+	./build/ios-sim-locale -sdk 7.1  -language fi -locale fi_FI
+ elif [ "$LANG" == "nb" ] ; then
+	 ./build/ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
+ fi
 
 if [ "$2" != "NA" ] ; then
 {

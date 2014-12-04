@@ -10,17 +10,21 @@ module Phone
   def scroll_side_panel(text, dir="down")
     count=5
     puts "scroll_side_panel #{text}"
-    while (!element_exists("view text:'#{text}'") && count >0)
-      sleep 1
-      count-=1
-      scroll( "view marked:'Empty list'", "down")
-      sleep 1
-      puts element_exists("view text:'#{text}'")
-      puts "scrolling to #{text}"
-    end
-    fail("text #{text} not found") if count==0
-  end
 
+    if $g_nordics_app
+      scroll_page_and_assert_text text #TODO must be removed after adding acc labels
+    else
+      while (!element_exists("view text:'#{text}'") && count >0)
+        sleep 1
+        count-=1
+        scroll("view marked:'Empty list'", "down")
+        sleep 1
+        puts element_exists("view text:'#{text}'")
+        puts "scrolling to #{text}"
+      end
+      fail("text #{text} not found") if count==0
+    end
+  end
 
   def scroll_home_biscuits(txt)
     scroll_page_and_assert_text txt

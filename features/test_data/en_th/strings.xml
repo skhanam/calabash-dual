@@ -216,10 +216,13 @@
   <string name="welcome_login_surname_hint">Enter surname</string>
   <string name="welcome_login_paragraph">welcome_login_paragraph</string>
   <string name="welcome_login_email">welcome_login_email</string>
+  <string name="welcome_login_emailTelephone">welcome_login_emailTelephone</string>
   <string name="welcome_login_telephone">welcome_login_telephone</string>
   <string name="welcome_login_email_hint">welcome_login_email_hint</string>
+  <string name="welcome_login_emailTelephone_hint">welcome_login_emailTelephone_hint</string>
   <string name="welcome_login_telephone_hint">welcome_login_telephone_hint</string>
   <string name="welcome_login_email_extra">welcome_login_email_extra</string>
+  <string name=""></string>
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson.</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
@@ -1050,8 +1053,10 @@
   <string name="offline_minutes">[minutes] minutes ago</string>
   <string name="offline_just_now">Just Now</string>
   <!-- welcome -->
-  <string name="welcome_login_title">Have a Booking?</string>
+  <string name="welcome_login_title">Have a booking?</string>
   <string name="welcome_login_subtitle">Let's login</string>
   <string name="welcome_nobooking_title">Haven't booked?</string>
   <string name="welcome_nobooking_subtitle">Let's get inspired</string>
+  <!-- search and book -->
+  <string name="search_and_book">Search &amp; Book</string>
 </resources>

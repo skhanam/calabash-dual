@@ -9,11 +9,10 @@ def get_handshake(path)
   str.to_sha1
 end
 
-def nor_auth_key(phone, reservationCode)
+def nor_auth_key(reservationCode, phone)
   #login
   handshake=get_handshake("/login")
-  cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001'  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryNayEAbjQAnKtzibU' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-brand: nordics' -H 'tui-app-locale: sv-SE' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryNayEAbjQAnKtzibU\r\nContent-Disposition: form-data; name="reservationCode"\r\n\r\n#{reservationCode}\r\n------WebKitFormBoundaryNayEAbjQAnKtzibU\r\nContent-Disposition: form-data; name="email"\r\n\r\n\r\n------WebKitFormBoundaryNayEAbjQAnKtzibU\r\nContent-Disposition: form-data; name="phone"\r\n\r\n#{phone}\r\n------WebKitFormBoundaryNayEAbjQAnKtzibU\r\nContent-Disposition: form-data; name="returnWithHomeScreen"\r\n\r\n0\r\n------WebKitFormBoundaryNayEAbjQAnKtzibU--\r\n' --compressed}
-
+  cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: nordics' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryv3m9Mh4tIQcBimjw' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate' -H 'tui-auth-key: f1b0991b21551710cec8d3b01234be67' -H 'Connection: keep-alive' -H 'tui-app-locale: sv-SE' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryv3m9Mh4tIQcBimjw\r\nContent-Disposition: form-data; name="phone"\r\n\r\n#{phone}\r\n------WebKitFormBoundaryv3m9Mh4tIQcBimjw\r\nContent-Disposition: form-data; name="reservationCode"\r\n\r\n#{reservationCode}\r\n------WebKitFormBoundaryv3m9Mh4tIQcBimjw--\r\n' --compressed}
   res=JSON.parse(`#{cmd}`)
   res["payload"]["auth"] #return auth key
 end
@@ -33,6 +32,14 @@ def eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
   res["payload"]["auth"] #return auth key
 end
 
+def get_nor_payload(auth, type,reservation_code)
+  puts "nor payload for #{type}"
+  handshake=get_handshake("/reservation/#{reservation_code}/#{type}")
+  locale="sv-SE"
+  cmd=%Q{curl '#{$g_endpoint}/reservation/#{reservation_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-auth-key: #{auth}' -H 'tui-brand: nordics' -H 'tui-app-locale: #{locale}' -H 'tui-handshake: #{handshake}' --compressed}
+  res= JSON.parse(`#{cmd}`)
+  return res
+end
 def get_eng_payload(auth, type)
   puts "eng payload for #{type}"
   handshake=get_handshake("/reservation/undefined/#{type}")
@@ -134,11 +141,28 @@ def de_user_details
 end
 
 def nor_user_details
-  phone=NOR_USER[:valid][:telefon]
-  reservationCode=NOR_USER[:valid][:bookingnumber]
 
-  $g_endpoint="http://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
-  auth=nor_auth_key(phone, reservationCode)
+  $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
+  bookingnumber=NOR_USER[:valid][:bookingnumber]
+  emailOrTelephone=NOR_USER[:valid][:telefon]
+
+  auth = nor_auth_key(bookingnumber, emailOrTelephone)
+  puts auth
+  res_home=get_nor_payload(auth, "home",bookingnumber)
+  res_weather=get_nor_payload(auth, "weather",bookingnumber)
+  res_summary=get_nor_payload(auth, "summary", bookingnumber)
+  res_checklist=get_nor_payload(auth, "checklist", bookingnumber)
+  res_destination=get_nor_payload(auth, "destination", bookingnumber)
+  res_excursions=get_nor_payload(auth, "excursions", bookingnumber)
+  res_countdown=get_nor_payload(auth, "countdown", bookingnumber)
+
+  $g_countdown=res_countdown
+  $g_excursions=res_excursions
+  $g_destinations=res_destination
+  $g_current_booking=res_home
+  $g_eng_checklist=res_checklist
+  $g_weather = res_weather
+  $g_summary = res_summary
 end
 
 if $g_current_app== "DE_MT"
@@ -146,6 +170,9 @@ if $g_current_app== "DE_MT"
   $g_booking.set_payload($g_typical_booking_data["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
+  $g_booking.set_payload($g_current_booking["payload"])
+elsif $g_current_app== "NOR_sv"
+  nor_user_details
   $g_booking.set_payload($g_current_booking["payload"])
 end
 

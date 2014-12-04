@@ -15,13 +15,13 @@ Feature: Verify App feedback page
     Then verify rating submitted message
 
   @app-feedback3
-  Scenario: Verify change app feedback rating page
+  Scenario: Change app rating on App feedback page
     Given I have submitted default rating
     When I select change rating on feedback submitted page
     Then I see app feedback page
 
   @app-feedback4
-  Scenario: Change app feedback rating page and verify page
+  Scenario: Change and resubmit default rating
     Given I have submitted default rating
     When I select change rating on feedback submitted page
     Then I see app feedback page
