@@ -16,6 +16,12 @@ Check out code
 > test source code from stash -
 > https://stash.akqa.net/scm/lontui/tda.ui-automation.git (tablet branch
 
+Changing locale:
+===============
+locale is changed using external library - https://code.google.com/p/ios-sim-locale/wiki/Usage
+add ios-sim-locale to /usr/bin or add the path of ios-sim-locale to $PATH variable
+list of languages supported - https://gist.github.com/jacobbubu/1836273#file-ioslocaleidentifiers-csv
+
 Folder structure
 ===============
 ```` 

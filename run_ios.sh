@@ -146,14 +146,16 @@ elif [ $HW == "phone" ] ; then
 fi
 
  if [ $LANG == "sv" ] ; then
-	./build/ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
+	ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
  elif [ "$LANG" == "da" ] ; then
-	./build/ios-sim-locale -sdk 7.1  -language da -locale da_DK
+	ios-sim-locale -sdk 7.1  -language da -locale da_DK
  elif [ "$LANG" == "fi" ] ; then
-	./build/ios-sim-locale -sdk 7.1  -language fi -locale fi_FI
+	ios-sim-locale -sdk 7.1  -language fi -locale fi_FI
  elif [ "$LANG" == "nb" ] ; then
-	 ./build/ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
+	ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
  fi
+
+killall "iPhone Simulator"
 
 if [ "$2" != "NA" ] ; then
 {
