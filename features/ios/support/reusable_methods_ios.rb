@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rubyXL'
+#require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 require_relative '../../common/support/view_functions'
