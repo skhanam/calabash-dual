@@ -29,6 +29,8 @@ def meine_tui_login(username, password, country)
     step 'I enter "'+password+'" into input field number 3'
     step "I press the enter button"
   end
+  puts "setting country"
+  sleep 10
   step "I set country #{country} in login screen"
   sleep 2
 end

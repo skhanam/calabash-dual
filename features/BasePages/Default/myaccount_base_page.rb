@@ -86,7 +86,8 @@ class MyAccountBasePage < BasePage
   end
 
   def change_password_prefilled_username
-    res=query("TiTextField", :text).first
+    res=query("TiTextField", :text).first if $g_ios
+    res=query("TiEditText", :text).first if $g_android
     puts "user name" + $g_current_user_details[:valid][:username]
     puts "user name" +res
     fail "Username is not prefilled" if $g_current_user_details[:valid][:username] != res

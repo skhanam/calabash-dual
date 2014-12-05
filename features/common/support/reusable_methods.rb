@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rubyXL'
+#require 'rubyXL'
 require 'date'
 require_relative '../strings/application_strings'
 require "unicode_utils/upcase"

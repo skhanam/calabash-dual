@@ -1,4 +1,4 @@
-require 'rubyXL'
+#require 'rubyXL'
 require_relative '../../BasePages/base_page'
 require 'yaml'
 

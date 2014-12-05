@@ -166,8 +166,8 @@ def nor_user_details
 end
 
 if $g_current_app== "DE_MT"
-  de_user_details
-  $g_booking.set_payload($g_typical_booking_data["payload"])
+  #de_user_details
+  #$g_booking.set_payload($g_typical_booking_data["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
   $g_booking.set_payload($g_current_booking["payload"])

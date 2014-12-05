@@ -35,9 +35,6 @@ class Bookings
       @excursions_payload=$g_excursions["payload"]
       @eng_checkList=eng_checkList if $g_eng_app
     end
-
-      puts @payload
-      puts @booking_summary
   end
 
   def get_excursions

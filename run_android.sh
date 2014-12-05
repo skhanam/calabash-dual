@@ -131,14 +131,15 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 	fi
 
 	#Do not perform below steps when there are no tests selected to run
-	if [ "$2" != "NA" ] ; then
-		rm -rf test_servers/
-		calabash-android resign "$3"app.apk
-		calabash-android build "$3"app.apk
-		adb install -r "$3"app.apk
-		adb install -r test_servers/*.apk
-	fi
 
+fi
+
+if [ "$2" != "NA" ] ; then
+	rm -rf test_servers/
+	calabash-android resign $FILENAME
+	calabash-android build $FILENAME
+	adb install -r $FILENAME
+	adb install -r test_servers/*.apk
 fi
 
 if [ "$2" != "NA" ] ; then
