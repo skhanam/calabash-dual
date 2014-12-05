@@ -27,7 +27,7 @@ class Bookings
       @eng_checkList=eng_checkList if $g_eng_app
     elsif $g_phone
       @booking_summary= @payload["bookingSummary"] if $g_phone
-      @booking_summary= $g_summary["payload"] if $g_tablet
+      @booking_summary= $g_summary["payload"] if $g_eng_app
       @products=@payload["products"]
       @weather=@payload["weather"]
       @dest_payload = $g_destinations["payload"]
@@ -243,7 +243,6 @@ class Bookings
     @booking_code=nil
     @lead_passenger=nil
     @other_passengers=[]
-
     puts "#{@booking_summary}"
     @booking_code = @booking_summary["bookingRef"]
     @booking_summary["passengerCollection"].each do |var|
