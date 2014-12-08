@@ -35,15 +35,10 @@ module Phone
     scroll_page_and_assert_text(@@bookingSummary_emailTitle) # "Email my booking details"
   end
 
-  def verify_booking_reference_number
-    visionShopNumber=$g_current_user_details[:valid][:VisionShopNumber]
-    visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
-    puts "visionBookingRef #{visionBookingRef} vision shop number #{visionShopNumber}"
-    wait_for_partial_text_shown visionShopNumber
-    wait_for_partial_text_shown visionBookingRef
-  end
+
 
   def verify_days_to_go
+    fail "MAY NOT BE NEEDED"
     get_countdown_days= $g_current_user_details[:valid][:departuredate]
     res1=Date.parse(get_countdown_days)
     days=res1.strftime("%e")
@@ -52,10 +47,6 @@ module Phone
     str=res1.strftime("%e#{suffix_days} %B %Y")
     puts "Departure date :#{str}:"
     scroll_page_and_assert_text str.to_s
-  end
-
-  def check_booking_summary_screen
-    assert_wait_for_text(@@booking_summary_title)
   end
 
 end

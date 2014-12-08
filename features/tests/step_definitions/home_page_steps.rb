@@ -224,7 +224,7 @@ end
 
 Then(/^I verify booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.verify_days_to_go  if !$g_eng_app # this may be present for other phone apps or else remove it
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -242,7 +242,7 @@ Then(/^I should be navigated to Post Holiday page$/) do
 end
 
 Then(/^I should see a Countdown biscuit with a count of days left$/) do
-  @page.assert_wait_for_text @countdown.to_s
+  @page.assert_wait_for_text(@countdown.to_s,20)
   @homePage.check_countdown_biscuit
 end
 

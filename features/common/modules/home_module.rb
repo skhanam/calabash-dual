@@ -28,7 +28,7 @@ module HomeModule
     include BaseModule
 
     def check_temp_present
-      res=query("view marked:'#{@@weather_biscuit_acc}'", :text)[0] if $g_ios
+      res=query("view marked:'#{@@weather_temp_acc}'", :text)[0] if $g_ios
       res=query("* marked:'destination_temperature.'",:text).first if $g_android
       fail("temperature is empty") if res.match(/\d+/)==nil
     end

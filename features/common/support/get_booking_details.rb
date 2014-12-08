@@ -91,7 +91,6 @@ def eng_user_details
   $g_eng_checklist=res_checklist
   $g_weather = res_weather
   $g_summary = res_summary
-
 end
 
 

@@ -33,14 +33,17 @@ module ViewModule
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)
     puts "wait_for_partial_text_shown (#{text})"
-    query_text=escape_quotes_smart($g_query_txt+"{text CONTAINS '#{text}'}")
+    query_text=($g_query_txt+"{text CONTAINS '#{text}'}")
+    puts "query_text :#{query_text}:"
     begin
       wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
-        puts ":#{text}:"
+        puts ":#{query_text}:"
+        sleep 0.5
       end
       flash(query_text) if ($g_flash)
     rescue
-      fail("Failed to find text"+text)
+      query_text=escape_quotes_smart($g_query_txt+"{text CONTAINS '#{text}'}")
+      assert_element query_text
     end
     return true
   end
@@ -48,6 +51,7 @@ module ViewModule
   #Check if part of text is shown
   def check_partial_text_shown text
     puts "check_partial_text_shown #{text}"
+
     if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}")
       flash("#{$g_query_txt}{text CONTAINS '#{text}'}") if ($g_flash)
       return true

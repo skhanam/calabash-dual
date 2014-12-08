@@ -20,7 +20,7 @@ Then(/^I see flights page with my flights listed$/) do
 end
 
 Then(/^I verify details of all flights$/) do
-  count=CommonMethods.new.find_number_of_flights
+  count=$g_booking.find_number_of_flights
   @flightsPage.check_flights_listing
   if count==1
     # TODO this must be changed once bug for @single-journey is fixed

@@ -34,13 +34,12 @@ When(/^I see tablet holiday booking summary page$/) do
 end
 
 When(/^I see holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.verify_booking_reference_number if $g_phone
+  @bookingSummaryPage.verify_booking_reference_details if $g_tablet
 end
 
 When(/^I see and verify holiday booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
   @bookingSummaryPage.verify_booking_summary_details
 end
 

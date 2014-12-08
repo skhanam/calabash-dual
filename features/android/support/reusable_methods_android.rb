@@ -61,6 +61,7 @@ module AndroidReusableMethods
 
   #This method avoids calabash from crashing while using single quotes
   def escape_quotes_smart(str)
+    return str if !(str.include? '\'')
     #If escape quotes are used dont use again
     if str.include? '\\\''
       return str

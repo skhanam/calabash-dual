@@ -144,6 +144,13 @@ module AppStrings
     @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
     @@activity_indicator_twelve=get_localized_string "activity_indicator_twelve"
 
+    @@countdown_biscuit_acc="countdown_Biscuit"
+    @@weather_biscuit_acc="weather_Biscuit"
+    @@home_page_flights_Biscuit_acc="flight_Biscuit"
+    @@home_page_currency_Biscuit_acc="currency_Biscuit"
+    @@home_page_checklist_Biscuit_acc = "checklist_Biscuit"
+    @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
+
   end
 
   def image_icons_acc_label
@@ -211,9 +218,7 @@ module AppStrings
   def phone_only_strings
     @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@login_button_acc = "loginButton"
-    @@countdown_biscuit_acc="countdown_biscuit"
-    @@weather_biscuit_acc="destination_temperature"
-    @@home_page_flights_Biscuit_acc="fromlocation"
+    @@weather_temp_acc="destination_temperature"
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
     @@home_page_sidepanel_acc_label ="navbarLeftButton"
@@ -234,15 +239,10 @@ module AppStrings
     @@home_page_title_acc ="offcanvasCTA"
     @@home_page_sidepanel_acc_label ="offcanvasCTA"
 
-    @@home_page_checklist_Biscuit_acc = "checklist_Biscuit"
-    @@home_page_currency_Biscuit_acc="currency_Biscuit"
-    @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
-    @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
+
     @@home_page_excursions_Biscuit_acc="excursions_Biscuit"
-    @@home_page_flights_Biscuit_acc="flight_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
-    @@countdown_biscuit_acc="countdown_Biscuit"
-    @@weather_biscuit_acc="weather_Biscuit"
+    @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
     @@destination_biscuit_acc="destination_Biscuit"
 
     @@welcome_page_hint_icon="hintIcon"

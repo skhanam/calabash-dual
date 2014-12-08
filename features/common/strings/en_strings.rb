@@ -202,9 +202,12 @@ module EN_Strings
     if $g_phone
       @@side_panel_countdown=get_localized_string "holiday_countdown"
       @@side_panel_booking_summary=get_localized_string "booking_summary" #"Holiday summary"
+      @@side_panel_destination= get_localized_string "destination"
     elsif $g_tablet
       @@side_panel_countdown=get_localized_string "countdown"
       @@side_panel_booking_summary="Holiday Summary" #
+      @@side_panel_destination= "Destination Guide" #get_localized_string "destination"
+
     end
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
@@ -225,7 +228,6 @@ module EN_Strings
     @@guide_online = get_localized_string "guide_online_biscuit_title"
 
     @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
-    @@side_panel_destination= "Destination Guide" #get_localized_string "destination"
     @@side_panel_currency= get_localized_string "currency_offcanvas"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
