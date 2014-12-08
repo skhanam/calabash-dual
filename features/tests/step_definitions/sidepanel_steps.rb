@@ -39,7 +39,7 @@ When(/^I see holiday booking summary page$/) do
 end
 
 When(/^I see and verify holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_reference_details
+ step 'I see holiday booking summary page'
   @bookingSummaryPage.verify_booking_summary_details
 end
 
