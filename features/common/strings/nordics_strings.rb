@@ -35,6 +35,7 @@ module NordicsStrings
 
   def home_strings
     @@home_destination_string= get_localized_string "explore" # Om mitt resmål
+    @@logout_confirm_two= get_localized_string "logout_confirm_two" # Are you sure you want to log out?
   end
 
   def countdown_strings

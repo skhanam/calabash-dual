@@ -398,7 +398,9 @@ module Phone
     def get_home_biscuits(var)
       case var
         when "flight"
-          return @payload["products"]["flight"]
+          arr=[]
+          res=@payload["products"]["flights"]
+          return res
       end
     end
   end

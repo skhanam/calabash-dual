@@ -216,10 +216,13 @@
   <string name="welcome_login_surname_hint">welcome_login_surname_hint</string>
   <string name="welcome_login_paragraph">welcome_login_paragraph</string>
   <string name="welcome_login_email">welcome_login_email</string>
+  <string name="welcome_login_emailTelephone">welcome_login_emailTelephone</string>
   <string name="welcome_login_telephone">welcome_login_telephone</string>
   <string name="welcome_login_email_hint">welcome_login_email_hint</string>
+  <string name="welcome_login_emailTelephone_hint">welcome_login_emailTelephone_hint</string>
   <string name="welcome_login_telephone_hint">welcome_login_telephone_hint</string>
   <string name="welcome_login_email_extra">welcome_login_email_extra</string>
+  <string name=""></string>
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
@@ -1049,4 +1052,11 @@
   <string name="offline_hours">vor [hours] Stunden</string>
   <string name="offline_minutes">vor [minutes] Minuten</string>
   <string name="offline_just_now">gerade eben</string>
+  <!-- welcome -->
+  <string name="welcome_login_title">welcome_login_title</string>
+  <string name="welcome_login_subtitle">welcome_login_subtitle</string>
+  <string name="welcome_nobooking_title">welcome_nobooking_title</string>
+  <string name="welcome_nobooking_subtitle">welcome_nobooking_subtitle</string>
+  <!-- search and book -->
+  <string name="search_and_book">search_and_book</string>
 </resources>

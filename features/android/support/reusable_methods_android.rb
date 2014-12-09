@@ -141,7 +141,7 @@ module AndroidReusableMethods
     return true
   end
 
-  def scroll_view(dir)
+  def scroll_view(dir, index=0)
     if (dir=="up")
       perform_action('drag', 50, 50, 70, 90, 10)
     elsif (dir=="down")
@@ -177,7 +177,7 @@ module AndroidReusableMethods
   end
 
 #touch text and verify result
-  def touch_txt_and_verify_title(id, text)
+  def touch_txt_and_verify_title(id, text=nil)
     sleep 1
     if element_exists("* text:'#{id}'")
       touch("* text:'#{id}'")
@@ -187,15 +187,16 @@ module AndroidReusableMethods
       fail("id:#{id} not found")
     end
 
-    if ENV['TESTENV']=="EN_FC"
-      title_text=UnicodeUtils.upcase(text)
-    else
-      title_text=text
+    if text!=nil
+      if ENV['TESTENV']=="EN_FC"
+        title_text=UnicodeUtils.upcase(text)
+      else
+        title_text=text
+      end
+
+      assert_wait_for_text(title_text, 10)
+      verify_page_title title_text
     end
-
-    assert_wait_for_text(title_text, 10)
-    verify_page_title title_text
-
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)

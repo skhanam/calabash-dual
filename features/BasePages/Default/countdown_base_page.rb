@@ -11,7 +11,7 @@ class CountDownBasePage < BasePage
   end
 
   def check_days_left
-    assert_wait_for_text $g_booking.get_countdown_days.to_s
+    assert_wait_for_partial_text($g_booking.get_countdown_days.to_s,20)
   end
 
   def check_text_elements

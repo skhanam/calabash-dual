@@ -15,7 +15,7 @@ Feature: Verify weather features
     When I navigate to weather page using weather biscuit
     Then I see holiday weather page
 
-  @home-weather3
+  @home-weather3 @not-nor
   Scenario: US16737 Verify Weather page
     Given I am on weather page
     Then I see holiday weather page

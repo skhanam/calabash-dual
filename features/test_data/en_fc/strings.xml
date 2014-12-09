@@ -216,10 +216,13 @@
   <string name="welcome_login_surname_hint">Enter surname</string>
   <string name="welcome_login_paragraph">welcome_login_paragraph</string>
   <string name="welcome_login_email">welcome_login_email</string>
+  <string name="welcome_login_emailTelephone">welcome_login_emailTelephone</string>
   <string name="welcome_login_telephone">welcome_login_telephone</string>
   <string name="welcome_login_email_hint">welcome_login_email_hint</string>
+  <string name="welcome_login_emailTelephone_hint">welcome_login_emailTelephone_hint</string>
   <string name="welcome_login_telephone_hint">welcome_login_telephone_hint</string>
   <string name="welcome_login_email_extra">welcome_login_email_extra</string>
+  <string name="welcome_login_emailTelephone_extra">welcome_login_emailTelephone_extra</string>
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">You didn’t book a First Choice holiday directly with First Choice or Thomson::You booked a Thomson cruise::You booked a Thomson holiday</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
@@ -324,7 +327,7 @@
   <string name="guide_online">Guide Online</string>
   <string name="app_feedback">App feedback</string>
   <string name="browse_holidays_top_text">Browse our</string>
-  <string name="browse_holidays_bottom_text">Holidays collections</string>
+  <string name="browse_holidays_bottom_text">Holiday collections</string>
   <string name="currency_offcanvas">Currency</string>
   <string name="browse_banner">BROWSE OUR HOLIDAY COLLECTIONS</string>
   <!-- 7,1 Seleted Hotel -->
@@ -993,7 +996,7 @@
   <string name="water">water</string>
   <!-- 16.0 Push Notifications -->
   <string name="push_notifications">Push Notifications</string>
-  <string name="we_would_like_to_send_push">We’d like to you send useful updates about your holiday, like online check-in, Select-your-Seat and exclusive offers.</string>
+  <string name="we_would_like_to_send_push">We’d like to send you useful updates about your holiday, like online check-in, Select-your-Seat and exclusive offers.</string>
   <string name="not_now">Not now</string>
   <string name="allow">Allow</string>
   <!-- 19.0 App Feedback -->
@@ -1050,8 +1053,10 @@
   <string name="offline_minutes">[minutes] minutes ago</string>
   <string name="offline_just_now">Just Now</string>
   <!-- welcome -->
-  <string name="welcome_login_title">Have a Booking?</string>
+  <string name="welcome_login_title">Have a booking?</string>
   <string name="welcome_login_subtitle">Let's login</string>
   <string name="welcome_nobooking_title">Haven't booked?</string>
   <string name="welcome_nobooking_subtitle">Let's get inspired</string>
+  <!-- search and book -->
+  <string name="search_and_book">Search &amp; Book</string>
 </resources>

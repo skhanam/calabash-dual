@@ -177,6 +177,17 @@ module ViewModule
     return true
   end
 
+  ## Assert if text to check is not shown before timeout
+  def assert_wait_for_partial_text(text, time_out=15)
+    fail "Text is empty" if text==nil
+    puts "assert_wait_for_partial_text (#{text})"
+     if wait_for_partial_text_shown(text, time_out)==false
+       puts "#{query("view",:text)}"
+       fail("text:#{text}: not present")
+     end
+    return true
+  end
+
   #Wait to check if acc label appears on screen
   def assert_wait_for_acc(text, timeout=10)
     puts "assert_wait_for_acc (#{text})"

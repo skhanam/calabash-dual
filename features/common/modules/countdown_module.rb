@@ -36,9 +36,11 @@ module CountdownModule
     end
 
     def check_sharing_options
-      click_on_text @@countdown_share_button_text
-      assert_wait_for_acc @@facebook_share_img
-      assert_wait_for_acc @@twitter_share_img
+      if !$g_nordics_app  # sharing options open in nordics hence removed verification
+        click_on_text @@countdown_share_button_text
+        assert_wait_for_acc @@facebook_share_img
+        assert_wait_for_acc @@twitter_share_img
+      end
     end
 
   end
