@@ -22,7 +22,8 @@ class WeatherBasePage < BasePage
       elsif ($g_nordics_app)
         month=CommonMethods.new.get_month_translated(next_day.strftime("%B"))
         next_day_date_text=next_day.strftime("%e #{month} %Y")
-        next_day=UnicodeUtils.downcase(CommonMethods.new.get_weekday_translated(next_day_text))
+        next_day=(CommonMethods.new.get_weekday_translated(next_day_text))
+        #next_day=UnicodeUtils.downcase(CommonMethods.new.get_weekday_translated(next_day_text))
       elsif ($g_german_app)
         next_day_date_text=next_day.strftime("%e. %B %Y")
         next_day=next_day_text

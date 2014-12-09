@@ -162,6 +162,7 @@ def nor_user_details
   $g_eng_checklist=res_checklist
   $g_weather = res_weather
   $g_summary = res_summary
+
 end
 
 if $g_current_app== "DE_MT"

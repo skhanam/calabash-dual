@@ -131,7 +131,7 @@ SV_USER ={
     :bookingnumber => "1C62192",
     :emailid => "karin.ohlsson@fritidsresor.se",
     :telefon => "0733800015",
-    :departuredate => "12-12-2014",
+    :departuredate => "15-12-2014",
     :DepartureTime => "12:00",
 }
 

@@ -176,6 +176,11 @@ Given(/^I am on weather page$/) do
   step "I am on home screen with default booking"
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
+  if $g_nordics_app && ($g_weather["payload"]["weatherStations"].count > 1)
+      @city=$g_weather["payload"]["weatherStations"][0]["city"]
+      @page.assert_partial_text @city
+      @page.click_on_partial_text @city
+  end
 end
 
 Given(/^I am on default booking$/) do
@@ -224,7 +229,7 @@ end
 
 Then(/^I verify booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go  if !$g_eng_app # this may be present for other phone apps or else remove it
+  @bookingSummaryPage.verify_days_to_go if !$g_eng_app # this may be present for other phone apps or else remove it
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -242,7 +247,7 @@ Then(/^I should be navigated to Post Holiday page$/) do
 end
 
 Then(/^I should see a Countdown biscuit with a count of days left$/) do
-  @page.assert_wait_for_text(@countdown.to_s,20)
+  @page.assert_wait_for_text(@countdown.to_s, 20)
   @homePage.check_countdown_biscuit
 end
 
@@ -433,4 +438,8 @@ When(/^I navigate to logout$/) do
   else
     step 'I click on Logout using side menu'
   end
+end
+Given(/^I am on weather page with single booking$/) do
+  step 'I am on home screen with single booking'
+  step 'I am on weather page'
 end
