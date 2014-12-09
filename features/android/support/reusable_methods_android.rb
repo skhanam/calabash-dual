@@ -17,7 +17,7 @@ end
 
 module Tablet
   def
-  scroll_side_panel(text,dir="down")
+  scroll_side_panel(text, dir="down")
     count=5
     puts "scroll_side_panel #{text}"
     while (!element_exists("view text:'#{text}'") && count >0)
@@ -52,11 +52,16 @@ module AndroidReusableMethods
     assert_text_present text
   end
 
-  def enter_text_android(text)
+  def enter_text_android(text, id=nil)
     sleep 2
-    text=text.gsub(' ', '%s')
-    command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
-    raise "Could not send text" unless system(command)
+    if id!=nil
+      enter_text("android.widget.EditText contentDescription:'#{id}.'", text)
+    else
+      text=text.gsub(' ', '%s')
+      command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
+      raise "Could not send text" unless system(command)
+    end
+
   end
 
   #This method avoids calabash from crashing while using single quotes
@@ -145,7 +150,7 @@ module AndroidReusableMethods
   end
 
   # scroll in specified direction till id is found
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10,index=0)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10, index=0)
     repeat_count=0
     sleep 1
     write_verified_text_to_file "scroll_page_and_assert_text (#{id})"

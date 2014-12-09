@@ -1,4 +1,4 @@
-@android_test @ios_test @nor-prelogin @nor-ph @reset
+@android_test @ios_test @nor-prelogin @nor-prelogin @reset
 Feature: Verify pre login screen
 
  @prelogin3

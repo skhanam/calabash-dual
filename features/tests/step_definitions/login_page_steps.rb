@@ -126,14 +126,17 @@ def nordics_login(bookingNum, email, telephone)
     sleep 1
 
   elsif $g_android
-    @page.click_acc_label "bookingReference"
-    @page.input_text(bookingNum)
-
-    @page.click_acc_label "emailTelephoneid"
-    @page.input_text(telephone)
-
+    #enter_text("android.widget.EditText index:0","asd")
+    #enter_text("android.widget.EditText index:0","asd")
+    #macro 'I enter "#{bookingNum}" into "bookingReference"'
+    #step %Q{I enter "#{telephone}" into "emailTelephoneid"}
+    #
+    @page.input_text(bookingNum, "bookingReference")
+    press_enter_button
+    sleep 1
+    @page.input_text(telephone, "emailTelephoneid")
+    press_enter_button
     @loginPage.scroll_to_end_of_page
-
   end
 end
 
@@ -166,7 +169,6 @@ Given(/^I log into first choice application$/) do
   visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
 
   uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
-  #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
 
 end
 Given(/^I log into thomson application$/) do
