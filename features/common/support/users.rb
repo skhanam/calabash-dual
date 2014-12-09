@@ -102,15 +102,44 @@ FIRSTCHOICE_USER||={
 #}
 
 #  DEV user
-NOR_USER||={
-    :valid => {
-        :bookingnumber => "1C62192",
-        :emailid => "therese.bellhammar@fritidsresor.se",
-        :telefon => "0733800015",
-        :departuredate => "22-02-2015",
-        :DepartureTime => "08:15",
 
-    },
+NO_USER ={
+    :bookingnumber => "3U55365",
+    :emailid => "marie.silverbratt@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "17-01-2015",
+    :DepartureTime => "13:55",
+}
+
+DA_USER ={
+    :bookingnumber => "BN36227",
+    :emailid => "lars.linden@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "19-01-2015",
+    :DepartureTime => "07:50",
+}
+
+FI_USER ={
+    :bookingnumber => "AL75051",
+    :emailid => "therese.bellhammar@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "22-02-2015",
+    :DepartureTime => "08:15",
+}
+
+SV_USER ={
+    :bookingnumber => "1C62192",
+    :emailid => "karin.ohlsson@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "12-12-2014",
+    :DepartureTime => "12:00",
+}
+
+puts "#{$g_lang}"
+NORDICS_USER=eval("#{UnicodeUtils.upcase($g_lang)}"+"_USER")
+
+NOR_USER||={
+    :valid => NORDICS_USER,
     :invalid => {
         :bookingnumber => "11Y30060",
         :emailid => "ns.w@or.se",
@@ -118,5 +147,3 @@ NOR_USER||={
         :departuredate => "26-10-2014",
     }
 }
-
-

@@ -68,7 +68,6 @@ module HomeModule
     end
 
     def click_countdown_biscuit
-      scroll_page_and_assert_text(@@countdown_biscuit_acc) if $g_phone
       click_acc_label @@countdown_biscuit_acc
       verify_page_title @@countdown_page_title
     end
