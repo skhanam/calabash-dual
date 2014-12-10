@@ -143,8 +143,14 @@ elif [ $HW == "phone" ] ; then
 	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
 fi
 
+
+killall "iPhone Simulator"
+
+if [ "$2" != "NA" ] ; then
+
  if [ $LANG == "sv" ] ; then
 	ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
+	echo ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
  elif [ "$LANG" == "da" ] ; then
 	ios-sim-locale -sdk 7.1  -language da -locale da_DK
  elif [ "$LANG" == "fi" ] ; then
@@ -153,9 +159,6 @@ fi
 	ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
  fi
 
-killall "iPhone Simulator"
-
-if [ "$2" != "NA" ] ; then
 {
 if [ ! -d $FILENAME ]; then
     echo "\n\n**************************************************************************"

@@ -135,15 +135,16 @@ SV_USER ={
     :DepartureTime => "12:00",
 }
 
-puts "#{$g_lang}"
-NORDICS_USER=eval("#{UnicodeUtils.upcase($g_lang)}"+"_USER")
+if ($g_lang=="sv" ||$g_lang=="da" ||$g_lang=="fi" ||$g_lang=="nb")
+  NORDICS_USER=eval("#{UnicodeUtils.upcase($g_lang)}"+"_USER")
+  NOR_USER||={
+      :valid => NORDICS_USER,
+      :invalid => {
+          :bookingnumber => "11Y30060",
+          :emailid => "ns.w@or.se",
+          :telefon => "0722377937",
+          :departuredate => "26-10-2014",
+      }
+  }
+end
 
-NOR_USER||={
-    :valid => NORDICS_USER,
-    :invalid => {
-        :bookingnumber => "11Y30060",
-        :emailid => "ns.w@or.se",
-        :telefon => "0722377937",
-        :departuredate => "26-10-2014",
-    }
-}
