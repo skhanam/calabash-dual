@@ -100,6 +100,7 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("* marked:'bookingReference2.'")
     sleep 1
     @page.input_text(visionBookingRef)
+    press_down_button
 
     @loginPage.scroll_to_end_of_page
 
