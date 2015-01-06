@@ -103,7 +103,7 @@ FIRSTCHOICE_USER||={
 
 #  DEV user
 
-NO_USER ={
+NB_USER ={
     :bookingnumber => "3U55365",
     :emailid => "marie.silverbratt@fritidsresor.se",
     :telefon => "0733800015",
