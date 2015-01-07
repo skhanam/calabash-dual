@@ -1,8 +1,5 @@
 class LoginBasePage < BasePage
 
-  def verify_login_screen
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"])
-  end
 
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
@@ -34,7 +31,7 @@ class LoginBasePage < BasePage
   def check_login_screen
   check_text_in_view @@login_welcome
   end
-  
+
   def verify_login_screen
     assert_wait_for_text(@@login_welcome)
   end

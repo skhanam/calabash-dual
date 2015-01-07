@@ -69,7 +69,7 @@ module ViewModule
     begin
       wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
         sleep 1
-        puts "waiting for text :#{text}:"
+        puts "waiting  #{time_out} seconds for text :#{text}:"
       end
     rescue
       return false

@@ -214,9 +214,13 @@ Given(/^I am on 'Login' screen/) do
       fail "Not on login screen"
     end
   elsif $g_phone
-    navigate_flag=false if @loginPage.check_login_screen
+     if @loginPage.check_login_screen
+       navigate_flag=false
+       puts "No need to login"
+     end
+
   end
-  @welcomePage.navigate_to_login if navigate_flag
+ @welcomePage.navigate_to_login if navigate_flag && $g_phone
   @loginPage.verify_login_screen
 end
 
