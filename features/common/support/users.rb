@@ -128,11 +128,11 @@ FI_USER ={
 }
 
 SV_USER ={
-    :bookingnumber => "1C62192",
+    :bookingnumber => "1C62272",
     :emailid => "karin.ohlsson@fritidsresor.se",
-    :telefon => "0733800015",
-    :departuredate => "15-12-2014",
-    :DepartureTime => "12:00",
+    :telefon => "0755668899",
+    :departuredate => "06-02-2015",
+    :DepartureTime => "12:30",
 }
 
 if ($g_lang=="sv" ||$g_lang=="da" ||$g_lang=="fi" ||$g_lang=="nb")
