@@ -68,7 +68,7 @@
   <string name="welcome_help_cant_login_androidStore">welcome_help_cant_login_androidStore</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">welcome_help_cant_login_androidStoreCTA_website</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website_tablet">welcome_help_cant_login_androidStoreCTA_website_tablet</string>
-  <string name="welcome_help_cant_login_body">Felskrivet bokningsnummer. Det ska börja med siffran 1, följt av en bokstav och fem siffror till. Versionsnummer (t ex -01) ska inte anges.::Felskriven e-postadress. Kolla stavningen och observera att fältet ska lämnas tomt om du inte uppgav någon e-postadress när du bokade.::Felskrivet telefonnummer. Ska vara det telefonnummer dagtid (t ex mobil) som du angav vid bokningstillfället. Skriv in siffrorna på samma sätt som du gjorde då. Har du angett e-postadress kan du lämna det här fältet tomt.</string>
+  <string name="welcome_help_cant_login_body">Felskrivet bokningsnummer. Det ska börja med siffran 1, följt av en bokstav och fem siffror till. Versionsnummer (t ex -01) ska inte anges.::Felskriven e-postadress eller felskrivet telefonnummer. Kontrollera stavning och ange telefonnummer dagtid (t ex mobil) som du angav vid bokningstillfället. Skriv in siffrorna på samma sätt som du gjorde då..::Observera att du ska skriva ANTINGEN e-mail ELLER telefonnummer. </string>
   <string name="welcome_help_cant_login_body_1">welcome_help_cant_login_body_1</string>
   <string name="welcome_help_cant_login_body_2">welcome_help_cant_login_body_2</string>
   <string name="welcome_help_cant_login_body_3">welcome_help_cant_login_body_3</string>
@@ -219,7 +219,7 @@
   <string name="welcome_login_emailTelephone">E-postadress ELLER telefonnummer:</string>
   <string name="welcome_login_telephone">Telefon: </string>
   <string name="welcome_login_email_hint">Ange e-postadress</string>
-  <string name="welcome_login_emailTelephone_hint">Ange e-postadress ELLER telefonnummer:</string>
+  <string name="welcome_login_emailTelephone_hint">Ange e-post eller telefon</string>
   <string name="welcome_login_telephone_hint">Ange telefonnummer</string>
   <string name="welcome_login_email_extra">Samma adress som i din bokning. Har du inte uppgett e-postadress där, gå vidare till telefonnummer.</string>
   <string name="welcome_login_emailTelephone_extra">Samma adress som i din bokning. Har du inte uppgett en e-postadress när du bokade kan du istället skriva det telefonnummer som angavs vid bokningstillfället.</string>
@@ -1060,4 +1060,47 @@
   <string name="welcome_nobooking_subtitle">welcome_nobooking_subtitle</string>
   <!-- search and book -->
   <string name="search_and_book">search_and_book</string>
+  <!-- flight checkin -->
+  <string name="webcheckin_homepagebiscuit_checkinavailable">webcheckin_homepagebiscuit_checkinavailable</string>
+  <string name="webcheckin_homepagebiscuit_checkinavailable_cta">webcheckin_homepagebiscuit_checkinavailable_cta</string>
+  <string name="webcheckin_homepagebiscuit_allflightsopen">webcheckin_homepagebiscuit_allflightsopen</string>
+  <string name="webcheckin_homepagebiscuit_oneflightopen_flighttxt">webcheckin_homepagebiscuit_oneflightopen_flighttxt</string>
+  <string name="webcheckin_homepagebiscuit_oneflightopen_departingtxt">webcheckin_homepagebiscuit_oneflightopen_departingtxt</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin">webcheckin_homepagebiscuit_somecheckedin</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_cta">webcheckin_homepagebiscuit_somecheckedin_cta</string>
+  <string name="webcheckin_homepagebiscuit_offlineerr">webcheckin_homepagebiscuit_offlineerr</string>
+  <string name="webcheckin_confirmation_successful_title">webcheckin_confirmation_successful_title</string>
+  <string name="webcheckin_confirmation_successful_body">webcheckin_confirmation_successful_body</string>
+  <string name="webcheckin_confirmation_successful_cta">webcheckin_confirmation_successful_cta</string>
+  <string name="webcheckin_confirmation_restricted_body">webcheckin_confirmation_restricted_body</string>
+  <string name="webcheckin_confirmation_restricted_title">webcheckin_confirmation_restricted_title</string>
+  <string name="webcheckin_confirmation_restricted_cta">webcheckin_confirmation_restricted_cta</string>
+  <string name="webcheckin_confirmation_nombp_title">webcheckin_confirmation_nombp_title</string>
+  <string name="webcheckin_confirmation_nombp_body">webcheckin_confirmation_nombp_body</string>
+  <string name="webcheckin_confirmation_nombp_cta">webcheckin_confirmation_nombp_cta</string>
+  <!-- travelfolio -->
+  <string name="travelfolio_biscuit_title">travelfolio_biscuit_title</string>
+  <string name="travelfolio_biscuit_subtitle_singular">travelfolio_biscuit_subtitle_singular</string>
+  <string name="travelfolio_biscuit_subtitle_plural">travelfolio_biscuit_subtitle_plural</string>
+  <string name="travelfolio_checkin_now">travelfolio_checkin_now</string>
+  <string name="travelfolio_refresh_cta">travelfolio_refresh_cta</string>
+  <string name="travelfolio_refresh_body">travelfolio_refresh_body</string>
+  <string name="travelfolio_category_title">travelfolio_category_title</string>
+  <string name="travelfolio_category_mbp">travelfolio_category_mbp</string>
+  <string name="travelfolio_category_transferVoucher">travelfolio_category_transferVoucher</string>
+  <string name="travelfolio_category_flightVoucher">travelfolio_category_flightVoucher</string>
+  <string name="travelfolio_category_carVoucher">travelfolio_category_carVoucher</string>
+  <string name="travelfolio_category_camperVoucher">travelfolio_category_camperVoucher</string>
+  <string name="travelfolio_category_trainToFlightVoucher">travelfolio_category_trainToFlightVoucher</string>
+  <string name="travelfolio_category_vignette">travelfolio_category_vignette</string>
+  <string name="travelfolio_category_extraVoucher">travelfolio_category_extraVoucher</string>
+  <string name="travelfolio_category_travelPlan">travelfolio_category_travelPlan</string>
+  <string name="travelfolio_category_travelConfirmation">travelfolio_category_travelConfirmation</string>
+  <string name="travelfolio_category_accommodationVoucher">travelfolio_category_accommodationVoucher</string>
+  <!-- boardingpass -->
+  <string name="boardingpass_biscuit_seat">boardingpass_biscuit_seat</string>
+  <string name="boardingpass_biscuit_flight">boardingpass_biscuit_flight</string>
+  <string name="boardingpass_biscuit_date">boardingpass_biscuit_date</string>
+  <string name="boardingpass_biscuit_departs">boardingpass_biscuit_departs</string>
+  <string name="boardingpass_biscuit_passenger">boardingpass_biscuit_passenger</string>
 </resources>

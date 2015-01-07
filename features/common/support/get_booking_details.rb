@@ -171,7 +171,7 @@ if $g_current_app== "DE_MT"
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
   $g_booking.set_payload($g_current_booking["payload"])
-elsif $g_current_app== "NOR_sv"
+elsif $g_nordics_app
   nor_user_details
   $g_booking.set_payload($g_current_booking["payload"])
 end

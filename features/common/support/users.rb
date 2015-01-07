@@ -104,10 +104,10 @@ FIRSTCHOICE_USER||={
 #  DEV user
 
 NB_USER ={
-    :bookingnumber => "3U55365",
-    :emailid => "marie.silverbratt@fritidsresor.se",
-    :telefon => "0733800015",
-    :departuredate => "17-01-2015",
+    :bookingnumber => "3U55389",
+    :emailid => "jan.johansson@gmail.com",
+    :telefon => "0788998899",
+    :departuredate => "07-03-2015",
     :DepartureTime => "13:55",
 }
 
