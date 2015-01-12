@@ -259,7 +259,7 @@ module AppStrings
     @@destination_page_title_acc="Destination"
 
     @@side_panel_app_feedback="App Feedback" #overiding default value as they are not fetched from strings.xml file
-    #@@welcome_page_swipe_down_acc = "swipeDown"
+  @@welcome_page_swipe_down_acc = "swipeDown"
     #@@welcome_page_swipe_up_acc = "swipeUp"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")

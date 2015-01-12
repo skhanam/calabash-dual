@@ -1077,6 +1077,15 @@
   <string name="webcheckin_confirmation_nombp_title">Wichtig! </string>
   <string name="webcheckin_confirmation_nombp_body">Sie haben sich eingecheckt, aber Ihre Flughäfen akzeptieren keine mobilen Bordkarten. Bitte schauen Sie in Ihr E-Mail-Postfach für weitere Informationen.</string>
   <string name="webcheckin_confirmation_nombp_cta">OK</string>
+  <string name="webcheckin_flightdetailpage_checkinnotopen">webcheckin_flightdetailpage_checkinnotopen</string>
+  <string name="webcheckin_flightdetailpage_3rdparty">webcheckin_flightdetailpage_3rdparty</string>
+  <string name="webcheckin_flightdetailpage_checkinnow">webcheckin_flightdetailpage_checkinnow</string>
+  <string name="webcheckin_flightdetailpage_checkinnowcta">webcheckin_flightdetailpage_checkinnowcta</string>
+  <string name="webcheckin_flightdetailpage_checkedin">webcheckin_flightdetailpage_checkedin</string>
+  <string name="webcheckin_flightdetailpage_checkedincta">webcheckin_flightdetailpage_checkedincta</string>
+  <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
+  <string name="webcheckin_flightdetailpage_somecheckedin">webcheckin_flightdetailpage_somecheckedin</string>
+  <string name="webcheckin_flightdetailpage_somecheckedincta">webcheckin_flightdetailpage_somecheckedincta</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Reisedokumente</string>
   <string name="travelfolio_biscuit_subtitle_singular">[count] Reisedokument</string>
@@ -1084,7 +1093,7 @@
   <string name="travelfolio_checkin_now">Jetzt einchecken</string>
   <string name="travelfolio_refresh_cta">travelfolio_refresh_cta</string>
   <string name="travelfolio_refresh_body">travelfolio_refresh_body</string>
-  <string name="travelfolio_category_title">Travelfolio</string>
+  <string name="travelfolio_category_title">Reisedokumente</string>
   <string name="travelfolio_category_mbp">Mobilen Bordkarten</string>
   <string name="travelfolio_category_transferVoucher">Transferticket</string>
   <string name="travelfolio_category_flightVoucher">Flugticket</string>

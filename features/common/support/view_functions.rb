@@ -9,6 +9,27 @@ end
 module ViewModule
   if ($g_ios)
     include Calabash::Cucumber::Operations
+    ## Specify text to check and time to wait for
+    def wait_for_text(text, time_out=10)
+      begin
+        wait_for_element_exists("#{$g_query_txt}text:'#{text}'",{:timeout=>time_out.to_i})
+      rescue
+        return false
+      end
+      puts text
+      flash($g_query_txt+"text:'#{text}'") if $g_flash
+      return true
+    end
+  elsif $g_android
+    def wait_for_text(text, time_out=10)
+      begin
+        wait_for_text(text, timeout: time_out.to_i)
+      rescue
+        return false
+      end
+      puts text
+      return true
+    end
   end
 
   def self.included(receiver)
@@ -64,20 +85,7 @@ module ViewModule
     fail("text not shown #{text}") if check_partial_text_shown(text) ==false
   end
 
-  ## Specify text to check and time to wait for
-  def wait_for_text(text, time_out=10)
-    begin
-      wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
-        sleep 1
-        puts "waiting  #{time_out} seconds for text :#{text}:"
-      end
-    rescue
-      return false
-    end
-    puts text
-    flash($g_query_txt+"text:'#{text}'") if $g_flash
-    return true
-  end
+
 
   def wait_for_label(lbl, timeout)
     timeout=timeout.to_i
@@ -87,6 +95,7 @@ module ViewModule
       sleep 1
     end
   end
+
 
   def wait_for_progress_to_disappear(str, timeout=10)
     puts "waiting for progress bar"
