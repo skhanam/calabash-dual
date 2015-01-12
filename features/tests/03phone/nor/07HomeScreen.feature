@@ -10,7 +10,7 @@ Feature: Check home screen biscuits
   @destination1 @nor-failing
   Scenario: Open Destination page from home page biscuit
     Given I am on home screen with default booking
-    When I select destination biscuit
+    When I navigate to destination using destination biscuit
     Then I see destination information page
 
   @destination2 @nor-failing

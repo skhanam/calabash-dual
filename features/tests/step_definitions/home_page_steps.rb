@@ -224,7 +224,7 @@ Then(/^I see guide online page$/) do
 end
 
 When(/^I select destination biscuit$/) do
-  @homePage.select_destination_biscuit
+  @homePage.select_destination_biscuit @home_destination_string
 end
 
 Then(/^I verify booking summary page$/) do

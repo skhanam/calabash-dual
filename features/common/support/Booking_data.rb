@@ -37,7 +37,6 @@ class Bookings
   end
 
   def get_excursions
-    #puts "@excursions_payload #{@excursions_payload}"
     arr=@excursions_payload["destinationAreaExcursions"]
     hash_arr={}
     arr.each do |var|
@@ -242,10 +241,10 @@ class Bookings
     @booking_code=nil
     @lead_passenger=nil
     @other_passengers=[]
-    puts "#{@booking_summary}"
+  #  puts "#{@booking_summary}"
     @booking_code = @booking_summary["bookingRef"]
     @booking_summary["passengerCollection"].each do |var|
-      puts var["LeadBookerIndicator"]
+    #  puts var["LeadBookerIndicator"]
       if var["LeadBookerIndicator"]
         @lead_passenger = var["Initial"]+" "+var["Surname"]
       elsif !var["LeadBookerIndicator"]

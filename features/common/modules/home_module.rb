@@ -113,10 +113,20 @@ module HomeModule
       puts "#{res1} != #{res2}"
       fail("Number of days are wrong") if (res1 != res2)
     end
+
+    def click_destination_biscuit(num=1)
+      scroll_page_till_acc(@@destination_biscuit_acc)
+      click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
+    end
   end
 
   module Tablet
     include BaseModule
+
+    def click_destination_biscuit(num=1)
+      scroll_page_till_acc(@@destination_biscuit_acc, "right")
+      click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
+    end
 
     def check_temp_present
       res=query("view marked:'#{@@weather_biscuit_acc}' view marked:'temp'", :text)[0]

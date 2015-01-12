@@ -14,13 +14,12 @@ class HomePage < BasePage
     $g_query_txt+"text:'#{@@hold_on_one_moment}'"
   end
 
-  def select_destination_biscuit
-    scroll_page_till_partial_text @@home_destination_string
-    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
-    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{@@home_destination_string}' }") if $g_android
+  def select_destination_biscuit var
+    scroll_page_till_partial_text var
+    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{var}'}") if $g_ios
+    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{var}' }") if $g_android
     assert_element(query)
     touch query
-
   end
 
   def check_destination_biscuit
@@ -28,10 +27,6 @@ class HomePage < BasePage
     assert_wait_for_acc(@@destination_biscuit_acc)
   end
 
-  def click_destination_biscuit(num=1)
-    scroll_page_till_acc(@@destination_biscuit_acc, "right")
-    click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
-  end
 
   def find_currency_converter_biscuit
     scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")

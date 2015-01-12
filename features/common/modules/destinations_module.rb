@@ -17,14 +17,15 @@ module DestinationsModule
 
     def verify_destination_screen
       scroll_page_and_assert_text @@destination_share_facebook
-      scroll_page_and_assert_text @@destination_page_location
       scroll_page_and_assert_text @@destination_page_gen_info
+      scroll_page_and_assert_text @@destination_page_location
     end
 
 
     def verify_destination_info_screen
       verify_page_title @@destination_title
     end
+
 
   end
 

@@ -7,8 +7,6 @@ class DestinationInfoBasePage < BasePage
     @countries.each do |var|
       puts "checking destination name #{var}"
       scroll_page_till_partial_text var
-      #assert_partial_text var
-#      scroll_home_biscuits var
     end
   end
 

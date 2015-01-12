@@ -124,6 +124,9 @@ module WelcomeModule
   module Tablet
     include BaseModule
 
+    def navigate_to_login
+     click_acc_label @@welcome_page_swipe_down_acc
+    end
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
       #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
