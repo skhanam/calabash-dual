@@ -10,7 +10,6 @@ Feature: Verify product pages by navigating through side panel
     When I navigate to countdown page using side menu
     Then I see holiday countdown page
 
-  @working
   Scenario: navigate to weather page
     Given I am on home screen with single booking
     When I navigate to weather page using side menu

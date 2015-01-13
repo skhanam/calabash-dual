@@ -109,6 +109,8 @@ def get_de_payload(booking_code, auth, type)
   return JSON.parse(`#{cmd}`)
 end
 
+#fetch booking data for type of booking if its not present
+# or just return booking data if already present
 def de_user_details(typical_booking_code, type="typical")
   $g_endpoint="http://37.46.24.155:3001" # DEV ENV
   @booking_code = typical_booking_code
@@ -117,6 +119,8 @@ def de_user_details(typical_booking_code, type="typical")
   handshake=get_handshake("/login")
 
   if $booking_hash[type]==nil
+    $booking_hash[type]={} # create empty hash
+
     if $g_tablet
       cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
     elsif $g_phone
@@ -145,23 +149,41 @@ def de_user_details(typical_booking_code, type="typical")
     $g_summary = res_summary
     $g_destinations= res_destinations
 
-    ##### testing this still
-    $booking_hash[$selected_booking]["home"] = res_typ_home
-    $booking_hash[$selected_booking]["destination"] = res_destinations
-    $booking_hash[$selected_booking]["weather"] = res_weather
-    $booking_hash[$selected_booking]["summary"] = res_summary
-    $booking_hash[$selected_booking]["countdown"] = res_countdown
-    $booking_hash[$selected_booking]["excursions"] = res_typ_excursions
+    ##### saving data to hash for future reference
+    $booking_hash[type]["home"] = res_typ_home
+    $booking_hash[type]["destination"] = res_destinations
+    $booking_hash[type]["weather"] = res_weather
+    $booking_hash[type]["summary"] = res_summary
+    $booking_hash[type]["countdown"] = res_countdown
+    $booking_hash[type]["excursions"] = res_typ_excursions
 
     ##### testing this still
     if type=="typical"
       $g_excursions = res_typ_excursions
     end
-    puts $booking_hash
+  else
+    # if details are already fetched
+    $g_current_booking = $booking_hash[type]["home"]
+    $g_destinations = $booking_hash[type]["destination"]
+    $g_weather = $booking_hash[type]["weather"]
+    $g_summary = $booking_hash[type]["summary"]
+    $g_countdown = $booking_hash[type]["countdown"]
 
+    ##### testing this still
+    if type=="typical"
+      $g_excursions = $booking_hash[type]["excursions"]
+    end
   end
 
-  def nor_user_details
+
+  puts "##################################################"
+    puts "##################################################"
+    puts "########## #{type} booking"
+    puts "##################################################"
+    puts "##################################################"
+end
+
+def nor_user_details
 
     $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
     bookingnumber=NOR_USER[:valid][:bookingnumber]
@@ -185,16 +207,15 @@ def de_user_details(typical_booking_code, type="typical")
     $g_weather = res_weather
     $g_summary = res_summary
   end
-end
 
 
 $booking_hash={} # hash array to hold data fetched from curl
-$booking_hash[$selected_booking]={} # hash array to hold data fetched from curl
+# hash array to hold data fetched from curl
 
 if $g_current_app== "DE_MT"
   $g_de_typical_booking= "test0027"
   $g_de_single_booking= "test0011"
-  de_user_details $g_de_typical_booking,"typical"
+  de_user_details $g_de_typical_booking, "typical"
   $g_booking.set_payload($g_current_booking["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details

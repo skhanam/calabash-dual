@@ -16,9 +16,18 @@ When (/^I navigate to weather page using weather biscuit$/) do
 end
 
 When(/^I navigate to hotel (\d+) page using side menu$/) do |num|
-  @hotel_num=num.to_i
+  @hotel_details=$g_booking.get_hotel_details[num.to_i-1]
+  @hotel_name=@hotel_details["name"]
   @homePage.open_side_panel
   @sidePanel.navigate_to_hotel(num)
+end
+
+
+When(/^I navigate to hotel (\d+) from home page$/) do |arg|
+  @hotel_name=$g_booking.get_hotel_details[arg.to_i-1]
+  @hotel_name=@hotel_details["name"]
+  @page.scroll_page_and_assert_text(@hotel_name) if $g_phone
+  @page.click_on_text(@hotel_name)
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -123,11 +132,6 @@ Given(/^I navigate to travel money page from home screen$/) do
   @travelMoneyPage.verify_travel_money_page
 end
 
-When(/^I navigate to hotel (\d+) from home page$/) do |arg|
-  @hotel_name=$g_booking.get_home_page_hotel(arg.to_i)
-  @page.scroll_page_and_assert_text(@hotel_name) if $g_phone
-  @page.click_on_text(@hotel_name)
-end
 
 When(/^I navigate to first destination using home page biscuit$/) do
   @home_destination_string = $g_booking.get_destination_countries[0]
@@ -175,6 +179,7 @@ Given(/^I am on packaging list page$/) do
   step "I am check list page"
   step "I open my packaging list"
 end
+
 
 Given(/^I am on weather page$/) do
   step "I am on home screen with default booking"
@@ -442,7 +447,8 @@ When(/^I navigate to logout$/) do
     step 'I click on Logout using side menu'
   end
 end
+
 Given(/^I am on weather page with single booking$/) do
   step 'I am on home screen with single booking'
-  step 'I am on weather page'
+  @homePage.click_weather_biscuit
 end

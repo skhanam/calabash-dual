@@ -1,5 +1,5 @@
 Then(/^I see correct hotel page$/) do
-  @hotel_details=@hotelPage.verify_hotel_text(@hotel_name)
+  @hotelPage.verify_hotel_text(@hotel_name)
 end
 
 And(/^I verify below links on hotel page:$/) do |table|
@@ -11,7 +11,7 @@ end
 And(/^I verify below details on hotel page:$/) do |table|
   values=table.raw
   values.each do |var|
-    @hotelPage.validate_hotel_details(var[0],@hotel_details)
+    @hotelPage.validate_hotel_details(var[0], @hotel_details)
   end
 end
 

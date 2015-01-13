@@ -3,7 +3,7 @@
 
 # Holds booking data and provides method for accessing data
 class Bookings
-  include eval($g_hw_module)
+ include eval($g_hw_module)
 
   def get_countdown_destination
     $g_current_booking["payload"]["destination"]
@@ -185,7 +185,8 @@ class Bookings
     elsif $g_german_app
       prod=find_de_products("hotel")
       prod.each do |var|
-        arr.push(var["infoList"][0]["value"])
+        puts var
+        arr.push(var)
       end
     end
     return arr

@@ -31,7 +31,7 @@ Then(/^I verify details of all flights$/) do
 end
 
 Then(/^I should not see flights list$/) do
-  count=CommonMethods.new.find_number_of_flights
+  count=$g_booking.find_number_of_flights
   puts "count #{count}"
   @flightsPage.check_flights_list_is_not_shown
 end

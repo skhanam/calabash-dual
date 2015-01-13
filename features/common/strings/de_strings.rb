@@ -86,6 +86,7 @@ module DEMeineTUI
       @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
       @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint" # 12345678
       @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
+      @@login_button= get_localized_string "login" #Login
 
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
@@ -93,6 +94,7 @@ module DEMeineTUI
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
       @@login_page_text=get_localized_string "login_welcome"
+      @@login_button=get_localized_string "login_login"
     end
 
     @@signup_signup_cta= get_localized_capitalized_string "signup_signup_cta" #Registrieren
@@ -106,7 +108,6 @@ module DEMeineTUI
 
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
-    @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "i_need_help"
     @@privacy_terms_of_use=get_localized_string "terms_title"
@@ -116,7 +117,6 @@ module DEMeineTUI
     @@login_credentials_error = get_localized_string "error_box_failed_title" if $g_tablet
 
     @@submit_button= get_localized_string "submit" #Speichern
-    @@login_button= get_localized_string "login" #Login
 
     @@login_default_country="Deutschland"
     @@general_login_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"

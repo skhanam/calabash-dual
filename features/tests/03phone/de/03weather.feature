@@ -5,7 +5,6 @@ Feature: Weather
   I should be able to access the destination weather screens
   So I am informed about the current and forecasted weather
 
-  @testnow
   Scenario:Week's weather
     Given I have switched to single booking
     When I navigate to weather page
