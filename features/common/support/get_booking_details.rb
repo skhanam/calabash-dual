@@ -2,6 +2,7 @@ require 'json'
 require 'date'
 require 'rickshaw'
 require_relative '../support/users'
+require_relative '../../common/support/Booking_data'
 $g_secret_key="hf5GGmLb9EtzNYFNXyYQ2ial9COEg8VGawuAjIKvGsNuzGF1hhVyKVkTMEqrjOC"
 
 def get_handshake(path)
@@ -32,7 +33,7 @@ def eng_auth_key(surname, departureDate, visionShopNumber, visionBookingRef)
   res["payload"]["auth"] #return auth key
 end
 
-def get_nor_payload(auth, type,reservation_code)
+def get_nor_payload(auth, type, reservation_code)
   puts "nor payload for #{type}"
   handshake=get_handshake("/reservation/#{reservation_code}/#{type}")
   locale="sv-SE"
@@ -40,6 +41,7 @@ def get_nor_payload(auth, type,reservation_code)
   res= JSON.parse(`#{cmd}`)
   return res
 end
+
 def get_eng_payload(auth, type)
   puts "eng payload for #{type}"
   handshake=get_handshake("/reservation/undefined/#{type}")
@@ -95,79 +97,105 @@ end
 
 
 def get_de_payload(booking_code, auth, type)
-  puts "de payload for #{type}"
-  @typical_booking_code=booking_code
-  handshake=get_handshake("/reservation/#{@typical_booking_code}/#{type}")
-
+#  puts "de payload for #{type}"
+  @booking_code=booking_code
+  handshake=get_handshake("/reservation/#{@booking_code}/#{type}")
+  # puts "handshake #{handshake}"
   if $g_tablet
-    cmd=%Q{curl '#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
+    cmd=%Q{curl '#{$g_endpoint}/reservation/#{@booking_code}/#{type}' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6'  -H 'tui-tablet: true' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-screen-height: 768' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/' -H 'Connection: keep-alive' -H 'tui-screen-width: 1024' -H 'tui-handshake: #{handshake}' --compressed}
   elsif $g_phone
-    cmd=%Q{curl "#{$g_endpoint}/reservation/#{@typical_booking_code}/#{type}" -H 'tui-public-key: abcd' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'Authorization: Basic ZGV2ZWxvcGVyOnRlc3RUZXN0' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --compressed}
+    cmd=%Q{curl "#{$g_endpoint}/reservation/#{@booking_code}/#{type}" -H 'tui-public-key: abcd' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'Authorization: Basic ZGV2ZWxvcGVyOnRlc3RUZXN0' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'tui-auth-key: PHPSESSID=#{auth}; path=/; secure; HttpOnly' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --compressed}
   end
   return JSON.parse(`#{cmd}`)
 end
 
-def de_user_details
+def de_user_details(typical_booking_code, type="typical")
   $g_endpoint="http://37.46.24.155:3001" # DEV ENV
-  @typical_booking_code="test0012" if $g_tablet # DEV ENV
-  @typical_booking_code="test0012" if $g_phone # DEV ENV
-
+  @booking_code = typical_booking_code
   username="userdea@gmail.com"
   password="testtest"
   handshake=get_handshake("/login")
 
-  if $g_tablet
-    cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
-  elsif $g_phone
-    cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-auth-key: PHPSESSID=g5qamb5blsuke6lh6kgv5e4643; path=/; secure; HttpOnly' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryOdmlO8xXwqlNplAo' -H 'Referer: http://37.46.24.155:8001/index.html'  -H 'tui-brand: tui-de' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo--\r\n' --compressed}
+  if $booking_hash[type]==nil
+    if $g_tablet
+      cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-brand: tui-de' -H 'Accept-Language: en-US,en;q=0.8' -H 'tui-screen-height: 768' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZ1OvZyyXBlRO2nEB' -H 'Accept: */*' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Connection: keep-alive' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryZ1OvZyyXBlRO2nEB--\r\n' --compressed}
+    elsif $g_phone
+      cmd=%Q{curl '#{$g_endpoint}/login' -H 'tui-public-key: abcd' -H 'Origin: http://37.46.24.155:8001' -H 'tui-auth-key: PHPSESSID=g5qamb5blsuke6lh6kgv5e4643; path=/; secure; HttpOnly' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryOdmlO8xXwqlNplAo' -H 'Referer: http://37.46.24.155:8001/index.html'  -H 'tui-brand: tui-de' -H 'tui-handshake: #{handshake}' --data-binary $'------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="username"\r\n\r\n#{username}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo\r\nContent-Disposition: form-data; name="password"\r\n\r\n#{password}\r\n------WebKitFormBoundaryOdmlO8xXwqlNplAo--\r\n' --compressed}
+    end
+
+    res_login=JSON.parse(`#{cmd}`)
+    auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
+    puts "auth #{auth}"
+
+
+    res_typ_home=get_de_payload(@booking_code, auth, "home")
+    res_destinations=get_de_payload(@booking_code, auth, "destination")
+    res_weather=get_de_payload(@booking_code, auth, "weather")
+    res_summary=get_de_payload(@booking_code, auth, "summary")
+    res_countdown=get_de_payload(@booking_code, auth, "countdown")
+
+    if type=="typical"
+      res_typ_excursions=get_de_payload(@booking_code, auth, "excursions")
+    end
+
+    $g_current_booking= res_typ_home
+    $g_user_info= res_login
+    $g_countdown=res_countdown
+    $g_weather = res_weather
+    $g_summary = res_summary
+    $g_destinations= res_destinations
+
+    ##### testing this still
+    $booking_hash[$selected_booking]["home"] = res_typ_home
+    $booking_hash[$selected_booking]["destination"] = res_destinations
+    $booking_hash[$selected_booking]["weather"] = res_weather
+    $booking_hash[$selected_booking]["summary"] = res_summary
+    $booking_hash[$selected_booking]["countdown"] = res_countdown
+    $booking_hash[$selected_booking]["excursions"] = res_typ_excursions
+
+    ##### testing this still
+    if type=="typical"
+      $g_excursions = res_typ_excursions
+    end
+    puts $booking_hash
+
   end
 
-  res_login=JSON.parse(`#{cmd}`)
-  auth=res_login["payload"]["auth"].match(/PHPSESSID=(.*);/)[1]
-  puts "auth #{auth}"
+  def nor_user_details
 
-  res_typ_home=get_de_payload(@typical_booking_code, auth, "home")
-  res_typ_excursions=get_de_payload(@typical_booking_code, auth, "excursions")
-  res_destinations=get_de_payload(@typical_booking_code, auth, "destination")
-  res_weather=get_de_payload(@typical_booking_code, auth, "weather")
-  res_summary=get_de_payload(@typical_booking_code, auth, "summary")
-  res_countdown=get_de_payload(@typical_booking_code, auth, "countdown")
+    $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
+    bookingnumber=NOR_USER[:valid][:bookingnumber]
+    emailOrTelephone=NOR_USER[:valid][:telefon]
 
-  $g_user_info, $g_typical_booking_data, $g_excursions, $g_destinations= res_login, res_typ_home, res_typ_excursions, res_destinations
-  $g_countdown=res_countdown
-  $g_weather = res_weather
-  $g_summary = res_summary
+    auth = nor_auth_key(bookingnumber, emailOrTelephone)
+    puts auth
+    res_home=get_nor_payload(auth, "home", bookingnumber)
+    res_weather=get_nor_payload(auth, "weather", bookingnumber)
+    res_summary=get_nor_payload(auth, "summary", bookingnumber)
+    res_checklist=get_nor_payload(auth, "checklist", bookingnumber)
+    res_destination=get_nor_payload(auth, "destination", bookingnumber)
+    res_excursions=get_nor_payload(auth, "excursions", bookingnumber)
+    res_countdown=get_nor_payload(auth, "countdown", bookingnumber)
+
+    $g_countdown=res_countdown
+    $g_excursions=res_excursions
+    $g_destinations=res_destination
+    $g_current_booking=res_home
+    $g_eng_checklist=res_checklist
+    $g_weather = res_weather
+    $g_summary = res_summary
+  end
 end
 
-def nor_user_details
 
-  $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
-  bookingnumber=NOR_USER[:valid][:bookingnumber]
-  emailOrTelephone=NOR_USER[:valid][:telefon]
-
-  auth = nor_auth_key(bookingnumber, emailOrTelephone)
-  puts auth
-  res_home=get_nor_payload(auth, "home",bookingnumber)
-  res_weather=get_nor_payload(auth, "weather",bookingnumber)
-  res_summary=get_nor_payload(auth, "summary", bookingnumber)
-  res_checklist=get_nor_payload(auth, "checklist", bookingnumber)
-  res_destination=get_nor_payload(auth, "destination", bookingnumber)
-  res_excursions=get_nor_payload(auth, "excursions", bookingnumber)
-  res_countdown=get_nor_payload(auth, "countdown", bookingnumber)
-
-  $g_countdown=res_countdown
-  $g_excursions=res_excursions
-  $g_destinations=res_destination
-  $g_current_booking=res_home
-  $g_eng_checklist=res_checklist
-  $g_weather = res_weather
-  $g_summary = res_summary
-
-end
+$booking_hash={} # hash array to hold data fetched from curl
+$booking_hash[$selected_booking]={} # hash array to hold data fetched from curl
 
 if $g_current_app== "DE_MT"
-  de_user_details
-  $g_booking.set_payload($g_typical_booking_data["payload"])
+  $g_de_typical_booking= "test0027"
+  $g_de_single_booking= "test0011"
+  de_user_details $g_de_typical_booking,"typical"
+  $g_booking.set_payload($g_current_booking["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
   eng_user_details
   $g_booking.set_payload($g_current_booking["payload"])

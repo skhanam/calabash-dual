@@ -1070,7 +1070,23 @@
   <string name="webcheckin_homepagebiscuit_offlineerr">You have to be online to check-in</string>
   <string name="webcheckin_confirmation_successful_title">Great</string>
   <string name="webcheckin_confirmation_successful_body">Your boarding passes are being downloaded to your app</string>
+  <string name="webcheckin_confirmation_successful_cta">OK</string>
   <string name="webcheckin_confirmation_restricted_body">Check in confirmed, please check your email for more details</string>
+  <string name="webcheckin_confirmation_restricted_title">Great</string>
+  <string name="webcheckin_confirmation_restricted_cta">OK</string>
+  <string name="webcheckin_confirmation_nombp_title">Just so you know</string>
+  <string name="webcheckin_confirmation_nombp_body">You’ve checked in but mobile boarding passes are not accepted at your airport. Please check your email.</string>
+  <string name="webcheckin_confirmation_nombp_cta">OK</string>
+  <string name="webcheckin_flightdetailpage_checkinnotopen">Check-in not open, check again</string>
+  <string name="webcheckin_flightdetailpage_3rdparty">3rd party flight</string>
+  <string name="webcheckin_flightdetailpage_checkinnow">Check-in is open</string>
+  <string name="webcheckin_flightdetailpage_checkinnowcta">Check-in now</string>
+  <string name="webcheckin_flightdetailpage_checkedin">You have checked in</string>
+  <string name="webcheckin_flightdetailpage_checkedincta">Manage my flight</string>
+  <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
+  <string name="webcheckin_flightdetailpage_somecheckedin">Check in remaining passengers</string>
+  <string name="webcheckin_flightdetailpage_somecheckedincta">Check-in now</string>
+  <string name="webcheckin_webflow_title">Flight check-in</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Boarding passes</string>
   <string name="travelfolio_biscuit_subtitle_singular">[count] Boarding pass</string>
@@ -1078,6 +1094,18 @@
   <string name="travelfolio_checkin_now">Check-in now</string>
   <string name="travelfolio_refresh_cta">Refresh boarding passes</string>
   <string name="travelfolio_refresh_body">If you've made changes to your flight booking or received an email from us, you can udate all your boarding passes here.</string>
+  <string name="travelfolio_category_title">Travelfolio</string>
+  <string name="travelfolio_category_mbp">Boarding passes</string>
+  <string name="travelfolio_category_transferVoucher">Transfer</string>
+  <string name="travelfolio_category_flightVoucher">Flight</string>
+  <string name="travelfolio_category_carVoucher">Hire car</string>
+  <string name="travelfolio_category_camperVoucher">Camper</string>
+  <string name="travelfolio_category_trainToFlightVoucher">Train to flight</string>
+  <string name="travelfolio_category_vignette">Vignette</string>
+  <string name="travelfolio_category_extraVoucher">Extra</string>
+  <string name="travelfolio_category_travelPlan">Travel plan</string>
+  <string name="travelfolio_category_travelConfirmation">Travel confirmation</string>
+  <string name="travelfolio_category_accommodationVoucher">Hotel</string>
   <!-- boardingpass -->
   <string name="boardingpass_biscuit_seat">SEAT</string>
   <string name="boardingpass_biscuit_flight">FLIGHT: </string>

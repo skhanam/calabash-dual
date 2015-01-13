@@ -8,7 +8,7 @@ Then(/^I check destination page for each destination$/) do
 end
 
 When(/^I see destination information page$/) do
-  @destinationInfo.verify_destination_screen
+  @destinationInfo.verify_destination_page
 end
 
 Then(/^I see list of destinations in sidepanel in meine TUI$/) do
@@ -30,10 +30,5 @@ Then(/^I see appropriate destination page$/) do
 end
 
 When(/^I navigate to destination using destination biscuit$/) do
-  @home_destination_string = $g_booking.get_destination_countries[0]
-  step 'I select destination biscuit'
-  @destinationInfo.verify_list_of_destinations
-  sleep 1
-  @page.click_on_text @home_destination_string
-  sleep 1
+ step 'I navigate to first destination using home page biscuit'
 end

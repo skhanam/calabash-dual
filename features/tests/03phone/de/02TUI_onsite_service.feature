@@ -1,8 +1,7 @@
 @ios_test @android_test  @de  @auto4
 
 Feature: Verify TUI onsite service
-
-  @tui_onsite_service
+  @tui_onsite_service1
   Scenario: Verify TUI onsite service
     Given I have switched to typical booking
     And I am on Home screen
@@ -10,7 +9,7 @@ Feature: Verify TUI onsite service
     And I select hotel from TUI service onsite page
     Then I see TUI service onsite page
 
-  @tui_onsite_service
+  @tui_onsite_service2
   Scenario: Verify TUI onsite service contact page
     Given I have switched to typical booking
     And I am on Home screen

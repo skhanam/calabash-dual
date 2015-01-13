@@ -37,19 +37,19 @@ Feature: Verify product pages by navigating through side panel
       | TUI onsite service      |
       | Kontakt                 |
 
-  @sidepanel
-  Scenario: Check Navigation menus for Single booking
-    Given I have switched to single flight booking
-    When I open side panel
-    Then I must see below items on sidepanel for booking:
-      | Countdown               |
-      | My Booking              |
-      | Booking summary         |
-      | Flights                 |
-      | Weather                 |
-      | Destination guide       |
-      | excursions              |
-      | Good to know            |
-      | Kontakt heading         |
-      | TUI onsite service      |
-      | Kontakt                 |
+#  @sidepanel
+#  Scenario: Check Navigation menus for Single booking
+#    Given I have switched to single flight booking
+#    When I open side panel
+#    Then I must see below items on sidepanel for booking:
+#      | Countdown               |
+#      | My Booking              |
+#      | Booking summary         |
+#      | Flights                 |
+#      | Weather                 |
+#      | Destination guide       |
+#      | excursions              |
+#      | Good to know            |
+#      | Kontakt heading         |
+#      | TUI onsite service      |
+#      | Kontakt                 |

@@ -3,7 +3,6 @@
 
 # Holds booking data and provides method for accessing data
 class Bookings
-  puts $g_hw_module
   include eval($g_hw_module)
 
   def get_countdown_destination
@@ -374,7 +373,6 @@ module Phone
   end
 
   module Eng
-
     def get_home_biscuits(var)
       case var
         when "flight"
@@ -396,12 +394,9 @@ module Phone
     def get_home_biscuits(var)
       case var
         when "flight"
-          arr=[]
-          res=@payload["products"]["flights"]
+            res=@payload["products"]["flights"]
           return res
       end
     end
   end
-
-
 end

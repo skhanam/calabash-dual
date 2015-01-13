@@ -69,26 +69,28 @@ end
 Given(/^I have switched to (.*?) booking$/) do |booking_type|
   case booking_type
     when "typical"
-      $g_current_booking=$g_typical_booking_data
+      $g_current_booking_code=$g_de_typical_booking
     when "insurance"
-      $g_current_booking=$g_typical_booking_data
+      $g_current_booking_code=$g_de_typical_booking
     when "flight"
-      $g_current_booking=$g_flight_booking_data
+      $g_current_booking_code=$g_de_single_booking
     when "single"
-      $g_current_booking=$g_flight_booking_data
+      $g_current_booking_code=$g_de_single_booking
     when "non eu"
       $g_current_booking=$g_non_eu_booking_data
     when "one way"
       $g_current_booking=$single_journey_multi_leg
   end
 
-  $g_booking.set_payload($g_current_booking["payload"])
-
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
   if booking_type!=$selected_booking
     $selected_booking=booking_type
+
+    de_user_details $g_current_booking_code,booking_type
+    $g_booking.set_payload($g_current_booking["payload"])
+
     @homePage.navigate_to_account
     @myBookingsPage.switch_to_particular_booking
   else
@@ -128,10 +130,12 @@ When(/^I navigate to hotel (\d+) from home page$/) do |arg|
 end
 
 When(/^I navigate to first destination using home page biscuit$/) do
-  @countries= $g_booking.get_destination_countries
-  @dest_country=@countries[0]
-  @page.scroll_home_biscuits(@dest_country)
-  @page.click_on_text(@dest_country)
+  @home_destination_string = $g_booking.get_destination_countries[0]
+  step 'I select destination biscuit'
+  @destinationInfo.verify_list_of_destinations
+  sleep 1
+  @page.click_on_text @home_destination_string
+  sleep 1
 end
 
 Then(/^I see first destination information page$/) do
@@ -334,12 +338,11 @@ When(/^I tap on the destination Biscuit$/) do
 end
 
 Then(/^I should be navigated to first destination page$/) do
-  @destinationInfo.verify_destination_screen
+  @destinationInfo.verify_destination_page
 end
 
 Then(/^I should be navigated to destination page$/) do
-  @homePage.verify_destination_page
-  fail("Verify text on destination page")
+  @destinationInfo.verify_destination_page
 end
 
 Then(/^I should see a Currency Converter Biscuit appear$/) do

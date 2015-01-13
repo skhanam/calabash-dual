@@ -195,7 +195,7 @@ module DEMeineTUI
     @@my_bookings_edit_account=get_localized_string "edit_my_account"
     @@my_bookings_past_bookings=get_localized_string "past_bookings"
     @@my_bookings_current_bookings=get_localized_string "current_bookings"
-    @@booking_active_biscuit= "reservation_test0012 active_booking"
+    @@booking_active_biscuit= "reservation_#{$g_de_typical_booking} active_booking"
   end
 
   def my_account_strings
