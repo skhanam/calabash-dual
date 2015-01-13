@@ -159,7 +159,7 @@ module MyBookingsModule
     #end
 
     def get_days_left(val="typical_booking")
-      CommonMethods.new.get_countdown_days(val)
+      $g_booking.get_countdown_days
     end
   end
 

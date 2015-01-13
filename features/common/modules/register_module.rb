@@ -6,6 +6,7 @@ module RegisterModule
   end
 
   module Phone
+    include BaseModule
     def check_new_user_reg_page
       check_new_user_reg_screen
 

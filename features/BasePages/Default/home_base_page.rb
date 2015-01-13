@@ -102,7 +102,7 @@ class HomePage < BasePage
 
 
   def navigate_to_currency_conv_page
-    CommonMethods.new.scroll_page_till_acc "tovalue"
+    @page.scroll_page_till_acc "tovalue"
     scroll_view("down")
     sleep 1
     get_currency_details
@@ -137,7 +137,7 @@ class HomePage < BasePage
   end
 
   def get_welcome_message
-    no_of_days_to_go=-1*$g_booking.get_countdown_days #Hard coded for now until test data is available
+    no_of_days_to_go=-1*$g_booking.get_countdown_days.to_i #Hard coded for now until test data is available
     puts "no_of_days_to_go #{no_of_days_to_go}"
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
       msg= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!"
@@ -158,7 +158,7 @@ class HomePage < BasePage
     else
       fail("Days are incorrect")
     end
-    return msg
+    return escape_quotes msg
   end
 
 
