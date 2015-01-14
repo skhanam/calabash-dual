@@ -102,7 +102,7 @@ class HomePage < BasePage
 
 
   def navigate_to_currency_conv_page
-    @page.scroll_page_till_acc "tovalue"
+    scroll_page_till_acc "tovalue"
     scroll_view("down")
     sleep 1
     get_currency_details
