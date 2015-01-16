@@ -78,18 +78,19 @@ fi
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
 if [ $1 == "install" ] || [ $1 == "clean" ] ; then
-	adb uninstall de.tui.meinetui.test
-    adb uninstall de.tui.meinetui
+	if [ "$2" != "NA" ] ; then
+		adb uninstall de.tui.meinetui.test
+		adb uninstall de.tui.meinetui
 
-    adb uninstall com.thomson.mythomson
-    adb uninstall com.thomson.mythomson.test
+		adb uninstall com.thomson.mythomson
+		adb uninstall com.thomson.mythomson.test
 
-	adb uninstall com.firstchoice.myfirstchoice.test
-    adb uninstall com.firstchoice.myfirstchoice
+		adb uninstall com.firstchoice.myfirstchoice.test
+		adb uninstall com.firstchoice.myfirstchoice
 
-    adb uninstall com.tuitravel.minferie.test
-    adb uninstall com.tuitravel.minferie
-
+		adb uninstall com.tuitravel.minferie.test
+		adb uninstall com.tuitravel.minferie
+	fi
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
 		cp Gemfile ${PROJ_FOLDER}
