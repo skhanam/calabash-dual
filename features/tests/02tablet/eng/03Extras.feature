@@ -2,7 +2,7 @@
 @extras-tests @tab @reg-tab-en
 Feature: US16740	Holiday Extras Biscuit
 
-  @extra1
+  @extra1 @and-tab
   Scenario: US16740 Holiday extras Biscuit
     Given I have a pre-holiday booking
     When I access  the application home page

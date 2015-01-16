@@ -3,7 +3,6 @@
 class HomePage < BasePage
   include HomeModule
 
-
   def open_side_panel
     sleep 1
     click_acc_label @@home_page_sidepanel_acc_label

@@ -17,11 +17,12 @@ if [ "$#" -le "4" ]; then
 	echo "3) Tags selected for test run ex: @sanity or @reg"
     echo "4) App to test ex: thomson / firstchoice / meinetui /nordics"
     echo "5) relative folder path where source code is located"
+    echo "6) device id if needed"  (optional)
 
 	echo "\nsample command"
 	echo " 1) sh run_ci_tests.sh ios clean @sanity meinetui tablet ../meine.tui"
 	echo " 2) sh run_ci_tests.sh android clean @sanity meinetui tablet ../meine.tui"
-	echo " 3) sh run_ci_tests.sh android clean @sanity de ../TDA"
+	echo " 3) sh run_ci_tests.sh android clean @sanity de ../TDA device_id" (optional)
 	echo "\n"
 	exit
 fi
@@ -40,13 +41,13 @@ bundle install
 
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
-	echo sh run_ios.sh $2 $3 $4 $5 $6 "ci"
-	sh run_ios.sh $2 $3 $4 $5 $6 "ci"
+	echo sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
+	sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
 else
 	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
-	echo sh run_android.sh $2 $3 $4 $5 $6 "ci"
-	sh run_android.sh $2 $3 $4 $5 $6 "ci"
+	echo sh run_android.sh $2 $3 $4 $5 $6 $7 "ci"
+	sh run_android.sh $2 $3 $4 $5 $6 $7 "ci"
 fi
 

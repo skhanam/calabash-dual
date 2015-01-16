@@ -1060,14 +1060,15 @@
   <!-- search and book -->
   <string name="search_and_book">search_and_book</string>
   <!-- flight checkin -->
-  <string name="webcheckin_homepagebiscuit_checkinavailable">Check-in (jetzt) möglich</string>
+  <string name="webcheckin_homepagebiscuit_checkinavailable">Check-in möglich</string>
   <string name="webcheckin_homepagebiscuit_checkinavailable_cta">Check-in</string>
-  <string name="webcheckin_homepagebiscuit_allflightsopen">webcheckin_homepagebiscuit_allflightsopen</string>
+  <string name="webcheckin_homepagebiscuit_allflightsopen">Ihre Flüge sind verfügbar.</string>
   <string name="webcheckin_homepagebiscuit_oneflightopen_flighttxt">Flug:</string>
   <string name="webcheckin_homepagebiscuit_oneflightopen_departingtxt">Geplant:</string>
-  <string name="webcheckin_homepagebiscuit_somecheckedin">webcheckin_homepagebiscuit_somecheckedin</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin">[checked] von [total] Passagieren müssen noch eingecheckt werden.</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_singular">[checked] von [total] Passagieren muss noch eingecheckt werden.</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin_cta">Übrige Reisende einchecken.</string>
-  <string name="webcheckin_homepagebiscuit_offlineerr">webcheckin_homepagebiscuit_offlineerr</string>
+  <string name="webcheckin_homepagebiscuit_offlineerr">Sie benötigen eine Internetverbindung, um sich einchecken zu können.</string>
   <string name="webcheckin_confirmation_successful_title">Wunderbar</string>
   <string name="webcheckin_confirmation_successful_body">Ihre Bordkarten werden nun in der App gespeichert.</string>
   <string name="webcheckin_confirmation_successful_cta">OK</string>
@@ -1077,24 +1078,25 @@
   <string name="webcheckin_confirmation_nombp_title">Wichtig! </string>
   <string name="webcheckin_confirmation_nombp_body">Sie haben sich eingecheckt, aber Ihre Flughäfen akzeptieren keine mobilen Bordkarten. Bitte schauen Sie in Ihr E-Mail-Postfach für weitere Informationen.</string>
   <string name="webcheckin_confirmation_nombp_cta">OK</string>
-  <string name="webcheckin_flightdetailpage_checkinnotopen">webcheckin_flightdetailpage_checkinnotopen</string>
-  <string name="webcheckin_flightdetailpage_3rdparty">webcheckin_flightdetailpage_3rdparty</string>
-  <string name="webcheckin_flightdetailpage_checkinnow">webcheckin_flightdetailpage_checkinnow</string>
-  <string name="webcheckin_flightdetailpage_checkinnowcta">webcheckin_flightdetailpage_checkinnowcta</string>
-  <string name="webcheckin_flightdetailpage_checkedin">webcheckin_flightdetailpage_checkedin</string>
-  <string name="webcheckin_flightdetailpage_checkedincta">webcheckin_flightdetailpage_checkedincta</string>
+  <string name="webcheckin_flightdetailpage_checkinnotopen">Check-in ist noch nicht möglich, bitte versuchen Sie es später noch einmal.</string>
+  <string name="webcheckin_flightdetailpage_3rdparty">Buchungsnummer [airline]</string>
+  <string name="webcheckin_flightdetailpage_checkinnow">Check-in jetzt möglich</string>
+  <string name="webcheckin_flightdetailpage_checkinnowcta">Jetzt einchecken</string>
+  <string name="webcheckin_flightdetailpage_checkedin">Sie sind jetzt eingecheckt.</string>
+  <string name="webcheckin_flightdetailpage_checkedincta">Meine Flüge verwalten</string>
   <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
-  <string name="webcheckin_flightdetailpage_somecheckedin">webcheckin_flightdetailpage_somecheckedin</string>
-  <string name="webcheckin_flightdetailpage_somecheckedincta">webcheckin_flightdetailpage_somecheckedincta</string>
+  <string name="webcheckin_flightdetailpage_somecheckedin">Übrige Reisende einchecken.</string>
+  <string name="webcheckin_flightdetailpage_somecheckedincta">Jetzt einchecken</string>
+  <string name="webcheckin_webflow_title">Check-in</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Reisedokumente</string>
   <string name="travelfolio_biscuit_subtitle_singular">[count] Reisedokument</string>
   <string name="travelfolio_biscuit_subtitle_plural">[count] Reisedokumente</string>
   <string name="travelfolio_checkin_now">Jetzt einchecken</string>
-  <string name="travelfolio_refresh_cta">travelfolio_refresh_cta</string>
-  <string name="travelfolio_refresh_body">travelfolio_refresh_body</string>
+  <string name="travelfolio_refresh_cta">Bordkarten aktualisieren</string>
+  <string name="travelfolio_refresh_body">Sollten Sie Ihre Flugbuchung geändert oder eine E-Mail von uns erhalten haben, können Sie Ihre Bordkarten hier aktualisieren.</string>
   <string name="travelfolio_category_title">Reisedokumente</string>
-  <string name="travelfolio_category_mbp">Mobilen Bordkarten</string>
+  <string name="travelfolio_category_mbp">Bordkarten</string>
   <string name="travelfolio_category_transferVoucher">Transferticket</string>
   <string name="travelfolio_category_flightVoucher">Flugticket</string>
   <string name="travelfolio_category_carVoucher">Mietwagenvoucher</string>

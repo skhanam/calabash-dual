@@ -51,44 +51,58 @@ fi
 echo "TDA project location:"${PROJ_FOLDER}
 
 if [ $LANG == "de" ] ; then
-	APK_NAME="meine TUI.apk"
+	APK_NAME="meine TUI"
 	CUCUMBER_PROFILE=de_mt_android
 	TI_SCHEME=meinetui
     TESTENV='DE_MT'
 
 elif [ $LANG == "en_th" ] ; then
-	APK_NAME=MyThomson.apk
+	APK_NAME=MyThomson
 	CUCUMBER_PROFILE=en_th_android
 	TI_SCHEME=thomson
     TESTENV='EN_TH'
 
 elif [ $LANG == "en_fc" ] ; then
-	APK_NAME=MyFirstChoice.apk
+	APK_NAME=MyFirstChoice
 	CUCUMBER_PROFILE=en_fc_android
 	TI_SCHEME=firstchoice
     TESTENV='EN_FC'
 
 elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "nb" ] ; then
 	TI_SCHEME="nordics"
-	APK_NAME="MinFerie.apk"
+	APK_NAME="MinFerie"
 	CUCUMBER_PROFILE=nor_android
 	TESTENV='NOR'
+fi
+
+if [ $HW == "phone" ] ; then
+	APK_NAME=$APK_NAME".apk"
+elif [ $HW == "tablet" ] ; then
+	APK_NAME=$APK_NAME" Tablet.apk"
+fi
+
+if [ $DEVICE_ID  ] ; then
+	ADB_DEVICE="-s "$DEVICE_ID
+else
+	ADB_DEVICE=""
 fi
 
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
 if [ $1 == "install" ] || [ $1 == "clean" ] ; then
-	adb uninstall de.tui.meinetui.test
-    adb uninstall de.tui.meinetui
+	adb $ADB_DEVICE uninstall de.tui.meinetui.test
+    adb $ADB_DEVICE uninstall de.tui.meinetui
 
-    adb uninstall com.thomson.mythomson
-    adb uninstall com.thomson.mythomson.test
+    adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet
+    adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet.test
+    adb $ADB_DEVICE uninstall com.thomson.mythomson
+    adb $ADB_DEVICE uninstall com.thomson.mythomson.test
 
-	adb uninstall com.firstchoice.myfirstchoice.test
-    adb uninstall com.firstchoice.myfirstchoice
+	adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice.test
+    adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice
 
-    adb uninstall com.tuitravel.minferie.test
-    adb uninstall com.tuitravel.minferie
+    adb $ADB_DEVICE uninstall com.tuitravel.minferie.test
+    adb $ADB_DEVICE uninstall com.tuitravel.minferie
 
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
@@ -137,13 +151,13 @@ fi
 
 if [ "$2" != "NA" ] ; then
 	rm -rf test_servers/
-	calabash-android resign $FILENAME
-	calabash-android build $FILENAME
-	adb install -r $FILENAME
-	adb install -r test_servers/*.apk
+#	calabash-android resign $FILENAME
+#	calabash-android build $FILENAME
+#	adb $ADB_DEVICE install -r $FILENAME
+#	adb $ADB_DEVICE install -r test_servers/*.apk
 fi
 
 if [ "$2" != "NA" ] ; then
-echo SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
-SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+echo ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 fi

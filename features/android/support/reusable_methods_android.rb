@@ -146,6 +146,8 @@ module AndroidReusableMethods
       perform_action('drag', 50, 50, 70, 90, 10)
     elsif (dir=="down")
       perform_action('drag', 50, 50, 90, 70, 10)
+    elsif (dir=="right")
+      perform_action('drag', 90, 50, 80, 50, 10)
     end
   end
 

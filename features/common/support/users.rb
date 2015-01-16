@@ -103,7 +103,7 @@ FIRSTCHOICE_USER||={
 
 #  DEV user
 
-NB_USER ={
+NB_USER||={
     :bookingnumber => "3U55389",
     :emailid => "jan.johansson@gmail.com",
     :telefon => "0788998899",
@@ -111,7 +111,7 @@ NB_USER ={
     :DepartureTime => "13:55",
 }
 
-DA_USER ={
+DA_USER||={
     :bookingnumber => "BN36227",
     :emailid => "lars.linden@fritidsresor.se",
     :telefon => "0733800015",
@@ -119,7 +119,7 @@ DA_USER ={
     :DepartureTime => "07:50",
 }
 
-FI_USER ={
+FI_USER||={
     :bookingnumber => "AL75051",
     :emailid => "therese.bellhammar@fritidsresor.se",
     :telefon => "0733800015",
@@ -127,7 +127,7 @@ FI_USER ={
     :DepartureTime => "08:15",
 }
 
-SV_USER ={
+SV_USER||={
     :bookingnumber => "1C62272",
     :emailid => "karin.ohlsson@fritidsresor.se",
     :telefon => "0755668899",

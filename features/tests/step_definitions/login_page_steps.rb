@@ -75,8 +75,8 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("toolbarTextButton index:1")
     sleep(2)
   elsif $g_android
-    clear_text
-
+    #clear_text
+    sleep 2
     touch("* marked:'surname.'")
     @page.input_text(surname)
 
@@ -214,13 +214,13 @@ Given(/^I am on 'Login' screen/) do
       fail "Not on login screen"
     end
   elsif $g_phone
-     if @loginPage.check_login_screen
-       navigate_flag=false
-       puts "No need to login"
-     end
+    if @loginPage.check_login_screen
+      navigate_flag=false
+      puts "No need to login"
+    end
 
   end
- @welcomePage.navigate_to_login if navigate_flag && $g_phone
+  @welcomePage.navigate_to_login if navigate_flag && $g_phone
   @loginPage.verify_login_screen
 end
 

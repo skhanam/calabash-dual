@@ -2,7 +2,7 @@
 @flight-biscuits @tab @reg @sanity
 Feature: US16741 Flights Biscuit
 
-  @flight-biscuits1 @not-nor
+  @flight-biscuits1 @not-nor @and-tab
   Scenario: US16741 Flights Biscuit pre-departure flight
     Given I am on Home screen with pre holiday booking
     Then I swipe to see "flights Biscuit"

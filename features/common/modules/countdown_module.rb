@@ -48,10 +48,10 @@ module CountdownModule
   module Tablet
     include BaseModule
 
-    def self.included(receiver)
-      puts self.name+"::#{$g_platform}"
-      receiver.send :include, Module.const_get(self.name+"::#{$g_platform}")
-    end
+    #def self.included(receiver)
+    #  puts self.name+"::#{$g_platform}"
+    #  receiver.send :include, Module.const_get(self.name+"::#{$g_platform}")
+    #end
 
     def check_count_down_page
       flag=false
@@ -79,9 +79,6 @@ module CountdownModule
       assert_wait_for_acc @@share_button_open_img
       assert_wait_for_acc @@facebook_share_img
       assert_wait_for_acc @@twitter_share_img
-    end
-
-    module Ios
     end
 
   end

@@ -42,7 +42,7 @@ class LoginBasePage < BasePage
   end
 
   def scroll_to_end_of_page
-    scroll_page_and_assert_text(@@welcome_cta_help_login)
+    scroll_page_and_assert_text(escape_quotes(@@welcome_help_link1))
   end
 
 end

@@ -14,7 +14,7 @@ Feature: Verify screens shown before logging into App
     And I should see Register CTA
     And I should see I need help CTA
 
-   @prelog1n2 
+   @prelog1n2
   Scenario: US14332 Verify Page elements
     Given I accessed the Register page modal
     And I should sub-title and sub title for register page
