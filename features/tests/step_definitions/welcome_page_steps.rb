@@ -68,3 +68,23 @@ When(/^I select 'I have logged in before'$/) do
   @welcomePage.click_already_registered
 end
 
+
+Then(/^I see the top half has the caption 'Have a booking, Lets login!'$/) do
+  #Phoneengonly
+  @welcomePage.verify_welcome_screen
+end
+
+When(/^the bottom half has the caption 'Havent booked, Lets get inspired!'$/) do
+  #Phoneengonly
+  @welcomePage.verify_welcome_screen
+end
+
+When(/^I tap on the top half of welcome page$/) do
+  #Phoneengonly  #find parent of first half of screen and click
+  touch "view text:'#{@page.get_val "welcome_nobooking_title"}' parent TiUIView index:2"
+end
+
+When(/^I tap on the bottom half of welcome page$/) do
+  #Phoneengonly  #find parent of first half of screen and click
+  touch "view text:'#{escape_quotes(@page.get_val "welcome_login_title")}' parent TiUIView index:2"
+end

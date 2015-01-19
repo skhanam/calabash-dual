@@ -1,10 +1,17 @@
 @prelogin-en  @reset @reg-en
 Feature: Verify pre login screen
 
-  @lg1 @done
-  Scenario: Check Page elements
+  @lg1
+  Scenario:
+    Given I am on 'Welcome' screen
+    When I tap on the top half of welcome page
+    Then I am on 'Login' screen
+
+  @lg11
+  Scenario:
     Given I am on 'Login' screen
-    Then I see login Page
+    When I tap the back arrow on login screen
+    Then I am on 'Welcome' screen
 
   @lg2   @done
   Scenario: US18521 Tap Retrieve booking
@@ -30,4 +37,3 @@ Feature: Verify pre login screen
     Given I have entered wrong email address
     When I the Tap 'submit' button retrieve booking page
     Then I see error messages on booking ref page
-

@@ -22,7 +22,6 @@ Feature: US14552 Off canvas Menu Items
       | Logout                         |
       | Browse our holiday collections |
 
-
   @en-ds1
   Scenario: Navigate to destination guide page and verify list of destinations
     Given I am on Home screen
