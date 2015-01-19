@@ -78,7 +78,8 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     #clear_text
     sleep 2
     touch("* marked:'surname.'")
-    @page.input_text(surname)
+    keyboard_enter_text surname
+    #@page.input_text(surname) commented out for trying android tablet
 
     touch("* marked:'departureDate.'")
     sleep 2
@@ -92,14 +93,18 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     end
     sleep 2
 
-    touch("* marked:'bookingReference1.'")
+    touch("* marked:'visionShopNumber.'")
+    #touch("* marked:'bookingReference1.'")
     sleep 1
-    @page.input_text(visionShopNumber)
+    keyboard_enter_text visionShopNumber
+    #@page.input_text(visionShopNumber)
     sleep 1
 
-    touch("* marked:'bookingReference2.'")
+    touch("* marked:'visionBookingRef.'")
+    #touch("* marked:'bookingReference2.'")
     sleep 1
-    @page.input_text(visionBookingRef)
+    keyboard_enter_text(visionBookingRef)
+    #@page.input_text(visionBookingRef)
     press_down_button
 
     @loginPage.scroll_to_end_of_page
@@ -518,4 +523,9 @@ end
 
 Then(/^I see error messages when thomson user logs into firstchoice/) do
   @loginPage.verify_th_user_in_firstchoice
+end
+
+
+When(/^I tap the back arrow on login screen$/) do
+  @page.click_acc_label "navbarLeftButton"
 end
