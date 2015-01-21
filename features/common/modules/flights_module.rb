@@ -1,5 +1,4 @@
 require_relative 'base_module'
-#require_relative '../../common/support/common_methods'
 
 module FlightsModule
   include BaseModule

@@ -13,7 +13,7 @@ Feature: Verify pre login screen
     When I tap the back arrow on login screen
     Then I am on 'Welcome' screen
 
-  @lg2   @done
+  @lg2 @done
   Scenario: US18521 Tap Retrieve booking
     Given I am on 'Login' screen
     When  I tap 'Retrieve my booking' button

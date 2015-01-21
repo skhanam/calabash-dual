@@ -12,7 +12,7 @@ def meine_tui_login(username, password, country)
       step 'I enter "'+username+'" into input field number 1'
     end
 
-    step "I touch done"
+    @page.click_return_key
 
     step "I clear input field number 2"
     step 'I enter "'+password+'" into input field number 2'
@@ -21,13 +21,13 @@ def meine_tui_login(username, password, country)
       step "I clear input field number 1"
       step 'I enter "'+password+'" into input field number 1'
     end
-    step "I touch done"
+    @page.click_return_key
   elsif $g_android
     step "I clear input field number 2"
     step 'I enter "'+username+'" into input field number 2'
     step "I clear input field number 3"
     step 'I enter "'+password+'" into input field number 3'
-    step "I press the enter button"
+    @page.click_return_key
   end
   puts "setting country"
   sleep 10
@@ -262,7 +262,7 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
     if $g_ios
       step "I clear input field number 1"
       step 'I enter "'+@valid_username+'" into input field number 1'
-      step "I touch done"
+      @page.click_return_key
     elsif $g_android
       step "I clear input field number 2"
       step 'I enter "'+@valid_username+'" into input field number 2'
@@ -299,7 +299,7 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
       step 'I enter "'+@invalid_username+'" into input field number 2'
     end
 
-    step "I touch done" if $g_ios
+    @page.click_return_key if $g_ios
     step "I press the enter button" if $g_android
     sleep 1
   end
@@ -527,5 +527,5 @@ end
 
 
 When(/^I tap the back arrow on login screen$/) do
-  @page.click_acc_label "navbarLeftButton"
+  @page.click_acc_label @page.get_val "home_page_sidepanel_acc_label"
 end

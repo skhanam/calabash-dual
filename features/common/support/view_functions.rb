@@ -1,5 +1,8 @@
 #!/bin/env ruby
 # encoding: utf-8
+require_relative '../strings/application_strings'
+
+#Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 
 if ($g_ios)
   require 'calabash-cucumber/operations'
@@ -7,6 +10,8 @@ if ($g_ios)
 end
 
 module ViewModule
+  include AppStrings
+
   if ($g_ios)
     include Calabash::Cucumber::Operations
     ## Specify text to check and time to wait for
@@ -20,6 +25,11 @@ module ViewModule
       flash($g_query_txt+"text:'#{text}'") if $g_flash
       return true
     end
+
+    def navigate_back_acc_label
+    click_acc_label get_val "home_page_sidepanel_acc_label"
+    end
+
   elsif $g_android
     def wait_for_text(text, time_out=10)
       begin

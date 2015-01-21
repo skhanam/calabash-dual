@@ -333,4 +333,8 @@ module IosReusableMethods
     fail "text not found" if !(check_txt_in_webview txt)
   end
 
+  def click_return_key
+    tap_keyboard_action_key
+  end
+
 end

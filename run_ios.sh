@@ -138,7 +138,8 @@ if [ "$1" == "clean" ] || [ "$7" != "ci" ] ; then
 fi
 
 if [ $HW == "tablet" ] ; then
-	DEVICE_TARGET='iPad Retina (8.1 Simulator)'
+	DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1'
+	#DEVICE_TARGET='iPad Retina (8.1 Simulator)'
 elif [ $HW == "phone" ] ; then
 	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
 fi
@@ -169,5 +170,5 @@ if [ ! -d $FILENAME ]; then
 fi
 }
 echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

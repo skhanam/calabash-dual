@@ -34,13 +34,11 @@ When(/^I enter (wrong|correct) booking details in booking ref page$/) do |condit
 
   step 'I enter "'+"#{@surname}"+'" into input field number 1' if $g_ios
   step 'I enter "'+"#{@surname}"+'" into input field number 2' if $g_android
-  step 'I touch done' if $g_ios
-  press_enter_button if $g_android
+  @page.click_return_key
   sleep 2
   step 'I enter "'+"#{@email}"+'" into input field number 2' if $g_ios
   step 'I enter "'+"#{@email}"+'" into input field number 3' if $g_android
-  step 'I touch done' if $g_ios
-  press_enter_button if $g_android
+  @page.click_return_key
   sleep 1
   #@page.click_on_text "Submit" if $g_phone
 end

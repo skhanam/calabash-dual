@@ -22,6 +22,8 @@ module EN_Strings
     post_holiday_strings
     good_to_know_strings
     phone_welcome_strings
+    search_book_strings
+    sign_up_offers
   end
 
   def self.included(receiver)
@@ -353,6 +355,48 @@ module EN_Strings
     @@welcome_nobooking_subtitle= get_localized_string "welcome_nobooking_subtitle" # Let's get inspired
   end
 
+  def search_book_strings
+    @@search_and_book_title = "Search & Book"
+
+    @@search_book_dest = "Destinations"
+    @@search_book_discover ="Discover our world"
+
+    @@search_book_best_for ="Best for"
+    @@search_book_inspire ="Let us inspire you"
+
+    @@search_book_search ="Search"
+    @@search_book_find_holiday ="Find your holiday"
+
+    @@search_book_our_best ="View our best"
+    @@search_book_deals ="Deals"
+
+    @@search_book_sign_up ="Sign up"
+    @@search_book_latest_offers ="Get our latest offers"
+
+    @@search_book_flights ="Flights"
+    @@search_book_lets_take_you ="Let us take you there"
+
+    @@search_book_experience ="Find your experience"
+    @@search_book_Excursions ="Excursions"
+  end
+
+  def sign_up_offers
+    @@email_signup_successful=get_localized_string "email_signup_successful" #Thanks for signing up. Keep an eye on your inbox for upcoming offers.
+    @@email_signup_failed=get_localized_string "email_signup_failed" #Oops, looks like something went wrong. Please check your connection and try again.
+    @@welcome_help_no_holiday_email_header=get_localized_string "welcome_help_no_holiday_email_header" #Sign up for offers
+    @@welcome_help_no_holiday_email_body=get_localized_string "welcome_help_no_holiday_email_body" #Our top deals tailored to you, straight to your inbox.
+    @@email_field_validation=get_localized_string "email_field_validation" #Please enter a valid email address
+    @@firstName_field_validation=get_localized_string "firstName_field_validation" #Please enter your first name
+    @@lastName_field_validation=get_localized_string "lastName_field_validation" #Please enter your last name
+    @@salutation_field_validation=get_localized_string "salutation_field_validation" #Please select a salutation
+    @@optin_to_emails_blurb=get_localized_string "optin_to_emails_blurb" #I would like to receive great deals and holiday news via email (Your data will not be disclosed to a third party and you can revoke consent at any time). By opting in, you agree to our privacy policy.
+    @@agree_to_emails_blurb=get_localized_string "agree_to_emails_blurb" #Please read our Privacy Policy and Data Protection Notice and confirm you agree to our use of your information provided (which may in special situations include sensitive personal data) by ticking the box below.
+    @@agree_to_emails=get_localized_string "agree_to_emails" #I agree
+    @@welcome_help_no_holiday_email_disclaimer=get_localized_string "welcome_help_no_holiday_email_disclaimer" #By clicking 'Submit' you confirm that you have read and understood our Privacy Policy and consent to our use of your information.
+  end
 end
+
+
+
 
 

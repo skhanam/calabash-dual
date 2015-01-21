@@ -325,4 +325,7 @@ module AndroidReusableMethods
 
   end
 
+  def click_return_key
+    perform_action('send_key_enter')
+  end
 end

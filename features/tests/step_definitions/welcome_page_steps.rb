@@ -81,10 +81,15 @@ end
 
 When(/^I tap on the top half of welcome page$/) do
   #Phoneengonly  #find parent of first half of screen and click
-  touch "view text:'#{@page.get_val "welcome_nobooking_title"}' parent TiUIView index:2"
+  touch "view text:'#{@page.get_val "welcome_login_title"}' parent TiUIView index:2"
 end
 
 When(/^I tap on the bottom half of welcome page$/) do
   #Phoneengonly  #find parent of first half of screen and click
-  touch "view text:'#{escape_quotes(@page.get_val "welcome_login_title")}' parent TiUIView index:2"
+  txt=escape_quotes(@page.get_val "welcome_nobooking_subtitle")
+  puts query "view text:'#{txt}'"
+  touch "view text:'#{txt}' parent TiUIView index:2"
+end
+Then(/^I touch done button$/) do
+  pending
 end
