@@ -41,6 +41,11 @@ module AndroidReusableMethods
     receiver.send :include, Module.const_get("#{$g_hw_module}")
   end
 
+  def scroll_search_book_items(row,item,text)
+    sleep(STEP_PAUSE)
+    pan "* text:'#{text}' parent com.tui.tdaphone.searchandbook.listView.templates.LoopViewPager index:0",:left
+  end
+
   def ti_enter_details(text, index)
     sleep 1
     query("all TiEditText index:#{index}", setText: "#{text}")
@@ -237,6 +242,12 @@ module AndroidReusableMethods
     sleep 1
     touch("imageView")
     sleep 1
+  end
+
+
+  def scroll_table_to_row row_num
+    scroll_to_row("ListView", row_num.to_i-1)
+    sleep 2
   end
 
   def enter_date_android(date_int)

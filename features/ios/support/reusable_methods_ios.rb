@@ -101,6 +101,11 @@ module IosReusableMethods
   end
 
 
+  def scroll_table_to_row row_num, index=0
+    scroll_to_row("scrollView index:#{index.to_i}", row_num.to_i-1)
+    sleep 2
+  end
+
   def check_text_in_modal_view(text, index=1)
     sleep 0.5
     puts "check_tab_input_field #{text}"
@@ -134,10 +139,10 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-    puts "click_on_text (#{escape_quotes_smart(text)})"
-    write_verified_text_to_file "click_on_text (#{text})"
-    touch("view text:'#{escape_quotes_smart(text)}'")
-    sleep 1
+    sleep(STEP_PAUSE)
+    puts "click_on_text (#{text})"
+    touch("view text:'#{text}'")
+    sleep(STEP_PAUSE)
   end
 
   def click_back_button
@@ -336,5 +341,13 @@ module IosReusableMethods
   def click_return_key
     tap_keyboard_action_key
   end
+
+  def scroll_search_book_items(row, item, text=nil)
+    sleep(STEP_PAUSE)
+    row = row.to_i-1
+    item = item.to_i-1
+    query("view text:'#{text}' parent view {description CONTAINS 'iCarousel'}", [{scrollToItemAtIndex: "#{item}"}, {animated: 1}])
+  end
+
 
 end

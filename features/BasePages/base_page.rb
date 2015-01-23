@@ -35,7 +35,6 @@ elsif $g_android
 end
 
 class BasePage < BaseClass
-
   include ViewModule
   include ReusableMethods
   include AppStrings

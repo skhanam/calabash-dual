@@ -79,7 +79,7 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
     touch("* marked:'surname.'")
     keyboard_enter_text surname
-    #@page.input_text(surname) commented out for trying android tablet
+    @page.input_text(surname)# commented out for trying android tablet
 
     touch("* marked:'departureDate.'")
     sleep 2
@@ -90,17 +90,20 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
       touch("* text:'Set'")
     elsif element_exists "* text:'Done'"
       touch("* text:'Done'")
+    elsif element_exists "* marked:'button1'"
+      touch("* marked:'button1'")
     end
     sleep 2
 
-    touch("* marked:'visionShopNumber.'")
+    @page.click_acc_label @page.get_val "visionShopNumber_acc"
     #touch("* marked:'bookingReference1.'")
     sleep 1
     keyboard_enter_text visionShopNumber
     #@page.input_text(visionShopNumber)
     sleep 1
 
-    touch("* marked:'visionBookingRef.'")
+    @page.click_acc_label @page.get_val "visionBookingRef_acc"
+    #touch("* marked:'visionBookingRef.'")
     #touch("* marked:'bookingReference2.'")
     sleep 1
     keyboard_enter_text(visionBookingRef)

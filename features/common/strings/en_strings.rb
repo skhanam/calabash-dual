@@ -127,6 +127,7 @@ module EN_Strings
       @@welcome_header = get_localized_string "welcome_header"
       @@login_page_title = get_localized_string "welcome_cta_login"
       @@submit_button= get_localized_string "submit" #Submit
+      @@welcome_help_link1=get_localized_string "welcome_cta_help_login"
 
     end
 
@@ -205,6 +206,9 @@ module EN_Strings
       @@side_panel_countdown=get_localized_string "holiday_countdown"
       @@side_panel_booking_summary=get_localized_string "booking_summary" #"Holiday summary"
       @@side_panel_destination= get_localized_string "destination"
+      @@browse_holidays_top_text= get_localized_string "browse_holidays_top_text" #Browse our
+      @@browse_holidays_bottom_text= get_localized_string "browse_holidays_bottom_text"  # Holiday collections
+
     elsif $g_tablet
       @@side_panel_countdown=get_localized_string "countdown"
       @@side_panel_booking_summary="Holiday Summary" #

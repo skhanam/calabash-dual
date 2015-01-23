@@ -156,3 +156,9 @@ end
 When(/^I should see the destination name on the menu$/) do
   @sidePanel.check_destinations(@bookings)
 end
+
+Then(/^I see a search and book banner with title is Browse our Holiday collections$/) do
+  @page.scroll_side_panel_and_assert @page.get_val "browse_holidays_top_text"
+  @page.assert_wait_for_text @page.get_val "browse_holidays_top_text"
+  @page.assert_wait_for_text @page.get_val "browse_holidays_bottom_text"
+end

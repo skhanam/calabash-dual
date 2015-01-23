@@ -93,8 +93,18 @@ def eng_user_details
   $g_eng_checklist=res_checklist
   $g_weather = res_weather
   $g_summary = res_summary
+
 end
 
+def get_search_book_data
+  #res=`curl 'https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com/search-book' -H 'tui-public-key: e03fe86b-387d-448b-a9fb-a37afa668471' -H 'Origin: http://37.46.24.155:8001' -H 'Accept-Encoding: gzip,deflate' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-auth-key: 61ec510c-78be-491c-8455-9fa606d444d2' -H 'tui-brand: uk-thomson' -H 'DNT: 1' -H 'tui-handshake: 02b7cda80962faa8855a544886d4d407bed30893' --compressed`
+  if $g_current_app== "EN_TH"
+    res=`curl 'https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com/search-book' -H 'tui-public-key: a70f4261-97c4-4999-972d-3fa3b7d2e865' -H 'Origin: http://37.46.24.155:8001' -H 'Accept-Encoding: gzip,deflate' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-brand: uk-thomson' -H 'DNT: 1' -H 'tui-handshake: 1ad33a6a287b56b2e6f974a6b94777e3e7a45b55' --compressed`
+  elsif $g_current_app== "EN_FC"
+    res=`curl 'https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com/search-book' -H 'tui-public-key: b695526b-ca7e-4d6b-8bf9-2c9606527c6e' -H 'Origin: http://37.46.24.155:8001' -H 'Accept-Encoding: gzip,deflate' -H 'Accept-Language: en-US,en;q=0.8,kn;q=0.6' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Referer: http://37.46.24.155:8001/index.html' -H 'tui-brand: uk-first-choice' -H 'DNT: 1' -H 'tui-handshake: d16f27a4bdf77cc396ff71f5b7e5ffc01225663b' --compressed`
+  end
+  $g_search_book=JSON.parse(res)["payload"]
+end
 
 def get_de_payload(booking_code, auth, type)
 #  puts "de payload for #{type}"
@@ -177,36 +187,36 @@ def de_user_details(typical_booking_code, type="typical")
 
 
   puts "##################################################"
-    puts "##################################################"
-    puts "########## #{type} booking"
-    puts "##################################################"
-    puts "##################################################"
+  puts "##################################################"
+  puts "########## #{type} booking"
+  puts "##################################################"
+  puts "##################################################"
 end
 
 def nor_user_details
 
-    $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
-    bookingnumber=NOR_USER[:valid][:bookingnumber]
-    emailOrTelephone=NOR_USER[:valid][:telefon]
+  $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
+  bookingnumber=NOR_USER[:valid][:bookingnumber]
+  emailOrTelephone=NOR_USER[:valid][:telefon]
 
-    auth = nor_auth_key(bookingnumber, emailOrTelephone)
-    puts auth
-    res_home=get_nor_payload(auth, "home", bookingnumber)
-    res_weather=get_nor_payload(auth, "weather", bookingnumber)
-    res_summary=get_nor_payload(auth, "summary", bookingnumber)
-    res_checklist=get_nor_payload(auth, "checklist", bookingnumber)
-    res_destination=get_nor_payload(auth, "destination", bookingnumber)
-    res_excursions=get_nor_payload(auth, "excursions", bookingnumber)
-    res_countdown=get_nor_payload(auth, "countdown", bookingnumber)
+  auth = nor_auth_key(bookingnumber, emailOrTelephone)
+  puts auth
+  res_home=get_nor_payload(auth, "home", bookingnumber)
+  res_weather=get_nor_payload(auth, "weather", bookingnumber)
+  res_summary=get_nor_payload(auth, "summary", bookingnumber)
+  res_checklist=get_nor_payload(auth, "checklist", bookingnumber)
+  res_destination=get_nor_payload(auth, "destination", bookingnumber)
+  res_excursions=get_nor_payload(auth, "excursions", bookingnumber)
+  res_countdown=get_nor_payload(auth, "countdown", bookingnumber)
 
-    $g_countdown=res_countdown
-    $g_excursions=res_excursions
-    $g_destinations=res_destination
-    $g_current_booking=res_home
-    $g_eng_checklist=res_checklist
-    $g_weather = res_weather
-    $g_summary = res_summary
-  end
+  $g_countdown=res_countdown
+  $g_excursions=res_excursions
+  $g_destinations=res_destination
+  $g_current_booking=res_home
+  $g_eng_checklist=res_checklist
+  $g_weather = res_weather
+  $g_summary = res_summary
+end
 
 
 $booking_hash={} # hash array to hold data fetched from curl
@@ -218,8 +228,9 @@ if $g_current_app== "DE_MT"
   de_user_details $g_de_typical_booking, "typical"
   $g_booking.set_payload($g_current_booking["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
-  eng_user_details
-  $g_booking.set_payload($g_current_booking["payload"])
+  #eng_user_details
+  #$g_booking.set_payload($g_current_booking["payload"])
+  get_search_book_data
 elsif $g_nordics_app
   nor_user_details
   $g_booking.set_payload($g_current_booking["payload"])

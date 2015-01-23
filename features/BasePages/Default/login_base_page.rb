@@ -1,6 +1,5 @@
 class LoginBasePage < BasePage
 
-
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
   end

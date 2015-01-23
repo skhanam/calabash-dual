@@ -26,9 +26,6 @@ module ViewModule
       return true
     end
 
-    def navigate_back_acc_label
-    click_acc_label get_val "home_page_sidepanel_acc_label"
-    end
 
   elsif $g_android
     def wait_for_text(text, time_out=10)
@@ -50,6 +47,10 @@ module ViewModule
   def embed(a, b, c)
   end
 
+
+  def navigate_back_acc_label
+    click_acc_label get_val "home_page_sidepanel_acc_label"
+  end
 
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios

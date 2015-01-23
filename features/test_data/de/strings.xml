@@ -1107,6 +1107,9 @@
   <string name="travelfolio_category_travelPlan">Reiseplan</string>
   <string name="travelfolio_category_travelConfirmation">Reisebestätigung</string>
   <string name="travelfolio_category_accommodationVoucher">Hotel Voucher</string>
+  <string name="travelfolio_errordownload_sorry">Entschuldigung!</string>
+  <string name="travelfolio_errordownload_sorry_body">Sie sind eingecheckt, aber es gab einen Fehler beim Laden Ihrer Bordkarten.\nBitte versuchen Sie es noch einmal.</string>
+  <string name="travelfolio_errordownload_sorry_cta">Bordkarten herunterladen</string>
   <!-- boardingpass -->
   <string name="boardingpass_biscuit_seat">SITZ</string>
   <string name="boardingpass_biscuit_flight">FLUG:</string>

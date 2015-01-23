@@ -226,6 +226,8 @@
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">You didn’t book a First Choice holiday directly with First Choice or Thomson::You booked a Thomson cruise::You booked a Thomson holiday</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
+  <string name="welcome_tablet_app_available_title">Got An iPad?</string>
+  <string name="welcome_tablet_app_available_message">We can see you're using our smartphone app on your iPad.\nDid you know FirstChoice is now available on iPad?\nDownload the brand new FirstChoice Tablet app, available for free in the App Store.</string>
   <!-- 1.0 home -->
   <string name="newsletter_signup_title">newsletter_signup_title</string>
   <string name="newsletter_signup_success">newsletter_signup_success</string>
@@ -438,11 +440,11 @@
   <string name="contactus_extra_text_2_subheading">contactus_extra_text_2_subheading</string>
   <string name="contactus_extra_text_2">contactus_extra_text_2</string>
   <string name="dial_number">Call</string>
-  <string name="disclaimer">Impressum</string>
+  <string name="disclaimer">disclaimer</string>
   <string name="contactus_email_title">contactus_email_title</string>
   <string name="contactus_cta_guideonline">contactus_cta_guideonline</string>
   <string name="send_sms">Send SMS</string>
-  <string name="we_are_here_for_you">So erreichen Sie uns</string>
+  <string name="we_are_here_for_you">we_are_here_for_you</string>
   <!-- 16.0 Guide Online -->
   <string name="guide_online">guide_online</string>
   <string name="tap_to_type_message">tap_to_type_message</string>
@@ -1066,6 +1068,7 @@
   <string name="webcheckin_homepagebiscuit_oneflightopen_flighttxt">Flight: </string>
   <string name="webcheckin_homepagebiscuit_oneflightopen_departingtxt">Departing: </string>
   <string name="webcheckin_homepagebiscuit_somecheckedin">[checked] of [total] passengers remaining to check-in</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_singular">[checked] of [total] passengers remaining to check-in</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin_cta">Check-in remaining</string>
   <string name="webcheckin_homepagebiscuit_offlineerr">You have to be online to check-in</string>
   <string name="webcheckin_confirmation_successful_title">Great</string>
@@ -1086,7 +1089,7 @@
   <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
   <string name="webcheckin_flightdetailpage_somecheckedin">Check in remaining passengers</string>
   <string name="webcheckin_flightdetailpage_somecheckedincta">Check-in now</string>
-  <string name="webcheckin_webflow_title">Flight check-in</string>
+  <string name="webcheckin_webflow_title">Check-in</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Boarding passes</string>
   <string name="travelfolio_biscuit_subtitle_singular">[count] Boarding pass</string>
@@ -1094,7 +1097,10 @@
   <string name="travelfolio_checkin_now">Check-in now</string>
   <string name="travelfolio_refresh_cta">Refresh boarding passes</string>
   <string name="travelfolio_refresh_body">If you've made changes to your flight booking or received an email from us, you can udate all your boarding passes here.</string>
-  <string name="travelfolio_category_title">Travelfolio</string>
+  <string name="travelfolio_tap_to_retry">Tap to retry download</string>
+  <string name="travelfolio_downloading">Downloading</string>
+  <string name="travelfolio_not_checked_in_yet">Not checked-in yet</string>
+  <string name="travelfolio_category_title">MyDocuments</string>
   <string name="travelfolio_category_mbp">Boarding passes</string>
   <string name="travelfolio_category_transferVoucher">Transfer</string>
   <string name="travelfolio_category_flightVoucher">Flight</string>
@@ -1106,6 +1112,9 @@
   <string name="travelfolio_category_travelPlan">Travel plan</string>
   <string name="travelfolio_category_travelConfirmation">Travel confirmation</string>
   <string name="travelfolio_category_accommodationVoucher">Hotel</string>
+  <string name="travelfolio_errordownload_sorry">Sorry,</string>
+  <string name="travelfolio_errordownload_sorry_body">you've checked in but there was an error downloading your boarding passes.\nPlease try again</string>
+  <string name="travelfolio_errordownload_sorry_cta">Download Boarding passes</string>
   <!-- boardingpass -->
   <string name="boardingpass_biscuit_seat">SEAT</string>
   <string name="boardingpass_biscuit_flight">FLIGHT: </string>

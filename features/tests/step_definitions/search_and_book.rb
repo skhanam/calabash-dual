@@ -14,7 +14,7 @@ end
 Given(/^I have navigated to search and book screen$/) do
   step %Q{I am on 'Welcome' screen}
   txt=escape_quotes(@page.get_val "welcome_nobooking_subtitle")
-  touch "view text:'#{txt}'"
+  @page.click_on_text txt
   sleep 2
 end
 
@@ -33,7 +33,16 @@ end
 
 When(/^I see Sign Up For Offers on search and book screen$/) do
   @searchBookPage.verify_search_book_screen
-
   txt=escape_quotes(@page.get_val "search_book_sign_up")
   @page.assert_wait_for_text txt
+end
+
+Then(/^I check each tile of each row in search and book screen$/) do
+  @searchBookPage.check_every_row_every_tile
+end
+
+When(/^I see following elements on Sign up offers page:$/) do |table|
+  values=table.raw
+  values.each do |var|
+  end
 end

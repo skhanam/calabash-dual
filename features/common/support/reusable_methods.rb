@@ -11,10 +11,13 @@ module ReusableMethods
   def embed(a, b, c)
   end
 
-  def input_text(var,id=nil)
+  def input_text(var, id=nil)
     sleep 1
-    enter_text_android(var,id) if $g_android
-    keyboard_enter_text var if $g_ios
+    if $g_android && id!=nil
+      enter_text_android(var, id)
+    else
+      keyboard_enter_text var
+    end
     sleep 1
   end
 

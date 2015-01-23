@@ -68,7 +68,10 @@ class CommonMethods < BasePage
   def close_popup_dialog
     #Handle push notifications
     if check_text_in_view @@push_notifications
-      click_on_text @@push_allow
+      sleep 2
+      assert_wait_for_text @@push_allow
+      touch "label text:'#{@@push_allow}'"
+      #click_on_text @@push_allow
     end
 
      puts ("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
