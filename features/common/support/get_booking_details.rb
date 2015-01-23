@@ -228,8 +228,8 @@ if $g_current_app== "DE_MT"
   de_user_details $g_de_typical_booking, "typical"
   $g_booking.set_payload($g_current_booking["payload"])
 elsif $g_current_app== "EN_TH" || $g_current_app== "EN_FC"
-  #eng_user_details
-  #$g_booking.set_payload($g_current_booking["payload"])
+  eng_user_details
+  $g_booking.set_payload($g_current_booking["payload"])
   get_search_book_data
 elsif $g_nordics_app
   nor_user_details
