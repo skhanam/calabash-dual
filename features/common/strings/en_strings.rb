@@ -24,6 +24,7 @@ module EN_Strings
     phone_welcome_strings
     search_book_strings
     sign_up_offers
+    sign_up_strings
   end
 
   def self.included(receiver)
@@ -384,6 +385,22 @@ module EN_Strings
     @@search_book_Excursions ="Excursions"
   end
 
+  def sign_up_strings
+    @@salutations_to_split_by_colon=get_localized_string "salutations_to_split_by_colon"# Mr:Mrs:Ms:Miss:Dr
+    @@signup_email=get_localized_string "signup_email"# Email address:
+    @@signup_email_hint=get_localized_string "signup_email_hint"# example@example.com
+    @@signup_first_name=get_localized_string "signup_first_name"# First name:
+    @@signup_first_name_hint=get_localized_string "signup_first_name_hint"# John
+    @@signup_lastName=get_localized_string "signup_lastName"# Last name:
+    @@signup_lastName_hint=get_localized_string "signup_lastName_hint"# Smith
+    @@signup_privacy_cta=get_localized_string "signup_privacy_cta"# Privacy policy
+    @@signup_salutation=get_localized_string "signup_salutation"# Title:
+    @@signup_selector=get_localized_string "signup_selector"# Mr
+    @@signup_signup_cta=get_localized_string "signup_signup_cta"# Submit
+    @@signup_successful=get_localized_string "signup_successful"# Sign up successful
+    @@signup_unsuccessful=get_localized_string "signup_unsuccessful"# Sign up unsuccessful. Please try again
+    @@time=get_localized_string "time"# time
+  end
   def sign_up_offers
     @@email_signup_successful=get_localized_string "email_signup_successful" #Thanks for signing up. Keep an eye on your inbox for upcoming offers.
     @@email_signup_failed=get_localized_string "email_signup_failed" #Oops, looks like something went wrong. Please check your connection and try again.
@@ -395,6 +412,7 @@ module EN_Strings
     @@salutation_field_validation=get_localized_string "salutation_field_validation" #Please select a salutation
     @@optin_to_emails_blurb=get_localized_string "optin_to_emails_blurb" #I would like to receive great deals and holiday news via email (Your data will not be disclosed to a third party and you can revoke consent at any time). By opting in, you agree to our privacy policy.
     @@agree_to_emails_blurb=get_localized_string "agree_to_emails_blurb" #Please read our Privacy Policy and Data Protection Notice and confirm you agree to our use of your information provided (which may in special situations include sensitive personal data) by ticking the box below.
+    @@optin_to_emails=get_localized_string "optin_to_emails" #Sign up to emails from First Choice
     @@agree_to_emails=get_localized_string "agree_to_emails" #I agree
     @@welcome_help_no_holiday_email_disclaimer=get_localized_string "welcome_help_no_holiday_email_disclaimer" #By clicking 'Submit' you confirm that you have read and understood our Privacy Policy and consent to our use of your information.
   end

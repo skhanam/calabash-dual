@@ -226,6 +226,8 @@
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
+  <string name="welcome_tablet_app_available_title">welcome_tablet_app_available_title</string>
+  <string name="welcome_tablet_app_available_message">welcome_tablet_app_available_message</string>
   <!-- 1.0 home -->
   <string name="newsletter_signup_title">erhalten Sie persönliche Topangebote, tolle Hoteltipps und Reisetrends mit unserem Newsletter</string>
   <string name="newsletter_signup_success">vielen Dank für Ihre Anmeldung zum Newsletter. Sie können sich jederzeit in den Kontoeinstellungen abmelden.</string>

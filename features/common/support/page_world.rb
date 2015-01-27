@@ -20,7 +20,7 @@ module TestModule
     @holidayMosaicPage ||=HolidayMosaicBasePage.new
     @hotelPage ||=HotelBasePage.new
     @impInfoPage||=ImpInfoBasePage.new
-
+    @nextPage||=nil
 
     if ($g_current_app=='DE_MT')
       @myAccountPage ||= MyAccountBasePage.new

@@ -79,7 +79,7 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
     touch("* marked:'surname.'")
     keyboard_enter_text surname
-    @page.input_text(surname)# commented out for trying android tablet
+    #@page.input_text(surname)# commented out for trying android tablet
 
     touch("* marked:'departureDate.'")
     sleep 2

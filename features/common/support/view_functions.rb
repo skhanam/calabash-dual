@@ -30,7 +30,7 @@ module ViewModule
   elsif $g_android
     def wait_for_text(text, time_out=10)
       begin
-        wait_for_text(text, timeout: time_out.to_i)
+        wait_for_element_exists("#{$g_query_txt}text:'#{text}'", timeout: time_out.to_i)
       rescue
         return false
       end
