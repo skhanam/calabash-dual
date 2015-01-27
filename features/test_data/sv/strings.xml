@@ -68,7 +68,7 @@
   <string name="welcome_help_cant_login_androidStore">welcome_help_cant_login_androidStore</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website">welcome_help_cant_login_androidStoreCTA_website</string>
   <string name="welcome_help_cant_login_androidStoreCTA_website_tablet">welcome_help_cant_login_androidStoreCTA_website_tablet</string>
-  <string name="welcome_help_cant_login_body">Felskrivet bokningsnummer. Det ska börja med siffran 1, följt av en bokstav och fem siffror till. Versionsnummer (t ex -01) ska inte anges.::Felskriven e-postadress eller felskrivet telefonnummer. Kontrollera stavning och ange telefonnummer dagtid (t ex mobil) som du angav vid bokningstillfället. Skriv in siffrorna på samma sätt som du gjorde då..::Observera att du ska skriva ANTINGEN e-mail ELLER telefonnummer. </string>
+  <string name="welcome_help_cant_login_body">Felskrivet bokningsnummer? Det ska börja med siffran 1, följt av en bokstav och fem siffror till. Versionsnummer (t ex -01) ska inte anges.::Felskriven e-postadress eller felskrivet telefonnummer? Kontrollera stavning och ange telefonnummer dagtid (t ex mobil) som du angav vid bokningstillfället. Skriv in siffrorna på samma sätt som du gjorde då.::Observera att du ska skriva ANTINGEN e-mail ELLER telefonnummer. </string>
   <string name="welcome_help_cant_login_body_1">welcome_help_cant_login_body_1</string>
   <string name="welcome_help_cant_login_body_2">welcome_help_cant_login_body_2</string>
   <string name="welcome_help_cant_login_body_3">welcome_help_cant_login_body_3</string>
@@ -226,6 +226,8 @@
   <string name="welcome_login_telephone_extra">Telefonnummer dagtid (t ex mobil) som du angett i din bokning.</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
+  <string name="welcome_tablet_app_available_title">welcome_tablet_app_available_title</string>
+  <string name="welcome_tablet_app_available_message">welcome_tablet_app_available_message</string>
   <!-- 1.0 home -->
   <string name="newsletter_signup_title">newsletter_signup_title</string>
   <string name="newsletter_signup_success">newsletter_signup_success</string>
@@ -1067,6 +1069,7 @@
   <string name="webcheckin_homepagebiscuit_oneflightopen_flighttxt">webcheckin_homepagebiscuit_oneflightopen_flighttxt</string>
   <string name="webcheckin_homepagebiscuit_oneflightopen_departingtxt">webcheckin_homepagebiscuit_oneflightopen_departingtxt</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin">webcheckin_homepagebiscuit_somecheckedin</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_singular">webcheckin_homepagebiscuit_somecheckedin_singular</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin_cta">webcheckin_homepagebiscuit_somecheckedin_cta</string>
   <string name="webcheckin_homepagebiscuit_offlineerr">webcheckin_homepagebiscuit_offlineerr</string>
   <string name="webcheckin_confirmation_successful_title">webcheckin_confirmation_successful_title</string>
@@ -1078,6 +1081,16 @@
   <string name="webcheckin_confirmation_nombp_title">webcheckin_confirmation_nombp_title</string>
   <string name="webcheckin_confirmation_nombp_body">webcheckin_confirmation_nombp_body</string>
   <string name="webcheckin_confirmation_nombp_cta">webcheckin_confirmation_nombp_cta</string>
+  <string name="webcheckin_flightdetailpage_checkinnotopen">webcheckin_flightdetailpage_checkinnotopen</string>
+  <string name="webcheckin_flightdetailpage_3rdparty">webcheckin_flightdetailpage_3rdparty</string>
+  <string name="webcheckin_flightdetailpage_checkinnow">webcheckin_flightdetailpage_checkinnow</string>
+  <string name="webcheckin_flightdetailpage_checkinnowcta">webcheckin_flightdetailpage_checkinnowcta</string>
+  <string name="webcheckin_flightdetailpage_checkedin">webcheckin_flightdetailpage_checkedin</string>
+  <string name="webcheckin_flightdetailpage_checkedincta">webcheckin_flightdetailpage_checkedincta</string>
+  <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
+  <string name="webcheckin_flightdetailpage_somecheckedin">webcheckin_flightdetailpage_somecheckedin</string>
+  <string name="webcheckin_flightdetailpage_somecheckedincta">webcheckin_flightdetailpage_somecheckedincta</string>
+  <string name="webcheckin_webflow_title">webcheckin_webflow_title</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">travelfolio_biscuit_title</string>
   <string name="travelfolio_biscuit_subtitle_singular">travelfolio_biscuit_subtitle_singular</string>
@@ -1085,6 +1098,10 @@
   <string name="travelfolio_checkin_now">travelfolio_checkin_now</string>
   <string name="travelfolio_refresh_cta">travelfolio_refresh_cta</string>
   <string name="travelfolio_refresh_body">travelfolio_refresh_body</string>
+  <string name="travelfolio_tap_to_retry">travelfolio_tap_to_retry</string>
+  <string name="travelfolio_downloading">travelfolio_downloading</string>
+  <string name="travelfolio_not_checked_in_yet_singular">travelfolio_not_checked_in_yet_singular</string>
+  <string name="travelfolio_not_checked_in_yet_plural">travelfolio_not_checked_in_yet_plural</string>
   <string name="travelfolio_category_title">travelfolio_category_title</string>
   <string name="travelfolio_category_mbp">travelfolio_category_mbp</string>
   <string name="travelfolio_category_transferVoucher">travelfolio_category_transferVoucher</string>
@@ -1097,6 +1114,9 @@
   <string name="travelfolio_category_travelPlan">travelfolio_category_travelPlan</string>
   <string name="travelfolio_category_travelConfirmation">travelfolio_category_travelConfirmation</string>
   <string name="travelfolio_category_accommodationVoucher">travelfolio_category_accommodationVoucher</string>
+  <string name="travelfolio_errordownload_sorry">travelfolio_errordownload_sorry</string>
+  <string name="travelfolio_errordownload_sorry_body">travelfolio_errordownload_sorry_body</string>
+  <string name="travelfolio_errordownload_sorry_cta">travelfolio_errordownload_sorry_cta</string>
   <!-- boardingpass -->
   <string name="boardingpass_biscuit_seat">boardingpass_biscuit_seat</string>
   <string name="boardingpass_biscuit_flight">boardingpass_biscuit_flight</string>

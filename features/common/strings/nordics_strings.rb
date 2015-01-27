@@ -58,6 +58,7 @@ module NordicsStrings
     @@login_page_help_logging_in=get_localized_string "welcome_cta_help_login"
     @@login_page_book_visit=get_localized_string "welcome_book_holiday"
 
+    @@welcome_help_link1 = get_localized_string "welcome_help_cant_login_header" # Hjälp med inloggningen
 
     @@welcome_help_cant_login_cta=get_localized_string "welcome_help_cant_login_cta" #"Retrieve a booking reference number"
     @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"

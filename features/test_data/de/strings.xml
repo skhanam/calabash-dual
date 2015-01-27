@@ -1097,6 +1097,10 @@
   <string name="travelfolio_checkin_now">Jetzt einchecken</string>
   <string name="travelfolio_refresh_cta">Bordkarten aktualisieren</string>
   <string name="travelfolio_refresh_body">Sollten Sie Ihre Flugbuchung geändert oder eine E-Mail von uns erhalten haben, können Sie Ihre Bordkarten hier aktualisieren.</string>
+  <string name="travelfolio_tap_to_retry">Laden wiederholen</string>
+  <string name="travelfolio_downloading">wird geladen</string>
+  <string name="travelfolio_not_checked_in_yet_singular">ist noch nicht eingecheckt</string>
+  <string name="travelfolio_not_checked_in_yet_plural">sind noch nicht eingecheckt</string>
   <string name="travelfolio_category_title">Reisedokumente</string>
   <string name="travelfolio_category_mbp">Bordkarten</string>
   <string name="travelfolio_category_transferVoucher">Transferticket</string>
