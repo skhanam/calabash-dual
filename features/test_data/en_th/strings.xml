@@ -1097,6 +1097,10 @@
   <string name="travelfolio_checkin_now">Check-in now</string>
   <string name="travelfolio_refresh_cta">Refresh boarding passes</string>
   <string name="travelfolio_refresh_body">If you've made changes to your flight booking or received an email from us, you can udate all your boarding passes here.</string>
+  <string name="travelfolio_tap_to_retry">Tap to retry download</string>
+  <string name="travelfolio_downloading">Downloading</string>
+  <string name="travelfolio_not_checked_in_yet_singular">Not checked-in yet</string>
+  <string name="travelfolio_not_checked_in_yet_plural">Not checked-in yet</string>
   <string name="travelfolio_category_title">MyDocuments</string>
   <string name="travelfolio_category_mbp">Boarding passes</string>
   <string name="travelfolio_category_transferVoucher">Transfer</string>

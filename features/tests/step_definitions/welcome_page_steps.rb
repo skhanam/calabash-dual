@@ -15,6 +15,7 @@ When(/^I am on Home screen$/) do
       step "I must be logged in and on Home page"
     end
     step "I see verify I am on home screen"
+    @page.wait_for_progress_to_disappear
   end
 end
 

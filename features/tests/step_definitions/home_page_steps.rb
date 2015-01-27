@@ -113,6 +113,7 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged in and on Home page$/) do
+  @page.wait_for_spinner_to_disappear
   acc_label="background_normal" if $g_phone
   acc_label= @page.get_val("countdown_biscuit_acc") if $g_tablet
   @homePage.assert_wait_for_acc("#{acc_label}", 20) if !@page.check_acc_label acc_label

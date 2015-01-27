@@ -107,6 +107,9 @@ module ViewModule
     end
   end
 
+  def wait_for_spinner_to_disappear
+    wait_for_elements_do_not_exist "activityIndicatorView",:timeout=>20
+  end
 
   def wait_for_progress_to_disappear(str, timeout=10)
     puts "waiting for progress bar"

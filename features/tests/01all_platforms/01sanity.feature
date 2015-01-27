@@ -1,4 +1,4 @@
-@tab @reg @tab-sanity @sanity @ph-sanity
+@tab @reg @tab-sanity @sanity
 Feature: Login and Home page features
   Login into application
 
@@ -9,15 +9,15 @@ Feature: Login and Home page features
     And I should see Weather type icon
     And I should see country names on weather biscuit
 
-  @san3
+  @reset @san1  @ph-sanity
+  Scenario: US13575 Successful login
+    Given I am on 'Login' screen
+    When I submit correct login credentials
+    Then I must be logged in and on Home page
+
+@san3 @ph-sanity
   Scenario: Logout from App
     Given I am on Home screen with pre holiday booking
     When I navigate to logout
     And I confirm Logout
     Then I should navigate to welcome screen
-
-  @reset @san1
-  Scenario: US13575 Successful login
-    Given I am on 'Login' screen
-    When I submit correct login credentials
-    Then I must be logged in and on Home page
