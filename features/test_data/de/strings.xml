@@ -1098,6 +1098,11 @@
   <string name="travelfolio_refresh_cta">Bordkarten aktualisieren</string>
   <string name="travelfolio_refresh_body">Sollten Sie Ihre Flugbuchung geändert oder eine E-Mail von uns erhalten haben, können Sie Ihre Bordkarten hier aktualisieren.</string>
   <string name="travelfolio_tap_to_retry">Laden wiederholen</string>
+  <string name="travelfolio_boarding_passes_refresh_title">Bordkarten aktualisiert!</string>
+  <string name="travelfolio_boarding_passes_refresh_body">Ihre Bordkarten wurden erfolgreich aktualisiert. Alle Informationen sind nun auf dem aktuellen Stand.</string>
+  <string name="travelfolio_boarding_passes_refresh_failed_title">Das Aktualisieren der Bordkarte ist fehlgeschlagen.</string>
+  <string name="travelfolio_boarding_passes_refresh_failed_body">Bitte versuchen Sie es erneut.</string>
+  <string name="travelfolio_boarding_passes_refresh_try_again">Erneut versuchen</string>
   <string name="travelfolio_downloading">wird geladen</string>
   <string name="travelfolio_not_checked_in_yet_singular">ist noch nicht eingecheckt</string>
   <string name="travelfolio_not_checked_in_yet_plural">sind noch nicht eingecheckt</string>

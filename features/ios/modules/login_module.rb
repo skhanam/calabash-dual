@@ -126,9 +126,9 @@ module LoginModule
       else
         #res=DateTime.parse date
         #query "UIDatePicker",[{setDate:res},{animated:true}]
-        query("pickerTableView index:4", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
+        query("pickerTableView index:2", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(1)
-        query("pickerTableView index:2", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
+        query("pickerTableView index:4", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(1)
         query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
       end
