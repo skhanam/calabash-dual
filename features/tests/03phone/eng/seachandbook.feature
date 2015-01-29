@@ -1,6 +1,5 @@
-@en-phone @working @ph-searchbook @reset
+@en-phone @working @ph-searchbook @reset @en-phone
 Feature: English Sanity Tests
-
 
   Scenario: Selecting top half of welcome screen takes user to login screen
     Given I am on 'Welcome' screen
@@ -44,7 +43,6 @@ Feature: English Sanity Tests
     And I have not entered any fields on search and book screen
     Then the submit button is disabled on search and book screen
 
-  @testnow
   Scenario: US18485 - UK S&B - submit correct credentials
     Given I have navigated to sign up offers screen from welcome screen
     Then I see email field with pre filled text on search and book page
@@ -55,3 +53,31 @@ Feature: English Sanity Tests
       | a@b.com    | no error                           |
       | a@b.co.uk  | no error                           |
 
+  Scenario: US18485 - UK S&B navigating back to search book
+    Given I have navigated to search and book screen
+    And I select first tile on Excursions
+    Then in-app browser opens displaying the respective page
+    When I tap the back arrow on search and book webview
+    Then I am on search and book screen
+    Then I am on same position in Search book screen
+
+  Scenario: US18485 - UK S&B navigating back to search book
+    Given I have navigated to search and book screen
+    And I select first tile on Excursions
+    Then in-app browser opens displaying the respective page
+    When I tap the back arrow on search and book webview
+    Then I am on search and book screen
+    Then I am on same position in Search book screen
+
+  Scenario: US18485 - UK S&B check search and book tile
+    Given I have navigated to search and book screen
+    And I tap on the search and book tile
+    Then in-app browser opens displaying the respective page
+
+#  @testnow
+#  Scenario: S & B submit sign up details
+#    Given I have navigated to sign up offers screen from welcome screen
+#    Given I have filled in valid data and ticked both check boxes on sign up offers screen
+#    And I Submit details on sign up offers screen
+#    Then a Blue box is displayed at the top of sign up offers screen
+#    And with Thanks for signing up message

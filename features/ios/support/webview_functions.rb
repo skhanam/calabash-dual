@@ -16,9 +16,18 @@ module WebViewModule
     receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
 
-  def get_webview_link
-    res=(query "webView", :request).first.match(/URL\:(.*)/)
-    res[1].strip
+  def verify_webview_shown link_url
+    wait_for_element_exists "webView css:'#logo'",:timeout=>20
+    sleep 5
+    res=query("webView", :request).first.match(/URL\:(.*)}/)
+    puts res
+
+    fail("#{link_url["url"]}!=#{res[1].strip}")  if (res[1].strip.match link_url["url"])==nil
+    #fail("#{link_url["url"]}!=#{res[1].strip}") if  link_url["url"]!= res[1].strip
+  end
+
+  def verify_text_present txt
+    assert_wait_for_element "ti.modules.titanium.ui.widget.webview.TiUIWebView$TiWebView css:'*' {textContent CONTAINS '#{txt}'}"
   end
 
   module Phone

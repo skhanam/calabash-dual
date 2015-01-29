@@ -17,7 +17,7 @@ module SearchBookModule
     arr=[]
     all_tiles[tile_num]["labels"].each { |val2| arr.push val2["text"] }
     link=all_tiles[tile_num]["link"]
-    return arr,link
+    return arr, link
   end
 
   def get_search_row_count
@@ -61,7 +61,7 @@ module SearchBookModule
         count=get_search_tile_count(row_num).to_i
         puts "Tile count #{count}"
         for num in 1..count.to_i
-          arr,link=get_details_for_tile row_num, num
+          arr, link=get_details_for_tile row_num, num
           puts "arr = #{arr} row_num #{row_num}, num #{num}"
           arr.each { |var| assert_wait_for_text var }
           return if count==1
@@ -87,22 +87,31 @@ module SearchBookModule
         arr=@@salutations_to_split_by_colon.split ':'
         #arr=["Mr", "Mrs", "Ms", "Miss", "Dr"]
         for cnt in 0..arr.count-1
-          val=query("pickerView", :delegate, [{pickerView: nil}, {titleForRow:"#{cnt}"}, {forComponent: 0}]).first
+          val=query("pickerView", :delegate, [{pickerView: nil}, {titleForRow: "#{cnt}"}, {forComponent: 0}]).first
           fail "#{val.to_s}!=#{arr[cnt].to_s} is not shown" if  val.to_s!="#{arr[cnt].to_s}"
         end
       end
 
       def fill_sign_up_details
-        touch "TiTextField index:0"
         verify_sign_up_offer_title #verify picker view table
 
-        #check hint text
-        query("TiTextField index:1 label",:text).first
-        query("TiTextField index:2 label",:text).first
-        query("TiTextField index:3 label",:text).first
+        if $g_ios
+          touch "TiTextField index:0"
+          wait_for_element_exists "checkedTextView text:'Mrs'"
+          touch("view:'UIPickerView' label text:'"+"Mrs"+"'")
+        elsif $g_android
+          touch "TiEditText index:0"
+          touch "checkedTextView text:'Mrs'"
+        end
 
-        click_acc_label "signupToEmailsOptIn"  # Sign up to emails tick
-        click_acc_label "signupToEmailsAgree"  # Sign up I agree
+        #check hint text
+        touch("TiTextField index:1 label", :text).first
+        keyboard_enter_text "John"
+        query("TiTextField index:2 label", :text).first
+        query("TiTextField index:3 label", :text).first
+
+        click_acc_label "signupToEmailsOptIn" # Sign up to emails tick
+        click_acc_label "signupToEmailsAgree" # Sign up I agree
       end
 
 

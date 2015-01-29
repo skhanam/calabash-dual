@@ -77,7 +77,7 @@ module HomeModule
     end
 
     def wait_for_home_elements
-      wait_for_acc_label @@home_page_title_acc
+      assert_wait_for_acc @@home_page_title_acc
     end
 
     def check_i_am_on_home_page

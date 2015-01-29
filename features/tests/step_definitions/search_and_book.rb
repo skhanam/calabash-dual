@@ -93,10 +93,30 @@ When(/^I submit email id and expect appropriate message:$/) do |table|
   end
 end
 When(/^I select first tile on Excursions$/) do
+  @searchBookPage.scroll_table_to_row 7
   @arr,@link= @searchBookPage.get_details_for_tile 7, 1
   @page.click_on_text @arr.last
 end
 
 Then(/^in-app browser opens displaying the respective page$/) do
-@page.get_webview_link
+  @page.verify_text_present "Holiday Search"
+@page.verify_webview_shown @link
+end
+
+When(/^I tap the back arrow on search and book webview$/) do
+  @page.click_acc_label @page.get_val "home_page_sidepanel_acc_label"
+end
+
+Then(/^I am on same position in Search book screen$/) do
+  @page.assert_wait_for_text @arr.last # verify text that was clicked
+end
+
+When(/^I tap on the search and book tile$/) do
+  @searchBookPage.scroll_table_to_row 3
+  @arr,@link= @searchBookPage.get_details_for_tile 3, 1
+  @page.click_on_text @arr.last
+end
+
+Given(/^I have filled in valid data and ticked both check boxes on sign up offers screen$/) do
+  @searchBookPage.fill_sign_up_details
 end
