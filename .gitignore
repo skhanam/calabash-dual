@@ -31,3 +31,6 @@ iosen_thphone.app
 iosen_fcphone.app
 iosen_fctablet.app
 iosdetablet.app
+.bundle
+build/test/test1.xml
+build/test/test2.xml

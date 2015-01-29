@@ -1,4 +1,5 @@
 Then(/^I see terms page is displayed correctly$/) do
+  #working for phone only
   sleep 2
   @termsPage.check_t_and_c_title
   @termsPage.check_t_and_c_page

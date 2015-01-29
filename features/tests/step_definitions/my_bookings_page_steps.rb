@@ -28,7 +28,8 @@ Given(/^I am on my bookings page$/) do
 end
 
 When(/^I navigate to add a booking page$/) do
-  @myBookingsPage.click_add_a_booking_button
+  @myBookingsPage.click_add_a_booking_button if $g_phone
+  step 'I tap on Add Booking biscuit' if $g_tablet
 end
 
 Then(/^I see add a booking screen/) do
@@ -101,7 +102,7 @@ When(/^I should see any inline error messages on add booking page$/) do
 end
 
 Then(/^I see close button on change email page$/) do
-  @page.assert_wait_for_acc @page.get_val "close_button_acc"
+  @page.assert_wait_for_acc @page.get_val "close_button_acc" if $g_tablet # not applicable for phone
 end
 
 Then(/^I verify elements on change email page$/) do

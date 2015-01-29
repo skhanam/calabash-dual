@@ -24,11 +24,7 @@ DE_USER||= {
         :email => "userdea@gmail.com",
         :password => "testtest",
         :country => "Deutschland",
-        :bookings => {
-            :destination => "Palma de Mallorca",
-            :date => "06.09.2014",
-            :products => "Flug"
-        }},
+    },
     :invalid => {
         :username => "invalidusername",
         :password => "nono",
@@ -106,21 +102,49 @@ FIRSTCHOICE_USER||={
 #}
 
 #  DEV user
-NOR_USER||={
-    :valid => {
-        :bookingnumber => "3T93289",
-        :emailid => "ann.alm@fritidsresor.se",
-        :telefon => "0723512372",
-        :departuredate => "22-07-2014",
-        :DepartureTime => "16:20",
 
-    },
-    :invalid => {
-        :bookingnumber => "11Y30060",
-        :emailid => "ns.w@or.se",
-        :telefon => "0722377937",
-        :departuredate => "26-10-2014",
-    }
+NB_USER||={
+    :bookingnumber => "3U55389",
+    :emailid => "jan.johansson@gmail.com",
+    :telefon => "0788998899",
+    :departuredate => "07-03-2015",
+    :DepartureTime => "13:55",
 }
 
+DA_USER||={
+    :bookingnumber => "BN36227",
+    :emailid => "lars.linden@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "19-01-2015",
+    :DepartureTime => "07:50",
+}
+
+FI_USER||={
+    :bookingnumber => "AL75051",
+    :emailid => "therese.bellhammar@fritidsresor.se",
+    :telefon => "0733800015",
+    :departuredate => "22-02-2015",
+    :DepartureTime => "08:15",
+}
+
+SV_USER||={
+    :bookingnumber => "1C62272",
+    :emailid => "karin.ohlsson@fritidsresor.se",
+    :telefon => "0755668899",
+    :departuredate => "06-02-2015",
+    :DepartureTime => "12:30",
+}
+
+if ($g_lang=="sv" ||$g_lang=="da" ||$g_lang=="fi" ||$g_lang=="nb")
+  NORDICS_USER=eval("#{UnicodeUtils.upcase($g_lang)}"+"_USER")
+  NOR_USER||={
+      :valid => NORDICS_USER,
+      :invalid => {
+          :bookingnumber => "11Y30060",
+          :emailid => "ns.w@or.se",
+          :telefon => "0722377937",
+          :departuredate => "26-10-2014",
+      }
+  }
+end
 

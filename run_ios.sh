@@ -12,20 +12,26 @@ if [ "$#" -le "4" ]; then
     echo "4) Hardware on which tests are run tablet/ phone"
     echo "5) relative folder path where source code is located"
 
-	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de phone ../tda"
+	echo "\nSample command: \n 1) sh run_ios.sh clean @sanity de phone ../tda"
 	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda"
 	echo " 3)sh run_ios.sh NA @testnow en_fc phone ../tda\n"
+
+	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
+	echo " 2)sh run_ios.sh NA @tab-sanity en_th tablet ../tda.tablet"
 	exit
 fi
 
 LANG=$3
 HW=$4
+
+DEVICE_ID=$6
 PROJ_FOLDER=$5
 tagged_test=$2
 LANG_STR=$LANG
-FILENAME="ios$LANG$HW.app"
+FILENAME="../Appfiles/ios$LANG$HW.app"
+mkdir -p ../Appfiles
 
-echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6:"
+echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6 $7 :"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
@@ -77,8 +83,8 @@ if [ "$1" == "clean" ] ; then
 	ti clean
 
     if [ $HW == "phone" ]; then
-		node build.js --brand $TI_SCHEME
-		node build.js --brand $TI_SCHEME -l
+		node releaseScripts/build.js $TI_SCHEME
+		node releaseScripts/build.js $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
 			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
@@ -106,17 +112,24 @@ if [ "$1" == "clean" ] ; then
 
 fi
 
-if [ "$1" == "clean" ] || [ "$6" != "ci" ] ; then
+if [ "$1" == "clean" ] || [ "$7" != "ci" ] ; then
 	killall "iPhone Simulator"
 	killall Xcode                                                                 ]
 	sleep 1
 
 	if [ $LANG == "de" ] ; then
     	SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
+    	SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
     elif [ $LANG == "en_th" ] ; then
-    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+    	SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
     elif [ $LANG == "en_fc" ] ; then
-    	SRC_STR=${PROJ_FOLDER}/i18n/en/strings.xml
+	   	SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
+    elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
+
+    cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
+  	killall "iPhone Simulator"
+   	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
+
     fi
 
     DEST_STR=features/test_data/$LANG/
@@ -126,13 +139,36 @@ fi
 
 if [ $HW == "tablet" ] ; then
 	DEVICE_TARGET='iPad Retina (64-bit) - Simulator - iOS 7.1'
+	#DEVICE_TARGET='iPad Retina (8.1 Simulator)'
 elif [ $HW == "phone" ] ; then
 	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
 fi
 
 
+killall "iPhone Simulator"
 
 if [ "$2" != "NA" ] ; then
+
+ if [ $LANG == "sv" ] ; then
+	ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
+	echo ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
+ elif [ "$LANG" == "da" ] ; then
+	ios-sim-locale -sdk 7.1  -language da -locale da_DK
+ elif [ "$LANG" == "fi" ] ; then
+	ios-sim-locale -sdk 7.1  -language fi -locale fi_FI
+ elif [ "$LANG" == "nb" ] ; then
+	ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
+ fi
+
+{
+if [ ! -d $FILENAME ]; then
+    echo "\n\n**************************************************************************"
+    echo "********* ${FILENAME} File not found! ****************"
+    echo "******************* 		CLEAN AND BUILD		 ******************"
+    echo "**************************************************************************\n\n"
+    exit 0
+fi
+}
 echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3 -v
+DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

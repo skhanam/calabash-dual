@@ -33,8 +33,7 @@ end
 
 When(/^I add a new item with a title$/) do
   @checklistPage.add_new_packaging_item
-  step 'I touch done' if $g_ios
-  step 'I press the enter button' if $g_android
+  @page.click_return_key
 end
 
 Then(/^I see item listed under Items to pack$/) do

@@ -56,11 +56,10 @@ class BookingSummaryPage < BookingSummaryBasePage
     get_countdown_days= $g_current_user_details[:valid][:departuredate]
     res1=Date.parse(get_countdown_days)
     days=res1.strftime("%e")
-    suffix_days=CommonMethods.new.getDayNumberSuffix(days.to_i)
+    suffix_days=CommonMethods.new.get_day_number_suffix(days.to_i)
 
     str=res1.strftime("%e %B %Y")
     puts "Departure date :#{str}:"
-    #assert_wait_for_text str.to_s
   end
 
 

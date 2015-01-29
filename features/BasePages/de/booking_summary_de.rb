@@ -3,7 +3,7 @@ require_relative '../Default/booking_summary_base_page'
 class BookingSummaryPage < BookingSummaryBasePage
 
   def check_products_in_booking_summary(var)
-    products=CommonMethods.new.find_de_products(var)
+    products=$g_booking.find_de_products(var)
     if var=="flight"
       products.each do |val|
         txt_to_check=val["departureAirportName"]+" #{@@to_flight_strings} "+val["arrivalAirportName"]

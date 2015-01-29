@@ -3,28 +3,39 @@
 
 # Holds booking data and provides method for accessing data
 class Bookings
-  puts $g_hw_module
-  include eval($g_hw_module)
+ include eval($g_hw_module)
 
   def get_countdown_destination
     $g_current_booking["payload"]["destination"]
   end
 
-  def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_engChecklist)
+  def set_payload(payload=$g_current_booking["payload"], eng_checkList=$g_eng_checklist)
     @payload=payload
     @destinations=@payload["destinationGuide"]
-    @booking_summary= @payload["bookingSummary"] if $g_phone
-    @booking_summary= $g_summary["payload"] if $g_tablet
-    @products=@payload["products"]
     @weather=@payload["weather"]
-    @dest_payload = $g_destinations["payload"]
+    @countdown= $g_countdown["payload"] if $g_german_app && $g_phone
 
-    @excursions_payload=$g_excursions["payload"]
-    @eng_checkList=eng_checkList if $g_eng_app
+    if $g_tablet
+      @booking_summary= $g_summary["payload"]
+      @products=@payload["products"]
+      @weather=@payload["weather"]
+      @dest_payload = $g_destinations["payload"]
+
+      @excursions_payload=$g_excursions["payload"]
+      @eng_checkList=eng_checkList if $g_eng_app
+    elsif $g_phone
+      @booking_summary= @payload["bookingSummary"] if $g_phone
+      @booking_summary= $g_summary["payload"] if $g_eng_app
+      @products=@payload["products"]
+      @weather=@payload["weather"]
+      @dest_payload = $g_destinations["payload"]
+
+      @excursions_payload=$g_excursions["payload"]
+      @eng_checkList=eng_checkList if $g_eng_app
+    end
   end
 
   def get_excursions
-    #puts "@excursions_payload #{@excursions_payload}"
     arr=@excursions_payload["destinationAreaExcursions"]
     hash_arr={}
     arr.each do |var|
@@ -126,7 +137,8 @@ class Bookings
     if $g_nordics_app
       return ((@payload["countdown"]["startDateTimeAsUnixTime"]-Time.now.utc.to_i)/(24*60*60).to_i)
     elsif $g_german_app
-      countdown = get_home_biscuits("countdown")["data"]["startDateTimeAsUnixTime"]
+      countdown = @countdown["startDateTimeAsUnixTime"] if $g_phone
+      countdown = get_home_biscuits("countdown")["data"]["startDateTimeAsUnixTime"] if $g_tablet
       days= ((countdown.to_i-Time.now.utc.to_i)/(24*60*60).to_i).to_s
       puts "days = #{days}"
       return days
@@ -173,7 +185,8 @@ class Bookings
     elsif $g_german_app
       prod=find_de_products("hotel")
       prod.each do |var|
-        arr.push(var["infoList"][0]["value"])
+        puts var
+        arr.push(var)
       end
     end
     return arr
@@ -228,10 +241,10 @@ class Bookings
     @booking_code=nil
     @lead_passenger=nil
     @other_passengers=[]
-
+  #  puts "#{@booking_summary}"
     @booking_code = @booking_summary["bookingRef"]
     @booking_summary["passengerCollection"].each do |var|
-      puts var["LeadBookerIndicator"]
+    #  puts var["LeadBookerIndicator"]
       if var["LeadBookerIndicator"]
         @lead_passenger = var["Initial"]+" "+var["Surname"]
       elsif !var["LeadBookerIndicator"]
@@ -353,4 +366,38 @@ end
 
 
 module Phone
+  include BaseModule
+
+  def self.included(receiver)
+    puts self.name+"::#{$g_lang_mod}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+  end
+
+  module Eng
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+          return @payload["flight"]
+      end
+    end
+  end
+
+  module Deu
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+          return @payload["products"]["flight"]
+      end
+    end
+  end
+
+  module Nor
+    def get_home_biscuits(var)
+      case var
+        when "flight"
+            res=@payload["products"]["flights"]
+          return res
+      end
+    end
+  end
 end

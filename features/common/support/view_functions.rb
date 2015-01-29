@@ -1,5 +1,8 @@
 #!/bin/env ruby
 # encoding: utf-8
+require_relative '../strings/application_strings'
+
+#Methods that are resuable across IOS and Android and also which can be reused for other projects are added here
 
 if ($g_ios)
   require 'calabash-cucumber/operations'
@@ -7,8 +10,33 @@ if ($g_ios)
 end
 
 module ViewModule
+  include AppStrings
+
   if ($g_ios)
     include Calabash::Cucumber::Operations
+    ## Specify text to check and time to wait for
+    def wait_for_text(text, time_out=10)
+      begin
+        wait_for_element_exists("#{$g_query_txt}text:'#{text}'",{:timeout=>time_out.to_i})
+      rescue
+        return false
+      end
+      puts text
+      flash($g_query_txt+"text:'#{text}'") if $g_flash
+      return true
+    end
+
+
+  elsif $g_android
+    def wait_for_text(text, time_out=10)
+      begin
+        wait_for_element_exists("#{$g_query_txt}text:'#{text}'", timeout: time_out.to_i)
+      rescue
+        return false
+      end
+      puts text
+      return true
+    end
   end
 
   def self.included(receiver)
@@ -19,6 +47,10 @@ module ViewModule
   def embed(a, b, c)
   end
 
+
+  def navigate_back_acc_label
+    click_acc_label get_val "home_page_sidepanel_acc_label"
+  end
 
   def get_acc_label_text(id)
     return query($g_query_txt+"marked:'#{id}'", :text).first if $g_ios
@@ -33,14 +65,17 @@ module ViewModule
 # This will return true even if text matches part of the sentence
   def wait_for_partial_text_shown(text, time_out=10)
     puts "wait_for_partial_text_shown (#{text})"
-    query_text=$g_query_txt+"{text CONTAINS '#{text}'}"
+    query_text=($g_query_txt+"{text CONTAINS '#{text}'}")
+    puts "query_text :#{query_text}:"
     begin
       wait_poll({:until_exists => query_text, :timeout => time_out.to_i}) do
-        puts ":#{text}:"
+        puts ":#{query_text}:"
+        sleep 0.5
       end
       flash(query_text) if ($g_flash)
     rescue
-      fail("Failed to find text"+text)
+      query_text=escape_quotes_smart($g_query_txt+"{text CONTAINS '#{text}'}")
+      assert_element query_text
     end
     return true
   end
@@ -48,7 +83,8 @@ module ViewModule
   #Check if part of text is shown
   def check_partial_text_shown text
     puts "check_partial_text_shown #{text}"
-    if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}") == true
+
+    if element_exists("#{$g_query_txt}{text CONTAINS '#{text}'}")
       flash("#{$g_query_txt}{text CONTAINS '#{text}'}") if ($g_flash)
       return true
     else
@@ -60,20 +96,7 @@ module ViewModule
     fail("text not shown #{text}") if check_partial_text_shown(text) ==false
   end
 
-  ## Specify text to check and time to wait for
-  def wait_for_text(text, time_out=10)
-    begin
-      wait_poll({:until_exists => $g_query_txt+"text:'#{text}'", :timeout => time_out.to_i}) do
-        sleep 1
-        puts text
-      end
-    rescue
-      return false
-    end
-    puts text
-    flash($g_query_txt+"text:'#{text}'") if $g_flash
-    return true
-  end
+
 
   def wait_for_label(lbl, timeout)
     timeout=timeout.to_i
@@ -82,6 +105,10 @@ module ViewModule
       break if element_exists($g_query_txt+"marked:'#{escape_quotes(lbl)}'")
       sleep 1
     end
+  end
+
+  def wait_for_spinner_to_disappear
+    wait_for_elements_do_not_exist "activityIndicatorView",:timeout=>20
   end
 
   def wait_for_progress_to_disappear(str, timeout=10)
@@ -170,6 +197,17 @@ module ViewModule
        fail("text:#{text}: not present")
      end
 
+    return true
+  end
+
+  ## Assert if text to check is not shown before timeout
+  def assert_wait_for_partial_text(text, time_out=15)
+    fail "Text is empty" if text==nil
+    puts "assert_wait_for_partial_text (#{text})"
+     if wait_for_partial_text_shown(text, time_out)==false
+       puts "#{query("view",:text)}"
+       fail("text:#{text}: not present")
+     end
     return true
   end
 

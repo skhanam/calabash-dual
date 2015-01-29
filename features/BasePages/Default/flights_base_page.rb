@@ -66,22 +66,22 @@ class FlightsBasePage < BasePage
   end
 
   def check_from_to_airports
-    count = CommonMethods.new.find_number_of_flights
+    count = $g_booking.find_number_of_flights
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details_for_booking(num)
+      res=$g_booking.find_flight_details_for_booking(num)
       wait_for_partial_text_shown res["departureAirportName"]
       wait_for_partial_text_shown res["arrivalAirportName"]
     end
   end
 
   def check_departures_dates
-    count = CommonMethods.new.find_number_of_flights
+    count = $g_booking.find_number_of_flights
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details_for_booking(num)
+      res=$g_booking.find_flight_details_for_booking(num)
       val=Date.parse(res["departureDateTime"]).strftime("%d. %B %Y")
       wait_for_partial_text_shown val
     end
@@ -89,11 +89,12 @@ class FlightsBasePage < BasePage
   end
 
   def check_passenger_names
-    count = CommonMethods.new.find_number_of_flights
+    count = $g_booking.find_number_of_flights
+    puts "count #{count}"
     num=0
     while count > num
       num+=1
-      res=CommonMethods.new.find_flight_details_for_booking(num)
+      res=$g_booking.find_flight_details_for_booking(num)
       val=res["passengers"]
       val.each do |passenger|
         wait_for_partial_text_shown passenger["fullName"]

@@ -86,6 +86,7 @@ module DEMeineTUI
       @@welcome_login_departure_date = get_localized_string "welcome_login_departure_date" # Departure date:
       @@welcome_login_booking_reference2_hint = get_localized_string "welcome_login_booking_reference2_hint" # 12345678
       @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
+      @@login_button= get_localized_string "login" #Login
 
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
@@ -93,6 +94,7 @@ module DEMeineTUI
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
       @@login_page_text=get_localized_string "login_welcome"
+      @@login_button=get_localized_string "login_login"
     end
 
     @@signup_signup_cta= get_localized_capitalized_string "signup_signup_cta" #Registrieren
@@ -106,7 +108,6 @@ module DEMeineTUI
 
     @@password_text=get_localized_string "login_password"
     @@login_forgot_password=get_localized_string "login_forgot_password"
-    @@login_button=get_localized_string "login_login"
     @@password_reset=get_localized_string "forgot_password_header"
     @@i_need_help=get_localized_string "i_need_help"
     @@privacy_terms_of_use=get_localized_string "terms_title"
@@ -116,7 +117,6 @@ module DEMeineTUI
     @@login_credentials_error = get_localized_string "error_box_failed_title" if $g_tablet
 
     @@submit_button= get_localized_string "submit" #Speichern
-    @@login_button= get_localized_string "login" #Login
 
     @@login_default_country="Deutschland"
     @@general_login_error="Ihre Anmeldung war leider nicht erfolgreich." #get_localized_string "error_default_header"
@@ -195,7 +195,7 @@ module DEMeineTUI
     @@my_bookings_edit_account=get_localized_string "edit_my_account"
     @@my_bookings_past_bookings=get_localized_string "past_bookings"
     @@my_bookings_current_bookings=get_localized_string "current_bookings"
-    @@booking_active_biscuit= "reservation_test0012 active_booking"
+    @@booking_active_biscuit= "reservation_#{$g_de_typical_booking} active_booking"
   end
 
   def my_account_strings
@@ -211,7 +211,7 @@ module DEMeineTUI
     @@my_account_newsletter_text= get_localized_string "signup_to_emails_blurb"
     @@log_out_text=get_localized_string "logout"
 
-    @@my_account_logout_title= get_localized_string "logout_confirm_two"
+    @@logout_confirm_two= get_localized_string "logout_confirm_two" # Abmelden?
     @@logout_confirm= get_localized_string "confirm"
     @@my_account_logout_no= get_localized_string "cancel" #Abbrechen
 
@@ -223,7 +223,8 @@ module DEMeineTUI
     @@change_password_create_new_password=get_localized_string "forgot_password_reset_pwd"
     @@change_password_info=get_localized_string "new_password_body"
     @@change_password_text2=get_localized_string "forgot_password_email_label"
-    @@change_password_send_button=get_localized_capitalized_string "submit"
+    @@change_password_send_button=get_localized_capitalized_string "submit" if $g_tablet
+    @@change_password_send_button=get_localized_string "submit" if $g_phone
   end
 
   def booking_summary_strings
@@ -337,7 +338,8 @@ module DEMeineTUI
     @@forgot_password_username_or_email="Benutzername oder E-Mail:"
     @@forgot_password_send_button="Speichern"
     @@forgot_password_need_help= get_localized_string "i_need_help"
-    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden."
+    @@forgot_password_email_help="Es wurde kein Benutzerkonto zu Ihren Daten gefunden." if $g_tablet
+    @@forgot_password_email_help="Ihre Anmeldung war leider nicht erfolgreich." if $g_phone
     @@forgot_password_email_hint= 'Benutzername / E-Mail eingeben' # "forgot_password_email_hint" #Benutzername \// E-Mail eingeben
   end
 
@@ -465,7 +467,7 @@ module DEMeineTUI
 
   def good_to_know_strings
     if $g_phone
-    @@good_to_know_page_title=get_localized_string "good_to_know"
+      @@good_to_know_page_title=get_localized_string "good_to_know"
     elsif $g_tablet
       @@good_to_know_page_title="Alcohol Aware"
 

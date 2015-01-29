@@ -6,6 +6,7 @@ class ContactUsDe < ContactUsBasePage
 end
 
 module Phone
+  include BaseModule
   def check_contact_us_page
     check_contact_us_screen_title
   end

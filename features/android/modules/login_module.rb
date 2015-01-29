@@ -16,13 +16,14 @@ module LoginModule
 
     def setCountry(country)
       sleep 2
-      if $g_phone
-        touch "* text:'Deutschland'" if $g_phone # this is not needed for tablet
-        sleep 5
-      end
+      #if $g_phone # not needed for phone anymore
+      #  touch "* text:'Deutschland'" # this is not needed for tablet
+      #  sleep 5
+      #end
       res=query("CheckedTextView", :text)
       index=res.index(country)
       puts "setCountry #{res} index #{index}"
+
       touch "CheckedTextView index:#{index}"
       sleep 1
     end

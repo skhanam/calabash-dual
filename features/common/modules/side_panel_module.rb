@@ -3,6 +3,13 @@ require_relative 'base_module'
 module SidePanelModule
   include BaseModule
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_lang_mod}"
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
   module Phone
     include BaseModule
 
@@ -192,12 +199,13 @@ module SidePanelModule
       scroll_side_panel(@@side_panel_TandC)
       touch_txt_and_verify_title @@side_panel_TandC, @@tui_service_terms_text
     end
+    #
+    #def navigate_to_hotel(num=1)
+    #  scroll_page_and_assert_text @@side_panel_hotel
+    #  touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
+    #  sleep 3
+    #end
 
-    def navigate_to_hotel(num=1)
-      scroll_page_and_assert_text @@side_panel_hotel
-      touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
-      sleep 3
-    end
 
     def navigate_to_insurance_page
       scroll_page_and_assert_text(@@side_panel_insurance, "down")

@@ -20,7 +20,7 @@ module TestModule
     @holidayMosaicPage ||=HolidayMosaicBasePage.new
     @hotelPage ||=HotelBasePage.new
     @impInfoPage||=ImpInfoBasePage.new
-
+    @nextPage||=nil
 
     if ($g_current_app=='DE_MT')
       @myAccountPage ||= MyAccountBasePage.new
@@ -40,7 +40,7 @@ module TestModule
       @checklistPage=ChecklistPageUk.new
       @contactPage=ContactUsUK.new
       @postHolidayHomepage ||= PostLoginHomeBasePage.new
-
+      @searchBookPage ||= SearchBookBasePage.new   if $g_phone
     elsif ($g_nordics_app)
       @contactPage=ContactUsNOR.new
       @dutyFreePage ||= DutyFreePage.new

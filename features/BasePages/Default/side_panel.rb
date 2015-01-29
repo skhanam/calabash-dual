@@ -1,7 +1,12 @@
 class SidePanel < BasePage
   include SidePanelModule
-  include Module.const_get "SidePanelModule::"+$g_hw_module
-  include Module.const_get "SidePanelModule::"+$g_lang_mod
+
+  def navigate_to_hotel (num=1)
+    scroll_side_panel @@side_panel_hotel
+    touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
+    sleep 3
+    wait_for_progress_to_disappear @@loading_hold_on
+  end
 
   def submit_change_password
     click_on_text @@forgot_password_send_button
@@ -19,7 +24,7 @@ class SidePanel < BasePage
   end
 
   def navigate_to_flights_page
-    count=CommonMethods.new.find_number_of_flights
+    count=$g_booking.find_number_of_flights
 
     if count==1
       txt=@@side_panel_flight
@@ -52,13 +57,6 @@ class SidePanel < BasePage
     scroll_side_panel(@@side_panel_app_feedback)
     click_on_text @@side_panel_app_feedback if $g_tablet
     touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1 if $g_phone
-  end
-
-  def navigate_to_hotel(num=1)
-    scroll_side_panel @@side_panel_hotel
-    touch "#{$g_query_txt}text:'#{@@side_panel_hotel}' index:#{num.to_i-1}"
-    sleep 3
-    wait_for_progress_to_disappear @@loading_hold_on
   end
 
   def navigate_from_side_menu(var)
@@ -94,17 +92,18 @@ class SidePanel < BasePage
         navigate_to_contact_us_page
       when "destination"
         scroll_side_panel(@@side_panel_destination)
-        touch_txt_and_verify_title(@@side_panel_destination, @@destination_title)  if $g_phone
+        touch_txt_and_verify_title(@@side_panel_destination, @@destination_title) if $g_phone
       when "Log out"
         sleep 2
         scroll_view("down", 1)
         scroll_side_panel(@@log_out_text)
         scroll_view("down", 1)
-        touch_txt_and_verify_title(@@log_out_text, @@logout_confirm)
+        touch_txt_and_verify_title(@@log_out_text)
     end
   end
 
   def confirm_logout
+    assert_wait_for_text(@@logout_confirm_two)
     click_on_text(@@logout_confirm_button_text)
   end
 
@@ -119,5 +118,4 @@ class SidePanel < BasePage
     bookings.each { |var| assert_wait_for_text var }
   end
 
-  private :navigate_to_countdown_page, :navigate_to_hotel, :navigate_to_app_feedback, :navigate_to_weather_page
 end

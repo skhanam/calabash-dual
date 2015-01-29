@@ -15,8 +15,8 @@ Then(/^I verify share icons on weather page$/) do
   @weatherPage.check_weather_sharing_text
 end
 
-When(/^I see city name on weather page$/) do
-  @weatherPage.check_city_name
+When(/^I see weather for first city on weather page$/) do
+    @weatherPage.check_city_name
 end
 
 When(/^I see names of next (\d+) days on weather page$/) do |arg|

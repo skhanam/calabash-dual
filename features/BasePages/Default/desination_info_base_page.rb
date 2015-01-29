@@ -6,7 +6,7 @@ class DestinationInfoBasePage < BasePage
     screenshot(options={:name => "destinations"}) if ENV['TAKE_SS']=="yes"
     @countries.each do |var|
       puts "checking destination name #{var}"
-      scroll_home_biscuits var
+      scroll_page_till_partial_text var
     end
   end
 
@@ -14,7 +14,7 @@ class DestinationInfoBasePage < BasePage
     @countries= $g_booking.get_destination_countries
     @countries.each do |var|
       puts "checking destination name #{var}"
-      click_on_text var
+      click_on_partial_text var
       verify_page_title @@destination_title
       scroll_page_and_assert_text @@destination_page_gen_info
       scroll_page_and_assert_text @@destination_page_location

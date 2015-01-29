@@ -1,6 +1,6 @@
 ## verify contact us page
 class ContactUsBasePage < BasePage
-
+ include ContactModule
   def verify_external_links
     sleep 2
     assert_wait_for_text @@url_dialog_title

@@ -1,62 +1,19 @@
 class ChecklistPageUk < BasePage
-  include BaseModule
-
-  def self.included(receiver)
-    puts self.name+"::#{$g_hw_module}"
-    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
-  end
-
-  def verify_checklist_page
-    assert_wait_for_text "Add item"
-    assert_partial_text "Packing list"
-    assert_partial_text "To Do list"
-  end
-
-  module Phone
-
-    def open_to_do_list
-      fail if (element_exists("* text:'#{@@to_do_lists}'")!=true)
-      assert_text_present @@my_do_list
-      click_on_text @@to_do_lists
-    end
-
-    def check_packaging_items(num)
-      verify_page_title("ITEMS TO PACK (#{num})")
-    end
-
-
-    def open_packaging_list
-      assert_wait_for_acc "packingList"
-      click_acc_label "packingList"
-    end
-
-  end
-
-  module Tablet
-
-    def open_to_do_list
-      assert_text_present "To Do list"
-      click_on_text "To Do list"
-    end
-  end
+  include ChecklistModule
 
   def verify_checklist_items
     sleep 2
-    $g_engChecklist.each do |var|
+    $g_eng_checklist["payload"]["itemList"].each do |var|
       txt=escape_quotes(var["message"])
       scroll_page_till_partial_text (txt[0..20])
       #
     end
   end
 
-  def check_packaging_items(num)
-    assert_wait_for_text "Packing list (0)"
-    assert_wait_for_text "Start your packing list here"
-  end
 
   def check_options_for_packaging_item
-   assert_wait_for_acc "deleteBox"
-   assert_wait_for_acc "pencil"
+    assert_wait_for_acc "deleteBox"
+    assert_wait_for_acc "pencil"
   end
 
   def verify_item_deleted
@@ -94,10 +51,6 @@ class ChecklistPageUk < BasePage
     input_text @@packaging_item_title
   end
 
-  def open_packaging_list
-    click_on_partial_text "Packing list"
-    assert_wait_for_text "Start your packing list here"
-  end
 
 
   def select_first_check_list_item

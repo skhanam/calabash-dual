@@ -15,8 +15,10 @@ module WelcomeModule
     end
 
     def verify_welcome_screen
-      txt = $g_german_app ? @@welcome_page_text : @@login_page_text
-      assert_wait_for_text txt
+      if $g_eng_app !=true
+        txt = $g_german_app ? @@welcome_page_text : @@login_page_text
+        assert_wait_for_text txt
+      end
     end
 
 
@@ -89,19 +91,51 @@ module WelcomeModule
     end
 
     module Eng
+      include BaseModule
+
+      def touch_top_half
+        if $g_ios
+          touch "view text:'#{@@welcome_login_title}' parent TiUIView index:2"
+        elsif $g_android
+          touch "* marked:'loginTitle.' parent LinearLayout"
+        end
+      end
+
+      def touch_bottom_half
+        txt=escape_quotes(@@welcome_nobooking_subtitle)
+        if $g_ios
+          touch "view text:'#{txt}' parent TiUIView index:2"
+        elsif $g_android
+          touch "* marked:'searchTitle.' parent * id:'content'"
+        end
+      end
 
       def check_welcome_screen
-        return check_text_in_view("HAVE A BOOKING, LETS LOGIN")
+        return check_text_in_view @@welcome_login_title
       end
 
       def navigate_to_login
-        fail "TODO"
+        click_on_text @@welcome_login_title
+      end
+
+      def verify_welcome_screen
+        sleep 2
+        assert_wait_for_text escape_quotes @@welcome_login_title
+        assert_text_present escape_quotes @@welcome_login_subtitle
+        assert_text_present escape_quotes @@welcome_nobooking_title
+        assert_text_present escape_quotes @@welcome_nobooking_subtitle
       end
     end
 
     module Nor
+      include BaseModule
+
+      def check_welcome_screen
+        return check_text_in_view @@login_welcome #Login flow is different for nordics
+      end
+
       def navigate_to_login
-        fail "TODO"
+        #will be on login screen after launch
       end
 
     end
@@ -110,20 +144,24 @@ module WelcomeModule
   module Tablet
     include BaseModule
 
+    def navigate_to_login
+      click_acc_label @@welcome_page_swipe_down_acc
+    end
+
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
-    #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+      #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
     end
 
     def verify_welcome_screen
-    arr="#{@@login_page_text}".split(/\\n\\n/)
-    arr.each do |var|
-      assert_partial_text var
-    end
+      arr="#{@@login_page_text}".split(/\\n\\n/)
+      arr.each do |var|
+        assert_partial_text var
+      end
     end
 
     def check_welcome_screen
-      return wait_for_text(escape_quotes(@@login_lets_get_inspired),2)
+      return wait_for_text(escape_quotes(@@login_lets_get_inspired), 2)
     end
 
   end
