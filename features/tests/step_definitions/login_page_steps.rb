@@ -12,7 +12,7 @@ def meine_tui_login(username, password, country)
       step 'I enter "'+username+'" into input field number 1'
     end
 
-    step "I touch done"
+    @page.click_return_key
 
     step "I clear input field number 2"
     step 'I enter "'+password+'" into input field number 2'
@@ -21,14 +21,16 @@ def meine_tui_login(username, password, country)
       step "I clear input field number 1"
       step 'I enter "'+password+'" into input field number 1'
     end
-    step "I touch done"
+    @page.click_return_key
   elsif $g_android
     step "I clear input field number 2"
     step 'I enter "'+username+'" into input field number 2'
     step "I clear input field number 3"
     step 'I enter "'+password+'" into input field number 3'
-    step "I press the enter button"
+    @page.click_return_key
   end
+  puts "setting country"
+  sleep 10
   step "I set country #{country} in login screen"
   sleep 2
 end
@@ -73,10 +75,11 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("toolbarTextButton index:1")
     sleep(2)
   elsif $g_android
-    clear_text
-
+    #clear_text
+    sleep 2
     touch("* marked:'surname.'")
-    @page.input_text(surname)
+    keyboard_enter_text surname
+    #@page.input_text(surname)# commented out for trying android tablet
 
     touch("* marked:'departureDate.'")
     sleep 2
@@ -87,17 +90,25 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
       touch("* text:'Set'")
     elsif element_exists "* text:'Done'"
       touch("* text:'Done'")
+    elsif element_exists "* marked:'button1'"
+      touch("* marked:'button1'")
     end
     sleep 2
 
-    touch("* marked:'bookingReference1.'")
+    @page.click_acc_label @page.get_val "visionShopNumber_acc"
+    #touch("* marked:'bookingReference1.'")
     sleep 1
-    @page.input_text(visionShopNumber)
+    keyboard_enter_text visionShopNumber
+    #@page.input_text(visionShopNumber)
     sleep 1
 
-    touch("* marked:'bookingReference2.'")
+    @page.click_acc_label @page.get_val "visionBookingRef_acc"
+    #touch("* marked:'visionBookingRef.'")
+    #touch("* marked:'bookingReference2.'")
     sleep 1
-    @page.input_text(visionBookingRef)
+    keyboard_enter_text(visionBookingRef)
+    #@page.input_text(visionBookingRef)
+    press_down_button
 
     @loginPage.scroll_to_end_of_page
 
@@ -109,7 +120,6 @@ def nordics_login(bookingNum, email, telephone)
   if $g_ios
     step "I clear input field number 1"
     step "I clear input field number 2"
-    step "I clear input field number 3"
 
     step 'I enter "'+bookingNum+'" into input field number 1'
     sleep 1
@@ -117,31 +127,25 @@ def nordics_login(bookingNum, email, telephone)
     sleep 1
     step "I clear input field number 2"
     #step 'I enter "'+email+'" into input field number 2' #uncomment this line for email booking
-    sleep 1
-    touch("toolbarTextButton index:2")
-    sleep 2
-    step 'I enter "'+telephone+'" into input field number 3'
+    #sleep 1
+    #touch("toolbarTextButton index:2")
+    #sleep 2
+    step 'I enter "'+telephone+'" into input field number 2'
     touch("toolbarTextButton index:1")
     sleep 1
 
   elsif $g_android
-    clear_text
-    #performAction('clear_numbered_field', 2)
-    #performAction('clear_numbered_field', 4)
-    #performAction('clear_numbered_field', 6)
-
-    touch("* marked:'bookingReference.'")
-    @page.input_text(bookingNum)
-
-    #touch("* marked:'emailid.'")
-    #@page.enter_text_android(email)
-    touch("* marked:'telephone.'")
-    @page.input_text(telephone)
-
-    touch("* marked:'bookingReference.'")
-
+    #enter_text("android.widget.EditText index:0","asd")
+    #enter_text("android.widget.EditText index:0","asd")
+    #macro 'I enter "#{bookingNum}" into "bookingReference"'
+    #step %Q{I enter "#{telephone}" into "emailTelephoneid"}
+    #
+    @page.input_text(bookingNum, "bookingReference")
+    press_enter_button
+    sleep 1
+    @page.input_text(telephone, "emailTelephoneid")
+    press_enter_button
     @loginPage.scroll_to_end_of_page
-
   end
 end
 
@@ -174,7 +178,6 @@ Given(/^I log into first choice application$/) do
   visionBookingRef=$g_current_user_details[:valid][:VisionBookingRef]
 
   uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
-  #@loginPage.login_thomson(surname, departureDate, visionShopNumber, visionBookingRef)
 
 end
 Given(/^I log into thomson application$/) do
@@ -201,36 +204,32 @@ Given(/^I am on 'Login' screen/) do
     sleep 2
     if @page.check_acc_label "offcanvasCTA"
       @homePage.logout_from_home_screen
-      #@homePage.open_side_panel
-      #@page.scroll_side_panel @page.get_val "log_out_text"
     end
-
-    #
-    #if element_exists "view text:'#{@page.get_val "log_out_text"}'"
-    #  touch "view text:'#{@page.get_val "log_out_text"}'"
-    #  sleep 2
-    #  touch "view text:'#{@page.get_val "logout_confirm"}'"
-    #  sleep 2
-    #end
 
     if $g_device_reset
-      #@homePage.logout_from_home_screen if @page.check_acc_label @@home_page_sidepanel_acc_label
       @postHolidayHomepage.en_post_holiday_logout if @page.check_acc_label "logout"
     end
-
   end
 
+  navigate_flag=true
   if $g_tablet && $g_ios
     if @welcomePage.check_welcome_screen
       @page.click_on_text @page.get_val("login_have_a_booking")
     elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
       puts "On login screen"
+      navigate_flag=false
     else
       fail "Not on login screen"
     end
+  elsif $g_phone
+    if @loginPage.check_login_screen
+      navigate_flag=false
+      puts "No need to login"
+    end
+
   end
-  @welcomePage.navigate_to_login if $g_german_app && $g_phone
-  @loginPage.check_login_screen
+  @welcomePage.navigate_to_login if navigate_flag && $g_phone
+  @loginPage.verify_login_screen
 end
 
 Given(/^I am on 'Welcome' screen/) do
@@ -257,7 +256,7 @@ Then(/^I see login Page/) do
 end
 
 Then(/^I see login screen$/) do
-  @loginPage.check_login_screen
+  @loginPage.verify_login_screen
 end
 
 When(/^I fill (valid|invalid) username in login screen$/) do |condition|
@@ -266,7 +265,7 @@ When(/^I fill (valid|invalid) username in login screen$/) do |condition|
     if $g_ios
       step "I clear input field number 1"
       step 'I enter "'+@valid_username+'" into input field number 1'
-      step "I touch done"
+      @page.click_return_key
     elsif $g_android
       step "I clear input field number 2"
       step 'I enter "'+@valid_username+'" into input field number 2'
@@ -303,7 +302,7 @@ And(/^submit an (valid|invalid) email id in forgot password screen$/) do |condit
       step 'I enter "'+@invalid_username+'" into input field number 2'
     end
 
-    step "I touch done" if $g_ios
+    @page.click_return_key if $g_ios
     step "I press the enter button" if $g_android
     sleep 1
   end
@@ -429,6 +428,7 @@ When(/^I select register option from welcome screen$/) do
 end
 
 Then(/^I should see the error message tip to side of oops message$/) do
+  step 'I see appropriate error message' if $g_tablet
   step "I see appropriate username error message"
 end
 
@@ -491,18 +491,21 @@ Given(/^I have entered (correct|wrong) email address$/) do |condition|
   step "I am on 'Login' screen"
   step "I tap 'Retrieve my booking' button"
   step "I see retrieve my booking page"
-
   if condition.eql? 'wrong'
-    step "I submit wrong booking details in booking ref page"
+    step "I enter wrong booking details in booking ref page"
   elsif condition.eql? 'correct'
-    step "I submit correct booking details in booking ref page"
+    step "I enter correct booking details in booking ref page"
   end
 end
 
 When(/^I the Tap 'submit' button retrieve booking page$/) do
-  @modal_view_acc=@page.get_val "modal_view_acc"
-  @submit=@page.get_val "retrieve_booking_submit"
-  touch "view marked:'#{@modal_view_acc}' view text:'#{@submit}'"
+  if $g_tablet
+    @modal_view_acc=@page.get_val "modal_view_acc"
+    @submit=@page.get_val "submit_button"
+    touch "view marked:'#{@modal_view_acc}' view text:'#{@submit}'"
+  elsif $g_phone
+    @page.click_on_text @page.get_val "submit_button"
+  end
 end
 
 Then(/^I should be navigated to Help logging in modal page$/) do
@@ -523,4 +526,9 @@ end
 
 Then(/^I see error messages when thomson user logs into firstchoice/) do
   @loginPage.verify_th_user_in_firstchoice
+end
+
+
+When(/^I tap the back arrow on login screen$/) do
+  @page.click_acc_label @page.get_val "home_page_sidepanel_acc_label"
 end

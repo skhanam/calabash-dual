@@ -27,6 +27,29 @@ module HomeModule
   module Phone
     include BaseModule
 
+    def check_temp_present
+      res=query("view marked:'#{@@weather_temp_acc}'", :text)[0] if $g_ios
+      res=query("* marked:'destination_temperature.'",:text).first if $g_android
+      fail("temperature is empty") if res.match(/\d+/)==nil
+    end
+
+    def scroll_to_biscuit var
+      case var
+        when "checklist Biscuit"
+          fail "TODO"
+        when "Currency Biscuit"
+          fail "TODO"
+        when "extras Biscuit"
+          fail "TODO"
+        when "Excursions Biscuit"
+          fail "TODO"
+        when "flights Biscuit"
+          scroll_page_till_acc(@@home_page_flights_Biscuit_acc, "down")
+      end
+      sleep 1
+    end
+
+
     def navigate_to_check_list
       begin
         scroll_side_panel_and_assert @@holiday_checklist
@@ -39,11 +62,12 @@ module HomeModule
     end
 
     def check_countdown_biscuit
-      fail "TODO "
+      assert_wait_for_acc @@countdown_biscuit_acc
+      assert_wait_for_text @@days_to_go
+      assert_wait_for_text $g_booking.get_countdown_days.to_s
     end
 
     def click_countdown_biscuit
-      scroll_page_and_assert_text(@@countdown_biscuit_acc) if $g_phone
       click_acc_label @@countdown_biscuit_acc
       verify_page_title @@countdown_page_title
     end
@@ -53,7 +77,7 @@ module HomeModule
     end
 
     def wait_for_home_elements
-      wait_for_acc_label @@home_page_title_acc
+      assert_wait_for_acc @@home_page_title_acc
     end
 
     def check_i_am_on_home_page
@@ -76,8 +100,8 @@ module HomeModule
 
     def click_weather_biscuit
       sleep 2
-      assert_wait_for_acc "destination_temperature"
-      click_acc_label "destination_temperature"
+      assert_wait_for_acc @@weather_biscuit_acc
+      click_acc_label @@weather_biscuit_acc
       sleep 2
       verify_page_title @@weather_page_title
     end
@@ -89,10 +113,25 @@ module HomeModule
       puts "#{res1} != #{res2}"
       fail("Number of days are wrong") if (res1 != res2)
     end
+
+    def click_destination_biscuit(num=1)
+      scroll_page_till_acc(@@destination_biscuit_acc)
+      click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
+    end
   end
 
   module Tablet
     include BaseModule
+
+    def click_destination_biscuit(num=1)
+      scroll_page_till_acc(@@destination_biscuit_acc, "right")
+      click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
+    end
+
+    def check_temp_present
+      res=query("view marked:'#{@@weather_biscuit_acc}' view marked:'temp'", :text)[0]
+      fail("temperature is empty") if res.match(/\d+/)==nil
+    end
 
     def navigate_to_check_list
       begin
@@ -139,10 +178,6 @@ module HomeModule
       sleep 1
     end
 
-    def check_temp_present
-      res=query("view marked:'weather_Biscuit' view marked:'temp'", :text)[0]
-      fail("temperature is empty") if res.match(/\d+/)==nil
-    end
 
     def check_countdown_biscuit
       assert_wait_for_acc @@countdown_biscuit_acc

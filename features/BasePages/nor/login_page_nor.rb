@@ -17,8 +17,7 @@ class LoginPage < LoginBasePage
     end
 
     scroll_page_and_assert_text @@login_page_booking_ref
-    scroll_page_and_assert_text @@login_page_email
-    scroll_page_and_assert_text @@login_page_telephone
+    scroll_page_and_assert_text @@welcome_login_emailTelephone
 
     scroll_page_and_assert_text @@login_button
 

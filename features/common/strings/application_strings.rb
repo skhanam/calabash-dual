@@ -47,7 +47,7 @@ module AppStrings
 
   def set_strings
     set_query_text
-    if ($g_strings_set==true)
+    if $g_strings_set==true
       return
     else
       $g_strings_set=true
@@ -128,6 +128,7 @@ module AppStrings
   end
 
   def common_strings
+
     @@services_phone= get_localized_string "services_phone" #Rufen Sie uns an
     @@call_us_dialog_no = get_localized_string "call_dialog_cancel"
     @@call_us_dialog_yes = get_localized_string "call_dialog_call"
@@ -135,13 +136,20 @@ module AppStrings
     @@travel_money_title= get_localized_string "travel_money" #Währungsrechner
 
     @@weather_coming_soon=get_localized_string "weather_coming_soon"
-
+    @@weather_forecast= get_localized_string "weather_forecast"
     @@today= get_localized_string "today" #Heute
 
     @@hold_on_one_moment=get_localized_string "hold_on"
     @@activity_indicator_ten=get_localized_string "activity_indicator_ten"
     @@activity_indicator_eleven=get_localized_string "activity_indicator_eleven"
     @@activity_indicator_twelve=get_localized_string "activity_indicator_twelve"
+
+    @@countdown_biscuit_acc="countdown_Biscuit"
+    @@weather_biscuit_acc="weather_Biscuit"
+    @@home_page_flights_Biscuit_acc="flight_Biscuit"
+    @@home_page_currency_Biscuit_acc="currency_Biscuit"
+    @@home_page_checklist_Biscuit_acc = "checklist_Biscuit"
+    @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
 
   end
 
@@ -181,8 +189,9 @@ module AppStrings
     end
 
     @@app_feed_back_title2= get_localized_string "feedback_title"
-    @@app_feed_back_message_negative = get_localized_string "feedback_message_negative"
+    @@feedback_message_negative = get_localized_string "feedback_message_negative"
     @@app_feed_back_negative_rating= get_localized_string "feedback_message_title_negative"
+    @@feedback_message_negative = get_localized_string "feedback_message_negative"
     @@app_feed_back_you_rated= get_localized_string "feedback_message_you_rated_the_app"
     @@app_feed_back_submit= get_localized_string "feedback_submit_button"
     @@app_feed_back_rate_again = get_localized_string "feedback_rate_again_button"
@@ -209,12 +218,14 @@ module AppStrings
   def phone_only_strings
     @@already_customer_title=get_localized_string "have_you_used_tui_header"
     @@login_button_acc = "loginButton"
-    @@countdown_biscuit_acc="countdown_Biscuit"
-    @@weather_biscuit_acc="destination_temperature"
-
+    @@weather_temp_acc="destination_temperature"
     @@home_page_acc ="background_normal"
     @@home_page_title_acc ="welcome_title"
     @@home_page_sidepanel_acc_label ="navbarLeftButton"
+    @@logout_confirm_button_text = get_localized_string "confirm"
+    @@days_to_go= get_localized_string "days_to_go"
+
+    @@your_flight = get_localized_string "your_flight"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic").gsub(/\[location\]/, '.*')
     @@countdown_countdown_message2=get_localized_string("countdown_waiting").gsub(/\[location\]/, '.*') if $g_german_app
@@ -228,13 +239,11 @@ module AppStrings
     @@home_page_title_acc ="offcanvasCTA"
     @@home_page_sidepanel_acc_label ="offcanvasCTA"
 
-    @@home_page_checklist_Biscuit_acc = "checklist_Biscuit"
-    @@home_page_currency_Biscuit_acc="currency_Biscuit"
-    @@home_page_hotel_Biscuit_acc="hotels_Biscuit"
-    @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
+
     @@home_page_excursions_Biscuit_acc="excursions_Biscuit"
-    @@home_page_flights_Biscuit_acc="flight_Biscuit"
     @@extras_page_title_acc=get_localized_string "extras_title"
+    @@home_page_holiday_extra_Biscuit_acc="extras_Biscuit"
+    @@destination_biscuit_acc="destination_Biscuit"
 
     @@welcome_page_hint_icon="hintIcon"
     @@close_button_acc = "closeButton"
@@ -247,12 +256,10 @@ module AppStrings
     @@login_lets_get_inspired = get_localized_capitalized_string "login_lets_get_inspired" #Noch nicht gebucht? Lassen Sie sich inspirieren.
 
     @@login_button_acc = "SUBMIT"
-    @@countdown_biscuit_acc="countdown_Biscuit"
-    @@weather_biscuit_acc="weather_Biscuit"
-    @@destination_biscuit_acc="destination_Biscuit"
     @@destination_page_title_acc="Destination"
 
-    #@@welcome_page_swipe_down_acc = "swipeDown"
+    @@side_panel_app_feedback="App Feedback" #overiding default value as they are not fetched from strings.xml file
+  @@welcome_page_swipe_down_acc = "swipeDown"
     #@@welcome_page_swipe_up_acc = "swipeUp"
 
     @@countdown_countdown_message1=get_localized_string("countdown_generic")

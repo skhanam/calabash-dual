@@ -2,8 +2,8 @@
 
 <% common_path = "-r features/common/support -r features/common/strings -r features/tests/step_definitions -r features/BasePages/Default" %>
 
-<% common_settings_ios = " -f 'Slowhandcuke::Formatter' PLATFORM=ios -f json -o features/report/report.json" %>
-<% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android -f json -o features/report/report.json " %>
+<% common_settings_ios = " -f 'Slowhandcuke::Formatter' PLATFORM=ios -f json -o features/report/report.json --tag ~@android_only" %>
+<% common_settings_android = " -f 'Slowhandcuke::Formatter'  PLATFORM=android -f json -o features/report/report.json --tag ~@ios_only " %>
 
 <% ios_specific_path = " -r features/ios/support -r features/ios/modules " %>
 <% android_specific_path = "-r features/android/support -r features/android/modules" %>
@@ -36,5 +36,5 @@ en_fc_android: <%= common_settings_android %> <%= common_path %>  <%= android_sp
 en_th_ios: <%= common_settings_ios %> <%= common_path %>  <%= ios_specific_path %> <%= en_tm_ios_specific_path %>
 en_th_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= en_tm_android_specific_path %>
 
-nor_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= nor_android_specific_path %>
-nor_ios: <%= common_settings_ios %>  <%= common_path %>  <%= ios_specific_path %> <%= nor_ios_specific_path %>
+nor_android: <%= common_settings_android %> <%= common_path %>  <%= android_specific_path %> <%= nor_android_specific_path %> --tags ~@not-nor
+nor_ios: <%= common_settings_ios %>  <%= common_path %>  <%= ios_specific_path %> <%= nor_ios_specific_path %> --tags ~@not-nor

@@ -16,7 +16,13 @@ Given(/^I am booking reference page$/) do
   step "I see retrieve my booking page"
 end
 
+
 When(/^I submit (wrong|correct) booking details in booking ref page$/) do |condition|
+  step 'I enter wrong booking details in booking ref page'
+  @page.click_on_text "Submit" if $g_phone
+end
+
+When(/^I enter (wrong|correct) booking details in booking ref page$/) do |condition|
 
   if condition.eql? 'wrong'
     @surname="Martin"
@@ -28,15 +34,13 @@ When(/^I submit (wrong|correct) booking details in booking ref page$/) do |condi
 
   step 'I enter "'+"#{@surname}"+'" into input field number 1' if $g_ios
   step 'I enter "'+"#{@surname}"+'" into input field number 2' if $g_android
-  step 'I touch done' if $g_ios
-  step 'I press the enter button' if $g_android
+  @page.click_return_key
   sleep 2
   step 'I enter "'+"#{@email}"+'" into input field number 2' if $g_ios
   step 'I enter "'+"#{@email}"+'" into input field number 3' if $g_android
-  step 'I touch done' if $g_ios
-  step 'I press the enter button' if $g_android
+  @page.click_return_key
   sleep 1
-  @page.click_on_text "Submit" if $g_phone
+  #@page.click_on_text "Submit" if $g_phone
 end
 
 Then(/^I see error messages on booking ref page$/) do

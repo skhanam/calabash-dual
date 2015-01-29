@@ -16,6 +16,12 @@ Check out code
 > test source code from stash -
 > https://stash.akqa.net/scm/lontui/tda.ui-automation.git (tablet branch
 
+Changing locale:
+===============
+locale is changed using external library - https://code.google.com/p/ios-sim-locale/wiki/Usage
+add ios-sim-locale to /usr/bin or add the path of ios-sim-locale to $PATH variable
+list of languages supported - https://gist.github.com/jacobbubu/1836273#file-ioslocaleidentifiers-csv
+
 Folder structure
 ===============
 ```` 
@@ -218,8 +224,8 @@ This example suits well for calabash x platform example (where code is shared be
 set OS=ios in command line from where your cucumber tests are run (ex: OS=android calabash-android run <apkfile> )
 value of @g_query_txt  is set based on env variable
 
-	@g_query_txt="view " if ENV['OS']=="ios"
-	@g_query_txt="* " if ENV['OS']=="android"
+	@g_query_txt="view " if ENV['PLATFORM']=="ios"
+	@g_query_txt="* " if ENV['PLATFORM']=="android"
 
   Add the below method wait_for_similar_text_to_appear in a class that is accessible to both IOS and android code
 or
@@ -231,8 +237,8 @@ arguments:
 
 ### Specify text to check and time to wait for
 ### This will return true even if text matches part of the sentence
-	@g_query_txt="view " if ENV['OS']=="ios"
-	@g_query_txt="* " if ENV['OS']=="android"
+	@g_query_txt="view " if ENV['PLATFORM']=="ios"
+	@g_query_txt="* " if ENV['PLATFORM']=="android"
 
 	def wait_for_similar_text_to_appear(text, time_out=5)
 	  query_text=@g_query_txt+"{text LIKE '*#{text}'}"

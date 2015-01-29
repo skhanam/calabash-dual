@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rubyXL'
+#require 'rubyXL'
 require 'date'
 require_relative '../strings/application_strings'
 require "unicode_utils/upcase"
@@ -11,10 +11,13 @@ module ReusableMethods
   def embed(a, b, c)
   end
 
-  def input_text var
+  def input_text(var, id=nil)
     sleep 1
-    enter_text_android var if $g_android
-    keyboard_enter_text var if $g_ios
+    if $g_android && id!=nil
+      enter_text_android(var, id)
+    else
+      keyboard_enter_text var
+    end
     sleep 1
   end
 
@@ -44,21 +47,13 @@ module ReusableMethods
     txt.split.each { |i| i.capitalize! }.join(' ')
   end
 
-  def read_test_data()
-    file_path=$g_booking_data
-    puts file_path
-    workbook = RubyXL::Parser.parse(file_path)
-    hash_arr=workbook[1].get_table(["Surname", "Today", "Pre-In-Post", "DepartureDate", "DepartureTime", "ReturnDate", "VisionShopNumber", "VisionBookingRef", "EmailAddress", "HotelName", "ResortName", "DestinationName", "BookingDate", "UnitBar", "IsFamily", "ReturnedFromHoliday", "IsThomsonFlight", "Channel", "ProductName", "DurationNightsInHotel", "Return-Dep Date"])
-    return hash_arr[:table]
-  end
-
   def convert_excel_date_to_str(date_int)
     d=DateTime.new(1899, 12, 30) + date_int.to_i
     return d.strftime("%d-%b-%Y")
   end
 
   def write_welcome_messages_to_file(txt)
-    if ($g_write_to_file==true)
+    if $g_write_to_file==true
       begin
         filename = File.open($g_messages_file, "a")
         filename.write("#{txt}\n")

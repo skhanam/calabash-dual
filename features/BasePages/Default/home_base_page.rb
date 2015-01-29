@@ -3,7 +3,6 @@
 class HomePage < BasePage
   include HomeModule
 
-
   def open_side_panel
     sleep 1
     click_acc_label @@home_page_sidepanel_acc_label
@@ -14,13 +13,12 @@ class HomePage < BasePage
     $g_query_txt+"text:'#{@@hold_on_one_moment}'"
   end
 
-  def select_destination_biscuit
-    scroll_page_till_partial_text @@home_destination_string
-    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{@@home_destination_string}'}") if $g_ios
-    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{@@home_destination_string}' }") if $g_android
+  def select_destination_biscuit var
+    scroll_page_till_partial_text var
+    query=("view marked:'photo_biscuit' descendant label {text CONTAINS '#{var}'}") if $g_ios
+    query=("* contentDescription:'photo_biscuit.' * { text CONTAINS '#{var}' }") if $g_android
     assert_element(query)
     touch query
-
   end
 
   def check_destination_biscuit
@@ -28,10 +26,6 @@ class HomePage < BasePage
     assert_wait_for_acc(@@destination_biscuit_acc)
   end
 
-  def click_destination_biscuit(num=1)
-    scroll_page_till_acc(@@destination_biscuit_acc, "right")
-    click_element "view marked:'#{@@destination_biscuit_acc}' index:'#{num-1}'"
-  end
 
   def find_currency_converter_biscuit
     scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
@@ -107,7 +101,7 @@ class HomePage < BasePage
 
 
   def navigate_to_currency_conv_page
-    CommonMethods.new.scroll_page_till_acc "tovalue"
+    scroll_page_till_acc "tovalue"
     scroll_view("down")
     sleep 1
     get_currency_details
@@ -142,7 +136,7 @@ class HomePage < BasePage
   end
 
   def get_welcome_message
-    no_of_days_to_go=-1*$g_booking.get_countdown_days #Hard coded for now until test data is available
+    no_of_days_to_go=-1*$g_booking.get_countdown_days.to_i #Hard coded for now until test data is available
     puts "no_of_days_to_go #{no_of_days_to_go}"
     if (no_of_days_to_go < -14 && no_of_days_to_go >= -548)
       msg= get_localized_string "holiday_message_minus_548" #bald geht's in den Urlaub!"
@@ -163,7 +157,7 @@ class HomePage < BasePage
     else
       fail("Days are incorrect")
     end
-    return msg
+    return escape_quotes msg
   end
 
 

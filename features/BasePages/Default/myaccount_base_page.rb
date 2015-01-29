@@ -43,10 +43,13 @@ class MyAccountBasePage < BasePage
     check_change_password_screen
     assert_text_elements([@@change_password_title,
                           @@change_password_create_new_password,
-                          @@change_password_info,
-                          @@forgot_password_email_hint,
-                          @@change_password_send_button
-                          ])
+                          @@change_password_info])
+    assert_text_present @@forgot_password_username_or_email if $g_phone
+    assert_text_present @@forgot_password_email_hint if $g_tablet
+    assert_text_present @@change_password_send_button
+    assert_text_present @@change_password_info
+
+
   end
 
   def click_change_password_button
@@ -83,17 +86,18 @@ class MyAccountBasePage < BasePage
   end
 
   def change_password_prefilled_username
-    res=query("TiTextField", :text).first
-    assert_equal($g_current_user_details[:valid][:username], query("TiTextField", :text).first, "Username is not prefilled")
+    res=query("TiTextField", :text).first if $g_ios
+    res=query("TiEditText", :text).first if $g_android
+    puts "user name" + $g_current_user_details[:valid][:username]
+    puts "user name" +res
+    fail "Username is not prefilled" if $g_current_user_details[:valid][:username] != res
   end
 
   def logout_from_app
     scroll_page_and_assert_text(@@log_out_text)
 
     touch($g_query_txt+"marked:'#{@@log_out_text}'")
-    assert_wait_for_text(@@my_account_logout_title)
-
-    assert_text_present(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
     assert_text_present(@@logout_confirm)
     assert_text_present(@@my_account_logout_no)
     sleep 1
@@ -105,11 +109,11 @@ class MyAccountBasePage < BasePage
   def click_on_logout_button
     scroll_page_and_assert_text(@@log_out_text)
     touch($g_query_txt+"marked:'#{@@log_out_text}'")
-    assert_wait_for_text(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
   end
 
   def verify_logout_popup
-    assert_wait_for_text(@@my_account_logout_title)
+    assert_wait_for_text(@@logout_confirm_two)
   end
 
   def validate_menu_items(var)

@@ -25,6 +25,10 @@ Before do |scenario|
 
 end
 
+AfterStep do |scenario|
+  sleep 0.5 # Do something after each step.
+end
+
 After do |scenario|
   if scenario.failed?
     screenshot_embed

@@ -1,14 +1,29 @@
 # encoding: utf-8
-require 'rubyXL'
+#require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 require_relative '../../common/support/view_functions'
 
 
 module Phone
-  #Scroll to text in side panel
-  def scroll_side_panel(text, index=1)
-    scroll_page_and_assert_text(text)
+
+  def scroll_side_panel(text, dir="down")
+    count=5
+    puts "scroll_side_panel #{text}"
+
+    if $g_nordics_app
+      scroll_page_and_assert_text text #TODO must be removed after adding acc labels
+    else
+      while (!element_exists("view text:'#{text}'") && count >0)
+        sleep 1
+        count-=1
+        scroll("view marked:'Empty list'", "down")
+        sleep 1
+        puts element_exists("view text:'#{text}'")
+        puts "scrolling to #{text}"
+      end
+      fail("text #{text} not found") if count==0
+    end
   end
 
   def scroll_home_biscuits(txt)
@@ -86,6 +101,11 @@ module IosReusableMethods
   end
 
 
+  def scroll_table_to_row row_num, index=0
+    scroll_to_row("scrollView index:#{index.to_i}", row_num.to_i-1)
+    sleep 2
+  end
+
   def check_text_in_modal_view(text, index=1)
     sleep 0.5
     puts "check_tab_input_field #{text}"
@@ -94,6 +114,7 @@ module IosReusableMethods
 
   #This method avoids calabash from crashing while using single quotes
   def escape_quotes_smart(str)
+    return str if  !(str.include? '\'')
     #If escape quotes are used dont use again
     if str.include? '\\\''
       return str
@@ -118,10 +139,10 @@ module IosReusableMethods
   end
 
   def click_on_text(text)
-    puts "click_on_text (#{escape_quotes_smart(text)})"
-    write_verified_text_to_file "click_on_text (#{text})"
-    touch("view text:'#{escape_quotes_smart(text)}'")
-    sleep 1
+    sleep(STEP_PAUSE)
+    puts "click_on_text (#{text})"
+    touch("view text:'#{text}'")
+    sleep(STEP_PAUSE)
   end
 
   def click_back_button
@@ -173,10 +194,10 @@ module IosReusableMethods
   end
 
   #touch text and verify page title
-  def touch_txt_and_verify_title(txt_touch, text)
+  def touch_txt_and_verify_title(txt_touch, text=nil)
     click_on_text txt_touch
     sleep 2
-    verify_page_title text
+    verify_page_title text if text!=nil
   end
 
   #touch text and verify text
@@ -316,5 +337,17 @@ module IosReusableMethods
   def assert_txt_in_webview txt
     fail "text not found" if !(check_txt_in_webview txt)
   end
+
+  def click_return_key
+    tap_keyboard_action_key
+  end
+
+  def scroll_search_book_items(row, item, text=nil)
+    sleep(STEP_PAUSE)
+    row = row.to_i-1
+    item = item.to_i-1
+    query("view text:'#{text}' parent view {description CONTAINS 'iCarousel'}", [{scrollToItemAtIndex: "#{item}"}, {animated: 1}])
+  end
+
 
 end

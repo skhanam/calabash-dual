@@ -160,14 +160,14 @@
   <!-- 0.3 login -->
   <string name="login_have_a_booking">BEREITS GEBUCHT? DANN EINFACH EINLOGGEN.</string>
   <string name="login_lets_get_inspired">NOCH NICHT GEBUCHT? LASSEN SIE SICH INSPIRIEREN!</string>
-  <string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei meine TUI registriert haben.</string>
+  <string name="forgot_password_body">Bitte nennen Sie uns Ihren Benutzernamen oder Ihre E-Mail Adresse mit der Sie sich bei Meine TUI registriert haben.</string>
   <string name="forgot_password_email_help">Per E-mail hilfe anforden</string>
   <string name="forgot_password_email_hint">Benutzername \// E-Mail eingeben</string>
   <string name="forgot_password_email_label">Benutzername oder E-Mail:</string>
   <string name="forgot_password_header">Passwort vergessen</string>
   <string name="forgot_password_reset_pwd">Neues Passwort anlegen</string>
   <string name="login_email_hint">Benutzername \// E-Mail</string>
-  <string name="login_email_tooltip">Tipp: Das sollte die E-Mail Adresse oder der Benutzername sein mit dem Sie sich bei meine TUI registriert haben.</string>
+  <string name="login_email_tooltip">Tipp: Das sollte die E-Mail Adresse oder der Benutzername sein mit dem Sie sich bei Meine TUI registriert haben.</string>
   <string name="login_telephone">login_telephone</string>
   <string name="or">oder</string>
   <string name="login_country">Anmelden in:</string>
@@ -216,13 +216,18 @@
   <string name="welcome_login_surname_hint">welcome_login_surname_hint</string>
   <string name="welcome_login_paragraph">welcome_login_paragraph</string>
   <string name="welcome_login_email">welcome_login_email</string>
+  <string name="welcome_login_emailTelephone">welcome_login_emailTelephone</string>
   <string name="welcome_login_telephone">welcome_login_telephone</string>
   <string name="welcome_login_email_hint">welcome_login_email_hint</string>
+  <string name="welcome_login_emailTelephone_hint">welcome_login_emailTelephone_hint</string>
   <string name="welcome_login_telephone_hint">welcome_login_telephone_hint</string>
   <string name="welcome_login_email_extra">welcome_login_email_extra</string>
+  <string name="welcome_login_emailTelephone_extra">welcome_login_emailTelephone_extra</string>
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">welcome_reasons</string>
   <string name="welcome_refuse">welcome_refuse</string>
+  <string name="welcome_tablet_app_available_title">welcome_tablet_app_available_title</string>
+  <string name="welcome_tablet_app_available_message">welcome_tablet_app_available_message</string>
   <!-- 1.0 home -->
   <string name="newsletter_signup_title">erhalten Sie persönliche Topangebote, tolle Hoteltipps und Reisetrends mit unserem Newsletter</string>
   <string name="newsletter_signup_success">vielen Dank für Ihre Anmeldung zum Newsletter. Sie können sich jederzeit in den Kontoeinstellungen abmelden.</string>
@@ -323,8 +328,8 @@
   <string name="duty_free">duty_free</string>
   <string name="guide_online">guide_online</string>
   <string name="app_feedback">Feedback zur App</string>
-  <string name="browse_holidays_top_text">Browse our</string>
-  <string name="browse_holidays_bottom_text">Holidays collections</string>
+  <string name="browse_holidays_top_text">browse_holidays_top_text</string>
+  <string name="browse_holidays_bottom_text">browse_holidays_bottom_text</string>
   <string name="currency_offcanvas">currency_offcanvas</string>
   <string name="browse_banner">ENTDECKEN SIE DIE TUI REISEWELTEN</string>
   <!-- 7,1 Seleted Hotel -->
@@ -818,7 +823,7 @@
   <string name="have_you_used_tui_cta_logged_title">Ich bin bereits registriert</string>
   <string name="have_you_used_tui_cta_not_logged_body">Registrieren Sie sich jetzt mit Ihrem Buchungscode und Anreisedatum.</string>
   <string name="have_you_used_tui_cta_not_logged_title">Ich bin noch nicht registriert</string>
-  <string name="have_you_used_tui_header">Haben Sie meine TUI online bereits genutzt?</string>
+  <string name="have_you_used_tui_header">Haben Sie Meine TUI online bereits genutzt?</string>
   <!-- Booking Details -->
   <string name="my_bookings">Meine Buchungen</string>
   <!-- Cant Find Booking -->
@@ -1003,15 +1008,15 @@
   <string name="feedback_message_title_positive">Danke!</string>
   <string name="feedback_message_title_negative">Das ist schade.</string>
   <string name="feedback_message_you_rated_the_app">Sie haben der App [grade] von [total] Punkten gegeben.</string>
-  <string name="feedback_message_positive">Wir freuen uns, dass Ihnen die meine TUI App gefällt. Vielen Dank für Ihr Feedback!</string>
+  <string name="feedback_message_positive">Wir freuen uns, dass Ihnen die Meine TUI App gefällt. Vielen Dank für Ihr Feedback!</string>
   <string name="feedback_message_negative">Schade, dass Ihnen die App nicht gefällt. Wir werden daran arbeiten.</string>
   <string name="feedback_email_us_button">Senden Sie uns Ihre Meinung</string>
   <string name="feedback_rate_us_on_app_store_button_apple">Bewerten Sie uns im App Store</string>
   <string name="feedback_rate_us_on_app_store_button_google">Bewerten Sie uns im Google Play Store</string>
   <string name="feedback_rate_again_button">Bewertung ändern</string>
-  <string name="feedback_email_subject">Feedback zur meine TUI App</string>
+  <string name="feedback_email_subject">Feedback zur Meine TUI App</string>
   <string name="feedback_email_body">Wir freuen uns über Ihre Meinung. Was können wir besser machen? Was gefällt Ihnen gut?</string>
-  <string name="feedback_email_to_address">info@crm.de</string>
+  <string name="feedback_email_to_address">crm@tui.de</string>
   <string name="feedback_home_screen_message_prompt">Was halten Sie von dieser App? Wir sind gespannt auf Ihre Meinung.</string>
   <string name="feedback_home_screen_button_prompt">Meine TUI App bewerten</string>
   <!-- 20.0 In App Browser -->
@@ -1040,7 +1045,7 @@
   <!-- Google Analytics - Brand Name -->
   <string name="ga_brandName">ga_brandName</string>
   <!-- Generic App Details -->
-  <string name="app_details">app_details</string>
+  <string name="app_details">\n\nApp version: [version]\nOperating system: [os]\nPhone type: [phone]\nAppcelerator SDK version: [tiversion] \n</string>
   <!-- offline -->
   <string name="offline_String">Kein Netzwerk gefunden – aktualisiert [time-string] – neu laden</string>
   <string name="offline_a_day">vor einem Tag</string>
@@ -1049,4 +1054,72 @@
   <string name="offline_hours">vor [hours] Stunden</string>
   <string name="offline_minutes">vor [minutes] Minuten</string>
   <string name="offline_just_now">gerade eben</string>
+  <!-- welcome -->
+  <string name="welcome_login_title">welcome_login_title</string>
+  <string name="welcome_login_subtitle">welcome_login_subtitle</string>
+  <string name="welcome_nobooking_title">welcome_nobooking_title</string>
+  <string name="welcome_nobooking_subtitle">welcome_nobooking_subtitle</string>
+  <!-- search and book -->
+  <string name="search_and_book">search_and_book</string>
+  <!-- flight checkin -->
+  <string name="webcheckin_homepagebiscuit_checkinavailable">Check-in möglich</string>
+  <string name="webcheckin_homepagebiscuit_checkinavailable_cta">Check-in</string>
+  <string name="webcheckin_homepagebiscuit_allflightsopen">Ihre Flüge sind verfügbar.</string>
+  <string name="webcheckin_homepagebiscuit_oneflightopen_flighttxt">Flug:</string>
+  <string name="webcheckin_homepagebiscuit_oneflightopen_departingtxt">Geplant:</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin">[checked] von [total] Passagieren müssen noch eingecheckt werden.</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_singular">[checked] von [total] Passagieren muss noch eingecheckt werden.</string>
+  <string name="webcheckin_homepagebiscuit_somecheckedin_cta">Übrige Reisende einchecken.</string>
+  <string name="webcheckin_homepagebiscuit_offlineerr">Sie benötigen eine Internetverbindung, um sich einchecken zu können.</string>
+  <string name="webcheckin_confirmation_successful_title">Wunderbar</string>
+  <string name="webcheckin_confirmation_successful_body">Ihre Bordkarten werden nun in der App gespeichert.</string>
+  <string name="webcheckin_confirmation_successful_cta">OK</string>
+  <string name="webcheckin_confirmation_restricted_body">Ihre Bordkarte ist nun in der App gespeichert.[airport] unterstützt keine mobilen Bordkarten, bitte schauen Sie in Ihr E-Mail-Postfach für weitere Informationen.</string>
+  <string name="webcheckin_confirmation_restricted_title">Wunderbar</string>
+  <string name="webcheckin_confirmation_restricted_cta">OK</string>
+  <string name="webcheckin_confirmation_nombp_title">Wichtig! </string>
+  <string name="webcheckin_confirmation_nombp_body">Sie haben sich eingecheckt, aber Ihre Flughäfen akzeptieren keine mobilen Bordkarten. Bitte schauen Sie in Ihr E-Mail-Postfach für weitere Informationen.</string>
+  <string name="webcheckin_confirmation_nombp_cta">OK</string>
+  <string name="webcheckin_flightdetailpage_checkinnotopen">Check-in ist noch nicht möglich, bitte versuchen Sie es später noch einmal.</string>
+  <string name="webcheckin_flightdetailpage_3rdparty">Buchungsnummer [airline]</string>
+  <string name="webcheckin_flightdetailpage_checkinnow">Check-in jetzt möglich</string>
+  <string name="webcheckin_flightdetailpage_checkinnowcta">Jetzt einchecken</string>
+  <string name="webcheckin_flightdetailpage_checkedin">Sie sind jetzt eingecheckt.</string>
+  <string name="webcheckin_flightdetailpage_checkedincta">Meine Flüge verwalten</string>
+  <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
+  <string name="webcheckin_flightdetailpage_somecheckedin">Übrige Reisende einchecken.</string>
+  <string name="webcheckin_flightdetailpage_somecheckedincta">Jetzt einchecken</string>
+  <string name="webcheckin_webflow_title">Check-in</string>
+  <!-- travelfolio -->
+  <string name="travelfolio_biscuit_title">Reisedokumente</string>
+  <string name="travelfolio_biscuit_subtitle_singular">[count] Reisedokument</string>
+  <string name="travelfolio_biscuit_subtitle_plural">[count] Reisedokumente</string>
+  <string name="travelfolio_checkin_now">Jetzt einchecken</string>
+  <string name="travelfolio_refresh_cta">Bordkarten aktualisieren</string>
+  <string name="travelfolio_refresh_body">Sollten Sie Ihre Flugbuchung geändert oder eine E-Mail von uns erhalten haben, können Sie Ihre Bordkarten hier aktualisieren.</string>
+  <string name="travelfolio_tap_to_retry">Laden wiederholen</string>
+  <string name="travelfolio_downloading">wird geladen</string>
+  <string name="travelfolio_not_checked_in_yet_singular">ist noch nicht eingecheckt</string>
+  <string name="travelfolio_not_checked_in_yet_plural">sind noch nicht eingecheckt</string>
+  <string name="travelfolio_category_title">Reisedokumente</string>
+  <string name="travelfolio_category_mbp">Bordkarten</string>
+  <string name="travelfolio_category_transferVoucher">Transferticket</string>
+  <string name="travelfolio_category_flightVoucher">Flugticket</string>
+  <string name="travelfolio_category_carVoucher">Mietwagenvoucher</string>
+  <string name="travelfolio_category_camperVoucher">Camper Voucher</string>
+  <string name="travelfolio_category_trainToFlightVoucher">Zug zum Flug</string>
+  <string name="travelfolio_category_vignette">Vignette</string>
+  <string name="travelfolio_category_extraVoucher">Extra</string>
+  <string name="travelfolio_category_travelPlan">Reiseplan</string>
+  <string name="travelfolio_category_travelConfirmation">Reisebestätigung</string>
+  <string name="travelfolio_category_accommodationVoucher">Hotel Voucher</string>
+  <string name="travelfolio_errordownload_sorry">Entschuldigung!</string>
+  <string name="travelfolio_errordownload_sorry_body">Sie sind eingecheckt, aber es gab einen Fehler beim Laden Ihrer Bordkarten.\nBitte versuchen Sie es noch einmal.</string>
+  <string name="travelfolio_errordownload_sorry_cta">Bordkarten herunterladen</string>
+  <!-- boardingpass -->
+  <string name="boardingpass_biscuit_seat">SITZ</string>
+  <string name="boardingpass_biscuit_flight">FLUG:</string>
+  <string name="boardingpass_biscuit_date">DATUM:</string>
+  <string name="boardingpass_biscuit_departs">GEPLANT:</string>
+  <string name="boardingpass_biscuit_passenger">PASSAGIER:</string>
 </resources>

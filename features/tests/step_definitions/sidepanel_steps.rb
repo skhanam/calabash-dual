@@ -34,14 +34,12 @@ When(/^I see tablet holiday booking summary page$/) do
 end
 
 When(/^I see holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_summary_page
-  @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.verify_booking_reference_number if $g_phone
+  @bookingSummaryPage.verify_booking_reference_details if $g_tablet
 end
 
 When(/^I see and verify holiday booking summary page$/) do
-  @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
+ step 'I see holiday booking summary page'
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -157,4 +155,10 @@ end
 
 When(/^I should see the destination name on the menu$/) do
   @sidePanel.check_destinations(@bookings)
+end
+
+Then(/^I see a search and book banner with title is Browse our Holiday collections$/) do
+  @page.scroll_side_panel_and_assert @page.get_val "browse_holidays_top_text"
+  @page.assert_wait_for_text @page.get_val "browse_holidays_top_text"
+  @page.assert_wait_for_text @page.get_val "browse_holidays_bottom_text"
 end

@@ -1,54 +1,15 @@
-require 'rubyXL'
+#require 'rubyXL'
 require_relative '../../BasePages/base_page'
 require 'yaml'
 
 #Methods common across android and ios are added here
 class CommonMethods < BasePage
-  # Read all data from excel and filter them by matching criteria
-  def check_data_from_excel_matching_criteria(criteria)
-    hash_arr=read_test_data
-    matching_data=[]
-
-    case criteria
-      when "43 or more days"
-        min_days, max_days=43, 99999
-      when "29 to 42 days"
-        min_days, max_days= 29, 42
-      when "15 to 28 days"
-        min_days, max_days=15, 28
-      when "7 to 14 days"
-        min_days, max_days=7, 14
-      when "1 to 6 days"
-        min_days, max_days=1, 6
-      when "less than 1 day"
-        min_days, max_days=0, 1
-      when "in resort"
-        fail("TODO")
-      when "more than 1 day past"
-        min_days, max_days=-99999, -1
-    end
-
-    hash_arr.each do |var|
-      if var["VisionBookingRef"] == nil
-        break
-      end
-
-      puts "min_days, max_days #{min_days}, #{max_days}"
-      if (var["Pre-In-Post"] >=min_days && var["Pre-In-Post"] <= max_days)
-        matching_data<<var
-        #puts var["Pre-In-Post"]
-      end
-    end
-    matching_data
-
-  end
-
 
   # get suffix of day based on number of days
-  def getDayNumberSuffix(day)
+  def get_day_number_suffix(day)
     day=day.to_i
     if (day >= 11 && day <= 13)
-      return "th";
+      return "th"
     end
 
     case day%10
@@ -107,7 +68,10 @@ class CommonMethods < BasePage
   def close_popup_dialog
     #Handle push notifications
     if check_text_in_view @@push_notifications
-      click_on_text @@push_allow
+      sleep 2
+      assert_wait_for_text @@push_allow
+      touch "label text:'#{@@push_allow}'"
+      #click_on_text @@push_allow
     end
 
      puts ("#{$g_query_txt}text:'#{@@app_update_popup_title}'")

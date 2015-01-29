@@ -56,7 +56,6 @@ end
 module Phone
   include BaseModule
 
-
   def verify_login_page
     puts "verify_login_page"
     assert_wait_for_text @@login_page_title
@@ -68,12 +67,8 @@ module Phone
     scroll_page_and_assert_text @@welcome_cta_help_login
   end
 
-
   def check_login_error_messages
     assert_wait_for_text @@login_error_text
-    assert_text_present @@welcome_login_surname_extra
-    assert_text_present @@login_error_departure_date
-    assert_text_present @@login_error_surname
   end
 
   def verify_help_logging_in
@@ -93,7 +88,7 @@ module Phone
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_surname
     scroll_page_and_assert_text @@welcome_help_retrieve_booking_email
 
-    scroll_page_and_assert_text @@retrieve_booking_submit
+    scroll_page_and_assert_text @@submit_button
     scroll_page_and_assert_text @@welcome_help_more_issues_body
     scroll_page_and_assert_text @@welcome_help_more_issues_email_title
   end
@@ -151,9 +146,9 @@ module Tablet
     assert_wait_for_text @@welcome_help_retrieve_booking_header
     assert_wait_for_text @@welcome_help_retrieve_booking_surname
     assert_wait_for_text @@welcome_help_retrieve_booking_email
-    assert_wait_for_text @@retrieve_booking_submit
+    assert_wait_for_text @@submit_button
 
-    scroll_at_text_element @@retrieve_booking_submit
+    scroll_at_text_element @@submit_button
 
     assert_wait_for_text @@welcome_help_more_issues_body
     assert_wait_for_text @@welcome_help_more_issues_email_title

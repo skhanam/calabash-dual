@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rubyXL'
+#require 'rubyXL'
 require_relative '../../common/strings/application_strings'
 require_relative '../../common/support/reusable_methods'
 
@@ -17,7 +17,7 @@ end
 
 module Tablet
   def
-  scroll_side_panel(text,dir="down")
+  scroll_side_panel(text, dir="down")
     count=5
     puts "scroll_side_panel #{text}"
     while (!element_exists("view text:'#{text}'") && count >0)
@@ -41,6 +41,11 @@ module AndroidReusableMethods
     receiver.send :include, Module.const_get("#{$g_hw_module}")
   end
 
+  def scroll_search_book_items(row,item,text)
+    sleep(STEP_PAUSE)
+    pan "* text:'#{text}' parent com.tui.tdaphone.searchandbook.listView.templates.LoopViewPager index:0",:left
+  end
+
   def ti_enter_details(text, index)
     sleep 1
     query("all TiEditText index:#{index}", setText: "#{text}")
@@ -52,15 +57,21 @@ module AndroidReusableMethods
     assert_text_present text
   end
 
-  def enter_text_android(text)
+  def enter_text_android(text, id=nil)
     sleep 2
-    text=text.gsub(' ', '%s')
-    command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
-    raise "Could not send text" unless system(command)
+    if id!=nil
+      enter_text("android.widget.EditText contentDescription:'#{id}.'", text)
+    else
+      text=text.gsub(' ', '%s')
+      command = "#{default_device.adb_command} shell input text '#{text.to_s}'"
+      raise "Could not send text" unless system(command)
+    end
+
   end
 
   #This method avoids calabash from crashing while using single quotes
   def escape_quotes_smart(str)
+    return str if !(str.include? '\'')
     #If escape quotes are used dont use again
     if str.include? '\\\''
       return str
@@ -135,16 +146,18 @@ module AndroidReusableMethods
     return true
   end
 
-  def scroll_view(dir)
+  def scroll_view(dir, index=0)
     if (dir=="up")
       perform_action('drag', 50, 50, 70, 90, 10)
     elsif (dir=="down")
       perform_action('drag', 50, 50, 90, 70, 10)
+    elsif (dir=="right")
+      perform_action('drag', 90, 50, 80, 50, 10)
     end
   end
 
   # scroll in specified direction till id is found
-  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10,index=0)
+  def scroll_page_and_assert_text(id, dir="down", till_id=nil, count=10, index=0)
     repeat_count=0
     sleep 1
     write_verified_text_to_file "scroll_page_and_assert_text (#{id})"
@@ -171,7 +184,7 @@ module AndroidReusableMethods
   end
 
 #touch text and verify result
-  def touch_txt_and_verify_title(id, text)
+  def touch_txt_and_verify_title(id, text=nil)
     sleep 1
     if element_exists("* text:'#{id}'")
       touch("* text:'#{id}'")
@@ -181,15 +194,16 @@ module AndroidReusableMethods
       fail("id:#{id} not found")
     end
 
-    if ENV['TESTENV']=="EN_FC"
-      title_text=UnicodeUtils.upcase(text)
-    else
-      title_text=text
+    if text!=nil
+      if ENV['TESTENV']=="EN_FC"
+        title_text=UnicodeUtils.upcase(text)
+      else
+        title_text=text
+      end
+
+      assert_wait_for_text(title_text, 10)
+      verify_page_title title_text
     end
-
-    assert_wait_for_text(title_text, 10)
-    verify_page_title title_text
-
   end
 
   def touch_acc_label_and_verify(label_touch, label_expected)
@@ -230,6 +244,12 @@ module AndroidReusableMethods
     sleep 1
   end
 
+
+  def scroll_table_to_row row_num
+    scroll_to_row("ListView", row_num.to_i-1)
+    sleep 2
+  end
+
   def enter_date_android(date_int)
     #day, month, year= convert_excel_date_to_str(date_int).split(/-/)
     day, month, year= (date_int).split(/-/)
@@ -244,73 +264,79 @@ module AndroidReusableMethods
     sleep 2
     return
 
+
     #Commented code is useful to set date in nexus4 (OS 4.3)
-    puts "DATE: #{day}#{getDayNumberSuffix(day)} #{month} #{year}"
+    puts "DATE: #{day}#{get_day_number_suffix(day)} #{month} #{year}"
+    #TODO remove if not needed
+
     touch("all TiEditText index:3")
     #Set date
-    if ($g_ginger_bread==true)
-      date_string ="* id:'timepicker_input' index:1"
-      year_string ="* id:'timepicker_input' index:2"
-      month_string ="* id:'timepicker_input' index:0"
-
-      date_increment="* id:'day' child android.widget.NumberPickerButton id:'increment'"
-      date_decrement="* id:'day' child android.widget.NumberPickerButton id:'decrement'"
-      month_increment="* id:'month' child android.widget.NumberPickerButton id:'increment'"
-      month_decrement="* id:'month' child android.widget.NumberPickerButton id:'decrement'"
-      year_increment="* id:'year' child android.widget.NumberPickerButton id:'increment'"
-      year_decrement="* id:'year' child android.widget.NumberPickerButton id:'decrement'"
-    else
-      date_string ="* id:'numberpicker_input' index:0"
-      year_string ="* id:'numberpicker_input' index:2"
-      month_string ="* id:'numberpicker_input' index:1"
-      date_increment="* contentDescription:'Increase day'"
-      date_decrement="* contentDescription:'Decrease day'"
-      month_increment="* contentDescription:'Increase month'"
-      month_decrement="* contentDescription:'Decrease month'"
-      year_increment ="* contentDescription:'Increase year'"
-      year_decrement ="* contentDescription:'Decrease year'"
-    end
-
-    date_value = query(date_string, :text)[0].to_i
-    month_value =query(month_string, :text)[0].to_s
-    year_value=query(year_string, :text)[0].to_i
-
-    #Set date
-    if date_value > day.to_i
-      date_change=date_decrement
-    else
-      date_change=date_increment
-    end
-
-    while (query(date_string, :text)[0].to_i != day.to_i)
-      sleep(0.5)
-      touch(date_change)
-    end
-
-    #Set Month
-    while (month_value != month)
-      sleep(0.5)
-      touch(month_increment)
-      month_value =query(month_string, :text)[0].to_s
-    end
-
-
-    #Set year
-    while (year_value != year.to_i)
-      sleep(0.25)
-      if year_value > year.to_i
-        touch(year_decrement)
-      elsif year_value < year.to_i
-        touch(year_increment)
-      end
-
-      year_value=(query(year_string, :text)[0].to_i)
-    end
-
-    sleep(1)
-    touch("button text:'Set'")
-    sleep(1)
+    #if ($g_ginger_bread==true)
+    #  date_string ="* id:'timepicker_input' index:1"
+    #  year_string ="* id:'timepicker_input' index:2"
+    #  month_string ="* id:'timepicker_input' index:0"
+    #
+    #  date_increment="* id:'day' child android.widget.NumberPickerButton id:'increment'"
+    #  date_decrement="* id:'day' child android.widget.NumberPickerButton id:'decrement'"
+    #  month_increment="* id:'month' child android.widget.NumberPickerButton id:'increment'"
+    #  month_decrement="* id:'month' child android.widget.NumberPickerButton id:'decrement'"
+    #  year_increment="* id:'year' child android.widget.NumberPickerButton id:'increment'"
+    #  year_decrement="* id:'year' child android.widget.NumberPickerButton id:'decrement'"
+    #else
+    #  date_string ="* id:'numberpicker_input' index:0"
+    #  year_string ="* id:'numberpicker_input' index:2"
+    #  month_string ="* id:'numberpicker_input' index:1"
+    #  date_increment="* contentDescription:'Increase day'"
+    #  date_decrement="* contentDescription:'Decrease day'"
+    #  month_increment="* contentDescription:'Increase month'"
+    #  month_decrement="* contentDescription:'Decrease month'"
+    #  year_increment ="* contentDescription:'Increase year'"
+    #  year_decrement ="* contentDescription:'Decrease year'"
+    #end
+    #
+    #date_value = query(date_string, :text)[0].to_i
+    #month_value =query(month_string, :text)[0].to_s
+    #year_value=query(year_string, :text)[0].to_i
+    #
+    ##Set date
+    #if date_value > day.to_i
+    #  date_change=date_decrement
+    #else
+    #  date_change=date_increment
+    #end
+    #
+    #while (query(date_string, :text)[0].to_i != day.to_i)
+    #  sleep(0.5)
+    #  touch(date_change)
+    #end
+    #
+    ##Set Month
+    #while (month_value != month)
+    #  sleep(0.5)
+    #  touch(month_increment)
+    #  month_value =query(month_string, :text)[0].to_s
+    #end
+    #
+    #
+    ##Set year
+    #while (year_value != year.to_i)
+    #  sleep(0.25)
+    #  if year_value > year.to_i
+    #    touch(year_decrement)
+    #  elsif year_value < year.to_i
+    #    touch(year_increment)
+    #  end
+    #
+    #  year_value=(query(year_string, :text)[0].to_i)
+    #end
+    #
+    #sleep(1)
+    #touch("button text:'Set'")
+    #sleep(1)
 
   end
 
+  def click_return_key
+    perform_action('send_key_enter')
+  end
 end

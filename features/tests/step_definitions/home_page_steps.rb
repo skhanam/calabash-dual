@@ -16,9 +16,18 @@ When (/^I navigate to weather page using weather biscuit$/) do
 end
 
 When(/^I navigate to hotel (\d+) page using side menu$/) do |num|
-  @hotel_num=num.to_i
+  @hotel_details=$g_booking.get_hotel_details[num.to_i-1]
+  @hotel_name=@hotel_details["name"]
   @homePage.open_side_panel
   @sidePanel.navigate_to_hotel(num)
+end
+
+
+When(/^I navigate to hotel (\d+) from home page$/) do |arg|
+  @hotel_name=$g_booking.get_hotel_details[arg.to_i-1]
+  @hotel_name=@hotel_details["name"]
+  @page.scroll_page_and_assert_text(@hotel_name) if $g_phone
+  @page.click_on_text(@hotel_name)
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -69,26 +78,28 @@ end
 Given(/^I have switched to (.*?) booking$/) do |booking_type|
   case booking_type
     when "typical"
-      $g_current_booking=$g_typical_booking_data
+      $g_current_booking_code=$g_de_typical_booking
     when "insurance"
-      $g_current_booking=$g_typical_booking_data
+      $g_current_booking_code=$g_de_typical_booking
     when "flight"
-      $g_current_booking=$g_flight_booking_data
+      $g_current_booking_code=$g_de_single_booking
     when "single"
-      $g_current_booking=$g_flight_booking_data
+      $g_current_booking_code=$g_de_single_booking
     when "non eu"
       $g_current_booking=$g_non_eu_booking_data
     when "one way"
       $g_current_booking=$single_journey_multi_leg
   end
 
-  $g_booking.set_payload($g_current_booking["payload"])
-
   step "I am on Home screen"
 
   #If required booking is already selected then do switch accounts again
   if booking_type!=$selected_booking
     $selected_booking=booking_type
+
+    de_user_details $g_current_booking_code,booking_type
+    $g_booking.set_payload($g_current_booking["payload"])
+
     @homePage.navigate_to_account
     @myBookingsPage.switch_to_particular_booking
   else
@@ -102,6 +113,7 @@ Then(/^I verify appropriate welcome message for booking$/) do
 end
 
 Then(/^I must be logged in and on Home page$/) do
+  @page.wait_for_spinner_to_disappear
   acc_label="background_normal" if $g_phone
   acc_label= @page.get_val("countdown_biscuit_acc") if $g_tablet
   @homePage.assert_wait_for_acc("#{acc_label}", 20) if !@page.check_acc_label acc_label
@@ -121,17 +133,14 @@ Given(/^I navigate to travel money page from home screen$/) do
   @travelMoneyPage.verify_travel_money_page
 end
 
-When(/^I navigate to hotel (\d+) from home page$/) do |arg|
-  @hotel_name=$g_booking.get_home_page_hotel(arg.to_i)
-  @page.scroll_page_and_assert_text(@hotel_name) if $g_phone
-  @page.click_on_text(@hotel_name)
-end
 
 When(/^I navigate to first destination using home page biscuit$/) do
-  @countries= $g_booking.get_destination_countries
-  @dest_country=@countries[0]
-  @page.scroll_home_biscuits(@dest_country)
-  @page.click_on_text(@dest_country)
+  @home_destination_string = $g_booking.get_destination_countries[0]
+  step 'I select destination biscuit'
+  @destinationInfo.verify_list_of_destinations
+  sleep 1
+  @page.click_on_text @home_destination_string
+  sleep 1
 end
 
 Then(/^I see first destination information page$/) do
@@ -172,10 +181,16 @@ Given(/^I am on packaging list page$/) do
   step "I open my packaging list"
 end
 
+
 Given(/^I am on weather page$/) do
   step "I am on home screen with default booking"
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
+  if $g_nordics_app && ($g_weather["payload"]["weatherStations"].count > 1)
+      @city=$g_weather["payload"]["weatherStations"][0]["city"]
+      @page.assert_partial_text @city
+      @page.click_on_partial_text @city
+  end
 end
 
 Given(/^I am on default booking$/) do
@@ -219,12 +234,12 @@ Then(/^I see guide online page$/) do
 end
 
 When(/^I select destination biscuit$/) do
-  @homePage.select_destination_biscuit
+  @homePage.select_destination_biscuit @home_destination_string
 end
 
 Then(/^I verify booking summary page$/) do
   @bookingSummaryPage.verify_booking_reference_details
-  @bookingSummaryPage.verify_days_to_go
+  @bookingSummaryPage.verify_days_to_go if !$g_eng_app # this may be present for other phone apps or else remove it
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -242,7 +257,7 @@ Then(/^I should be navigated to Post Holiday page$/) do
 end
 
 Then(/^I should see a Countdown biscuit with a count of days left$/) do
-  @page.assert_wait_for_text @countdown.to_s
+  @page.assert_wait_for_text(@countdown.to_s, 20)
   @homePage.check_countdown_biscuit
 end
 
@@ -282,7 +297,8 @@ Then(/^I should see a Weather Biscuit appear$/) do
 end
 
 When(/^I should see Weather type icon$/) do
-  @homePage.assert_wait_for_text "°c"
+  @homePage.assert_wait_for_text "°c" if $g_tablet
+  @homePage.assert_wait_for_text "c" if $g_phone
   #check weather is a number
   @homePage.check_temp_present
 
@@ -320,7 +336,6 @@ end
 
 When(/^I tap on the first destination Biscuit$/) do
   @countries= $g_booking.get_destination_countries
-
   @homePage.click_destination_biscuit(1)
 end
 
@@ -329,12 +344,11 @@ When(/^I tap on the destination Biscuit$/) do
 end
 
 Then(/^I should be navigated to first destination page$/) do
-  @destinationInfo.verify_destination_screen
+  @destinationInfo.verify_destination_page
 end
 
 Then(/^I should be navigated to destination page$/) do
-  @homePage.verify_destination_page
-  fail("Verify text on destination page")
+  @destinationInfo.verify_destination_page
 end
 
 Then(/^I should see a Currency Converter Biscuit appear$/) do
@@ -424,4 +438,18 @@ end
 
 When(/^I log out from post holiday screen$/) do
   @postHolidayHomepage.en_post_holiday_logout
+end
+When(/^I navigate to logout$/) do
+  if $g_phone && $g_german_app
+    step 'I have accessed my Personal Details page'
+    step 'I tap on Logout'
+    step 'I should see logout OS dialogue displayed'
+  else
+    step 'I click on Logout using side menu'
+  end
+end
+
+Given(/^I am on weather page with single booking$/) do
+  step 'I am on home screen with single booking'
+  @homePage.click_weather_biscuit
 end

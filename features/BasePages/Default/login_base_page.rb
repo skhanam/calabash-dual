@@ -1,9 +1,5 @@
 class LoginBasePage < BasePage
 
-  def verify_login_screen
-    wait_for_elements_exist([$g_query_txt+"marked:'#{@@login_page_text}'"])
-  end
-
   def trait
     $g_query_txt+"marked:'#{@@login_page_text}'"
   end
@@ -30,8 +26,12 @@ class LoginBasePage < BasePage
     scroll_page_till_acc @@login_button_acc if $g_phone
     click_acc_label(@@login_button_acc)
   end
-
+  
   def check_login_screen
+  check_text_in_view @@login_welcome
+  end
+
+  def verify_login_screen
     assert_wait_for_text(@@login_welcome)
   end
 
@@ -41,7 +41,7 @@ class LoginBasePage < BasePage
   end
 
   def scroll_to_end_of_page
-    scroll_page_and_assert_text(@@welcome_cta_help_login)
+    scroll_page_and_assert_text(escape_quotes(@@welcome_help_link1))
   end
 
 end

@@ -2,9 +2,11 @@
 
 require 'calabash-cucumber/ibase' if $g_ios
 require_relative '../ios/support/reusable_methods_ios' if $g_ios
+require_relative '../ios/support/webview_functions' if $g_ios
 
 require 'calabash-android/abase' if $g_android
 require_relative '../android/support/reusable_methods_android' if $g_android
+require_relative '../android/support/webview_functions' if $g_android
 
 require_all "features/common/modules/*.rb"
 require_all "features/ios/modules/*.rb"
@@ -35,11 +37,12 @@ elsif $g_android
 end
 
 class BasePage < BaseClass
-
   include ViewModule
   include ReusableMethods
   include AppStrings
- # include CalabashShared
+  include WebViewModule
+
+  # include CalabashShared
 
   def initialize
   end

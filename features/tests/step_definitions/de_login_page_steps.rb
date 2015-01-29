@@ -20,7 +20,8 @@ end
 
 When(/^should observe that values entered are retained$/) do
   @page.assert_wait_for_text @uname
-  @page.assert_wait_for_text @country
+  @page.scroll_page_and_assert_text @country  if $g_phone
+  @page.assert_wait_for_text @country  if $g_tablet
 end
 
 Then(/^I see alternative country options for submitted credentials$/) do
@@ -75,6 +76,7 @@ When(/^I submit wrong login credentials$/) do
 end
 
 Given(/^I accessed the Register page modal$/) do
+  #tablet only
   step "I am on 'Login' screen"
   @loginPage.select_register_button
 end

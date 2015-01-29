@@ -21,6 +21,10 @@ module EN_Strings
     retrieve_booking_ref
     post_holiday_strings
     good_to_know_strings
+    phone_welcome_strings
+    search_book_strings
+    sign_up_offers
+    sign_up_strings
   end
 
   def self.included(receiver)
@@ -54,8 +58,6 @@ module EN_Strings
     @@welcome_help_retrieve_booking_email = get_localized_string "welcome_help_retrieve_booking_email" # Email address used for booking:
 
     @@welcome_help_retrieve_booking_cta = get_localized_string "welcome_help_retrieve_booking_cta" # Submit
-    @@retrieve_booking_submit = get_localized_capitalized_string "submit" # Submit
-
     @@welcome_help_i_need_help= get_localized_string "i_need_help"
 
     @@welcome_help_retrieve_booking_email_extra = get_localized_string "welcome_help_retrieve_booking_email_extra" # Please use the email address you provided when booking your holiday, as detailed on your invoice.
@@ -114,16 +116,22 @@ module EN_Strings
       @@welcome_login_booking_reference1_hint = get_localized_string "welcome_login_booking_reference1_hint" # 1234
       @@submit_button= get_localized_capitalized_string "submit" #Submit
       @@welcome_help_link1=get_localized_string "welcome_help_link1"
-
+      @@login_welcome= get_localized_string "login_welcome" #Willkommen
+      @@login_page_title = get_localized_string "welcome_header"
     elsif $g_phone
       @@welcome_login_surname=get_localized_string "welcome_login_surname" #"Surname of lead passenger:"
       @@welcome_login_departure_date=get_localized_string "welcome_login_departure_date" #"Departure date:"
       @@welcome_login_booking_reference=get_localized_string "welcome_login_booking_reference"
       @@welcome_login_booking_reference_extra=get_localized_string "welcome_login_booking_reference_extra"
       @@welcome_cta_help_login=get_localized_string "welcome_cta_help_login" #"Help logging in"
+      @@login_welcome= get_localized_string "welcome_cta_login" #Log in
+      @@welcome_header = get_localized_string "welcome_header"
+      @@login_page_title = get_localized_string "welcome_cta_login"
+      @@submit_button= get_localized_string "submit" #Submit
+      @@welcome_help_link1=get_localized_string "welcome_cta_help_login"
+
     end
 
-    @@login_welcome= get_localized_string "login_welcome" #Willkommen
     @@login_page_text = $g_phone ? get_localized_string("welcome_login_header") : "HAVE A BOOKING, LETS LOGIN"
     @@login_button=get_localized_string "welcome_login_cta_login" #"Log in"
     @@welcome_help_link2=get_localized_string "welcome_help_link2" #"Retrieve a booking reference number"
@@ -139,7 +147,6 @@ module EN_Strings
     @@login_error_departure_date=get_localized_string "welcome_login_departure_date_extra"
     @@login_error_surname=get_localized_string "welcome_login_surname_extra"
 
-    @@login_page_title = get_localized_string "welcome_header"
 
     #Book a visit page
     @@book_visit_header = get_localized_string "welcome_help_no_holiday_find_holiday_header"
@@ -196,9 +203,19 @@ module EN_Strings
   def side_panel_strings
     @@to_do_lists= get_localized_string "my_todo_list"
     @@home=get_localized_string "home" #"Home"
-    @@side_panel_booking_summary="Holiday Summary" #get_localized_string "booking_summary" #"Holiday summary"
-    @@side_panel_countdown=get_localized_string "holiday_countdown" if $g_phone #"Holiday countdown"
-    @@side_panel_countdown=get_localized_string "countdown" if $g_tablet #"Holiday countdown"
+    if $g_phone
+      @@side_panel_countdown=get_localized_string "holiday_countdown"
+      @@side_panel_booking_summary=get_localized_string "booking_summary" #"Holiday summary"
+      @@side_panel_destination= get_localized_string "destination"
+      @@browse_holidays_top_text= get_localized_string "browse_holidays_top_text" #Browse our
+      @@browse_holidays_bottom_text= get_localized_string "browse_holidays_bottom_text"  # Holiday collections
+
+    elsif $g_tablet
+      @@side_panel_countdown=get_localized_string "countdown"
+      @@side_panel_booking_summary="Holiday Summary" #
+      @@side_panel_destination= "Destination Guide" #get_localized_string "destination"
+
+    end
     @@holiday_checklist=get_localized_string "holiday_checklist" #"Holiday checklist"
     @@holiday_checklists=get_localized_string "holiday_checklists" #"Holiday checklists"
     @@side_panel_weather=get_localized_string "weather" #"Weather"
@@ -209,7 +226,7 @@ module EN_Strings
     @@getting_to_the_airport=get_localized_string "getting_to_the_airport" #"Getting to the airport"
     @@holiday_extras=get_localized_string "extras_title"
     @@app_feedback=get_localized_string "app_feedback"
-    @@side_panel_app_feedback = "App Feedback"
+                                       #@@side_panel_app_feedback = "App Feedback"
     @@travel_money=get_localized_string "travel_money" #"Travel money"
     @@important_information="Important Information" #get_localized_string "important_information" #"Important information"
     @@side_panel_contact_us=get_localized_string "contact_us" #"Contact us"
@@ -218,7 +235,6 @@ module EN_Strings
     @@guide_online = get_localized_string "guide_online_biscuit_title"
 
     @@side_panel_excursions=get_localized_string "excursions" #"Excursions"
-    @@side_panel_destination= "Destination Guide" #get_localized_string "destination"
     @@side_panel_currency= get_localized_string "currency_offcanvas"
     @@log_out_text=get_localized_string "logout" #"Log out"
     @@logout_confirm=get_localized_string "confirm" # yes
@@ -337,7 +353,72 @@ module EN_Strings
     end
   end
 
+  def phone_welcome_strings
+    @@welcome_login_title= get_localized_string "welcome_login_title" # Have a Booking?
+    @@welcome_login_subtitle= get_localized_string "welcome_login_subtitle" # Let's login
+    @@welcome_nobooking_title= get_localized_string "welcome_nobooking_title" # Haven't booked?
+    @@welcome_nobooking_subtitle= get_localized_string "welcome_nobooking_subtitle" # Let's get inspired
+  end
 
+  def search_book_strings
+    @@search_and_book_title = "Search & Book"
+
+    @@search_book_dest = "Destinations"
+    @@search_book_discover ="Discover our world"
+
+    @@search_book_best_for ="Best for"
+    @@search_book_inspire ="Let us inspire you"
+
+    @@search_book_search ="Search"
+    @@search_book_find_holiday ="Find your holiday"
+
+    @@search_book_our_best ="View our best"
+    @@search_book_deals ="Deals"
+
+    @@search_book_sign_up ="Sign up"
+    @@search_book_latest_offers ="Get our latest offers"
+
+    @@search_book_flights ="Flights"
+    @@search_book_lets_take_you ="Let us take you there"
+
+    @@search_book_experience ="Find your experience"
+    @@search_book_Excursions ="Excursions"
+  end
+
+  def sign_up_strings
+    @@salutations_to_split_by_colon=get_localized_string "salutations_to_split_by_colon"# Mr:Mrs:Ms:Miss:Dr
+    @@signup_email=get_localized_string "signup_email"# Email address:
+    @@signup_email_hint=get_localized_string "signup_email_hint"# example@example.com
+    @@signup_first_name=get_localized_string "signup_first_name"# First name:
+    @@signup_first_name_hint=get_localized_string "signup_first_name_hint"# John
+    @@signup_lastName=get_localized_string "signup_lastName"# Last name:
+    @@signup_lastName_hint=get_localized_string "signup_lastName_hint"# Smith
+    @@signup_privacy_cta=get_localized_string "signup_privacy_cta"# Privacy policy
+    @@signup_salutation=get_localized_string "signup_salutation"# Title:
+    @@signup_selector=get_localized_string "signup_selector"# Mr
+    @@signup_signup_cta=get_localized_string "signup_signup_cta"# Submit
+    @@signup_successful=get_localized_string "signup_successful"# Sign up successful
+    @@signup_unsuccessful=get_localized_string "signup_unsuccessful"# Sign up unsuccessful. Please try again
+    @@time=get_localized_string "time"# time
+  end
+  def sign_up_offers
+    @@email_signup_successful=get_localized_string "email_signup_successful" #Thanks for signing up. Keep an eye on your inbox for upcoming offers.
+    @@email_signup_failed=get_localized_string "email_signup_failed" #Oops, looks like something went wrong. Please check your connection and try again.
+    @@welcome_help_no_holiday_email_header=get_localized_string "welcome_help_no_holiday_email_header" #Sign up for offers
+    @@welcome_help_no_holiday_email_body=get_localized_string "welcome_help_no_holiday_email_body" #Our top deals tailored to you, straight to your inbox.
+    @@email_field_validation=get_localized_string "email_field_validation" #Please enter a valid email address
+    @@firstName_field_validation=get_localized_string "firstName_field_validation" #Please enter your first name
+    @@lastName_field_validation=get_localized_string "lastName_field_validation" #Please enter your last name
+    @@salutation_field_validation=get_localized_string "salutation_field_validation" #Please select a salutation
+    @@optin_to_emails_blurb=get_localized_string "optin_to_emails_blurb" #I would like to receive great deals and holiday news via email (Your data will not be disclosed to a third party and you can revoke consent at any time). By opting in, you agree to our privacy policy.
+    @@agree_to_emails_blurb=get_localized_string "agree_to_emails_blurb" #Please read our Privacy Policy and Data Protection Notice and confirm you agree to our use of your information provided (which may in special situations include sensitive personal data) by ticking the box below.
+    @@optin_to_emails=get_localized_string "optin_to_emails" #Sign up to emails from First Choice
+    @@agree_to_emails=get_localized_string "agree_to_emails" #I agree
+    @@welcome_help_no_holiday_email_disclaimer=get_localized_string "welcome_help_no_holiday_email_disclaimer" #By clicking 'Submit' you confirm that you have read and understood our Privacy Policy and consent to our use of your information.
+  end
 end
+
+
+
 
 

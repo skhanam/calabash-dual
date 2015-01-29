@@ -8,6 +8,8 @@ module ExcursionsModule
   end
 
   module Phone
+    include BaseModule
+
     def self.included(receiver)
       puts self.name+"::#{$g_platform}"
       receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
@@ -21,9 +23,12 @@ module ExcursionsModule
       sleep 10
       query="webView css:'*' {textContent CONTAINS '#{@@side_panel_link}'}"
       assert_wait_for_element(query, 20)
+      check_webview
     end
 
     module Eng
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
         assert_wait_for_text @@experience_the_country
@@ -32,12 +37,16 @@ module ExcursionsModule
       end
     end
     module Nor
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
       end
     end
 
     module Deu
+      include BaseModule
+
       def check_excursions_page
         verify_page_title @@excursions_title
         assert_wait_for_text @@experience_the_country
@@ -50,7 +59,7 @@ module ExcursionsModule
     include BaseModule
 
     def check_excursions_page
-      wait_for_progress_to_disappear(@@loading_hold_on,10)
+      wait_for_progress_to_disappear(@@loading_hold_on, 10)
       sleep 2
       assert_partial_text @@excursions_title
     end

@@ -18,21 +18,6 @@ class AppFeedbackBasePage < BasePage
 
   end
 
-  def verify_default_submitted_feedback
-    assert_wait_for_text @@app_feed_back_title1
-    assert_wait_for_text @@app_feed_back_title2
-    wait_for_partial_text_shown @@app_feed_back_negative_rating
-    wait_for_partial_text_shown @@app_feed_back_message_negative
-
-    if $g_eng_app
-      wait_for_partial_text_shown (@@app_feed_back_you_rated.gsub(/(\[.*?\])(\/)(\[.*?\])/, '5\210'))
-    else
-      wait_for_partial_text_shown (@@app_feed_back_you_rated.gsub(/(\[.*?\]) (.*?) (\[.*?\])/, '5 \2 10'))
-    end
-
-    scroll_page_and_assert_text @@app_feed_back_rate_again
-    scroll_page_and_assert_text @@app_feed_back_email_us
-  end
 
 
   def select_change_rating_button
