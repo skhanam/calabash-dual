@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-STEP_PAUSE||=0.5
+STEP_PAUSE ||= (0.5).to_f
 $g_os=ENV['PLATFORM']
 $g_hw=ENV['HW']
 

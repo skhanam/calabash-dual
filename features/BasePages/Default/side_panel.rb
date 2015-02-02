@@ -60,6 +60,7 @@ class SidePanel < BasePage
   end
 
   def navigate_from_side_menu(var)
+    puts "\nnavigate_from_side_menu var:#{var}:"
     sleep 2
     case var
       when "Holiday summary"
@@ -92,7 +93,10 @@ class SidePanel < BasePage
         navigate_to_contact_us_page
       when "destination"
         scroll_side_panel(@@side_panel_destination)
+        puts "scroll_side_panel 2"
+        sleep 2
         touch_txt_and_verify_title(@@side_panel_destination, @@destination_title) if $g_phone
+        touch_txt_and_verify_title(@@side_panel_destination, nil) if $g_tablet
       when "Log out"
         sleep 2
         scroll_view("down", 1)

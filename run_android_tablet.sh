@@ -132,7 +132,6 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
 
 		cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
-		killall "iPhone Simulator"
 		SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
 		fi
 	fi
