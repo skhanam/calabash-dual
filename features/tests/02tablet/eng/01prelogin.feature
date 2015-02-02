@@ -19,4 +19,3 @@ Feature: Verify pre login screen
     When  I tap 'I can't login in' button
     Then I should be navigated to Help logging in modal page
     Then I should see 'Help logging in' and other page elements
-

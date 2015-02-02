@@ -159,7 +159,7 @@
   <string name="welcome_book_holiday_benefits_title">[subbrand] benefits</string>
   <!-- 0.3 login -->
   <string name="login_have_a_booking">HAVE A BOOKING, LETS LOGIN</string>
-  <string name="login_lets_get_inspired">HAVEN'T BOOKED? LET'S GET INSPIRED</string>
+  <string name="login_lets_get_inspired">HAVEN'T BOOKED? FIND YOUR PERFECT HOLIDAY</string>
   <string name="forgot_password_body">forgot_password_body</string>
   <string name="forgot_password_email_help">forgot_password_email_help</string>
   <string name="forgot_password_email_hint">forgot_password_email_hint</string>
