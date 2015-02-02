@@ -97,7 +97,7 @@ Given(/^I have switched to (.*?) booking$/) do |booking_type|
   if booking_type!=$selected_booking
     $selected_booking=booking_type
 
-    de_user_details $g_current_booking_code,booking_type
+    de_user_details $g_current_booking_code, booking_type
     $g_booking.set_payload($g_current_booking["payload"])
 
     @homePage.navigate_to_account
@@ -187,9 +187,9 @@ Given(/^I am on weather page$/) do
   @homePage.check_home_screen
   @homePage.click_weather_biscuit
   if $g_nordics_app && ($g_weather["payload"]["weatherStations"].count > 1)
-      @city=$g_weather["payload"]["weatherStations"][0]["city"]
-      @page.assert_partial_text @city
-      @page.click_on_partial_text @city
+    @city=$g_weather["payload"]["weatherStations"][0]["city"]
+    @page.assert_partial_text @city
+    @page.click_on_partial_text @city
   end
 end
 
@@ -445,6 +445,7 @@ When(/^I navigate to logout$/) do
     step 'I tap on Logout'
     step 'I should see logout OS dialogue displayed'
   else
+    @page.open_side_panel
     step 'I click on Logout using side menu'
   end
 end
