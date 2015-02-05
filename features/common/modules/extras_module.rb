@@ -18,7 +18,7 @@ module ExtrasModule
 
   def verify_extras_page
     sleep 2
-    assert_wait_for_acc @@extras_page_title_acc
+    assert_text_present @@extras_page_title_acc
   end
 
   module Phone
