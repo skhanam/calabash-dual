@@ -145,15 +145,15 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 	fi
 
 	#Do not perform below steps when there are no tests selected to run
-
 fi
 
 if [ "$2" != "NA" ] ; then
+	echo "Android tablet"
 	rm -rf test_servers/
-#	calabash-android resign $FILENAME
-#	calabash-android build $FILENAME
-#	adb $ADB_DEVICE install -r $FILENAME
-#	adb $ADB_DEVICE install -r test_servers/*.apk
+	calabash-android resign $FILENAME
+	calabash-android build $FILENAME
+	adb $ADB_DEVICE install -r $FILENAME
+	adb $ADB_DEVICE install -r test_servers/*.apk
 fi
 
 if [ "$2" != "NA" ] ; then
