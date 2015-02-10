@@ -55,6 +55,7 @@ class SidePanel < BasePage
 
   def navigate_to_app_feedback
     scroll_side_panel(@@side_panel_app_feedback)
+    sleep 2
     click_on_text @@side_panel_app_feedback if $g_tablet
     touch_txt_and_verify_title @@side_panel_app_feedback, @@app_feed_back_title1 if $g_phone
   end

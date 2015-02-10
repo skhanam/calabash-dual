@@ -1,4 +1,4 @@
-@android_test @ios_test  @reg @sanity
+@android_test @ios_test  @reg @sanity @and-tab-done
 Feature: Verify contact page
 
   @contact1

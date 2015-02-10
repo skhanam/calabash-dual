@@ -1,4 +1,4 @@
-@app-feedback @sanity @reg
+@app-feedback @sanity @reg @and-tab-done
 Feature: Verify App feedback page
 
   @reset @app-feedback1

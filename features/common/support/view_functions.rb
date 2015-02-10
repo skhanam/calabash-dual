@@ -193,7 +193,8 @@ module ViewModule
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
      if wait_for_text(text, time_out)==false
-       puts "#{query("view",:text)}"
+       puts "#{query("view",:text)}" if $g_ios
+       puts "#{query("*",:text)}" if $g_android
        fail("text:#{text}: not present")
      end
 

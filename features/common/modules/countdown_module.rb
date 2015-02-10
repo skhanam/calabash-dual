@@ -71,7 +71,7 @@ module CountdownModule
       end
 
       fail "#{@@countdown_countdown_message2} text found" if flag!=true
-      assert_element "view text:'#{$g_booking.get_countdown_days}'"
+      assert_element "#{$g_query_txt}text:'#{$g_booking.get_countdown_days}'"
     end
 
     def check_i_am_off_message
