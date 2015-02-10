@@ -16,13 +16,18 @@ module Phone
 end
 
 module Tablet
-  def
-  scroll_side_panel(text, dir="down")
+  def scroll_side_panel(text, dir="down")
     count=5
+    sleep STEP_PAUSE
     puts "scroll_side_panel #{text}"
-    while (!element_exists("view text:'#{text}'") && count >0)
+    puts element_exists("#{$g_query_txt}text:'#{text}'")
+    while (!element_exists("#{$g_query_txt}text:'#{text}'") && count >0)
       sleep 1
-      scroll("scrollView index:1", dir)
+        if (dir=="up")
+          perform_action('drag', 10, 10, 30, 50, 10)
+        elsif (dir=="down")
+          perform_action('drag', 10, 10, 50, 30, 10)
+        end
       count-=1
     end
   end
@@ -41,9 +46,9 @@ module AndroidReusableMethods
     receiver.send :include, Module.const_get("#{$g_hw_module}")
   end
 
-  def scroll_search_book_items(row,item,text)
+  def scroll_search_book_items(row, item, text)
     sleep(STEP_PAUSE)
-    pan "* text:'#{text}' parent com.tui.tdaphone.searchandbook.listView.templates.LoopViewPager index:0",:left
+    pan "* text:'#{text}' parent com.tui.tdaphone.searchandbook.listView.templates.LoopViewPager index:0", :left
   end
 
   def ti_enter_details(text, index)
@@ -146,6 +151,8 @@ module AndroidReusableMethods
     return true
   end
 
+
+
   def scroll_view(dir, index=0)
     if (dir=="up")
       perform_action('drag', 50, 50, 70, 90, 10)
@@ -184,14 +191,15 @@ module AndroidReusableMethods
   end
 
 #touch text and verify result
-  def touch_txt_and_verify_title(id, text=nil)
-    sleep 1
-    if element_exists("* text:'#{id}'")
-      touch("* text:'#{id}'")
-    elsif  element_exists("* contentDescription:'#{id}.'")
-      touch("* contentDescription:'#{id}.'")
+  def touch_txt_and_verify_title(var, text=nil)
+    puts "touch_txt_and_verify_title id:#{var} text:#{text}"
+    puts element_exists("* text:'#{var}'")
+    if element_exists("* text:'#{var}'")
+      touch("* text:'#{var}'")
+    elsif  element_exists("* contentDescription:'#{var}.'")
+      touch("* contentDescription:'#{var}.'")
     else
-      fail("id:#{id} not found")
+      fail("id:#{var} not found")
     end
 
     if text!=nil
@@ -218,9 +226,10 @@ module AndroidReusableMethods
     wait_for_acc_label(label_expected)
   end
 
-  def scroll_side_panel(text, index=1)
-    scroll_page_and_assert_text(text)
-  end
+  #def scroll_side_panel(text, index=1)
+  #  puts "scroll_side_panel text #{text}"
+  #  scroll_page_and_assert_text(text)
+  #end
 
   def get_nav_bar_title
     query("* marked:'navbarTitle.'", :text).first

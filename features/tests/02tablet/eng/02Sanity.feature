@@ -22,7 +22,7 @@ Feature: US14552 Off canvas Menu Items
       | Logout                         |
       | Browse our holiday collections |
 
-  @en-ds1
+  @en-ds1 @and-tab-done
   Scenario: Navigate to destination guide page and verify list of destinations
     Given I am on Home screen
     When I navigate to destination using side menu

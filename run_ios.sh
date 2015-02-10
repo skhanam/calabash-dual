@@ -158,6 +158,10 @@ if [ "$2" != "NA" ] ; then
 	ios-sim-locale -sdk 7.1  -language fi -locale fi_FI
  elif [ "$LANG" == "nb" ] ; then
 	ios-sim-locale -sdk 7.1  -language nb -locale nb_NO
+  elif [ "$LANG" == "de" ] ; then
+	ios-sim-locale -sdk 7.1  -language de -locale de_DE
+ elif [ "$LANG" == "en_th" ] || [ "$LANG" != "en_fc" ] ; then
+	ios-sim-locale -sdk 7.1  -language en -locale en_EN
  fi
 
 {

@@ -64,6 +64,12 @@ module CountdownModule
         flag=true if var.match(/#{@@countdown_countdown_message2}/)!=nil
       end
 
+      query("ti.modules.titanium.ui.widget.TiUILabel$1",:text).each do |var|
+        next if var==nil
+        puts ":#{@@countdown_countdown_message2}:#{var}:"
+        flag=true if var.match(/#{@@countdown_countdown_message2}/)!=nil
+      end
+
       fail "#{@@countdown_countdown_message2} text found" if flag!=true
       assert_element "view text:'#{$g_booking.get_countdown_days}'"
     end

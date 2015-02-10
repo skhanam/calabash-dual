@@ -138,7 +138,7 @@ module ViewModule
 
   def check_acc_label(id)
     puts "check_acc_label (#{id})"
-    return element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'")
+    return (element_exists($g_query_txt+"marked:'#{id}'") || element_exists($g_query_txt+"contentDescription:'#{id}.'"))
   end
 
 #click on accessibility labels
@@ -245,7 +245,6 @@ module ViewModule
   # scroll in specified direction till partial id is found
   def scroll_page_till_acc(acc, dir="down", count=10)
     write_verified_text_to_file "scroll_page_till_acc (#{acc})"
-
     flag=0
     repeat_count=0
     while (repeat_count < count)

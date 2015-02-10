@@ -226,6 +226,8 @@
   <string name="welcome_login_telephone_extra">welcome_login_telephone_extra</string>
   <string name="welcome_reasons">You didn’t book directly with Thomson.::You’ve booked a Thomson Cruise.::You’ve booked a First Choice holiday through Thomson.</string>
   <string name="welcome_refuse">Sorry, you can’t use the app if:</string>
+  <string name="welcome_tablet_app_available_download">Download</string>
+  <string name="welcome_tablet_app_available_remind_me_later">Remind me later</string>
   <string name="welcome_tablet_app_available_title">Got An iPad?</string>
   <string name="welcome_tablet_app_available_message">We can see you're using our smartphone app on your iPad.\nDid you know MyThomson is now available on iPad?\nDownload the brand new MyThomson Tablet app, available for free in the App Store.</string>
   <!-- 1.0 home -->
@@ -1121,10 +1123,16 @@
   <string name="travelfolio_errordownload_sorry">Sorry,</string>
   <string name="travelfolio_errordownload_sorry_body">you've checked in but there was an error downloading your boarding passes.\nPlease try again</string>
   <string name="travelfolio_errordownload_sorry_cta">Download Boarding passes</string>
+  <string name="travelfolio_boarding_passes_not_supported">You’ve checked in but mobile boarding passes are not accepted at your airport, you have a restricted booking or are flying with another airline. Please check your email.</string>
   <!-- boardingpass -->
   <string name="boardingpass_biscuit_seat">SEAT</string>
   <string name="boardingpass_biscuit_flight">FLIGHT:</string>
   <string name="boardingpass_biscuit_date">DATE:</string>
   <string name="boardingpass_biscuit_departs">DEPARTS:</string>
   <string name="boardingpass_biscuit_passenger">PASSENGER:</string>
+  <string name="boardingpass_share_title">Share</string>
+  <string name="boardingpass_share_passbook">Passbook</string>
+  <string name="boardingpass_share_android_wallet">boardingpass_share_android_wallet</string>
+  <string name="boardingpass_share_email">Email</string>
+  <string name="boardingpass_share_email_subject">boardingpass_share_email_subject</string>
 </resources>

@@ -195,6 +195,7 @@ module IosReusableMethods
 
   #touch text and verify page title
   def touch_txt_and_verify_title(txt_touch, text=nil)
+    puts "touch_txt_and_verify_title #{txt_touch}"
     click_on_text txt_touch
     sleep 2
     verify_page_title text if text!=nil

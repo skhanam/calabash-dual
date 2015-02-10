@@ -74,9 +74,8 @@ class CommonMethods < BasePage
       #click_on_text @@push_allow
     end
 
-     puts ("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
      #handle whats new dialog
-     if element_exists("#{$g_query_txt}text:'#{@@app_update_popup_title}'")
+     if element_exists("#{$g_query_txt}text:'#{escape_quotes(@@app_update_popup_title)}'")
       arr=@@app_update_popup_body.split(/\n/)
       arr.each do |var1|
         res=var1.match(/(\w+)/)

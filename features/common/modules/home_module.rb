@@ -162,9 +162,10 @@ module HomeModule
     end
 
     def scroll_to_biscuit var
+      sleep 2
       case var
         when "checklist Biscuit"
-          scroll_view "right"
+          scroll_view "right" if $g_ios
           scroll_page_till_acc(@@home_page_checklist_Biscuit_acc, "right")
         when "Currency Biscuit"
           scroll_page_till_acc(@@home_page_currency_Biscuit_acc, "right")
