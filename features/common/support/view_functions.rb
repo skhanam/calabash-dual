@@ -143,7 +143,6 @@ module ViewModule
 
 #click on accessibility labels
   def click_acc_label(id)
-    puts "#{$g_query_txt}contentDescription:'#{id}.'"
     touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
     touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
     sleep 1

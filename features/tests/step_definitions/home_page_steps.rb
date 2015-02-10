@@ -445,7 +445,7 @@ When(/^I navigate to logout$/) do
     step 'I tap on Logout'
     step 'I should see logout OS dialogue displayed'
   else
-    @homePage.open_side_panel
+    #@homePage.open_side_panel
     step 'I click on Logout using side menu'
   end
 end
