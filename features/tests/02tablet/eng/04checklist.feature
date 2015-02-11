@@ -1,7 +1,7 @@
 @reg-tab-en @en-chk-list
 Feature: Checklist Tests
 
-
+  @and-tab-done
   Scenario: uncompleted checklist items
     Given I am on Home screen with pre holiday booking
     When I swipe to see "checklist Biscuit"

@@ -66,7 +66,7 @@ module CountdownModule
 
       query("ti.modules.titanium.ui.widget.TiUILabel$1",:text).each do |var|
         next if var==nil
-        puts ":#{@@countdown_countdown_message2}:#{var}:"
+        #puts ":#{@@countdown_countdown_message2}:#{var}:"
         flag=true if var.match(/#{@@countdown_countdown_message2}/)!=nil
       end
 

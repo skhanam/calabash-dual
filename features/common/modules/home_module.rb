@@ -146,8 +146,8 @@ module HomeModule
 
     def verify_checklist_biscuit
       wait_for_text "items still to-do"
-      assert_element "view marked:'checklist_Biscuit' label text:'items still to-do'"
-      assert_text_present $g_booking.get_checklist_count.to_s
+      assert_element "#{$g_query_txt}marked:'checklist_Biscuit' label text:'items still to-do'" if $g_ios
+      assert_element "* marked:'checklist_Biscuit.' ti.modules.titanium.ui.widget.TiUILabel$1  text:'items still to-do'" if $g_android
     end
 
 

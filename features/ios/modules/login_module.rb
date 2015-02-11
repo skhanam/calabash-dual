@@ -3,6 +3,10 @@ require_relative '../../common/modules/base_module'
 module LoginModule
   include BaseModule
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
 
   module Deu
     include BaseModule

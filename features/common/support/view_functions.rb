@@ -17,7 +17,7 @@ module ViewModule
     ## Specify text to check and time to wait for
     def wait_for_text(text, time_out=10)
       begin
-        wait_for_element_exists("#{$g_query_txt}text:'#{text}'",{:timeout=>time_out.to_i})
+        wait_for_element_exists("#{$g_query_txt}text:'#{text}'", {:timeout => time_out.to_i})
       rescue
         return false
       end
@@ -97,7 +97,6 @@ module ViewModule
   end
 
 
-
   def wait_for_label(lbl, timeout)
     timeout=timeout.to_i
     while (timeout > 0)
@@ -108,7 +107,7 @@ module ViewModule
   end
 
   def wait_for_spinner_to_disappear
-    wait_for_elements_do_not_exist "activityIndicatorView",:timeout=>20
+    wait_for_elements_do_not_exist "activityIndicatorView", :timeout => 20
   end
 
   def wait_for_progress_to_disappear(str, timeout=10)
@@ -143,8 +142,10 @@ module ViewModule
 
 #click on accessibility labels
   def click_acc_label(id)
-    touch "#{$g_query_txt}marked:'#{id}'" if $g_ios
-    touch "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
+    query_txt = "#{$g_query_txt}marked:'#{id}'" if $g_ios
+    query_txt = "#{$g_query_txt}contentDescription:'#{id}.'" if $g_android
+    click_element query_txt
+    puts query_txt
     sleep 1
   end
 
@@ -160,7 +161,7 @@ module ViewModule
   def assert_text_present(text_to_check)
     res = check_text_in_view(text_to_check)
     if not res
-      val=query("visible",:text)
+      val=query("visible", :text)
       puts "all show labels #{val}"
       screenshot_and_raise "assert_text_present: No element found with mark or text:#{text_to_check}:"
     else
@@ -192,11 +193,11 @@ module ViewModule
     fail "Text is empty" if text==nil
     puts "assert_wait_for_text (#{text})"
     write_verified_text_to_file "assert_wait_for_text (#{text})"
-     if wait_for_text(text, time_out)==false
-       puts "#{query("view",:text)}" if $g_ios
-       puts "#{query("*",:text)}" if $g_android
-       fail("text:#{text}: not present")
-     end
+    if wait_for_text(text, time_out)==false
+      puts "#{query("view", :text)}" if $g_ios
+      puts "#{query("*", :text)}" if $g_android
+      fail("text:#{text}: not present")
+    end
 
     return true
   end
@@ -205,10 +206,10 @@ module ViewModule
   def assert_wait_for_partial_text(text, time_out=15)
     fail "Text is empty" if text==nil
     puts "assert_wait_for_partial_text (#{text})"
-     if wait_for_partial_text_shown(text, time_out)==false
-       puts "#{query("view",:text)}"
-       fail("text:#{text}: not present")
-     end
+    if wait_for_partial_text_shown(text, time_out)==false
+      puts "#{query("view", :text)}"
+      fail("text:#{text}: not present")
+    end
     return true
   end
 
