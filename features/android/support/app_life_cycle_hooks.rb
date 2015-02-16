@@ -40,7 +40,7 @@ Before do |scenario|
   end
 
   #puts "Launching app"
-  start_test_server_in_background(:Timeout=>30)
+  start_test_server_in_background(:Timeout => 30)
   sleep 3
 end
 
@@ -65,6 +65,12 @@ After do |scenario|
   if scenario.failed?
     screenshot_embed
     #clear_app_data
+  end
+
+  scenario_tags = scenario.source_tag_names
+  if scenario_tags.include?('@reset-after') #reset app after test
+    clear_app_data
+    $selected_booking="NA"
   end
   shutdown_test_server
 end

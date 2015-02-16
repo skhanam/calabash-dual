@@ -1,4 +1,4 @@
-@reg-tab-en @post-holiday
+@reg-tab-en @post-holiday @and-tab-done
 Feature: Verify post Holiday Biscuit
 
   @ph1 @reset
@@ -15,8 +15,9 @@ Feature: Verify post Holiday Biscuit
     Then I see the Welcome back pop-over
     And I should see relevant content on post holiday popup
 
-  @ph3
+  @ph3 @reset @reset-after
   Scenario: Verify Post Holiday pop-up content
     Given I login with post holiday data
     And Then I should navigated to Post Holiday page and see all information
     And I log out from post holiday screen
+    And I see welcome screen

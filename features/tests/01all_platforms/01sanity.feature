@@ -1,4 +1,4 @@
-@tab @reg @tab-sanity @sanity
+@tab @reg @tab-sanity @sanity @and-tab-done
 Feature: Login and Home page features
   Login into application
 

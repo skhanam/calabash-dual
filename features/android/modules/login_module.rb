@@ -35,6 +35,7 @@ module LoginModule
   end
 
   module Phone
+    include BaseModule
     def check_input_elements
       assert_text_present "Benutzername / E-Mail eingeben" #@@email_hint_text
       assert_text_present @@login_password_hint
@@ -43,6 +44,7 @@ module LoginModule
   end
 
   module Tablet
+    include BaseModule
     def verify_fc_user_in_thomson
       txt="Sorry, this app isn’t available with your booking, but you can still manage your holiday using the MyFirstChoice app."
       assert_wait_for_text(escape_quotes(txt))

@@ -100,9 +100,9 @@ class SidePanel < BasePage
         touch_txt_and_verify_title(@@side_panel_destination, nil) if $g_tablet
       when "Log out"
         sleep 2
-        scroll_view("down", 1)
+        scroll_view("down", 1) if !($g_android && $g_tablet)
         scroll_side_panel(@@log_out_text)
-        scroll_view("down", 1)
+        scroll_view("down", 1) if !($g_android && $g_tablet)
         touch_txt_and_verify_title(@@log_out_text)
     end
   end

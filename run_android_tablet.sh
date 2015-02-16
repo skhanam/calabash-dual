@@ -90,19 +90,25 @@ fi
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
 if [ $1 == "install" ] || [ $1 == "clean" ] ; then
-	adb $ADB_DEVICE uninstall de.tui.meinetui.test
-    adb $ADB_DEVICE uninstall de.tui.meinetui
+	if [ $HW == "phone" ] ; then
+		adb $ADB_DEVICE uninstall com.thomson.mythomson
+		adb $ADB_DEVICE uninstall com.thomson.mythomson.test
 
-    adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet
-    adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet.test
-    adb $ADB_DEVICE uninstall com.thomson.mythomson
-    adb $ADB_DEVICE uninstall com.thomson.mythomson.test
+		adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice.test
+		adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice
 
-	adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice.test
-    adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice
+		adb $ADB_DEVICE uninstall com.tuitravel.minferie.test
+		adb $ADB_DEVICE uninstall com.tuitravel.minferie
 
-    adb $ADB_DEVICE uninstall com.tuitravel.minferie.test
-    adb $ADB_DEVICE uninstall com.tuitravel.minferie
+		adb $ADB_DEVICE uninstall de.tui.meinetui.test
+		adb $ADB_DEVICE uninstall de.tui.meinetui
+	elif [ $HW == "tablet" ] ; then
+		adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet
+		adb $ADB_DEVICE uninstall com.thomson.mythomson.dev.tablet.test
+
+		adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice.dev.tablet
+		adb $ADB_DEVICE uninstall com.firstchoice.myfirstchoice.dev.tablet.test
+	fi
 
 	if [ "$1" == "clean" ] ; then
 		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
@@ -158,5 +164,5 @@ fi
 
 if [ "$2" != "NA" ] ; then
 echo ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
-ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
+SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 fi

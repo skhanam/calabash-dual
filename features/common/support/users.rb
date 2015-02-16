@@ -56,9 +56,9 @@ THOMSON_USER||={
     },
     :post => {
         :surname => "martin",
-        :departuredate => "11-10-2014",
+        :departuredate => "25-12-2014",
         :VisionShopNumber => "9999",
-        :VisionBookingRef => "12348047"
+        :VisionBookingRef => "12347136"
     }
 }
 FIRSTCHOICE_USER||={

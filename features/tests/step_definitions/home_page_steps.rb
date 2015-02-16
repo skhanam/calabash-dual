@@ -234,6 +234,7 @@ Then(/^I see guide online page$/) do
 end
 
 When(/^I select destination biscuit$/) do
+  step 'I swipe to the right of the screen'
   @homePage.select_destination_biscuit @home_destination_string
 end
 

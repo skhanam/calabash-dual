@@ -212,12 +212,14 @@ Given(/^I am on 'Login' screen/) do
   end
 
   navigate_flag=true
-  if $g_tablet && $g_ios
+  if $g_tablet
     if @welcomePage.check_welcome_screen
       @page.click_on_text @page.get_val("login_have_a_booking")
     elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
       puts "On login screen"
       navigate_flag=false
+    elsif @page.check_text_in_view @page.get_val("login_have_a_booking")
+      @page.click_on_text @page.get_val("login_have_a_booking")
     else
       fail "Not on login screen"
     end

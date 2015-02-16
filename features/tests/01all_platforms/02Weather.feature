@@ -1,4 +1,4 @@
-@android_test @ios_test @weather @sanity @reg @and-tab-done
+@android_test @ios_test @weather @sanity @reg @and-tab-done @and-tab-done-weather
 Feature: Verify weather features
 
   @home-weather1
