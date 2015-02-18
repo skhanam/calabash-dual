@@ -129,7 +129,8 @@ module HomeModule
     end
 
     def check_temp_present
-      res=query("view marked:'#{@@weather_biscuit_acc}' view marked:'temp'", :text)[0]
+      res=query("view marked:'#{@@weather_biscuit_acc}' view marked:'temp'", :text)[0] if $g_ios
+      res=query("* marked:'#{@@weather_biscuit_acc}' * marked:'temp.'",:text).first if $g_android
       fail("temperature is empty") if res.match(/\d+/)==nil
     end
 

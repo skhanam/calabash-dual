@@ -75,11 +75,9 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     touch("toolbarTextButton index:1")
     sleep(2)
   elsif $g_android
-    #clear_text
     sleep 2
     touch("* marked:'surname.'")
     keyboard_enter_text surname
-    #@page.input_text(surname)# commented out for trying android tablet
 
     touch("* marked:'departureDate.'")
     sleep 2
@@ -96,20 +94,15 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 2
 
     @page.click_acc_label @page.get_val "visionShopNumber_acc"
-    #touch("* marked:'bookingReference1.'")
     sleep 1
     keyboard_enter_text visionShopNumber
-    #@page.input_text(visionShopNumber)
     sleep 1
 
     @page.click_acc_label @page.get_val "visionBookingRef_acc"
-    #touch("* marked:'visionBookingRef.'")
-    #touch("* marked:'bookingReference2.'")
     sleep 1
     keyboard_enter_text(visionBookingRef)
-    #@page.input_text(visionBookingRef)
-    press_down_button
-
+    #press_down_button deleted for now
+    press_enter_button  if $g_tablet
     @loginPage.scroll_to_end_of_page
 
   end

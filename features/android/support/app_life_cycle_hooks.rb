@@ -17,7 +17,9 @@ Before do |scenario|
 
   scenario_tags = scenario.source_tag_names
   if scenario_tags.include?('@reset')
+    start_test_server_in_background
     clear_app_data
+    sleep 5
     $selected_booking="NA"
   else
     feature_name = scenario.feature.title
