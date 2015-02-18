@@ -124,7 +124,7 @@ module LoginModule
       if $g_device
         query("pickerTableView index:2", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(2)
-        query("pickerTableView index:3", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
+        query("pickerTableView index:3",[{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(2)
         query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
       else
