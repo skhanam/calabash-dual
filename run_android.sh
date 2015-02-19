@@ -92,46 +92,48 @@ fi
 
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
-if [ $1 == "install" ] || [ $1 == "clean" ] ; then
-	if [ $HW == "phone" ] ; then
-		adb $ADB_DEVICE uninstall $PACKAGE_ID
-		adb $ADB_DEVICE uninstall "$PACKAGE_ID".test
-	elif [ $HW == "tablet" ] ; then
-		adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
-		adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
+	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
+		if [ "$2" != "NA" ] ; then
+		if [ $HW == "phone" ] ; then
+			adb $ADB_DEVICE uninstall $PACKAGE_ID
+			adb $ADB_DEVICE uninstall "$PACKAGE_ID".test
+		elif [ $HW == "tablet" ] ; then
+			adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
+			adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
 	fi
+fi
 
-	if [ "$1" == "clean" ] ; then
-		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
-		cp Gemfile ${PROJ_FOLDER}
-		cd ${PROJ_FOLDER}/
-		rm -rf build/ Resources/
-		ti clean
-		node releaseScripts/build.js $TI_SCHEME
-		node releaseScripts/build.js $TI_SCHEME -l
-		ti build -p android -b
-		cd -
+if [ "$1" == "clean" ] ; then
+	echo "\n\n\nCleaning and building application for android tests...\n\n\n"
+	cp Gemfile ${PROJ_FOLDER}
+	cd ${PROJ_FOLDER}/
+	rm -rf build/ Resources/
+	ti clean
+	node releaseScripts/build.js $TI_SCHEME
+	node releaseScripts/build.js $TI_SCHEME -l
+	ti build -p android -b
+	cd -
 
-    echo "******** ####  Deleting old App file "$FILENAME
-    [ -d "$FILENAME" ] && rm -rf "$FILENAME"
+  echo "******** ####  Deleting old App file "$FILENAME
+  [ -d "$FILENAME" ] && rm -rf "$FILENAME"
 
-		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+	echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
 
 
-		if [ $LANG == "de" ] ; then
-			SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
-			SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
-		elif [ $LANG == "en_th" ] ; then
-			SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
-		elif [ $LANG == "en_fc" ] ; then
-			SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
-		elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
+	if [ $LANG == "de" ] ; then
+		SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
+		SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
+	elif [ $LANG == "en_th" ] ; then
+		SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
+	elif [ $LANG == "en_fc" ] ; then
+		SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
+	elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
 
-		cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
-		SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
-		fi
+	cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
+	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
 	fi
+fi
 
 
 	# Copy the required apk files
@@ -146,11 +148,11 @@ fi
 
 if [ "$2" != "NA" ] ; then
 	echo "Android tablet"
-#	rm -rf test_servers/
-#	calabash-android resign $FILENAME
-#	calabash-android build $FILENAME
-#	adb $ADB_DEVICE install -r $FILENAME
-#	adb $ADB_DEVICE install -r test_servers/*.apk
+	rm -rf test_servers/
+	calabash-android resign $FILENAME
+	calabash-android build $FILENAME
+	adb $ADB_DEVICE install -r $FILENAME
+	adb $ADB_DEVICE install -r test_servers/*.apk
 fi
 
 if [ "$2" != "NA" ] ; then
