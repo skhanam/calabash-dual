@@ -122,7 +122,7 @@ end
 #fetch booking data for type of booking if its not present
 # or just return booking data if already present
 def de_user_details(typical_booking_code, type="typical")
-  $g_endpoint="http://37.46.24.155:3001" # DEV ENV
+  $g_endpoint="https://e03682051d4856bdd66e2bf5a183986a8898c3bd.dev.tui.appcelerator.com" # DEV ENV
   @booking_code = typical_booking_code
   username="userdea@gmail.com"
   password="testtest"
