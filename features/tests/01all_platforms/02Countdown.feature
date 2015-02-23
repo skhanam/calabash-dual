@@ -1,5 +1,5 @@
 #test cases are present in - https://akqa-lon3.ontestpad.com/project/136/
- @count @reg @sanity
+ @count @reg @sanity @and-tab-done
 Feature: Verify Countdown details for bookings
 
   @count1

@@ -34,6 +34,11 @@ After do |scenario|
     screenshot_embed
   end
 
+  scenario_tags = scenario.source_tag_names
+  if scenario_tags.include?('@reset-after')
+   reset_app_sandbox
+ end
+
   unless @calabash_launcher.calabash_no_stop?
     calabash_exit
     if @calabash_launcher.active?

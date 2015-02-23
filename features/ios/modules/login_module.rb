@@ -3,6 +3,10 @@ require_relative '../../common/modules/base_module'
 module LoginModule
   include BaseModule
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
 
   module Deu
     include BaseModule
@@ -120,7 +124,7 @@ module LoginModule
       if $g_device
         query("pickerTableView index:2", [{selectRow: day.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(2)
-        query("pickerTableView index:3", [{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
+        query("pickerTableView index:3",[{selectRow: month.to_i-1}, {animated: 1}, {notify: 1}])
         sleep(2)
         query("view text:'#{year_today}' parent pickerTableView", [{selectRow: year.to_i-1}, {animated: 1}, {notify: 1}])
       else

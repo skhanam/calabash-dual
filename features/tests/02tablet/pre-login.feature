@@ -1,4 +1,4 @@
-@reg-tab
+@reg-tab @and-tab-done
 Feature: Prelogin tests
 
   @reset  @wrong-login33

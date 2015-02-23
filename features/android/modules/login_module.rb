@@ -3,6 +3,11 @@ require_relative '../../common/modules/base_module'
 module LoginModule
   include BaseModule
 
+  def self.included(receiver)
+    puts self.name+"::#{$g_hw_module}"
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
+  end
+
   module Deu
     def enter_valid_user_name
       ti_enter_details($g_user_details[:username], 1)
@@ -30,6 +35,7 @@ module LoginModule
   end
 
   module Phone
+    include BaseModule
     def check_input_elements
       assert_text_present "Benutzername / E-Mail eingeben" #@@email_hint_text
       assert_text_present @@login_password_hint
@@ -38,6 +44,11 @@ module LoginModule
   end
 
   module Tablet
-
+    include BaseModule
+    def verify_fc_user_in_thomson
+      txt="Sorry, this app isn’t available with your booking, but you can still manage your holiday using the MyFirstChoice app."
+      assert_wait_for_text(escape_quotes(txt))
+      assert_text_present @@welcome_help_cant_login_iosStore
+    end
   end
 end

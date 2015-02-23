@@ -1,7 +1,7 @@
 @reg-tab-en @tab @reg-tab-en
 Feature: US14552 Off canvas Menu Items
 
-  @tab-sidepanel1  @reset
+  @tab-sidepanel1  @reset  @and-tab-done
   Scenario: Homepage assemblage
     Given I am on Home screen
     When I open side panel
