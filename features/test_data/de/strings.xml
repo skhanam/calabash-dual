@@ -1130,9 +1130,9 @@
   <string name="boardingpass_biscuit_date">DATUM:</string>
   <string name="boardingpass_biscuit_departs">GEPLANT:</string>
   <string name="boardingpass_biscuit_passenger">PASSAGIER:</string>
-  <string name="boardingpass_share_title">boardingpass_share_title</string>
+  <string name="boardingpass_share_title">Bordkarte weiterleiten</string>
   <string name="boardingpass_share_passbook">Passbook</string>
-  <string name="boardingpass_share_android_wallet">boardingpass_share_android_wallet</string>
-  <string name="boardingpass_share_email">boardingpass_share_email</string>
-  <string name="boardingpass_share_email_subject">boardingpass_share_email_subject</string>
+  <string name="boardingpass_share_android_wallet">PassWallet</string>
+  <string name="boardingpass_share_email">per E-Mail versenden</string>
+  <string name="boardingpass_share_email_subject">Ihre Bordkarte aus Meine TUI/Mein airtours/Mein 1-2-FLY/Mein ROBINSON</string>
 </resources>

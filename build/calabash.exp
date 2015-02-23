@@ -1,0 +1,45 @@
+#!/usr/bin/expect
+#!/bin/sh
+
+set arg1 [lindex $argv 0]
+
+set timeout 20
+spawn ti clean
+expect {
+    "Project cleaned successfully" { puts "STEP 1 DONE" }
+    timeout { puts "failed to find text"; exit }
+}
+
+set timeout 90
+
+if { $arg1 == "phone" } {
+	spawn ti build -p ios -b;
+} elseif { $arg1 == "tablet" } {
+	spawn ti build -p ios -Y ipad -b --retina;
+}
+
+expect {
+    "Project built successfully" { puts "STEP 2 DONE" }
+    timeout { puts "failed to find text"; exit }
+}
+
+set timeout 20
+spawn ti calabash —platform=iphone
+expect "Please answer yes (y) or no (n)"  { send "n\r" }
+
+set timeout 90
+expect {
+    "Default target:" { send "\r" }
+    timeout { puts "failed to find text"; exit }
+}
+
+expect {
+    "Setup done" { puts "STEP 3 DONE" }
+ timeout { puts "failed to find text"; exit }
+}
+
+
+expect {
+ "** BUILD SUCCEEDED **" {}
+ timeout { puts "failed to find text"; exit }
+}
