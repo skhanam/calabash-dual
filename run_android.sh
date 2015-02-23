@@ -156,12 +156,18 @@ if [ "$2" != "NA" ] ; then
 fi
 
 if [ "$2" != "NA" ] ; then
-	if [ "$DEVICE_ID" != "" ] ; then
+	if [ $HW == "phone" ] && [ "$7" == "ci" ] ; then
+  	DEVICE_ID=192.168.56.102:5555
+  elif [ $HW == "tablet" ] && [ "$7" == "ci" ] ; then
+  	DEVICE_ID=192.168.56.101:5555
+  fi
+
+	if [ "$DEVICE_ID" != "" ] && [ "$7" == "ci" ] ; then
 		echo "device selected"
 		echo ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 	 	ADB_DEVICE_ARG=$DEVICE_ID SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 	else
-		echo "No device selected"
+	echo "No device selected"
 		SCREENSHOT_PATH=features/report/android$LANG TESTENV=$TESTENV HW=$HW OS=android LANG=$3 bundle exec calabash-android run $FILENAME -p $CUCUMBER_PROFILE --tag $tagged_test   -f html -o android-$3-report.html  -f junit -o features/report/junit/$3
 	fi
 fi
