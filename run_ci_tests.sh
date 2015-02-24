@@ -40,7 +40,7 @@ echo "Removing old reports and jpeg files"
 
 bundle install
 
-if [ "$1" == "clean" ] ; then
+if [ "$2" == "clean" ] ; then
 	echo cp -r $PROJ_FOLDER ../source_de
 	echo cp -r $PROJ_FOLDER ../source_en_th
 	echo cp -r $PROJ_FOLDER ../source_en_fc
@@ -58,7 +58,7 @@ fi
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
 
-	if [ "$1" == "clean" ] ; then
+	if [ "$2" == "clean" ] ; then
 		sh run_ios.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
 		sh run_ios.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
 		sh run_ios.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
@@ -80,7 +80,7 @@ elif [ "$1" == "android" ] ; then
     DEVICE_ID=192.168.56.101:5555
   fi
 
-	if [ "$1" == "clean" ] ; then
+	if [ "$2" == "clean" ] ; then
 
 		sh run_android.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
 		sh run_android.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
