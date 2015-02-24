@@ -40,30 +40,35 @@ echo "Removing old reports and jpeg files"
 
 bundle install
 
-echo cp -r $PROJ_FOLDER ../source_de
-echo cp -r $PROJ_FOLDER ../source_en_th
-echo cp -r $PROJ_FOLDER ../source_en_fc
-echo cp -r $PROJ_FOLDER ../source_nor
-echo "*-*-*-*-*-*-*  Copying source code *-*-*-*-*-*-*"
+if [ "$1" == "clean" ] ; then
+	echo cp -r $PROJ_FOLDER ../source_de
+	echo cp -r $PROJ_FOLDER ../source_en_th
+	echo cp -r $PROJ_FOLDER ../source_en_fc
+	echo cp -r $PROJ_FOLDER ../source_nor
+	echo "*-*-*-*-*-*-*  Copying source code *-*-*-*-*-*-*"
 
-cp -r $PROJ_FOLDER ../source_de &
-cp -r $PROJ_FOLDER ../source_en_th &
-cp -r $PROJ_FOLDER ../source_en_fc &
-cp -r $PROJ_FOLDER ../source_nor &
-wait
-echo "*-*-*-*-*-*-*  Copying source completed *-*-*-*-*-*-* "
+	cp -r $PROJ_FOLDER ../source_de &
+	cp -r $PROJ_FOLDER ../source_en_th &
+	cp -r $PROJ_FOLDER ../source_en_fc &
+	cp -r $PROJ_FOLDER ../source_nor &
+	wait
+	echo "*-*-*-*-*-*-*  Copying source completed *-*-*-*-*-*-* "
+fi
 
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
 
-	sh run_ios.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
-	wait
-  echo "*-*-*-*-*-*-* IOS builds completed successfully *-*-*-*-*-*-* "
-	#echo sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
-	#sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
+	if [ "$1" == "clean" ] ; then
+		sh run_ios.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
+		sh run_ios.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
+		sh run_ios.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+		sh run_ios.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
+		wait
+	  echo "*-*-*-*-*-*-* IOS builds completed successfully *-*-*-*-*-*-* "
+	else
+		echo sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
+		sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
+	fi
 elif [ "$1" == "android" ] ; then
 	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
@@ -75,13 +80,16 @@ elif [ "$1" == "android" ] ; then
     DEVICE_ID=192.168.56.101:5555
   fi
 
-	sh run_android.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
-	wait
+	if [ "$1" == "clean" ] ; then
 
-	#sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+		sh run_android.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
+		sh run_android.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
+		sh run_android.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+		sh run_android.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
+		wait
+	else
+		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+	fi
 else
 	echo "wrong arguments"
 	exit
