@@ -1,7 +1,7 @@
 #!/bin/sh
 
 clear
-
+DATE
 export LC_CTYPE=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
 export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
@@ -42,10 +42,24 @@ echo "Removing old reports and jpeg files"
 
 bundle install
 
+cp -r $PROJ_FOLDER source_de &
+cp -r $PROJ_FOLDER source_en_th &
+cp -r $PROJ_FOLDER source_en_fc &
+cp -r $PROJ_FOLDER source_nor &
+wait
+
+
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
-	echo sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
-	sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
+
+	sh run_ios.sh $2 $3 de $5 source_de $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 en_th $5 source_en_th $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 en_fc $5 source_en_fc $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 sv $5 source_nor $DEVICE_ID "ci" &
+	wait
+
+	#echo sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
+	#sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
 elif [ "$1" == "android" ] ; then
 	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
@@ -57,24 +71,10 @@ elif [ "$1" == "android" ] ; then
     DEVICE_ID=192.168.56.101:5555
   fi
 
-	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"de'
-	$cmd &
-	echo "*** GURU ***"
-	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"en_th'
-	$cmd &
-	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"en_fc'
-	$cmd &
-	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"nor'
-	$cmd &
-  wait
-
-	cmd= 'sh run_android.sh $2 $3 de $5 "$PROJ_FOLDER"de $DEVICE_ID "ci" &'
-	$cmd &
-	cmd='sh run_android.sh $2 $3 en_th $5 "$PROJ_FOLDER"en_th $DEVICE_ID "ci" &'
-	$cmd &
-	sh run_android.sh $2 $3 en_fc $5 "$PROJ_FOLDER"en_fc $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 sv $5 "$PROJ_FOLDER"sv $DEVICE_ID "ci"  &
-
+	sh run_android.sh $2 $3 de $5 source_de $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 en_th $5 source_en_th $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 en_fc $5 source_en_fc $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 sv $5 source_nor $DEVICE_ID "ci" &
 	wait
 
 	#sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
@@ -83,3 +83,4 @@ else
 	exit
 fi
 
+DATE
