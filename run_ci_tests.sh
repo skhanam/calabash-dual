@@ -9,6 +9,9 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 echo "$ANDROID_HOME"
 
+HW=$5
+PROJ_FOLDER=$6
+
 if [ "$#" -le "7" ]; then
 	echo "\n8 ARGUMENTS NEEDED"
 	echo "1) ios or android - select platform"
@@ -27,10 +30,11 @@ if [ "$#" -le "7" ]; then
 fi
 
 
+
 echo "Removing old reports and jpeg files"
 
-bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
-source rvm.env
+#bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
+#source rvm.env
 
 # install bundler only first time
 #gem install bundler
@@ -46,8 +50,34 @@ elif [ "$1" == "android" ] ; then
 	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
-	echo sh run_android.sh $2 $3 $4 $5 $6 $7 "ci"
-	sh run_android.sh $2 $3 $4 $5 $6 $7 "ci"
+
+	if [ $HW == "phone" ] ; then
+    DEVICE_ID=192.168.56.102:5555
+  elif [ $HW == "tablet" ] ; then
+    DEVICE_ID=192.168.56.101:5555
+  fi
+
+	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"de'
+	$cmd &
+	echo "*** GURU ***"
+	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"en_th'
+	$cmd &
+	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"en_fc'
+	$cmd &
+	cmd='cp -r $PROJ_FOLDER "$PROJ_FOLDER"nor'
+	$cmd &
+  wait
+
+	cmd= 'sh run_android.sh $2 $3 de $5 "$PROJ_FOLDER"de $DEVICE_ID "ci" &'
+	$cmd &
+	cmd='sh run_android.sh $2 $3 en_th $5 "$PROJ_FOLDER"en_th $DEVICE_ID "ci" &'
+	$cmd &
+	sh run_android.sh $2 $3 en_fc $5 "$PROJ_FOLDER"en_fc $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 sv $5 "$PROJ_FOLDER"sv $DEVICE_ID "ci"  &
+
+	wait
+
+	#sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
 else
 	echo "wrong arguments"
 	exit

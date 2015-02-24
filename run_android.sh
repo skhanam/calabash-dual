@@ -87,12 +87,6 @@ fi
 
 STRINGS_FOLDER=features/test_data/$LANG_STR/
 
-	if [ $HW == "phone" ] && [ "$7" == "ci" ] ; then
-  	DEVICE_ID=192.168.56.102:5555
-  elif [ $HW == "tablet" ] && [ "$7" == "ci" ] ; then
-  	DEVICE_ID=192.168.56.101:5555
-  fi
-
   echo $DEVICE_ID
 
   if [ $DEVICE_ID  ] ; then
