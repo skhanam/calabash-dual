@@ -29,11 +29,9 @@ if [ "$#" -le "7" ]; then
 	exit
 fi
 
-
-
 echo "Removing old reports and jpeg files"
 
-#bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
+#bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.1.4p265@global && export > rvm.env"
 #source rvm.env
 
 # install bundler only first time
@@ -42,22 +40,28 @@ echo "Removing old reports and jpeg files"
 
 bundle install
 
-cp -r $PROJ_FOLDER source_de &
-cp -r $PROJ_FOLDER source_en_th &
-cp -r $PROJ_FOLDER source_en_fc &
-cp -r $PROJ_FOLDER source_nor &
-wait
+echo cp -r $PROJ_FOLDER ../source_de
+echo cp -r $PROJ_FOLDER ../source_en_th
+echo cp -r $PROJ_FOLDER ../source_en_fc
+echo cp -r $PROJ_FOLDER ../source_nor
+echo "*-*-*-*-*-*-*  Copying source code *-*-*-*-*-*-*"
 
+cp -r $PROJ_FOLDER ../source_de &
+cp -r $PROJ_FOLDER ../source_en_th &
+cp -r $PROJ_FOLDER ../source_en_fc &
+cp -r $PROJ_FOLDER ../source_nor &
+wait
+echo "*-*-*-*-*-*-*  Copying source completed *-*-*-*-*-*-* "
 
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
 
-	sh run_ios.sh $2 $3 de $5 source_de $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 en_th $5 source_en_th $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 en_fc $5 source_en_fc $DEVICE_ID "ci" &
-	sh run_ios.sh $2 $3 sv $5 source_nor $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+	sh run_ios.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
 	wait
-
+  echo "*-*-*-*-*-*-* IOS builds completed successfully *-*-*-*-*-*-* "
 	#echo sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
 	#sh run_ios.sh $2 $3 $4 $5 $6  $7 "ci"
 elif [ "$1" == "android" ] ; then
@@ -71,10 +75,10 @@ elif [ "$1" == "android" ] ; then
     DEVICE_ID=192.168.56.101:5555
   fi
 
-	sh run_android.sh $2 $3 de $5 source_de $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 en_th $5 source_en_th $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 en_fc $5 source_en_fc $DEVICE_ID "ci" &
-	sh run_android.sh $2 $3 sv $5 source_nor $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+	sh run_android.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
 	wait
 
 	#sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
