@@ -31,8 +31,8 @@ fi
 
 echo "Removing old reports and jpeg files"
 
-#bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.1.4p265@global && export > rvm.env"
-#source rvm.env
+bash -c "source ~/.rvm/scripts/rvm && rvm_install_on_use_flag=1 && rvm use --create 2.0.0-p353@global && export > rvm.env"
+source rvm.env
 
 # install bundler only first time
 #gem install bundler
