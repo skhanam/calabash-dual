@@ -84,13 +84,23 @@ elif [ $HW == "tablet" ] ; then
 	APK_NAME=$APK_NAME" Tablet.apk"
 fi
 
-if [ $DEVICE_ID  ] ; then
-	ADB_DEVICE="-s "$DEVICE_ID
-else
-	ADB_DEVICE=""
-fi
 
 STRINGS_FOLDER=features/test_data/$LANG_STR/
+
+	if [ $HW == "phone" ] && [ "$7" == "ci" ] ; then
+  	DEVICE_ID=192.168.56.102:5555
+  elif [ $HW == "tablet" ] && [ "$7" == "ci" ] ; then
+  	DEVICE_ID=192.168.56.101:5555
+  fi
+
+  echo $DEVICE_ID
+
+  if [ $DEVICE_ID  ] ; then
+  	ADB_DEVICE="-s "$DEVICE_ID
+  else
+    echo "No Device specified"
+  	exit
+  fi
 
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
@@ -146,21 +156,18 @@ fi
 	#Do not perform below steps when there are no tests selected to run
 fi
 
+
 if [ "$2" != "NA" ] ; then
 	echo "Android tablet"
 	rm -rf test_servers/
 	calabash-android resign $FILENAME
 	calabash-android build $FILENAME
-	adb $ADB_DEVICE install -r $FILENAME
-	adb $ADB_DEVICE install -r test_servers/*.apk
+	adb $ADB_DEVICE -s $DEVICE_ID install -r $FILENAME
+	adb $ADB_DEVICE -s $DEVICE_ID install -r test_servers/*.apk
 fi
 
 if [ "$2" != "NA" ] ; then
-	if [ $HW == "phone" ] && [ "$7" == "ci" ] ; then
-  	DEVICE_ID=192.168.56.102:5555
-  elif [ $HW == "tablet" ] && [ "$7" == "ci" ] ; then
-  	DEVICE_ID=192.168.56.101:5555
-  fi
+
 
 	if [ "$DEVICE_ID" != "" ] && [ "$7" == "ci" ] ; then
 		echo "device selected"
