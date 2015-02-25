@@ -81,6 +81,7 @@ if [ "$1" == "clean" ] ; then
 		#node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
+			echo "Not needed delete it"
 			#cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
 	else
