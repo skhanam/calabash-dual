@@ -1132,7 +1132,7 @@
   <string name="boardingpass_biscuit_passenger">PASSENGER:</string>
   <string name="boardingpass_share_title">Share</string>
   <string name="boardingpass_share_passbook">Passbook</string>
-  <string name="boardingpass_share_android_wallet">boardingpass_share_android_wallet</string>
+  <string name="boardingpass_share_android_wallet">PassWallet</string>
   <string name="boardingpass_share_email">Email</string>
-  <string name="boardingpass_share_email_subject">boardingpass_share_email_subject</string>
+  <string name="boardingpass_share_email_subject">Your boarding pass</string>
 </resources>

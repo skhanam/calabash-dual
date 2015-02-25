@@ -41,35 +41,59 @@ source rvm.env
 bundle install
 
 if [ "$2" == "clean" ] ; then
+	echo "*******------  Removing old source code dir ------*******"
+	rm -rf ../source_de ../source_en_th ../source_en_fc ../source_nor
+
+	cd $PROJ_FOLDER
+	rm -rf build/ Resources/
+	ti clean
+  wait
+
+  # fetch latest strings
+  if [ $HW == "phone" ]; then
+    node releaseScripts/build.js $TI_SCHEME
+    node releaseScripts/build.js $TI_SCHEME -l
+  else
+    /usr/local/bin/grunt
+    node releaseScripts/build.js --brand $TI_SCHEME
+    node releaseScripts/build.js --brand $TI_SCHEME -l
+  fi
+
+	cd -
+
+  sleep 5
 	echo cp -r $PROJ_FOLDER ../source_de
 	echo cp -r $PROJ_FOLDER ../source_en_th
 	echo cp -r $PROJ_FOLDER ../source_en_fc
 	echo cp -r $PROJ_FOLDER ../source_nor
-	echo "*-*-*-*-*-*-*  Copying source code *-*-*-*-*-*-*"
+	echo "*******------  Copying source code ------*******"
 
 	cp -r $PROJ_FOLDER ../source_de &
 	cp -r $PROJ_FOLDER ../source_en_th &
 	cp -r $PROJ_FOLDER ../source_en_fc &
 	cp -r $PROJ_FOLDER ../source_nor &
 	wait
-	echo "*-*-*-*-*-*-*  Copying source completed *-*-*-*-*-*-* "
+	echo "*******------  Copying source completed *******------ "
 fi
 
 if [ "$1" == "ios" ] ; then
 	calabash-ios sim reset
 
 	if [ "$2" == "clean" ] ; then
-		sh run_ios.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
-		sh run_ios.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
-		sh run_ios.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-		sh run_ios.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
+		sleep 5 && sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci" &
+		sleep 5 && sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci" &
+		sleep 5 && sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+		sleep 5 && sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci" &
 		wait
-	  echo "*-*-*-*-*-*-* IOS builds completed successfully *-*-*-*-*-*-* "
-	else
-		echo sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
-		sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
+	  echo "*******------ IOS builds completed successfully *******------ "
 	fi
+
+	echo "\n\nProjects are already built, hence first argument is set to NA"
+	echo sh run_ios.sh NA $3 $4 $5 $6 $7 "ci"
+	sh run_ios.sh NA $3 $4 $5 $6 $7 "ci"
+
 elif [ "$1" == "android" ] ; then
+
 	if [ "$6" == "emulator" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
@@ -81,15 +105,16 @@ elif [ "$1" == "android" ] ; then
   fi
 
 	if [ "$2" == "clean" ] ; then
-
-		sh run_android.sh $2 $3 de $5 ../source_de $DEVICE_ID "ci" &
-		sh run_android.sh $2 $3 en_th $5 ../source_en_th $DEVICE_ID "ci" &
-		sh run_android.sh $2 $3 en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-		sh run_android.sh $2 $3 sv $5 ../source_nor $DEVICE_ID "ci" &
+		sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci" &
+		sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci" &
+		sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
+		sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci" &
 		wait
-	else
-		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
 	fi
+
+	echo "\n\nProjects are already built, hence first argument is set to NA"
+	echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+	sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
 else
 	echo "wrong arguments"
 	exit

@@ -78,14 +78,14 @@ if [ "$1" == "clean" ] ; then
 	rm -rf build/ Resources/
 
   if [ $HW == "phone" ]; then
-		node releaseScripts/build.js $TI_SCHEME
+		#node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
-			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
+			#cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
 	else
-	    /usr/local/bin/grunt
-	    node releaseScripts/build.js --brand $TI_SCHEME
+	   #/usr/local/bin/grunt
+	   # node releaseScripts/build.js --brand $TI_SCHEME
 	    node releaseScripts/build.js --brand $TI_SCHEME -l
 	fi
 
@@ -163,6 +163,6 @@ if [ ! -d $FILENAME ]; then
     exit 0
 fi
 }
-echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi
