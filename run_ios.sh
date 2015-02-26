@@ -13,7 +13,7 @@ if [ "$#" -le "4" ]; then
     echo "5) relative folder path where source code is located"
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @sanity de phone ../tda"
-	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda"
+	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda "
 	echo " 3)sh run_ios.sh NA @testnow en_fc phone ../tda\n"
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
@@ -68,25 +68,23 @@ if [ $4 == "tablet" ] ; then
 fi
 
 if [ "$1" == "clean" ] ; then
-
-	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
+	echo "Cleaning and rebuilding project folder:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
 	cp build/calabash.exp ${PROJ_FOLDER}
 	cp Gemfile ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
-
 	rm -rf build/ Resources/
 
   if [ $HW == "phone" ]; then
-		#node releaseScripts/build.js $TI_SCHEME
+		node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
 			echo "Not needed delete it"
 			#cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
 	else
-	   #/usr/local/bin/grunt
-	   # node releaseScripts/build.js --brand $TI_SCHEME
+	   /usr/local/bin/grunt
+	    node releaseScripts/build.js --brand $TI_SCHEME
 	    node releaseScripts/build.js --brand $TI_SCHEME -l
 	fi
 
@@ -139,7 +137,6 @@ fi
 killall "iPhone Simulator"
 
 if [ "$2" != "NA" ] ; then
-
  if [ $LANG == "sv" ] ; then
 	ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
 	echo ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
