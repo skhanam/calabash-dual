@@ -194,7 +194,6 @@ def de_user_details(typical_booking_code, type="typical")
 end
 
 def nor_user_details
-
   $g_endpoint="https://1af03bccc1a56241c802f2bf900ab7e6b54a04a8.test.tui.appcelerator.com"
   bookingnumber=NOR_USER[:valid][:bookingnumber]
   emailOrTelephone=NOR_USER[:valid][:telefon]
