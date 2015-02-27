@@ -29,7 +29,7 @@ set timeout 20
 spawn ti calabash —platform=iphone
 expect "Please answer yes (y) or no (n)"  { send "n\r" }
 
-set timeout 90
+set timeout 200
 expect {
     "Default target:" { send "\r" }
     timeout { puts "failed to find text"; exit }
