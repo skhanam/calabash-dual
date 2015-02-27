@@ -4,6 +4,8 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
+echo "Parameter list:::::---   sh $0 $1 $2 $3 $4 $5 $6 $7 $8 ---:::::"
+
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
@@ -153,6 +155,7 @@ if [ "$2" != "NA" ] ; then
  elif [ "$LANG" == "en_th" ] || [ "$LANG" != "en_fc" ] ; then
 	ios-sim-locale -sdk 7.1  -language en -locale en_EN
  fi
+
  echo "Changed locale for nordics app"
  sleep 3
 killall "iPhone Simulator"
