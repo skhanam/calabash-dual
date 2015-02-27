@@ -95,6 +95,7 @@ if [ "$1" == "ios" ] ; then
 	else
 		echo sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
 		sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
+		exit $?
  fi
 elif [ "$1" == "android" ] ; then
 
@@ -123,8 +124,10 @@ elif [ "$1" == "android" ] ; then
 	else
 		echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
 		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+		exit $?
 	fi
 else
 	echo "wrong arguments"
-	exit
+	exit 1
 fi
+
