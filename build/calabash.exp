@@ -10,7 +10,6 @@ expect {
     timeout { puts "failed to find text"; exit }
 }
 
-set timeout 90
 
 if { $arg1 == "phone" } {
 	spawn ti build -p ios -b;
@@ -20,9 +19,10 @@ if { $arg1 == "phone" } {
 	puts "expect.exp - Tablet build"
 }
 
+set timeout 200
 expect {
     "Project built successfully" { puts "STEP 2 DONE" }
-    timeout { puts "failed to find text"; exit }
+    timeout { puts "*** FAILED TO FIND - Project built successfully "; exit }
 }
 
 set timeout 20
