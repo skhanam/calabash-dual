@@ -14,8 +14,10 @@ set timeout 90
 
 if { $arg1 == "phone" } {
 	spawn ti build -p ios -b;
+	puts "expect.exp - Phone build"
 } elseif { $arg1 == "tablet" } {
 	spawn ti build -p ios -Y ipad -b --retina;
+	puts "expect.exp - Tablet build"
 }
 
 expect {

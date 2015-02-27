@@ -89,7 +89,10 @@ if [ "$1" == "clean" ] ; then
 	fi
 
 	echo "******** #### " expect expect.exp ${APPNAME}
+
+	echo expect calabash.exp ${HW}
 	expect calabash.exp ${HW}
+
 	cd -
 
   echo "******** ####  Deleting old App file "$FILENAME
@@ -134,7 +137,6 @@ elif [ $HW == "phone" ] ; then
 fi
 
 
-killall "iPhone Simulator"
 
 if [ "$2" != "NA" ] ; then
  if [ $LANG == "sv" ] ; then
@@ -151,6 +153,9 @@ if [ "$2" != "NA" ] ; then
  elif [ "$LANG" == "en_th" ] || [ "$LANG" != "en_fc" ] ; then
 	ios-sim-locale -sdk 7.1  -language en -locale en_EN
  fi
+ echo "Changed locale for nordics app"
+ sleep 3
+killall "iPhone Simulator"
 
 {
 if [ ! -d $FILENAME ]; then
