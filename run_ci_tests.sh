@@ -128,5 +128,3 @@ else
 	echo "wrong arguments"
 	exit
 fi
-
-DATE
