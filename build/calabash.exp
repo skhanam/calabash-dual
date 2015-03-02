@@ -7,7 +7,7 @@ set timeout 20
 spawn ti clean
 expect {
     "Project cleaned successfully" { puts "STEP 1 DONE" }
-    timeout { puts "failed to find text"; exit }
+    timeout { puts "failed to find text"; exit 1 }
 }
 
 
@@ -19,10 +19,10 @@ if { $arg1 == "phone" } {
 	puts "expect.exp - Tablet build"
 }
 
-set timeout 400
+set timeout 4
 expect {
     "Project built successfully" { puts "STEP 2 DONE" }
-    timeout { puts "*** FAILED TO FIND - Project built successfully "; exit }
+    timeout { puts "*** FAILED TO FIND - Project built successfully "; exit 1 }
 }
 
 set timeout 20
@@ -32,16 +32,16 @@ expect "Please answer yes (y) or no (n)"  { send "n\r" }
 set timeout 200
 expect {
     "Default target:" { send "\r" }
-    timeout { puts "failed to find text"; exit }
+    timeout { puts "failed to find text"; exit 1 }
 }
 
 expect {
     "Setup done" { puts "STEP 3 DONE" }
- timeout { puts "failed to find text"; exit }
+ timeout { puts "failed to find text"; exit 1}
 }
 
 
 expect {
  "** BUILD SUCCEEDED **" {}
- timeout { puts "failed to find text"; exit }
+ timeout { puts "failed to find text"; exit 1 }
 }
