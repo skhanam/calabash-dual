@@ -82,10 +82,10 @@ if [ "$1" == "ios" ] ; then
 
 	if [ "$4" == "all" ] ; then
 		if [ "$2" == "clean" ] ; then
-			sleep 5 && sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci" &
-			sleep 5 && sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci" &
-			sleep 5 && sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-			sleep 5 && sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci" &
+			sleep 5 && sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+			sleep 5 && sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
+			sleep 5 && sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+			sleep 5 && sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
 			wait
 		  echo "*******------ IOS builds completed successfully *******------ "
 		fi
