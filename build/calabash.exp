@@ -19,7 +19,7 @@ if { $arg1 == "phone" } {
 	puts "expect.exp - Tablet build"
 }
 
-set timeout 4
+set timeout 400
 expect {
     "Project built successfully" { puts "STEP 2 DONE" }
     timeout { puts "*** FAILED TO FIND - Project built successfully "; exit 1 }
