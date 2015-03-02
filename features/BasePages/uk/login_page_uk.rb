@@ -3,6 +3,7 @@ require_relative '../Default/login_base_page'
 class LoginPage < LoginBasePage
   include BaseModule
   include LoginModule::Eng if $g_ios
+  include LoginModule if $g_android && $g_tablet
   include Phone if $g_phone
   include Tablet if $g_tablet
 

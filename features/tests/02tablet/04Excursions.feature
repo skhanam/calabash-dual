@@ -2,7 +2,7 @@
 @tab-excursions @tab @reg-tab
 Feature: US13695 DE Excursions - Detail Page
 
-  @tab-excursions1
+  @tab-excursions1 @failing-tab
   Scenario: OnTap Excursions
     Given I am on Home screen with pre holiday booking
     When I select Excursions Biscuit on home page

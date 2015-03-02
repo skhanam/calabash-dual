@@ -4,6 +4,8 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
+echo "Parameter list:::::---   sh $0 $1 $2 $3 $4 $5 $6 $7 $8 ---:::::"
+
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
@@ -13,7 +15,7 @@ if [ "$#" -le "4" ]; then
     echo "5) relative folder path where source code is located"
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @sanity de phone ../tda"
-	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda"
+	echo " 2)sh run_ios.sh NA @tab-sanity de phone ../tda "
 	echo " 3)sh run_ios.sh NA @testnow en_fc phone ../tda\n"
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
@@ -35,11 +37,7 @@ echo "******** ####  Command entered\t:sh run_ios.sh $1 $2 $3 $4 $5 $6 $7 :"
 
 if [ $LANG == "de" ] ; then
 	TI_SCHEME="meinetui"
-	if [ $HW == "phone" ] ; then
-		APPNAME="meineTUI"
-	elif [ $HW == "tablet" ] ; then
-		APPNAME="Meine TUI"
-	 fi
+	APPNAME="Meine TUI"
 	TESTENV='DE_MT'
 	CUCUMBER_PROFILE=de_mt_ios
 	calabash-ios sim locale en
@@ -72,43 +70,39 @@ if [ $4 == "tablet" ] ; then
 fi
 
 if [ "$1" == "clean" ] ; then
-
-	echo "Cleaning and rebuilding project name:${PROJ_FOLDER}"
+	echo "Cleaning and rebuilding project folder:${PROJ_FOLDER}"
 	echo "******** ####  Updating All Projects"
-	cp build/expect.exp ${PROJ_FOLDER}
+	cp build/calabash.exp ${PROJ_FOLDER}
 	cp Gemfile ${PROJ_FOLDER}
 	cd ${PROJ_FOLDER}/
-
 	rm -rf build/ Resources/
-	ti clean
 
-    if [ $HW == "phone" ]; then
+  if [ $HW == "phone" ]; then
 		node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
 		if [ $LANG == "de" ] ; then
-			cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
+			echo "Not needed delete it"
+			#cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
 		fi
-		    ti build -p ios -b
-
-    else
-     	/usr/local/bin/grunt
-     	node releaseScripts/build.js --brand $TI_SCHEME
-     	node releaseScripts/build.js --brand $TI_SCHEME -l
-
-     	    ti build -p ios -Y ipad -b --retina
-
-    fi
+	else
+	   /usr/local/bin/grunt
+	    node releaseScripts/build.js --brand $TI_SCHEME
+	    node releaseScripts/build.js --brand $TI_SCHEME -l
+	fi
 
 	echo "******** #### " expect expect.exp ${APPNAME}
-	expect expect.exp ${APPNAME}
-    cd -
 
-    echo "******** ####  Deleting old App file "$FILENAME
-    [ -d "$FILENAME" ] && rm -rf "$FILENAME"
+	echo expect calabash.exp ${HW}
+	expect calabash.exp ${HW}
 
-  	echo "******** ####  copying .app file"
-    echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
-    cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
+	cd -
+
+  echo "******** ####  Deleting old App file "$FILENAME
+  [ -d "$FILENAME" ] && rm -rf "$FILENAME"
+
+  echo "******** ####  copying .app file"
+  echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
+  cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
 
 fi
 
@@ -145,10 +139,8 @@ elif [ $HW == "phone" ] ; then
 fi
 
 
-killall "iPhone Simulator"
 
 if [ "$2" != "NA" ] ; then
-
  if [ $LANG == "sv" ] ; then
 	ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
 	echo ios-sim-locale -sdk 7.1  -language sv -locale sv_SE
@@ -164,15 +156,20 @@ if [ "$2" != "NA" ] ; then
 	ios-sim-locale -sdk 7.1  -language en -locale en_EN
  fi
 
+ echo "Changed locale for nordics app"
+ sleep 3
+killall "iPhone Simulator"
+
 {
 if [ ! -d $FILENAME ]; then
     echo "\n\n**************************************************************************"
     echo "********* ${FILENAME} File not found! ****************"
     echo "******************* 		CLEAN AND BUILD		 ******************"
     echo "**************************************************************************\n\n"
-    exit 0
+    exit 1
 fi
 }
-echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
-DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=./$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+
+echo DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
+DEBUG=1 DEVICE_TARGET=$DEVICE_TARGET OS=ios HW=$HW TESTENV=$TESTENV SCREENSHOT_PATH=features/report/ios$LANG LANG=$LANG APP_BUNDLE_PATH=$FILENAME bundle exec cucumber -p $CUCUMBER_PROFILE features/ --tag $tagged_test -f html -o ios-$3-report.html  -f junit -o features/report/junit/$3
 fi

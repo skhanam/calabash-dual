@@ -16,14 +16,14 @@ Feature: Verify product pages by navigating through biscuits
     When I navigate to first destination using home page biscuit
     Then I see first destination information page
 
-  @hm3
+  @hm3 @and-tab-done @failing-tab
   Scenario: US16743 Destination biscuit verify
     Given I have a pre-holiday booking
     And I swipe to the right of the screen
     Then I should see a destination image biscuit appear
     And I should see a  destination text label name
 
-  @hm7
+  @hm7 @and-tab-done @failing-tab
   Scenario: Hotel Biscuit verification
     Given I have a pre-holiday booking
     When I access  the application home page
