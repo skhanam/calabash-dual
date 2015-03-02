@@ -102,7 +102,7 @@ def uk_login(surname, departureDate, visionShopNumber, visionBookingRef)
     sleep 1
     keyboard_enter_text(visionBookingRef)
     #press_down_button deleted for now
-    press_enter_button  if $g_tablet
+    press_enter_button
     @loginPage.scroll_to_end_of_page
 
   end
