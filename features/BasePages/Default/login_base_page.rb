@@ -24,8 +24,8 @@ class LoginBasePage < BasePage
   def submit_login_button
     sleep 1
     scroll_page_till_acc @@login_button_acc if $g_phone
-    click_on_text(@@login_button)
-    #click_acc_label(@@login_button_acc) #TODO remove this if needed
+    #click_on_text(@@login_button)
+    click_acc_label(@@login_button_acc)
   end
   
   def check_login_screen

@@ -152,7 +152,6 @@ fi
 
 
 if [ "$2" != "NA" ] ; then
-	echo "Android tablet"
 	rm -rf test_servers/
 	calabash-android resign $FILENAME
 	calabash-android build $FILENAME
