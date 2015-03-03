@@ -80,10 +80,6 @@ if [ "$1" == "clean" ] ; then
   if [ $HW == "phone" ]; then
 		node releaseScripts/build.js $TI_SCHEME
 		node releaseScripts/build.js $TI_SCHEME -l
-		if [ $LANG == "de" ] ; then
-			echo "Not needed delete it"
-			#cd -; ruby build/update_tiapp.rb $PROJ_FOLDER; cd -
-		fi
 	else
 	   /usr/local/bin/grunt
 	    node releaseScripts/build.js --brand $TI_SCHEME
@@ -137,7 +133,6 @@ if [ $HW == "tablet" ] ; then
 elif [ $HW == "phone" ] ; then
 	DEVICE_TARGET='iPhone Retina (4-inch) - Simulator - iOS 7.1'
 fi
-
 
 
 if [ "$2" != "NA" ] ; then

@@ -136,16 +136,18 @@ if [ "$1" == "clean" ] ; then
 
 	cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
 	SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
+	echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+	cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
 	fi
 fi
 
+		calabash-android resign $FILENAME
 
 	# Copy the required apk files
-	if [ "$7" == "ci" ]; then
-		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-		calabash-android resign $FILENAME
-	fi
+	#if [ "$7" == "ci" ]; then
+#		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+#		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+#	fi
 
 	#Do not perform below steps when there are no tests selected to run
 fi
@@ -160,7 +162,6 @@ if [ "$2" != "NA" ] ; then
 fi
 
 if [ "$2" != "NA" ] ; then
-
 
 	if [ "$DEVICE_ID" != "" ] && [ "$7" == "ci" ] ; then
 		echo "device selected"
