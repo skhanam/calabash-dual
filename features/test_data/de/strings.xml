@@ -334,6 +334,7 @@
   <string name="browse_holidays_bottom_text">browse_holidays_bottom_text</string>
   <string name="currency_offcanvas">currency_offcanvas</string>
   <string name="browse_banner">ENTDECKEN SIE DIE TUI REISEWELTEN</string>
+  <string name="mydocuments">Reisedokumente</string>
   <!-- 7,1 Seleted Hotel -->
   <string name="hotel_to_destinations">hotel_to_destinations</string>
   <!-- 11.0 extras -->
