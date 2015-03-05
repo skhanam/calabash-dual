@@ -207,16 +207,18 @@ Given(/^I am on 'Login' screen/) do
   navigate_flag=true
   if $g_tablet
     if @welcomePage.check_welcome_screen
-      @page.click_on_text @page.get_val("login_have_a_booking")
+      if $g_tablet && $g_android
+        @page.click_on_text @page.get_val "welcome_login_title"
+      else
+        @page.click_on_text @page.get_val("login_have_a_booking")
+      end
     elsif @welcomePage.check_text_in_view @page.get_val "login_welcome"
       puts "On login screen"
       navigate_flag=false
     elsif @page.check_text_in_view @page.get_val("login_have_a_booking")
       @page.click_on_text @page.get_val("login_have_a_booking")
-    elsif $g_tablet && $g_android
-      @page.click_on_text @page.get_val "welcome_login_title"
     else
-      puts query("*",:text)
+      puts query("*", :text)
       fail "Not on login screen"
     end
   elsif $g_phone

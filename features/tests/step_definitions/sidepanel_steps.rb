@@ -146,11 +146,7 @@ end
 
 Then(/^I should navigate to welcome screen$/) do
   sleep 5
-  if $g_android && $g_tablet
-   @page.assert_wait_for_text @page.get_val "welcome_login_title"
-  else
-    fail("Welcome page not found") if (@welcomePage.check_welcome_screen != true)
-  end
+  (@welcomePage.check_welcome_screen != true)
 end
 
 Then(/^I should see one menu entry per destination$/) do
