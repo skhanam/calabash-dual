@@ -28,7 +28,11 @@ class LoginBasePage < BasePage
       click_acc_label(@@login_button_acc)
     rescue
       press_down_button if $g_android # submit button may be hiding behind keyboard
-      click_acc_label(@@login_button_acc)
+      if $g_android && $g_tablet
+        click_on_text @@submit_button
+      else
+        click_acc_label(@@login_button_acc)
+      end
     end
   end
 

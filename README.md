@@ -1,3 +1,7 @@
+Find list of IOS devices
+===============
+xcrun instruments -s devices
+
 
 Install Appcelerator
 ===============
@@ -28,6 +32,8 @@ Folder structure
 Gemfile   - gems required for running calabash test suite
 README.md - Help file
 run_ios.sh - Shell script required to run IOS tests
+run_android.sh - Shell scripts for running android tests
+run_ci_tests.sh - Executing shell scripts from CI server for IOS and Android tests
 
 ios-report.html - IOS test report
 android-report.html - android test report
