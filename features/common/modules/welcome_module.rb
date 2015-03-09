@@ -148,10 +148,6 @@ module WelcomeModule
       click_acc_label @@welcome_page_swipe_down_acc
     end
 
-    def self.included(receiver)
-      puts self.name+"::#{$g_lang_mod}"
-    end
-
     def verify_welcome_screen
       arr="#{@@login_page_text}".split(/\\n\\n/)
       arr.each do |var|

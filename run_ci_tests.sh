@@ -47,16 +47,6 @@ if [ "$1" == "clean" ] || [ "$4" == "all" ] ; then
 	ti clean
   wait
 
-  # fetch latest strings
-  if [ $HW == "phone" ]; then
-    node releaseScripts/build.js $TI_SCHEME
-    node releaseScripts/build.js $TI_SCHEME -l
-  else
-    /usr/local/bin/grunt
-    node releaseScripts/build.js --brand $TI_SCHEME
-    node releaseScripts/build.js --brand $TI_SCHEME -l
-  fi
-
 	cd -
 
   sleep 5

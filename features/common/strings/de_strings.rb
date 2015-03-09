@@ -67,6 +67,7 @@ module DEMeineTUI
     @@not_yet_registered=get_localized_string "have_you_used_tui_cta_not_logged_title"
     @@register_with_booking_code=get_localized_string "have_you_used_tui_cta_not_logged_body"
 
+    @@welcome_login_title= get_localized_string "welcome_login_title" # Have a Booking?
 
     @@have_never_booked_through_TUI_before=get_localized_string "tell_us_cta_new_tui_body"
   end

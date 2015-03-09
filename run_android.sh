@@ -114,8 +114,16 @@ if [ "$1" == "clean" ] ; then
 	cd ${PROJ_FOLDER}/
 	rm -rf build/ Resources/
 	ti clean
-	node releaseScripts/build.js $TI_SCHEME
-	node releaseScripts/build.js $TI_SCHEME -l
+
+  # fetch latest strings
+  if [ $HW == "phone" ]; then
+    node releaseScripts/build.js $TI_SCHEME
+    node releaseScripts/build.js $TI_SCHEME -l
+  else
+    /usr/local/bin/grunt
+    node releaseScripts/build.js --brand $TI_SCHEME
+    node releaseScripts/build.js --brand $TI_SCHEME -l
+  fi
 	ti build -p android -b
 	cd -
 
