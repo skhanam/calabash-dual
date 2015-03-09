@@ -4,12 +4,7 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
-if [ "$7" == "ci" ]; then
-	echo "Running tests from CI"
-	export ANDROID_HOME=$HOME/Library/android-sdk-macosx
-	export PATH=$ANDROID_HOME/tools:$PATH
-	export PATH=$ANDROID_HOME/platform-tools:$PATH
-fi
+
 
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
@@ -78,16 +73,18 @@ elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "
   PACKAGE_ID="com.tuitravel.minferie"
 fi
 
-if [ $HW == "phone" ] ; then
-	APK_NAME=$APK_NAME".apk"
-elif [ $HW == "tablet" ] ; then
-	APK_NAME=$APK_NAME" Tablet.apk"
-fi
+	if [ $HW == "phone" ] ; then
+		APK_NAME=$APK_NAME".apk"
+		export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
+	elif [ $HW == "tablet" ] ; then
+		APK_NAME=$APK_NAME" Tablet.apk"
+		export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+	fi
+	export PATH=$ANDROID_HOME/tools:$PATH
+	export PATH=$ANDROID_HOME/platform-tools:$PATH
+  which adb
 
-
-STRINGS_FOLDER=features/test_data/$LANG_STR/
-
-  echo $DEVICE_ID
+	STRINGS_FOLDER=features/test_data/$LANG_STR/
 
   if [ $DEVICE_ID  ] ; then
   	ADB_DEVICE="-s "$DEVICE_ID
