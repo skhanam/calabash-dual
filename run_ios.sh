@@ -20,7 +20,7 @@ if [ "$#" -le "4" ]; then
 
 	echo "\nSample command: \n 1) sh run_ios.sh clean @tab-sanity de tablet ../tda.tablet"
 	echo " 2)sh run_ios.sh NA @tab-sanity en_th tablet ../tda.tablet"
-	exit
+	exit 1
 fi
 
 LANG=$3

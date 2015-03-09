@@ -23,7 +23,7 @@ if [ "$#" -le "7" ]; then
 	echo ' 1) sh run_ci_tests.sh ios clean @ph-sanity de phone ../tda "" "ci"'
 	echo ' 2) sh run_ci_tests.sh ios clean @tab-sanity de tablet ../tda.tablet "" ci'
 	echo "\n"
-	exit
+	exit 1
 fi
 
 echo "Removing old reports and jpeg files"

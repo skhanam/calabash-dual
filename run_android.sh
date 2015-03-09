@@ -20,7 +20,7 @@ if [ "$#" -le "4" ]; then
 
 	echo "\nSample command: \n 1) sh run_android.sh clean @tab-sanity de tablet ../tda.tablet"
 	echo " 2)sh run_android.sh NA @tab-sanity en_th tablet ../tda.tablet"
-	exit
+	exit 1
 fi
 
 
@@ -37,7 +37,7 @@ mkdir -p ../Appfiles
 
 if [ -z "$2" ] ; then
 	echo "Tags not specified using @failed"
-	exit
+	exit 1
 else
 	tagged_test=$2
 fi
@@ -76,21 +76,25 @@ fi
 	if [ $HW == "phone" ] ; then
 		APK_NAME=$APK_NAME".apk"
 		export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
+		echo "phone .. adb"
+
 	elif [ $HW == "tablet" ] ; then
 		APK_NAME=$APK_NAME" Tablet.apk"
 		export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+		echo "tablet .. adb"
+
 	fi
+
 	export PATH=$ANDROID_HOME/tools:$PATH
 	export PATH=$ANDROID_HOME/platform-tools:$PATH
   which adb
-
 	STRINGS_FOLDER=features/test_data/$LANG_STR/
 
   if [ $DEVICE_ID  ] ; then
   	ADB_DEVICE="-s "$DEVICE_ID
   else
     echo "No Device specified"
-  	exit
+  	exit 1
   fi
 
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
