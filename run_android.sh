@@ -73,16 +73,22 @@ elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "
   PACKAGE_ID="com.tuitravel.minferie"
 fi
 
-	if [ $HW == "phone" ] ; then
-		APK_NAME=$APK_NAME".apk"
-		export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
-		echo "phone .. adb"
-
-	elif [ $HW == "tablet" ] ; then
-		APK_NAME=$APK_NAME" Tablet.apk"
+	if [ "$1" == "clean" ] ; then
+		if [ $HW == "phone" ] ; then
+			APK_NAME=$APK_NAME".apk"
+			export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
+			echo "phone .. adb"
+		elif [ $HW == "tablet" ] ; then
+			APK_NAME=$APK_NAME" Tablet.apk"
+			export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+			echo "tablet .. adb"
+		fi
+	else
+		#Temp fix until android tablet is run on different machine
 		export ANDROID_HOME=$HOME/Library/android-sdk-macosx
-		echo "tablet .. adb"
-
+		export PATH=$ANDROID_HOME/tools:$PATH
+		export PATH=$ANDROID_HOME/platform-tools:$PATH
+		echo "$ANDROID_HOME"
 	fi
 
 	export PATH=$ANDROID_HOME/tools:$PATH
@@ -170,11 +176,6 @@ if [ "$2" != "NA" ] ; then
 	adb $ADB_DEVICE -s $DEVICE_ID install -r test_servers/*.apk
 fi
 
-#Temp fix until android tablet is run on different machine
-export ANDROID_HOME=$HOME/Library/android-sdk-macosx
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-echo "$ANDROID_HOME"
 
 
 if [ "$2" != "NA" ] ; then
