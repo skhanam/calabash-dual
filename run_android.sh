@@ -170,6 +170,13 @@ if [ "$2" != "NA" ] ; then
 	adb $ADB_DEVICE -s $DEVICE_ID install -r test_servers/*.apk
 fi
 
+#Temp fix until android tablet is run on different machine
+export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+echo "$ANDROID_HOME"
+
+
 if [ "$2" != "NA" ] ; then
 
 	if [ "$DEVICE_ID" != "" ] && [ "$7" == "ci" ] ; then
