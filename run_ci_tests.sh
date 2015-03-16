@@ -5,6 +5,10 @@ DATE
 export LC_CTYPE=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
 
+export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+echo "$ANDROID_HOME"
 
 HW=$5
 PROJ_FOLDER=$6
@@ -100,6 +104,16 @@ elif [ "$1" == "android" ] ; then
 		else
 		DEVICE_ID=$7
 	fi
+
+	if [ "$7" != "" ] ; then
+		DEVICE_ID=$7
+	else
+		if [ $HW == "phone" ] ; then
+      DEVICE_ID=192.168.56.102:5555
+    elif [ $HW == "tablet" ] ; then
+      DEVICE_ID=192.168.56.101:5555
+    fi
+  fi
 
 
 	if [ "$4" == "all" ] ; then
