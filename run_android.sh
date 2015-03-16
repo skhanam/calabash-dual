@@ -103,6 +103,9 @@ fi
   	exit 1
   fi
 
+which adb
+adb devices
+
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
 		if [ $HW == "phone" ] ; then
