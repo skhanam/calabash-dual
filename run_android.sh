@@ -102,6 +102,8 @@ fi
   	exit 1
   fi
 
+killall -9 adb
+sleep 2
 ADB=adb
 #ADB=$ANDROID_HOME/platform-tools/adb
 which $ADB
