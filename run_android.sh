@@ -102,7 +102,7 @@ fi
   	exit 1
   fi
 
-ADB=$ANDROID_HOME/platform-tools/adb
+ADB=adb
 #ADB=$ANDROID_HOME/platform-tools/adb
 which $ADB
 $ADB devices
