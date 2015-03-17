@@ -103,6 +103,7 @@ fi
   fi
 
 ADB=$ANDROID_HOME/platform-tools/adb
+#ADB=$ANDROID_HOME/platform-tools/adb
 which $ADB
 $ADB devices
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
