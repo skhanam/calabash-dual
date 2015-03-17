@@ -102,21 +102,21 @@ fi
   	exit 1
   fi
 
-which adb
-adb devices
-
+ADB=$ANDROID_HOME/platform-tools/adb
+which $ADB
+$ADB devices
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
 			if [ $HW == "phone" ] ; then
-				echo adb $ADB_DEVICE uninstall $PACKAGE_ID
-				adb $ADB_DEVICE uninstall $PACKAGE_ID
-				echo adb $ADB_DEVICE uninstall "$PACKAGE_ID".test
-				adb $ADB_DEVICE uninstall "$PACKAGE_ID".test
+				echo $ADB  $ADB_DEVICE uninstall $PACKAGE_ID
+				$ADB $ADB_DEVICE uninstall $PACKAGE_ID
+				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
+				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
 			elif [ $HW == "tablet" ] ; then
-				echo adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
-				adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
-				echo adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
-				adb $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
+				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
+				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
+				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
+				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
 			fi
 		fi
 
