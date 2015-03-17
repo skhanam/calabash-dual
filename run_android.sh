@@ -111,7 +111,11 @@ $ADB devices
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
 			if [ $HW == "phone" ] ; then
+				ADB_DEVICE=""
 				echo $ADB  $ADB_DEVICE uninstall $PACKAGE_ID
+				$ADB version
+				$ADB get-serialno
+				$ADB get-state
 				$ADB $ADB_DEVICE uninstall $PACKAGE_ID
 				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
 				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
