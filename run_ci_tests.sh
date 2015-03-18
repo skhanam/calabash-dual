@@ -131,7 +131,6 @@ elif [ "$1" == "android" ] ; then
 	else
 		echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
 		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
-		exit $?
 	fi
 else
 	echo "wrong arguments"
