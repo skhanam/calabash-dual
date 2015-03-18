@@ -4,8 +4,6 @@ DATE=`date +%d-%m-%Y-%H-%M`
 
 export LC_CTYPE=en_US.UTF-8
 
-
-
 if [ "$#" -le "4" ]; then
 	echo "\n4 ARGUMENTS NEEDED"
 	echo "1) clean(clean project) or NA (for running project without cleaning"
@@ -76,21 +74,18 @@ fi
 	if [ "$1" == "clean" ] ; then
 		if [ $HW == "phone" ] ; then
 			APK_NAME=$APK_NAME".apk"
-			export ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
+			ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
 			echo "phone .. adb"
 		elif [ $HW == "tablet" ] ; then
 			APK_NAME=$APK_NAME" Tablet.apk"
-			export ANDROID_HOME=$HOME/Library/android-sdk-macosx
+			ANDROID_HOME=$HOME/Library/android-sdk-macosx
 			echo "tablet .. adb"
 		fi
-	else
-		#Temp fix until android tablet is run on different machine
-		export ANDROID_HOME=$HOME/Library/android-sdk-macosx
-		export PATH=$ANDROID_HOME/tools:$PATH
-		export PATH=$ANDROID_HOME/platform-tools:$PATH
-		echo "$ANDROID_HOME"
 	fi
 
+	export ANDROID_HOME
+
+	#Temp fix until android tablet is run on different machine
 	export PATH=$ANDROID_HOME/tools:$PATH
 	export PATH=$ANDROID_HOME/platform-tools:$PATH
 	STRINGS_FOLDER=features/test_data/$LANG_STR/
@@ -117,6 +112,7 @@ $ADB devices
     echo "No Device specified"
   	exit 1
   fi
+
 
 	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 		if [ "$2" != "NA" ] ; then
