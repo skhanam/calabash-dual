@@ -1,4 +1,8 @@
 #!/bin/bash
+
+export PATH=/Applications/Genymotion\ Shell.app/Contents/MacOS/:$PATH
+export PATH=/Applications/Genymotion.app/Contents/MacOS/:$PATH
+
 #First argument is genymotion device name
 killall -9 genymotion
 killall -9 adb
