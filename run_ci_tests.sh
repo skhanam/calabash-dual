@@ -114,25 +114,28 @@ elif [ "$1" == "android" ] ; then
       DEVICE_ID=192.168.56.101:5555
     fi
   fi
-
-
-	if [ "$4" == "all" ] ; then
-		if [ "$2" == "clean" ] ; then
-			sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
-			sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
-			sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
-			sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
-		fi
-
-		echo "\n\nProjects are already built, hence first argument is set to NA"
-		echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
-		sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
-	else
-		echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
-		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
-	fi
 else
 	echo "wrong arguments"
 	exit 1
 fi
 
+if [ "$4" == "all" ] ; then
+  if [ "$2" == "clean" ] ; then
+    sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+    sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
+    sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+    sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
+  fi
+
+  echo "\n\nProjects are already built, hence first argument is set to NA"
+  echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+  sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+else
+  echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+  sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+fi
+
+res=$?
+killall -9 genymotion
+killall -9 player
+exit $res
