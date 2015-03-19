@@ -24,12 +24,20 @@ class LoginBasePage < BasePage
   def submit_login_button
     sleep 1
     scroll_page_till_acc @@login_button_acc if $g_phone
-    #click_on_text(@@login_button)
-    click_acc_label(@@login_button_acc)
+    begin
+      click_acc_label(@@login_button_acc)
+    rescue
+      press_down_button if $g_android # submit button may be hiding behind keyboard
+      if $g_android && $g_tablet
+        click_on_text @@submit_button
+      else
+        click_acc_label(@@login_button_acc)
+      end
+    end
   end
-  
+
   def check_login_screen
-  check_text_in_view @@login_welcome
+    check_text_in_view @@login_welcome
   end
 
   def verify_login_screen

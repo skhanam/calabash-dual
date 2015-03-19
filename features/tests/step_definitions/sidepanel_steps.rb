@@ -39,7 +39,7 @@ When(/^I see holiday booking summary page$/) do
 end
 
 When(/^I see and verify holiday booking summary page$/) do
- step 'I see holiday booking summary page'
+  step 'I see holiday booking summary page'
   @bookingSummaryPage.verify_booking_summary_details
 end
 
@@ -53,7 +53,7 @@ Given(/^I navigate to flights page from side panel$/) do
 end
 
 Then(/^I see app feedback page$/) do
-  @appFeedbackPage.check_app_feedback_title  if $g_phone # this is not present for tablet
+  @appFeedbackPage.check_app_feedback_title if $g_phone # this is not present for tablet
   @appFeedbackPage.verify_app_feedback_page
 end
 
@@ -146,7 +146,7 @@ end
 
 Then(/^I should navigate to welcome screen$/) do
   sleep 5
-  fail("Welcome page not found") if (@welcomePage.check_welcome_screen != true)
+  (@welcomePage.check_welcome_screen != true)
 end
 
 Then(/^I should see one menu entry per destination$/) do

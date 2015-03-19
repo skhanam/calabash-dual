@@ -21,13 +21,4 @@ module ExtrasModule
     assert_text_present @@extras_page_title_acc
   end
 
-  module Phone
-
-  end
-
-  module Tablet
-    include BaseModule
-
-
-  end
 end

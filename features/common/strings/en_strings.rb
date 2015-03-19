@@ -102,7 +102,6 @@ module EN_Strings
   end
 
   def welcome_page_strings
-
   end
 
   def login_page_strings

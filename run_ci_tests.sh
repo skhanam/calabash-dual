@@ -4,6 +4,7 @@ clear
 DATE
 export LC_CTYPE=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
+
 export ANDROID_HOME=$HOME/Library/android-sdk-macosx
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
@@ -26,7 +27,7 @@ if [ "$#" -le "7" ]; then
 	echo ' 1) sh run_ci_tests.sh ios clean @ph-sanity de phone ../tda "" "ci"'
 	echo ' 2) sh run_ci_tests.sh ios clean @tab-sanity de tablet ../tda.tablet "" ci'
 	echo "\n"
-	exit
+	exit 1
 fi
 
 echo "Removing old reports and jpeg files"
@@ -50,16 +51,6 @@ if [ "$1" == "clean" ] || [ "$4" == "all" ] ; then
 	ti clean
   wait
 
-  # fetch latest strings
-  if [ $HW == "phone" ]; then
-    node releaseScripts/build.js $TI_SCHEME
-    node releaseScripts/build.js $TI_SCHEME -l
-  else
-    /usr/local/bin/grunt
-    node releaseScripts/build.js --brand $TI_SCHEME
-    node releaseScripts/build.js --brand $TI_SCHEME -l
-  fi
-
 	cd -
 
   sleep 5
@@ -82,10 +73,10 @@ if [ "$1" == "ios" ] ; then
 
 	if [ "$4" == "all" ] ; then
 		if [ "$2" == "clean" ] ; then
-			sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci" &
-			sleep 30 && sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci" &
-			sleep 30 && sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-			sleep 30 && sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci" &
+			sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+			sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
+			sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+			sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
 			wait
 		  echo "*******------ IOS builds completed successfully *******------ "
 		fi
@@ -103,6 +94,17 @@ elif [ "$1" == "android" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
 
+	if [ -z "$7" ] ; then
+	  echo "No Android device specified"
+	  if [ $HW == "phone" ] ; then
+	      DEVICE_ID=192.168.56.102:5555
+	    elif [ $HW == "tablet" ] ; then
+	      DEVICE_ID=192.168.56.101:5555
+		fi
+		else
+		DEVICE_ID=$7
+	fi
+
 	if [ "$7" != "" ] ; then
 		DEVICE_ID=$7
 	else
@@ -112,27 +114,28 @@ elif [ "$1" == "android" ] ; then
       DEVICE_ID=192.168.56.101:5555
     fi
   fi
-
-
-	if [ "$4" == "all" ] ; then
-		if [ "$2" == "clean" ] ; then
-			sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci" &
-			sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci" &
-			sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci" &
-			sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci" &
-			wait
-		fi
-
-		echo "\n\nProjects are already built, hence first argument is set to NA"
-		echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
-		sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
-	else
-		echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
-		sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
-		exit $?
-	fi
 else
 	echo "wrong arguments"
 	exit 1
 fi
 
+if [ "$4" == "all" ] ; then
+  if [ "$2" == "clean" ] ; then
+    sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+    sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
+    sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+    sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
+  fi
+
+  echo "\n\nProjects are already built, hence first argument is set to NA"
+  echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+  sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+else
+  echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+  sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
+fi
+
+res=$?
+killall -9 genymotion
+killall -9 player
+exit $res
