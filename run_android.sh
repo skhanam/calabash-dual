@@ -99,7 +99,11 @@ ADB=adb
 which $ADB
 
 if [ "$2" != "NA" ] ; then
-	sh start_device.sh "S5"
+	  if [ $HW == "phone" ] ; then
+		 	sh start_device.sh "S5"
+		elif [ $HW == "tablet" ] ; then
+		 	sh start_device.sh "Nexus_10"
+		fi
 	DEVICE_ID=`adb get-serialno`
 	echo $DEVICE_ID
 fi
