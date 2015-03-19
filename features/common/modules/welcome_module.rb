@@ -144,25 +144,59 @@ module WelcomeModule
   module Tablet
     include BaseModule
 
-    def navigate_to_login
-      click_acc_label @@welcome_page_swipe_down_acc
-    end
-
     def self.included(receiver)
       puts self.name+"::#{$g_lang_mod}"
-      #  receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
+      receiver.send :include, Module.const_get(self.name+"::#{$g_lang_mod}")
     end
 
-    def verify_welcome_screen
-      arr="#{@@login_page_text}".split(/\\n\\n/)
-      arr.each do |var|
-        assert_partial_text var
-      end
+    def navigate_to_login
+      click_acc_label @@welcome_page_swipe_down_acc
     end
 
     def check_welcome_screen
       return wait_for_text(escape_quotes(@@login_lets_get_inspired), 2)
     end
 
+    module Deu
+      include BaseModule
+
+      def verify_welcome_screen
+        arr="#{@@login_page_text}".split(/\\n\\n/)
+        arr.each do |var|
+          assert_partial_text var
+        end
+      end
+
+    end
+
+    module Eng
+      include BaseModule
+
+      def touch_top_half
+        if $g_ios
+          touch "view text:'#{@@welcome_login_title}' parent TiUIView index:2"
+        elsif $g_android
+          click_on_text @@welcome_login_title
+        end
+      end
+
+      def touch_bottom_half
+        txt=escape_quotes(@@welcome_nobooking_subtitle)
+        if $g_ios
+          touch "view text:'#{txt}' parent TiUIView index:2"
+        elsif $g_android
+          touch "* marked:'searchTitle.' parent * id:'content'"
+        end
+      end
+
+
+      def verify_welcome_screen
+        sleep 2
+        assert_wait_for_text escape_quotes @@welcome_login_title
+        assert_text_present escape_quotes @@welcome_login_subtitle
+        assert_text_present escape_quotes @@welcome_nobooking_title
+        assert_text_present escape_quotes @@welcome_nobooking_subtitle
+      end
+    end
   end
 end
