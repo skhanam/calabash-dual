@@ -6,6 +6,7 @@ class AppFeedbackBasePage < BasePage
 
 
   def submit_default_feedback
+    sleep 2
     if check_text_in_view(@@app_feed_back_rate_again)
       puts "Already rated"
       click_on_text @@app_feed_back_rate_again

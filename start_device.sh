@@ -16,7 +16,8 @@ while [ $c -le 5 ]
 do
     adb kill-server
     player --vm-name $1 &
-    sleep 2
+    adb wait-for-device
+		sleep 2
     adb start-server
     sleep 15
     res=`adb get-state`;echo $res
