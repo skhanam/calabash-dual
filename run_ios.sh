@@ -98,8 +98,12 @@ if [ "$1" == "clean" ] ; then
 
   echo "******** ####  copying .app file"
   echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
-  cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
+ if [ ! -d $FILENAME ]; then
+	 echo "App not compiled"
+	 exit 1
+ fi
 
+ cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
 fi
 
 if [ "$1" == "clean" ] || [ "$7" != "ci" ] ; then

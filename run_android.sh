@@ -170,8 +170,12 @@ if [ $1 == "install" ] || [ $1 == "clean" ] ; then
 
 		cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
 		SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
-		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $PROJ_FOLDER/build/android/bin/"$APK_NAME"
+    cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+    if [ ! -f $FILENAME ]; then
+        echo "File not found!"
+        exit 1
+    fi
 		fi
 	fi
 
