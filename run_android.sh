@@ -98,7 +98,7 @@ if [ $DEVICE_ID == "NA" ] || [ "$2" != "NA" ] ; then
 	  if [ $HW == "phone" ] ; then
 		 	sh start_device.sh "S5"
 		elif [ $HW == "tablet" ] ; then
-		 	sh start_device.sh "Nexus_10_4.4"
+		 	sh start_device.sh "Nexus_10"
 		fi
 
 	DEVICE_ID=`adb get-serialno`
