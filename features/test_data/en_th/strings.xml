@@ -52,16 +52,16 @@
   <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">We’ll send your booking reference number by email when your MyThomson app is ready to use. You should expect to receive it 3-4 days after booking a holiday directly with Thomson, in store, online or over the phone. If you have forgotten your booking reference number, please enter your details below.</string>
   <string name="welcome_help_retrieve_booking_cta">Submit</string>
-  <string name="welcome_help_retrieve_booking_email">Email address used for booking:</string>
+  <string name="welcome_help_retrieve_booking_email">Enter email address</string>
   <string name="welcome_help_retrieve_booking_email_extra">Please use the email address you provided when booking your holiday, as detailed on your invoice.</string>
-  <string name="welcome_help_retrieve_booking_email_hint">Enter email address</string>
+  <string name="welcome_help_retrieve_booking_email_hint">Email address used for booking</string>
   <string name="welcome_help_retrieve_booking_error">Sorry, we didn't recognise your details.</string>
   <string name="welcome_help_retrieve_booking_header">Retrieve my booking reference number</string>
   <string name="welcome_help_retrieve_booking_ref_validation">The first part of your booking reference number must be 4 numbers long. The second set can be between 4 and 8 numbers long.</string>
   <string name="welcome_help_retrieve_booking_success">Thank you. We have sent you booking reference number to the specified email address. Please check your inbox and then log in below.</string>
-  <string name="welcome_help_retrieve_booking_surname">Surname of lead passenger:</string>
+  <string name="welcome_help_retrieve_booking_surname">Enter surname</string>
   <string name="welcome_help_retrieve_booking_surname_extra">Please use the surname of the person that booked your holiday, as detailed on your invoice.</string>
-  <string name="welcome_help_retrieve_booking_surname_hint">Enter surname</string>
+  <string name="welcome_help_retrieve_booking_surname_hint">Surname of lead passenger</string>
   <string name="welcome_help_cant_login_description_top">Sorry, you can't use the app if your departure date is after 1st November 2015.</string>
   <string name="welcome_help_retrieve_booking_body_top">We apologise, but due to system changes, we are currently unable to support bookings departing from 1st November 2015 on the MyThomson app. We are working on this and will contact you when the service becomes available. Sorry for any inconvenience, the MyThomson app team.</string>
   <!-- 0.2.3 i can't log in -->
@@ -206,7 +206,7 @@
   <string name="welcome_login_credential_failed_threetimes_body">welcome_login_credential_failed_threetimes_body</string>
   <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
   <string name="welcome_login_cta_login">Log in</string>
-  <string name="welcome_login_departure_date">Departure date:</string>
+  <string name="welcome_login_departure_date">Departure date</string>
   <string name="welcome_login_departure_date_extra">Tip: The date that you fly out to your destination.</string>
   <string name="welcome_login_departure_date_hint">Enter date</string>
   <string name="welcome_login_error">Unable to log in</string>
@@ -334,6 +334,7 @@
   <string name="browse_holidays_bottom_text">Holiday collections</string>
   <string name="currency_offcanvas">Currency</string>
   <string name="browse_banner">BROWSE OUR HOLIDAY COLLECTIONS</string>
+  <string name="mydocuments">MyDocuments</string>
   <!-- 7,1 Seleted Hotel -->
   <string name="hotel_to_destinations">Learn more about:</string>
   <!-- 11.0 extras -->
@@ -1073,6 +1074,8 @@
   <string name="webcheckin_homepagebiscuit_somecheckedin_singular">[checked] of [total] passengers remaining to check-in</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin_cta">Check-in remaining</string>
   <string name="webcheckin_homepagebiscuit_offlineerr">You have to be online to check-in</string>
+  <string name="webcheckin_homepagebiscuit_manage_flights">Manage my flights</string>
+  <string name="webcheckin_homepagebiscuit_default_text">Check-in, select your seats and add extras to your flights</string>
   <string name="webcheckin_confirmation_successful_title">Great</string>
   <string name="webcheckin_confirmation_successful_body">Your boarding passes are being downloaded to your app</string>
   <string name="webcheckin_confirmation_successful_cta">OK</string>
@@ -1091,6 +1094,8 @@
   <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
   <string name="webcheckin_flightdetailpage_somecheckedin">Check in remaining passengers</string>
   <string name="webcheckin_flightdetailpage_somecheckedincta">Check-in now</string>
+  <string name="webcheckin_flightdetailpage_view_boarding_passes">View my boarding passes</string>
+  <string name="webcheckin_flightdetailpage_manage_flights">Manage my flights</string>
   <string name="webcheckin_webflow_title">Check-in</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Boarding passes</string>
@@ -1105,6 +1110,9 @@
   <string name="travelfolio_boarding_passes_refresh_failed_title">Boarding Pass update failed.</string>
   <string name="travelfolio_boarding_passes_refresh_failed_body">Please try again.</string>
   <string name="travelfolio_boarding_passes_refresh_try_again">Try again</string>
+  <string name="travelfolio_boarding_passes_manage_flights">Manage my flights</string>
+  <string name="travelfolio_boarding_passes_none_available">No mobile boarding passes available</string>
+  <string name="travelfolio_boarding_passes_checked_in_no_passes">Checked-in, no mobile boarding passes available</string>
   <string name="travelfolio_downloading">Downloading</string>
   <string name="travelfolio_not_checked_in_yet_singular">Not checked-in yet</string>
   <string name="travelfolio_not_checked_in_yet_plural">Not checked-in yet</string>

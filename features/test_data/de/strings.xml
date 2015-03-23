@@ -1074,6 +1074,8 @@
   <string name="webcheckin_homepagebiscuit_somecheckedin_singular">[checked] von [total] Passagieren muss noch eingecheckt werden.</string>
   <string name="webcheckin_homepagebiscuit_somecheckedin_cta">Übrige Reisende einchecken.</string>
   <string name="webcheckin_homepagebiscuit_offlineerr">Sie benötigen eine Internetverbindung, um sich einchecken zu können.</string>
+  <string name="webcheckin_homepagebiscuit_manage_flights">Meine TUI Flüge verwalten</string>
+  <string name="webcheckin_homepagebiscuit_default_text">Einchecken, Sitzplatz wählen und Extras hinzubuchen</string>
   <string name="webcheckin_confirmation_successful_title">Wunderbar</string>
   <string name="webcheckin_confirmation_successful_body">Ihre Bordkarten werden nun in der App gespeichert.</string>
   <string name="webcheckin_confirmation_successful_cta">OK</string>
@@ -1092,6 +1094,8 @@
   <string name="webcheckin_flightdetailpage_restricted">webcheckin_flightdetailpage_restricted</string>
   <string name="webcheckin_flightdetailpage_somecheckedin">Übrige Reisende einchecken.</string>
   <string name="webcheckin_flightdetailpage_somecheckedincta">Jetzt einchecken</string>
+  <string name="webcheckin_flightdetailpage_view_boarding_passes">Bordkarten anzeigen</string>
+  <string name="webcheckin_flightdetailpage_manage_flights">Meine TUI Flüge verwalten</string>
   <string name="webcheckin_webflow_title">Check-in</string>
   <!-- travelfolio -->
   <string name="travelfolio_biscuit_title">Reisedokumente</string>
@@ -1106,6 +1110,9 @@
   <string name="travelfolio_boarding_passes_refresh_failed_title">Das Aktualisieren der Bordkarte ist fehlgeschlagen.</string>
   <string name="travelfolio_boarding_passes_refresh_failed_body">Bitte versuchen Sie es erneut.</string>
   <string name="travelfolio_boarding_passes_refresh_try_again">Erneut versuchen</string>
+  <string name="travelfolio_boarding_passes_manage_flights">Meine TUI Flüge verwalten</string>
+  <string name="travelfolio_boarding_passes_none_available">Keine mobilen Bordkarten verfügbar</string>
+  <string name="travelfolio_boarding_passes_checked_in_no_passes">Bereits eingecheckt, keine mobile Bordkarte verfügbar</string>
   <string name="travelfolio_downloading">wird geladen</string>
   <string name="travelfolio_not_checked_in_yet_singular">ist noch nicht eingecheckt</string>
   <string name="travelfolio_not_checked_in_yet_plural">sind noch nicht eingecheckt</string>

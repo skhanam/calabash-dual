@@ -21,8 +21,6 @@ if [ "$#" -le "4" ]; then
 	exit 1
 fi
 
-
-#sh  build/shell_scripts/start_device.sh
 LANG=$3
 HW=$4
 DEVICE_ID=$6
@@ -71,26 +69,24 @@ elif [ $LANG == "sv" ] || [ $LANG == "da" ] || [ $LANG == "fi" ] || [ $LANG == "
   PACKAGE_ID="com.tuitravel.minferie"
 fi
 
-	if [ "$1" == "clean" ] ; then
-		if [ $HW == "phone" ] ; then
-			APK_NAME=$APK_NAME".apk"
-			ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
-			echo "phone .. adb"
-		elif [ $HW == "tablet" ] ; then
-			APK_NAME=$APK_NAME" Tablet.apk"
-			ANDROID_HOME=$HOME/Library/android-sdk-macosx
-			echo "tablet .. adb"
-		fi
+if [ "$1" == "clean" ] ; then
+	if [ $HW == "phone" ] ; then
+		APK_NAME=$APK_NAME".apk"
+		ANDROID_HOME=$HOME/Library/android-sdk-macosx-R22
+		echo "phone .. adb"
+	elif [ $HW == "tablet" ] ; then
+		APK_NAME=$APK_NAME" Tablet.apk"
+		ANDROID_HOME=$HOME/Library/android-sdk-macosx
+		echo "tablet .. adb"
 	fi
+fi
 
-	export ANDROID_HOME
+export ANDROID_HOME
 
-	#Temp fix until android tablet is run on different machine
-	export PATH=$ANDROID_HOME/tools:$PATH
-	export PATH=$ANDROID_HOME/platform-tools:$PATH
-	STRINGS_FOLDER=features/test_data/$LANG_STR/
-
-
+#Temp fix until android tablet is run on different machine
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+STRINGS_FOLDER=features/test_data/$LANG_STR/
 
 killall -9 adb
 sleep 2
@@ -98,85 +94,86 @@ ADB=adb
 #ADB=$ANDROID_HOME/platform-tools/adb
 which $ADB
 
-if [ "$2" != "NA" ] ; then
+if [ $DEVICE_ID == "NA" ] || [ "$2" != "NA" ] ; then
 	  if [ $HW == "phone" ] ; then
 		 	sh start_device.sh "S5"
 		elif [ $HW == "tablet" ] ; then
-		 	sh start_device.sh "Nexus_10"
+		 	sh start_device.sh "Nexus_10_4.4"
 		fi
+
 	DEVICE_ID=`adb get-serialno`
 	echo $DEVICE_ID
 fi
 
 $ADB devices
 
-  if [ $DEVICE_ID  ] ; then
-  	ADB_DEVICE="-s "$DEVICE_ID
-  else
-    echo "No Device specified"
-  	exit 1
-  fi
+if [ $DEVICE_ID  ] ; then
+  ADB_DEVICE="-s "$DEVICE_ID
+else
+  echo "No Device specified"
+  exit 1
+fi
 
 
-	if [ $1 == "install" ] || [ $1 == "clean" ] ; then
-		if [ "$2" != "NA" ] ; then
-			if [ $HW == "phone" ] ; then
-				ADB_DEVICE=""
-				echo $ADB  $ADB_DEVICE uninstall $PACKAGE_ID
-				$ADB version
-				$ADB get-serialno
-				$ADB get-state
-				$ADB $ADB_DEVICE uninstall $PACKAGE_ID
-				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
-				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
-			elif [ $HW == "tablet" ] ; then
-				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
-				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
-				echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
-				$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
-			fi
+if [ $1 == "install" ] || [ $1 == "clean" ] ; then
+	if [ "$2" != "NA" ] ; then
+		if [ $HW == "phone" ] ; then
+			ADB_DEVICE=""
+			echo $ADB  $ADB_DEVICE uninstall $PACKAGE_ID
+			$ADB version
+			$ADB get-serialno
+			$ADB get-state
+			$ADB $ADB_DEVICE uninstall $PACKAGE_ID
+			echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
+			$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".test
+		elif [ $HW == "tablet" ] ; then
+			echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
+			$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet
+			echo $ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
+			$ADB $ADB_DEVICE uninstall "$PACKAGE_ID".dev.tablet.test
 		fi
+	fi
 
-		if [ "$1" == "clean" ] ; then
-			echo "\n\n\nCleaning and building application for android tests...\n\n\n"
-			cp Gemfile ${PROJ_FOLDER}
-			cd ${PROJ_FOLDER}/
-			rm -rf build/ Resources/
-			ti clean
+	if [ "$1" == "clean" ] ; then
+		echo "\n\n\nCleaning and building application for android tests...\n\n\n"
+		cp Gemfile ${PROJ_FOLDER}
+		cd ${PROJ_FOLDER}/
+		rm -rf build/ Resources/
+		ti clean
 
-		  # fetch latest strings
-		  if [ $HW == "phone" ]; then
-		    node releaseScripts/build.js $TI_SCHEME
-		    node releaseScripts/build.js $TI_SCHEME -l
-		  else
-		    /usr/local/bin/grunt
-		    node releaseScripts/build.js --brand $TI_SCHEME
-		    node releaseScripts/build.js --brand $TI_SCHEME -l
-		  fi
-			ti build -p android -b
-			cd -
+	  # fetch latest strings
+	  if [ $HW == "phone" ]; then
+	    node releaseScripts/build.js $TI_SCHEME
+	    node releaseScripts/build.js $TI_SCHEME -l
+	  else
+	    /usr/local/bin/grunt
+	    node releaseScripts/build.js --brand $TI_SCHEME
+	    node releaseScripts/build.js --brand $TI_SCHEME -l
+	  fi
+		ti build -p android -b
+		cd -
 
-		  echo "******** ####  Deleting old App file "$FILENAME
-		  [ -d "$FILENAME" ] && rm -rf "$FILENAME"
+	  echo "******** ####  Deleting old App file "$FILENAME
+	  [ -d "$FILENAME" ] && rm -rf "$FILENAME"
 
-			echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-			cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
 
-			if [ $LANG == "de" ] ; then
-				SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
-				SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
-			elif [ $LANG == "en_th" ] ; then
-				SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
-			elif [ $LANG == "en_fc" ] ; then
-				SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
-			elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
+		if [ $LANG == "de" ] ; then
+			SRC_STR=${PROJ_FOLDER}/i18n/de/strings.xml
+			SRC_STR=${PROJ_FOLDER}/app/themes/meinetui/i18n/de/strings.xml
+		elif [ $LANG == "en_th" ] ; then
+			SRC_STR=${PROJ_FOLDER}/app/themes/thomson/i18n/en/strings.xml
+		elif [ $LANG == "en_fc" ] ; then
+			SRC_STR=${PROJ_FOLDER}/app/themes/firstchoice/i18n/en/strings.xml
+		elif [ "$LANG" == "da" ] || [ "$LANG" != "fi" ] || [ "$LANG" == "nb" ] || [ "$LANG" != "sv" ] ; then
 
-			cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
-			SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
-			echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-			cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
-			fi
+		cp ../tda/app/themes/nordics/i18n/en/strings.xml features/test_data/en/
+		SRC_STR=${PROJ_FOLDER}/app/themes/nordics/i18n/$LANG/strings.xml
+		echo cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
+		cp $PROJ_FOLDER/build/android/bin/"$APK_NAME"  $FILENAME
 		fi
+	fi
 
 	calabash-android resign $FILENAME
 

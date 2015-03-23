@@ -52,16 +52,16 @@
   <!-- 0.2.2 retrieve booking reference -->
   <string name="welcome_help_retrieve_booking_body">We’ll send you an email with your booking reference number 3-4 days after you book your holiday directly with First Choice, in your local Thomson shop, online or over the phone. Then you’ll be ready to log into the MyFirstChoice app.</string>
   <string name="welcome_help_retrieve_booking_cta">Submit</string>
-  <string name="welcome_help_retrieve_booking_email">Email address used for booking:</string>
+  <string name="welcome_help_retrieve_booking_email">Enter email address</string>
   <string name="welcome_help_retrieve_booking_email_extra">Please use the email address you provided when booking your holiday, as detailed on your invoice.</string>
-  <string name="welcome_help_retrieve_booking_email_hint">Enter email address</string>
+  <string name="welcome_help_retrieve_booking_email_hint">Email address used for booking</string>
   <string name="welcome_help_retrieve_booking_error">Sorry, we didn't recognise your details.</string>
   <string name="welcome_help_retrieve_booking_header">Retrieve my booking reference number</string>
   <string name="welcome_help_retrieve_booking_ref_validation">The first number is four digits long. The second number is 4-8 digits long.</string>
   <string name="welcome_help_retrieve_booking_success">Your booking reference number should appear in your inbox soon.</string>
-  <string name="welcome_help_retrieve_booking_surname">Surname of lead passenger:</string>
+  <string name="welcome_help_retrieve_booking_surname">Enter surname</string>
   <string name="welcome_help_retrieve_booking_surname_extra">Please use the surname of the person that booked your holiday, as detailed on your invoice.</string>
-  <string name="welcome_help_retrieve_booking_surname_hint">Enter surname</string>
+  <string name="welcome_help_retrieve_booking_surname_hint">Surname of lead passenger</string>
   <string name="welcome_help_cant_login_description_top">Sorry, you can't use the app if your departure date is after 1st November 2015.</string>
   <string name="welcome_help_retrieve_booking_body_top">We apologise, but due to system changes, we are currently unable to support bookings departing from 1st November 2015 on the MyFirstChoice app. We are working on this and will contact you when the service becomes available. Sorry for any inconvenience, the MyFirstChoice app team.</string>
   <!-- 0.2.3 i can't log in -->
@@ -206,7 +206,7 @@
   <string name="welcome_login_credential_failed_threetimes_body">welcome_login_credential_failed_threetimes_body</string>
   <string name="welcome_login_failed_threetimes_cta">welcome_login_failed_threetimes_cta</string>
   <string name="welcome_login_cta_login">Log in</string>
-  <string name="welcome_login_departure_date">Departure date:</string>
+  <string name="welcome_login_departure_date">Departure date</string>
   <string name="welcome_login_departure_date_extra">Tip: The date that you fly out to your destination.</string>
   <string name="welcome_login_departure_date_hint">Enter date</string>
   <string name="welcome_login_error">Unable to log in</string>
@@ -334,6 +334,7 @@
   <string name="browse_holidays_bottom_text">Holiday collections</string>
   <string name="currency_offcanvas">Currency</string>
   <string name="browse_banner">BROWSE OUR HOLIDAY COLLECTIONS</string>
+  <string name="mydocuments">MyDocuments</string>
   <!-- 7,1 Seleted Hotel -->
   <string name="hotel_to_destinations">Learn more about:</string>
   <!-- 11.0 extras -->

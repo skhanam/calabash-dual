@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'calabash-cucumber', '0.12.3'
-gem 'calabash-android', '~> 0.5.7'
+gem 'calabash-android', '~> 0.5.8'
 gem 'nokogiri'
 gem 'differ'
 gem 'xml-simple'

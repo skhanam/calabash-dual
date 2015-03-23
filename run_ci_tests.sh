@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 clear
 DATE
 export LC_CTYPE=en_US.UTF-8
@@ -94,26 +95,12 @@ elif [ "$1" == "android" ] ; then
 		sh shell_scripts/start_device.sh
 	fi
 
-	if [ -z "$7" ] ; then
+	if [ -z "$7" ] || [ "$7" == "NA" ] ; then
+		DEVICE_ID="NA"
 	  echo "No Android device specified"
-	  if [ $HW == "phone" ] ; then
-	      DEVICE_ID=192.168.56.102:5555
-	    elif [ $HW == "tablet" ] ; then
-	      DEVICE_ID=192.168.56.101:5555
-		fi
-		else
+  else
 		DEVICE_ID=$7
 	fi
-
-	if [ "$7" != "" ] ; then
-		DEVICE_ID=$7
-	else
-		if [ $HW == "phone" ] ; then
-      DEVICE_ID=192.168.56.102:5555
-    elif [ $HW == "tablet" ] ; then
-      DEVICE_ID=192.168.56.101:5555
-    fi
-  fi
 else
 	echo "wrong arguments"
 	exit 1
