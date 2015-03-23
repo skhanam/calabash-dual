@@ -42,7 +42,12 @@ Before do |scenario|
   end
 
   #puts "Launching app"
-  start_test_server_in_background(:Timeout => 30)
+  begin
+    start_test_server_in_background(:Timeout => 30)
+  rescue
+    start_test_server_in_background(:Timeout => 30)
+  end
+
   sleep 3
 end
 

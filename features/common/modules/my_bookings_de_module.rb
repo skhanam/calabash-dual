@@ -3,7 +3,7 @@ module MyBookingsModule
   include BaseModule
 
   def self.included(receiver)
-    receiver.send :include, Module.const_get(self.name+"::#{$g_platform}::#{$g_hw_module}")
+    receiver.send :include, Module.const_get(self.name+"::#{$g_hw_module}")
   end
 
   def check_my_bookings_screen
@@ -31,59 +31,58 @@ module MyBookingsModule
     sleep 1
   end
 
-  module Ios
 
-    module Tablet
+  module Tablet
 
-      def scroll_to_booking(id, dir=":right", till_id=nil, count=10)
-        puts "scroll_page_and_assert_text (#{id})"
-        repeat_count=0
+    def scroll_to_booking(id, dir=":right", till_id=nil, count=10)
+      puts "scroll_page_and_assert_text (#{id})"
+      repeat_count=0
 
-        if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-          puts "scrolled to text (#{id})"
-          return
-        end
-
-        while repeat_count < count
-          repeat_count+=1
-          scroll("scrollView index:2", :right)
-
-          if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
-            flash("view text:'#{id}'") if element_exists("view text:'#{id}'") if ($g_flash)
-            break
-          end
-
-          #If text is not found even after scrolling till end of page then fail
-          if till_id!=nil && element_exists("view marked:'#{till_id}'")
-            fail "id/text #{id} not present on screen"
-          end
-          sleep 0.5
-        end
-        fail "id/text :#{id}: not present on screen" if repeat_count==count
-        sleep 1
+      if element_exists("view text:'#{id}'") || element_exists("view marked:'#{id}'")
+        puts "scrolled to text (#{id})"
+        return
       end
 
-    end
+      while repeat_count < count
+        repeat_count+=1
+        scroll("scrollView index:2", :right)  if $g_ios
+        scroll_view "right" if $g_android
 
-    module Phone
-      include BaseModule
+        if element_exists("#{$g_query_txt}text:'#{id}'") || element_exists("#{$g_query_txt}marked:'#{id}'")
+          flash("#{$g_query_txt}text:'#{id}'") if element_exists("#{$g_query_txt}text:'#{id}'") if ($g_flash)
+          break
+        end
 
-      def click_booking_in_past
-        scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
-        id="booking_detail_past"
-        CommonMethods.new.scroll_page_till_acc id
-        name_of_last_dest= arr=query("#{$g_query_txt}marked:'#{id}' index:0 descendant label", :text)[0]
-        sleep 2
-
-        touch("#{$g_query_txt}marked:'#{id}' index:0") #click on first past booking
-        sleep 2
-        wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
-
-        return name_of_last_dest
+        #If text is not found even after scrolling till end of page then fail
+        if till_id!=nil && element_exists("view marked:'#{till_id}'")
+          fail "id/text #{id} not present on screen"
+        end
+        sleep 0.5
       end
+      fail "id/text :#{id}: not present on screen" if repeat_count==count
+      sleep 1
     end
 
   end
+
+  module Phone
+    include BaseModule
+
+    def click_booking_in_past
+      scroll_page_and_assert_text(@@my_bookings_past_bookings, "down")
+      id="booking_detail_past"
+      CommonMethods.new.scroll_page_till_acc id
+      name_of_last_dest= arr=query("#{$g_query_txt}marked:'#{id}' index:0 descendant label", :text)[0]
+      sleep 2
+
+      touch("#{$g_query_txt}marked:'#{id}' index:0") #click on first past booking
+      sleep 2
+      wait_for_progress_to_disappear(@@loading_finding_your_holiday, 20)
+
+      return name_of_last_dest
+    end
+  end
+
 
   module Android
     def click_booking_in_past
@@ -102,13 +101,6 @@ module MyBookingsModule
       return name_of_last_dest
     end
 
-    module Phone
-
-    end
-
-    module Tablet
-
-    end
     #def get_reservations(text)
     #  reservations= {}
     #  item_count=0
