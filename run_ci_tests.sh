@@ -75,10 +75,13 @@ if [ "$1" == "ios" ] ; then
 	if [ "$4" == "all" ] ; then
 		if [ "$2" == "clean" ] ; then
 			sh run_ios.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 			sh run_ios.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
+			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 			sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 			sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
-			wait
+			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 		  echo "*******------ IOS builds completed successfully *******------ "
 		fi
 		echo "\n\nProjects are already built, hence first argument is set to NA"
@@ -87,7 +90,7 @@ if [ "$1" == "ios" ] ; then
 	else
 		echo sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
 		sh run_ios.sh $2 $3 $4 $5 $6 $7 "ci"
-		exit $?
+		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
  fi
 elif [ "$1" == "android" ] ; then
 
@@ -109,14 +112,19 @@ fi
 if [ "$4" == "all" ] ; then
   if [ "$2" == "clean" ] ; then
     sh run_android.sh clean NA de $5 ../source_de $DEVICE_ID "ci"
+		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
     sh run_android.sh clean NA en_th $5 ../source_en_th $DEVICE_ID "ci"
-    sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+    if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
+		sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
+		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
     sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
+		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
   fi
 
   echo "\n\nProjects are already built, hence first argument is set to NA"
   echo sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
   sh run_android.sh NA $3 $4 $5 $6 $DEVICE_ID "ci"
+  if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 else
   echo sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
   sh run_android.sh $2 $3 $4 $5 $6 $DEVICE_ID "ci"
