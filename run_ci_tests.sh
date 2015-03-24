@@ -80,8 +80,10 @@ if [ "$1" == "ios" ] ; then
 			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 			sh run_ios.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
 			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
-			sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
+			if [ $HW == "phone" ] ; then
+				sh run_ios.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
 			if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
+			fi
 		  echo "*******------ IOS builds completed successfully *******------ "
 		fi
 		echo "\n\nProjects are already built, hence first argument is set to NA"
@@ -117,8 +119,10 @@ if [ "$4" == "all" ] ; then
     if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
 		sh run_android.sh clean NA en_fc $5 ../source_en_fc $DEVICE_ID "ci"
 		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
-    sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
+		if [ $HW == "phone" ] ; then
+      sh run_android.sh clean NA sv $5 ../source_nor $DEVICE_ID "ci"
 		if [ $? -ne 0 ]; then echo "Error"; exit 1; fi
+		fi
   fi
 
   echo "\n\nProjects are already built, hence first argument is set to NA"
