@@ -87,10 +87,8 @@ if [ "$1" == "clean" ] ; then
 	fi
 
 	echo "******** #### " expect expect.exp ${APPNAME}
-
 	echo expect calabash.exp ${HW}
 	expect calabash.exp ${HW}
-
 	cd -
 
   echo "******** ####  Deleting old App file "$FILENAME
@@ -98,12 +96,12 @@ if [ "$1" == "clean" ] ; then
 
   echo "******** ####  copying .app file"
   echo cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
- if [ ! -d $FILENAME ]; then
-	 echo "App not compiled"
-	 exit 1
- fi
+	cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
 
- cp -r ${PROJ_FOLDER}/build/iphone/build/Debug-iphonesimulator/"${APPNAME}".app $FILENAME
+  if [ ! -d $FILENAME ]; then
+ 	 echo -e "\n\n\n\n\n*** ERROR: APP NOT COMPILED *** \n\n\n\n\n"
+ 	 exit 1
+  fi
 fi
 
 if [ "$1" == "clean" ] || [ "$7" != "ci" ] ; then
@@ -155,7 +153,7 @@ if [ "$2" != "NA" ] ; then
 	ios-sim-locale -sdk 7.1  -language en -locale en_EN
  fi
 
- echo "Changed locale for nordics app"
+ echo "Changed locale for $LANG app"
  sleep 3
 killall "iPhone Simulator"
 
